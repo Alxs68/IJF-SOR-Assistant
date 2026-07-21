@@ -179,11 +179,10 @@ with st.sidebar:
 base64_logo = get_base64_logo(logo_path)
 
 if base64_logo:
-    # Premium Header Container with logo on the right side and slate background
+    # Premium Header Container with logo on the left side and slate background
     st.markdown(f"""
     <div style="
         display: flex;
-        justify-content: space-between;
         align-items: center;
         background-color: #1e293b;
         border: 1px solid #334155;
@@ -192,16 +191,16 @@ if base64_logo:
         margin-bottom: 1rem;
         width: 100%;
     ">
-        <div style="flex-grow: 1; padding-right: 1rem;">
-            <h1 style="font-family: 'Outfit', sans-serif; color: #3b82f6; font-size: 1.55rem; margin: 0; font-weight: 700; line-height: 1.2;">
+        <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.2rem;">
+            <img src="data:image/png;base64,{base64_logo}" style="width: 95px; height: auto; border-radius: 50%; border: 2.5px solid #3b82f6;" />
+        </div>
+        <div style="flex-grow: 1;">
+            <h1 style="font-family: 'Outfit', sans-serif; color: #3b82f6; font-size: 1.6rem; margin: 0; font-weight: 700; line-height: 1.2;">
                 IJF SOR Assistant
             </h1>
-            <p style="font-family: 'Inter', sans-serif; color: #94a3b8; font-size: 0.85rem; margin: 0.2rem 0 0 0; line-height: 1.3;">
+            <p style="font-family: 'Inter', sans-serif; color: #94a3b8; font-size: 0.88rem; margin: 0.2rem 0 0 0; line-height: 1.3;">
                 Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)
             </p>
-        </div>
-        <div style="flex-shrink: 0; display: flex; align-items: center;">
-            <img src="data:image/png;base64,{base64_logo}" style="width: 80px; height: auto; border-radius: 50%; border: 2px solid #3b82f6;" />
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -216,10 +215,10 @@ else:
         margin-bottom: 1rem;
         width: 100%;
     ">
-        <h1 style="font-family: 'Outfit', sans-serif; color: #3b82f6; font-size: 1.55rem; margin: 0; font-weight: 700;">
+        <h1 style="font-family: 'Outfit', sans-serif; color: #3b82f6; font-size: 1.6rem; margin: 0; font-weight: 700;">
             IJF SOR Assistant
         </h1>
-        <p style="font-family: 'Inter', sans-serif; color: #94a3b8; font-size: 0.85rem; margin: 0.2rem 0 0 0;">
+        <p style="font-family: 'Inter', sans-serif; color: #94a3b8; font-size: 0.88rem; margin: 0.2rem 0 0 0;">
             Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)
         </p>
     </div>
