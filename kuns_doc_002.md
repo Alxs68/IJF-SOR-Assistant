@@ -18,7 +18,7 @@ Este archivo contiene el corpus extraído de **DOC-002** (Guía Explicativa) cor
   "vigencia_hasta": "null",
   "contenido_original": "Head Defence is the action of touching the tatami with the head to support oneself and prevent landing on the back or shoulder.",
   "contenido_traduccion": "La Defensa de Cabeza es la acción de tocar el tatami con la cabeza para apoyarse y evitar caer sobre la espalda o el hombro.",
-  "interpretacion": "Define físicamente la acción sancionable; apoya la norma general delimitando qué gestos del cuerpo del atleta constituyen apoyo deliberado sobre el cráneo.",
+  "interpretacion": "Define físicamente la acción de apoyo sobre la cabeza; sirve como criterio de referencia para diferenciar el contacto voluntario (permitido en Seniors/Juniors y sancionado con Shido en Cadetes) del buceo de cabeza (sancionado con Hansoku-make).",
   "fuente_origen": "DOC-002",
   "referencia_especifica": "Explanatory Guide - Secc. Penalties, Diapositiva 12",
   "tags": [

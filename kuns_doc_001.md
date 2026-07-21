@@ -9,16 +9,16 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
 ```json
 {
   "id_conocimiento": "KUN-0001",
-  "titulo": "Penalización de Hansoku-make por Defensa de Cabeza",
+  "titulo": "Regulación del Uso de la Cabeza para Lanzamiento y Defensa",
   "tipo": "PEN",
   "nivel_autoridad": "Norma",
   "version": "1.0",
   "idioma_original": "en",
   "vigencia_desde": "2026-01-01",
   "vigencia_hasta": "null",
-  "contenido_original": "Voluntary use of the head to defend against a throw or escape a score will be penalized with Hansoku-make.",
-  "contenido_traduccion": "El uso voluntario de la cabeza para defenderse contra una proyección o escapar de una puntuación será penalizado con Hansoku-make (descalificación directa).",
-  "interpretacion": "Esta regla tiene como objetivo primordial proteger la integridad física del competidor, evitando lesiones graves de la columna vertebral o las vértebras cervicales al usar el cráneo como punto de apoyo en el tatami.",
+  "contenido_original": "The use of the head to perform a throw or for defense is allowed in Senior and Junior categories. Voluntarily landing on the head (head defence) to avoid a score is no longer penalized with Hansoku-make. Deliberate 'head diving' (diving head-first onto the mat) remains strictly prohibited for all categories and is penalized with direct Hansoku-make.",
+  "contenido_traduccion": "El uso de la cabeza para realizar una proyección o para defenderse está permitido en las categorías Senior y Junior. Apoyar voluntariamente la cabeza en el tatami (defensa de cabeza) para evitar una puntuación ya no se sanciona con Hansoku-make. Sin embargo, el 'buceo de cabeza' (head diving - zambullirse de cabeza sobre el tatami) sigue estando estrictamente prohibido para todas las categorías y se sanciona con Hansoku-make directo.",
+  "interpretacion": "Establece la autorización para el uso táctico de la cabeza en categorías Senior y Junior. Elimina la sanción de Hansoku-make por defensa de cabeza común, reservando esta penalización de descalificación directa únicamente para el 'head diving' (buceo/clavado de cabeza) debido al riesgo extremo de lesiones cervicales.",
   "fuente_origen": "DOC-001",
   "referencia_especifica": "Artículo 20 - Apéndice D (Reglas de Arbitraje)",
   "tags": [

@@ -113,6 +113,20 @@ with st.sidebar:
     st.subheader("🏆 Nodos Hub Centrales")
     for node, deg in kg_metrics['hubs'][:3]:
         st.write(f"- **{node}**: {deg} conexiones")
+        
+    st.write("---")
+    st.subheader("💡 Consultas de Ejemplo (Demo)")
+    preguntas_ejemplo = [
+        "Selecciona un ejemplo...",
+        "¿Se permite la defensa con la cabeza?",
+        "¿Cuáles son las dimensiones oficiales del tatami?",
+        "¿Cuántas intervenciones médicas se permiten por combate?",
+        "¿Qué es la tecnología Smart Judogi con chip NFC?",
+        "¿Cómo se sanciona el abrazo de oso (bear hug)?",
+        "¿Cómo se sanciona el reverse seoi-nage en cadetes?"
+    ]
+    seleccionada = st.selectbox("Preguntas frecuentes:", preguntas_ejemplo)
+    trigger_ejemplo = st.button("🚀 Consultar ejemplo")
 
 # Main Header
 st.markdown('<div class="main-header">IJF SOR Assistant</div>', unsafe_allow_html=True)
@@ -162,7 +176,15 @@ for message in st.session_state.messages:
                     st.write("---")
 
 # User query input
-if user_query := st.chat_input("Escribe tu consulta sobre el reglamento (ej. defensa de cabeza, sokuteiki, smart judogi)..."):
+user_input = st.chat_input("Escribe tu consulta sobre el reglamento (ej. defensa de cabeza, sokuteiki, smart judogi)...")
+
+user_query = None
+if user_input:
+    user_query = user_input
+elif trigger_ejemplo and seleccionada != "Selecciona un ejemplo...":
+    user_query = seleccionada
+
+if user_query:
     
     # Display user message
     with st.chat_message("user"):
