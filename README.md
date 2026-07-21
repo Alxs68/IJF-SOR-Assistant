@@ -162,7 +162,7 @@ streamlit run app.py
 La aplicación se abrirá en su navegador predeterminado en `http://localhost:8501`.
 
 ### 2. Despliegue en Producción (Oracle Cloud Infrastructure - OCI)
-La aplicación está configurada para ejecutarse como un demonio del sistema (Systemd) en la dirección IP pública del servidor OCI: [http://149.130.187.132:8501](http://149.130.187.132:8501).
+La aplicación está configurada para ejecutarse como un servicio en segundo plano (Systemd) en la dirección IP pública del servidor OCI: [http://149.130.187.132:8501](http://149.130.187.132:8501).
 
 *   **Comando de Conexión SSH:**
     ```bash
