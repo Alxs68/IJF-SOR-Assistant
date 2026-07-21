@@ -129,13 +129,8 @@ if "active_index" not in st.session_state:
 
 # Sidebar - Graph Info and Parameters (Condensed Layout)
 with st.sidebar:
-    # Render local logo file if downloaded successfully
-    if os.path.exists(logo_path):
-        st.image(logo_path, width=80)
-    else:
-        # Fallback to standard text placeholder to prevent broken image boxes
-        st.markdown("### 🥋 IJF SOR")
-        
+    st.markdown("### 🥋 Gobernanza del Grafo")
+    
     if is_connected:
         st.markdown('<span class="status-badge-connected">🟢 Modo Conectado (Gemini)</span>', unsafe_allow_html=True)
     else:
@@ -180,12 +175,17 @@ with st.sidebar:
             st.session_state.active_index = new_active
             st.rerun()
 
-# Main Header (Concise & Elegant)
-st.markdown('<div class="main-header">IJF SOR Assistant</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-header">Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)</div>', unsafe_allow_html=True)
+# Centered Main Header and Logo Layout
+col_header_l, col_logo_c, col_header_r = st.columns([0.46, 0.08, 0.46])
+with col_logo_c:
+    if os.path.exists(logo_path):
+        st.image(logo_path, width=60)
 
-# 💡 Preguntas de Ejemplo - Placed at the very top for high visibility
-st.markdown("### 💡 Preguntas de Ejemplo")
+st.markdown('<div class="main-header" style="text-align: center;">IJF SOR Assistant</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-header" style="text-align: center;">Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)</div>', unsafe_allow_html=True)
+
+# 💡 Preguntas de Ejemplo - Placed at the very top for high visibility with smaller size
+st.markdown('<div style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; color: #1E3A8A;">💡 Preguntas de Ejemplo</div>', unsafe_allow_html=True)
 preguntas_ejemplo = [
     "Elige una pregunta para consultar...",
     "¿Se permite la defensa con la cabeza?",
