@@ -2,13 +2,10 @@ import streamlit as st
 import os
 import sys
 
-# Carga nativa y simple de archivo .env si existe en el directorio
-if os.path.exists('.env'):
-    with open('.env', 'r', encoding='utf-8') as f:
-        for line in f:
-            if '=' in line and not line.strip().startswith('#'):
-                key, val = line.strip().split('=', 1)
-                os.environ[key.strip()] = val.strip().strip('"').strip("'")
+from dotenv import load_dotenv
+
+# Carga de variables de entorno desde .env
+load_dotenv()
 
 # Add src to system path
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
