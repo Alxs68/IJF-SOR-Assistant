@@ -293,8 +293,10 @@ if st.session_state.active_index >= 0:
     st.markdown(f"**❓ Consulta activa:** {active_item['query']}")
     st.markdown(active_item['answer'])
     
-    # Expander for citations
-    if active_item['trazabilidad']:
+    # Hide citations and graph if it's a fallback "not found" answer
+    is_fallback = "lo siento" in active_item['answer'].lower()
+    
+    if not is_fallback and active_item['trazabilidad']:
         with st.expander("📚 Ver Trazabilidad y Citas Oficiales"):
             for kun in active_item['trazabilidad']:
                 st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}**")
