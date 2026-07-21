@@ -134,11 +134,32 @@ Para habilitar la generación de respuestas con el modelo de lenguaje de Gemini,
 
 ## 🥋 Ejecución de la Aplicación
 
-Para iniciar el servidor de Streamlit y usar el chatbot:
+### 1. Ejecución Local (Desarrollo)
+Para iniciar el servidor de Streamlit y usar el chatbot localmente:
 ```bash
 streamlit run app.py
 ```
 La aplicación se abrirá en su navegador predeterminado en `http://localhost:8501`.
+
+### 2. Despliegue en Producción (Oracle Cloud Infrastructure - OCI)
+La aplicación está configurada para ejecutarse como un demonio del sistema (Systemd) en la dirección IP pública del servidor OCI: [http://149.130.187.132:8501](http://149.130.187.132:8501).
+
+*   **Comando de Conexión SSH:**
+    ```bash
+    ssh -i "ruta/a/tu/ssh-key.key" ubuntu@149.130.187.132
+    ```
+*   **Comandos de Gestión del Servicio (Systemd):**
+    *   Ver estado del servicio: `systemctl status ijf-assistant`
+    *   Reiniciar servicio (para aplicar cambios de código): `sudo systemctl restart ijf-assistant`
+    *   Iniciar / Detener servicio: `sudo systemctl start ijf-assistant` / `sudo systemctl stop ijf-assistant`
+    *   Habilitar auto-arranque tras reinicios del servidor: `sudo systemctl enable ijf-assistant`
+*   **Variables de Entorno Seguras:**
+    La clave API de Gemini se almacena de forma segura en `/etc/ijf-assistant.env` con permisos restringidos de lectura (`chmod 640`).
+
+### ⚙️ Guía de Parámetros de Consulta (Barra Lateral)
+Para ajustar el comportamiento y la precisión de las respuestas del asistente, se exponen dos controles en el panel lateral:
+1.  **Resultados Semánticos (K):** Cantidad máxima de Unidades de Conocimiento (KUNs) recuperadas en cada consulta (Valor óptimo recomendado: `3`).
+2.  **Score Mínimo:** Umbral de similitud coseno (entre 0.05 y 0.50) requerido para validar un documento. Si la consulta tiene una relevancia inferior a este umbral (por ejemplo, preguntas de fútbol o fuera de contexto), el RAG descarta las reglas y activa el mensaje seguro de bloqueo: *"Lo siento, no tengo esa información..."* (Valor recomendado para demostraciones: `0.10`).
 
 ---
 
