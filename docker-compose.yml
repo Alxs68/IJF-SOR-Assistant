@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  streamlit:
+    build: .
+    container_name: ijf-sor-assistant
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - .:/app
+      - /app/.venv
+      - /app/__pycache__
