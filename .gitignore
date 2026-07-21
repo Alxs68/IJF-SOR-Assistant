@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Secrets and Configs
+.env
+*.key
+*.pem
+*.pub
+
+# Local generated index caches (RAG engine compiles these on-the-fly)
+scratch/*.json
+scratch/*.metadata.json
+scratch/*.csv
+
+# Streamlit logs and configurations
+.streamlit/
+*.log
+nohup.out
