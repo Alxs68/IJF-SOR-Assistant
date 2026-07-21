@@ -5,8 +5,10 @@ import base64
 
 from dotenv import load_dotenv
 
-# Carga de variables de entorno desde .env
-load_dotenv()
+# Carga de variables de entorno desde .env (exclusivamente para desarrollo local si el archivo existe)
+# En producción, se depende únicamente del entorno inyectado por systemd (EnvironmentFile=/etc/ijf-assistant.env)
+if os.path.exists('.env'):
+    load_dotenv()
 
 # Add src to system path
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))

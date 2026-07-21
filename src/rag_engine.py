@@ -3,17 +3,8 @@ import json
 import urllib.request
 import urllib.error
 
-# Carga nativa de archivo .env si existe
-if os.path.exists('.env'):
-    with open('.env', 'r', encoding='utf-8') as f:
-        for line in f:
-            if '=' in line and not line.strip().startswith('#'):
-                key, val = line.strip().split('=', 1)
-                os.environ[key.strip()] = val.strip().strip('"').strip("'")
-            elif '=' in line and line.strip().startswith('export '):
-                # Handle "export KEY=VAL" format
-                parts = line.strip()[7:].split('=', 1)
-                os.environ[parts[0].strip()] = parts[1].strip().strip('"').strip("'")
+# Carga de variables de entorno administrada externamente por systemd en producción
+# o por load_dotenv() en app.py en desarrollo local.
 
 # Import our components
 from graph_manager import KnowledgeGraph
