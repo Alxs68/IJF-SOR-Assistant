@@ -187,12 +187,12 @@ if base64_logo:
         background-color: #1e293b;
         border: 1px solid #334155;
         border-radius: 8px;
-        padding: 0.8rem 1.2rem;
+        padding: 1.4rem 1.5rem;
         margin-bottom: 1rem;
         width: 100%;
     ">
-        <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.2rem;">
-            <img src="data:image/png;base64,{base64_logo}" style="width: 95px; height: auto; border-radius: 50%; border: 2.5px solid #3b82f6;" />
+        <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem;">
+            <img src="data:image/png;base64,{base64_logo}" style="width: 85px; height: 85px; border-radius: 50%; border: 2.5px solid #3b82f6; object-fit: cover;" />
         </div>
         <div style="flex-grow: 1;">
             <h1 style="font-family: 'Outfit', sans-serif; color: #3b82f6; font-size: 1.6rem; margin: 0; font-weight: 700; line-height: 1.2;">
