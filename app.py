@@ -181,9 +181,12 @@ with st.sidebar:
 base64_logo = get_base64_logo(logo_path)
 
 if base64_logo:
-    # Premium Header Container with logo on the left side and slate background
+    # Premium Header Container with logo on the left side and slate background (Sticky at the top)
     st.markdown(f"""
     <div style="
+        position: sticky;
+        top: 2.875rem;
+        z-index: 99;
         display: flex;
         align-items: center;
         background-color: #1e293b;
@@ -207,9 +210,12 @@ if base64_logo:
     </div>
     """, unsafe_allow_html=True)
 else:
-    # Fallback header if logo not found
+    # Fallback header if logo not found (Sticky at the top)
     st.markdown("""
     <div style="
+        position: sticky;
+        top: 2.875rem;
+        z-index: 99;
         background-color: #1e293b;
         border: 1px solid #334155;
         border-radius: 8px;
