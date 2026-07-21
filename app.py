@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import sys
+import base64
 
 from dotenv import load_dotenv
 
@@ -40,23 +41,12 @@ st.set_page_config(
 # Custom Styling for modern premium UI with smaller typography and metric sizing
 st.markdown("""
 <style>
-    .reportview-container {
-        background-color: #0e1117;
+    /* Adjust Streamlit main page top padding to raise content */
+    .block-container {
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.5rem !important;
     }
-    .main-header {
-        font-family: 'Outfit', sans-serif;
-        color: #1E3A8A;
-        font-weight: 700;
-        font-size: 1.45rem !important;
-        margin-bottom: 0.1rem;
-        padding-top: 0rem;
-    }
-    .sub-header {
-        font-family: 'Inter', sans-serif;
-        color: #4B5563;
-        font-size: 0.85rem !important;
-        margin-bottom: 0.8rem;
-    }
+    
     .status-badge-connected {
         background-color: #D1FAE5;
         color: #065F46;
@@ -103,6 +93,16 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+
+# Helper function to load logo image as Base64 for inline HTML rendering
+def get_base64_logo(path):
+    if os.path.exists(path):
+        try:
+            with open(path, "rb") as f:
+                return base64.b64encode(f.read()).decode('utf-8')
+        except Exception:
+            return None
+    return None
 
 # Initialize Engine
 @st.cache_resource
@@ -175,33 +175,78 @@ with st.sidebar:
             st.session_state.active_index = new_active
             st.rerun()
 
-# Centered Main Header and Logo Layout
-col_header_l, col_logo_c, col_header_r = st.columns([0.46, 0.08, 0.46])
-with col_logo_c:
-    if os.path.exists(logo_path):
-        st.image(logo_path, width=60)
+# --- Main Page Header Box (Defined Area, Text on Left, Logo on Right) ---
+base64_logo = get_base64_logo(logo_path)
 
-st.markdown('<div class="main-header" style="text-align: center;">IJF SOR Assistant</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-header" style="text-align: center;">Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)</div>', unsafe_allow_html=True)
+if base64_logo:
+    # Premium Header Container with logo on the right side and slate background
+    st.markdown(f"""
+    <div style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        padding: 0.8rem 1.2rem;
+        margin-bottom: 1rem;
+        width: 100%;
+    ">
+        <div style="flex-grow: 1; padding-right: 1rem;">
+            <h1 style="font-family: 'Outfit', sans-serif; color: #3b82f6; font-size: 1.55rem; margin: 0; font-weight: 700; line-height: 1.2;">
+                IJF SOR Assistant
+            </h1>
+            <p style="font-family: 'Inter', sans-serif; color: #94a3b8; font-size: 0.85rem; margin: 0.2rem 0 0 0; line-height: 1.3;">
+                Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)
+            </p>
+        </div>
+        <div style="flex-shrink: 0; display: flex; align-items: center;">
+            <img src="data:image/png;base64,{base64_logo}" style="width: 80px; height: auto; border-radius: 50%; border: 2px solid #3b82f6;" />
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+else:
+    # Fallback header if logo not found
+    st.markdown("""
+    <div style="
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        padding: 0.8rem 1.2rem;
+        margin-bottom: 1rem;
+        width: 100%;
+    ">
+        <h1 style="font-family: 'Outfit', sans-serif; color: #3b82f6; font-size: 1.55rem; margin: 0; font-weight: 700;">
+            IJF SOR Assistant
+        </h1>
+        <p style="font-family: 'Inter', sans-serif; color: #94a3b8; font-size: 0.85rem; margin: 0.2rem 0 0 0;">
+            Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-# 💡 Preguntas de Ejemplo - Placed at the very top for high visibility with smaller size
-st.markdown('<div style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; color: #1E3A8A;">💡 Preguntas de Ejemplo</div>', unsafe_allow_html=True)
-preguntas_ejemplo = [
-    "Elige una pregunta para consultar...",
-    "¿Se permite la defensa con la cabeza?",
-    "¿Cuáles son las dimensiones del tatami?",
-    "¿Cuántas intervenciones médicas se permiten por combate?",
-    "¿Qué es la tecnología Smart Judogi con chip NFC?",
-    "¿Cómo se sanciona el abrazo de oso (bear hug)?",
-    "¿Cómo se sanciona el reverse seoi-nage en cadetes?",
-    "¿Qué sucede si un competidor se desmaya por estrangulación (shime-waza)?",
-    "¿Qué es el Sokuteiki y cómo se usa?",
-    "¿Cuáles son las reglas de color de Judogi (blanco y azul)?"
-]
-seleccionada = st.selectbox("Selecciona una pregunta predefinida para probar de inmediato:", preguntas_ejemplo, label_visibility="collapsed")
-trigger_ejemplo = st.button("🚀 Consultar Ejemplo")
 
-st.write("---")
+# --- 💡 Preguntas de Ejemplo - Placed inside a beautiful native card to separate areas ---
+with st.container(border=True):
+    st.markdown('<div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: #3B82F6;">💡 Consultas de Demostración</div>', unsafe_allow_html=True)
+    
+    preguntas_ejemplo = [
+        "Elige una pregunta para consultar...",
+        "¿Se permite la defensa con la cabeza?",
+        "¿Cuáles son las dimensiones del tatami?",
+        "¿Cuántas intervenciones médicas se permiten por combate?",
+        "¿Qué es la tecnología Smart Judogi con chip NFC?",
+        "¿Cómo se sanciona el abrazo de oso (bear hug)?",
+        "¿Cómo se sanciona el reverse seoi-nage en cadetes?",
+        "¿Qué sucede si un competidor se desmaya por estrangulación (shime-waza)?",
+        "¿Qué es el Sokuteiki y cómo se usa?",
+        "¿Cuáles son las reglas de color de Judogi (blanco y azul)?"
+    ]
+    
+    seleccionada = st.selectbox("Selecciona una pregunta predefinida para probar de inmediato:", preguntas_ejemplo, label_visibility="collapsed")
+    trigger_ejemplo = st.button("🚀 Consultar Ejemplo", use_container_width=True)
+
+st.write("")
 
 # User query input (Floating at the bottom, or standard input)
 user_input = st.chat_input("Escribe tu pregunta sobre el reglamento...")
@@ -253,7 +298,7 @@ if st.session_state.active_index >= 0:
         with st.expander("📚 Ver Trazabilidad y Citas Oficiales"):
             for kun in active_item['trazabilidad']:
                 st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}**")
-                st.write(f"* Fuente: `{kun['fuente_origen']}` - {kun.get('referencia_specifica', 'Reglamento')}")
+                st.write(f"* Fuente: `{kun['fuente_origen']}` - {kun.get('referencia_especifica', 'Reglamento')}")
                 st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
                 st.write(f"* Interpretación: {kun['interpretacion']}")
                 st.write("---")
