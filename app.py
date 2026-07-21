@@ -12,6 +12,23 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
 
 from rag_engine import RagEngine
 
+# Automatic logo downloader on startup to ensure offline rendering on OCI
+logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
+logo_path = os.path.join(logo_dir, 'logo.png')
+if not os.path.exists(logo_path):
+    try:
+        os.makedirs(logo_dir, exist_ok=True)
+        import urllib.request
+        req = urllib.request.Request(
+            'https://7769528.fs1.hubspotusercontent-na1.net/hubfs/7769528/ijf-logo.png',
+            headers={'User-Agent': 'Mozilla/5.0'}
+        )
+        with urllib.request.urlopen(req) as response:
+            with open(logo_path, 'wb') as f:
+                f.write(response.read())
+    except Exception:
+        pass
+
 # Page configuration for a premium, clean look
 st.set_page_config(
     page_title="IJF SOR Assistant - MVP",
@@ -27,57 +44,62 @@ st.markdown("""
         background-color: #0e1117;
     }
     .main-header {
-        font-family: 'Outfit', 'Inter', sans-serif;
+        font-family: 'Outfit', sans-serif;
         color: #1E3A8A;
         font-weight: 700;
-        font-size: 1.8rem !important;
+        font-size: 1.45rem !important;
         margin-bottom: 0.1rem;
         padding-top: 0rem;
     }
     .sub-header {
         font-family: 'Inter', sans-serif;
-        color: #6B7280;
-        font-size: 0.95rem !important;
-        margin-bottom: 1.2rem;
+        color: #4B5563;
+        font-size: 0.85rem !important;
+        margin-bottom: 0.8rem;
     }
     .status-badge-connected {
         background-color: #D1FAE5;
         color: #065F46;
-        padding: 0.25rem 0.5rem;
+        padding: 0.2rem 0.4rem;
         border-radius: 9999px;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         font-weight: 600;
     }
     .status-badge-offline {
         background-color: #FEF3C7;
         color: #92400E;
-        padding: 0.25rem 0.5rem;
+        padding: 0.2rem 0.4rem;
         border-radius: 9999px;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         font-weight: 600;
     }
     .kun-card {
-        border-left: 4px solid #3B82F6;
-        background-color: #F3F4F6;
-        padding: 0.8rem;
-        border-radius: 0 8px 8px 0;
-        margin-bottom: 0.6rem;
-        font-size: 0.9rem;
+        border-left: 3px solid #3B82F6;
+        background-color: #F9FAFB;
+        padding: 0.6rem;
+        border-radius: 0 6px 6px 0;
+        margin-bottom: 0.4rem;
+        font-size: 0.85rem;
     }
     /* Metric styling adjustments */
     [data-testid="stMetricValue"] {
-        font-size: 1.3rem !important;
+        font-size: 1.15rem !important;
         font-weight: 700 !important;
         color: #1E3A8A !important;
     }
     [data-testid="stMetricLabel"] {
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
         font-weight: 600 !important;
         color: #4B5563 !important;
     }
-    /* Expander header font size */
-    .streamlit-expanderHeader {
-        font-size: 0.9rem !important;
+    /* Compact sidebar padding */
+    [data-testid="stSidebar"] [data-testid="stVerticalBlock"] > div {
+        padding-top: 0.15rem !important;
+        padding-bottom: 0.15rem !important;
+    }
+    /* General element spacing */
+    .element-container {
+        margin-bottom: 0.4rem !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -105,77 +127,67 @@ if "history" not in st.session_state:
 if "active_index" not in st.session_state:
     st.session_state.active_index = -1
 
-# Sidebar - Graph Info and Parameters
+# Sidebar - Graph Info and Parameters (Condensed Layout)
 with st.sidebar:
-    # Stable PNG logo of the IJF from Wikimedia Commons
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/International_Judo_Federation_logo.svg/240px-International_Judo_Federation_logo.svg.png", width=100)
-    st.title("Gobernanza del Grafo")
-    
-    # Connection status indicator
+    # Render local logo file if downloaded successfully
+    if os.path.exists(logo_path):
+        st.image(logo_path, width=80)
+    else:
+        # Fallback to standard text placeholder to prevent broken image boxes
+        st.markdown("### 🥋 IJF SOR")
+        
     if is_connected:
-        st.markdown('<span class="status-badge-connected">🟢 Modo Conectado (LLM Gemini)</span>', unsafe_allow_html=True)
+        st.markdown('<span class="status-badge-connected">🟢 Modo Conectado (Gemini)</span>', unsafe_allow_html=True)
     else:
         st.markdown('<span class="status-badge-offline">🟡 Modo Offline (Simulado)</span>', unsafe_allow_html=True)
         
     st.write("---")
     
-    # Graph Metrics Display (Smaller Font Sizes applied via CSS)
-    st.subheader("📈 Métricas de la Base v1.0")
-    col1, col2 = st.columns(2)
-    with col1:
+    # Graph Metrics Display (Condensed columns)
+    st.markdown("**📈 Módulos de Conocimiento**")
+    mcol1, mcol2 = st.columns(2)
+    with mcol1:
         st.metric("Total KUNs", kg_metrics['nodes_count'])
-    with col2:
+    with mcol2:
         st.metric("Relaciones", kg_metrics['edges_count'])
-    st.metric("Conectividad Promedio", f"{kg_metrics['avg_degree']:.2f}")
+    st.metric("Grado Promedio", f"{kg_metrics['avg_degree']:.2f}")
     
     st.write("---")
     
-    # Retrieval Tuning Params
-    st.subheader("🧭 Ajustes del Motor")
-    k_param = st.slider("Resultados Semánticos (K)", 1, 5, 3)
-    min_score_param = st.slider("Score de Descarte Mínimo", 0.05, 0.50, 0.10, 0.05)
+    # Retrieval Tuning Params (Tightened spacing)
+    st.markdown("**🧭 Ajustes de Búsqueda**")
+    k_param = st.slider("Resultados (K)", 1, 5, 3)
+    min_score_param = st.slider("Score Mínimo", 0.05, 0.50, 0.10, 0.05)
     
     # Hubs list
     st.write("---")
-    st.subheader("🕸️ Nodos Centrales")
+    st.markdown("**🕸️ Nodos Hub**")
     for node, deg in kg_metrics['hubs'][:2]:
-        st.write(f"- **{node}**: {deg} conexiones")
+        st.markdown(f"- `{node}` ({deg} enlaces)", unsafe_allow_html=True)
 
-    # History Selector
+    # History Selector (Brought to sidebar)
     if len(st.session_state.history) > 0:
         st.write("---")
-        st.subheader("📚 Historial de Consultas")
-        options = [f"Consulta #{i+1}: {item['query'][:20]}..." for i, item in enumerate(st.session_state.history)]
+        st.markdown("**📚 Historial**")
+        options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
         selected_option = st.selectbox(
-            "Selecciona una consulta pasada para verla:",
+            "Revisar consulta:",
             options,
             index=st.session_state.active_index
         )
-        # Update active query index
         new_active = options.index(selected_option)
         if new_active != st.session_state.active_index:
             st.session_state.active_index = new_active
             st.rerun()
 
-# Main Header
+# Main Header (Concise & Elegant)
 st.markdown('<div class="main-header">IJF SOR Assistant</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-header">Asistente de Consulta del Reglamento de la Federación Internacional de Judo (Basado en KUNs Certificadas v1.0)</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-header">Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)</div>', unsafe_allow_html=True)
 
-# Expander explaining the scope
-with st.expander("🥋 Alcance de la Demo & Temas Disponibles"):
-    st.markdown("""
-    Esta demo cuenta con **77 Unidades de Conocimiento certificadas** sobre los siguientes temas clave del SOR 2026:
-    *   **🥋 Equipamiento:** Dimensiones del tatami, control con Sokuteiki y tecnología Smart Judogi NFC.
-    *   **⏱️ Puntuación:** Criterios para Ippon, Waza-ari y Yuko, y tiempos de inmovilización (Osaekomi).
-    *   **🚫 Sanciones:** Defensa de cabeza (Head Defence), clavado de cabeza (Diving), caídas en puente, salirse del tatami y agarres prohibidos.
-    *   **🚸 Seguridad:** Reglas de Cadetes, desmayos por estrangulación y prohibición del seoi-nage inverso.
-    *   **🏥 Asistencia Médica:** Intervenciones médicas máximas (2 por combate) y sangrados.
-    """)
-
-# Interactive guide of questions right on the main page for high visibility
-st.markdown("### 💡 Preguntas de Ejemplo (Demo)")
+# 💡 Preguntas de Ejemplo - Placed at the very top for high visibility
+st.markdown("### 💡 Preguntas de Ejemplo")
 preguntas_ejemplo = [
-    "Selecciona una pregunta de la lista...",
+    "Elige una pregunta para consultar...",
     "¿Se permite la defensa con la cabeza?",
     "¿Cuáles son las dimensiones del tatami?",
     "¿Cuántas intervenciones médicas se permiten por combate?",
@@ -186,30 +198,28 @@ preguntas_ejemplo = [
     "¿Qué es el Sokuteiki y cómo se usa?",
     "¿Cuáles son las reglas de color de Judogi (blanco y azul)?"
 ]
-seleccionada = st.selectbox("Elige una consulta predefinida para probar el asistente de inmediato:", preguntas_ejemplo)
+seleccionada = st.selectbox("Selecciona una pregunta predefinida para probar de inmediato:", preguntas_ejemplo, label_visibility="collapsed")
 trigger_ejemplo = st.button("🚀 Consultar Ejemplo")
 
 st.write("---")
 
-# User query inputs
-user_input = st.chat_input("Escribe tu consulta personalizada aquí (ej. osae-komi, puente de cabeza, sangrado)...")
+# User query input (Floating at the bottom, or standard input)
+user_input = st.chat_input("Escribe tu pregunta sobre el reglamento...")
 
 query_to_run = None
 if user_input:
     query_to_run = user_input
-elif trigger_ejemplo and seleccionada != "Selecciona una pregunta de la lista...":
+elif trigger_ejemplo and seleccionada != "Elige una pregunta para consultar...":
     query_to_run = seleccionada
 
-# Run query and append to history if new
+# Run query and append to history
 if query_to_run:
-    with st.spinner("Buscando en la base de datos certificada y expandiendo contexto..."):
-        # Retrieve context & answer
+    with st.spinner("Buscando en la base de datos y consultando modelo..."):
         res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
-        # Get raw KUN data for traceability UI
         _, retrieved_kuns = engine.retrieve_context(query_to_run, k=k_param, min_score=min_score_param)
         
-        # Compile Graphviz DOT code of the retrieved nodes and their connections
-        dot_code = "digraph {\n  rankdir=LR;\n  node [shape=box, style=filled, fontname=\"Arial\"];\n"
+        # Compile Graphviz DOT code
+        dot_code = "digraph {\n  rankdir=LR;\n  node [shape=box, style=filled, fontname=\"Arial\", fontsize=10];\n"
         retrieved_ids = {k['id_conocimiento'] for k in retrieved_kuns}
         for kun in retrieved_kuns:
             color = "#3B82F6" if kun['tipo'] == 'REG' else "#EF4444" if kun['tipo'] == 'PEN' else "#10B981"
@@ -220,10 +230,9 @@ if query_to_run:
                 for edge in engine.kg.edges[node_id]:
                     dest_id = edge['id_destino']
                     if dest_id in retrieved_ids:
-                        dot_code += f'  "{node_id}" -> "{dest_id}" [label="{edge["tipo_relacion"]}"];\n'
+                        dot_code += f'  "{node_id}" -> "{dest_id}" [label="{edge["tipo_relacion"]}", fontsize=8];\n'
         dot_code += "}"
         
-        # Append query to history state
         st.session_state.history.append({
             "query": query_to_run,
             "answer": res['answer'],
@@ -232,13 +241,11 @@ if query_to_run:
         })
         st.session_state.active_index = len(st.session_state.history) - 1
 
-# Render only the ACTIVE query-answer pair to keep the screen clean and header visible
+# Render only the ACTIVE query-answer pair
 if st.session_state.active_index >= 0:
     active_item = st.session_state.history[st.session_state.active_index]
     
     st.markdown(f"**❓ Consulta activa:** {active_item['query']}")
-    
-    st.markdown("### 🤖 Respuesta del Asistente")
     st.markdown(active_item['answer'])
     
     # Expander for citations
@@ -246,7 +253,7 @@ if st.session_state.active_index >= 0:
         with st.expander("📚 Ver Trazabilidad y Citas Oficiales"):
             for kun in active_item['trazabilidad']:
                 st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}**")
-                st.write(f"* Fuente: `{kun['fuente_origen']}` - {kun.get('referencia_especifica', 'Reglamento oficial')}")
+                st.write(f"* Fuente: `{kun['fuente_origen']}` - {kun.get('referencia_specifica', 'Reglamento')}")
                 st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
                 st.write(f"* Interpretación: {kun['interpretacion']}")
                 st.write("---")
@@ -254,4 +261,16 @@ if st.session_state.active_index >= 0:
         with st.expander("🕸️ Ver Subgrafo de Relaciones"):
             st.graphviz_chart(active_item['dot_code'])
 else:
-    st.info("💡 Escribe una pregunta en la barra inferior o selecciona un ejemplo de arriba para iniciar la consulta.")
+    st.info("💡 Escribe una pregunta en el chat inferior o selecciona un ejemplo de arriba para iniciar la consulta.")
+
+# Scope explanation moved to the bottom to keep the core action prominent
+st.write("---")
+with st.expander("📝 Alcance de la Demo & Temas Disponibles"):
+    st.markdown("""
+    Esta demo cuenta con **77 Unidades de Conocimiento certificadas** sobre los siguientes temas clave del SOR 2026:
+    *   **🥋 Equipamiento:** Dimensiones del tatami, control con Sokuteiki y tecnología Smart Judogi NFC.
+    *   **⏱️ Puntuación:** Criterios para Ippon, Waza-ari y Yuko, y tiempos de inmovilización (Osaekomi).
+    *   **🚫 Sanciones:** Defensa de cabeza (Head Defence), clavado de cabeza (Diving), caídas en puente, salirse del tatami y agarres prohibidos.
+    *   **🚸 Seguridad:** Reglas de Cadetes, desmayos por estrangulación y prohibición del seoi-nage inverso.
+    *   **🏥 Asistencia Médica:** Intervenciones médicas máximas (2 por combate) y sangrados.
+    """)
