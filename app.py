@@ -119,7 +119,7 @@ with st.sidebar:
     preguntas_ejemplo = [
         "Selecciona un ejemplo...",
         "¿Se permite la defensa con la cabeza?",
-        "¿Cuáles son las dimensiones oficiales del tatami?",
+        "¿Cuáles son las dimensiones del tatami?",
         "¿Cuántas intervenciones médicas se permiten por combate?",
         "¿Qué es la tecnología Smart Judogi con chip NFC?",
         "¿Cómo se sanciona el abrazo de oso (bear hug)?",
