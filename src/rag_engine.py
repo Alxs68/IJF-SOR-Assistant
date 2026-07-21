@@ -90,10 +90,15 @@ class RagEngine:
     def call_gemini_api(self, prompt):
         """Calls Gemini API via native HTTP request to generate response (zero-dependency)."""
         api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+        print(f"[LOG] [Gemini API Client] Inicializando cliente...")
         if not api_key:
+            print(f"[LOG] [Gemini API Client] Error: GEMINI_API_KEY no encontrada en las variables de entorno.")
             return None
             
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+        masked_key = api_key[:6] + "..." if len(api_key) > 6 else "Invalida"
+        print(f"[LOG] [Gemini API Client] Clave API cargada: {masked_key}")
+            
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
         
         # Format payload
         payload = {
@@ -112,6 +117,7 @@ class RagEngine:
             "Content-Type": "application/json"
         }
         
+        print(f"[LOG] [Gemini API Client] Enviando petición HTTP POST a Gemini...")
         try:
             req = urllib.request.Request(
                 url, 
@@ -121,19 +127,36 @@ class RagEngine:
             )
             with urllib.request.urlopen(req) as response:
                 res_data = json.loads(response.read().decode('utf-8'))
+                print(f"[LOG] [Gemini API Client] Petición HTTP exitosa. Analizando respuesta...")
                 # Extract text response
                 candidates = res_data.get('candidates', [])
                 if candidates:
                     parts = candidates[0].get('content', {}).get('parts', [])
                     if parts:
-                        return parts[0].get('text', '')
+                        answer = parts[0].get('text', '')
+                        print(f"[LOG] [Gemini API Client] Respuesta generada por el modelo ({len(answer)} caracteres).")
+                        return answer
+                print(f"[LOG] [Gemini API Client] Error: Formato de respuesta JSON inesperado. candidates no encontrados.")
+                return None
+        except urllib.error.HTTPError as e:
+            error_body = e.read().decode('utf-8')
+            print(f"[LOG] [Gemini API Client] Excepción de HTTP Error: Código {e.code} - Detalle: {error_body}")
+            return None
         except Exception as e:
-            print(f"Error calling Gemini API: {e}")
+            print(f"[LOG] [Gemini API Client] Excepción General en llamada API: {e}")
+            import traceback
+            traceback.print_exc()
             return None
 
     def query(self, user_query, k=3, min_score=0.10):
         """Runs the hybrid RAG flow: retrieval, context creation, prompt assembly, and generation."""
+        print(f"\n[LOG] [RAG Flow] --- INICIO DE CONSULTA ---")
+        print(f"[LOG] [RAG Flow] Consulta recibida: '{user_query}'")
+        
         context_text, retrieved_kuns = self.retrieve_context(user_query, k=k, min_score=min_score)
+        
+        kun_ids = [k['id_conocimiento'] for k in retrieved_kuns]
+        print(f"[LOG] [RAG Flow] Recuperación de KUNs exitosa: {kun_ids}")
         
         # Construct Prompt
         prompt = (
@@ -149,18 +172,23 @@ class RagEngine:
             f"Pregunta del usuario: {user_query}\n"
             "Respuesta:"
         )
+        print(f"[LOG] [RAG Flow] Prompt construido ({len(prompt)} caracteres).")
         
         # Call API or fallback to mock offline response
         answer = self.call_gemini_api(prompt)
         
         if not answer:
+            print(f"[LOG] [RAG Flow] Fallback: Activando MODO OFFLINE/SIMULADO por fallo en API.")
             # Offline/Mock fallback generator
             answer = self._generate_mock_answer(user_query, retrieved_kuns)
+        else:
+            print(f"[LOG] [RAG Flow] Respuesta del modelo lista para enviarse a Streamlit.")
             
+        print(f"[LOG] [RAG Flow] --- FIN DE CONSULTA ---")
         return {
             'query': user_query,
             'answer': answer,
-            'retrieved_kuns': [k['id_conocimiento'] for k in retrieved_kuns],
+            'retrieved_kuns': kun_ids,
             'context': context_text
         }
 
