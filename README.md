@@ -106,6 +106,26 @@ C:\PROYECTOS\IJF-SOR-Assistant/
 
 ---
 
+## 💡 Ejemplos de Preguntas y Respuestas (Q&A)
+A continuación se muestran ejemplos reales de consultas reglamentarias resueltas por el asistente con su respectiva trazabilidad técnica:
+
+### 1. Regulación de la Defensa de Cabeza (Head Defence)
+*   **Pregunta:** *¿Se permite la defensa con la cabeza?*
+*   **Respuesta:** En eventos de la categoría Cadetes (Sub-18), no se permite usar la cabeza para defenderse (se penaliza con **Shido**). Para las categorías Senior y Junior, el uso de la cabeza para defenderse o proyectar está **permitido** y ya no se penaliza. Sin embargo, el "buceo de cabeza" (head diving - zambullirse de cabeza sobre el tatami) sigue estando estrictamente prohibido para todas las categorías y se penaliza con **Hansoku-make** directo.
+*   **Citas Oficiales:** `KUN-0001` (SOR Artículo 20 - Apéndice D) y `KUN-0046` (SOR Artículo 18.1.4 - Apéndice D, Página 180).
+
+### 2. Dimensiones del Tatami y Área de Seguridad
+*   **Pregunta:** *¿Cuáles son las dimensiones del tatami?*
+*   **Respuesta:** El área de combate debe tener unas dimensiones mínimas de 8m x 8m y máximas de 10m x 10m. El área de seguridad circundante debe medir un mínimo de 3m para proteger a los atletas de caídas fuera de la plataforma.
+*   **Citas Oficiales:** `KUN-0007` (SOR Artículo 3 - Área de Competencia).
+
+### 3. Sanción de Abrazo de Oso (Bear Hug)
+*   **Pregunta:** *¿Cómo se sanciona el abrazo de oso (bear hug)?*
+*   **Respuesta:** El abrazo de oso (bear hug) en tachi-waza se penaliza con **Shido** si el atleta entrelaza ambas manos o sujeta sus propios brazos para formar un círculo alrededor del torso del rival sin haber establecido un agarre (kumikata) normal previo. Se permite si el atleta ya tenía un agarre normal establecido, o durante transiciones de ne-waza a tachi-waza.
+*   **Citas Oficiales:** `KUN-0045` (SOR Artículo 18.1.2 - Apéndice D, Página 176).
+
+---
+
 ## 🚀 Requisitos e Instalación
 
 ### 1. Prerrequisitos
