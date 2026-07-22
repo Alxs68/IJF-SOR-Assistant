@@ -207,6 +207,27 @@ python tests/test_golden_dataset.py
 
 ---
 
+## 📋 Metodología de Desarrollo y Trazabilidad Documental
+
+El desarrollo de este asistente sigue una rigurosa secuencia metodológica diseñada para garantizar la entrega de un código limpio, estructurado y libre de "alucinaciones" en las respuestas de la IA:
+
+### 1. Modelado del Conocimiento y Certificación del Corpus
+*   **Extracción Sistemática:** El reglamento oficial de la IJF se fragmentó en 77 Unidades de Conocimiento certificadas (KUNs) que aíslan la lógica normativa.
+*   **Auditoría de Correspondencia (AUD-001):** Se verificó que cada KUN tuviera un enlace unívoco e inalterado con su fuente de origen en el PDF oficial de la IJF (páginas, clips de video o diapositivas oficiales), alcanzando una tasa de cobertura del 100% en los temas seleccionados.
+*   **Certificado de Conformidad (CERT-001):** Garantiza la veracidad del corpus indexado, obligando al modelo de lenguaje a depender únicamente del contexto recuperado para responder.
+
+### 2. Ciclo de Vida del Repositorio y Git Flow Semántico
+Para mantener un historial de cambios trazable, legible y alineado con los estándares de la industria, se adoptaron las siguientes buenas prácticas de control de versiones:
+*   **Mensajería Semántica (Conventional Commits):** Se utilizaron prefijos estandarizados para clasificar atómicamente cada cambio en el repositorio, permitiendo una fácil lectura de la evolución del proyecto:
+    *   `feat:` para la incorporación de características lógicas (como la creación del motor RAG).
+    *   `fix:` para la corrección de errores (como permisos de archivos).
+    *   `refactor:` para optimización, desacoplamiento y limpieza de código (como la remoción del cargador manual de `.env`).
+    *   `style:` para cambios estéticos, ajustes visuales e interactividad (como el encabezado fijo y paddings de logo).
+    *   `docs:` para la redacción de reportes y READMEs técnicos.
+*   **Hitos de Versión:** Las diferentes etapas de desarrollo se estructuraron de forma incremental, culminando en la auditoría técnica final y el etiquetado del commit de producción mediante tags de Git (como `v1.0.0`) para marcar de forma profesional la versión de entrega oficial.
+
+---
+
 ## ⚠️ Limitaciones Conocidas del MVP v1.0
 1.  **Límite de Contexto de un Solo Salto:** El motor RAG híbrido expande las consultas semánticas de forma fija a profundidad 1 en el grafo. Para consultas que requieran encadenamiento de múltiples reglas indirectas (profundidad >= 2), el contexto podría omitir dependencias indirectas.
 2.  **Representación Léxica de TF-IDF:** Al no utilizar embeddings neuronales densos de forma nativa para evitar dependencias complejas en el despliegue local de Windows, la búsqueda vectorial depende fuertemente de la coincidencia de raíces y sinónimos definidos en las interpretaciones del corpus.
