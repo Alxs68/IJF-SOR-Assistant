@@ -266,7 +266,7 @@ with st.sidebar:
 base64_logo = get_base64_logo(logo_path)
 
 if base64_logo:
-    # Premium Header Container with logo on the left side and slate background (Sticky at the top)
+    # Premium Header Container with logo on the left side and theme-aware background
     st.markdown(f"""
     <div style="
         position: sticky;
@@ -274,21 +274,22 @@ if base64_logo:
         z-index: 99;
         display: flex;
         align-items: center;
-        background-color: #1e293b;
-        border: 1px solid #334155;
+        background-color: var(--secondary-background-color);
+        border: 1px solid rgba(128, 128, 128, 0.25);
         border-radius: 8px;
         padding: 1.4rem 1.5rem;
         margin-bottom: 1rem;
         width: 100%;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     ">
         <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem;">
-            <img src="data:image/png;base64,{base64_logo}" style="width: 85px; height: 85px; border-radius: 50%; border: 2.5px solid #3b82f6; object-fit: cover;" />
+            <img src="data:image/png;base64,{base64_logo}" style="width: 85px; height: 85px; border-radius: 50%; border: 2.5px solid #1d4ed8; object-fit: cover;" />
         </div>
         <div style="flex-grow: 1;">
-            <h1 style="font-family: 'Outfit', sans-serif; color: #3b82f6; font-size: 1.6rem; margin: 0; font-weight: 700; line-height: 1.2;">
+            <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.6rem; margin: 0; font-weight: 700; line-height: 1.2;">
                 IJF SOR Assistant
             </h1>
-            <p style="font-family: 'Inter', sans-serif; color: #94a3b8; font-size: 0.88rem; margin: 0.2rem 0 0 0; line-height: 1.3;">
+            <p style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 0.88rem; margin: 0.2rem 0 0 0; line-height: 1.3;">
                 Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)
             </p>
         </div>
@@ -301,17 +302,18 @@ else:
         position: sticky;
         top: 2.875rem;
         z-index: 99;
-        background-color: #1e293b;
-        border: 1px solid #334155;
+        background-color: var(--secondary-background-color);
+        border: 1px solid rgba(128, 128, 128, 0.25);
         border-radius: 8px;
         padding: 0.8rem 1.2rem;
         margin-bottom: 1rem;
         width: 100%;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     ">
-        <h1 style="font-family: 'Outfit', sans-serif; color: #3b82f6; font-size: 1.6rem; margin: 0; font-weight: 700;">
+        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.6rem; margin: 0; font-weight: 700;">
             IJF SOR Assistant
         </h1>
-        <p style="font-family: 'Inter', sans-serif; color: #94a3b8; font-size: 0.88rem; margin: 0.2rem 0 0 0;">
+        <p style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 0.88rem; margin: 0.2rem 0 0 0;">
             Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)
         </p>
     </div>
@@ -324,7 +326,7 @@ if "search_query_input_widget" not in st.session_state:
 if "last_query" not in st.session_state:
     st.session_state.last_query = ""
 
-# --- Custom Premium CSS for search input and active card ---
+# --- Custom Premium Theme-Aware CSS ---
 st.markdown("""
 <style>
     /* Styling search input wrapper */
@@ -332,22 +334,20 @@ st.markdown("""
         margin-top: -0.5rem !important;
         margin-bottom: 0.5rem !important;
     }
-    /* Input field itself */
+    /* Input field itself - Adapt to dark/light backgrounds */
     div[data-testid="stTextInput"] input {
         font-family: 'Inter', sans-serif !important;
         font-size: 1.05rem !important;
         padding: 0.75rem 1rem 0.75rem 2.8rem !important; /* Left padding for search icon */
-        border-radius: 10px !important;
-        border: 2px solid #334155 !important;
-        background-color: #0f172a !important;
-        color: #f8fafc !important;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+        border-radius: 8px !important;
+        border: 2px solid rgba(128, 128, 128, 0.3) !important;
+        background-color: var(--background-color) !important;
+        color: var(--text-color) !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
     div[data-testid="stTextInput"] input:focus {
-        border-color: #3b82f6 !important;
-        background-color: #1e293b !important;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3) !important;
+        border-color: #1d4ed8 !important;
+        box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.2) !important;
     }
     /* Custom magnifying glass icon inside input */
     div[data-testid="stTextInput"] > div::before {
@@ -359,33 +359,53 @@ st.markdown("""
         font-size: 1.1rem;
         opacity: 0.7;
     }
-    /* Style search button */
+    /* Style primary search button (IJF Cobalt Blue) */
     div.stButton > button[type="primary"] {
-        background-color: #3b82f6 !important;
-        border-color: #3b82f6 !important;
+        background-color: #1d4ed8 !important;
+        border: none !important;
         color: #ffffff !important;
-        border-radius: 10px !important;
+        border-radius: 8px !important;
         font-family: 'Inter', sans-serif !important;
         font-weight: 600 !important;
-        font-size: 1rem !important;
+        font-size: 0.95rem !important;
         padding: 0.6rem 1rem !important;
         transition: all 0.2s ease !important;
-        box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3) !important;
+        box-shadow: 0 4px 6px -1px rgba(29, 78, 216, 0.2) !important;
     }
     div.stButton > button[type="primary"]:hover {
-        background-color: #2563eb !important;
-        box-shadow: 0 6px 12px -1px rgba(59, 130, 246, 0.5) !important;
+        background-color: #1e40af !important;
+        box-shadow: 0 6px 12px -1px rgba(29, 78, 216, 0.4) !important;
         transform: translateY(-1px);
     }
-    /* Custom Active Query Card */
+    /* Style secondary button (Outline IJF Blue) */
+    div.stButton > button:not([type="primary"]) {
+        border: 2px solid #1d4ed8 !important;
+        background-color: transparent !important;
+        color: var(--text-color) !important;
+        border-radius: 8px !important;
+        font-family: 'Inter', sans-serif !important;
+        font-weight: 600 !important;
+        font-size: 0.95rem !important;
+        padding: 0.6rem 1rem !important;
+        transition: all 0.2s ease !important;
+    }
+    div.stButton > button:not([type="primary"]):hover {
+        background-color: #1d4ed8 !important;
+        color: #ffffff !important;
+    }
+    /* Custom Active Query Card (IJF Gold highlight) */
     .active-query-card {
-        background-color: #1e293b;
-        border-left: 5px solid #3b82f6;
-        padding: 1rem 1.25rem;
-        border-radius: 8px;
-        margin-top: 1.5rem;
-        margin-bottom: 1.2rem;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        background-color: rgba(234, 179, 8, 0.08) !important;
+        border-left: 5px solid #eab308 !important;
+        border-right: 1px solid rgba(234, 179, 8, 0.15) !important;
+        border-top: 1px solid rgba(234, 179, 8, 0.15) !important;
+        border-bottom: 1px solid rgba(234, 179, 8, 0.15) !important;
+        padding: 1rem 1.25rem !important;
+        border-radius: 0 8px 8px 0 !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.2rem !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
+        color: var(--text-color) !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -396,21 +416,22 @@ def load_example():
     if sel and sel != "Elige una pregunta para consultar...":
         st.session_state.search_query_input_widget = sel
 
-# Main Query Panel (Centered and prominent)
-st.markdown('<div style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.6rem; font-family: \'Outfit\', sans-serif; display: flex; align-items: center; gap: 0.5rem;">🥋 <span>Realiza tu pregunta sobre el Reglamento 2026:</span></div>', unsafe_allow_html=True)
+# --- 🔍 Direct Question Card Area ---
+with st.container(border=True):
+    st.markdown('<div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; font-family: \'Outfit\', sans-serif; display: flex; align-items: center; gap: 0.5rem; color: #1d4ed8;">🥋 <span>Realiza tu pregunta sobre el Reglamento 2026:</span></div>', unsafe_allow_html=True)
+    
+    scol1, scol2 = st.columns([5, 1.2])
+    with scol1:
+        user_input = st.text_input(
+            "Consulta",
+            placeholder="Ej: ¿Cómo se sanciona el puente de cabeza? o ¿Cuál es la tolerancia de peso?",
+            label_visibility="collapsed",
+            key="search_query_input_widget"
+        )
+    with scol2:
+        buscar_btn = st.button("Buscar Regla", use_container_width=True, type="primary")
 
-scol1, scol2 = st.columns([5, 1.2])
-with scol1:
-    user_input = st.text_input(
-        "Consulta",
-        placeholder="Ej: ¿Cómo se sanciona el puente de cabeza? o ¿Cuál es la tolerancia de peso?",
-        label_visibility="collapsed",
-        key="search_query_input_widget"
-    )
-with scol2:
-    buscar_btn = st.button("Buscar Regla", use_container_width=True, type="primary")
-
-# --- 💡 Preguntas de Ejemplo - Placed inside a beautiful native card to separate areas ---
+# --- 💡 Example Questions Card Area ---
 with st.container(border=True):
     st.markdown('<div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">💡 O selecciona una consulta de demostración predefinida:</div>', unsafe_allow_html=True)
     
