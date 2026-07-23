@@ -39,12 +39,12 @@
 * **KUN-0023:** 10 conexiones.
 
 ### Nodos Huérfanos y Justificación:
-* **KUN-0006** (REG) en [kuns_doc_001.md](file:///C:/Users/User/.gemini/antigravity/brain/3933a0c6-d2b5-47ca-81d1-d28517b5b94b/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
-* **KUN-0011** (REG) en [kuns_doc_001.md](file:///C:/Users/User/.gemini/antigravity/brain/3933a0c6-d2b5-47ca-81d1-d28517b5b94b/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
-* **KUN-0014** (REG) en [kuns_doc_001.md](file:///C:/Users/User/.gemini/antigravity/brain/3933a0c6-d2b5-47ca-81d1-d28517b5b94b/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
-* **KUN-0015** (REG) en [kuns_doc_001.md](file:///C:/Users/User/.gemini/antigravity/brain/3933a0c6-d2b5-47ca-81d1-d28517b5b94b/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
-* **KUN-0016** (REG) en [kuns_doc_001.md](file:///C:/Users/User/.gemini/antigravity/brain/3933a0c6-d2b5-47ca-81d1-d28517b5b94b/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
-* **KUN-0031** (DEF) en [kuns_pag_005.md](file:///C:/Users/User/.gemini/antigravity/brain/3933a0c6-d2b5-47ca-81d1-d28517b5b94b/kuns_pag_005.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0006** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0011** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0014** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0015** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0016** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0031** (DEF) en [kuns_pag_005.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_pag_005.md) - ✓ Justificado (tipo DEF/Portal/Edad)
 
 ---
 ## 6. Dictamen de Certificación Final del Auditor

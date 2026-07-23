@@ -155,11 +155,15 @@ class KnowledgeGraph:
                 })
 
 def compile_graph_from_markdown(brain_dir):
-    """Scans md files in brain_dir, extracts JSON KUN blocks, and builds a KnowledgeGraph."""
+    """Scans md files in brain_dir (or brain_dir/data/markdown), extracts JSON KUN blocks, and builds a KnowledgeGraph."""
     graph = KnowledgeGraph()
-    for filename in os.listdir(brain_dir):
+    source_dir = os.path.join(brain_dir, 'data', 'markdown')
+    if not os.path.exists(source_dir):
+        source_dir = brain_dir
+        
+    for filename in os.listdir(source_dir):
         if filename.startswith('kuns_') and filename.endswith('.md'):
-            filepath = os.path.join(brain_dir, filename)
+            filepath = os.path.join(source_dir, filename)
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
             

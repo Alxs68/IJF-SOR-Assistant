@@ -85,24 +85,41 @@ C:\PROYECTOS\IJF-SOR-Assistant/
 ├── README.md                   # Documentación principal (este archivo)
 ├── LICENSE                     # Licencia del proyecto
 ├── requirements.txt            # Dependencias del proyecto
-├── kuns_doc_*.md               # Repositorio de KUNs por recurso
+├── kuns_doc_*.md               # Repositorio de KUNs por recurso (Corpus de reglas)
+├── assets/                     # Recursos estáticos (Logotipos e imágenes)
+│   └── logo.png                # Logotipo oficial de la aplicación
+├── docs/                       # Documentación del proyecto, auditorías y reportes
+│   ├── deployment/             # Guías de instalación y despliegue (OCI)
+│   ├── project-management/     # Inventario maestro de reglas y protocolos de extracción
+│   └── reports/                # Reportes de auditoría y certificación de conformidad (AUD/CERT)
 ├── src/                        # Código fuente del backend
-│   ├── graph_manager.py        # Compilador y analista del grafo
+│   ├── graph_manager.py        # Compilador y analista de relaciones de grafos
 │   ├── vector_store.py         # Modelo vectorial TF-IDF de similitud
-│   ├── rag_engine.py           # Orquestador del RAG Híbrido
+│   ├── rag_engine.py           # Orquestador principal del RAG Híbrido
+│   ├── app_readme.md
 │   ├── graph_manager_readme.md
 │   ├── vector_store_readme.md
 │   └── rag_engine_readme.md
 ├── tests/                      # Suite de pruebas unitarias e integración
-│   ├── test_graph_manager.py
-│   ├── test_vector_store.py
-│   ├── test_rag_engine.py
-│   └── test_golden_dataset.py  # Dataset de oro (12 consultas críticas)
-└── scratch/                    # Entregables intermedios persistidos
-    ├── knowledge_graph.json    # Grafo de KUNs en JSON
-    ├── vector_store_index.json # Índice vectorial en JSON
-    └── golden_validation_report.md  # Reporte de precisión RAG
+│   ├── test_graph_manager.py   # Pruebas del compilador de grafos
+│   ├── test_vector_store.py    # Pruebas del buscador vectorial
+│   ├── test_rag_engine.py      # Pruebas del motor RAG
+│   └── test_golden_dataset.py  # Dataset de oro (12 consultas críticas del reglamento)
+├── scratch/                    # Entregables intermedios persistidos localmente
+│   ├── knowledge_graph.json    # Estructura del grafo en formato JSON
+│   ├── vector_store_index.json # Índice de términos vectoriales en JSON
+│   └── golden_validation_report.md # Reporte de precisión RAG de la suite de oro
+└── [Carpetas de reserva con .gitkeep]
+    ├── app/                    # Reservada para submódulos de la UI
+    ├── config/                 # Reservada para configuraciones de infraestructura
+    ├── data/                   # Reservada para almacenamiento local de datos (raw, processed, vectordb)
+    ├── models/                 # Reservada para modelos de embeddings locales
+    ├── notebooks/              # Reservada para libretas Jupyter de experimentación
+    └── scripts/                # Reservada para scripts utilitarios globales
 ```
+
+> [!NOTE]
+> Las carpetas indicadas como **Carpetas de reserva** se encuentran vacías a excepción de un archivo `.gitkeep`. Esto es una práctica estándar en Git para preservar la estructura de directorios necesaria para la ejecución local de datos temporales, bases de datos o descargas que no deben subirse al control de versiones.
 
 ---
 

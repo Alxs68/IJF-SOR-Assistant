@@ -62,7 +62,11 @@ def jaccard_similarity(str1, str2):
 
 def run_audit(brain_dir):
     """Executes the conformity audit on the corpus."""
-    master_tags_file = os.path.join(brain_dir, 'taxonomy_tags.md')
+    source_dir = os.path.join(brain_dir, 'data', 'markdown')
+    if not os.path.exists(source_dir):
+        source_dir = brain_dir
+        
+    master_tags_file = os.path.join(source_dir, 'taxonomy_tags.md')
     allowed_tags = load_master_tags(master_tags_file)
     
     kuns = {}
@@ -70,9 +74,9 @@ def run_audit(brain_dir):
     warnings = []
     
     # 1. Read files and extract KUN JSONs
-    for filename in os.listdir(brain_dir):
+    for filename in os.listdir(source_dir):
         if filename.startswith('kuns_') and filename.endswith('.md'):
-            filepath = os.path.join(brain_dir, filename)
+            filepath = os.path.join(source_dir, filename)
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
             
@@ -350,8 +354,16 @@ def run_audit(brain_dir):
 
 def write_reports(results, brain_dir):
     """Writes report artifacts."""
-    # 1. AUD-001_Corpus_Conformity_Report.md
-    report_path = os.path.join(brain_dir, 'AUD-001_Corpus_Conformity_Report.md')
+    source_dir = os.path.join(brain_dir, 'data', 'markdown')
+    if not os.path.exists(source_dir):
+        source_dir = brain_dir
+        
+    # Write to docs/reports if directory exists, otherwise fallback to base
+    reports_dir = os.path.join(brain_dir, 'docs', 'reports')
+    if os.path.exists(reports_dir):
+        report_path = os.path.join(reports_dir, 'AUD-001_Corpus_Conformity_Report.md')
+    else:
+        report_path = os.path.join(brain_dir, 'AUD-001_Corpus_Conformity_Report.md')
     
     markdown_content = []
     markdown_content.append("# Informe de Auditoría de Conformidad del Corpus (AUD-001)")
@@ -374,7 +386,8 @@ def write_reports(results, brain_dir):
     else:
         markdown_content.append(f"⚠️ Se detectaron **{len(results['errors_critical'])} no conformidades críticas** que impiden la certificación:")
         for idx, err in enumerate(results['errors_critical'], 1):
-            markdown_content.append(f"\n{idx}. **[{err['type']}]** en file: [{err['file']}](file:///C:/Users/User/.gemini/antigravity/brain/3933a0c6-d2b5-47ca-81d1-d28517b5b94b/{err['file']}) (KUN: {err.get('id', 'N/A')})")
+            file_path_url = os.path.join(source_dir, err['file']).replace('\\', '/')
+            markdown_content.append(f"\n{idx}. **[{err['type']}]** en file: [{err['file']}](file:///{file_path_url}) (KUN: {err.get('id', 'N/A')})")
             markdown_content.append(f"   * *Detalle:* {err['detail']}")
             
     markdown_content.append("\n---")
@@ -384,7 +397,8 @@ def write_reports(results, brain_dir):
     else:
         markdown_content.append(f"⚠️ Se identificaron **{len(results['warnings'])} observaciones** que requieren revisión metodológica:")
         for idx, warn in enumerate(results['warnings'], 1):
-            markdown_content.append(f"\n{idx}. **[{warn['type']}]** en file: [{warn['file']}](file:///C:/Users/User/.gemini/antigravity/brain/3933a0c6-d2b5-47ca-81d1-d28517b5b94b/{warn['file']}) (KUN: {warn['id']})")
+            file_path_url = os.path.join(source_dir, warn['file']).replace('\\', '/')
+            markdown_content.append(f"\n{idx}. **[{warn['type']}]** en file: [{warn['file']}](file:///{file_path_url}) (KUN: {warn['id']})")
             markdown_content.append(f"   * *Detalle:* {warn['detail']}")
             
     markdown_content.append("\n---")
@@ -406,7 +420,8 @@ def write_reports(results, brain_dir):
     markdown_content.append("\n### Nodos Huérfanos y Justificación:")
     for o in results['orphans']:
         just = "✓ Justificado (tipo DEF/Portal/Edad)" if o['justified'] else "⚠️ No Justificado (Revisar por qué está aislado)"
-        markdown_content.append(f"* **{o['id']}** ({o['tipo']}) en [{o['file']}](file:///C:/Users/User/.gemini/antigravity/brain/3933a0c6-d2b5-47ca-81d1-d28517b5b94b/{o['file']}) - {just}")
+        file_path_url = os.path.join(source_dir, o['file']).replace('\\', '/')
+        markdown_content.append(f"* **{o['id']}** ({o['tipo']}) en [{o['file']}](file:///{file_path_url}) - {just}")
         
     markdown_content.append("\n---")
     markdown_content.append("## 6. Dictamen de Certificación Final del Auditor")
@@ -445,11 +460,8 @@ def write_reports(results, brain_dir):
             writer.writerow([f'Tipo_{k}', v])
 
 if __name__ == '__main__':
-    # Assume we run from within the brain directory or know its path
-    # C:\Users\User\.gemini\antigravity\brain\3933a0c6-d2b5-47ca-81d1-d28517b5b94b
-    current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    # If run in another cwd:
-    brain_path = r"C:\Users\User\.gemini\antigravity\brain\3933a0c6-d2b5-47ca-81d1-d28517b5b94b"
+    # Determine the project root path dynamically
+    brain_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     res = run_audit(brain_path)
     write_reports(res, brain_path)
     print(f"Auditoria ejecutada. Dictamen: {res['dictamen'].replace('🔴','[NO CONFORME]').replace('🟡','[CONFORME CON OBSERVACIONES]').replace('🟢','[CONFORME]')}. Errores: {len(res['errors_critical'])}, Advertencias: {len(res['warnings'])}")

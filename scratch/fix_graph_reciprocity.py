@@ -30,10 +30,14 @@ def fix_reciprocity(brain_dir):
     kuns = {}
     file_structures = {}
     
+    source_dir = os.path.join(brain_dir, 'data', 'markdown')
+    if not os.path.exists(source_dir):
+        source_dir = brain_dir
+        
     # 1. Read files and parse all JSONs
-    for filename in os.listdir(brain_dir):
+    for filename in os.listdir(source_dir):
         if filename.startswith('kuns_') and filename.endswith('.md'):
-            filepath = os.path.join(brain_dir, filename)
+            filepath = os.path.join(source_dir, filename)
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
             
@@ -156,5 +160,5 @@ def fix_reciprocity(brain_dir):
     print("Reciprocity fix complete!")
 
 if __name__ == '__main__':
-    brain_path = r"C:\Users\User\.gemini\antigravity\brain\3933a0c6-d2b5-47ca-81d1-d28517b5b94b"
+    brain_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     fix_reciprocity(brain_path)
