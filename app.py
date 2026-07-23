@@ -468,7 +468,13 @@ with st.container(border=True):
         "¿Cómo se sanciona el reverse seoi-nage en cadetes?",
         "¿Qué sucede si un competidor se desmaya por estrangulación (shime-waza)?",
         "¿Qué es el Sokuteiki y cómo se usa?",
-        "¿Cuáles son las reglas de color de Judogi (blanco y azul)?"
+        "¿Cuáles son las reglas de color de Judogi (blanco y azul)?",
+        "¿Cómo funciona el protocolo de conmoción cerebral (head trauma) y cuántos días de inhabilitación genera?",
+        "¿Cuál es el tiempo de tolerancia para presentarse en el tatami antes de la descalificación?",
+        "¿Cuáles son las diferencias de tolerancia de peso entre el pesaje oficial y el pesaje aleatorio?",
+        "¿Cómo se dividen las llaves de competencia con repechaje en el sistema oficial?",
+        "¿Cuál es el código de vestimenta oficial para los médicos de los equipos?",
+        "¿Está permitido el uso de vendajes (taping) en los dedos y cómo debe ser aprobado?"
     ]
     
     col_sel, col_btn = st.columns([4.5, 1.5])
@@ -583,8 +589,6 @@ if st.session_state.active_index >= 0:
                 
         with st.expander("🕸️ Ver Subgrafo de Relaciones"):
             st.graphviz_chart(active_item['dot_code'])
-else:
-    st.info("💡 Escribe una pregunta en el panel superior o selecciona un ejemplo de arriba para iniciar la consulta.")
 
 # Scope explanation moved to the bottom to keep the core action prominent
 st.write("---")
