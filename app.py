@@ -390,6 +390,12 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Callback to safely load example question before widgets are drawn
+def load_example():
+    sel = st.session_state.get("example_select_widget")
+    if sel and sel != "Elige una pregunta para consultar...":
+        st.session_state.search_query_input_widget = sel
+
 # Main Query Panel (Centered and prominent)
 st.markdown('<div style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.6rem; font-family: \'Outfit\', sans-serif; display: flex; align-items: center; gap: 0.5rem;">🥋 <span>Realiza tu pregunta sobre el Reglamento 2026:</span></div>', unsafe_allow_html=True)
 
@@ -423,13 +429,9 @@ with st.container(border=True):
     
     col_sel, col_btn = st.columns([5, 1.2])
     with col_sel:
-        seleccionada = st.selectbox("Selecciona una pregunta predefinida para probar de inmediato:", preguntas_ejemplo, label_visibility="collapsed")
+        seleccionada = st.selectbox("Selecciona una pregunta predefinida para probar de inmediato:", preguntas_ejemplo, label_visibility="collapsed", key="example_select_widget")
     with col_btn:
-        trigger_ejemplo = st.button("Probar Ejemplo", use_container_width=True)
-
-if trigger_ejemplo and seleccionada != "Elige una pregunta para consultar...":
-    st.session_state.search_query_input_widget = seleccionada
-    st.rerun()
+        trigger_ejemplo = st.button("Probar Ejemplo", use_container_width=True, on_click=load_example)
 
 st.write("")
 
