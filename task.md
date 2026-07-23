@@ -1,0 +1,22 @@
+- [x] Crear el script orquestador `scripts/complete_sor_extraction.py`
+- [x] Ejecutar la extracción masiva de las 8 secciones faltantes en segundo plano (Completado: 515 nuevas KUNs extraídas, total de 841 KUNs en base de datos)
+- [x] Compilar el Grafo de Conocimiento (`src/graph_manager.py`)
+- [x] Reindexar los embeddings en el Buscador Semántico (`src/vector_store.py`)
+- [x] Ejecutar la auditoría de conformidad (`scratch/corpus_conformity_audit.py`)
+- [x] Ejecutar la suite de pruebas unitarias (`python -m unittest discover tests`)
+- [x] Migrar KUNs obsoletas de DOC-002 (2023) a DOC-001 (SOR 2026) y eliminar `kuns_doc_002.md`
+- [x] Recompilar e indexar la base de datos limpia de 2026
+- [x] Rediseñar la interfaz de búsqueda del frontend (mover el input al panel superior con CSS premium)
+- [x] Analizar y alinear la precisión de la documentación (READMEs y diagramas ASCII actualizados a 841 KUNs y embeddings híbridos)
+- [x] Actualizar catálogo de recursos en el frontend `app.py` (añadidos links cliqueables para `NEW-001/002/003` e `IMG-001`)
+- [x] Corregir la excepción `StreamlitAPIException` de modificación de estado tardía mediante callbacks nativos
+- [x] Rediseñar la estética de la app con soporte para modo oscuro/claro nativo, colores institucionales de la IJF y separación de áreas
+- [x] Corregir la desalineación vertical de los botones en las columnas del frontend
+- [x] Rediseñar la inyección de consultas de demostración para cargarse como placeholders semi-transparentes autolimpiables al escribir
+- [x] Eliminar el banner de información redundante en el inicio de la app
+- [x] Ampliar la lista de consultas de demostración predefinidas en el menú de ejemplos para cubrir nuevos temas
+- [x] Simplificar los títulos de cabecera de las tarjetas a 'Realiza tu pregunta' y 'Sugerencias'
+- [x] Reducir el tamaño de fuente de la caja y de la lista de opciones de st.selectbox a 0.95rem para balance visual
+- [x] Agregar la sección formal de 'Tecnologías y Herramientas Utilizadas' en el README.md principal
+- [x] Commit y push de los cambios locales a GitHub (`main`)
+- [x] Desplegar en OCI (`git pull`) y reiniciar el servicio `ijf-assistant`
