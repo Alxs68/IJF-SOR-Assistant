@@ -18,5 +18,6 @@
 - [x] Simplificar los títulos de cabecera de las tarjetas a 'Realiza tu pregunta' y 'Sugerencias'
 - [x] Reducir el tamaño de fuente de la caja y de la lista de opciones de st.selectbox a 0.95rem para balance visual
 - [x] Agregar la sección formal de 'Tecnologías y Herramientas Utilizadas' en el README.md principal
+- [x] Mapear y subir `recompile_all.py` a la carpeta `scripts/` del repositorio de GitHub
 - [x] Commit y push de los cambios locales a GitHub (`main`)
 - [x] Desplegar en OCI (`git pull`) y reiniciar el servicio `ijf-assistant`
