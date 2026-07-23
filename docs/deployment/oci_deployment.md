@@ -78,3 +78,46 @@ Para permitir que los usuarios accedan a la aplicación web de Streamlit, se deb
     docker compose up -d --build
     ```
     *El servicio utiliza `--restart unless-stopped` para garantizar que la aplicación se reinicie automáticamente si el servidor físico se reinicia o se cae.*
+
+### Método C: Despliegue Profesional con Systemd (Servicio del Sistema)
+
+Para ejecutar la aplicación como un servicio en segundo plano robusto que inicie automáticamente con el servidor y se reinicie ante fallos:
+
+1.  **Crear el Archivo del Servicio:**
+    Cree el archivo `/etc/systemd/system/ijf-assistant.service` con permisos de superusuario:
+    ```ini
+    [Unit]
+    Description=Servicio del Asistente IJF SOR Streamlit (ADA)
+    After=network.target
+
+    [Service]
+    User=ubuntu
+    WorkingDirectory=/home/ubuntu/IJF-SOR-Assistant
+    EnvironmentFile=/home/ubuntu/IJF-SOR-Assistant/.env
+    ExecStart=/home/ubuntu/IJF-SOR-Assistant/.venv/bin/streamlit run app.py --server.address=0.0.0.0 --server.port=8501
+    Restart=always
+    RestartSec=5
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+2.  **Configurar Variables de Entorno Seguras:**
+    Cree el archivo `/home/ubuntu/IJF-SOR-Assistant/.env` y declare su API Key de Gemini:
+    ```bash
+    GEMINI_API_KEY="tu-api-key-de-gemini-aqui"
+    ```
+    Asegure los permisos del archivo para que solo sea legible por su usuario:
+    ```bash
+    chmod 600 /home/ubuntu/IJF-SOR-Assistant/.env
+    ```
+3.  **Habilitar y Arrancar el Servicio:**
+    Recargue el demonio de Systemd, habilite el auto-arranque e inicie el servicio:
+    ```bash
+    sudo systemctl daemon-reload
+    sudo systemctl enable ijf-assistant.service
+    sudo systemctl start ijf-assistant.service
+    ```
+4.  **Monitorear Estado y Logs:**
+    *   Verificar estado activo: `sudo systemctl status ijf-assistant`
+    *   Ver logs en tiempo real: `sudo journalctl -u ijf-assistant -f`
+
