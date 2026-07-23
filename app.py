@@ -441,7 +441,7 @@ def load_example():
 
 # --- 🔍 Direct Question Card Area ---
 with st.container(border=True):
-    st.markdown('<div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; font-family: \'Outfit\', sans-serif; display: flex; align-items: center; gap: 0.5rem; color: #1d4ed8;">🥋 <span>Realiza tu pregunta sobre el Reglamento 2026:</span></div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; font-family: \'Outfit\', sans-serif; display: flex; align-items: center; gap: 0.5rem; color: #1d4ed8;">🥋 <span>Realiza tu pregunta:</span></div>', unsafe_allow_html=True)
     
     scol1, scol2 = st.columns([4.5, 1.5])
     with scol1:
@@ -456,7 +456,7 @@ with st.container(border=True):
 
 # --- 💡 Example Questions Card Area ---
 with st.container(border=True):
-    st.markdown('<div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">💡 O selecciona una consulta de demostración predefinida:</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">💡 Sugerencias:</div>', unsafe_allow_html=True)
     
     preguntas_ejemplo = [
         "Elige una pregunta para consultar...",
