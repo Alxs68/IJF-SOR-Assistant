@@ -31,13 +31,13 @@ class VectorStore:
         return re.findall(r'\b[a-z0-9]{2,}\b', text)
 
     def _get_embedding(self, text, api_key):
-        """Calls Gemini text-embedding-004 API via native HTTP request (zero-dependency)."""
+        """Calls Gemini gemini-embedding-001 API via native HTTP request (zero-dependency)."""
         import urllib.request
         import urllib.error
         
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key={api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key={api_key}"
         payload = {
-            "model": "models/text-embedding-004",
+            "model": "models/gemini-embedding-001",
             "content": {
                 "parts": [{
                     "text": text
