@@ -1,21 +1,21 @@
 # Informe de Auditoría de Conformidad del Corpus (AUD-001)
-## Dictamen Automatizado: 🟢 CONFORME
+## Dictamen Automatizado: 🟡 CONFORME CON OBSERVACIONES
 
 ---
 ## 1. Resumen Ejecutivo de Métricas del Grafo
-* **Número de Nodos (KUNs):** 77
+* **Número de Nodos (KUNs):** 326
 * **Número de Aristas (Relaciones Únicas):** 72
-* **Grado Promedio de Conexión:** 3.74
-* **Nodos Aislados (Huérfanos):** 6
+* **Grado Promedio de Conexión:** 0.88
+* **Nodos Aislados (Huérfanos):** 255
 
 ### Distribución por Tipo de Conocimiento:
-* **CAS (CAS):** 4
-* **DEF (DEF):** 9
-* **EXC (EXC):** 3
-* **PEN (PEN):** 17
-* **PRO (PRO):** 8
+* **CAS (CAS):** 8
+* **DEF (DEF):** 19
+* **EXC (EXC):** 25
+* **PEN (PEN):** 80
+* **PRO (PRO):** 9
 * **PUN (PUN):** 8
-* **REG (REG):** 28
+* **REG (REG):** 177
 
 ---
 ## 2. No Conformidades Críticas (Errores)
@@ -23,7 +23,31 @@
 
 ---
 ## 3. Observaciones y Advertencias Menores
-🟢 **No se detectaron advertencias ni observaciones menores.**
+⚠️ Se identificaron **8 observaciones** que requieren revisión metodológica:
+
+1. **[Antipatrón de Intención]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0085)
+   * *Detalle:* La interpretación contiene la frase prohibida de intención: "para evitar".
+
+2. **[Antipatrón de Intención]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0141)
+   * *Detalle:* La interpretación contiene la frase prohibida de intención: "para prevenir".
+
+3. **[Antipatrón de Intención]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0151)
+   * *Detalle:* La interpretación contiene la frase prohibida de intención: "para evitar".
+
+4. **[Antipatrón de Intención]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0189)
+   * *Detalle:* La interpretación contiene la frase prohibida de intención: "para evitar".
+
+5. **[Antipatrón de Intención]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0195)
+   * *Detalle:* La interpretación contiene la frase prohibida de intención: "para evitar".
+
+6. **[Antipatrón de Intención]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0231)
+   * *Detalle:* La interpretación contiene la frase prohibida de intención: "para evitar".
+
+7. **[Antipatrón de Intención]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0238)
+   * *Detalle:* La interpretación contiene la frase prohibida de intención: "para evitar".
+
+8. **[Antipatrón de Intención]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0267)
+   * *Detalle:* La interpretación contiene la frase prohibida de intención: "para evitar".
 
 ---
 ## 4. Candidatos a Duplicidad Semántica
@@ -44,11 +68,260 @@
 * **KUN-0014** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
 * **KUN-0015** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
 * **KUN-0016** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0078** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0079** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0080** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0081** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0082** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0083** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0084** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0085** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0086** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0087** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0088** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0089** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0090** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0091** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0092** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0093** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0094** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0095** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0096** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0097** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0098** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0099** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0100** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0101** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0102** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0103** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0104** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0105** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0106** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0107** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0108** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0109** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0110** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0111** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0112** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0113** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0114** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0115** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0116** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0117** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0118** (PRO) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0119** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0120** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0121** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0122** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0123** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0124** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0125** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0126** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0127** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0128** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0129** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0130** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0131** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0132** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0133** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0134** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0135** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0136** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0137** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0138** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0139** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0140** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0141** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0142** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0143** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0144** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0145** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0146** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0147** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0148** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0149** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0150** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0151** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0152** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0153** (DEF) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0154** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0155** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0156** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0157** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0158** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0159** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0160** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0161** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0162** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0163** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0164** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0165** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0166** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0167** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0168** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0169** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0170** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0171** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0172** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0173** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0174** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0175** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0176** (DEF) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0177** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0178** (DEF) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0179** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0180** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0181** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0182** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0183** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0184** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0185** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0186** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0187** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0188** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0189** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0190** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0191** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0192** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0193** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0194** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0195** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0196** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0197** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0198** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0199** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0200** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0201** (CAS) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0202** (CAS) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0203** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0204** (DEF) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0205** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0206** (DEF) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0207** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0208** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0209** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0210** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0211** (DEF) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0212** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0213** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0214** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0215** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0216** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0217** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0218** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0219** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0220** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0221** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0222** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0223** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0224** (DEF) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0225** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0226** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0227** (CAS) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0228** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0229** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0230** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0231** (DEF) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0232** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0233** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0234** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0235** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0236** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0237** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0238** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0239** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0240** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0241** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0242** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0243** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0244** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0245** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0246** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0247** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0248** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0249** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0250** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0251** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0252** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0253** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0254** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0255** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0256** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0257** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0258** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0259** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0260** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0261** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0262** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0263** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0264** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0265** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0266** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0267** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0268** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0269** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0270** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0271** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0272** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0273** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0274** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0275** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0276** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0277** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0278** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0279** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0280** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0281** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0282** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0283** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0284** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0285** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0286** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0287** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0288** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0289** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0290** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0291** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0292** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0293** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0294** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0295** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0296** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0297** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0298** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0299** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0300** (DEF) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0301** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0302** (EXC) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0303** (DEF) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ✓ Justificado (tipo DEF/Portal/Edad)
+* **KUN-0304** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0305** (CAS) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0306** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0307** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0308** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0309** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0310** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0311** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0312** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0313** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0314** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0315** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0316** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0317** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0318** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0319** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0320** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0321** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0322** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0323** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0324** (PEN) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0325** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
+* **KUN-0326** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)
 * **KUN-0031** (DEF) en [kuns_pag_005.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_pag_005.md) - ✓ Justificado (tipo DEF/Portal/Edad)
 
 ---
 ## 6. Dictamen de Certificación Final del Auditor
-### **DICTAMEN: CONFORME 🟢**
+### **DICTAMEN: CONFORME CON OBSERVACIONES 🟡**
 
-El corpus oficial en su versión 1.0 cumple íntegramente con todos los requisitos metodológicos, taxonomía de etiquetas, relaciones semánticas y principios de neutralidad documental del proyecto.
-Se certifica formalmente el **Corpus Oficial v1.0** y se autoriza el paso a la **Fase 3: Explotación del Conocimiento (Grafo, Embeddings y RAG)**.
+El corpus oficial no contiene no conformidades críticas que afecten la integridad del sistema. Sin embargo, contiene advertencias de reciprocidad o tags fuera de catálogo.
+Se autoriza el paso condicionado a la **Fase 3**, recomendando corregir las advertencias reportadas en la próxima versión menor (v1.1) del corpus.
