@@ -51,46 +51,6 @@ Este archivo contiene el corpus extraído de **PAG-002** (Portal de reglas de Ag
 
 ---
 
-### KUN-0024: Penalización por Romper Agarre con Dos Manos
-```json
-{
-  "id_conocimiento": "KUN-0024",
-  "titulo": "Sanción por Romper Agarre con Dos Manos",
-  "tipo": "PEN",
-  "nivel_autoridad": "Norma",
-  "version": "1.0",
-  "idioma_original": "en",
-  "vigencia_desde": "2026-01-01",
-  "vigencia_hasta": "null",
-  "contenido_original": "Breaking the grip with two hands but NOT keeping a grip is shido.",
-  "contenido_traduccion": "Romper el agarre con dos manos pero NO mantener al menos un agarre es Shido.",
-  "interpretacion": "Bajo el SOR 2026, si un competidor decide romper el agarre del oponente utilizando ambas manos, está obligado a retener de inmediato al menos un agarre propio. Si tras la rotura suelta por completo y no retiene ningún contacto, se le penaliza con Shido.",
-  "fuente_origen": "DOC-001",
-  "referencia_especifica": "Artículo 18.1.2 - Apéndice D (Reglas de Arbitraje), Página 171",
-  "tags": [
-    "shido",
-    "kumikata",
-    "grip-breaking"
-  ],
-  "relaciones": [
-    {
-      "tipo_relacion": "exceptuado_por",
-      "id_destino": "KUN-0020"
-    },
-    {
-      "tipo_relacion": "penaliza_a",
-      "id_destino": "KUN-0023"
-    },
-    {
-      "tipo_relacion": "complementado_por",
-      "id_destino": "KUN-0043"
-    }
-  ]
-}
-```
-
----
-
 ### KUN-0025: Penalización por Agarre no Clásico sin Ataque
 ```json
 {
