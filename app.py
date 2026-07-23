@@ -73,6 +73,22 @@ RESOURCE_DETAILS = {
     "PPT-002": {
         "name": "Presentación del Seminario de Arbitraje 2026",
         "url": "https://www.ijf.org/referee-commission"
+    },
+    "NEW-001": {
+        "name": "Comunicado Oficial: Reglas de Arbitraje LA28 (Noticias IJF)",
+        "url": "https://www.ijf.org/news"
+    },
+    "NEW-002": {
+        "name": "Congreso IJF 2025: Evolución de Tecnología y Reglas (Noticias IJF)",
+        "url": "https://www.ijf.org/news/show/ijf-congress-2025-tech-and-rule-evolution"
+    },
+    "NEW-003": {
+        "name": "Reglas Confirmadas para la Temporada 2026 (Noticias IJF)",
+        "url": "https://www.ijf.org/news/show/rules-confirmed-ahead-of-the-2026-season"
+    },
+    "IMG-001": {
+        "name": "Diagrama Oficial del Área de Competencia y Tatami",
+        "url": "https://www.ijf.org/ijf/documents"
     }
 }
 
