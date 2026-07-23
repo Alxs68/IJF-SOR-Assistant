@@ -76,6 +76,31 @@ El asistente utiliza un diseño desacoplado que separa la base de conocimiento o
 
 ---
 
+## 🛠️ Tecnologías y Herramientas Utilizadas
+
+Para lograr un sistema robusto, rápido y libre de dependencias pesadas de Machine Learning, el asistente fue construido con las siguientes tecnologías:
+
+1.  **Lenguaje y Núcleo Lógico:**
+    *   **Python 3.12:** Utilizado como el lenguaje base para todo el procesamiento de datos y la pipeline del motor RAG.
+    *   **Bibliotecas Nativas:** Procesamiento de texto con expresiones regulares (`re`), operaciones vectoriales con matemáticas estándar (`math`), persistencia con serialización de archivos (`json`) y consumo de APIs de red nativo (`urllib`).
+2.  **Inteligencia Artificial y Modelos de Lenguaje (Modo Conectado):**
+    *   **API de Gemini:** Consumo directo mediante peticiones HTTP nativas sin dependencias de SDKs pesados.
+    *   **Embeddings Densos (`gemini-embedding-001`):** Generación de vectores semánticos densos de 768 dimensiones utilizando peticiones HTTP en lotes (`batchEmbedContents`) para una velocidad de indexación óptima.
+    *   **Generador RAG (`gemini-1.5-flash` / `gemini-1.5-pro`):** Generación de respuestas sintetizadas basadas exclusivamente en el contexto recuperado bajo instrucciones de fidelidad estricta.
+3.  **Base de Datos y Recuperación Híbrida:**
+    *   **Semantic Vector Store (Buscador Semántico):** Motor vectorial híbrido que calcula la similitud coseno sobre vectores densos en Modo Conectado, con un fallback automático a similitud coseno **TF-IDF clásico local** en Modo Offline.
+    *   **Knowledge Graph (Grafo de Conocimiento):** Estructura lógica en listas de adyacencia bidireccionales compilada dinámicamente desde Markdown y persistida en JSON (`knowledge_graph.json`).
+4.  **Visualización y Capa Gráfica (UI):**
+    *   **Streamlit (v1.36+):** Utilizado para el frontend interactivo responsivo.
+    *   **CSS Dinámico (Theme-Aware):** Inyección de estilos CSS basados en variables de sistema de Streamlit para soportar el modo claro y oscuro de forma nativa.
+    *   **Graphviz:** Renderizado vectorial en 2D interactivo del subgrafo de relaciones normativas a partir de código DOT generado dinámicamente.
+5.  **Infraestructura y Despliegue:**
+    *   **Oracle Cloud Infrastructure (OCI):** Servidor VM en la nube ejecutando Ubuntu Server.
+    *   **Systemd (Gestión de Servicios):** Configuración como demonio en segundo plano (`ijf-assistant.service`) para asegurar alta disponibilidad y resiliencia ante reinicios del servidor.
+    *   **GitHub:** Control de versiones con versionamiento semántico e integración basada en Git Flow.
+
+---
+
 ## 📂 Estructura del Proyecto
 
 ```text
