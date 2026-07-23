@@ -3956,11 +3956,11 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
   "idioma_original": "en",
   "vigencia_desde": "2026-01-01",
   "vigencia_hasta": "null",
-  "contenido_original": "Article 18. If instead, the opponent takes advantage of the action of tori, the ne-waza work may continue.",
-  "contenido_traduccion": "Artículo 18. Si, en su lugar, el oponente se aprovecha de la acción de tori, el trabajo en ne-waza puede continuar.",
+  "contenido_original": "If instead, the opponent takes advantage of the action of tori, the ne-waza work may continue.",
+  "contenido_traduccion": "Si, en su lugar, el oponente se aprovecha de la acción de tori, el trabajo en ne-waza puede continuar.",
   "interpretacion": "Si tori realiza una acción o ataque fallido y el oponente aprovecha ese movimiento para tomar ventaja o iniciar una acción de control en el suelo, el árbitro debe permitir que el trabajo de ne-waza continúe sin interrumpir el combate.",
   "fuente_origen": "DOC-001",
-  "referencia_especifica": "Artículo 18 - Apéndice D (Reglas de Arbitraje), Página 151",
+  "referencia_especifica": "Artículo 10 - Apéndice D (Reglas de Arbitraje), Página 150",
   "tags": [
     "ne-waza",
     "procedure",
@@ -3988,7 +3988,7 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
   "contenido_traduccion": "B1. Los atletas podrán hacer una transición de ne-waza a tachi-waza si la situación no es peligrosa para ambos atletas, con o sin agarres. Cuando ambos se pongan de pie, independientemente de la posición corporal, pueden continuar.",
   "interpretacion": "Los competidores pueden levantarse desde una posición de suelo hacia la posición de pie durante el combate, siempre que la acción no represente un riesgo o peligro para ninguno de los dos. Si ambos logran ponerse de pie completamente, la acción continúa en tachi-waza sin necesidad de detener el combate con Mate.",
   "fuente_origen": "DOC-001",
-  "referencia_especifica": "Artículo 18 - Apéndice D (Reglas de Arbitraje), Página 151",
+  "referencia_especifica": "Artículo 11 - Apéndice D (Reglas de Arbitraje), Página 150",
   "tags": [
     "ne-waza",
     "procedure",
@@ -4017,7 +4017,7 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
   "contenido_traduccion": "El agarre kata-sankaku (agarrar con ambos brazos el cuello y un hombro del oponente) en la acción de ne-waza está permitido (imagen 10.15).",
   "interpretacion": "En trabajo de suelo (ne-waza), es completamente legal aplicar la presa o agarre kata-sankaku, consistente en envolver con ambos brazos el cuello y un hombro del oponente, para desarrollar técnicas de inmovilización, estrangulación o luxación dentro del marco permitido.",
   "fuente_origen": "DOC-001",
-  "referencia_especifica": "Artículo 18 - Apéndice D (Reglas de Arbitraje), Página 151",
+  "referencia_especifica": "Artículo 11 - Apéndice D (Reglas de Arbitraje), Página 150",
   "tags": [
     "ne-waza",
     "kumikata",
@@ -4045,7 +4045,7 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
   "contenido_traduccion": "Si el agarre kata-sankaku se utiliza para la transición, comenzando desde ne-waza hacia tachi-waza, o en tachi-waza directamente, y donde sea posible, se cantará inmediatamente “Mate!” (imagen 10.16).",
   "interpretacion": "Está prohibido utilizar el agarre kata-sankaku para ponerse de pie desde el suelo o aplicarlo directamente estando de pie (tachi-waza). Si un competidor intenta levantarse mientras mantiene este agarre o lo aplica de pie, el árbitro debe cantar “Mate!” de manera inmediata para evitar situaciones peligrosas en la columna o cuello.",
   "fuente_origen": "DOC-001",
-  "referencia_especifica": "Artículo 18 - Apéndice D (Reglas de Arbitraje), Página 151",
+  "referencia_especifica": "Artículo 11 - Apéndice D (Reglas de Arbitraje), Página 150",
   "tags": [
     "ne-waza",
     "kumikata",
