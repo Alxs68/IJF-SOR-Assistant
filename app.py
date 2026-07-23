@@ -153,8 +153,16 @@ with st.sidebar:
     
     # Retrieval Tuning Params (Tightened spacing)
     st.markdown("**🧭 Ajustes de Búsqueda**")
-    k_param = st.slider("Resultados (K)", 1, 5, 3)
-    min_score_param = st.slider("Score Mínimo", 0.05, 0.50, 0.10, 0.05)
+    k_param = st.slider(
+        "Cantidad de Reglas a Consultar", 
+        1, 5, 3,
+        help="Es como elegir cuántos libros abrir en la biblioteca. Un número bajo (1 o 2) busca rápido la regla directa. Un número alto (4 o 5) consulta más artículos relacionados para darte una respuesta más completa."
+    )
+    min_score_param = st.slider(
+        "Filtro Anti-Distracciones", 
+        0.05, 0.50, 0.10, 0.05,
+        help="El 'guardián' del chatbot. Evita que te conteste cosas que no tengan que ver con el Judo (como recetas o fútbol). Si lo subes, el asistente será más estricto y no responderá a menos que esté muy seguro."
+    )
     
     # Hubs list
     st.write("---")
