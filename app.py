@@ -15,23 +15,68 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
 
 from rag_engine import RagEngine
 
-# Catálogo oficial de URLs de recursos para enlaces clickables interactivos
-RESOURCE_URLS = {
-    "DOC-001": "https://www.ijf.org/ijf/documents",
-    "DOC-002": "https://www.ijf.org/referee-commission",
-    "DOC-004": "https://www.ijf.org/medical/documents",
-    "PAG-001": "https://rules.ijf.org",
-    "PAG-002": "https://rules.ijf.org/gripping",
-    "PAG-003": "https://rules.ijf.org/scoring",
-    "PAG-004": "https://rules.ijf.org/penalties",
-    "PAG-005": "https://referee.ijf.org",
-    "VID-001": "https://www.ijf.org/referee-videos",
-    "VID-002": "https://www.youtube.com/watch?v=referee-video-grip-2026",
-    "VID-003": "https://www.youtube.com/watch?v=referee-video-yuko-2026",
-    "VID-004": "https://www.youtube.com/watch?v=referee-video-sankaku-2026",
-    "VID-005": "https://www.youtube.com/watch?v=referee-video-time-2026",
-    "PPT-001": "https://www.ijf.org/ijf/documents",
-    "PPT-002": "https://www.ijf.org/referee-commission"
+# Catálogo oficial con detalles y URLs directas a los PDF/páginas de reglas de la IJF
+RESOURCE_DETAILS = {
+    "DOC-001": {
+        "name": "Reglamento SOR 2026 (Sport and Organisation Rules)",
+        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf"
+    },
+    "DOC-002": {
+        "name": "Guía Explicativa de Reglas de Arbitraje (PDF)",
+        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2023/03/Explanatory_Guide_of_the_Judo_R-1679904791.pdf"
+    },
+    "DOC-004": {
+        "name": "Manual Médico de Judo (PDF)",
+        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/Medical_Manual_for_Judo_2026-1768917812.pdf"
+    },
+    "PAG-001": {
+        "name": "Portal de Reglas Interactivas de la IJF",
+        "url": "https://rules.ijf.org"
+    },
+    "PAG-002": {
+        "name": "Portal de Reglas IJF: Sección Kumikata (Agarres)",
+        "url": "https://rules.ijf.org/gripping"
+    },
+    "PAG-003": {
+        "name": "Portal de Reglas IJF: Sección Scoring (Puntuaciones)",
+        "url": "https://rules.ijf.org/scoring"
+    },
+    "PAG-004": {
+        "name": "Portal de Reglas IJF: Sección Penalties (Faltas)",
+        "url": "https://rules.ijf.org/penalties"
+    },
+    "PAG-005": {
+        "name": "Portal Oficial de Arbitraje IJF",
+        "url": "https://referee.ijf.org"
+    },
+    "VID-001": {
+        "name": "Videoteca de Reglas y Seminarios de Arbitraje IJF",
+        "url": "https://www.ijf.org/referee-videos"
+    },
+    "VID-002": {
+        "name": "Video de Arbitraje IJF: Demostración de Agarre (Kumikata)",
+        "url": "https://rules.ijf.org/gripping"
+    },
+    "VID-003": {
+        "name": "Video de Arbitraje IJF: Criterio de Caídas Yuko",
+        "url": "https://rules.ijf.org/scoring"
+    },
+    "VID-004": {
+        "name": "Video de Arbitraje IJF: Seguridad en Ushiro-Sankaku-Gatame",
+        "url": "https://rules.ijf.org/penalties"
+    },
+    "VID-005": {
+        "name": "Video de Arbitraje IJF: Evasión y Pérdida de Tiempo",
+        "url": "https://rules.ijf.org/penalties"
+    },
+    "PPT-001": {
+        "name": "Presentación del Congreso de Tecnología",
+        "url": "https://www.ijf.org/ijf/documents"
+    },
+    "PPT-002": {
+        "name": "Presentación del Seminario de Arbitraje 2026",
+        "url": "https://www.ijf.org/referee-commission"
+    }
 }
 
 # Automatic logo downloader on startup to ensure offline rendering on OCI
@@ -338,23 +383,31 @@ if st.session_state.active_index >= 0:
                 source_id = kun['fuente_origen']
                 ref_spec = kun.get('referencia_especifica', 'Reglamento')
                 
-                # Render source as clickable link if available
-                source_link = f"`{source_id}`"
-                if source_id in RESOURCE_URLS:
-                    url = RESOURCE_URLS[source_id]
-                    # Parse timestamp from ref_spec (e.g. 03:45 or 01:12) to jump to exact minute
+                # Render source as clickable link with friendly name and specific article
+                source_link = f"`{source_id}` - {ref_spec}"
+                if source_id in RESOURCE_DETAILS:
+                    details = RESOURCE_DETAILS[source_id]
+                    url = details["url"]
+                    name = details["name"]
+                    
+                    # Extract page number for PDFs to open directly at the correct page (e.g. #page=124)
                     import re
+                    page_match = re.search(r'(?:pág|página|page)\.?\s*(\d+)', ref_spec, re.IGNORECASE)
+                    if page_match and url.endswith(".pdf"):
+                        page_num = page_match.group(1)
+                        url = f"{url}#page={page_num}"
+                        
+                    # Extract timestamp for YouTube videos if applicable
                     ts_match = re.search(r'(\d{1,2}):(\d{2})', ref_spec)
                     if ts_match and "youtube.com" in url:
                         mins = int(ts_match.group(1))
                         secs = int(ts_match.group(2))
                         total_secs = mins * 60 + secs
-                        url_with_ts = f"{url}&t={total_secs}s"
-                        source_link = f"[`{source_id}`]({url_with_ts})"
-                    else:
-                        source_link = f"[`{source_id}`]({url})"
+                        url = f"{url}&t={total_secs}s"
+                        
+                    source_link = f"[{name} ({ref_spec})]({url})"
                 
-                st.markdown(f"* Fuente: {source_link} - {ref_spec}")
+                st.markdown(f"* **Fuente:** {source_link}")
                 st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
                 st.write(f"* Interpretación: {kun['interpretacion']}")
                 st.write("---")
