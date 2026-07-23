@@ -329,6 +329,14 @@ if "last_query" not in st.session_state:
 # --- Custom Premium Theme-Aware CSS ---
 st.markdown("""
 <style>
+    /* Vertically center elements in columns */
+    div[data-testid="stHorizontalBlock"] {
+        align-items: center !important;
+    }
+    /* Reset default top margins for buttons inside columns */
+    div[data-testid="stButton"] {
+        margin-top: 0px !important;
+    }
     /* Styling search input wrapper */
     div[data-testid="stTextInput"] {
         margin-top: -0.5rem !important;
