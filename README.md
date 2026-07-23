@@ -13,19 +13,18 @@ La interfaz interactiva está desarrollada en **Streamlit** y provee un chatbot 
 | 🥋 IJF SOR Assistant                                         |
 | Asistente Oficial de Consulta del Reglamento IJF             |
 +--------------------------------------------------------------+
-| [ Bar Lateral ]                   | [ Caja de Conversación ] |
-| 🟢 Conectado (Gemini)             |                          |
-| Nodos Grafo: 77                   | User: ¿Defensa de cabeza?|
-| Relaciones:  72                   |                          |
-|                                   | Assistant: Sanción con   |
-| Parámetros:                       | Hansoku-make directo...  |
-| - K semántico                     | [KUN-0001] [SOR Art. 20] |
-| - Umbral score                    |                          |
-|                                   | +----------------------+ |
-| Hubs Centrales:                   | | 📚 Ver Trazabilidad  | |
-| - KUN-0001: 16                    | +----------------------+ |
-| - KUN-0026: 12                    | | 🕸️ Ver Subgrafo      | |
-|                                   | +----------------------+ |
+| [ Bar Lateral ]          | [ Panel Principal ]               |
+| 🟢 Conectado (Gemini)    |                                   |
+| Nodos Grafo: 841         | 🔍 [ Escribe tu pregunta aquí ]   |
+| Relaciones:  144         |                                   |
+|                          | Active Query: ¿Defensa de cabeza? |
+| Parámetros:              |                                   |
+| - K semántico            | Assistant: Sanción con            |
+| - Umbral score           | Hansoku-make directo...           |
+|                          | [KUN-0001] [SOR Art. 20]          |
+| Hubs Centrales:          |                                   |
+| - KUN-0001 (16 enlaces)  | 📚 [ Ver Trazabilidad ]           |
+| - KUN-0026 (12 enlaces)  | 🕸️ [ Ver Subgrafo ]               |
 +--------------------------------------------------------------+
 ```
 
@@ -229,7 +228,7 @@ python tests/test_golden_dataset.py
 El desarrollo de este asistente sigue una rigurosa secuencia metodológica diseñada para garantizar la entrega de un código limpio, estructurado y libre de "alucinaciones" en las respuestas de la IA:
 
 ### 1. Modelado del Conocimiento y Certificación del Corpus
-*   **Extracción Sistemática:** El reglamento oficial de la IJF se fragmentó en 77 Unidades de Conocimiento certificadas (KUNs) que aíslan la lógica normativa.
+*   **Extracción Sistemática:** El reglamento oficial de la IJF se fragmentó en **841 Unidades de Conocimiento certificadas (KUNs)** que aíslan la lógica normativa, cubriendo la totalidad del SOR 2026.
 *   **Auditoría de Correspondencia (AUD-001):** Se verificó que cada KUN tuviera un enlace unívoco e inalterado con su fuente de origen en el PDF oficial de la IJF (páginas, clips de video o diapositivas oficiales), alcanzando una tasa de cobertura del 100% en los temas seleccionados.
 *   **Certificado de Conformidad (CERT-001):** Garantiza la veracidad del corpus indexado, obligando al modelo de lenguaje a depender únicamente del contexto recuperado para responder.
 
@@ -247,11 +246,11 @@ Para mantener un historial de cambios trazable, legible y alineado con los está
 
 ## ⚠️ Limitaciones Conocidas del MVP v1.0
 1.  **Límite de Contexto de un Solo Salto:** El motor RAG híbrido expande las consultas semánticas de forma fija a profundidad 1 en el grafo. Para consultas que requieran encadenamiento de múltiples reglas indirectas (profundidad >= 2), el contexto podría omitir dependencias indirectas.
-2.  **Representación Léxica de TF-IDF:** Al no utilizar embeddings neuronales densos de forma nativa para evitar dependencias complejas en el despliegue local de Windows, la búsqueda vectorial depende fuertemente de la coincidencia de raíces y sinónimos definidos en las interpretaciones del corpus.
+2.  **Mecanismo de Recuperación Vectorial Híbrido:** El sistema es híbrido. En **Modo Conectado**, utiliza embeddings neuronales densos mediante la API oficial de Gemini (`gemini-embedding-001`) con cálculo de similitud coseno de 768 dimensiones. Si no hay conexión o no se detecta la clave API, el sistema activa automáticamente un motor **TF-IDF clásico local** para garantizar la resiliencia offline de forma transparente.
 
 ---
 
 ## 🔮 Trabajo Futuro (Backlog v1.1)
-1.  **Indexación Densa Híbrida:** Incorporar soporte para modelos de embeddings neuronales densos (como MiniLM o embeddings de Gemini) almacenados de forma local para mejorar la coincidencia semántica conceptual abstracta.
+1.  **Embeddings Locales Offline:** Incorporar soporte para modelos de embeddings densos locales (como SentenceTransformers MiniLM) ejecutados localmente en la máquina virtual OCI para eliminar la dependencia de red incluso en el cálculo de embeddings.
 2.  **Expansión Selectiva por Tipo de Relación:** Permitir al motor filtrar dinámicamente qué aristas del grafo recorrer (ej. seguir solo relaciones `exceptua_a` o `ilustra_a`) para optimizar el tamaño del prompt.
 3.  **Evaluación Automatizada de Generación:** Integrar métricas G-Eval o Ragas para evaluar no solo la precisión de la recuperación de KUNs, sino la fidelidad y exactitud textual de la respuesta final generada por el LLM.
