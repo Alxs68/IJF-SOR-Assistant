@@ -15,6 +15,25 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
 
 from rag_engine import RagEngine
 
+# Catálogo oficial de URLs de recursos para enlaces clickables interactivos
+RESOURCE_URLS = {
+    "DOC-001": "https://www.ijf.org/ijf/documents",
+    "DOC-002": "https://www.ijf.org/referee-commission",
+    "DOC-004": "https://www.ijf.org/medical/documents",
+    "PAG-001": "https://rules.ijf.org",
+    "PAG-002": "https://rules.ijf.org/gripping",
+    "PAG-003": "https://rules.ijf.org/scoring",
+    "PAG-004": "https://rules.ijf.org/penalties",
+    "PAG-005": "https://referee.ijf.org",
+    "VID-001": "https://www.ijf.org/referee-videos",
+    "VID-002": "https://www.youtube.com/watch?v=referee-video-grip-2026",
+    "VID-003": "https://www.youtube.com/watch?v=referee-video-yuko-2026",
+    "VID-004": "https://www.youtube.com/watch?v=referee-video-sankaku-2026",
+    "VID-005": "https://www.youtube.com/watch?v=referee-video-time-2026",
+    "PPT-001": "https://www.ijf.org/ijf/documents",
+    "PPT-002": "https://www.ijf.org/referee-commission"
+}
+
 # Automatic logo downloader on startup to ensure offline rendering on OCI
 logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
 logo_path = os.path.join(logo_dir, 'logo.png')
@@ -315,7 +334,27 @@ if st.session_state.active_index >= 0:
         with st.expander("📚 Ver Trazabilidad y Citas Oficiales"):
             for kun in active_item['trazabilidad']:
                 st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}**")
-                st.write(f"* Fuente: `{kun['fuente_origen']}` - {kun.get('referencia_especifica', 'Reglamento')}")
+                
+                source_id = kun['fuente_origen']
+                ref_spec = kun.get('referencia_especifica', 'Reglamento')
+                
+                # Render source as clickable link if available
+                source_link = f"`{source_id}`"
+                if source_id in RESOURCE_URLS:
+                    url = RESOURCE_URLS[source_id]
+                    # Parse timestamp from ref_spec (e.g. 03:45 or 01:12) to jump to exact minute
+                    import re
+                    ts_match = re.search(r'(\d{1,2}):(\d{2})', ref_spec)
+                    if ts_match and "youtube.com" in url:
+                        mins = int(ts_match.group(1))
+                        secs = int(ts_match.group(2))
+                        total_secs = mins * 60 + secs
+                        url_with_ts = f"{url}&t={total_secs}s"
+                        source_link = f"[`{source_id}`]({url_with_ts})"
+                    else:
+                        source_link = f"[`{source_id}`]({url})"
+                
+                st.markdown(f"* Fuente: {source_link} - {ref_spec}")
                 st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
                 st.write(f"* Interpretación: {kun['interpretacion']}")
                 st.write("---")
