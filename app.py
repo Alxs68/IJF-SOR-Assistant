@@ -346,6 +346,21 @@ st.markdown("""
         margin-top: -0.5rem !important;
         margin-bottom: 0.5rem !important;
     }
+    /* Styling selectbox wrapper */
+    div[data-testid="stSelectbox"] {
+        margin-top: -0.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    /* Reduce selectbox value font size when closed */
+    div[data-testid="stSelectbox"] * {
+        font-family: 'Inter', sans-serif !important;
+        font-size: 0.95rem !important;
+    }
+    /* Reduce selectbox dropdown option items font size when open */
+    div[role="listbox"] * {
+        font-family: 'Inter', sans-serif !important;
+        font-size: 0.95rem !important;
+    }
     /* Input field itself - Adapt to dark/light backgrounds */
     div[data-testid="stTextInput"] input {
         font-family: 'Inter', sans-serif !important;
