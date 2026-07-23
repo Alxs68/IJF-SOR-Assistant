@@ -21,10 +21,7 @@ RESOURCE_DETAILS = {
         "name": "Reglamento SOR 2026 (Sport and Organisation Rules)",
         "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf"
     },
-    "DOC-002": {
-        "name": "Guía Explicativa de Reglas de Arbitraje (PDF)",
-        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2023/03/Explanatory_Guide_of_the_Judo_R-1679904791.pdf"
-    },
+
     "DOC-004": {
         "name": "Manual Médico de Judo (PDF)",
         "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/Medical_Manual_for_Judo_2026-1768917812.pdf"
@@ -305,9 +302,95 @@ else:
     """, unsafe_allow_html=True)
 
 
+# Initialize session states
+if "search_query_input_widget" not in st.session_state:
+    st.session_state.search_query_input_widget = ""
+if "last_query" not in st.session_state:
+    st.session_state.last_query = ""
+
+# --- Custom Premium CSS for search input and active card ---
+st.markdown("""
+<style>
+    /* Styling search input wrapper */
+    div[data-testid="stTextInput"] {
+        margin-top: -0.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    /* Input field itself */
+    div[data-testid="stTextInput"] input {
+        font-family: 'Inter', sans-serif !important;
+        font-size: 1.05rem !important;
+        padding: 0.75rem 1rem 0.75rem 2.8rem !important; /* Left padding for search icon */
+        border-radius: 10px !important;
+        border: 2px solid #334155 !important;
+        background-color: #0f172a !important;
+        color: #f8fafc !important;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    div[data-testid="stTextInput"] input:focus {
+        border-color: #3b82f6 !important;
+        background-color: #1e293b !important;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3) !important;
+    }
+    /* Custom magnifying glass icon inside input */
+    div[data-testid="stTextInput"] > div::before {
+        content: "🔍";
+        position: absolute;
+        left: 0.9rem;
+        top: 0.75rem;
+        z-index: 10;
+        font-size: 1.1rem;
+        opacity: 0.7;
+    }
+    /* Style search button */
+    div.stButton > button[type="primary"] {
+        background-color: #3b82f6 !important;
+        border-color: #3b82f6 !important;
+        color: #ffffff !important;
+        border-radius: 10px !important;
+        font-family: 'Inter', sans-serif !important;
+        font-weight: 600 !important;
+        font-size: 1rem !important;
+        padding: 0.6rem 1rem !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3) !important;
+    }
+    div.stButton > button[type="primary"]:hover {
+        background-color: #2563eb !important;
+        box-shadow: 0 6px 12px -1px rgba(59, 130, 246, 0.5) !important;
+        transform: translateY(-1px);
+    }
+    /* Custom Active Query Card */
+    .active-query-card {
+        background-color: #1e293b;
+        border-left: 5px solid #3b82f6;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Main Query Panel (Centered and prominent)
+st.markdown('<div style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.6rem; font-family: \'Outfit\', sans-serif; display: flex; align-items: center; gap: 0.5rem;">🥋 <span>Realiza tu pregunta sobre el Reglamento 2026:</span></div>', unsafe_allow_html=True)
+
+scol1, scol2 = st.columns([5, 1.2])
+with scol1:
+    user_input = st.text_input(
+        "Consulta",
+        placeholder="Ej: ¿Cómo se sanciona el puente de cabeza? o ¿Cuál es la tolerancia de peso?",
+        label_visibility="collapsed",
+        key="search_query_input_widget"
+    )
+with scol2:
+    buscar_btn = st.button("Buscar Regla", use_container_width=True, type="primary")
+
 # --- 💡 Preguntas de Ejemplo - Placed inside a beautiful native card to separate areas ---
 with st.container(border=True):
-    st.markdown('<div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: #3B82F6;">💡 Consultas de Demostración</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">💡 O selecciona una consulta de demostración predefinida:</div>', unsafe_allow_html=True)
     
     preguntas_ejemplo = [
         "Elige una pregunta para consultar...",
@@ -322,19 +405,23 @@ with st.container(border=True):
         "¿Cuáles son las reglas de color de Judogi (blanco y azul)?"
     ]
     
-    seleccionada = st.selectbox("Selecciona una pregunta predefinida para probar de inmediato:", preguntas_ejemplo, label_visibility="collapsed")
-    trigger_ejemplo = st.button("🚀 Consultar Ejemplo", use_container_width=True)
+    col_sel, col_btn = st.columns([5, 1.2])
+    with col_sel:
+        seleccionada = st.selectbox("Selecciona una pregunta predefinida para probar de inmediato:", preguntas_ejemplo, label_visibility="collapsed")
+    with col_btn:
+        trigger_ejemplo = st.button("Probar Ejemplo", use_container_width=True)
+
+if trigger_ejemplo and seleccionada != "Elige una pregunta para consultar...":
+    st.session_state.search_query_input_widget = seleccionada
+    st.rerun()
 
 st.write("")
 
-# User query input (Floating at the bottom, or standard input)
-user_input = st.chat_input("Escribe tu pregunta sobre el reglamento...")
-
+# Query validation trigger logic
 query_to_run = None
-if user_input:
+if user_input and (buscar_btn or user_input != st.session_state.get("last_query", "")):
     query_to_run = user_input
-elif trigger_ejemplo and seleccionada != "Elige una pregunta para consultar...":
-    query_to_run = seleccionada
+    st.session_state.last_query = user_input
 
 # Run query and append to history
 if query_to_run:
@@ -369,7 +456,18 @@ if query_to_run:
 if st.session_state.active_index >= 0:
     active_item = st.session_state.history[st.session_state.active_index]
     
-    st.markdown(f"**❓ Consulta activa:** {active_item['query']}")
+    # Styled active query card
+    st.markdown(f"""
+    <div class="active-query-card">
+        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; font-weight: 700; margin-bottom: 0.3rem;">
+            ❓ Consulta Activa
+        </div>
+        <div style="font-size: 1.1rem; color: #f8fafc; font-weight: 600;">
+            {active_item['query']}
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
     st.markdown(active_item['answer'])
     
     # Hide citations and graph if it's a fallback "not found" answer
@@ -415,16 +513,15 @@ if st.session_state.active_index >= 0:
         with st.expander("🕸️ Ver Subgrafo de Relaciones"):
             st.graphviz_chart(active_item['dot_code'])
 else:
-    st.info("💡 Escribe una pregunta en el chat inferior o selecciona un ejemplo de arriba para iniciar la consulta.")
+    st.info("💡 Escribe una pregunta en el panel superior o selecciona un ejemplo de arriba para iniciar la consulta.")
 
 # Scope explanation moved to the bottom to keep the core action prominent
 st.write("---")
 with st.expander("📝 Alcance de la Demo & Temas Disponibles"):
     st.markdown("""
-    Esta demo cuenta con **77 Unidades de Conocimiento certificadas** sobre los siguientes temas clave del SOR 2026:
-    *   **🥋 Equipamiento:** Dimensiones del tatami, control con Sokuteiki y tecnología Smart Judogi NFC.
-    *   **⏱️ Puntuación:** Criterios para Ippon, Waza-ari y Yuko, y tiempos de inmovilización (Osaekomi).
-    *   **🚫 Sanciones:** Defensa de cabeza (Head Defence), clavado de cabeza (Diving), caídas en puente, salirse del tatami y agarres prohibidos.
-    *   **🚸 Seguridad:** Reglas de Cadetes, desmayos por estrangulación y prohibición del seoi-nage inverso.
-    *   **🏥 Asistencia Médica:** Intervenciones médicas máximas (2 por combate) y sangrados.
+    Esta demo cuenta con **841 Unidades de Conocimiento certificadas** sobre los siguientes temas clave del SOR 2026:
+    *   **🥋 Equipamiento e Instalaciones:** Área de combate (tatami), control de judogi con Sokuteiki y tecnología de uniformes Smart Judogi NFC.
+    *   **⏱️ Sistemas y Pesaje:** Sistemas de llaves, repechajes, sorteo de cabezas de serie y reglamento de pesaje oficial y aleatorio.
+    *   **🚫 Arbitraje y Sanciones:** Puntuaciones (Ippon, Waza-ari, Yuko) e infracciones (puente, defensa de cabeza, diving, no-combatividad, oso).
+    *   **🏥 Manual Médico:** Atención médica, desmayos por shime-waza, conmociones (7 días de inhabilitación), código de vestimenta de médicos y dopaje.
     """)
