@@ -62,32 +62,76 @@ class VectorStore:
             print(f"[LOG] [VectorStore] Error al obtener embedding de Gemini: {e}")
             return None
 
+    def _get_embeddings_batch(self, texts, api_key):
+        """Calls Gemini batchEmbedContents API to get embeddings in a single request (zero-dependency)."""
+        import urllib.request
+        import urllib.error
+        
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents?key={api_key}"
+        
+        requests_payload = []
+        for text in texts:
+            requests_payload.append({
+                "model": "models/gemini-embedding-001",
+                "content": {
+                    "parts": [{"text": text}]
+                }
+            })
+            
+        payload = {"requests": requests_payload}
+        headers = {
+            "Content-Type": "application/json"
+        }
+        try:
+            req = urllib.request.Request(
+                url, 
+                data=json.dumps(payload).encode('utf-8'), 
+                headers=headers,
+                method='POST'
+            )
+            with urllib.request.urlopen(req) as response:
+                res_data = json.loads(response.read().decode('utf-8'))
+                embeddings = [e.get('values', []) for e in res_data.get('embeddings', [])]
+                return embeddings
+        except Exception as e:
+            print(f"[LOG] [VectorStore] Error al obtener lote de embeddings de Gemini: {e}")
+            return None
+
     def index_kun_corpus(self, kuns_dict, api_key=None):
         """Indexes KUNs using Gemini Embeddings if api_key is provided, otherwise falls back to local TF-IDF."""
         if api_key:
-            print("[LOG] [VectorStore] Inicializando indexación con Gemini Embeddings...")
+            print("[LOG] [VectorStore] Inicializando indexación con Gemini Embeddings en lotes...")
             self.kun_ids = []
             self.vectors = []
             self.doc_lengths = []
             
+            kuns_list = list(kuns_dict.items())
+            batch_size = 100
             success_count = 0
-            for kun_id, kun_data in kuns_dict.items():
-                text = f"{kun_data.get('contenido_traduccion', '')} {kun_data.get('interpretacion', '')}"
-                embedding = self._get_embedding(text, api_key)
-                if embedding:
-                    self.kun_ids.append(kun_id)
-                    self.vectors.append(embedding)
-                    # Compute Euclidean length for cosine similarity normalization
-                    length = math.sqrt(sum(v ** 2 for v in embedding))
-                    self.doc_lengths.append(length)
-                    success_count += 1
+            
+            for i in range(0, len(kuns_list), batch_size):
+                chunk = kuns_list[i:i + batch_size]
+                chunk_ids = [item[0] for item in chunk]
+                chunk_texts = [f"{item[1].get('contenido_traduccion', '')} {item[1].get('interpretacion', '')}" for item in chunk]
+                
+                print(f"[LOG] [VectorStore] Enviando lote de embeddings ({len(chunk_texts)} textos)...")
+                embeddings = self._get_embeddings_batch(chunk_texts, api_key)
+                
+                if embeddings and len(embeddings) == len(chunk_texts):
+                    for j, embedding in enumerate(embeddings):
+                        self.kun_ids.append(chunk_ids[j])
+                        self.vectors.append(embedding)
+                        # Compute Euclidean length for cosine similarity normalization
+                        length = math.sqrt(sum(v ** 2 for v in embedding))
+                        self.doc_lengths.append(length)
+                        success_count += 1
                 else:
-                    print(f"[LOG] [VectorStore] Fallo al obtener embedding para {kun_id}. Activando fallback a TF-IDF.")
+                    print(f"[LOG] [VectorStore] Fallo en el lote de embeddings. Activando fallback a TF-IDF.")
                     break
             
             if success_count == len(kuns_dict) and len(kuns_dict) > 0:
                 self.mode = "embeddings"
-                print(f"[LOG] [VectorStore] Indexación semántica completada con éxito. {success_count} KUNs indexadas.")
+                print(f"[LOG] [VectorStore] Indexación semántica completada con éxito. {success_count} KUNs indexadas en lote.")
                 return
                 
         # TF-IDF Fallback (either because api_key is None or API failed)
