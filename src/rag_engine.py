@@ -18,6 +18,9 @@ class RagEngine:
         self.kg = KnowledgeGraph()
         self.vs = VectorStore()
         
+        # Load API key
+        self.api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+        
         # Paths
         self.graph_path = os.path.join(brain_dir, 'scratch', 'knowledge_graph.json')
         self.vector_path = os.path.join(brain_dir, 'scratch', 'vector_store_index.json')
@@ -38,12 +41,12 @@ class RagEngine:
             self.vs.load_index(self.vector_path)
         else:
             # Index on the fly
-            self.vs.index_kun_corpus(self.kg.nodes)
+            self.vs.index_kun_corpus(self.kg.nodes, api_key=self.api_key)
 
     def retrieve_context(self, query, k=3, min_score=0.10, depth=1):
         """Retrieves semantic hits and expands context using graph relations."""
         # 1. Semantic Search
-        semantic_hits = self.vs.search(query, k=k)
+        semantic_hits = self.vs.search(query, k=k, api_key=self.api_key)
         
         # Filter by min_score
         seed_ids = [hit['id_conocimiento'] for hit in semantic_hits if hit['score'] >= min_score]
@@ -184,19 +187,26 @@ class RagEngine:
         }
 
     def _generate_mock_answer(self, query, kuns):
-        """Generates a structured offline mock answer based on retrieved KUNs when API key is missing."""
+        """Generates a clean, user-friendly offline mock answer when API key is missing or offline."""
         if not kuns:
-            return "Lo siento, no tengo esa información certificada en mi base de datos."
+            return (
+                "⚠️ **Sin Conexión / Modo Offline**\n\n"
+                "Lo siento, no he encontrado ninguna regla en mi base de datos que coincida con tu pregunta."
+            )
             
-        ans = "[MODO OFFLINE/SIMULADO]\n\n"
-        ans += f"En base a los datos recuperados, se identifican las siguientes regulaciones oficiales:\n\n"
+        ans = (
+            "🔌 **Asistente en Modo Local (Sin Conexión)**\n\n"
+            "No he podido conectarme a la inteligencia de Gemini (API offline), pero aquí tienes las reglas oficiales exactas de mi base de datos que responden a tu consulta:\n\n"
+        )
         
         for k in kuns:
-            ans += f"* **{k['id_conocimiento']} ({k['titulo']}):** {k['contenido_traduccion']}\n"
-            ans += f"  * *Interpretación:* {k['interpretacion']}\n"
-            ans += f"  * *Fuente:* {k['fuente_origen']} - {k.get('referencia_especifica', 'Reglamento oficial')}\n\n"
+            ans += f"### 🥋 {k['id_conocimiento']}: {k['titulo']}\n"
+            ans += f"> **Regla Oficial:** {k['contenido_traduccion']}\n\n"
+            ans += f"* **Interpretación Práctica:** {k['interpretacion']}\n"
+            ans += f"* **Referencia en el Reglamento:** {k['fuente_origen']} - {k.get('referencia_especifica', 'Reglas oficiales de la IJF')}\n\n"
+            ans += "---\n\n"
             
-        ans += "Para respuestas más detalladas en lenguaje natural, configure la variable de entorno GEMINI_API_KEY."
+        ans += "💡 *Consejo: Para que el asistente te responda con explicaciones redactadas de forma natural e interactiva por IA, asegúrate de activar la conexión a internet y configurar tu clave API (`GEMINI_API_KEY`).*"
         return ans
 
 if __name__ == '__main__':

@@ -3,7 +3,7 @@
 
 | ID | Consulta de Prueba | KUN Esperada | KUNs Recuperadas | ¿Éxito? |
 | :--- | :--- | :---: | :--- | :---: |
-| 01 | "Defensa de cabeza hansoku-make" | **KUN-0001** | KUN-0001, KUN-0002, KUN-0030, KUN-0035, KUN-0056, KUN-0069, KUN-0070 | 🟢 SÍ |
+| 01 | "Defensa de cabeza hansoku-make" | **KUN-0001** | KUN-0001, KUN-0002, KUN-0003, KUN-0004, KUN-0019, KUN-0022, KUN-0030, KUN-0035, KUN-0046, KUN-0056 | 🟢 SÍ |
 | 02 | "Acción involuntaria de cabeza en proyección" | **KUN-0003** | KUN-0001, KUN-0002, KUN-0003, KUN-0030, KUN-0035 | 🟢 SÍ |
 | 03 | "Video de defensa de cabeza durante seoi-nage" | **KUN-0004** | KUN-0001, KUN-0004, KUN-0005, KUN-0046, KUN-0047, KUN-0073 | 🟢 SÍ |
 | 04 | "Dimensiones oficiales del tatami y área de seguridad" | **KUN-0007** | KUN-0007, KUN-0008, KUN-0012, KUN-0013, KUN-0026, KUN-0029, KUN-0037, KUN-0041, KUN-0076 | 🟢 SÍ |
