@@ -325,6 +325,10 @@ if "search_query_input_widget" not in st.session_state:
     st.session_state.search_query_input_widget = ""
 if "last_query" not in st.session_state:
     st.session_state.last_query = ""
+if "active_placeholder" not in st.session_state:
+    st.session_state.active_placeholder = "Ej: ¿Cómo se sanciona el puente de cabeza? o ¿Cuál es la tolerancia de peso?"
+if "trigger_search" not in st.session_state:
+    st.session_state.trigger_search = False
 
 # --- Custom Premium Theme-Aware CSS ---
 st.markdown("""
@@ -366,6 +370,15 @@ st.markdown("""
         z-index: 10;
         font-size: 1.1rem;
         opacity: 0.7;
+    }
+    /* Placeholder styling - softer color and semi-transparent */
+    div[data-testid="stTextInput"] input::placeholder {
+        color: var(--text-color) !important;
+        opacity: 0.55 !important;
+        transition: opacity 0.2s ease !important;
+    }
+    div[data-testid="stTextInput"] input:focus::placeholder {
+        opacity: 0.2 !important;
     }
     /* Style primary search button (IJF Cobalt Blue) */
     div.stButton > button[type="primary"] {
@@ -422,17 +435,19 @@ st.markdown("""
 def load_example():
     sel = st.session_state.get("example_select_widget")
     if sel and sel != "Elige una pregunta para consultar...":
-        st.session_state.search_query_input_widget = sel
+        st.session_state.active_placeholder = sel
+        st.session_state.search_query_input_widget = ""
+        st.session_state.trigger_search = True
 
 # --- 🔍 Direct Question Card Area ---
 with st.container(border=True):
     st.markdown('<div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; font-family: \'Outfit\', sans-serif; display: flex; align-items: center; gap: 0.5rem; color: #1d4ed8;">🥋 <span>Realiza tu pregunta sobre el Reglamento 2026:</span></div>', unsafe_allow_html=True)
     
-    scol1, scol2 = st.columns([5, 1.2])
+    scol1, scol2 = st.columns([4.5, 1.5])
     with scol1:
         user_input = st.text_input(
             "Consulta",
-            placeholder="Ej: ¿Cómo se sanciona el puente de cabeza? o ¿Cuál es la tolerancia de peso?",
+            placeholder=st.session_state.active_placeholder,
             label_visibility="collapsed",
             key="search_query_input_widget"
         )
@@ -456,7 +471,7 @@ with st.container(border=True):
         "¿Cuáles son las reglas de color de Judogi (blanco y azul)?"
     ]
     
-    col_sel, col_btn = st.columns([5, 1.2])
+    col_sel, col_btn = st.columns([4.5, 1.5])
     with col_sel:
         seleccionada = st.selectbox("Selecciona una pregunta predefinida para probar de inmediato:", preguntas_ejemplo, label_visibility="collapsed", key="example_select_widget")
     with col_btn:
@@ -466,9 +481,18 @@ st.write("")
 
 # Query validation trigger logic
 query_to_run = None
-if user_input and (buscar_btn or user_input != st.session_state.get("last_query", "")):
-    query_to_run = user_input
-    st.session_state.last_query = user_input
+user_input_clean = user_input.strip() if user_input else ""
+
+if user_input_clean:
+    if buscar_btn or user_input_clean != st.session_state.get("last_query", ""):
+        query_to_run = user_input_clean
+        st.session_state.last_query = user_input_clean
+else:
+    if st.session_state.get("active_placeholder") and st.session_state.active_placeholder != "Ej: ¿Cómo se sanciona el puente de cabeza? o ¿Cuál es la tolerancia de peso?":
+        if buscar_btn or st.session_state.get("trigger_search", False):
+            query_to_run = st.session_state.active_placeholder
+            st.session_state.last_query = st.session_state.active_placeholder
+            st.session_state.trigger_search = False
 
 # Run query and append to history
 if query_to_run:
