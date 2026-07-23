@@ -19,5 +19,8 @@
 - [x] Reducir el tamaño de fuente de la caja y de la lista de opciones de st.selectbox a 0.95rem para balance visual
 - [x] Agregar la sección formal de 'Tecnologías y Herramientas Utilizadas' en el README.md principal
 - [x] Mapear y subir `recompile_all.py` a la carpeta `scripts/` del repositorio de GitHub
+- [x] Generar el Documento de Defensa Técnica del Proyecto con los 20 capítulos conceptuales
+- [x] Redactar y anexar las 100 Preguntas de Defensa Técnica detalladas por lote
+- [x] Subir `technical_defense_guide.md` al repositorio y sincronizar en OCI
 - [x] Commit y push de los cambios locales a GitHub (`main`)
 - [x] Desplegar en OCI (`git pull`) y reiniciar el servicio `ijf-assistant`
