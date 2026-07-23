@@ -8087,3 +8087,14094 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
 }
 ```
 
+
+
+---
+
+### KUN-0327: Documentos vinculantes y jurisdicción de apelación de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0327",
+  "titulo": "Documentos vinculantes y jurisdicción de apelación de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The International Judo Federation (IJF) Sport and Organisation Rules (SOR) in conjunction with the IJF statutes, IJF Code of Ethics, IJF Disciplinary Code, IJF Governance Policies, finance regulation, contract with the relevant national judo federation (hereafter referred to as national federation) and the IJF Event Organisation Guide (EOG), are the binding documents for the holding of the events on the IJF World Judo Tour (WJT). For all events on the WJT the IJF has final appellate jurisdiction. Specific supplemental procedures will be issued for the holding of judo competitions at the Summer Olympic, and Youth Olympic Games and other multi-sport games.",
+  "contenido_traduccion": "El Reglamento Deportivo y de Organización (SOR) de la Federación Internacional de Judo (IJF), en conjunto con los estatutos de la IJF, el Código de Ética de la IJF, el Código Disciplinario de la IJF, las Políticas de Gobernanza de la IJF, la regulación financiera, el contrato con la federación nacional de judo correspondiente (en adelante, federación nacional) y la Guía de Organización de Eventos de la IJF (EOG), son los documentos vinculantes para la realización de eventos en el IJF World Judo Tour (WJT). Para todos los eventos del WJT, la IJF tiene jurisdicción de apelación final. Se emitirán procedimientos suplementarios específicos para la realización de competiciones de judo en los Juegos Olímpicos de Verano, Juegos Olímpicos de la Juventud y otros juegos multideportivos.",
+  "interpretacion": "Establece el marco normativo y legal obligatorio que rige todas las competiciones del IJF World Judo Tour. Todas las federaciones y organizadores quedan supeditados a este conjunto documental. Asimismo, confirma que ante cualquier disputa reglamentaria o apelación en torneos del WJT, la IJF posee la última palabra e instancia legal de resolución.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 11",
+  "tags": [
+    "documentation",
+    "structure",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0328: Asignación de eventos y control de competiciones por parte de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0328",
+  "titulo": "Asignación de eventos y control de competiciones por parte de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Events will be allocated to host organising committees following the IJF Statutes Article 19. The IJF shall accept control over other judo competitions whenever this is so directed by the Executive Committee or the IJF Congress. This requires adherence to the above rules and documents. In such judo competitions refereeing and technical organisation may be dealt with by the continental union or regional body and supervised by the officials nominated by the IJF.",
+  "contenido_traduccion": "Los eventos se asignarán a los comités organizadores anfitriones de acuerdo con el Artículo 19 de los Estatutos de la IJF. La IJF aceptará el control sobre otras competiciones de judo siempre que así lo ordene el Comité Ejecutivo o el Congreso de la IJF. Esto requiere la adhesión a las reglas y documentos mencionados anteriormente. En dichas competiciones de judo, el arbitraje y la organización técnica pueden ser gestionados por la unión continental o el organismo regional y supervisados por los oficiales designados por la IJF.",
+  "interpretacion": "Regula el proceso de atribución de sedes y la facultad de la IJF para asumir el control de torneos internacionales o regionales. Garantiza que, incluso cuando una unión continental dirija el arbitraje y la parte técnica, deba respetarse el SOR bajo la supervisión de delegados nombras por la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 11",
+  "tags": [
+    "procedure",
+    "referee"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0329: Obligatoriedad de cumplimiento del SOR y consecuencias disciplinarias
+```json
+{
+  "id_conocimiento": "KUN-0329",
+  "titulo": "Obligatoriedad de cumplimiento del SOR y consecuencias disciplinarias",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "A national federation or individual taking part in the sport of judo are deemed to have agreed to and be bound by this SOR and if found not following the rules may face disciplinary action.",
+  "contenido_traduccion": "Se considera que toda federación nacional o individuo que participe en el deporte del judo ha aceptado y está sujeto a este SOR y, si se comprueba que no sigue las reglas, puede enfrentar medidas disciplinarias.",
+  "interpretacion": "La participación en actividades o torneos del judo afiliado implica la aceptación implícita e incondicional del reglamento SOR. Cualquier incumplimiento por parte de deportistas, entrenadores o directivos puede dar lugar a expedientes sancionadores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 11",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0330: Conducta en eventos de la IJF y sanciones por falta de respeto
+```json
+{
+  "id_conocimiento": "KUN-0330",
+  "titulo": "Conducta en eventos de la IJF y sanciones por falta de respeto",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Everyone attending an IJF WJT event should always be mindful of their behaviour, following the judo values. Unacceptable behaviour, violence or aggression will not be tolerated. Any athlete who disrespects their opponent at the end of a contest risks disqualification, removal of prize money and of World Raking List (WRL) points and a disciplinary action may be initiated.",
+  "contenido_traduccion": "Toda persona que asista a un evento del IJF WJT debe ser siempre consciente de su comportamiento, siguiendo los valores del judo. No se tolerará el comportamiento inaceptable, la violencia o la agresión. Cualquier atleta que no respete a su oponente al final de un combate se arriesga a la descalificación, retiro de dinero de premios y puntos del Ranking Mundial (WRL), y se podrá iniciar una acción disciplinaria.",
+  "interpretacion": "Sanciona severamente la conducta antideportiva. Un judoka que al finalizar un combate falte al respeto al rival (e.g. no saludar, insultar o reaccionar agresivamente) puede sufrir descalificación, pérdida total de los puntos ganados para el ranking WRL, anulación de premios económicos y apertura de expediente disciplinario.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 11",
+  "tags": [
+    "conduct",
+    "world-ranking-list",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0331: Negativa a abandonar el tatami y responsabilidad del entrenador
+```json
+{
+  "id_conocimiento": "KUN-0331",
+  "titulo": "Negativa a abandonar el tatami y responsabilidad del entrenador",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Disciplinary action will be taken against any athlete refusing to leave the tatami. If a coach is present in the coaches’ chair he must intervene otherwise he will also face disciplinary action. If a coach is not present in the chair the IJF Education Commission will intervene to remove the athlete from the tatami.",
+  "contenido_traduccion": "Se tomarán medidas disciplinarias contra cualquier atleta que se niegue a abandonar el tatami. Si un entrenador está presente en la silla de entrenadores, debe intervenir; de lo contrario, también se enfrentará a medidas disciplinarias. Si el entrenador no está presente en la silla, la Comisión de Educación de la IJF intervendrá para retirar al atleta del tatami.",
+  "interpretacion": "Una vez decretado el final del combate, el deportista debe abandonar el tatami de forma inmediata. Si protesta o rehúsa salir, se abre proceso disciplinario. El entrenador sentado en la silla tiene la obligación de actuar para retirar a su competidor; de lo contrario, el entrenador también será sancionado. En ausencia de entrenador, interviene directamente la Comisión de Educación de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 11",
+  "tags": [
+    "conduct",
+    "tatami",
+    "coaches",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0332: Judo limpio, ética y prevención de la manipulación de competiciones
+```json
+{
+  "id_conocimiento": "KUN-0332",
+  "titulo": "Judo limpio, ética y prevención de la manipulación de competiciones",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Integrity, discipline, and ethics are core principles in judo, both on and off the field of play. The IJF Disciplinary Code and IJF Code of Ethics can be found here: www .ijf .org/ijf/documents/3. Further information on the International Olympic Committee (IOC) Code of Ethics can be found in this document “Olympic Movement Code on the Prevention of the Manipulation of Competitions”: https://stillmed .olympics .com/media/Document%20Library/OlympicOrg/IOC/What-We-Do/Protecting-Clean-Athletes/Competition-manipulation/Code-Prevention-Manipulation-Competitions .pdf",
+  "contenido_traduccion": "La integridad, la disciplina y la ética son principios fundamentales en el judo, tanto dentro como fuera del campo de juego. El Código Disciplinario de la IJF y el Código de Ética de la IJF se pueden encontrar aquí: www.ijf.org/ijf/documents/3. Se puede encontrar más información sobre el Código de Ética del Comité Olímpico Internacional (COI) en este documento “Código del Movimiento Olímpico sobre la Prevención de la Manipulación de Competiciones”.",
+  "interpretacion": "Exige el cumplimiento de normas de ética, integridad y juego limpio a todos los acreditados. Remite a las normativas vigentes sobre ética e integridad de la IJF y del COI, prohibiendo taxativamente cualquier tipo de arreglo o manipulación de resultados deportivos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 11",
+  "tags": [
+    "conduct",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0333: Prohibición de publicidad de empresas de apuestas en eventos WJT
+```json
+{
+  "id_conocimiento": "KUN-0333",
+  "titulo": "Prohibición de publicidad de empresas de apuestas en eventos WJT",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Betting companies and organisations responsible for betting cannot be used on any advertising and marketing materials used on the IJF WJT.",
+  "contenido_traduccion": "Las empresas de apuestas y organizaciones responsables de las apuestas no se pueden utilizar en ningún material publicitario o de marketing utilizado en el IJF WJT.",
+  "interpretacion": "Prohíbe que marcas, logotipos o anuncios de casas de apuestas y portales de juego aparezcan en cualquier soporte publicitario, patrocinio, vestimenta o material promocional de los torneos pertenecientes al IJF World Judo Tour.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 11",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0334: Autoridad y funciones del Comité Disciplinario de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0334",
+  "titulo": "Autoridad y funciones del Comité Disciplinario de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .2 .1 Disciplinary Committee\nThe IJF Executive Committee has the authority to establish a Disciplinary Committee to evaluate presumed violation of the IJF rules and it reserves the right to take disciplinary measures in the case of cheating, misconduct and any behaviour contrary to the ethics and moral values of sport, particularly judo, and any violation of the IJF SOR. The IJF Disciplinary Committee will take sanctions in compliance with the IJF Disciplinary Code (www .ijf .org/ijf/documents/3).",
+  "contenido_traduccion": "1.2.1 Comité Disciplinario\nEl Comité Ejecutivo de la IJF tiene la autoridad de establecer un Comité Disciplinario para evaluar la presunta violación de las reglas de la IJF y se reserva el derecho de tomar medidas disciplinarias en caso de trampas, mala conducta y cualquier comportamiento contrario a la ética y valores morales del deporte, particularmente el judo, y cualquier violación de las SOR de la IJF. El Comité Disciplinario de la IJF impondrá sanciones de conformidad con el Código Disciplinario de la IJF (www.ijf.org/ijf/documents/3).",
+  "interpretacion": "Establece la autoridad del Comité Ejecutivo de la IJF para crear un Comité Disciplinario encargado de sancionar trampas, conductas antideportivas, faltas éticas o infracciones de las SOR conforme al Código Disciplinario oficial.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 12",
+  "tags": [
+    "conduct",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0335: Procedimiento de suspensión inmediata in situ y Comisión Ad Hoc
+```json
+{
+  "id_conocimiento": "KUN-0335",
+  "titulo": "Procedimiento de suspensión inmediata in situ y Comisión Ad Hoc",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If during an IJF event, starting from the arrival (normally airport or train station) at the event and until the departure from the event, there is an incident an immediate decision to suspend anyone involved may be taken on the spot. This decision will be placed under the responsibility of an Executive Committee member, nominated before each event by the IJF President, who will form an IJF Ad Hoc Commission to deal with the issue. The IJF Ad Hoc Commission will consist of IJF Executive Committee members or their representatives.",
+  "contenido_traduccion": "Si durante un evento de la IJF, desde la llegada (normalmente aeropuerto o estación de tren) al evento y hasta la salida del mismo, ocurre un incidente, se podrá tomar en el acto la decisión inmediata de suspender a cualquier persona involucrada. Esta decisión estará bajo la responsabilidad de un miembro del Comité Ejecutivo, designado antes de cada evento por el Presidente de la IJF, quien formará una Comisión Ad Hoc de la IJF para abordar el asunto. La Comisión Ad Hoc de la IJF estará integrada por miembros del Comité Ejecutivo de la IJF o sus representantes.",
+  "interpretacion": "Aplica para situaciones ocurridas durante el evento (desde la llegada del transporte official hasta la partida). Permite a una Comisión Ad Hoc designada aplicar medidas de suspensión inmediata in situ para salvaguardar el orden y la seguridad de la competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 12",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0336: Notificación de incidentes, audiencia a las partes y protección de menores
+```json
+{
+  "id_conocimiento": "KUN-0336",
+  "titulo": "Notificación de incidentes, audiencia a las partes y protección de menores",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Any incident will be communicated immediately to the IJF President, IJF Executive Committee members and the IJF Disciplinary Committee. A possible sanction decision will be taken after having heard the person/people concerned and any potential witness(es). If the concerned person is a minor, an adult responsible for the delegation will accompany them, during the discussion. As soon as the decision is taken, the IJF Ad Hoc Commission will immediately inform the IJF President, the IJF Executive Committee and the IJF Disciplinary Committee about its decision.",
+  "contenido_traduccion": "Cualquier incidente será comunicado de inmediato al Presidente de la IJF, a los miembros del Comité Ejecutivo de la IJF y al Comité Disciplinario de la IJF. La posible decisión de sanción se tomará tras haber escuchado a la(s) persona(s) involucrada(s) y a cualquier testigo potencial. Si la persona afectada es menor de edad, un adulto responsable de la delegación la acompañará durante la comparecencia. Tan pronto como se tome la decisión, la Comisión Ad Hoc de la IJF informará de inmediato de su resolución al Presidente de la IJF, al Comité Ejecutivo de la IJF y al Comité Disciplinario de la IJF.",
+  "interpretacion": "Establece el protocolo de audiencia obligatoria para tomar decisiones disciplinarias inmediatas, garantizando el derecho a ser escuchado (junto con testigos) y la presencia obligatoria de un adulto representante en el caso de menores de edad.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 12",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0337: Requisitos del informe de incidentes por la Comisión de Educación y Entrenamiento
+```json
+{
+  "id_conocimiento": "KUN-0337",
+  "titulo": "Requisitos del informe de incidentes por la Comisión de Educación y Entrenamiento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "A report of the incident and final decision should be sent to the IJF Disciplinary Committee, c/o the IJF General Secretariat (gs@ijf .org), within three days of the date of the incident. The report will be written by the Education and Coaching Commission and must state the following: the facts, including the recall of the alleged facts, a summary of the observations and arguments of the parties, the grounds for the decision and any other comments.",
+  "contenido_traduccion": "Se debe enviar un informe del incidente y de la decisión final al Comité Disciplinario de la IJF, a la atención de la Secretaría General de la IJF (gs@ijf.org), dentro de los tres días posteriores a la fecha del incidente. El informe será elaborado por la Comisión de Educación y Entrenamiento y debe incluir lo siguiente: los hechos, incluyendo el resumen de los hechos presuntos, un resumen de las observaciones y argumentos de las partes, los fundamentos de la decisión y cualquier otro comentario.",
+  "interpretacion": "Define el procedimiento formal de documentación de un incidente disciplinario. La Comisión de Educación y Entrenamiento debe remitir un informe detallado con los hechos, argumentos y fundamentos a la Secretaría General dentro de un plazo estricto de 3 días.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 12",
+  "tags": [
+    "conduct",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0338: Resolución disciplinaria definitiva y procedimiento de apelación
+```json
+{
+  "id_conocimiento": "KUN-0338",
+  "titulo": "Resolución disciplinaria definitiva y procedimiento de apelación",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF Disciplinary Committee, upon receipt of the documents, will inform those involved about its decision 15 days after the date of the incident. The IJF Disciplinary Committee will decide the start date and the duration of the suspension. If an individual disagrees with a decision, a written appeal may be submitted to the IJF Disciplinary Committee, c/o the IJF General Secretariat (gs@ijf .org), within one calendar month from the incident date. In the case of suspension, the decision will stand until the outcome of the appeal is heard.",
+  "contenido_traduccion": "El Comité Disciplinario de la IJF, tras la recepción de los documentos, informará a los involucrados sobre su decisión a los 15 días de la fecha del incidente. El Comité Disciplinario de la IJF decidirá la fecha de inicio y la duración de la suspensión. Si una persona no está de acuerdo con una decisión, podrá presentar una apelación por escrito al Comité Disciplinario de la IJF, a la atención de la Secretaría General de la IJF (gs@ijf.org), dentro del plazo de un mes natural desde la fecha del incidente. En caso de suspensión, la decisión se mantendrá vigente hasta que se resuelva la apelación.",
+  "interpretacion": "Aclara que la resolución final se notifica a los 15 días del hecho. El afectado dispone de un mes natural para apelar por escrito a gs@ijf.org. La interposición del recurso no suspende provisionalmente la sanción impuesta.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 12",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0339: Reglas fundamentales contra el amaño de combates y manipulación de competiciones
+```json
+{
+  "id_conocimiento": "KUN-0339",
+  "titulo": "Reglas fundamentales contra el amaño de combates y manipulación de competiciones",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .2 .2 Match Fixing and Competition Manipulation\nThe integrity of sport depends on the outcome of sporting events and competitions being based entirely on the merits of the participants involved. \nThe IJF has rules dedicated to sports integrity in relation to betting. There are four core rules to remember:\n• Always do your best, never fix a contest.\n• Never bet on your competition, never bet on your sport.\n• Never share information that could be used for betting purposes, or any form of manipulation of sports competitions or any other corrupt purposes whether by the participant or via another person and/or entity.\n• If you are approached to cheat, speak out!",
+  "contenido_traduccion": "1.2.2 Amaño de combates y manipulación de competiciones\nLa integridad del deporte depende de que el resultado de los eventos y competiciones deportivas se base íntegramente en los méritos de los participantes involucrados.\nLa IJF cuenta con reglas dedicadas a la integridad deportiva en relación con las apuestas. Hay cuatro reglas fundamentales que recordar:\n• Da siempre lo mejor de ti, nunca amañes un combate.\n• Nunca apuestes en tu competición, nunca apuestes en tu deporte.\n• Nunca compartas información que pueda ser utilizada para fines de apuestas, ni cualquier forma de manipulación de competiciones deportivas o cualquier otro propósito corrupto, ya sea directamente por el participante o a través de otra persona y/o entidad.\n• Si alguien se te acerca para hacer trampa, ¡denúncialo!",
+  "interpretacion": "Aplica a todos los competidores, entrenadores y oficiales. Prohíbe terminantemente el amaño de encuentros, las apuestas en judo, la divulgación de información privilegiada y establece la obligación directa de denunciar cualquier intento de soborno o corrupción.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 12",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0340: Corrupción y manipulación de competiciones
+```json
+{
+  "id_conocimiento": "KUN-0340",
+  "titulo": "Corrupción y manipulación de competiciones",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Any form of corruption that might undermine public confidence in the integrity of a judo contest is fundamentally contrary to the spirit of sport and subject to severe sanctions. Competition manipulation is defined as an intentional arrangement, act or omission aimed at an improper alteration of the result or the course of a sports competition to remove all or part of the unpredictable nature of the sports competition with a view to obtaining an undue benefit for oneself or for other. If a contest takes place and seems to have been played to a predetermined result, violating the IJF rules, further investigation may be undertaken, and any findings of match fixing will result in disciplinary action.",
+  "contenido_traduccion": "Cualquier forma de corrupción que pueda socavar la confianza del público en la integridad de un combate de judo es fundamentalmente contraria al espíritu del deporte y estará sujeta a severas sanciones. La manipulación de la competición se define como un acuerdo, acto u omisión intencional destinado a alterar de manera indebida el resultado o el desarrollo de una competición deportiva para eliminar todo o parte del carácter impredecible de la misma, con el fin de obtener un beneficio indebido para sí mismo o para otros. Si se celebra un combate y parece haberse disputado con un resultado predeterminado, violando las reglas de la IJF, se podrá llevar a cabo una investigación posterior, y cualquier hallazgo de amaño de combates resultará en una acción disciplinaria.",
+  "interpretacion": "Esta regla prohíbe de manera estricta los arreglos o pactos sobre los resultados de los combates. Árbitros, entrenadores y atletas deben actuar con integridad total. Si existen sospechas razonables de que un combate fue amañado o predeterminado, la IJF iniciará una investigación formal que puede derivar en sanciones disciplinarias severas para todos los involucrados.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 13",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0341: Retiro de atleta por lesión o enfermedad antes de un combate
+```json
+{
+  "id_conocimiento": "KUN-0341",
+  "titulo": "Retiro de atleta por lesión o enfermedad antes de un combate",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If in IJF events, an athlete is injured or ill before a contest and needs to withdraw they must have a medical certificate from the IJF Medical Commissioner.",
+  "contenido_traduccion": "Si en los eventos de la IJF un atleta se lesiona o enferma antes de un combate y necesita retirarse, debe contar con un certificado médico del Comisionado Médico de la IJF.",
+  "interpretacion": "Para justificar legítimamente la no presentación o retiro de un competidor antes de iniciar un combate en eventos de la IJF, es obligatorio que el médico oficial (Comisionado Médico de la IJF) examine al deportista y emita la certificación correspondiente. No se aceptan certificados médicos externos ni justificaciones verbales del entrenador.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 13",
+  "tags": [
+    "medical",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0342: Sanciones por falsedad de declaraciones y amaño de combates
+```json
+{
+  "id_conocimiento": "KUN-0342",
+  "titulo": "Sanciones por falsedad de declaraciones y amaño de combates",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF may undertake further investigation and any findings of match fixing will result in disciplinary action. The result of the contest will be cancelled if any athlete is caught not telling the truth.",
+  "contenido_traduccion": "La IJF podrá llevar a cabo investigaciones adicionales y cualquier hallazgo de amaño de combates dará lugar a medidas disciplinarias. El resultado del combate será anulado si se descubre que algún atleta no ha dicho la verdad.",
+  "interpretacion": "Si un atleta miente sobre las razones de su retiro (por ejemplo, simulando una lesión para beneficiar a otro atleta) o incurre en falta de veracidad sobre el resultado de un combate, el resultado oficial será anulado inmediatamente y se impondrán sanciones disciplinarias adicionales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 13",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0343: Canal de denuncias, protección a denunciantes y prohibición de represalias
+```json
+{
+  "id_conocimiento": "KUN-0343",
+  "titulo": "Canal de denuncias, protección a denunciantes y prohibición de represalias",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Match fixing and competition manipulation can be reported, anonymously and confidentially, here: https://reportintegrity .judobase .org/form. Any report made in good faith will not be sanctioned. Any form of retaliation against whistle-blowers is prohibited and such action will be sanctioned.",
+  "contenido_traduccion": "El amaño de combates y la manipulación de competiciones se pueden denunciar, de forma anónima y confidencial, en: https://reportintegrity .judobase .org/form. Ninguna denuncia realizada de buena fe será sancionada. Queda prohibida cualquier forma de represalia contra los denunciantes y dicha acción será sancionada.",
+  "interpretacion": "Cualquier participante que detecte maniobras de manipulación puede efectuar la denuncia anónima mediante la plataforma web habilitada. Las denuncias hechas de buena fe protegen al informante; tomar represalias o amedrentar a un denunciante se considera una falta grave sancionable por la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 13",
+  "tags": [
+    "conduct",
+    "procedure",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0344: Violaciones al reglamento por falta de denuncia, no colaboración u obstrucción
+```json
+{
+  "id_conocimiento": "KUN-0344",
+  "titulo": "Violaciones al reglamento por falta de denuncia, no colaboración u obstrucción",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Failure to report to the IJF at the first available opportunity any information about betting, match fixing or competition manipulation that could amount to a violation of the SOR. The following conducts constitute a violation of the SOR:\n• Failing to cooperate with any investigation carried out by the IJF in relation to a possible breach of this regulation, including, without limitation, failing to provide accurately, completely and without undue delay any information and/or documentation and/or access or assistance requested by the IJF as part of such investigation.\n• Obstructing or delaying any investigation that may be carried out by the IJF in relation to a possible violation of this regulation, including without limitation concealing, tampering with, or destroying any documentation or other information that may be relevant to the investigation.",
+  "contenido_traduccion": "Constituye una infracción de las SOR el no informar a la IJF a la primera oportunidad disponible sobre cualquier información referente a apuestas, amaño de combates o manipulación de la competición que pudiera constituir una violación de las SOR. Las siguientes conductas constituyen una violación de las SOR:\n• No cooperar con cualquier investigación llevada a cabo por la IJF en relación con un posible incumplimiento de este reglamento, incluyendo, entre otros, el no proporcionar de manera precisa, completa y sin demoras indebidas cualquier información y/o documentación y/o acceso o asistencia solicitada por la IJF como parte de dicha investigación.\n• Obstruir o retrasar cualquier investigación que pueda llevar a cabo la IJF en relación con una posible violación de este reglamento, incluyendo, entre otros, ocultar, alterar o destruir cualquier documentación u otra información que pueda ser relevante para la investigación.",
+  "interpretacion": "Guardar silencio ante información sobre apuestas o amaños de combates es considerado infracción directa. Además, ocultar pruebas, retrasar la entrega de documentos o no responder a los requerimientos de la IJF durante una investigación dará lugar a sanciones disciplinarias inmediatas contra los responsables.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 13",
+  "tags": [
+    "conduct",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0345: Política de salvaguarda de la IJF contra el acoso y el abuso
+```json
+{
+  "id_conocimiento": "KUN-0345",
+  "titulo": "Política de salvaguarda de la IJF contra el acoso y el abuso",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1.2.3 Safeguarding\nThe IJF Policy for Safeguarding Athletes and Other Participants from Harassment and Abuse applies to all persons affiliated with the IJF including athletes and can be found here: https://www .ijf .org/ijf/documents/3",
+  "contenido_traduccion": "1.2.3 Salvaguarda\nLa Política de la IJF para la Salvaguarda de Atletas y Otros Participantes contra el Acoso y el Abuso se aplica a todas las personas afiliadas a la IJF, incluidos los atletas, y se puede encontrar aquí: https://www .ijf .org/ijf/documents/3",
+  "interpretacion": "Todos los miembros, entrenadores, árbitros, dirigentes y atletas afiliados a la IJF están sujetos obligatoriamente a la Política de Salvaguarda de la federación para garantizar un entorno libre de abusos y acoso en la práctica del judo a nivel global.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 13",
+  "tags": [
+    "conduct",
+    "safety",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0346: Definiciones de abuso físico, psicológico y abuso sexual
+```json
+{
+  "id_conocimiento": "KUN-0346",
+  "titulo": "Definiciones de abuso físico, psicológico y abuso sexual",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Harassment or harassment and abuse includes:\nPhysical or psychological abuse means any improper and unwelcome conduct that might reasonably be expected or be perceived to cause offence, harm, or humiliation to another.\nSexual abuse (which can be a form of physical and/or psychological abuse) means any unwanted, groomed or forced involvement in sexual behaviour, unwelcome verbal or physical conduct or gesture of a sexual nature (e.g., the use of offensive stereotypes based on gender, sexual jokes, threats, intimidation) that might reasonably be expected or be perceived to cause offence or humiliation to another.",
+  "contenido_traduccion": "El acoso o el acoso y abuso incluye:\nAbuso físico o psicológico: significa cualquier conducta indebida y no deseada que razonablemente se pueda esperar o percibir que cause ofensa, daño o humillación a otra persona.\nAbuso sexual (que puede ser una forma de abuso físico y/o psicológico): significa cualquier participación no deseada, embaucadora (grooming) o forzada en comportamientos sexuales, conducta o gesto verbal o físico no deseado de naturaleza sexual (p. ej., el uso de estereotipos ofensivos basados en el género, chistes sexuales, amenazas, intimidación) que razonablemente se pueda esperar o percibir que cause ofensa o humillación a otra persona.",
+  "interpretacion": "Establece los criterios claros e inequívocos de lo que constituye abuso o acoso dentro del marco del judo. Ninguna conducta física, psicológica o verbal que cause ofensa, humillación o intimidación de carácter sexual o general será tolerada en los eventos o entidades vinculadas a la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 13",
+  "tags": [
+    "conduct",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0347: Definición y Alcance del Acoso y Abuso
+```json
+{
+  "id_conocimiento": "KUN-0347",
+  "titulo": "Definición y Alcance del Acoso y Abuso",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Harassment can be based on any grounds such as race, religion, colour, creed, ethnic origin, physical attributes, gender, or sexual orientation. It can include a one-off incident or a series of incidents. It may be in person or online. Harassment may be deliberate, unsolicited and coercive. Harassment and abuse often result from an abuse of authority, meaning the improper use of a position of influence, power or authority by an individual against another person.",
+  "contenido_traduccion": "El acoso puede basarse en cualquier motivo como raza, religión, color, credo, origen étnico, atributos físicos, género u orientación sexual. Puede incluir un incidente aislado o una serie de incidentes. Puede ser en persona o en línea. El acoso puede ser deliberado, no solicitado y coercitivo. El acoso y el abuso a menudo son el resultado de un abuso de autoridad, lo que significa el uso indebido de una posición de influencia, poder o autoridad por parte de un individuo contra otra persona.",
+  "interpretacion": "Define las bases del acoso y el abuso en el marco del judo internacional. Aplica a cualquier conducta indebida o discriminatoria ejercida de forma presencial o digital, reconociendo de forma explícita que suele derivar del uso indebido de posiciones de poder, influencia o autoridad dentro del entorno deportivo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 14",
+  "tags": [
+    "conduct",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0348: Procedimiento de Denuncia e Investigación de Acoso y Abuso
+```json
+{
+  "id_conocimiento": "KUN-0348",
+  "titulo": "Procedimiento de Denuncia e Investigación de Acoso y Abuso",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Cases of harassment and abuse can be reported on the Clean Judo platform and will be investigated by the IJF Disciplinary Committee in compliance with the IJF Disciplinary Code (www .ijf .org/ijf/documents/3).\nHarassment and abuse can be reported, anonymously and confidentially, here:\nhttps://reportabuse .judobase .org/form",
+  "contenido_traduccion": "Los casos de acoso y abuso se pueden denunciar en la plataforma Clean Judo y serán investigados por la Comisión Disciplinaria de la IJF de conformidad con el Código Disciplinario de la IJF (www.ijf.org/ijf/documents/3).\nEl acoso y el abuso se pueden denunciar, de forma anónima y confidencial, aquí:\nhttps://reportabuse.judobase.org/form",
+  "interpretacion": "Establece los mecanismos formales para el reporte de incidentes de acoso y abuso a través de la plataforma 'Clean Judo' o del formulario web directo. Las denuncias pueden ser anónimas y son gestionadas e investigadas de manera oficial por la Comisión Disciplinaria de la IJF según su código disciplinario.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 14",
+  "tags": [
+    "conduct",
+    "procedure",
+    "portal"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0349: Confidencialidad y Excepciones en Denuncias de Acoso y Abuso
+```json
+{
+  "id_conocimiento": "KUN-0349",
+  "titulo": "Confidencialidad y Excepciones en Denuncias de Acoso y Abuso",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Any alleged incidents of harassment and abuse will be regarded as confidential and personal information (including name, date of birth, address, identification numbers) will not be disclosed, except, for example, if the concerned person gives his prior consent, if disclosure is necessary to protect someone from harm or if a potential criminal act comes to the attention of the IJF.",
+  "contenido_traduccion": "Cualquier presunto incidente de acoso y abuso se considerará confidencial y la información personal (incluido nombre, fecha de nacimiento, dirección, números de identificación) no se divulgará, excepto, por ejemplo, si la persona afectada otorga su consentimiento previo, si la divulgación es necesaria para proteger a alguien de un daño o si un potencial acto delictivo llega a conocimiento de la IJF.",
+  "interpretacion": "Garantiza la protección estricta de la información personal de los denunciantes o involucrados. Define únicamente tres excepciones para la ruptura de confidencialidad: autorización explícita del involucrado, necesidad imperativa de protección física/integral de una persona, o ante un posible delito que deba ser puesto en conocimiento de las autoridades legales competentes.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 14",
+  "tags": [
+    "conduct",
+    "safety",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0350: Responsabilidad de la Federación Nacional en Seguros y Responsabilidad Civil
+```json
+{
+  "id_conocimiento": "KUN-0350",
+  "titulo": "Responsabilidad de la Federación Nacional en Seguros y Responsabilidad Civil",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .3 Insurance and Civil Liability\nEach national federation is directly responsible for all its delegates registered on Judobase for any event. It must assume all responsibility for accident, health and civil liability insurance for everyone under their charge during events.\nNational federations are responsible to provide insurance guarantees to their delegates during any IJF WJT event. If the national federation does not provide insurance to the members of their delegation, those members shall be liable for any damages caused by or incurred to them. The LOC of the event and the IJF will not be responsible in the absence of insurance.",
+  "contenido_traduccion": "1.3 Seguro y Responsabilidad Civil\nCada federación nacional es directamente responsable de todos sus delegados registrados en Judobase para cualquier evento. Debe asumir toda la responsabilidad de los seguros de accidentes, salud y responsabilidad civil para todos los que estén a su cargo durante los eventos.\nLas federaciones nacionales son responsables de proporcionar garantías de seguro a sus delegados durante cualquier evento del IJF WJT. Si la federación nacional no proporciona seguro a los miembros de su delegación, dichos miembros serán responsables de cualquier daño causado por ellos o sufrido por ellos. El COL del evento y la IJF no serán responsables en ausencia de seguro.",
+  "interpretacion": "Obliga a cada Federación Nacional a contratar y garantizar seguros médicos, de accidentes y de responsabilidad civil para todos los atletas y oficiales registrados en su delegación vía Judobase. Si la federación omite este aseguramiento, la responsabilidad legal y económica recae de forma personal e individual en el miembro de la delegación, exonerando plenamente a la IJF y al Comité Organizador Local.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1.3 - Seguro y Responsabilidad Civil, Página 14",
+  "tags": [
+    "procedure",
+    "safety",
+    "medical"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0351: Programa de Seguro Complementario de la IJF para Eventos WJT
+```json
+{
+  "id_conocimiento": "KUN-0351",
+  "titulo": "Programa de Seguro Complementario de la IJF para Eventos WJT",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF has an insurance programme for athletes registered on Judobase by their national federation who attend IJF WJT events (Grand Prix, Grand Slam, Masters, and World Championships for all age groups). This programme does not replace the obligation of national federations to provide their own insurance coverage. For further information please contact the IJF General Secretariat, by email (gs@ijf .org).",
+  "contenido_traduccion": "La IJF tiene un programa de seguro para los atletas registrados en Judobase por su federación nacional que asistan a eventos del IJF WJT (Grand Prix, Grand Slam, Masters y Campeonatos Mundiales para todos los grupos de edad). Este programa no reemplaza la obligación de las federaciones nacionales de proporcionar su propia cobertura de seguro. Para obtener más información, comuníquese con la Secretaría General de la IJF por correo electrónico (gs@ijf.org).",
+  "interpretacion": "La IJF ofrece una póliza de seguro adicional para atletas inscritos formalmente en torneos del World Judo Tour. Se deja explícito que este programa no sustituye ni anula la obligación primaria e ineludible que tienen las federaciones nacionales de proveer su seguro propio a los miembros de sus equipos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1.3 - Seguro y Responsabilidad Civil, Página 14",
+  "tags": [
+    "procedure",
+    "safety",
+    "medical"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0352: Exención de Responsabilidad Legal y Médica de la IJF y del COL
+```json
+{
+  "id_conocimiento": "KUN-0352",
+  "titulo": "Exención de Responsabilidad Legal y Médica de la IJF y del COL",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The LOC of the event and the IJF accept no liability for any claims of injury, illness or death arising from the travelling to and the participation in this event nor any claims relating to the cancellation of the event or medical costs related to illness that may affect a participant during the event.",
+  "contenido_traduccion": "El COL del evento y la IJF no aceptan responsabilidad por ninguna reclamación de lesión, enfermedad o muerte derivada del viaje y la participación en este evento, ni por ninguna reclamación relacionada con la cancelación del evento o los costos médicos relacionados con enfermedades que puedan afectar a un participante durante el evento.",
+  "interpretacion": "Cláusula eximente de responsabilidad a favor de la IJF y del Comité Organizador Local (COL). Ninguna de las dos entidades responderá económicamente o legalmente ante lesiones, enfermedades, muerte de participantes (incluyendo durante los viajes), costos médicos individuales ni reclamaciones derivadas de la cancelación imprevista del torneo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1.3 - Seguro y Responsabilidad Civil, Página 14",
+  "tags": [
+    "safety",
+    "medical",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0353: Obligación de Seguro de Responsabilidad Civil para el Comité Organizador Local
+```json
+{
+  "id_conocimiento": "KUN-0353",
+  "titulo": "Obligación de Seguro de Responsabilidad Civil para el Comité Organizador Local",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The entity contractually bound to the IJF for the organisation of the event shall take all necessary actions to provide insurance coverage against civil liability for the entire duration.",
+  "contenido_traduccion": "La entidad vinculada contractualmente con la IJF para la organización del evento tomará todas las medidas necesarias para proporcionar cobertura de seguro de responsabilidad civil durante toda la duración.",
+  "interpretacion": "Establece la obligación legal del Comité Organizador Local (COL) de contratar una póliza integral de responsabilidad civil general que cubra todo el periodo y actividades vinculadas con la realización del evento deportivo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1.3 - Seguro y Responsabilidad Civil, Página 14",
+  "tags": [
+    "procedure",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0354: Control y Registro de Género de los Atletas
+```json
+{
+  "id_conocimiento": "KUN-0354",
+  "titulo": "Control y Registro de Género de los Atletas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .4 Gender Control\nThe national federation shall be responsible for identifying and registering the athlete’s gender. Any decisions of a national federation concerning an athlete’s gender, including but not limited to the change of gender must be sent immediately to the IJF General Secretariat, by email (gs@ijf .org).",
+  "contenido_traduccion": "1.4 Control de Género\nLa federación nacional será responsable de identificar y registrar el género del atleta. Cualquier decisión de una federación nacional con respecto al género de un atleta, incluyendo pero no limitándose al cambio de género, debe enviarse de inmediato a la Secretaría General de la IJF por correo electrónico (gs@ijf.org).",
+  "interpretacion": "La identificación y el registro del género de cada judoca es responsabilidad exclusiva de su Federación Nacional. En caso de producirse resoluciones o cambios oficiales en la determinación del género de un atleta, la federación tiene la obligación de notificar de manera inmediata a la Secretaría General de la IJF por correo electrónico.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1.4 - Control de Género, Página 14",
+  "tags": [
+    "men",
+    "women",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0355: Procedimiento de queja y apelación sobre la elegibilidad de género de un atleta
+```json
+{
+  "id_conocimiento": "KUN-0355",
+  "titulo": "Procedimiento de queja y apelación sobre la elegibilidad de género de un atleta",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Complaint by a national federation, a continental union, or a member of the IJF Executive Committee concerning an athlete’s gender may be filed within 21 days from the effective date of the change of gender under the IJF Athlete Eligibility Regulations (found in IJF Governance Policies - www .ijf .org/ijf/documents/3). Complaints must be sent to the IJF General Secretariat, by email (gs@ijf .org).\nIf the complaint concerns a change of gender, the IJF Executive Committee will consult the Independent Experts appointed in accordance with the IJF Athlete Eligibility Regulations (found in IJF Governance Policies - www .ijf .org/ijf/documents/3) and decide if it is necessary to initiate the investigation regarding the compliance with the eligibility conditions set forth by the IJF Athlete Eligibility Regulations (found in IJF Governance Policies - www .ijf .org/ijf/documents/3).\nThe decision of the IJF Executive Committee under this Section 1.4 may be appealed in accordance with the IJF Statutes.",
+  "contenido_traduccion": "Una reclamación por parte de una federación nacional, una unión continental o un miembro del Comité Ejecutivo de la IJF con respecto al género de un atleta puede presentarse dentro de los 21 días posteriores a la fecha efectiva del cambio de género conforme a las Regulaciones de Elegibilidad de Atletas de la IJF (que se encuentran en las Políticas de Gobernanza de la IJF - www.ijf.org/ijf/documents/3). Las reclamaciones deben enviarse a la Secretaría General de la IJF por correo electrónico (gs@ijf.org).\nSi la reclamación se refiere a un cambio de género, el Comité Ejecutivo de la IJF consultará a los Expertos Independientes designados de acuerdo con las Regulaciones de Elegibilidad de Atletas de la IJF y decidirá si es necesario iniciar una investigación sobre el cumplimiento de las condiciones de elegibilidad establecidas en dichas regulaciones.\nLa decisión del Comité Ejecutivo de la IJF bajo esta Sección 1.4 puede ser apelada de acuerdo con los Estatutos de la IJF.",
+  "interpretacion": "Las federaciones nacionales, uniones continentales o miembros del Comité Ejecutivo disponen de un plazo estricto de 21 días desde un cambio de género para impugnar la elegibilidad de un competidor. La solicitud se tramita por correo electrónico a la Secretaría General. Tras consultar con expertos independientes, el Comité Ejecutivo decidirá si abre una investigación formal. Las resoluciones adoptadas pueden recurrirse conforme a los estatutos institucionales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 15",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0356: Responsabilidad legal, autorización parental y control de dopaje para atletas menores de edad
+```json
+{
+  "id_conocimiento": "KUN-0356",
+  "titulo": "Responsabilidad legal, autorización parental y control de dopaje para atletas menores de edad",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .5 Minor Athletes\nThe national federations are responsible for obtaining legal approval and permission for minor athletes to compete in competitions. When travelling with minors the team official/coach must have all the necessary documents in place that authorises them to act on behalf of the parents/guardians “in loco parentis”.\nThis also applies to doping control. The national federation must ensure that minor athletes have their parental/guardian permission to undergo testing (see Appendix E1.6.3.1).",
+  "contenido_traduccion": "1.5 Atletas Menores de Edad\nLas federaciones nacionales son responsables de obtener la aprobación y el permiso legal para que los atletas menores de edad compitan en las competiciones. Al viajar con menores, el oficial del equipo/entrenador debe tener en regla todos los documentos necesarios que lo autoricen a actuar en nombre de los padres/tutores legalmente (“in loco parentis”).\nEsto también se aplica al control de dopaje. La federación nacional debe asegurarse de que los atletas menores de edad tengan la autorización de sus padres/tutores para someterse a las pruebas (véase Apéndice E1.6.3.1).",
+  "interpretacion": "Los entrenadores y oficiales delegados que viajen con judocas menores de edad deben portar obligatoriamente la documentación jurídica oficial que certifique su tutoría legal temporal ('in loco parentis'). Asimismo, la federación nacional correspondiente debe garantizar el consentimiento explícito firmado por los padres o tutores para autorizar los controles antidopaje en el evento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 15",
+  "tags": [
+    "procedure",
+    "coaches",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0357: Aprobación y publicación del calendario oficial de eventos de la IJF y Juegos Olímpicos
+```json
+{
+  "id_conocimiento": "KUN-0357",
+  "titulo": "Aprobación y publicación del calendario oficial de eventos de la IJF y Juegos Olímpicos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .6 IJF Calendar\nThe IJF Executive Committee will agree and approve the schedule for all IJF events. The IOC will approve the schedule for the Summer Olympic Games and Summer Youth Olympic Games.\nThe current IJF calendars can be found on the IJF website:\nhttps://www .ijf .org/calendar?age=all",
+  "contenido_traduccion": "1.6 Calendario de la IJF\nEl Comité Ejecutivo de la IJF acordará y aprobará el calendario de todos los eventos de la IJF. El COI aprobará el calendario de los Juegos Olímpicos de Verano y de los Juegos Olímpicos de la Juventud de Verano.\nLos calendarios actuales de la IJF se pueden encontrar en el sitio web de la IJF:\nhttps://www.ijf.org/calendar?age=all",
+  "interpretacion": "Todas las fechas y sedes de las competiciones internacionales del circuito IJF son aprobadas formalmente por el Comité Ejecutivo de la IJF, salvo las fechas olímpicas que corresponden al COI. Atletas y federaciones deben consultar el sitio web oficial para verificar el calendario oficial actualizado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 15",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0358: Requisito de nacionalidad e identificación mediante pasaporte para la inscripción
+```json
+{
+  "id_conocimiento": "KUN-0358",
+  "titulo": "Requisito de nacionalidad e identificación mediante pasaporte para la inscripción",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .7 Athlete Nationality\nThe athlete must be a national of the country of the national federation that inscribes him for the competition. The evidence of nationality shall be the production of a valid passport issued by the represented country. Persons appointed by the Executive Committee of the IJF shall verify the nationality of the athletes. Should the athlete be unable to produce their passport a decision will be made on whether to accept an alternative form of identification such as a valid national identity document showing the same nationality as the country of issue.",
+  "contenido_traduccion": "1.7 Nacionalidad del Atleta\nEl atleta debe ser nacional del país de la federación nacional que lo inscribe en la competición. La prueba de nacionalidad será la presentación de un pasaporte válido expedido por el país representado. Las personas designadas por el Comité Ejecutivo de la IJF verificarán la nacionalidad de los atletas. En caso de que el atleta no pueda presentar su pasaporte, se tomará una decisión sobre si se acepta una forma alternativa de identificación, como un documento nacional de identidad válido que muestre la misma nacionalidad que el país de expedición.",
+  "interpretacion": "Para inscribir a un judoca en torneos oficiales, la federación debe demostrar que el atleta posee la nacionalidad del país representado exhibiendo un pasaporte original válido. Si el pasaporte no está disponible, el personal acreditado por la IJF evaluará excepcionalmente si se admite otro documento de identidad legal con la misma nacionalidad.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 15",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0359: Restricción de ciudadanía múltiple y excepción para territorios dependientes
+```json
+{
+  "id_conocimiento": "KUN-0359",
+  "titulo": "Restricción de ciudadanía múltiple y excepción para territorios dependientes",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If an athlete has multiple citizenships, they may compete for only one country.\nWhere the national federation does not have a passport with that nationality, the passport issued by their government will be accepted (e.g., American Samoa (USA), Aruba (Netherlands), Cook Islands (New Zealand), Curacao (Netherlands), Guam (USA), Sint Maarten (Netherlands), Puerto Rico (USA) and US Virgin Islands (USA)).",
+  "contenido_traduccion": "Si un atleta tiene múltiples ciudadanías, solo podrá competir por un país.\nCuando la federación nacional no disponga de un pasaporte con esa nacionalidad específica, se aceptará el pasaporte expedido por su gobierno central (por ejemplo, Samoa Americana (EE. UU.), Aruba (Países Bajos), Islas Cook (Nueva Zelanda), Curazao (Países Bajos), Guam (EE. UU.), San Martín (Países Bajos), Puerto Rico (EE. UU.) e Islas Vírgenes de los EE. UU. (EE. UU.)).",
+  "interpretacion": "Atletas con doble o múltiple nacionalidad están restringidos a competir únicamente por un único país. En casos de territorios o dependencias sin pasaporte propio (como Puerto Rico, Aruba o Guam), se acepta válidamente el pasaporte emitido por el Estado o gobierno soberano tutelar.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 15",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0360: Documentos de Identidad y Requisito Idiomático para Atletas Especiales
+```json
+{
+  "id_conocimiento": "KUN-0360",
+  "titulo": "Documentos de Identidad y Requisito Idiomático para Atletas Especiales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes who have permission to take part in IJF events under the IJF SOR rule 1.7.2 who do not have a valid passport issued by the represented country must present either a photographic identity or refugee travel document and the IJF authorisation letter. All submitted documents must be in one of the IJF’s official languages (English, French, or Spanish). If a document was originally issued in another language, an official translation into one of the IJF official languages must be included.",
+  "contenido_traduccion": "Los atletas que tengan permiso para participar en eventos de la FIJ según la regla 1.7.2 del SOR de la FIJ y que no posean un pasaporte válido emitido por el país representado, deben presentar un documento de identidad con fotografía o un documento de viaje para refugiados, además de la carta de autorización de la FIJ. Todos los documentos presentados deben estar en uno de los idiomas oficiales de la FIJ (inglés, francés o español). Si un documento fue emitido originalmente en otro idioma, se debe incluir una traducción oficial a uno de los idiomas oficiales de la FIJ.",
+  "interpretacion": "Aquellos competidores que participan bajo estatus especial (como refugiados o casos de la regla 1.7.2) deben acreditar su identidad mediante documento con foto o título de viaje de refugiado más la carta de la FIJ. Si sus documentos no están en inglés, francés o español, la federación o el atleta debe gestionar una traducción oficial válida antes de la acreditación del torneo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 16",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0361: Cambio de Nacionalidad de Atletas - Ámbito de Aplicación y Competencias
+```json
+{
+  "id_conocimiento": "KUN-0361",
+  "titulo": "Cambio de Nacionalidad de Atletas - Ámbito de Aplicación y Competencias",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .7 .1 Change of Athlete Nationality\nAn athlete who has represented one country in:\n• Olympic Games\n• World championships (seniors, juniors, cadets)\n• Continental championships (seniors, juniors, cadets)\n• Regional competitions recognised by the IJF\n• Continental or regional games and multi-sport games (including but not limited to African Games, Asian Games, Commonwealth Games, European Games, Francophone Games, Islamic Games, Mediterranean Games, Pan American Games, Youth Olympic Games)\n• International tournaments organised by the IJF (Grand Prix, Grand Slam, Masters, etc.) or under its auspices (Continental Open and Cup events)\n• All competitions in the IJF calendar except veterans, kata, military, and club championships*\n• Other competitions recognised by the IJF\nand who wants to change his nationality may represent his new country provided that...",
+  "contenido_traduccion": "1.7.1 Cambio de Nacionalidad de Atletas\nUn atleta que haya representado a un país en:\n• Juegos Olímpicos\n• Campeonatos mundiales (seniores, juniores, cadetes)\n• Campeonatos continentales (seniores, juniores, cadetes)\n• Competiciones regionales reconocidas por la FIJ\n• Juegos continentales o regionales y juegos multideportivos (incluidos, entre otros, Juegos Africanos, Juegos Asiáticos, Juegos de la Mancomunidad, Juegos Europeos, Juegos de la Francofonía, Juegos Islámicos, Juegos del Mediterráneo, Juegos Panamericanos, Juegos Olímpicos de la Juventud)\n• Torneos internacionales organizados por la FIJ (Grand Prix, Grand Slam, Masters, etc.) o bajo sus auspicios (eventos Continental Open y Cup)\n• Todas las competiciones del calendario de la FIJ excepto campeonatos de veteranos, kata, militares y de clubes*\n• Otras competiciones reconocidas por la FIJ\ny que desee cambiar su nacionalidad podrá representar a su nuevo país siempre que...",
+  "interpretacion": "Haber representado a un país en cualquiera de los eventos oficiales del calendario IJF (salvo veteranos, kata, militares y clubes) activa las restricciones normativas para el cambio de nacionalidad. Si un atleta ha competido internacionalmente por un país en estas categorías, no puede cambiar libremente de representación sin cumplir el procedimiento formal.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 16",
+  "tags": [
+    "cadet",
+    "senior",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0362: Cambio de Nacionalidad por Acuerdo Mutuo entre Federaciones Nacionales
+```json
+{
+  "id_conocimiento": "KUN-0362",
+  "titulo": "Cambio de Nacionalidad por Acuerdo Mutuo entre Federaciones Nacionales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "a) The two (2) national federations (current country and new country) concerned agree, they may request the IJF to shorten the period of three years or even to cancel the duration completely (see Olympic Charter, Rule 41 and the Byelaw to Rule 41). Thus, the IJF can’t shorten the three years’ period without written agreement from both national federations concerned and the athlete having a valid passport for the new country (refer to 1.7.1.1),",
+  "contenido_traduccion": "a) Las dos (2) federaciones nacionales involucradas (país actual y nuevo país) estén de acuerdo, pueden solicitar a la FIJ acortar el período de tres años o incluso cancelar la duración por completo (véase la Carta Olímpica, Regla 41 y el Reglamento de la Regla 41). Por lo tanto, la FIJ no puede reducir el período de tres años sin el acuerdo por escrito de ambas federaciones nacionales involucradas y que el atleta posea un pasaporte válido del nuevo país (consúltese 1.7.1.1),",
+  "interpretacion": "Para reducir o exonerar el periodo de espera estándar de tres años al cambiar de nacionalidad, es obligatorio contar con la autorización por escrito firmada por ambas federaciones nacionales (la de origen y la de destino) y disponer del pasaporte legal del nuevo país.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 16",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0363: Cambio de Nacionalidad por Cumplimiento del Período de Espera de Tres Años
+```json
+{
+  "id_conocimiento": "KUN-0363",
+  "titulo": "Cambio de Nacionalidad por Cumplimiento del Período de Espera de Tres Años",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "or b) At least three years have passed since the athlete last represented his former country (refer to 1.7.1.2).",
+  "contenido_traduccion": "o b) Que hayan transcurrido al menos tres años desde la última vez que el atleta representó a su anterior país (consúltese 1.7.1.2).",
+  "interpretacion": "Si no existe acuerdo entre las federaciones nacionales para acortar el tiempo, el atleta debe cumplir un periodo obligatorio de carencia de 3 años continuos sin competir internacionalmente por su país de origen antes de poder representar a la nueva nación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 16",
+  "tags": [
+    "procedure",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0364: Excepción para Veteranos, Militares, Kata y Atletas Clasificados en la WRL
+```json
+{
+  "id_conocimiento": "KUN-0364",
+  "titulo": "Excepción para Veteranos, Militares, Kata y Atletas Clasificados en la WRL",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "*Veterans, military, and kata participants who are not classified in any of the IJF WRL (either cadets, juniors or seniors) are excluded from this rule and can change nationality at any time provided they have a passport for the new country. Athletes classified in any of the IJF WRL should keep the same nationality as they are in the IJF WRL. Athletes should contact the new federation to have a profile made in Judobase for their new nationality. The new national federation must inform the IJF General Secretariat, by email (gs@ijf .org).",
+  "contenido_traduccion": "*Los participantes de veteranos, militares y kata que no estén clasificados en ninguna WRL de la FIJ (ya sea cadetes, juniores o seniores) quedan excluidos de esta regla y pueden cambiar de nacionalidad en cualquier momento, siempre que posean un pasaporte del nuevo país. Los atletas clasificados en cualquier WRL de la FIJ deben mantener la misma nacionalidad con la que figuran en la WRL de la FIJ. Los atletas deben contactar a la nueva federación para crear un perfil en Judobase para su nueva nacionalidad. La nueva federación nacional debe informar a la Secretaría General de la FIJ por correo electrónico (gs@ijf.org).",
+  "interpretacion": "Los competidores de kata, veteranos y militares que no figuran en ningún ranking mundial (WRL) pueden cambiar de nacionalidad sin esperar 3 años, solo presentando el pasaporte nuevo. Sin embargo, cualquier judoka activo en la WRL está sujeto a las restricciones severas. La nueva federación debe coordinar la creación del perfil en Judobase y notificar por email a la Secretaría General de la FIJ.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 16",
+  "tags": [
+    "world-ranking-list",
+    "cadet",
+    "senior",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0365: Plazo de Solicitud de Cambio de Nacionalidad y Excepción para Inmigrantes Juniors
+```json
+{
+  "id_conocimiento": "KUN-0365",
+  "titulo": "Plazo de Solicitud de Cambio de Nacionalidad y Excepción para Inmigrantes Juniors",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For participation in a specific event the request of nationality change must be sent 21 days before the registration deadline. If the request is not sent on time the IJF cannot guarantee that it will be processed on time. Junior and younger immigrant athletes do not need to follow the change of nationality process if the criteria in Section 1.7.2.3 is met.",
+  "contenido_traduccion": "Para la participación en un evento específico, la solicitud de cambio de nacionalidad debe enviarse 21 días antes de la fecha límite de inscripción. Si la solicitud no se envía a tiempo, la FIJ no puede garantizar que se procese a tiempo. Los atletas inmigrantes de categoría junior y menores no necesitan seguir el proceso de cambio de nacionalidad si se cumplen los criterios de la Sección 1.7.2.3.",
+  "interpretacion": "Cualquier trámite de cambio de nacionalidad para un torneo concreto debe radicarse ante la FIJ con mínimo 21 días de antelación respecto al cierre de inscripciones del evento. Como excepción, los atletas inmigrantes de categorías Junior o inferiores están exentos del proceso formal si cumplen las condiciones de la regla 1.7.2.3.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 16",
+  "tags": [
+    "procedure",
+    "time",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0366: Cambio de nacionalidad de atleta (menos de 3 años) - Requisitos documentales
+```json
+{
+  "id_conocimiento": "KUN-0366",
+  "titulo": "Cambio de nacionalidad de atleta (menos de 3 años) - Requisitos documentales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .7 .1 .1 Change of Athlete Nationality for a Period of Less than Three Years\nThe IJF must approve the request to shorten the three-year period so an athlete can represent a new national federation.\nThe new national federation must send the request to the IJF General Secretariat, by email (gs@ijf .org).\nThe following documents must be submitted with the request:\n• Letter (not older than three (3) months) from the President of the national federation (the current country) certifying the absence of objection to the change of the nationality of the concerned athlete.\n• Letter (not older than three (3) months) from the President of the national federation (the new country) authorising the athlete to represent them in international competitions.\n• Letter or email (not older than three (3) months) from the athlete (or parent/legal guardian if the athlete is a minor), who has already represented one country, giving evidence of their wish to represent their new national federation.\n• A copy of the athlete passport proving the nationality of the new country.",
+  "contenido_traduccion": "1.7.1.1 Cambio de nacionalidad del atleta para un período de menos de tres años\nLa FIJ debe aprobar la solicitud para acortar el período de tres años para que un atleta pueda representar a una nueva federación nacional.\nLa nueva federación nacional debe enviar la solicitud a la Secretaría General de la FIJ por correo electrónico (gs@ijf.org).\nSe deben presentar los siguientes documentos con la solicitud:\n• Carta (de no más de tres (3) meses de antigüedad) del Presidente de la federación nacional (el país actual) que certifique la ausencia de objeción al cambio de nacionalidad del atleta interesado.\n• Carta (de no más de tres (3) meses) del Presidente de la federación nacional (el nuevo país) que autorice al atleta a representarlos en competiciones internacionales.\n• Carta o correo electrónico (de no más de tres (3) meses) del atleta (o padre/tutor legal si el atleta es menor de edad), que ya haya representado a un país, demostrando su deseo de representar a su nueva federación nacional.\n• Una copia del pasaporte del atleta que pruebe la nacionalidad del nuevo país.",
+  "interpretacion": "Para que un deportista que haya competido por un país en los últimos 3 años pueda representar a uno nuevo, la nueva federación debe solicitar a la FIJ la exención de dicho plazo enviando cuatro documentos formalizados (con menos de 3 meses de antigüedad) al correo gs@ijf.org: carta de no objeción del país previo, autorización del nuevo país, manifestación de voluntad firmada por el atleta (o tutor) y copia del pasaporte del nuevo país.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 17",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0367: Cambio de nacionalidad de atleta (menos de 3 años) - Proceso de votación, plazos y retorno
+```json
+{
+  "id_conocimiento": "KUN-0367",
+  "titulo": "Cambio de nacionalidad de atleta (menos de 3 años) - Proceso de votación, plazos y retorno",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Once all documents have been received and verified the IJF General Secretariat will send it for an IJF Executive Committee vote. Following the vote the IJF General Secretariat will inform both national federations of the result. \nThis process takes a minimum of four (4) weeks from receipt of the correct documents. Failure to send the correct documents may result in a delay.\nIf the athlete wishes to return back to their original country the change of nationality process must be followed.",
+  "contenido_traduccion": "Una vez recibidos y verificados todos los documentos, la Secretaría General de la FIJ los enviará para votación del Comité Ejecutivo de la FIJ. Tras la votación, la Secretaría General de la FIJ informará el resultado a ambas federaciones nacionales.\nEste proceso toma un mínimo de cuatro (4) semanas a partir de la recepción de los documentos correctos. El no enviar los documentos correctos puede resultar en retrasos.\nSi el atleta desea regresar a su país original, debe seguirse nuevamente el proceso de cambio de nacionalidad.",
+  "interpretacion": "La aprobación de un cambio de nacionalidad de menos de tres años no es automática: requiere la aprobación por votación del Comité Ejecutivo de la FIJ. El trámite demora al menos 4 semanas desde la recepción conforme de los documentos. Asimismo, si un competidor desea regresar a su federación de origen en el futuro, deberá realizar nuevamente todo el trámite de cambio de nacionalidad.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 17",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0368: Cambio de nacionalidad de atleta (3 años o más) - Procedimiento, requisitos y plazos
+```json
+{
+  "id_conocimiento": "KUN-0368",
+  "titulo": "Cambio de nacionalidad de atleta (3 años o más) - Procedimiento, requisitos y plazos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .7 .1 .2 Change of Athlete Nationality after a Period of Three Years or Longer\nThe IJF must be informed if an athlete wants to represent a new national federation if a period of three years or longer have passed since he competed for his previous national federation.\nThe new national federation must send the request to the IJF General Secretariat, by email (gs@ijf .org).\nThe following documents must be submitted with the request:\n• Letter (not older than three (3) months) from the President of the new national federation (the new country) authorising the athlete to represent them in international competitions.\n• Letter or email (not older than three (3) months) from the athlete (or parent/legal guardian if the athlete is a minor), who has represented one country, giving evidence of their wish to represent their new national federation.\n• A copy of the athlete passport proving the nationality of the new country.\nOnce all documents have been received and verified the IJF General Secretariat will confirm the nationality change to the new national federation, with the former national federation in copy.\nThis process takes a minimum of two (2) weeks from receipt of the correct documents.",
+  "contenido_traduccion": "1.7.1.2 Cambio de nacionalidad del atleta después de un período de tres años o más\nSe debe informar a la FIJ si un atleta desea representar a una nueva federación nacional si ha transcurrido un período de tres años o más desde que compitió por su federación nacional anterior.\nLa nueva federación nacional debe enviar la solicitud a la Secretaría General de la FIJ por correo electrónico (gs@ijf.org).\nSe deben presentar los siguientes documentos con la solicitud:\n• Carta (de no más de tres (3) meses de antigüedad) del Presidente de la nueva federación nacional (el nuevo país) que autorice al atleta a representarlos en competiciones internacionales.\n• Carta o correo electrónico (de no más de tres (3) meses) del atleta (o padre/tutor legal si el atleta es menor de edad), que haya representado a un país, demostrando su deseo de representar a su nueva federación nacional.\n• Una copia del pasaporte del atleta que pruebe la nacionalidad del nuevo país.\nUna vez recibidos y verificados todos los documentos, la Secretaría General de la FIJ confirmará el cambio de nacionalidad a la nueva federación nacional, con copia a la anterior federación nacional.\nEste proceso toma un mínimo de dos (2) semanas a partir de la recepción de los documentos correctos.",
+  "interpretacion": "Si han transcurrido 3 años o más desde la última representación internacional de un deportista con su federación anterior, no se requiere la carta de no objeción del país previo ni votación del Comité Ejecutivo. Únicamente se notifica a la FIJ (gs@ijf.org) adjuntando la autorización de la nueva federación, la carta del atleta y el nuevo pasaporte. La Secretaría General confirma el cambio formal en un plazo mínimo de 2 semanas, copiando a la federación saliente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 17",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0369: Requisito de proceso formal para el retorno al país de origen
+```json
+{
+  "id_conocimiento": "KUN-0369",
+  "titulo": "Requisito de proceso formal para el retorno al país de origen",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Failure to send the correct documents may result in a delay. If the athlete wishes to return back to their original country the change of nationality process must be followed.",
+  "contenido_traduccion": "El hecho de no enviar los documentos correctos puede provocar un retraso. Si el atleta desea regresar a su país de origen, se debe seguir el proceso de cambio de nacionalidad.",
+  "interpretacion": "Cuando un deportista que anteriormente cambió de nacionalidad o estatus de representación desea volver a competir representando a su país de origen, no puede hacerlo de forma automática. Debe realizar nuevamente todo el trámite formal de cambio de nacionalidad ante la IJF y adjuntar la documentación requerida para evitar retrasos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 18",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0370: Circunstancias especiales para competir bajo la bandera de la IJF o bandera neutral
+```json
+{
+  "id_conocimiento": "KUN-0370",
+  "titulo": "Circunstancias especiales para competir bajo la bandera de la IJF o bandera neutral",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1.7.2 Special Circumstances\nFor events organised by the IJF or under its auspices, the IJF Executive Committee, to protect the interest of the athlete, can authorise that the athlete can compete under the IJF or a neutral flag for any reason (for example: non-official refugee status of the athlete, non-recognition of the National Olympic Committee (NOC) by the IOC, suspension of the national federation, unable to represent their national federation, etc.). Detailed requests, clearly stating the facts of the situation, should be sent to the IJF General Secretariat, by email (gs@ijf.org).",
+  "contenido_traduccion": "1.7.2 Circunstancias especiales\nPara eventos organizados por la IJF o bajo sus auspicios, el Comité Ejecutivo de la IJF, con el fin de proteger los intereses del atleta, puede autorizar que este compita bajo la bandera de la IJF o una bandera neutral por cualquier motivo (por ejemplo: estatus no oficial de refugiado del atleta, no reconocimiento del Comité Olímpico Nacional (CON) por parte del COI, suspensión de la federación nacional, imposibilidad de representar a su federación nacional, etc.). Las solicitudes detalladas, expresando claramente los hechos de la situación, deben enviarse a la Secretaría General de la IJF por correo electrónico (gs@ijf.org).",
+  "interpretacion": "Esta regla protege la carrera de los judocas frente a problemas políticos o administrativos ajenos a ellos (como la suspensión de su federación o estatus de refugiado sin formalizar). Permite al Comité Ejecutivo de la IJF autorizar de forma excepcional la participación bajo bandera neutra o IJF previa solicitud motivada enviada por correo electrónico.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 18",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0371: Requisito de seguro para atletas autorizados bajo circunstancias especiales
+```json
+{
+  "id_conocimiento": "KUN-0371",
+  "titulo": "Requisito de seguro para atletas autorizados bajo circunstancias especiales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the application is approved the athlete is responsible to ensure they have their own accident, health and civil liabilities insurance.",
+  "contenido_traduccion": "Si la solicitud es aprobada, el atleta es responsable de asegurarse de contar con su propio seguro de accidentes, salud y responsabilidad civil.",
+  "interpretacion": "Los competidores que obtienen el permiso excepcional para participar bajo bandera neutral o IJF no quedan amparados bajo las coberturas colectivas habituales de una federación nacional. Por ende, deben contratar y acreditar personalmente seguros vigentes de gastos médicos, accidentes y responsabilidad civil.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 18",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0372: Estatus oficial de refugiado en país de acogida y exclusión de juegos multideportivos
+```json
+{
+  "id_conocimiento": "KUN-0372",
+  "titulo": "Estatus oficial de refugiado en país de acogida y exclusión de juegos multideportivos",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1.7.2.1 Athletes with an Official Refugee Status under Host Country\nAn athlete with an official refugee status, hosted by a country, can qualify themselves for IJF or continental union competitions through their host country national championships and consequently they will compete internationally under their host country flag. Multi-sport games etc. are not included as those events have specific rules regarding nationality.",
+  "contenido_traduccion": "1.7.2.1 Atletas con un estatus oficial de refugiado en el país de acogida\nUn atleta con un estatus oficial de refugiado, acogido por un país, puede clasificarse para las competiciones de la IJF o de uniones continentales a través de los campeonatos nacionales de su país de acogida y, en consecuencia, compitirá internacionalmente bajo la bandera del país de acogida. Los juegos multideportivos, etc., no están incluidos, ya que esos eventos tienen reglas específicas con respecto a la nacionalidad.",
+  "interpretacion": "Un judoca reconocido como refugiado por un país puede competir en el campeonato nacional de dicho país para clasificarse a eventos IJF o continentales y representar la bandera del país receptor. Sin embargo, esta disposición no aplica para eventos como Juegos Olímpicos o Juegos Panamericanos, los cuales disponen de regulaciones propias de nacionalidad fijadas por el COI o sus comités.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 18",
+  "tags": [
+    "procedure",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0373: Procedimiento y documentos requeridos para deportistas refugiados en país de acogida
+```json
+{
+  "id_conocimiento": "KUN-0373",
+  "titulo": "Procedimiento y documentos requeridos para deportistas refugiados en país de acogida",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The national federation of the new host country must send the request to the IJF General Secretariat, by email (gs@ijf.org).\nThe following documents must be submitted with the request:\n• Official refugee status documents of the athlete.\n• Letter (not older than three (3) months) from the President of the national federation authorising the athlete to represent them in international competitions.\n• Letter or email (not older than three (3) months) from the athlete (or parent/legal guardian if the athlete is a minor), giving evidence of their wish to represent their national federation.",
+  "contenido_traduccion": "La federación nacional del nuevo país de acogida debe enviar la solicitud a la Secretaría General de la IJF por correo electrónico (gs@ijf.org).\nSe deben presentar los siguientes documentos con la solicitud:\n• Documentos oficiales del estatus de refugiado del atleta.\n• Carta (con antigüedad no mayor a tres (3) meses) del Presidente de la federación nacional autorizando al atleta a representarlos en competiciones internacionales.\n• Carta o correo electrónico (con antigüedad no mayor a tres (3) meses) del atleta (o padre/tutor legal si el atleta es menor de edad), que demuestre su deseo de representar a dicha federación nacional.",
+  "interpretacion": "Establece los requisitos formales que la federación receptora debe cumplimentar vía correo electrónico ante la IJF. Exige adjuntar la prueba gubernamental de refugiado, la autorización firmada por el presidente de la federación y la declaración del atleta o tutor legal manifestando su voluntad de competir por esa federación, debiendo estar ambas cartas fechadas dentro de los últimos 3 meses.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 18",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0374: Consulta a federaciones previas y retención de puntos WRL para atletas refugiados
+```json
+{
+  "id_conocimiento": "KUN-0374",
+  "titulo": "Consulta a federaciones previas y retención de puntos WRL para atletas refugiados",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the IJF deems it necessary, they may contact the previous national federations the athlete was affiliated with. If the athlete has any world ranking points these will be kept.",
+  "contenido_traduccion": "Si la IJF lo considera necesario, podrá ponerse en contacto con las federaciones nacionales anteriores a las que estaba afiliado el atleta. Si el atleta tiene puntos en la lista de clasificación mundial, estos se conservarán.",
+  "interpretacion": "Durante la tramitación de una solicitud de deportista refugiado, la IJF guarda la facultad de verificar información con la federación de origen. Asimismo, se garantiza que el competidor conservará íntegramente sus puntos de la World Ranking List (WRL), evitando que sea perjudicado deportivamente por su condición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 18",
+  "tags": [
+    "procedure",
+    "world-ranking-list"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0375: Vigencia, renovación, plazos y cambio de estatus para deportistas refugiados
+```json
+{
+  "id_conocimiento": "KUN-0375",
+  "titulo": "Vigencia, renovación, plazos y cambio de estatus para deportistas refugiados",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the documents sent are compliant, the authorisation will be automatically given by the IJF General Secretariat for a period of one (1) year. If the athlete’s official refugee status does not have a 12-month validity the agreement will be given until the day the official refugee status expires.\nAfter the authorisation expires to request a renewal, the national federation must repeat the application process.\nThis process takes a minimum of six (6) weeks from receipt of the correct documents. Failure to send the correct documents may result in a delay.\nIf there is a change in the status of the official refugee i.e., citizenship of a new country, return to their country of origin etc. The change of nationality process is required.",
+  "contenido_traduccion": "Si los documentos enviados cumplen con los requisitos, la Secretaría General de la IJF otorgará automáticamente la autorización por un período de uno (1) año. Si el estatus oficial de refugiado del atleta no tiene una validez de 12 meses, el acuerdo se concederá hasta el día en que expire el estatus oficial de refugiado.\nUna vez vencida la autorización, para solicitar una renovación, la federación nacional debe repetir el proceso de solicitud.\nEste proceso requiere un mínimo de seis (6) semanas a partir de la recepción de los documentos correctos. No enviar los documentos correctos puede causar retrasos.\nSi se produce un cambio en el estatus del refugiado oficial, es decir, ciudadanía de un nuevo país, regreso a su país de origen, etc., se requiere realizar el proceso de cambio de nacionalidad.",
+  "interpretacion": "La autorización concedida a un refugiado en un país de acogida tiene un plazo de validez máximo de 1 año (o equivalente al vencimiento de su documento legal). Al expirar, debe repetirse el trámite completo. La federación debe enviar la solicitud al menos 6 semanas antes de la competencia. Si el deportista adquiere una nueva nacionalidad o regresa a su país natal, esta figura expira y se debe tramitar el procedimiento ordinario de cambio de nacionalidad.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 18",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0376: Notificación y conservación de puntos de Ranking Mundial al solicitar ingreso al Equipo de Refugiados de la IJF (IRT)
+```json
+{
+  "id_conocimiento": "KUN-0376",
+  "titulo": "Notificación y conservación de puntos de Ranking Mundial al solicitar ingreso al Equipo de Refugiados de la IJF (IRT)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the official refugee applies to become part of the IJF Refugee Team (IRT) he must inform his previous national federation and the IJF General Secretariat, by email (gs@ijf .org). The change of nationality process is not required, and any world ranking points the athlete has will be kept.",
+  "contenido_traduccion": "Si el refugiado oficial solicita formar parte del Equipo de Refugiados de la IJF (IRT), debe informar a su federación nacional anterior y a la Secretaría General de la IJF por correo electrónico (gs@ijf.org). No se requiere el proceso de cambio de nacionalidad y se conservarán los puntos de la lista de clasificación mundial que posea el atleta.",
+  "interpretacion": "Un atleta con estatus oficial de refugiado no necesita realizar el trámite ni pagar las tasas del proceso estándar de cambio de nacionalidad para unirse al Equipo de Refugiados (IRT). Además, mantiene íntegros sus puntos acumulados en el World Ranking List (WRL). Únicamente requiere enviar una notificación formal por correo electrónico a la IJF y a su anterior federación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 19",
+  "tags": [
+    "procedure",
+    "world-ranking-list",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0377: Requisitos de solicitud y plazo de procesamiento para el Equipo de Refugiados de la IJF (IRT)
+```json
+{
+  "id_conocimiento": "KUN-0377",
+  "titulo": "Requisitos de solicitud y plazo de procesamiento para el Equipo de Refugiados de la IJF (IRT)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .7 .2 .2 IJF Refugee Team\nAn athlete with an official refugee status may apply to become part of the IJF Refugee Team (IRT). Detailed requests, including official refugee status documents and judo history, should be sent to the IJF General Secretariat, by email (gs@ijf .org). This process takes a minimum of six (6) weeks from receipt of the correct documents. Failure to send the correct documents may result in a delay.",
+  "contenido_traduccion": "1.7.2.2 Equipo de Refugiados de la IJF\nUn atleta con estatus oficial de refugiado puede solicitar formar parte del Equipo de Refugiados de la IJF (IRT). Las solicitudes detalladas, incluidos los documentos oficiales del estatus de refugiado y el historial de judo, deben enviarse a la Secretaría General de la IJF por correo electrónico (gs@ijf.org). Este proceso demora un mínimo de seis (6) semanas a partir de la recepción de los documentos correctos. No enviar los documentos correctos puede causar retrasos.",
+  "interpretacion": "Para ser admitido en el IRT, el atleta debe planificar la entrega de su documentación (comprobante legal de refugiado e historial deportivo) con al menos seis semanas de anticipación a la competición deseada. Si la documentación no cumple los requisitos desde el inicio, el plazo se prolongará.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 19",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0378: Vigencia, renovación y requisito de participación para atletas del Equipo de Refugiados de la IJF (IRT)
+```json
+{
+  "id_conocimiento": "KUN-0378",
+  "titulo": "Vigencia, renovación y requisito de participación para atletas del Equipo de Refugiados de la IJF (IRT)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the documents sent are compliant, the authorisation will be automatically given by the IJF General Secretariat for a period of one (1) year. If the athlete’s official refugee status does not have a 12-month validity the agreement will be given until the day the official refugee status expires. After the authorisation expires to request a renewal, the athlete must repeat the application process. Successful applicants may take part in events if they have an IJF authorisation letter.",
+  "contenido_traduccion": "Si los documentos enviados son conformes, la Secretaría General de la IJF otorgará automáticamente la autorización por un período de un (1) año. Si el estatus oficial de refugiado del atleta no tiene una validez de 12 meses, el acuerdo se otorgará hasta el día en que expire dicho estatus. Una vez vencida la autorización, para solicitar la renovación, el atleta debe repetir el proceso de solicitud. Los solicitantes aprobados pueden participar en eventos si poseen una carta de autorización de la IJF.",
+  "interpretacion": "La autorización para competir como IRT es válida por un máximo de un año (o menos si el estatus de refugiado vence antes). Es obligatorio presentar la carta de autorización emitida por la IJF para participar en los eventos del circuito mundial. Al terminar la vigencia, debe tramitarse una nueva solicitud completa.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 19",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0379: Documentación requerida para el cambio de estatus de un atleta del IRT a una Federación Nacional
+```json
+{
+  "id_conocimiento": "KUN-0379",
+  "titulo": "Documentación requerida para el cambio de estatus de un atleta del IRT a una Federación Nacional",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If there is a change in the status of the official refugee i.e., citizenship of a new country, return to their country of origin etc. The national federation the athlete will represent must send the request to the IJF General Secretariat, by email (gs@ijf .org). The following documents must be submitted with the request:\n• Letter (not older than three (3) months) from the President of the national federation authorising the athlete to represent them in international competitions.\n• Letter or email (not older than three (3) months) from the athlete (or parent/legal guardian if the athlete is a minor), giving evidence of their wish to represent their national federation.\n• A copy of the athlete passport proving the nationality of the country.",
+  "contenido_traduccion": "Si se produce un cambio en el estatus del refugiado oficial, por ejemplo, obtención de la ciudadanía de un nuevo país, regreso a su país de origen, etc., la federación nacional que el atleta representará debe enviar la solicitud a la Secretaría General de la IJF por correo electrónico (gs@ijf.org). Deben presentarse los siguientes documentos con la solicitud:\n• Carta (de antigüedad no mayor a tres (3) meses) del Presidente de la federación nacional autorizando al atleta a representarlos en competiciones internacionales.\n• Carta o correo electrónico (de antigüedad no mayor a tres (3) meses) del atleta (o padre/tutor legal si es menor de edad), que evidencie su deseo de representar a dicha federación nacional.\n• Una copia del pasaporte del atleta que acredite la nacionalidad de ese país.",
+  "interpretacion": "Cuando un atleta del IRT adquiere una nueva nacionalidad o regresa a su país de origen, la Federación Nacional receptora debe tramitar formalmente su incorporación ante la IJF enviando por correo electrónico tres documentos esenciales con una vigencia no mayor a 3 meses: carta del Presidente de la FN, consentimiento por escrito del deportista y copia del pasaporte.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 19",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0380: Tiempo de procesamiento y confirmación de traspaso de atleta del IRT a una Federación Nacional
+```json
+{
+  "id_conocimiento": "KUN-0380",
+  "titulo": "Tiempo de procesamiento y confirmación de traspaso de atleta del IRT a una Federación Nacional",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Once all documents have been received and verified the IJF General Secretariat will confirm the nationality change to the national federation. This process takes a minimum of two (2) weeks from receipt of the correct documents. Failure to send the correct documents may result in a delay.",
+  "contenido_traduccion": "Una vez recibidos y verificados todos los documentos, la Secretaría General de la IJF confirmará el cambio de nacionalidad a la federación nacional. Este proceso demora un mínimo de dos (2) semanas a partir de la recepción de los documentos correctos. No enviar los documentos correctos puede causar retrasos.",
+  "interpretacion": "La transición formal de un deportista del IRT hacia una Federación Nacional requiere de al menos 2 semanas de revisión de expedientes por parte de la Secretaría General de la IJF. El deportista no estará habilitado para competir bajo la nueva bandera hasta recibir la confirmación escrita definitiva.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 19",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0381: Elegibilidad de deportistas inmigrantes júnior y jóvenes
+```json
+{
+  "id_conocimiento": "KUN-0381",
+  "titulo": "Elegibilidad de deportistas inmigrantes júnior y jóvenes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Junior men and women (aged 15 to 20 years in the calendar year) and younger foreign athletes living in a host country can participate in their host country national junior and younger championships and thus qualify themselves for IJF or continental union junior and cadet competitions.",
+  "contenido_traduccion": "Los hombres y mujeres de categoría júnior (de 15 a 20 años en el año calendario) y los atletas extranjeros más jóvenes que residan en un país de acogida pueden participar en los campeonatos nacionales júnior y de categorías inferiores de su país de acogida y, de este modo, clasificarse para las competiciones júnior y cadete de la IJF o de la unión continental.",
+  "interpretacion": "Permite a los deportistas extranjeros en edad júnior (15 a 20 años) o de categorías inferiores (como cadetes) que residan en un país anfitrión competir en los campeonatos nacionales de dicho país para buscar su clasificación a torneos oficiales de la IJF o uniones continentales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 20",
+  "tags": [
+    "age",
+    "cadet",
+    "men",
+    "women",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0382: Documentación requerida para solicitud inicial de atletas inmigrantes júnior
+```json
+{
+  "id_conocimiento": "KUN-0382",
+  "titulo": "Documentación requerida para solicitud inicial de atletas inmigrantes júnior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The new national federation must send the request to the IJF General Secretariat, by email (gs@ijf.org).\nThe following documents must be submitted with the request:\n• Proof of residency in the host country (at least three (3) months).\n• Proof of the integration of their parents or legal guardians in the host country (at least three (3) months).\n• Proof of their integration in the school or university system or proof of employment (at least three (3) months).\n• Proof of their integration in a judo club of the host country, duly affiliated to the national federation which is an IJF member.\n• Letter (not older than three (3) months) from the President of the national federation authorising the athlete to represent them in international competitions.\n• Letter or email (not older than three (3) months) from the athlete (or parent/legal guardian if the athlete is a minor), giving evidence of their wish to represent their national federation.",
+  "contenido_traduccion": "La nueva federación nacional debe enviar la solicitud a la Secretaría General de la IJF por correo electrónico (gs@ijf.org).\nSe deben adjuntar los siguientes documentos con la solicitud:\n• Prueba de residencia en el país de acogida (al menos tres (3) meses).\n• Prueba de la integración de sus padres o tutores legales en el país de acogida (al menos tres (3) meses).\n• Prueba de su integración en el sistema escolar o universitario o prueba de empleo (al menos tres (3) meses).\n• Prueba de su integración en un club de judo del país de acogida, debidamente afiliado a la federación nacional que sea miembro de la IJF.\n• Carta (de no más de tres (3) meses de antigüedad) del Presidente de la federación nacional que autorice al atleta a representarlos en competiciones internacionales.\n• Carta o correo electrónico (de no más de tres (3) meses de antigüedad) del atleta (o padre/tutor legal si el atleta es menor de edad), que demuestre su deseo de representar a su federación nacional.",
+  "interpretacion": "Establece los requisitos formales que la federación del país receptor debe enviar a la IJF para autorizar la participación de un judoca extranjero joven. Todos los certificados de residencia, estudios/empleo e integración parental deben acreditar un mínimo de 3 meses de antigüedad en el país, y las cartas de autorización no deben superar los 3 meses de emisión.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 20",
+  "tags": [
+    "procedure",
+    "documentation",
+    "age",
+    "cadet"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0383: Aprobación, vigencia y puntos WRL para atletas inmigrantes júnior
+```json
+{
+  "id_conocimiento": "KUN-0383",
+  "titulo": "Aprobación, vigencia y puntos WRL para atletas inmigrantes júnior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the IJF deems it necessary, they may contact the previous national federations the athlete was affiliated with. If the athlete has any world ranking points these will be kept.\nThe IJF will review the submitted documents and if deemed compliant, the IJF will approve the request. The IJF General Secretariat will reply authorising the athlete to compete under the new host country flag in cadet and junior events for a period of one (1) year. If the athlete is 20 years old in the calendar year of the approval the authorisation will be valid until the 31 December of that year.",
+  "contenido_traduccion": "Si la IJF lo considera necesario, podrá ponerse en contacto con las federaciones nacionales anteriores a las que estaba afiliado el atleta. Si el atleta tiene puntos en la lista de clasificación mundial, estos se mantendrán.\nLa IJF revisará los documentos presentados y, si los considera conformes, aprobará la solicitud. La Secretaría General de la IJF responderá autorizando al atleta a competir bajo la bandera del nuevo país de acogida en eventos cadete y júnior por un periodo de un (1) año. Si el atleta cumple 20 años en el año calendario de la aprobación, la autorización será válida hasta el 31 de diciembre de ese año.",
+  "interpretacion": "La IJF tiene la potestad de consultar a la federación de origen antes de aprobar. En caso favorable, otorga una autorización temporal por 1 año (o hasta el 31 de diciembre del año en que el judoca cumpla 20 años) para competir con la bandera del país de acogida. El deportista no pierde sus puntos del ranking mundial (WRL).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 20",
+  "tags": [
+    "procedure",
+    "world-ranking-list",
+    "cadet",
+    "age"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0384: Procedimiento de renovación de autorización para atletas inmigrantes júnior
+```json
+{
+  "id_conocimiento": "KUN-0384",
+  "titulo": "Procedimiento de renovación de autorización para atletas inmigrantes júnior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "After the authorisation expires the national federation may request a renewal by email to the IJF General Secretariat (gs@ijf.org). The following documents must be sent with the request:\n• Proof of their current integration in the school or university system or proof of employment.\n• Renewed agreement of the national federation.\n• Renewed agreement of the athlete.\n• Renewed authorisation of the parent/guardian (if athlete is not of legal age in the host country).",
+  "contenido_traduccion": "Una vez expirada la autorización, la federación nacional podrá solicitar una renovación por correo electrónico a la Secretaría General de la IJF (gs@ijf.org). Se deben enviar los siguientes documentos con la solicitud:\n• Prueba de su integración actual en el sistema escolar o universitario o prueba de empleo.\n• Acuerdo renovado de la federación nacional.\n• Acuerdo renovado del atleta.\n• Autorización renovada del padre/tutor (si el atleta no es mayor de edad en el país de acogida).",
+  "interpretacion": "Para extender el permiso temporal una vez vencido el primer año, la federación nacional debe solicitar expresamente la renovación remitiendo la documentación actualizada de escolarización/empleo e intenciones vigentes del atleta, tutores y la propia federación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 20",
+  "tags": [
+    "procedure",
+    "documentation",
+    "age"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0385: Excepción para el Campeonato Mundial Júnior y plazos del trámite
+```json
+{
+  "id_conocimiento": "KUN-0385",
+  "titulo": "Excepción para el Campeonato Mundial Júnior y plazos del trámite",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For participation in the world championships junior, as senior World Ranking List (WRL) points are given, the decision will be made on a case-by-case basis by the IJF Head Sport Director.\nThis process takes a minimum of six (6) weeks from receipt of the correct documents. Failure to send the correct documents may result in a delay.",
+  "contenido_traduccion": "Para la participación en el campeonato mundial júnior, dado que se otorgan puntos para la Lista de Clasificación Mundial (WRL) sénior, la decisión será tomada caso por caso por el Director Deportivo Principal de la IJF.\nEste proceso requiere un mínimo de seis (6) semanas a partir de la recepción de los documentos correctos. La falta de envío de la documentación correcta puede provocar retrasos.",
+  "interpretacion": "La autorización general para torneos júnior/cadete no garantiza la participación en el Campeonato Mundial Júnior. Dado que este evento otorga puntos directos para el WRL Sénior, requiere la aprobación casuística del Director Deportivo Principal de la IJF. La solicitud debe enviarse con un margen mínimo de 6 semanas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 20",
+  "tags": [
+    "world-ranking-list",
+    "procedure",
+    "documentation",
+    "age"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0386: Procedimiento de retorno para representar al país de origen
+```json
+{
+  "id_conocimiento": "KUN-0386",
+  "titulo": "Procedimiento de retorno para representar al país de origen",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Should the athlete wish to return to representing his country of origin he must inform both national federations involved and the IJF General Secretariat, by email (gs@ijf.org). If the athlete has any world ranking points these will be kept.",
+  "contenido_traduccion": "En caso de que el atleta desee volver a representar a su país de origen, deberá informarlo a ambas federaciones nacionales involucradas y a la Secretaría General de la IJF por correo electrónico (gs@ijf.org). Si el atleta tiene puntos en la lista de clasificación mundial, estos se mantendrán.",
+  "interpretacion": "Define el procedimiento para cuando un competidor inmigrante decide renunciar a la autorización del país de acogida y volver a competir bajo la bandera de su país natal. Requiere notificación por correo electrónico a ambas federaciones y a la IJF, garantizando que el atleta conservará sus puntos del ranking WRL.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Información General, Página 20",
+  "tags": [
+    "procedure",
+    "world-ranking-list",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0387: Cambio de residencia a un nuevo país anfitrión y conservación de puntos WRL
+```json
+{
+  "id_conocimiento": "KUN-0387",
+  "titulo": "Cambio de residencia a un nuevo país anfitrión y conservación de puntos WRL",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Should the athlete change residence to another host country, he must inform both national federations involved and the IJF General Secretariat, by email (gs@ijf .org). The application process should be repeated by submitting the documents proving the relocation to the IJF General Secretariat, by email (gs@ijf .org). If the athlete has any world ranking points these will be kept.",
+  "contenido_traduccion": "En caso de que el atleta cambie de residencia a otro país anfitrión, debe informar a ambas federaciones nacionales involucradas y a la Secretaría General de la IJF por correo electrónico (gs@ijf.org). Se debe repetir el proceso de solicitud presentando los documentos que prueben el traslado a la Secretaría General de la IJF. Si el atleta posee puntos en la lista de clasificación mundial (WRL), estos se conservarán.",
+  "interpretacion": "Si un atleta que ya compite bajo el estatus de inmigrante se traslada a un nuevo país anfitrión, debe notificar formalmente a las federaciones de origen/previa, a la nueva federación y a la IJF, repitiendo el proceso documental. Se garantiza expresamente que el atleta conservará sus puntos del ranking mundial acumulados.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización, Sección 1.7, Página 21",
+  "tags": [
+    "procedure",
+    "world-ranking-list"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0388: Participación y elegibilidad de atletas veteranos inmigrantes
+```json
+{
+  "id_conocimiento": "KUN-0388",
+  "titulo": "Participación y elegibilidad de atletas veteranos inmigrantes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .7 .2 .4 Veterans Immigrants\nVeteran foreign athletes living in a host country can participate in their host country national veteran championships and thus qualify themselves for IJF or continental union veteran competitions. The new national federation must send the request to the IJF General Secretariat, by email (gs@ijf .org).",
+  "contenido_traduccion": "1.7.2.4 Veteranos Inmigrantes\nLos atletas extranjeros en categoría de veteranos que residan en un país anfitrión pueden participar en los campeonatos nacionales de veteranos de dicho país y, de este modo, clasificarse para competiciones de veteranos de la IJF o de uniones continentales. La nueva federación nacional debe enviar la solicitud a la Secretaría General de la IJF por correo electrónico (gs@ijf.org).",
+  "interpretacion": "Permite que atletas extranjeros de la categoría veteranos que residan en un país de acogida participen en torneos nacionales de dicho país para clasificar y competir en torneos internacionales de veteranos de la IJF o uniones continentales, requiriendo una solicitud formal iniciada por la nueva federación ante la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización, Sección 1.7.2.4, Página 21",
+  "tags": [
+    "procedure",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0389: Requisitos documentales para la solicitud de veteranos inmigrantes
+```json
+{
+  "id_conocimiento": "KUN-0389",
+  "titulo": "Requisitos documentales para la solicitud de veteranos inmigrantes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The following documents must be submitted with the request:\n• Proof of their residency in the host country (at least three (3) months).\n• Proof of their integration in a judo club of the host country, duly affiliated to the national federation which is an IJF member.\n• Letter (not older than three (3) months) from the President of the national federation authorising the athlete to represent them in international competitions.\n• Letter or email (not older than three (3) months) from the athlete giving evidence of their wish to represent their national federation.",
+  "contenido_traduccion": "Se deben presentar los siguientes documentos junto con la solicitud:\n• Prueba de su residencia en el país anfitrión (al menos tres (3) meses).\n• Prueba de su integración en un club de judo del país anfitrión, debidamente afiliado a la federación nacional que sea miembro de la IJF.\n• Carta (con antigüedad no superior a tres (3) meses) del Presidente de la federación nacional autorizando al atleta a representarlos en competiciones internacionales.\n• Carta o correo electrónico (con antigüedad no superior a tres (3) meses) del atleta demostrando su deseo de representar a su federación nacional.",
+  "interpretacion": "Establece el expediente documental obligatorio para autorizar a un veterano extranjero a representar a su país de acogida. Exige residencia mínima comprobable de 3 meses, afiliación club-federación, y autorizaciones por escrito (del presidente federativo y del atleta) con antigüedad menor a 3 meses.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización, Sección 1.7.2.4, Página 21",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0390: Aprobación y vigencia de la autorización para veteranos inmigrantes
+```json
+{
+  "id_conocimiento": "KUN-0390",
+  "titulo": "Aprobación y vigencia de la autorización para veteranos inmigrantes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF will review the submitted documents and if deemed compliant, the IJF will approve the request. The IJF General Secretariat will reply authorising the athlete to compete under the new host country flag in veteran events for a period of one (1) year.",
+  "contenido_traduccion": "La IJF revisará los documentos presentados y, si se consideran conformes, aprobará la solicitud. La Secretaría General de la IJF responderá autorizando al atleta a competir bajo la bandera del nuevo país anfitrión en eventos de veteranos por un período de un (1) año.",
+  "interpretacion": "Tras la validación de los documentos, la IJF emite una autorización oficial con una validez máxima de un (1) año, restringida exclusivamente a competencias de la categoría de veteranos bajo la bandera del país de acogida.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización, Sección 1.7.2.4, Página 21",
+  "tags": [
+    "procedure",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0391: Proceso de renovación y plazos de tramitación para veteranos inmigrantes
+```json
+{
+  "id_conocimiento": "KUN-0391",
+  "titulo": "Proceso de renovación y plazos de tramitación para veteranos inmigrantes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "After the authorisation expires the national federation may request a renewal by email to the IJF General Secretariat (gs@ijf .org). The following documents must be sent with the request:\n• Proof of their current integration in the host country.\n• Renewed agreement of the national federation.\n• Renewed agreement of the athlete.\nThis process takes a minimum of six (6) weeks from receipt of the correct documents. Failure to send the correct documents may result in a delay.",
+  "contenido_traduccion": "Una vez vencida la autorización, la federación nacional podrá solicitar su renovación por correo electrónico a la Secretaría General de la IJF (gs@ijf.org). Se deben enviar los siguientes documentos con la solicitud:\n• Prueba de su integración actual en el país anfitrión.\n• Acuerdo renovado de la federación nacional.\n• Acuerdo renovado del atleta.\nEste proceso requiere un mínimo de seis (6) semanas a partir de la recepción de los documentos correctos. No enviar los documentos correctos puede provocar demoras.",
+  "interpretacion": "Al vencer el año de autorización, la federación debe solicitar la renovación enviando prueba actualizada de integración y nuevos acuerdos firmados. El trámite demora un mínimo de 6 semanas, por lo que debe solicitarse con suficiente anticipación para evitar retrasos e inhabilitaciones temporales del competidor.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización, Sección 1.7.2.4, Página 21",
+  "tags": [
+    "procedure",
+    "time",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0392: Retorno al país de origen o traslado a otro país anfitrión de veteranos inmigrantes
+```json
+{
+  "id_conocimiento": "KUN-0392",
+  "titulo": "Retorno al país de origen o traslado a otro país anfitrión de veteranos inmigrantes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Should the athlete wish to return to representing his country of origin he must inform both national federations involved and the IJF General Secretariat, by email (gs@ijf .org). Should the athlete change residence to another host country, he should repeat the application process by submitting the documents proving the relocation to the IJF General Secretariat, by email (gs@ijf .org).",
+  "contenido_traduccion": "En caso de que el atleta desee volver a representar a su país de origen, debe informar a ambas federaciones nacionales involucradas y a la Secretaría General de la IJF por correo electrónico (gs@ijf.org). Si el atleta cambia de residencia a otro país anfitrión, debe repetir el proceso de solicitud presentando los documentos que acrediten el traslado ante la Secretaría General de la IJF.",
+  "interpretacion": "Si un atleta veterano inmigrante decide volver a representar a su país de origen, debe notificarlo formalmente por correo electrónico a las federaciones afectadas y a la IJF. Si se mudara a un tercer país, estará obligado a iniciar nuevamente todo el procedimiento de solicitud de veterano inmigrante con la documentación correspondiente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización, Sección 1.7.2.4, Página 21",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0393: Nacionalidad y verificación del perfil de árbitros
+```json
+{
+  "id_conocimiento": "KUN-0393",
+  "titulo": "Nacionalidad y verificación del perfil de árbitros",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1.8 Referee Nationality\nThe referee must be a national of the country of the national federation they represent. They must have an active Judobase profile for that national federation. This will be verified annually by the IJF Referee Commission (for referees officiating in IJF WJT events) and the Continental Referee Commission (for referees officiating in any other events listed in the IJF calendar).",
+  "contenido_traduccion": "1.8 Nacionalidad del Árbitro\nEl árbitro debe ser nacional del país de la federación nacional a la que representa. Debe tener un perfil activo en Judobase para esa federación nacional. Esto será verificado anualmente por la Comisión de Árbitros de la FIJ (para árbitros que arbitren en eventos del IJF WJT) y por la Comisión de Árbitros Continental (para árbitros que arbitren en cualquier otro evento incluido en el calendario de la FIJ).",
+  "interpretacion": "Para poder arbitrar en eventos oficiales del circuito IJF o continentales, el árbitro debe ser ciudadano del país que representa y poseer una cuenta activa en Judobase vinculada a su federación. Existe un control e inspección anual por parte de las comisiones arbitrales correspondientes para garantizar el cumplimiento de esta norma.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 22",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0394: Acreditación de la nacionalidad e identificación del árbitro
+```json
+{
+  "id_conocimiento": "KUN-0394",
+  "titulo": "Acreditación de la nacionalidad e identificación del árbitro",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The evidence of nationality shall be the production of a valid passport issued by the represented country. Should the referee be unable to produce their passport a decision will be made on whether to accept an alternative form of identification such as a valid national identity document showing the same nationality as the country of issue.\nWhere the national federation does not have a passport with that nationality, the passport issued by their government will be accepted (e.g., American Samoa (USA), Aruba (Netherlands), Cook Islands (New Zealand), Curacao (Netherlands), Guam (USA), Sint Maarten (Netherlands), Puerto Rico (USA) and US Virgin Islands (USA)).\nReferees who have permission to take part in IJF events under the IJF SOR rule 1.8.2 who do not have a valid passport issued by the represented country must present either a photographic identity or refugee travel document and the IJF authorisation letter.",
+  "contenido_traduccion": "La prueba de la nacionalidad será la presentación de un pasaporte válido expedido por el país representado. En caso de que el árbitro no pueda presentar su pasaporte, se tomará una decisión sobre si se acepta una forma alternativa de identificación, como un documento de identidad nacional válido que muestre la misma nacionalidad que el país de expedición.\nCuando la federación nacional no disponga de un pasaporte con esa nacionalidad, se aceptará el pasaporte expedido por su gobierno (por ejemplo, Samoa Americana (EE. UU.), Aruba (Países Bajos), Islas Cook (Nueva Zelanda), Curazao (Países Bajos), Guam (EE. UU.), Sint Maarten (Países Bajos), Puerto Rico (EE. UU.) e Islas Vírgenes de los EE. UU. (EE. UU.)). \nLos árbitros que tengan permiso para participar en eventos de la FIJ en virtud de la regla 1.8.2 de las SOR de la FIJ y que no posean un pasaporte válido expedido por el país representado deberán presentar una identificación con fotografía o un documento de viaje para refugiados y la carta de autorización de la FIJ.",
+  "interpretacion": "El documento normativo primario para demostrar la nacionalidad es el pasaporte oficial del país. Se contemplan excepciones y casos especiales para territorios dependientes (ej. Puerto Rico, Aruba) donde se acepta el pasaporte del gobierno soberano correspondiente, así como situaciones especiales reguladas (regla 1.8.2) que requieren documentación de refugiado o identificación fotográfica junto con la carta oficial de la FIJ.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 22",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0395: Límite de representación de país por año calendario para árbitros
+```json
+{
+  "id_conocimiento": "KUN-0395",
+  "titulo": "Límite de representación de país por año calendario para árbitros",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "A referee shall represent only one country within the same calendar year.",
+  "contenido_traduccion": "Un árbitro solo representará a un país dentro del mismo año calendario.",
+  "interpretacion": "Un árbitro no puede cambiar de federación o arbitrar bajo la bandera de otro país en medio de un año en curso; durante todo el año natural (de enero a diciembre) solo puede representar a una sola nación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 22",
+  "tags": [
+    "referee",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0396: Reglas de neutralidad e incompatibilidad para árbitros con múltiples nacionalidades o cargos
+```json
+{
+  "id_conocimiento": "KUN-0396",
+  "titulo": "Reglas de neutralidad e incompatibilidad para árbitros con múltiples nacionalidades o cargos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If a referee has multiple citizenships:\n• He shall inform the IJF Referee Commission he depends on.\n• He shall choose only one nationality, which he will represent during the ongoing calendar year.\n• He shall not referee an athlete who has the same citizenship(s) as he does.\nIf a referee holds a function within a national federation of a country, he doesn’t hold the citizenship of, he shall inform the IJF Referee Commission he depends on and shall not referee an athlete representing this national federation.\nThe IJF Referee Commission shall inform the IJF IT Team of the nationalities and national functions of each referee, for the technical draw procedure of referees.",
+  "contenido_traduccion": "Si un árbitro tiene múltiples ciudadanías:\n• Deberá informar a la Comisión de Árbitros de la FIJ de la que dependa.\n• Deberá elegir una sola nacionalidad, la cual representará durante el año calendario en curso.\n• No podrá arbitrar a ningún atleta que tenga la(s) misma(s) ciudadanía(s) que él.\nSi un árbitro desempeña una función dentro de una federación nacional de un país del cual no posee la ciudadanía, deberá informar a la Comisión de Árbitros de la FIJ de la que dependa y no podrá arbitrar a ningún atleta que represente a esa federación nacional.\nLa Comisión de Árbitros de la FIJ informará al equipo informático de la FIJ sobre las nacionalidades y funciones nacionales de cada árbitro, para el procedimiento de sorteo técnico de los árbitros.",
+  "interpretacion": "Garantiza la imparcialidad del arbitraje. Un árbitro con doble o múltiple nacionalidad tiene prohibido arbitrar a competidores que compartan cualquiera de sus nacionalidades, incluso si no está representando formalmente a ese país ese año. Asimismo, si ejerce cargos institucionales en un país del que no es ciudadano, tampoco puede arbitrar a judokas de esa federación. Esta información se carga en el sistema informático de la FIJ para evitar bloqueos/conflictos en el sorteo automatizado de árbitros para los combates.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 22",
+  "tags": [
+    "referee",
+    "draw",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0397: Carnet de la FIJ e inscripción obligatoria en Judobase para árbitros
+```json
+{
+  "id_conocimiento": "KUN-0397",
+  "titulo": "Carnet de la FIJ e inscripción obligatoria en Judobase para árbitros",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "A valid IJF card is necessary to referee at continental or international events included in the official IJF calendars. It is compulsory for the national federation to inscribe the referee for the event in Judobase.",
+  "contenido_traduccion": "Es necesario disponer de una tarjeta de la FIJ válida para arbitrar en eventos continentales o internacionales incluidos en los calendarios oficiales de la FIJ. Es obligatorio que la federación nacional inscriba al árbitro para el evento en Judobase.",
+  "interpretacion": "Ningún árbitro puede actuar en un evento del calendario oficial de la FIJ o continental sin poseer su acreditación/tarjeta FIJ vigente y sin haber sido formalmente inscrito a través del portal Judobase por su respectiva federación nacional.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 22",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0398: Idiomas oficiales y traducción de documentos presentados por árbitros
+```json
+{
+  "id_conocimiento": "KUN-0398",
+  "titulo": "Idiomas oficiales y traducción de documentos presentados por árbitros",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "All submitted documents must be in one of the IJF’s official languages (English, French, or Spanish). If a document was originally issued in another language, an official translation into one of the IJF official languages must be included.",
+  "contenido_traduccion": "Todos los documentos presentados deben estar en uno de los idiomas oficiales de la FIJ (inglés, francés o español). Si un documento fue expedido originalmente en otro idioma, se debe incluir una traducción oficial a uno de los idiomas oficiales de la FIJ.",
+  "interpretacion": "Toda la documentación requerida a los árbitros (pasaportes, certificados, salvoconductos, etc.) debe presentarse en inglés, francés o español. Si el documento original está en otro idioma (ej. japonés, ruso, árabe), la federación o árbitro debe adjuntar una traducción oficial legalizada a uno de esos tres idiomas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 22",
+  "tags": [
+    "referee",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0399: Procedimiento y aprobación para el cambio de nacionalidad de un árbitro
+```json
+{
+  "id_conocimiento": "KUN-0399",
+  "titulo": "Procedimiento y aprobación para el cambio de nacionalidad de un árbitro",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1.8.1 Change of Referee Nationality\nA referee shall inform the IJF of any change regarding his nationality.\nA referee who has represented a country in an IJF official competition and who has changed his nationality or acquired a new nationality may represent his new country in the next calendar year.\nA referee cannot represent a new national federation without the approval of the IJF.",
+  "contenido_traduccion": "1.8.1 Cambio de Nacionalidad del Árbitro\nEl árbitro deberá informar a la FIJ de cualquier cambio relativo a su nacionalidad.\nUn árbitro que haya representado a un país en una competición oficial de la FIJ y que haya cambiado de nacionalidad o adquirido una nueva nacionalidad podrá representar a su nuevo país en el siguiente año calendario.\nUn árbitro no puede representar a una nueva federación nacional sin la aprobación de la FIJ.",
+  "interpretacion": "Si un árbitro cambia o adquiere una nueva nacionalidad, debe notificarlo formalmente a la FIJ. La representación efectiva del nuevo país no se aplica de inmediato, sino a partir del siguiente año calendario, y está expresamente supeditada a la previa aprobación y autorización de la FIJ.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 22",
+  "tags": [
+    "referee",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0400: Procedimiento y Documentación para el Cambio de Nacionalidad de Árbitros
+```json
+{
+  "id_conocimiento": "KUN-0400",
+  "titulo": "Procedimiento y Documentación para el Cambio de Nacionalidad de Árbitros",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The new national federation must send the request by email to the IJF General Secretariat (gs@ijf .org) and the IJF Referee Commission (refereeing@ijf .org).\nThe following documents must be submitted with the request:\n• Letter (not older than three (3) months) from the President of the national federation (the new country) authorising the referee to represent them in competitions.\n• Letter (not older than three (3) months) from the referee, who has already represented one country, giving evidence of their wish to represent their new national federation.\n• A copy of the referee passport proving the nationality of the new country.",
+  "contenido_traduccion": "La nueva federación nacional debe enviar la solicitud por correo electrónico a la Secretaría General de la FIJ (gs@ijf.org) y a la Comisión de Arbitraje de la FIJ (refereeing@ijf.org).\nSe deben presentar los siguientes documentos con la solicitud:\n• Carta (no mayor a tres (3) meses) del Presidente de la federación nacional (el nuevo país) autorizando al árbitro a representarlos en competiciones.\n• Carta (no mayor a tres (3) meses) del árbitro, que ya haya representado a un país, demostrando su deseo de representar a su nueva federación nacional.\n• Una copia del pasaporte del árbitro que pruebe la nacionalidad del nuevo país.",
+  "interpretacion": "Establece el procedimiento administrativo necesario cuando un árbitro decide representar a un nuevo país. Requiere consentimiento formal de ambas partes (federación receptora y árbitro) con antigüedad no mayor a tres meses, respaldado por la acreditación legal de la nueva nacionalidad mediante pasaporte.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización y Estructura, Página 23",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0401: Verificación, Plazos y Reversión del Cambio de Nacionalidad de Árbitros
+```json
+{
+  "id_conocimiento": "KUN-0401",
+  "titulo": "Verificación, Plazos y Reversión del Cambio de Nacionalidad de Árbitros",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF will contact the referee’s former national federations to verify any justified objections.\nOnce all documents have been received and verified the IJF General Secretariat will confirm the nationality change to the new national federation and the referee commission of the new continental union, with the former national federation and former continental union referee commission in copy.\nThis process takes a minimum of six (6) weeks from receipt of the correct documents. Failure to send the correct documents may result in a delay.\nIf the referee wishes to return back to their original country the change of nationality process must be followed.",
+  "contenido_traduccion": "La FIJ se pondrá en contacto con las anteriores federaciones nacionales del árbitro para verificar si existen objeciones justificadas.\nUna vez recibidos y verificados todos los documentos, la Secretaría General de la FIJ confirmará el cambio de nacionalidad a la nueva federación nacional y a la comisión de arbitraje de la nueva unión continental, con copia a la anterior federación nacional y a la anterior comisión de arbitraje continental.\nEste proceso toma un mínimo de seis (6) semanas a partir de la recepción de los documentos correctos. La falta de envío de los documentos correctos puede provocar retrasos.\nSi el árbitro desea regresar a su país de origen, se debe seguir el mismo proceso de cambio de nacionalidad.",
+  "interpretacion": "Define el protocolo de validación cruzada para evitar conflictos disputados entre federaciones. Garantiza un margen administrativo mínimo de 6 semanas de revisión e indica de forma explícita que volver a representar al país de origen requiere reiniciar todo el trámite documental desde el principio.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización y Estructura, Página 23",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0402: Efecto del Cambio de Nacionalidad en el Ranking del Árbitro
+```json
+{
+  "id_conocimiento": "KUN-0402",
+  "titulo": "Efecto del Cambio de Nacionalidad en el Ranking del Árbitro",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If a referee changes to a different national federation within the same continental union, their existing ranking points will be kept.\nIf a referee changes to a national federation in a different continental union, their existing ranking points will start from zero, as ranking systems differ.",
+  "contenido_traduccion": "Si un árbitro cambia a una federación nacional diferente dentro de la misma unión continental, mantendrá sus puntos de ranking existentes.\nSi un árbitro cambia a una federación nacional en una unión continental diferente, sus puntos de ranking existentes comenzarán desde cero, ya que los sistemas de ranking difieren.",
+  "interpretacion": "Regula la transferencia de puntos de escalafón arbitral durante un cambio de federación. Si la transición ocurre entre países del mismo continente, el puntaje se conserva intacto; si implica una transición entre uniones continentales distintas, la puntuación acumulada se reinicia por completo a cero.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización y Estructura, Página 23",
+  "tags": [
+    "referee",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0403: Estatus Especial para Árbitros Inmigrantes
+```json
+{
+  "id_conocimiento": "KUN-0403",
+  "titulo": "Estatus Especial para Árbitros Inmigrantes",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1 .8 .2 Special Circumstances\n1 .8 .2 .1 Referee Immigrants\nReferees living in a host country can referee under their host country.\nThe new national federation must send the request by email to the IJF General Secretariat (gs@ijf .org) and the IJF Referee Commission (refereeing@ijf .org).\nThe following documents must be submitted with the request:\n• Proof of their residency in the host country (at least one year).\n• Proof of their integration in a judo club of the host country, duly affiliated to the national federation which is an IJF member.\n• Agreement of the host national federation President (not older than three (3) months).\n• Agreement of the referee (not older than three (3) months).\nThe IJF will contact the referee’s former national federations to verify any justified objections.\nThe IJF will review the submitted documents and if deemed compliant, the IJF will approve the request. The IJF General Secretariat will reply authorising the referee to officiate under the new host country flag until the end of the current calendar year.",
+  "contenido_traduccion": "1.8.2 Circunstancias Especiales\n1.8.2.1 Árbitros Inmigrantes\nLos árbitros que viven en un país anfitrión pueden arbitrar bajo la bandera de su país anfitrión.\nLa nueva federación nacional debe enviar la solicitud por correo electrónico a la Secretaría General de la FIJ (gs@ijf.org) y a la Comisión de Arbitraje de la FIJ (refereeing@ijf.org).\nSe deben presentar los siguientes documentos con la solicitud:\n• Prueba de su residencia en el país anfitrión (al menos un año).\n• Prueba de su integración en un club de judo del país anfitrión, debidamente afiliado a la federación nacional que sea miembro de la FIJ.\n• Acuerdo del Presidente de la federación nacional anfitriona (no mayor a tres (3) meses).\n• Acuerdo del árbitro (no mayor a tres (3) meses).\nLa FIJ se pondrá en contacto con las anteriores federaciones nacionales del árbitro para verificar si existen objeciones justificadas.\nLa FIJ revisará los documentos presentados y, si los considera conformes, aprobará la solicitud. La Secretaría General de la FIJ responderá autorizando al árbitro a arbitrar bajo la bandera del nuevo país anfitrión hasta el final del año calendario en curso.",
+  "interpretacion": "Permite a los árbitros con residencia extranjera de al menos un año arbitrar de forma temporal representando a su país de acogida sin requerir aún un cambio formal de pasaporte. La vigencia de esta autorización vence indefectiblemente al finalizar el año calendario corriente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización y Estructura, Página 23",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0404: Renovación de la autorización de transferencia de árbitros
+```json
+{
+  "id_conocimiento": "KUN-0404",
+  "titulo": "Renovación de la autorización de transferencia de árbitros",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "After the authorisation expires the national federation may request a renewal by email to the IJF General Secretariat (gs@ijf .org) and the IJF Referee Commission (refereeing@ijf .org). The following documents must be sent with the request:\n• Proof of their current integration in the host country.\n• Renewed agreement of the national federation President (not older than three (3) months).\n• Renewed agreement of the referee (not older than three (3) months).\nThis process takes a minimum of six (6) weeks from receipt of the correct documents. Failure to send the correct documents may result in a delay.",
+  "contenido_traduccion": "Una vez expirada la autorización, la federación nacional puede solicitar una renovación por correo electrónico a la Secretaría General de la IJF (gs@ijf.org) y a la Comisión de Arbitraje de la IJF (refereeing@ijf.org). Se deben enviar los siguientes documentos con la solicitud:\n• Prueba de su integración actual en el país anfitrión.\n• Acuerdo renovado del Presidente de la federación nacional (no superior a tres (3) meses de antigüedad).\n• Acuerdo renovado del árbitro (no superior a tres (3) meses de antigüedad).\nEste proceso toma un mínimo de seis (6) semanas desde la recepción de los documentos correctos. El hecho de no enviar los documentos correctos puede provocar un retraso.",
+  "interpretacion": "Para mantener activa la autorización de un árbitro transferido a otro país, la federación anfitriona debe tramitar la renovación con al menos 6 semanas de antelación enviando los acuerdos actualizados (con vigencia menor a 3 meses) y pruebas de residencia/integración. Retrasos en el envío de documentación correcta impedirán la participación del árbitro en eventos internacionales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización y Administración, Página 24",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0405: Procedimiento para retorno al país de origen o traslado a otro país anfitrión
+```json
+{
+  "id_conocimiento": "KUN-0405",
+  "titulo": "Procedimiento para retorno al país de origen o traslado a otro país anfitrión",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Should the referee wish to return to representing his country of origin he must inform by email both national federations involved as well as the IJF General Secretariat (gs@ijf .org) and the IJF Referee Commission (refereeing@ijf .org).\nShould the referee change residence to another host country, he should repeat the application process by submitting the documents proving the relocation by email the IJF General Secretariat (gs@ijf .org) and the IJF Referee Commission (refereeing@ijf .org).",
+  "contenido_traduccion": "Si el árbitro desea volver a representar a su país de origen, debe informarlo por correo electrónico a ambas federaciones nacionales involucradas, así como a la Secretaría General de la IJF (gs@ijf.org) y a la Comisión de Arbitraje de la IJF (refereeing@ijf.org).\nSi el árbitro cambia de residencia a otro país anfitrión, debe repetir el proceso de solicitud enviando por correo electrónico los documentos que acrediten el traslado a la Secretaría General de la IJF (gs@ijf.org) y a la Comisión de Arbitraje de la IJF (refereeing@ijf.org).",
+  "interpretacion": "Cualquier cambio posterior en la situación del árbitro (retorno a su país de origen o mudanza a un tercer país) exige una notificación formal vía e-mail a la IJF y a las federaciones implicadas. Si se cambia a un nuevo país anfitrión, se debe reiniciar desde cero el proceso completo de acreditación y documentación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización y Administración, Página 24",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0406: Conservación o reinicio de puntos de ranking de árbitros al cambiar de federación
+```json
+{
+  "id_conocimiento": "KUN-0406",
+  "titulo": "Conservación o reinicio de puntos de ranking de árbitros al cambiar de federación",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If a referee changes to a different national federation within the same continental union, their existing ranking points will be kept.\nIf a referee changes to a national federation in a different continental union, their existing ranking points will start from zero, as ranking systems differ.",
+  "contenido_traduccion": "Si un árbitro se cambia a una federación nacional diferente dentro de la misma unión continental, se mantendrán sus puntos de ranking existentes.\nSi un árbitro se cambia a una federación nacional en una unión continental diferente, sus puntos de ranking existentes comenzarán desde cero, ya que los sistemas de ranking difieren.",
+  "interpretacion": "El historial de puntos de ranking de un árbitro se preserva únicamente si la transferencia ocurre entre países pertenecientes a la misma unión continental (ej. dentro de la Unión Europea de Judo). Si el cambio es intercontinental (ej. de Europa a América), los puntos acumulados se pierden y el contador vuelve a cero.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización y Administración, Página 24",
+  "tags": [
+    "referee",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0407: Incompatibilidad de arbitraje por nacionalidad de origen o de acogida
+```json
+{
+  "id_conocimiento": "KUN-0407",
+  "titulo": "Incompatibilidad de arbitraje por nacionalidad de origen o de acogida",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In addition to the rule 1.8 Referee Nationality, the referee shall not officiate in a contest involving an athlete who has the citizenship of his country of origin nor one who has the citizenship of his host country.",
+  "contenido_traduccion": "Además de la regla 1.8 Nacionalidad del Árbitro, el árbitro no arbitrará en un combate que involucre a un atleta que tenga la ciudadanía de su país de origen ni a uno que tenga la ciudadanía de su país anfitrión.",
+  "interpretacion": "Para evitar cualquier conflicto de interés, un árbitro transferido tiene prohibida la neutralidad/arbitraje en combates donde participe un judoka que tenga la ciudadanía de su país natal o del país que lo acoge actualmente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización y Administración, Página 24",
+  "tags": [
+    "referee",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0408: Árbitros con estatus oficial de refugiado - Elegibilidad y solicitud
+```json
+{
+  "id_conocimiento": "KUN-0408",
+  "titulo": "Árbitros con estatus oficial de refugiado - Elegibilidad y solicitud",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1.8.2.2 Referees with an Official Refugee Status under Host Country\nA referee with an official refugee status, hosted by a country, can officiate internationally under their host country flag. Multi-sport games etc. are not included as those events have specific rules regarding nationality.\nThe national federation of the new host country must send the request by email to the IJF General Secretariat (gs@ijf .org) and the IJF Referee Commission (refereeing@ijf .org). The following documents must be submitted with the request:\n• Official refugee status documents of the referee.\n• Agreement of the host national federation President.\n• Agreement of the referee.\nThe IJF will contact the referee’s former national federations to verify any justified objections.",
+  "contenido_traduccion": "1.8.2.2 Árbitros con estatus oficial de refugiado bajo el país anfitrión\nUn árbitro con estatus oficial de refugiado, acogido por un país, puede arbitrar internacionalmente bajo la bandera de su país anfitrión. Se excluyen los juegos multideportivos, etc., ya que esos eventos tienen reglas específicas sobre la nacionalidad.\nLa federación nacional del nuevo país anfitrión debe enviar la solicitud por correo electrónico a la Secretaría General de la IJF (gs@ijf.org) y a la Comisión de Arbitraje de la IJF (refereeing@ijf.org). Se deben presentar los siguientes documentos con la solicitud:\n• Documentos oficiales del estatus de refugiado del árbitro.\n• Acuerdo del Presidente de la federación nacional anfitriona.\n• Acuerdo del árbitro.\nLa IJF se pondrá en contacto con las antiguas federaciones nacionales del árbitro para verificar cualquier objeción justificada.",
+  "interpretacion": "Los árbitros refugiados reconocidos pueden competir/arbitrar bajo la bandera del país que los acoge en eventos de la IJF (no en Juegos Olímpicos o multideportivos con regulación propia de nacionalidad). La federación receptora somete la documentación oficial a la IJF, la cual consulta a la federación de origen antes de otorgar el aval.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización y Administración, Página 24",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0409: Árbitros con estatus oficial de refugiado - Vigencia de autorización y renovación
+```json
+{
+  "id_conocimiento": "KUN-0409",
+  "titulo": "Árbitros con estatus oficial de refugiado - Vigencia de autorización y renovación",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the documents sent are compliant, the authorisation will be automatically given by the IJF General Secretariat until the end of the current calendar year.\nIf the referee’s official refugee status does not have a 12-month validity the agreement will be given until the day the official refugee status expires.\nAfter the authorisation expires to request a renewal, the national federation must repeat the application process.\nThis process takes a minimum of six (6) weeks from receipt of the correct documents.",
+  "contenido_traduccion": "Si los documentos enviados son conformes, la Secretaría General de la IJF otorgará la autorización automáticamente hasta el final del año calendario en curso.\nSi el estatus oficial de refugiado del árbitro no tiene una validez de 12 meses, la autorización se concederá hasta el día en que expire el estatus oficial de refugiado.\nUna vez que expire la autorización, para solicitar una renovación, la federación nacional debe repetir el proceso de solicitud.\nEste proceso toma un mínimo de seis (6) semanas desde la recepción de los documentos correctos.",
+  "interpretacion": "La autorización internacional para un árbitro refugiado expira ordinariamente el 31 de diciembre del año en curso o el día exacto en que venza su estatus legal de refugiado. Para renovarla, la federación anfitriona debe reexpedir la solicitud completa respetando el plazo administrativo mínimo de 6 semanas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 1 - Organización y Administración, Página 24",
+  "tags": [
+    "referee",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0410: Solicitud e ingreso al Equipo de Refugiados de la IJF para Árbitros (IRT)
+```json
+{
+  "id_conocimiento": "KUN-0410",
+  "titulo": "Solicitud e ingreso al Equipo de Refugiados de la IJF para Árbitros (IRT)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1.8.2.3 IJF Refugee Team for Referees\nA referee with an official refugee status may apply to become part of the IJF Refugee Team (IRT).\nDetailed requests, including official refugee status documents and judo history, should be sent by email to the IJF General Secretariat (gs@ijf.org) and the IJF Referee Commission (refereeing@ijf.org).\nThis process takes a minimum of six (6) weeks from receipt of the correct documents. Failure to send the correct documents may result in a delay.\nThe IJF will contact the referee’s former national federations to verify any justified objections.",
+  "contenido_traduccion": "1.8.2.3 Equipo de Refugiados de la IJF para Árbitros\nUn árbitro con estatus oficial de refugiado puede solicitar formar parte del Equipo de Refugiados de la IJF (IRT).\nLas solicitudes detalladas, incluidos los documentos de estatus oficial de refugiado y el historial en judo, deben enviarse por correo electrónico a la Secretaría General de la IJF (gs@ijf.org) y a la Comisión de Arbitraje de la IJF (refereeing@ijf.org).\nEste proceso demora un mínimo de seis (6) semanas a partir de la recepción de los documentos correctos. El hecho de no enviar los documentos correctos puede provocar retrasos.\nLa IJF se pondrá en contacto con las federaciones nacionales anteriores del árbitro para verificar cualquier objeción justificada.",
+  "interpretacion": "Los árbitros con condición legal de refugiados pueden solicitar arbitrar bajo la bandera del equipo IRT de la IJF. El trámite requiere enviar documentación completa por correo electrónico a la IJF y toma un mínimo de 6 semanas, periodo en el cual la IJF consulta a las anteriores federaciones del árbitro para validar que no existan objeciones justificadas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 25",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0411: Autorización, vigencia y renovación del estatus IRT para árbitros
+```json
+{
+  "id_conocimiento": "KUN-0411",
+  "titulo": "Autorización, vigencia y renovación del estatus IRT para árbitros",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the documents sent are compliant, the authorisation will be automatically given by the IJF General Secretariat until the end of the current calendar year. If the referee’s official refugee status does not have a 12-month validity the agreement will be given until the day the official refugee status expires.\nAfter the authorisation expires to request a renewal, the referee must repeat the application process.",
+  "contenido_traduccion": "Si los documentos enviados son conformes, la Secretaría General de la IJF otorgará automáticamente la autorización hasta el final del año calendario en curso. Si el estatus oficial de refugiado del árbitro no tiene una validez de 12 meses, el acuerdo se otorgará hasta el día en que expire dicho estatus oficial de refugiado.\nUna vez que expire la autorización, para solicitar una renovación, el árbitro deberá repetir el proceso de solicitud.",
+  "interpretacion": "La vigencia de la autorización para arbitrar como IRT vence el 31 de diciembre del año en curso o en la fecha exacta en que expire el documento de refugiado si es menor a un año. Para renovar el permiso al vencer, el árbitro debe repetir todo el proceso de solicitud desde el inicio.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 25",
+  "tags": [
+    "referee",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0412: Procedimiento ante cambio de estatus de un árbitro refugiado
+```json
+{
+  "id_conocimiento": "KUN-0412",
+  "titulo": "Procedimiento ante cambio de estatus de un árbitro refugiado",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If there is a change in the status of the official refugee i.e., citizenship of a new country, return to their country of origin etc. The change of referee nationality process is required.",
+  "contenido_traduccion": "Si se produce un cambio en el estatus del refugiado oficial, por ejemplo, ciudadanía de un nuevo país, regreso a su país de origen, etc., se requiere realizar el proceso de cambio de nacionalidad de árbitro.",
+  "interpretacion": "Si un árbitro del IRT modifica su estatus migratorio o legal (adquiere nacionalidad en un nuevo país o regresa a su país natal), pierde la condición IRT y debe tramitar formalmente el procedimiento regular de cambio de nacionalidad de árbitro de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 25",
+  "tags": [
+    "referee",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0413: Restricción de arbitraje para árbitros refugiados por origen y residencia
+```json
+{
+  "id_conocimiento": "KUN-0413",
+  "titulo": "Restricción de arbitraje para árbitros refugiados por origen y residencia",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In addition to the rule 1.8 Referee Nationality, the referee shall not officiate in a contest involving an athlete who has the citizenship of his country of origin nor one who has the citizenship of his country of residence.",
+  "contenido_traduccion": "Además de la regla 1.8 Nacionalidad del Árbitro, el árbitro no arbitrará en un combate en el que participe un atleta que tenga la ciudadanía de su país de origen ni uno que tenga la ciudadanía de su país de residencia.",
+  "interpretacion": "Para asegurar la imparcialidad, un árbitro perteneciente al equipo IRT no puede arbitrar ningún combate donde intervenga un judoka de su país de origen natal ni tampoco un judoka de la nación donde reside actualmente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 25",
+  "tags": [
+    "referee",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0414: Afiliación continental de árbitros IRT para efectos de ranking
+```json
+{
+  "id_conocimiento": "KUN-0414",
+  "titulo": "Afiliación continental de árbitros IRT para efectos de ranking",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For ranking purposes, a referee approved as IRT must choose the continental union he will be part of, and inform by email the IJF General Secretariat (gs@ijf.org) and the IJF Referee Commission (refereeing@ijf.org) who will inform the relevant continental union referee commission. Their choice will be effective until the end of the current authorisation period.",
+  "contenido_traduccion": "A efectos de clasificación/ranking, un árbitro aprobado como IRT debe elegir la unión continental de la que formará parte e informarlo por correo electrónico a la Secretaría General de la IJF (gs@ijf.org) y a la Comisión de Arbitraje de la IJF (refereeing@ijf.org), quienes informarán a la comisión de arbitraje de la unión continental correspondiente. Su elección será efectiva hasta el final del período de autorización actual.",
+  "interpretacion": "Dado que el ranking de arbitraje se gestiona con estructuras continentales, el árbitro del equipo IRT debe seleccionar explícitamente a qué Unión Continental se adscribe. Dicha elección se mantendrá fija durante todo el periodo que dure su autorización anual.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 25",
+  "tags": [
+    "referee",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0415: Conservación o pérdida de puntos de ranking al cambiar de federación nacional
+```json
+{
+  "id_conocimiento": "KUN-0415",
+  "titulo": "Conservación o pérdida de puntos de ranking al cambiar de federación nacional",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If a referee changes to a different national federation within the same continental union, their existing ranking points will be kept.\nIf a referee changes to a national federation in a different continental union, their existing ranking points will start from zero, as ranking systems differ.",
+  "contenido_traduccion": "Si un árbitro cambia a una federación nacional diferente dentro de la misma unión continental, mantendrá sus puntos de ranking existentes.\nSi un árbitro cambia a una federación nacional en una unión continental diferente, sus puntos de ranking existentes comenzarán desde cero, ya que los sistemas de ranking difieren.",
+  "interpretacion": "Al cambiar de federación nacional, un árbitro conserva sus puntos del ranking de arbitraje si la nueva federación pertenece a la misma Unión Continental. Si se muda a una federación de una Unión Continental distinta, pierde sus puntos acumulados y vuelve a cero.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 25",
+  "tags": [
+    "referee",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0416: Responsabilidad de las Reglas de Competición
+```json
+{
+  "id_conocimiento": "KUN-0416",
+  "titulo": "Responsabilidad de las Reglas de Competición",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "COMPETITION RULES\nThe competition rules are the responsibility of the IJF Sport Commission.",
+  "contenido_traduccion": "REGLAS DE COMPETICIÓN\nLas reglas de competición son responsabilidad de la Comisión Deportiva de la IJF.",
+  "interpretacion": "Establece formalmente que la Comisión Deportiva de la IJF (IJF Sport Commission) es la autoridad competente responsable del desarrollo, actualización, interpretación y aplicación de las reglas de competición oficiales del judo en todos los eventos bajo la jurisdicción de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 26",
+  "tags": [
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0417: Definición y estructura general del formato de competición del IJF World Judo Tour
+```json
+{
+  "id_conocimiento": "KUN-0417",
+  "titulo": "Definición y estructura general del formato de competición del IJF World Judo Tour",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.1 Competition Format and Schedules for the IJF World Judo Tour\nThe International Judo Federation (IJF) World Judo Tour (WJT) is a series of judo events that include a competition (contests between athletes for medals and prize money) and other sport-related activities (i.e., accreditation, draw etc.).\nThe IJF WJT competitions: Grand Prix, Grand Slam, Masters, World Championships Cadets, Juniors, Seniors and Open normally consist of two (2) sessions, the preliminaries and the final block. The competition phases that take place in the sessions depend on the type of event. Any changes to this will be agreed and approved by the IJF Head Sport Director. Depending on the number of participants some rounds may not be required for every category. The competition schedule for non IJF WJT events should be agreed by all interested parties.",
+  "contenido_traduccion": "2.1 Formato de Competición y Horarios para el World Judo Tour de la IJF\nEl World Judo Tour (WJT) de la Federación Internacional de Judo (IJF) es una serie de eventos de judo que incluyen una competición (combates entre atletas por medallas y premios en metálico) y otras actividades relacionadas con el deporte (por ejemplo, acreditación, sorteo, etc.).\nLas competiciones del IJF WJT: Grand Prix, Grand Slam, Masters, Campeonatos Mundiales Cadete, Junior, Senior y Open normalmente constan de dos (2) sesiones: los preliminares y el bloque final. Las fases de competición que tienen lugar en las sesiones dependen del tipo de evento. Cualquier cambio a esto será acordado y aprobado por el Director Deportivo Principal de la IJF. Dependiendo del número de participantes, es posible que algunas rondas no sean necesarias para cada categoría. El calendario de competición para eventos que no pertenecen al IJF WJT debe ser acordado por todas las partes interesadas.",
+  "interpretacion": "Establece la estructura organizativa básica de los eventos del circuito mundial de judo (WJT). Cada jornada se divide formalmente en dos sesiones principales: eliminatorias/repescas (preliminares) y los combates por medallas (bloque final). Modificar este formato requiere la aprobación explícita del Director Deportivo Principal de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 27",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "structure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0418: Programa de competición de 2 días para eventos IJF (Grand Prix, Grand Slam, Masters)
+```json
+{
+  "id_conocimiento": "KUN-0418",
+  "titulo": "Programa de competición de 2 días para eventos IJF (Grand Prix, Grand Slam, Masters)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "IJF Events planned for 2 days (Grand Prix, Grand Slam, Masters)\nWomen Men\nDay 1 -48 kg, -52 kg, -57 kg, -63 kg -60 kg, -66 kg, -73 kg\nDay 2 -70 kg, -78 kg, +78 kg -81 kg, -90 kg, -100 kg, +100 kg",
+  "contenido_traduccion": "Eventos de la IJF planificados para 2 días (Grand Prix, Grand Slam, Masters)\nMujeres Hombres\nDía 1 -48 kg, -52 kg, -57 kg, -63 kg -60 kg, -66 kg, -73 kg\nDía 2 -70 kg, -78 kg, +78 kg -81 kg, -90 kg, -100 kg, +100 kg",
+  "interpretacion": "Define el calendario de distribución de categorías de peso en torneos del IJF World Judo Tour que se celebran en un formato comprimido de 2 días. El primer día compiten las categorías ligeras y medias-bajas (-48kg, -52kg, -57kg, -63kg femeninas y -60kg, -66kg, -73kg masculinas), mientras que el segundo día compiten las divisiones medias-altas y pesadas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 27",
+  "tags": [
+    "competition-system",
+    "weight-categories",
+    "women",
+    "men",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0419: Programa de competición para Campeonatos Mundiales Open (1 o 2 días)
+```json
+{
+  "id_conocimiento": "KUN-0419",
+  "titulo": "Programa de competición para Campeonatos Mundiales Open (1 o 2 días)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "IJF Events planned for 1 or 2 days (World Championships Open)\nDay 1 1 day event - Women and Men, day 1 of 2 - Women or Men\nDay 2 Day 2 of 2 - Men or Women",
+  "contenido_traduccion": "Eventos de la IJF planificados para 1 o 2 días (Campeonatos Mundiales Open)\nDía 1 Evento de 1 día - Mujeres y Hombres, día 1 de 2 - Mujeres u Hombres\nDía 2 Día 2 de 2 - Hombres o Mujeres",
+  "interpretacion": "Establece el formato de organización para el Campeonato Mundial Open de la IJF. Si el evento se organiza en 1 solo día, compiten tanto la rama masculina como la femenina simultáneamente. Si se planifica a 2 días, cada género compite de manera exclusiva en un día distinto.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 27",
+  "tags": [
+    "competition-system",
+    "women",
+    "men",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0420: Programa de competición de 3 días para eventos IJF (Grand Prix, Grand Slam, Masters)
+```json
+{
+  "id_conocimiento": "KUN-0420",
+  "titulo": "Programa de competición de 3 días para eventos IJF (Grand Prix, Grand Slam, Masters)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "IJF Events planned for 3 days (Grand Prix, Grand Slam, Masters)\nDay 1 -48 kg, -52 kg, -57 kg -60 kg, -66 kg\nDay 2 -63 kg, -70 kg -73 kg, -81 kg\nDay 3 -78 kg, +78 kg -90 kg, -100 kg, +100 kg",
+  "contenido_traduccion": "Eventos de la IJF planificados para 3 días (Grand Prix, Grand Slam, Masters)\nDía 1 -48 kg, -52 kg, -57 kg -60 kg, -66 kg\nDía 2 -63 kg, -70 kg -73 kg, -81 kg\nDía 3 -78 kg, +78 kg -90 kg, -100 kg, +100 kg",
+  "interpretacion": "Especifica el calendario de distribución de categorías para el formato estándar de 3 días del World Judo Tour. Día 1: Ligeros (-48kg, -52kg, -57kg mujeres; -60kg, -66kg hombres). Día 2: Pesos medios (-63kg, -70kg mujeres; -73kg, -81kg hombres). Día 3: Pesados (-78kg, +78kg mujeres; -90kg, -100kg, +100kg hombres).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 27",
+  "tags": [
+    "competition-system",
+    "weight-categories",
+    "women",
+    "men",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0421: Programa de competición de 4 días para Campeonatos Mundiales Cadetes
+```json
+{
+  "id_conocimiento": "KUN-0421",
+  "titulo": "Programa de competición de 4 días para Campeonatos Mundiales Cadetes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "IJF Events planned for 4 days (World Championships Cadets)\nDay 1 -40 kg, -44 kg, -48 kg -50 kg, -55 kg, -60 kg\nDay 2 -52 kg, -57 kg, -63 kg -66 kg, -73 kg\nDay 3 -70 kg, +70 kg -81 kg, -90 kg, +90 kg\nDay 4 Mixed Teams",
+  "contenido_traduccion": "Eventos de la IJF planificados para 4 días (Campeonatos Mundiales Cadetes)\nDía 1 -40 kg, -44 kg, -48 kg -50 kg, -55 kg, -60 kg\nDía 2 -52 kg, -57 kg, -63 kg -66 kg, -73 kg\nDía 3 -70 kg, +70 kg -81 kg, -90 kg, +90 kg\nDía 4 Equipos Mixtos",
+  "interpretacion": "Regula la programación de 4 días para el Campeonato Mundial de la categoría Cadete (sub-18). Los primeros tres días albergan las 16 categorías de peso individuales y el cuarto día se reserva en su totalidad para el torneo de Equipos Mixtos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 27",
+  "tags": [
+    "competition-system",
+    "weight-categories",
+    "cadet",
+    "women",
+    "men"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0422: Programa de competición de 4 días para Campeonatos Mundiales Junior
+```json
+{
+  "id_conocimiento": "KUN-0422",
+  "titulo": "Programa de competición de 4 días para Campeonatos Mundiales Junior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "IJF Events planned for 4 days (World Championships Juniors)\nDay 1 -48 kg, -52 kg, -57 kg -60 kg, -66 kg\nDay 2 -63 kg, -70 kg -73 kg, -81 kg\nDay 3 -78 kg, +78 kg -90 kg, -100 kg, +100 kg\nDay 4 Mixed Teams",
+  "contenido_traduccion": "Eventos de la IJF planificados para 4 días (Campeonatos Mundiales Junior)\nDía 1 -48 kg, -52 kg, -57 kg -60 kg, -66 kg\nDía 2 -63 kg, -70 kg -73 kg, -81 kg\nDía 3 -78 kg, +78 kg -90 kg, -100 kg, +100 kg\nDía 4 Equipos Mixtos",
+  "interpretacion": "Establece el calendario oficial para el Campeonato Mundial Junior (sub-21) disputado en 4 días. Las 14 divisiones de peso individuales se compiten progresivamente durante los primeros 3 días y el día 4 concluye con la prueba por Equipos Mixtos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 27",
+  "tags": [
+    "competition-system",
+    "weight-categories",
+    "women",
+    "men",
+    "age"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0423: Programa de competición de 5 días para Campeonatos Mundiales Cadetes
+```json
+{
+  "id_conocimiento": "KUN-0423",
+  "titulo": "Programa de competición de 5 días para Campeonatos Mundiales Cadetes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "IJF Events planned for 5 days (World Championships Cadets)\nDay 1 -40 kg, -44 kg -50 kg, -55 kg\nDay 2 -48 kg, -52 kg -60 kg, -66 kg\nDay 3 -57 kg, -63 kg -73 kg, -81 kg\nDay 4 -70 kg, +70 kg -90 kg, +90 kg\nDay 5 Mixed Teams",
+  "contenido_traduccion": "Eventos de la IJF planificados para 5 días (Campeonatos Mundiales Cadetes)\nDía 1 -40 kg, -44 kg -50 kg, -55 kg\nDía 2 -48 kg, -52 kg -60 kg, -66 kg\nDía 3 -57 kg, -63 kg -73 kg, -81 kg\nDía 4 -70 kg, +70 kg -90 kg, +90 kg\nDía 5 Equipos Mixtos",
+  "interpretacion": "Aplica para torneos Mundiales Cadete extendidos a 5 días. Distribuye la competición individual de manera más holgada a razón de 4 categorías por día durante los días 1 a 4, reservando el día 5 para el evento de Equipos Mixtos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 27",
+  "tags": [
+    "competition-system",
+    "weight-categories",
+    "cadet",
+    "women",
+    "men"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0424: Programa de competición para eventos IJF de 5 días
+```json
+{
+  "id_conocimiento": "KUN-0424",
+  "titulo": "Programa de competición para eventos IJF de 5 días",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "IJF Events planned for 5 days (World Championships Juniors or Seniors)\nDay 1 -48 kg, -52 kg -60 kg, -66 kg\nDay 2 -57 kg, -63 kg -73 kg\nDay 3 -70 kg -81 kg, -90 kg\nDay 4 -78 kg, +78 kg -100 kg, +100 kg\nDay 5 Mixed Teams",
+  "contenido_traduccion": "Eventos de la IJF planificados para 5 días (Campeonatos Mundiales Juniors o Seniors):\nDía 1: -48 kg, -52 kg, -60 kg, -66 kg\nDía 2: -57 kg, -63 kg, -73 kg\nDía 3: -70 kg, -81 kg, -90 kg\nDía 4: -78 kg, +78 kg, -100 kg, +100 kg\nDía 5: Equipos Mixtos",
+  "interpretacion": "Establece la distribución oficial de las categorías de peso individuales y la competición por equipos mixtos a lo largo de un programa de 5 días para Campeonatos Mundiales Juniors o Seniors.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 28",
+  "tags": [
+    "weight-categories",
+    "competition-system",
+    "senior",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0425: Programa de competición para eventos IJF de 6 días
+```json
+{
+  "id_conocimiento": "KUN-0425",
+  "titulo": "Programa de competición para eventos IJF de 6 días",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "IJF Events planned for 6 days (World Championships Seniors)\nDay 1 -48 kg, -52 kg -60 kg\nDay 2 -57 kg -66 kg, -73 kg\nDay 3 -63 kg -81 kg\nDay 4 -70 kg, -78 kg -90 kg\nDay 5 +78 kg -100 kg, +100 kg\nDay 6 Mixed Teams",
+  "contenido_traduccion": "Eventos de la IJF planificados para 6 días (Campeonatos Mundiales Seniors):\nDía 1: -48 kg, -52 kg, -60 kg\nDía 2: -57 kg, -66 kg, -73 kg\nDía 3: -63 kg, -81 kg\nDía 4: -70 kg, -78 kg, -90 kg\nDía 5: +78 kg, -100 kg, +100 kg\nDía 6: Equipos Mixtos",
+  "interpretacion": "Determina la secuencia y agrupación de las categorías de peso en torneos senior de la IJF que se extienden durante 6 días, concluyendo con la prueba de equipos mixtos en el sexto día.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 28",
+  "tags": [
+    "weight-categories",
+    "competition-system",
+    "senior",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0426: Programa de competición para eventos IJF de 8 días
+```json
+{
+  "id_conocimiento": "KUN-0426",
+  "titulo": "Programa de competición para eventos IJF de 8 días",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "IJF Events planned for 8 days (World Championships Seniors)\nDay 1 -48 kg -60 kg\nDay 2 -52 kg -66 kg\nDay 3 -57 kg -73 kg\nDay 4 -63 kg -81 kg\nDay 5 -70 kg -90 kg\nDay 6 -78 kg -100 kg\nDay 7 +78 kg +100 kg\nDay 8 Mixed Teams",
+  "contenido_traduccion": "Eventos de la IJF planificados para 8 días (Campeonatos Mundiales Seniors):\nDía 1: -48 kg, -60 kg\nDía 2: -52 kg, -66 kg\nDía 3: -57 kg, -73 kg\nDía 4: -63 kg, -81 kg\nDía 5: -70 kg, -90 kg\nDía 6: -78 kg, -100 kg\nDía 7: +78 kg, +100 kg\nDía 8: Equipos Mixtos",
+  "interpretacion": "Especifica la distribución día por día de una categoría femenina y una masculina por cada uno de los primeros 7 días en eventos Senior de 8 días, cerrando el octavo día con el evento de equipos mixtos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 28",
+  "tags": [
+    "weight-categories",
+    "competition-system",
+    "senior",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0427: Categorías de peso para eventos del IJF WJT
+```json
+{
+  "id_conocimiento": "KUN-0427",
+  "titulo": "Categorías de peso para eventos del IJF WJT",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.2 Weight Categories for IJF WJT Events\nThe following weight categories will be utilised in the world championships and competitions held under the auspices of the IJF. Weigh-in rules can be found in Section 6.",
+  "contenido_traduccion": "2.2 Categorías de peso para eventos del IJF WJT\nLas siguientes categorías de peso se utilizarán en los campeonatos mundiales y competiciones celebradas bajo los auspicios de la IJF. Las reglas del pesaje se pueden encontrar en la Sección 6.",
+  "interpretacion": "Regula la aplicación de las categorías oficiales de peso en los eventos del World Judo Tour (WJT) y campeonatos de la IJF, remitiendo los procedimientos y normativas específicas de pesaje a la Sección 6 del reglamento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 28",
+  "tags": [
+    "weight-categories",
+    "competition-system",
+    "weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0428: Categorías de Peso para Competencias Individuales - Mujeres Senior y Junior
+```json
+{
+  "id_conocimiento": "KUN-0428",
+  "titulo": "Categorías de Peso para Competencias Individuales - Mujeres Senior y Junior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.2.1 Weight Categories for Individual Competitions\nSenior and Junior Women\n-48 kg Extra-lightweight: Up to and including 48.0 kg\n-52 kg Half-lightweight: Over 48.0 kg up to and including 52.0 kg\n-57 kg Lightweight: Over 52.0 kg up to and including 57.0 kg\n-63 kg Half-middleweight: Over 57.0 kg up to and including 63.0 kg\n-70 kg Middleweight: Over 63.0 kg up to and including 70.0 kg\n-78 kg Half-heavyweight: Over 70.0 kg up to and including 78.0 kg\n+78 kg Heavyweight: Over 78.0 kg\nOpen Open-weight: No weight limit",
+  "contenido_traduccion": "2.2.1 Categorías de peso para competencias individuales\nMujeres Senior y Junior\n-48 kg Superligero: Hasta 48.0 kg inclusive\n-52 kg Semiligero: Más de 48.0 kg hasta 52.0 kg inclusive\n-57 kg Ligero: Más de 52.0 kg hasta 57.0 kg inclusive\n-63 kg Semi-mediano: Más de 57.0 kg hasta 63.0 kg inclusive\n-70 kg Mediano: Más de 63.0 kg hasta 70.0 kg inclusive\n-78 kg Semi-pesado: Más de 70.0 kg hasta 78.0 kg inclusive\n+78 kg Pesado: Más de 78.0 kg\nOpen Categoría abierta: Sin límite de peso",
+  "interpretacion": "Establece las ocho divisiones oficiales de peso para competidoras femeninas en las categorías Senior y Junior en torneos de la IJF. Define de forma estricta los límites superior e inferior de peso corporal permitidos para el pesaje oficial, asegurando la elegibilidad de la atleta según su rango de masa corporal registrado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 29",
+  "tags": [
+    "weight-categories",
+    "women",
+    "senior",
+    "age",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0429: Categorías de Peso para Competencias Individuales - Mujeres Cadetes (Menores de 18 años)
+```json
+{
+  "id_conocimiento": "KUN-0429",
+  "titulo": "Categorías de Peso para Competencias Individuales - Mujeres Cadetes (Menores de 18 años)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.2.1 Weight Categories for Individual Competitions\nCadet Women under 18 years\n-40 kg Featherweight: Up to and including 40.0 kg\n-44 kg Extra-lightweight: Over 40.0 kg up to and including 44.0 kg\n-48 kg Half-lightweight: Over 44.0 kg up to and including 48.0 kg\n-52 kg Lightweight: Over 48.0 kg up to and including 52.0 kg\n-57 kg Half-middleweight: Over 52.0 kg up to and including 57.0 kg\n-63 kg Middleweight: Over 57.0 kg up to and including 63.0 kg\n-70 kg Half-heavyweight: Over 63.0 kg up to and including 70.0 kg\n+70 kg Heavyweight: Over 70.0 kg",
+  "contenido_traduccion": "2.2.1 Categorías de peso para competencias individuales\nMujeres Cadete menores de 18 años\n-40 kg Peso pluma: Hasta 40.0 kg inclusive\n-44 kg Superligero: Más de 40.0 kg hasta 44.0 kg inclusive\n-48 kg Semiligero: Más de 44.0 kg hasta 48.0 kg inclusive\n-52 kg Ligero: Más de 48.0 kg hasta 52.0 kg inclusive\n-57 kg Semi-mediano: Más de 52.0 kg hasta 57.0 kg inclusive\n-63 kg Mediano: Más de 57.0 kg hasta 63.0 kg inclusive\n-70 kg Semi-pesado: Más de 63.0 kg hasta 70.0 kg inclusive\n+70 kg Pesado: Más de 70.0 kg",
+  "interpretacion": "Regula la división de 8 categorías de peso para judokas femeninas pertenecientes a la división Cadete (menores de 18 años). La escala de peso comienza desde los -40 kg para adaptarse al desarrollo físico propio de las competidoras juveniles y velar por su equidad competitiva e integridad.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 29",
+  "tags": [
+    "weight-categories",
+    "women",
+    "cadet",
+    "age",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0430: Categorías de Peso para Competencias Individuales - Hombres Senior y Junior
+```json
+{
+  "id_conocimiento": "KUN-0430",
+  "titulo": "Categorías de Peso para Competencias Individuales - Hombres Senior y Junior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.2.1 Weight Categories for Individual Competitions\nSenior and Junior Men\n-60 kg Extra-lightweight: Up to and including 60.0 kg\n-66 kg Half-lightweight: Over 60.0 kg up to and including 66.0 kg\n-73 kg Lightweight: Over 66.0 kg up to and including 73.0 kg\n-81 kg Half-middleweight: Over 73.0 kg up to and including 81.0 kg\n-90 kg Middleweight: Over 81.0 kg up to and including 90.0 kg\n-100 kg Half-heavyweight: Over 90.0 kg up to and including 100.0 kg\n+100 kg Heavyweight: Over 100.0 kg\nOpen Open-weight: No weight limit",
+  "contenido_traduccion": "2.2.1 Categorías de peso para competencias individuales\nHombres Senior y Junior\n-60 kg Superligero: Hasta 60.0 kg inclusive\n-66 kg Semiligero: Más de 60.0 kg hasta 66.0 kg inclusive\n-73 kg Ligero: Más de 66.0 kg hasta 73.0 kg inclusive\n-81 kg Semi-mediano: Más de 73.0 kg hasta 81.0 kg inclusive\n-90 kg Mediano: Más de 81.0 kg hasta 90.0 kg inclusive\n-100 kg Semi-pesado: Más de 90.0 kg hasta 100.0 kg inclusive\n+100 kg Pesado: Más de 100.0 kg\nOpen Categoría abierta: Sin límite de peso",
+  "interpretacion": "Define las ocho divisiones de peso masculinas oficiales para atletas de categorías Senior y Junior. Aplica los límites exactos de masa corporal para la validación de la inscripción del atleta durante la sesión oficial de pesaje previa al torneo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 29",
+  "tags": [
+    "weight-categories",
+    "men",
+    "senior",
+    "age",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0431: Categorías de Peso para Competencias Individuales - Hombres Cadetes (Menores de 18 años)
+```json
+{
+  "id_conocimiento": "KUN-0431",
+  "titulo": "Categorías de Peso para Competencias Individuales - Hombres Cadetes (Menores de 18 años)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.2.1 Weight Categories for Individual Competitions\nCadet Men under 18 years\n-50 kg Featherweight: Up to and including 50.0 kg\n-55 kg Extra-lightweight: Over 50.0 kg up to and including 55.0 kg\n-60 kg Half-lightweight: Over 55.0 kg up to and including 60.0 kg\n-66 kg Lightweight: Over 60.0 kg up to and including 66.0 kg\n-73 kg Half-middleweight: Over 66.0 kg up to and including 73.0 kg\n-81 kg Middleweight: Over 73.0 kg up to and including 81.0 kg\n-90 kg Half-heavyweight: Over 81.0 kg up to and including 90.0 kg\n+90 kg Heavyweight: Over 90.0 kg",
+  "contenido_traduccion": "2.2.1 Categorías de peso para competencias individuales\nHombres Cadete menores de 18 años\n-50 kg Peso pluma: Hasta 50.0 kg inclusive\n-55 kg Superligero: Más de 50.0 kg hasta 55.0 kg inclusive\n-60 kg Semiligero: Más de 55.0 kg hasta 60.0 kg inclusive\n-66 kg Ligero: Más de 60.0 kg hasta 66.0 kg inclusive\n-73 kg Semi-mediano: Más de 66.0 kg hasta 73.0 kg inclusive\n-81 kg Mediano: Más de 73.0 kg hasta 81.0 kg inclusive\n-90 kg Semi-pesado: Más de 81.0 kg hasta 90.0 kg inclusive\n+90 kg Pesado: Más de 90.0 kg",
+  "interpretacion": "Especifica las ocho divisiones oficiales de peso para competidores masculinos juveniles en la división Cadete (menores de 18 años). Establece el rango de peso que debe registrar cada judoka en el pesaje oficial antes de su participación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 29",
+  "tags": [
+    "weight-categories",
+    "men",
+    "cadet",
+    "age",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0432: Categorías de peso para equipos mixtos Sénior y Júnior
+```json
+{
+  "id_conocimiento": "KUN-0432",
+  "titulo": "Categorías de peso para equipos mixtos Sénior y Júnior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.2.2 Weight Categories for Mixed Team Competitions\nSenior and Junior Mixed Team\n-57 kg Women Up to and including 57.0 kg\n-73 kg Men Up to and including 73.0 kg\n-70 kg Women Over 57.0 kg up to and including 70.0 kg\n-90 kg Men Over 73.0 kg up to and including 90.0 kg\n+70 kg Women Over 70.0 kg\n+90 kg Men Over 90.0 kg",
+  "contenido_traduccion": "2.2.2 Categorías de peso para competiciones por equipos mixtos\nEquipo Mixto Sénior y Júnior\n-57 kg Mujeres Hasta 57.0 kg inclusive\n-73 kg Hombres Hasta 73.0 kg inclusive\n-70 kg Mujeres Más de 57.0 kg hasta 70.0 kg inclusive\n-90 kg Hombres Más de 73.0 kg hasta 90.0 kg inclusive\n+70 kg Mujeres Más de 70.0 kg\n+90 kg Hombres Más de 90.0 kg",
+  "interpretacion": "Define las seis categorías de peso oficiales y sus límites exactos para la modalidad de equipos mixtos en las divisiones Sénior y Júnior. Cada equipo se compone de tres categorías femeninas (-57 kg, -70 kg, +70 kg) y tres masculinas (-73 kg, -90 kg, +90 kg).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 30",
+  "tags": [
+    "weight-categories",
+    "senior",
+    "men",
+    "women",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0433: Categorías de peso para equipos mixtos en los Juegos Olímpicos
+```json
+{
+  "id_conocimiento": "KUN-0433",
+  "titulo": "Categorías de peso para equipos mixtos en los Juegos Olímpicos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Senior Mixed Team Olympic Games\n-57 kg Women (48 kg, 52 kg, 57 kg*) Up to and including 57.0 kg\n-73 kg Men (60 kg, 66 kg, 73 kg*) Up to and including 73.0 kg\n-70 kg Women (57 kg, 63 kg, 70 kg*) Up to and including 70.0 kg\n-90 kg Men (73 kg, 81 kg, 90 kg*) Up to and including 90.0 kg\n+70 kg Women (70 kg, 78 kg, +78 kg*) Over 70.0 kg\n+90 kg Men (90 kg, 100 kg, +100 kg*) Over 90.0 kg",
+  "contenido_traduccion": "Equipo Mixto Sénior Juegos Olímpicos\n-57 kg Mujeres (48 kg, 52 kg, 57 kg*) Hasta 57.0 kg inclusive\n-73 kg Hombres (60 kg, 66 kg, 73 kg*) Hasta 73.0 kg inclusive\n-70 kg Mujeres (57 kg, 63 kg, 70 kg*) Hasta 70.0 kg inclusive\n-90 kg Hombres (73 kg, 81 kg, 90 kg*) Hasta 90.0 kg inclusive\n+70 kg Mujeres (70 kg, 78 kg, +78 kg*) Más de 70.0 kg\n+90 kg Hombres (90 kg, 100 kg, +100 kg*) Más de 90.0 kg",
+  "interpretacion": "Establece las divisiones de peso del torneo de equipos mixtos olímpico e indica formalmente qué categorías de peso individuales abastecen a cada una de las divisiones de equipo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 30",
+  "tags": [
+    "weight-categories",
+    "senior",
+    "men",
+    "women",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0434: Categorías de peso para equipos mixtos Cadetes
+```json
+{
+  "id_conocimiento": "KUN-0434",
+  "titulo": "Categorías de peso para equipos mixtos Cadetes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Cadet Mixed Team\n-48 kg Women Up to and including 48.0 kg\n-60 kg Men Up to and including 60.0 kg\n-63 kg Women Over 48 kg up to and including 63.0 kg\n-81 kg Men Over 60 kg up to and including 81.0 kg\n+63 kg Women Over 63.0 kg\n+81 kg Men Over 81.0 kg",
+  "contenido_traduccion": "Equipo Mixto Cadete\n-48 kg Mujeres Hasta 48.0 kg inclusive\n-60 kg Hombres Hasta 60.0 kg inclusive\n-63 kg Mujeres Más de 48 kg hasta 63.0 kg inclusive\n-81 kg Hombres Más de 60 kg hasta 81.0 kg inclusive\n+63 kg Mujeres Más de 63.0 kg\n+81 kg Hombres Más de 81.0 kg",
+  "interpretacion": "Establece la distribución de pesos y los límites específicos para las seis categorías que conforman las competiciones de equipos mixtos en la división de edad Cadete.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 30",
+  "tags": [
+    "weight-categories",
+    "cadet",
+    "men",
+    "women",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0435: Requisito de clasificación individual para el equipo mixto olímpico
+```json
+{
+  "id_conocimiento": "KUN-0435",
+  "titulo": "Requisito de clasificación individual para el equipo mixto olímpico",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "*Athletes qualified only in these individual categories can take part in the mixed team category.",
+  "contenido_traduccion": "*Solo los atletas clasificados en estas categorías individuales pueden participar en la categoría de equipos mixtos.",
+  "interpretacion": "Regla de restricción para la competición olímpica por equipos mixtos: únicamente aquellos atletas que hayan obtenido la clasificación oficial en sus respectivas categorías individuales indicadas están autorizados a competir en la prueba por equipos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 30",
+  "tags": [
+    "weight-categories",
+    "senior",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0436: Categorías de peso para equipos femeninos Senior y Junior
+```json
+{
+  "id_conocimiento": "KUN-0436",
+  "titulo": "Categorías de peso para equipos femeninos Senior y Junior",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.2.3 Weight Categories for Team Competitions\nSenior and Junior Women Team\n-52 kg Half-lightweight Up to and including 52.0 kg\n-57 kg Lightweight Over 52.0 kg up to and including 57.0 kg\n-63 kg Half-middleweight Over 57.0 kg up to and including 63.0 kg\n-70 kg Middleweight Over 63.0 kg up to and including 70.0 kg\n+70 kg Half-heavyweight Over 70.0 kg",
+  "contenido_traduccion": "2.2.3 Categorías de peso para competiciones por equipos\nEquipo femenino Senior y Junior\n-52 kg Semiliviano Hasta 52.0 kg inclusive\n-57 kg Liviano Más de 52.0 kg hasta 57.0 kg inclusive\n-63 kg Semimediano Más de 57.0 kg hasta 63.0 kg inclusive\n-70 kg Mediano Más de 63.0 kg hasta 70.0 kg inclusive\n+70 kg Semipesado Más de 70.0 kg",
+  "interpretacion": "Establece la división y los límites exactos de peso para las competencias por equipos femeninos en las categorías de edad Senior y Junior. Los entrenadores y delegados deben asegurar que las atletas se inscriban en los rangos de peso correspondientes a su división de equipo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 31",
+  "tags": [
+    "weight-categories",
+    "women",
+    "senior",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0437: Categorías de peso para equipos femeninos Cadet
+```json
+{
+  "id_conocimiento": "KUN-0437",
+  "titulo": "Categorías de peso para equipos femeninos Cadet",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Cadet Women Team\n-48 kg Half-lightweight Up to and including 48.0 kg\n-52 kg Lightweight Over 48.0 kg up to and including 52.0 kg\n-57 kg Half-middleweight Over 52.0 kg up to and including 57.0 kg\n-63 kg Middleweight Over 57.0 kg up to and including 63.0 kg\n+63 kg Half-heavyweight Over 63.0 kg",
+  "contenido_traduccion": "Equipo femenino Cadet\n-48 kg Semiliviano Hasta 48.0 kg inclusive\n-52 kg Liviano Más de 48.0 kg hasta 52.0 kg inclusive\n-57 kg Semimediano Más de 52.0 kg hasta 57.0 kg inclusive\n-63 kg Mediano Más de 57.0 kg hasta 63.0 kg inclusive\n+63 kg Semipesado Más de 63.0 kg",
+  "interpretacion": "Define las cinco categorías de peso oficiales que componen un equipo femenino en la división Cadet (sub-18). Sirve para verificar la elegibilidad por peso durante la composición del equipo y el control del pesaje.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 31",
+  "tags": [
+    "weight-categories",
+    "women",
+    "cadet",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0438: Categorías de peso para equipos masculinos Senior y Junior
+```json
+{
+  "id_conocimiento": "KUN-0438",
+  "titulo": "Categorías de peso para equipos masculinos Senior y Junior",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Senior and Junior Men Team\n-66 kg Half-lightweight Up to and including 66.0 kg\n-73 kg Lightweight Over 66.0 kg up to and including 73.0 kg\n-81 kg Half-middleweight Over 73.0 kg up to and including 81.0 kg\n-90 kg Middleweight Over 81.0 kg up to and including 90.0 kg\n+90 kg Half-heavyweight Over 90.0 kg",
+  "contenido_traduccion": "Equipo masculino Senior y Junior\n-66 kg Semiliviano Hasta 66.0 kg inclusive\n-73 kg Liviano Más de 66.0 kg hasta 73.0 kg inclusive\n-81 kg Semimediano Más de 73.0 kg hasta 81.0 kg inclusive\n-90 kg Mediano Más de 81.0 kg hasta 90.0 kg inclusive\n+90 kg Semipesado Más de 90.0 kg",
+  "interpretacion": "Establece la delimitación de peso para cada uno de los combates en competiciones masculinas por equipos de las categorías Senior y Junior, garantizando que los competidores no superen el límite superior de su peso designado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 31",
+  "tags": [
+    "weight-categories",
+    "men",
+    "senior",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0439: Categorías de peso para equipos masculinos Cadet
+```json
+{
+  "id_conocimiento": "KUN-0439",
+  "titulo": "Categorías de peso para equipos masculinos Cadet",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Cadet Men Team\n-60 kg Half-lightweight Up to and including 60.0 kg\n-66 kg Lightweight Over 60.0 kg up to and including 66.0 kg\n-73 kg Half-middleweight Over 66.0 kg up to and including 73.0 kg\n-81 kg Middleweight Over 73.0 kg up to and including 81.0 kg\n+81 kg Half-heavyweight Over 81.0 kg",
+  "contenido_traduccion": "Equipo masculino Cadet\n-60 kg Semiliviano Hasta 60.0 kg inclusive\n-66 kg Liviano Más de 60.0 kg hasta 66.0 kg inclusive\n-73 kg Semimediano Más de 66.0 kg hasta 73.0 kg inclusive\n-81 kg Mediano Más de 73.0 kg hasta 81.0 kg inclusive\n+81 kg Semipesado Más de 81.0 kg",
+  "interpretacion": "Determina las categorías de peso requeridas para conformar un equipo masculino en la categoría Cadet (sub-18). Es utilizada por los oficiales para validar el pesaje de los integrantes antes del encuentro por equipos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 31",
+  "tags": [
+    "weight-categories",
+    "men",
+    "cadet",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0440: Límite mínimo de edad para competencias de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0440",
+  "titulo": "Límite mínimo de edad para competencias de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.3 Age Groups\nAthletes under 15 years of age are not allowed to compete in any official IJF event, or events organised either under the auspices of the IJF or sanctioned by the IJF. The lower age limit for all IJF competitions is 15 years (calendar year).",
+  "contenido_traduccion": "2.3 Grupos de Edad\nLos atletas menores de 15 años no tienen permitido competir en ningún evento oficial de la IJF, ni en eventos organizados bajo el auspicio de la IJF o sancionados por esta. El límite inferior de edad para todas las competiciones de la IJF es de 15 años (año calendario).",
+  "interpretacion": "Prohíbe la participación de atletas menores de 15 años cumplidos en el año calendario en cualquier torneo oficial de la IJF. Los organizadores deben rechazar las inscripciones de competidores que no cumplan este umbral mínimo de edad.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 31",
+  "tags": [
+    "age",
+    "procedure",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0441: Definición del grupo de edad Cadet
+```json
+{
+  "id_conocimiento": "KUN-0441",
+  "titulo": "Definición del grupo de edad Cadet",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The following age groups are recognised by the IJF:\n• Cadet - men and women under 18, age 15, 16 and 17 years (calendar year).",
+  "contenido_traduccion": "Los siguientes grupos de edad son reconocidos por la IJF:\n• Cadet - hombres y mujeres menores de 18 años, de 15, 16 y 17 años de edad (año calendario).",
+  "interpretacion": "Establece el rango de edad reconocido por la IJF para la categoría Cadet (sub-18). Un deportista es elegible para competir como Cadet si cumple 15, 16 o 17 años durante el año calendario correspondiente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 31",
+  "tags": [
+    "age",
+    "cadet",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0442: Definición del grupo de edad Junior
+```json
+{
+  "id_conocimiento": "KUN-0442",
+  "titulo": "Definición del grupo de edad Junior",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The following age groups are recognised by the IJF:\n• Junior - men and women under 21, age 15 to 20 years (calendar year).",
+  "contenido_traduccion": "Los siguientes grupos de edad son reconocidos por la IJF:\n• Junior - hombres y mujeres menores de 21 años, de 15 a 20 años de edad (año calendario).",
+  "interpretacion": "Define la categoría Junior (sub-21) de la IJF. Abarca a judocas masculinos y femeninos que cumplan entre 15 y 20 años en el transcurso del año calendario.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 31",
+  "tags": [
+    "age",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0443: Definición del grupo de edad Senior
+```json
+{
+  "id_conocimiento": "KUN-0443",
+  "titulo": "Definición del grupo de edad Senior",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The following age groups are recognised by the IJF:\n• Senior - men and women, there is only the lower age limit of 15 years (calendar year).",
+  "contenido_traduccion": "Los siguientes grupos de edad son reconocidos por la IJF:\n• Senior - hombres y mujeres, solo existe el límite inferior de edad de 15 años (año calendario).",
+  "interpretacion": "Establece que la categoría Senior abarca a hombres y mujeres sin límite superior de edad, exigiendo únicamente cumplir un mínimo de 15 años dentro del año calendario.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 31",
+  "tags": [
+    "age",
+    "senior",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0444: Uso del término Youth en federaciones nacionales
+```json
+{
+  "id_conocimiento": "KUN-0444",
+  "titulo": "Uso del término Youth en federaciones nacionales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "National federations should use the term youth to define cadets and juniors and any age groups from 15-20 years that are different to the IJF cadet and junior age.",
+  "contenido_traduccion": "Las federaciones nacionales deberían utilizar el término \"youth\" (juventud) para definir a los cadetes y juniors y cualquier grupo de edad entre 15 y 20 años que difiera de las edades cadet y junior de la IJF.",
+  "interpretacion": "Recomienda e instruye a las federaciones nacionales a adoptar el término 'youth' cuando agrupen deportistas de entre 15 y 20 años en estructuras de edad que no coincidan exactamente con las definiciones internacionales de Cadet y Junior de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 31",
+  "tags": [
+    "age",
+    "cadet",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0445: Edad mínima para participar en competencias oficiales de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0445",
+  "titulo": "Edad mínima para participar en competencias oficiales de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Note: no athlete less than 15 years old (calendar year) is allowed to take part in any IJF official competition.",
+  "contenido_traduccion": "Nota: a ningún atleta menor de 15 años (año calendario) se le permite participar en ninguna competencia oficial de la IJF.",
+  "interpretacion": "Para poder participar en cualquier torneo del circuito oficial de la IJF, un judoka debe cumplir al menos 15 años durante el año calendario en el que se celebra la competencia. No se admiten excepciones por edad inferior bajo ninguna circunstancia.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 32",
+  "tags": [
+    "age",
+    "senior",
+    "cadet",
+    "procedure",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0446: Carácter orientativo de las categorías de edad infantiles para federaciones nacionales
+```json
+{
+  "id_conocimiento": "KUN-0446",
+  "titulo": "Carácter orientativo de las categorías de edad infantiles para federaciones nacionales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The additional categories (13/14, 11/12, 9/10 years) are recommendations only and national federations should design their own national concept with competition rules that take into account national sport rules and legislation.",
+  "contenido_traduccion": "Las categorías adicionales (13/14, 11/12, 9/10 años) son únicamente recomendaciones y las federaciones nacionales deben diseñar su propio concepto nacional con reglas de competencia que tengan en cuenta las normas y legislación deportiva nacional.",
+  "interpretacion": "Las tablas para menores de 15 años son una referencia propuesta por la IJF. Cada federación nacional tiene la potestad de adaptar o reglamentar estas categorías infantiles conforme a las leyes deportivas y políticas de desarrollo infantil de su respectivo país.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 32",
+  "tags": [
+    "age",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0447: Duración oficial de los combates para categorías Seniors, Juniors y Cadetes
+```json
+{
+  "id_conocimiento": "KUN-0447",
+  "titulo": "Duración oficial de los combates para categorías Seniors, Juniors y Cadetes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.4 Time Duration of Contests: Female SENIORS (>14 YEARS): 4 minutes, JUNIORS (U21 YEARS): 4 minutes, CADETS (U18 YEARS): 4 minutes. Male SENIORS (>14 YEARS): 4 minutes, JUNIORS (U21 YEARS): 4 minutes, CADETS (U18 YEARS): 4 minutes.",
+  "contenido_traduccion": "2.4 Duración del tiempo de combate: Femenino SENIORS (>14 AÑOS): 4 minutos, JUNIORS (SUB-21 AÑOS): 4 minutos, CADETES (SUB-18 AÑOS): 4 minutos. Masculino SENIORS (>14 AÑOS): 4 minutos, JUNIORS (SUB-21 AÑOS): 4 minutos, CADETES (SUB-18 AÑOS): 4 minutos.",
+  "interpretacion": "En el judo oficial (tanto masculino como femenino), el tiempo reglamentario de combate es de exactamente 4 minutos de tiempo real para las tres categorías principales: Seniors, Juniors (sub-21) y Cadetes (sub-18).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 32",
+  "tags": [
+    "contest-duration",
+    "time",
+    "cadet",
+    "senior",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0448: Duración recomendada de combates para categorías infantiles y restricción en 9/10 años
+```json
+{
+  "id_conocimiento": "KUN-0448",
+  "titulo": "Duración recomendada de combates para categorías infantiles y restricción en 9/10 años",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "13/14 YEARS: 3 minutes; 11/12 YEARS: 2 minutes; 9/10 YEARS: No competition (Female and Male).",
+  "contenido_traduccion": "13/14 AÑOS: 3 minutos; 11/12 AÑOS: 2 minutos; 9/10 AÑOS: Sin competencia (Femenino y Masculino).",
+  "interpretacion": "Para torneos infantiles recomendados por la IJF, la duración del combate se reduce gradualmente: 3 minutos para 13/14 años y 2 minutos para 11/12 años. Para el grupo de edad de 9/10 años, la IJF recomienda no realizar competencias de combate formal.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 32",
+  "tags": [
+    "contest-duration",
+    "time",
+    "age",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0449: Categorías de peso oficiales para la rama femenina
+```json
+{
+  "id_conocimiento": "KUN-0449",
+  "titulo": "Categorías de peso oficiales para la rama femenina",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Female Weight Categories: SENIORS (>14 YEARS) & JUNIORS (U21 YEARS): -48 kg, -52 kg, -57 kg, -63 kg, -70 kg, -78 kg, +78 kg. CADETS (U18 YEARS): -40 kg, -44 kg, -48 kg, -52 kg, -57 kg, -63 kg, -70 kg, +70 kg. 13/14 YEARS: -32 kg, -36 kg, -40 kg, -44 kg, -48 kg, -52 kg, -57 kg, -63 kg, -70 kg, +70 kg. 11/12 YEARS: -22 kg, -25 kg, -28 kg, -32 kg, -36 kg, -40 kg, -44 kg, -48 kg.",
+  "contenido_traduccion": "Categorías de peso femenino: SENIORS (>14 AÑOS) y JUNIORS (SUB-21 AÑOS): -48 kg, -52 kg, -57 kg, -63 kg, -70 kg, -78 kg, +78 kg. CADETES (SUB-18 AÑOS): -40 kg, -44 kg, -48 kg, -52 kg, -57 kg, -63 kg, -70 kg, +70 kg. 13/14 AÑOS: -32 kg, -36 kg, -40 kg, -44 kg, -48 kg, -52 kg, -57 kg, -63 kg, -70 kg, +70 kg. 11/12 AÑOS: -22 kg, -25 kg, -28 kg, -32 kg, -36 kg, -40 kg, -44 kg, -48 kg.",
+  "interpretacion": "Define las divisiones de peso en la rama femenina. Las categorías Senior y Junior compiten en las mismas 7 divisiones (-48 kg hasta +78 kg). En Cadetes se añaden -40 kg y -44 kg, finalizando en +70 kg. Las categorías de 11 a 14 años presentan divisiones reducidas adaptadas a su desarrollo biológico.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 32",
+  "tags": [
+    "weight-categories",
+    "women",
+    "cadet",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0450: Categorías de peso oficiales para la rama masculina
+```json
+{
+  "id_conocimiento": "KUN-0450",
+  "titulo": "Categorías de peso oficiales para la rama masculina",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Male Weight Categories: SENIORS (>14 YEARS) & JUNIORS (U21 YEARS): -60 kg, -66 kg, -73 kg, -81 kg, -90 kg, -100 kg, +100 kg. CADETS (U18 YEARS): -50 kg, -55 kg, -60 kg, -66 kg, -73 kg, -81 kg, -90 kg, +90 kg. 13/14 YEARS: -34 kg, -38 kg, -42 kg, -46 kg, -50 kg, -55 kg, -60 kg, -66 kg, -73 kg, -81 kg, -90 kg, +90 kg. 11/12 YEARS: -24 kg, -27 kg, -30 kg, -34 kg, -38 kg, -42 kg, -46 kg, -50 kg, -60 kg, -66 kg.",
+  "contenido_traduccion": "Categorías de peso masculino: SENIORS (>14 AÑOS) y JUNIORS (SUB-21 AÑOS): -60 kg, -66 kg, -73 kg, -81 kg, -90 kg, -100 kg, +100 kg. CADETES (SUB-18 AÑOS): -50 kg, -55 kg, -60 kg, -66 kg, -73 kg, -81 kg, -90 kg, +90 kg. 13/14 AÑOS: -34 kg, -38 kg, -42 kg, -46 kg, -50 kg, -55 kg, -60 kg, -66 kg, -73 kg, -81 kg, -90 kg, +90 kg. 11/12 AÑOS: -24 kg, -27 kg, -30 kg, -34 kg, -38 kg, -42 kg, -46 kg, -50 kg, -60 kg, -66 kg.",
+  "interpretacion": "Establece las divisiones de peso en la rama masculina. Senior y Junior comparten las 7 divisiones estándar (-60 kg a +100 kg). En Cadetes existen divisiones adicionales de menor peso (-50 kg y -55 kg) y la categoría superior se fija en +90 kg.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 32",
+  "tags": [
+    "weight-categories",
+    "men",
+    "cadet",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0451: Prohibición de combates entre hombres y mujeres
+```json
+{
+  "id_conocimiento": "KUN-0451",
+  "titulo": "Prohibición de combates entre hombres y mujeres",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF recognises men’s and women’s competitions. Contests between men and women are not permitted.",
+  "contenido_traduccion": "La FIJ reconoce las competiciones masculinas y femeninas. No se permiten los combates entre hombres y mujeres.",
+  "interpretacion": "Las competiciones oficiales de judo están estrictamente divididas por género. Queda totalmente prohibido el enfrentamiento entre competidores masculinos y femeninos en cualquier tipo de combate oficial de la FIJ.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 33",
+  "tags": [
+    "men",
+    "women",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0452: Sistemas de cuadros de eliminación y adjudicación de medallas
+```json
+{
+  "id_conocimiento": "KUN-0452",
+  "titulo": "Sistemas de cuadros de eliminación y adjudicación de medallas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "There are many different competition elimination bracket systems (refer to the table below and Appendix F) that can be used for competitions, direct knockout, quarter-final (last 8) repechage, double repechage, full repechage, round robin etc. Gold, silver and two (2) bronze medals will be awarded except in the case of low numbers.",
+  "contenido_traduccion": "Existen muchos sistemas diferentes de cuadros de eliminación de competición (consulte la tabla a continuación y el Apéndice F) que se pueden utilizar para las competiciones: eliminación directa, repesca de cuartos de final (últimos 8), doble repesca, repesca completa, liguilla (round robin), etc. Se otorgarán medallas de oro, plata y dos (2) de bronce, excepto en el caso de un número reducido de participantes.",
+  "interpretacion": "Regula la variedad de sistemas de llaves de eliminación aplicables según la normativa del Apéndice F y ratifica la regla de premiación del judo donde se otorgan siempre una medalla de oro, una de plata y dos de bronce por categoría, salvo en categorías con pocos atletas donde rija el sistema especial de bajo número de participantes.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 33",
+  "tags": [
+    "bracket",
+    "repechage",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0453: Sistemas de competición oficial para categoría Senior
+```json
+{
+  "id_conocimiento": "KUN-0453",
+  "titulo": "Sistemas de competición oficial para categoría Senior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Senior competition systems: Continental Opens, Continental Championships, Continental Championships Mixed Teams, Grand Prix, Grand Slam, Masters, World Championships Seniors, World Championships Open, World Championships Mixed Teams use Quarter-final repechage for 6 or more athletes/teams and low numbers systems for IJF WJT events for 5 or less. Continental Cups and World Championships Veterans use Double repechage for 6 or more athletes/teams. Olympic Games Individual and Mixed Teams use Quarter-final repechage (low numbers system not applicable). Non-WRL events: Organiser’s choice.",
+  "contenido_traduccion": "Sistemas de competición para la categoría Senior: Opens Continentales, Campeonatos Continentales, Campeonatos Continentales por Equipos Mixtos, Grand Prix, Grand Slam, Masters, Campeonatos Mundiales Seniors, Campeonatos Mundiales Open y Campeonatos Mundiales por Equipos Mixtos utilizan repesca de cuartos de final para 6 o más atletas/equipos y sistemas de bajo número para eventos del IJF WJT para 5 o menos. Las Copas Continentales y Campeonatos Mundiales de Veteranos utilizan doble repesca para 6 o más. Juegos Olímpicos Individuales y Equipos Mixtos utilizan repesca de cuartos de final (sistema de bajo número no aplicable). Eventos sin WRL: a elección del organizador.",
+  "interpretacion": "Establece el formato de cuadro obligatorio para cada nivel de torneo Senior. Para eventos principales del IJF World Judo Tour y Mundiales, con 6 o más participantes se debe aplicar repesca de cuartos de final. Para torneos de menor categoría como Copas Continentales o Veteranos, se aplica doble repesca.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 33",
+  "tags": [
+    "senior",
+    "bracket",
+    "repechage",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0454: Sistemas de competición oficial para categorías Cadetes y Juniors
+```json
+{
+  "id_conocimiento": "KUN-0454",
+  "titulo": "Sistemas de competición oficial para categorías Cadetes y Juniors",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Cadets and Juniors competition systems: World Championships and World Championships Mixed Teams use Quarter-final repechage for 6 or more athletes/teams and low numbers systems for IJF WJT events for 5 or less. Continental Cups, Continental Championships and Continental Championships Mixed Teams use Double repechage. Youth Olympic Games use Full repechage. Non-World Ranking List Events: Organiser’s choice.",
+  "contenido_traduccion": "Sistemas de competición para Cadetes y Juniors: Campeonatos Mundiales y Campeonatos Mundiales por Equipos Mixtos utilizan repesca de cuartos de final para 6 o más atletas/equipos y sistemas de bajo número de participantes para eventos del IJF WJT para 5 o menos. Copas Continentales, Campeonatos Continentales y Campeonatos Continentales por Equipos Mixtos utilizan doble repesca. Juegos Olímpicos de la Juventud utilizan repesca completa. Eventos sin lista de clasificación mundial (WRL): a elección del organizador.",
+  "interpretacion": "Determina la modalidad de eliminación para torneos juveniles y cadetes. Los mundiales utilizan repesca de cuartos de final (a partir de 6 competidores), los eventos continentales utilizan doble repesca y los Juegos Olímpicos de la Juventud aplican repesca completa.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 33",
+  "tags": [
+    "cadet",
+    "bracket",
+    "repechage",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0455: Descalificación por no comparecencia en competición individual
+```json
+{
+  "id_conocimiento": "KUN-0455",
+  "titulo": "Descalificación por no comparecencia en competición individual",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In an individual event if an athlete does not appear for a contest he is considered out of the competition and cannot return for a later contest (if applicable).",
+  "contenido_traduccion": "En una prueba individual, si un atleta no se presenta a un combate, se le considera fuera de la competición y no puede regresar para un combate posterior (si corresponde).",
+  "interpretacion": "Si un judoka no se presenta a un combate en un evento individual (no-show), queda eliminado definitivamente de todo el torneo. Pierde el derecho de reingresar a la competición a través de cuadros de repesca o combates posteriores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 33",
+  "tags": [
+    "procedure",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0456: Asignación de Color de Judogi y Sistema Uniforme para Eventos con Puntos WRL
+```json
+{
+  "id_conocimiento": "KUN-0456",
+  "titulo": "Asignación de Color de Judogi y Sistema Uniforme para Eventos con Puntos WRL",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For all events where world ranking points can be given a uniform system must be used. On the draw sheet the athlete/team on top wears a white judogi and the one below wears a blue judogi.",
+  "contenido_traduccion": "Para todos los eventos donde se otorguen puntos de clasificación mundial, se debe utilizar un sistema uniforme. En la hoja de sorteo, el atleta o equipo en la parte superior viste judogi blanco y el de abajo viste judogi azul.",
+  "interpretacion": "En todos los torneos oficiales aprobados por la IJF que otorgan puntos para el World Ranking List, la asignación del color de judogi se rige estrictamente por la posición en el cuadro de sorteo: el competidor que aparece arriba en el combate vestirá judogi blanco, y el que aparece abajo vestirá judogi azul.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 34",
+  "tags": [
+    "competition-system",
+    "draw",
+    "world-ranking-list",
+    "judogi",
+    "color"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0457: Sistema de Competencia - Eliminatoria Directa (Direct Knockout)
+```json
+{
+  "id_conocimiento": "KUN-0457",
+  "titulo": "Sistema de Competencia - Eliminatoria Directa (Direct Knockout)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.5.1 Direct Knockout\nThis is a direct elimination format without a repechage. The losers of the semi-finals will both be awarded bronze medals. The winners of the semi-finals will compete for the gold and silver medals. The four athletes losing the quarter-finals are classified equal fifth.",
+  "contenido_traduccion": "2.5.1 Eliminatoria Directa\nEste es un formato de eliminación directa sin repesca. A los perdedores de las semifinales se les otorgarán medallas de bronce a ambos. Los ganadores de las semifinales competirán por las medallas de oro y plata. Los cuatro atletas que pierdan en los cuartos de final se clasifican empatados en el quinto lugar.",
+  "interpretacion": "Bajo el sistema de eliminatoria directa, la derrota elimina inmediatamente al atleta sin derecho a repesca. Los derrotados en semifinales ganan directamente las dos medallas de bronce en disputa. Quienes caigan en cuartos de final obtienen automáticamente la quinta posición compartida.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 34",
+  "tags": [
+    "competition-system",
+    "bracket"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0458: Sistema de Competencia - Repesca de Cuartos de Final (Quarter-final Repechage)
+```json
+{
+  "id_conocimiento": "KUN-0458",
+  "titulo": "Sistema de Competencia - Repesca de Cuartos de Final (Quarter-final Repechage)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.5.2 Quarter-final Repechage\nIn a quarter-final repechage, for each category, the athletes will be divided into two (2) tables by means of a draw, and an elimination system will be used to produce two (2) finalists, who will compete for the gold medal. The athletes defeated in the quarter-final will compete in two (2) repechage contests. The winners of each of these two (2) repechage contests will compete in bronze medal contests against the loser of the semi-final contest of the respective opposite table. The winners (2) of those contests are placed third. The losers (2) are placed fifth. The losers (2) of repechage contests are placed seventh.",
+  "contenido_traduccion": "2.5.2 Repesca de Cuartos de Final\nEn una repesca de cuartos de final, para cada categoría, los atletas se dividirán en dos (2) tablas mediante sorteo, y se utilizará un sistema de eliminación para obtener dos (2) finalistas, que competirán por la medalla de oro. Los atletas derrotados en los cuartos de final competirán en dos (2) combates de repesca. Los ganadores de cada uno de estos dos (2) combates de repesca competirán en combates por la medalla de bronce contra el perdedor del combate semifinal de la tabla opuesta respectiva. Los ganadores (2) de esos combates ocupan el tercer lugar. Los perdedores (2) ocupan el quinto lugar. Los perdedores (2) de los combates de repesca ocupan el séptimo lugar.",
+  "interpretacion": "Es el formato estándar en torneos IJF. Solo los cuatro atletas que llegan a cuartos de final y pierden tienen acceso al cuadro de repesca. Los ganadores de los combates de repesca enfrentan al perdedor de la semifinal del lado opuesto del cuadro para disputar el bronce. Permite definir con claridad el 3.º, 5.º y 7.º puesto.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 34",
+  "tags": [
+    "competition-system",
+    "repechage",
+    "bracket",
+    "draw"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0459: Sistema de Competencia - Doble Repesca (Double Repechage)
+```json
+{
+  "id_conocimiento": "KUN-0459",
+  "titulo": "Sistema de Competencia - Doble Repesca (Double Repechage)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.5.3 Double Repechage\nIn a double repechage, for each category, the athletes will be divided into two (2) tables by means of a draw, and an elimination system will be used to produce two (2) finalists, who will compete for the gold medal. Athletes who lost to the four semi-finalists compete in the two (2) repechage pools. The winners of each of these two (2) repechage contests (pools) will compete in bronze medal contests against the loser of the semi-final contest of the respective opposite table. The winners (2) of those contests are placed third.",
+  "contenido_traduccion": "2.5.3 Doble Repesca\nEn una doble repesca, para cada categoría, los atletas se dividirán en dos (2) tablas mediante sorteo, y se utilizará un sistema de eliminación para obtener dos (2) finalistas, que competirán por la medalla de oro. Los atletas que hayan perdido contra los cuatro semifinalistas competirán en los dos (2) grupos de repesca. Los ganadores de cada uno de estos dos (2) combates de repesca (grupos) competirán en combates por la medalla de bronce contra el perdedor del combate semifinal de la tabla opuesta respectiva. Los ganadores (2) de esos combates ocupan el tercer lugar.",
+  "interpretacion": "En el sistema de doble repesca, el derecho a entrar a la repesca se extiende a todos los atletas que hayan sido derrotados previamente por cualquiera de los cuatro semifinalistas a lo largo de las rondas eliminatorias. Los ganadores del cuadro de repesca luchan contra el semifinalista derrotado de la tabla opuesta para disputar la medalla de bronce.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 34",
+  "tags": [
+    "competition-system",
+    "repechage",
+    "bracket",
+    "draw"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0460: Sistema de Competencia - Repesca Completa (Full Repechage)
+```json
+{
+  "id_conocimiento": "KUN-0460",
+  "titulo": "Sistema de Competencia - Repesca Completa (Full Repechage)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.5.4 Full Repechage\nAll participants can compete at least twice, athletes are divided into two (2) tables (pools), A and B, by means of a draw, and then into two (2) groups (sub-pools) within each table: A1, A2, B1 and B2. The elimination system will be used to produce two (2) finalists. All athletes defeated after each round of competition will take part in the repechage of their respective table according to the elimination system. The winner of each repechage will face the loser of the semi-final from the opposite half of the draw to compete for the two (2) bronze medals. The winners of table A and table B compete for the gold and silver medals.\nWith this system there is the possibility that two (2) athletes (or teams) compete together two (2) times (preliminary and repechage).",
+  "contenido_traduccion": "2.5.4 Repesca Completa\nTodos los participantes pueden competir al menos dos veces; los atletas se dividen en dos (2) tablas (grupos), A y B, mediante sorteo, y luego en dos (2) grupos (subgrupos) dentro de cada tabla: A1, A2, B1 y B2. Se utilizará el sistema de eliminación para producir dos (2) finalistas. Todos los atletas derrotados después de cada ronda de competición participarán en la repesca de su respectiva tabla según el sistema de eliminación. El ganador de cada repesca se enfrentará al perdedor de la semifinal de la mitad opuesta del cuadro para competir por las dos (2) medallas de bronce. Los ganadores de la tabla A y la tabla B compiten por las medallas de oro y plata.\nCon este sistema existe la posibilidad de que dos (2) atletas (o equipos) compitan entre sí dos (2) veces (preliminar y repesca).",
+  "interpretacion": "El sistema de repesca completa garantiza a todos los competidores disputar al menos dos combates, ya que absolutamente todos los derrotados en las rondas preliminares son reinsertados en el cuadro de repesca de su correspondiente tabla. Esto genera la particularidad o excepción de que dos judocas puedan llegar a enfrentarse dos veces en el mismo torneo (una vez en la fase eliminatoria y otra en la repesca).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 34",
+  "tags": [
+    "competition-system",
+    "repechage",
+    "bracket",
+    "draw"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0461: Definición de Sistema de Liga (Round Robin) y Regla 1 para Eventos Individuales
+```json
+{
+  "id_conocimiento": "KUN-0461",
+  "titulo": "Definición de Sistema de Liga (Round Robin) y Regla 1 para Eventos Individuales",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2 .5 .5 Round Robin\nA round robin system may be used, and this is defined as a system where each athlete or team will compete against the other.\n2 .5 .5 .1 Round Robin Rules for Individual Events\nThe following round robin rules are used to define the classification of each position:\nRule 1 . Number of contests won: if the number of contests won are equal, then rule 2 must be followed.",
+  "contenido_traduccion": "2.5.5 Sistema de Liga (Round Robin)\nSe podrá utilizar un sistema de todos contra todos (round robin), el cual se define como un sistema donde cada atleta o equipo competirá contra los demás.\n2.5.5.1 Reglas del Sistema de Liga para Eventos Individuales\nLas siguientes reglas de todos contra todos se utilizan para definir la clasificación de cada posición:\nRegla 1. Número de combates ganados: si el número de combates ganados es igual, se debe seguir la regla 2.",
+  "interpretacion": "El sistema de liga o 'todos contra todos' implica que cada participante o equipo se enfrenta contra todos los demás miembros de su grupo. En competiciones individuales bajo este sistema, el criterio principal e inicial para clasificar a los atletas es la cantidad total de combates ganados. En caso de empate en victorias entre dos o más deportistas, se recurre a los criterios secundarios definidos en las reglas posteriores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 35",
+  "tags": [
+    "competition-system",
+    "bracket",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0462: Regla 2 de Liga Individual: Suma de Puntos y Valoración de Marcadores
+```json
+{
+  "id_conocimiento": "KUN-0462",
+  "titulo": "Regla 2 de Liga Individual: Suma de Puntos y Valoración de Marcadores",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Rule 2 . Sum of all points: if there are an equal number of wins, the sum of points for scores: ippon/waza-ari-awasete-ippon = 100, waza-ari = 10, yuko = 1, hantei = 0. All scores achieved will be counted for both the winner and loser for each contest in the category. An athlete can get a maximum of 100 points per contest. Points are same regardless of if they are achieved in the regular contest time or during golden score. If the sum of all points are equal, then rule 3 must be followed.",
+  "contenido_traduccion": "Regla 2. Suma de todos los puntos: si hay un número igual de victorias, se suma el total de puntos por puntuación: ippon/waza-ari-awasete-ippon = 100, waza-ari = 10, yuko = 1, hantei = 0. Se contabilizarán todas las puntuaciones obtenidas tanto para el ganador como para el perdedor en cada combate de la categoría. Un atleta puede obtener un máximo de 100 puntos por combate. Los puntos son los mismos independientemente de si se logran en el tiempo reglamentario o durante el tiempo de técnica de oro (golden score). Si la suma de todos los puntos es igual, se debe seguir la regla 3.",
+  "interpretacion": "Al empatar en victorias en un sistema de liga individual, se desempata calculando la suma de puntos según la calidad técnica alcanzada: Ippon/Waza-ari-awasete-ippon otorga 100 puntos, Waza-ari 10 puntos, Yuko 1 punto y decisión (Hantei) 0 puntos. Los puntos acumulados por un judoca se le otorgan incluso si pierde el combate (por ejemplo, si marcó Waza-ari antes de ser proyectado por Ippon). El techo máximo de puntuación por combate es 100 puntos y el valor no cambia por ser obtenido en Golden Score.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 35",
+  "tags": [
+    "competition-system",
+    "scoring",
+    "ippon",
+    "waza-ari",
+    "yuko",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0463: Reglas 3 y 4 de Liga Individual: Comparación Directa y Menor Tiempo Acumulado
+```json
+{
+  "id_conocimiento": "KUN-0463",
+  "titulo": "Reglas 3 y 4 de Liga Individual: Comparación Directa y Menor Tiempo Acumulado",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Rule 3 . Direct comparison: if two (2) athletes have an equal number of wins and sum of all points for scores, the athlete who won the contest between them is defined as better. If there is still equality rule 4 must be followed.\nRule 4 . Direct comparison not possible: if there are an equal number of wins and no direct comparison possible because of “beating in circle”: the shortest accumulated time of all winning contests will decide. If there is still equality rule 5 must be followed.",
+  "contenido_traduccion": "Regla 3. Comparación directa: si dos (2) atletas tienen el mismo número de victorias y la misma suma de puntos por puntuaciones, el atleta que haya ganado el combate entre ellos se clasifica como mejor. Si persiste la igualdad, se debe seguir la regla 4.\nRegla 4. Comparación directa no posible: si hay un número igual de victorias y no es posible la comparación directa debido a 'derrotas en círculo': decidirá el menor tiempo acumulado de todos los combates ganados. Si persiste la igualdad, se debe seguir la regla 5.",
+  "interpretacion": "Cuando dos atletas están igualados en victorias y puntos, se aplica la comparación directa: el ganador del enfrentamiento personal entre ambos obtiene la posición superior. Si hay un empate múltiple donde no se puede aplicar la comparación directa (ejemplo: un círculo donde A vence a B, B vence a C y C vence a A), el criterio de desempate pasa a ser el tiempo total acumulado en los combates ganados; quien haya necesitado menos tiempo global para ganar sus combates obtendrá la ventaja.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 35",
+  "tags": [
+    "competition-system",
+    "time",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0464: Regla 5 de Liga Individual: Combates de Decisión por Eliminación Directa
+```json
+{
+  "id_conocimiento": "KUN-0464",
+  "titulo": "Regla 5 de Liga Individual: Combates de Decisión por Eliminación Directa",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Rule 5 . Decision contests: in case of equal time a new draw will be performed between the involved athletes. A knockout system between the involved athletes will be used, applying the World Ranking List (WRL) seeding rules. For example, in the case of three (3) athletes: one (1) contest between two (2) athletes will be held. The winner of this contest will compete against the third athlete to get a final decision.",
+  "contenido_traduccion": "Regla 5. Combates de decisión: en caso de igualdad de tiempo, se realizará un nuevo sorteo entre los atletas involucrados. Se utilizará un sistema de eliminación directa entre los atletas involucrados, aplicando las reglas de cabeza de serie de la Lista de Ranking Mundial (WRL). Por ejemplo, en el caso de tres (3) atletas: se celebrará un (1) combate entre dos (2) atletas. El ganador de este combate competirá contra el tercer atleta para obtener una decisión final.",
+  "interpretacion": "Si persiste un empate absoluto en un grupo de liga tras evaluar victorias, puntos y tiempo acumulado, los deportistas implicados deben disputar combates suplementarios de decisión. Se realiza un sorteo para armar un cuadro de eliminación directa respectando los cabezas de serie según el Ranking Mundial (WRL). Si son tres los implicados, dos combaten entre sí y el vencedor disputa el combate decisivo contra el tercero asignado por sorteo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 35",
+  "tags": [
+    "competition-system",
+    "draw",
+    "seeding",
+    "world-ranking-list",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0465: Reglas del Sistema de Liga para Eventos por Equipos
+```json
+{
+  "id_conocimiento": "KUN-0465",
+  "titulo": "Reglas del Sistema de Liga para Eventos por Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2 .5 .5 .2 Round Robin Rules for Team Events\nThe following round robin rules to define the winners are used:\nRule 1 . Number of matches won: if the number of matches won are equal, then rule 2 must be followed.\nRule 2. Number of contests won: if the number of contests won are equal, then rule 3 must be followed.\nRule 3 . Golden score contests: three different categories will be drawn for three golden score contests (match A v B, match A v C and match B v C). Any category where both athletes are missing must not be included in the draw for that match. Any category where there is only one athlete must be included in the draw for that match. All contests must be fought to decide first, second and third place. If the number of contests won are equal, then rule 4 must be followed.\nRule 4 . Equal wins: if there are an equal number of wins, then rule 3 must be repeated until there is a winning team.",
+  "contenido_traduccion": "2.5.5.2 Reglas del Sistema de Liga para Eventos por Equipos\nSe utilizan las siguientes reglas de liga para definir a los ganadores:\nRegla 1. Número de encuentros (matches) ganados: si el número de encuentros ganados es igual, se debe seguir la regla 2.\nRegla 2. Número de combates (contests) ganados: si el número de combates ganados es igual, se debe seguir la regla 3.\nRegla 3. Combates de técnica de oro (golden score): se sortearán tres categorías diferentes para tres combates de técnica de oro (encuentro A vs B, encuentro A vs C y encuentro B vs C). Cualquier categoría en la que falten ambos atletas no debe incluirse en el sorteo de ese encuentro. Cualquier categoría en la que haya solo un atleta debe ser incluida en el sorteo de ese encuentro. Todos los combates deben disputarse para decidir el primer, segundo y tercer lugar. Si el número de combates ganados es igual, se debe seguir la regla 4.\nRegla 4. Igualdad de victorias: si hay un número igual de victorias, se debe repetir la regla 3 hasta que haya un equipo ganador.",
+  "interpretacion": "En las liguillas por equipos, la clasificación se determina ordenadamente por: 1) Número de encuentros ganados; 2) Número total de combates individuales ganados. Si persiste el empate, se efectúa un sorteo de tres categorías de peso distintas para realizar tres combates de desempate en Golden Score (A vs B, A vs C, B vs C). En el sorteo no se incluyen categorías donde falten atletas en ambos equipos, pero sí aquellas donde al menos un equipo tenga atleta presente. Si tras esta fase sigue habiendo empate en combates ganados, se repite el procedimiento del sorteo en Golden Score hasta que surja un equipo vencedor.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 35",
+  "tags": [
+    "competition-system",
+    "draw",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0466: Sistema de Competencia al Mejor de Tres (Best of Three)
+```json
+{
+  "id_conocimiento": "KUN-0466",
+  "titulo": "Sistema de Competencia al Mejor de Tres (Best of Three)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2 .5 .6 Best of Three\nIf there are two (2) athletes it will be the best of two (2) contests and if the wins are equal (1-1), a third contest will decide.",
+  "contenido_traduccion": "2.5.6 Mejor de Tres (Best of Three)\nSi hay dos (2) atletas, será al mejor de dos (2) combates y, si las victorias son iguales (1-1), un tercer combate decidirá.",
+  "interpretacion": "Cuando en una categoría o grupo se hayan inscrito únicamente dos atletas, la modalidad de competición utilizada es 'al mejor de tres'. Los judocas disputan inicialmente dos combates; si uno gana ambos, resulta vencedor. Si cada judoca gana un combate (quedando igualados 1-1), se efectúa un tercer combate obligatorio que definirá de manera definitiva al ganador de la categoría.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 35",
+  "tags": [
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0467: Reglamento para Bajo Número de Atletas o Equipos (1 a 5)
+```json
+{
+  "id_conocimiento": "KUN-0467",
+  "titulo": "Reglamento para Bajo Número de Atletas o Equipos (1 a 5)",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.6 Regulations for Low Numbers of Athletes or Teams\nIf there are one (1) to five (5) athletes or teams the low numbers competition systems and rules apply.\n2.6.1 Low Numbers System for IJF WJT Events\nThe following competition systems and rules must be used in IJF WJT individual and mixed team events.",
+  "contenido_traduccion": "2.6 Reglamento para bajo número de atletas o equipos\nSi hay de uno (1) a cinco (5) atletas o equipos, se aplican los sistemas y reglas de competición para bajo número de participantes.\n2.6.1 Sistema de bajo número para eventos del IJF WJT\nLos siguientes sistemas de competición y reglas deben utilizarse en los eventos individuales y de equipos mixtos del IJF WJT.",
+  "interpretacion": "Establece el marco normativo aplicable cuando en una categoría individual o evento de equipos mixtos hay entre 1 y 5 participantes. Regula la estructura especial del cuadro de competición, los criterios para otorgar medallas y la asignación de puntos para la Lista de Ranking Mundial (WRL).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 36",
+  "tags": [
+    "competition-system",
+    "world-ranking-list",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0468: Sistema de Competición para 5 Atletas o Equipos
+```json
+{
+  "id_conocimiento": "KUN-0468",
+  "titulo": "Sistema de Competición para 5 Atletas o Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "5* Individuals and mixed teams\nThe athletes/teams will be divided as follow:\nPool A – 3 athletes/teams will compete in a round robin system. The winner will go to the final, the second will compete against the loser from pool B in the bronze medal contest.\nPool B – 2 athletes/teams will compete for a place in the final.\nMedals awarded: Gold, silver and one bronze\nWRL points awarded (if applicable):\nIndividuals: First, second, one third and one or two fifth (only if the athlete won one contest in the round robin) place.\nMixed teams: First, second, one third and two fifth places.",
+  "contenido_traduccion": "5* Individuales y equipos mixtos\nLos atletas/equipos se dividirán de la siguiente manera:\nGrupo A – 3 atletas/equipos competirán en un sistema de liguilla (round robin). El ganador irá a la final, el segundo competirá contra el perdedor del Grupo B en el combate por la medalla de bronce.\nGrupo B – 2 atletas/equipos competirán por un lugar en la final.\nMedallas otorgadas: Oro, plata y una de bronce.\nPuntos WRL otorgados (si aplica):\nIndividuales: Primer, segundo, un tercer y uno o dos quintos puestos (solo si el atleta ganó un combate en la liguilla).\nEquipos mixtos: Primer, segundo, un tercer y dos quintos puestos.",
+  "interpretacion": "Cuando hay 5 participantes, se forman dos grupos: el Grupo A con 3 competidores (liguilla) y el Grupo B con 2. Los ganadores de cada grupo disputan la final (oro/plata). El 2º clasificado del Grupo A lucha contra el perdedor del Grupo B por la única medalla de bronce. En la competición individual, los puntos del ranking mundial para el 5º puesto exigen de manera obligatoria haber ganado al menos un combate en la liguilla.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 36",
+  "tags": [
+    "competition-system",
+    "world-ranking-list",
+    "bracket",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0469: Sistema de Competición para 4 Atletas o Equipos
+```json
+{
+  "id_conocimiento": "KUN-0469",
+  "titulo": "Sistema de Competición para 4 Atletas o Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "4* Elimination system with two (2) pools of two (2) single contests/matches, then a contest/match between the two (2) losers of each pool for the single bronze medal and a contest/match between the two (2) winners of each pool for the gold and silver medals.\nMedals awarded: Gold, silver and one bronze\nWRL points awarded (if applicable):\nIndividuals: First, second and one third place.\nMixed teams: First, second, one third and one fifth place.",
+  "contenido_traduccion": "4* Sistema de eliminación con dos (2) grupos de dos (2) combates/encuentros individuales, luego un combate/encuentro entre los dos (2) perdedores de cada grupo para la única medalla de bronce y un combate/encuentro entre los dos (2) ganadores de cada grupo para las medallas de oro y plata.\nMedallas otorgadas: Oro, plata y una de bronce.\nPuntos WRL otorgados (si aplica):\nIndividuales: Primer, segundo y un tercer puesto.\nEquipos mixtos: Primer, segundo, un tercer y un quinto puesto.",
+  "interpretacion": "Con 4 competidores, se realizan dos combates iniciales tipo semifinal. Los perdedores se enfrentan directamente entre sí en un combate por la única medalla de bronce. Los dos ganadores disputan la final por el oro y la plata. En individuales no se otorgan puntos WRL de 5º puesto.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 36",
+  "tags": [
+    "competition-system",
+    "world-ranking-list",
+    "bracket",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0470: Sistema de Competición para 3 Atletas o Equipos
+```json
+{
+  "id_conocimiento": "KUN-0470",
+  "titulo": "Sistema de Competición para 3 Atletas o Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3* A round robin system will be held in the elimination round. The best and the second best will compete in a final for the gold and silver medal. The third athlete/team will be awarded the single bronze medal (for individuals, only if one contest was won).\nMedals awarded: Gold, silver and one bronze (for individuals, if one contest was won)\nWRL points awarded (if applicable):\nIndividuals: First, second and third (only if one contest was won) place.\nMixed teams: First, second and third place.",
+  "contenido_traduccion": "3* Se llevará a cabo un sistema de liguilla (round robin) en la ronda de eliminación. El mejor y el segundo mejor competirán en una final por la medalla de oro y plata. El tercer atleta/equipo recibirá la única medalla de bronce (para individuales, solo si ganó un combate).\nMedallas otorgadas: Oro, plata y una de bronce (para individuales, si ganó un combate).\nPuntos WRL otorgados (si aplica):\nIndividuales: Primer, segundo y tercer puesto (solo si ganó un combate).\nEquipos mixtos: Primer, segundo y tercer puesto.",
+  "interpretacion": "Para 3 competidores, se realiza una liguilla previa todos contra todos. Los clasificados 1º y 2º pasan a la final a luchar por el oro y la plata. El 3º obtiene la medalla de bronce y puntos de ranking únicamente si logró ganar al menos un combate durante la liguilla inicial; de lo contrario queda sin medalla y sin puntos WRL.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 36",
+  "tags": [
+    "competition-system",
+    "world-ranking-list",
+    "bracket",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0471: Sistema de Competición para 2 Atletas o Equipos
+```json
+{
+  "id_conocimiento": "KUN-0471",
+  "titulo": "Sistema de Competición para 2 Atletas o Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2* One final contest/match.\nMedals awarded: Gold (individuals), Gold, silver (Mixed Teams)\nWRL points awarded (if applicable):\nIndividuals: First place.\nMixed teams: First and second place.",
+  "contenido_traduccion": "2* Un combate/encuentro final.\nMedallas otorgadas: Oro (individuales), Oro, plata (Equipos mixtos).\nPuntos WRL otorgados (si aplica):\nIndividuales: Primer puesto.\nEquipos mixtos: Primer y segundo puesto.",
+  "interpretacion": "Con solo 2 competidores se realiza un único combate/encuentro directo. En la categoría individual, el ganador recibe la medalla de oro y puntos WRL de 1er puesto, mientras que el perdedor no recibe medalla de plata ni puntos WRL. En la competición por equipos mixtos, se otorgan tanto medallas de oro y plata como puntos de 1er y 2º lugar.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 36",
+  "tags": [
+    "competition-system",
+    "world-ranking-list",
+    "bracket",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0472: Regla para 1 solo Atleta o Equipo y Cancelación por Pesaje
+```json
+{
+  "id_conocimiento": "KUN-0472",
+  "titulo": "Regla para 1 solo Atleta o Equipo y Cancelación por Pesaje",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "1* No competition. None. No\n*Participation points given (if applicable).\nIf only one (1) athlete passes the weigh-in there will be no competition.",
+  "contenido_traduccion": "1* Sin competición. Ninguna. No\n*Puntos de participación otorgados (si aplica).\nSi solo un (1) atleta supera el pesaje, no habrá competición.",
+  "interpretacion": "Si solo se inscribe o si solo un único atleta supera exitosamente el pesaje oficial en una categoría dada, la competición en dicha categoría queda oficialmente cancelada. No se otorgan medallas ni puntos por clasificación/resultado en el ranking, únicamente se otorgan los puntos básicos de participación si corresponde.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 36",
+  "tags": [
+    "competition-system",
+    "world-ranking-list",
+    "weigh-in",
+    "official-weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0473: Determinación y asignación de puntos para el cuarto puesto en sistemas con pocos atletas
+```json
+{
+  "id_conocimiento": "KUN-0473",
+  "titulo": "Determinación y asignación de puntos para el cuarto puesto en sistemas con pocos atletas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The 4th place should be used in the standings for:\n• System of five (5) athletes:\n• In case one (1) athlete won a contest in the round robin pool (one 4th place and one 5th place will be in the standings).\n• In case two (2) athletes did not win any contest (two 4th places).\n• Elimination system of four (4) athletes, for the loser of the bronze contest.\n• Round robins with more than three (3) athletes when the number of wins makes the difference.\nFor the 4th place, the relevant WRL points will be the ones foreseen for the 5th place.",
+  "contenido_traduccion": "El 4.º puesto debe utilizarse en la clasificación para:\n• Sistema de cinco (5) atletas:\n• En caso de que un (1) atleta haya ganado un combate en el grupo de liguilla (habrá un 4.º puesto y un 5.º puesto en la clasificación).\n• En caso de que dos (2) atletas no hayan ganado ningún combate (dos 4.os puestos).\n• Sistema de eliminación de cuatro (4) atletas, para el perdedor del combate por el bronce.\n• Liguillas con más de tres (3) atletas cuando el número de victorias marca la diferencia.\nPara el 4.º puesto, los puntos WRL correspondientes serán los previstos para el 5.º puesto.",
+  "interpretacion": "Establece los criterios específicos para otorgar la 4.ª posición en la tabla final de resultados en formatos con baja participación o liguillas. A efectos de la Lista de Clasificación Mundial (WRL), quien ocupe la 4.ª posición recibirá la cantidad de puntos asignada al 5.º puesto.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 37",
+  "tags": [
+    "competition-system",
+    "world-ranking-list",
+    "repechage",
+    "bracket"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0474: Sistema de bajo número de participantes para otros eventos
+```json
+{
+  "id_conocimiento": "KUN-0474",
+  "titulo": "Sistema de bajo número de participantes para otros eventos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.6.2 Low Numbers System for Other Events\nFor other individual and team events, the organiser can choose the competition system used. Depending on the number of athletes/teams the number of medals awarded must follow rule 2.6.1.",
+  "contenido_traduccion": "2.6.2 Sistema de pocos participantes para otros eventos\nPara otros eventos individuales y por equipos, el organizador puede elegir el sistema de competición utilizado. Según el número de atletas/equipos, la cantidad de medallas entregadas debe seguir la regla 2.6.1.",
+  "interpretacion": "En torneos fuera del circuito directo IJF donde haya baja participación, la organización local tiene flexibilidad para elegir el formato del cuadro, pero está obligada a respetar el número final de medallas entregadas conforme a la norma 2.6.1 según los participantes reales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 37",
+  "tags": [
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0475: Sistema de competición para eventos de equipos mixtos y por equipos
+```json
+{
+  "id_conocimiento": "KUN-0475",
+  "titulo": "Sistema de competición para eventos de equipos mixtos y por equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.7 Competition System for Mixed Team and Team Events\nThe system of competition for IJF Mixed Teams events will be the elimination system with quarter-final repechage (refer to Section 2.5.2 for a full description). Match is used to define the competition between both teams. Within each match there are a number of contests (depending on the event).\nFor other team events, different types of systems can be used such as double repechage, full repechage, or direct knockout. Gold, silver and two (2) bronze medals will be awarded except in the case of low numbers.",
+  "contenido_traduccion": "2.7 Sistema de competición para eventos de equipos mixtos y por equipos\nEl sistema de competición para los eventos de Equipos Mixtos de la IJF será el sistema de eliminación con repesca desde cuartos de final (consulte la Sección 2.5.2 para una descripción completa). El término encuentro ('match') se utiliza para definir la competición entre ambos equipos. Dentro de cada encuentro hay una serie de combates ('contests') (según el evento).\nPara otros eventos por equipos, se pueden utilizar diferentes tipos de sistemas como repesca doble, repesca completa o eliminación directa. Se entregarán medallas de oro, plata y dos (2) de bronce, excepto en caso de baja participación.",
+  "interpretacion": "Define la estructura formal de las competiciones por equipos de la IJF. Un 'match' (encuentro) es el enfrentamiento global entre dos selecciones/clubes, el cual contiene varios 'contests' (combates individuales). Para Equipos Mixtos IJF es obligatorio usar eliminación directa con repesca desde cuartos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 37",
+  "tags": [
+    "competition-system",
+    "repechage",
+    "bracket"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0476: Reglamento de composición e inscripción de equipos mixtos
+```json
+{
+  "id_conocimiento": "KUN-0476",
+  "titulo": "Reglamento de composición e inscripción de equipos mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.7.1 Regulations for Mixed Team Events\nEach mixed team must consist of six (6) athletes (3 women and 3 men) and has the possibility to have up to six (6) reserves (3 women and 3 men).\nAt the time of mixed team confirmation at the accreditation, the delegation must have a full mixed team entered. This means a minimum of 1 athlete per mixed team weight category. A maximum of 12 athletes can be entered, with a maximum of two (2) athletes per mixed team weight category.",
+  "contenido_traduccion": "2.7.1 Reglamento para eventos de equipos mixtos\nCada equipo mixto debe estar compuesto por seis (6) atletas (3 mujeres y 3 hombres) y tiene la posibilidad de tener hasta seis (6) reservas (3 mujeres y 3 hombres).\nEn el momento de la confirmación del equipo mixto en la acreditación, la delegación debe tener inscrito un equipo mixto completo. Esto significa un mínimo de 1 atleta por categoría de peso de equipo mixto. Se puede inscribir un máximo de 12 atletas, con un máximo de dos (2) atletas por categoría de peso de equipo mixto.",
+  "interpretacion": "Regula la plantilla necesaria para un equipo mixto oficial: 6 titulares (3 femeninos, 3 masculinos) y hasta 6 reservas. Durante la acreditación es obligatorio cubrir todas las categorías (mínimo 1 competidor por peso, máximo 2 por peso, para un total límite de 12 deportistas por delegación).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 37",
+  "tags": [
+    "competition-system",
+    "weight-categories",
+    "men",
+    "women",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0477: Excepción de composición mínima de equipo mixto por lesión o enfermedad
+```json
+{
+  "id_conocimiento": "KUN-0477",
+  "titulo": "Excepción de composición mínima de equipo mixto por lesión o enfermedad",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If injuries or illness occur after the draw or during the competition a mixed team will be allowed to compete with a minimum of four (4) athletes.",
+  "contenido_traduccion": "Si se producen lesiones o enfermedades después del sorteo o durante la competición, se permitirá que un equipo mixto compita con un mínimo de cuatro (4) atletas.",
+  "interpretacion": "Si un equipo sufre bajas médicas justificadas tras el sorteo o en pleno torneo, no queda descalificado automáticamente siempre que pueda presentar al menos a 4 atletas para el encuentro.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 37",
+  "tags": [
+    "competition-system",
+    "medical",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0478: Reglas de categoría de peso por división de edad en equipos mixtos
+```json
+{
+  "id_conocimiento": "KUN-0478",
+  "titulo": "Reglas de categoría de peso por división de edad en equipos mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "During seniors and juniors mixed teams’ competitions each athlete is entitled to compete in their own mixed team weight category or in the next higher mixed team weight category. During cadets mixed team competitions athletes must compete in their inscribed mixed team weight category and cannot be moved one (1) mixed team weight category higher.",
+  "contenido_traduccion": "Durante las competiciones de equipos mixtos de séniores y júniores, cada atleta tiene derecho a competir en su propia categoría de peso de equipo mixto o en la categoría de peso de equipo mixto inmediatamente superior. Durante las competiciones de equipos mixtos de cadetes, los atletas deben competir en la categoría de peso de equipo mixto en la que fueron inscritos y no pueden subirse una (1) categoría de peso superior.",
+  "interpretacion": "En las categorías Sénior y Junior, un judoka puede subir a la categoría de peso de equipo mixto inmediatamente superior a la suya. En la categoría Cadetes esta flexibilidad está estrictamente prohibida: el cadete solo puede pelear en la categoría exacta en la que fue inscrito.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 37",
+  "tags": [
+    "competition-system",
+    "weight-categories",
+    "age",
+    "cadet",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0479: Plazos y confirmación de la alineación de equipos mixtos
+```json
+{
+  "id_conocimiento": "KUN-0479",
+  "titulo": "Plazos y confirmación de la alineación de equipos mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the event follows an individual competition, the composition of the mixed team must be confirmed by the delegation to the IJF Sport Commission by 13:00 local time on the day prior to the mixed team competition. After confirmation, the list can be updated up to one (1) hour after the end of the final block only for the athletes competing on the last day of the individual competition.",
+  "contenido_traduccion": "Si el evento se celebra a continuación de una competición individual, la composición del equipo mixto debe ser confirmada por la delegación a la Comisión Deportiva de la IJF antes de las 13:00 hora local del día anterior a la competición de equipos mixtos. Tras la confirmación, la lista puede actualizarse hasta una (1) hora después de la finalización del bloque final únicamente para los atletas que compitan en el último día de la competición individual.",
+  "interpretacion": "Establece el procedimiento y los horarios límite para entregar la lista oficial del equipo mixto a la Comisión Deportiva de la IJF (13:00 del día anterior), ofreciendo una extensión excepcional de 1 hora tras el bloque final solo para modificar/confirmar deportistas que compitieron en la última jornada individual.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 37",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "draw",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0480: Sorteo de categoría inicial y secuencia de combates por ronda en equipos mixtos
+```json
+{
+  "id_conocimiento": "KUN-0480",
+  "titulo": "Sorteo de categoría inicial y secuencia de combates por ronda en equipos mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "After the draw of the mixed team event, a further draw will decide the starting category for the first round. The following rounds will start with the next category in the sequence.",
+  "contenido_traduccion": "Tras el sorteo del evento de equipos mixtos, un sorteo adicional decidirá la categoría de inicio para la primera ronda. Las rondas siguientes comenzarán con la siguiente categoría en la secuencia.",
+  "interpretacion": "No se empieza siempre por el mismo peso. Mediante un sorteo especial se determina qué categoría abre la primera ronda del encuentro por equipos. En las rondas posteriores, el orden avanza secuencialmente al siguiente peso de la lista.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 37",
+  "tags": [
+    "competition-system",
+    "draw",
+    "procedure",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0481: Rotación del Orden de Categorías de Peso en Equipos Mixtos
+```json
+{
+  "id_conocimiento": "KUN-0481",
+  "titulo": "Rotación del Orden de Categorías de Peso en Equipos Mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Example: Seniors Mixed Teams - drawn weight category is -73 kg\n1st round: -73 kg, -70 kg, -90 kg, +70 kg, +90 kg, -57 kg\n2nd round: -70 kg, -90 kg, +70 kg, +90 kg, -57 kg, -73 kg\nQuarter-final: -90 kg, +70 kg, +90 kg, -57 kg, -73 kg, -70 kg\nRepechage and semi-final: +70 kg, +90 kg, -57 kg, -73 kg, -70 kg, -90 kg\nBronze and final: +90 kg, -57 kg, -73 kg, -70 kg, -90 kg, +70 kg",
+  "contenido_traduccion": "Ejemplo: Equipos Mixtos Senior - la categoría de peso sorteada es -73 kg\n1.ª ronda: -73 kg, -70 kg, -90 kg, +70 kg, +90 kg, -57 kg\n2.ª ronda: -70 kg, -90 kg, +70 kg, +90 kg, -57 kg, -73 kg\nCuartos de final: -90 kg, +70 kg, +90 kg, -57 kg, -73 kg, -70 kg\nRepechaje y semifinal: +70 kg, +90 kg, -57 kg, -73 kg, -70 kg, -90 kg\nBronce y final: +90 kg, -57 kg, -73 kg, -70 kg, -90 kg, +70 kg",
+  "interpretacion": "Establece el orden de combate en la competición por equipos mixtos. Tras el sorteo de la categoría inicial, el orden rota sucesivamente en cada ronda posterior para garantizar dinamismo y equidad en el desarrollo del encuentro.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 38",
+  "tags": [
+    "competition-system",
+    "weight-categories",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0482: Acceso y Permanencia en el Área de Competición en Equipos Mixtos
+```json
+{
+  "id_conocimiento": "KUN-0482",
+  "titulo": "Acceso y Permanencia en el Área de Competición en Equipos Mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Two (2) coaches and one (1) doctor per team will be allowed to enter the field of play. Athletes should enter the field of play in the order that they will compete in. During the contests, the mixed team athletes must stay within a marked area on the field of play. Reserve athletes must not enter the field of play.",
+  "contenido_traduccion": "Se permitirá la entrada al área de competición a dos (2) entrenadores y un (1) médico por equipo. Los atletas deben entrar al área de competición en el orden en que competirán. Durante los combates, los atletas del equipo mixto deben permanecer dentro de una zona marcada en el área de competición. Los atletas de reserva no deben entrar al área de competición.",
+  "interpretacion": "Limita la presencia física en el campo de juego durante los encuentros por equipos mixtos. Solo se permite el acceso a 2 entrenadores, 1 médico y a los atletas titulares de la alineación, quienes deben ingresar en su orden de combate y mantenerse dentro de la zona delimitada. Los suplentes no pueden entrar al área de competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 38",
+  "tags": [
+    "coaches",
+    "medical",
+    "procedure",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0483: Selección de Atletas y Plazos de Entrega de Listas de Alineación
+```json
+{
+  "id_conocimiento": "KUN-0483",
+  "titulo": "Selección de Atletas y Plazos de Entrega de Listas de Alineación",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Before each match the team leader must select the athletes for each contest. From the maximum of two (2) athletes inscribed in each category he can select one. For the first round the lists must be returned at least 30 minutes before the start of the competition. For other rounds it must be returned 5 minutes after receiving the list from the IJF Sport Commission. Once it is returned to the IJF Sport Commission it cannot be changed.",
+  "contenido_traduccion": "Antes de cada encuentro, el responsable del equipo debe seleccionar a los atletas para cada combate. Del máximo de dos (2) atletas inscritos en cada categoría, puede seleccionar uno. Para la primera ronda, las listas deben entregarse al menos 30 minutos antes del inicio de la competición. Para otras rondas, deben entregarse 5 minutos después de recibir la lista de la Comisión Deportiva de la IJF. Una vez entregada a la Comisión Deportiva de la IJF, no se puede cambiar.",
+  "interpretacion": "Define el procedimiento formal y los plazos estrictos para fijar la alineación en cada encuentro. Se escoge un atleta por categoría de entre los inscritos. La entrega debe hacerse con 30 minutos de antelación para la ronda 1 y dentro de 5 minutos en las rondas subsecuentes, quedando la lista completamente inalterable tras su entrega.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 38",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0484: Obligatoriedad de Alineación de Atletas y Regla de Sustitución en Equipos Mixtos
+```json
+{
+  "id_conocimiento": "KUN-0484",
+  "titulo": "Obligatoriedad de Alineación de Atletas y Regla de Sustitución en Equipos Mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the team has the possibility to put an inscribed athlete in a mixed team weight category, the team leader must do so. An athlete cannot be rested for one match and return for the next unless they have been replaced by the other inscribed athlete. If the mixed team has no athlete in a mixed team weight category, they must select the “no competitor” option.",
+  "contenido_traduccion": "Si el equipo tiene la posibilidad de incluir a un atleta inscrito en una categoría de peso de equipo mixto, el responsable del equipo debe hacerlo. Un atleta no puede descansar durante un encuentro y regresar para el siguiente a menos que haya sido reemplazado por el otro atleta inscrito. Si el equipo mixto no tiene ningún atleta en una categoría de peso de equipo mixto, debe seleccionar la opción 'sin competidor'.",
+  "interpretacion": "Prohíbe a los equipos dejar vacantes deliberadamente las categorías donde tengan atletas aptos e inscritos. Además, prohíbe dar descanso a un atleta en una ronda para volver a usarlo después, salvo que en la ronda de descanso haya sido efectivamente sustituido por el segundo judoka inscrito de esa misma categoría.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 38",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0485: Descalificación por Presentación del Atleta Incorrecto en el Tatami
+```json
+{
+  "id_conocimiento": "KUN-0485",
+  "titulo": "Descalificación por Presentación del Atleta Incorrecto en el Tatami",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the wrong athlete goes to the tatami for a contest that is not his own, he will be disqualified, and the opponent he was initially supposed to meet will win by fusen-gachi.",
+  "contenido_traduccion": "Si un atleta equivocado se presenta en el tatami para un combate que no le corresponde, será descalificado y el oponente al que debía enfrentarse inicialmente ganará por fusen-gachi.",
+  "interpretacion": "Si un competidor sale a luchar en un combate que no es el suyo según la lista oficial entregada, queda inmediatamente descalificado del encuentro, otorgando la victoria por incomparecencia (fusen-gachi) al oponente programado originalmente para ese atleta.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 38",
+  "tags": [
+    "procedure",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0486: Duración de los Combates en Equipos Mixtos
+```json
+{
+  "id_conocimiento": "KUN-0486",
+  "titulo": "Duración de los Combates en Equipos Mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Duration of each contest: women four (4) minutes and men four (4) minutes (real time).",
+  "contenido_traduccion": "Duración de cada combate: mujeres cuatro (4) minutos y hombres cuatro (4) minutos (tiempo real).",
+  "interpretacion": "Determina que la duración oficial de los combates individuales en la competición de equipos mixtos es de 4 minutos de tiempo real de combate tanto para la rama femenina como para la masculina.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 38",
+  "tags": [
+    "contest-duration",
+    "time",
+    "women",
+    "men"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0487: Marcación de Victorias Automáticas por Categorías Vacías (Byes)
+```json
+{
+  "id_conocimiento": "KUN-0487",
+  "titulo": "Marcación de Victorias Automáticas por Categorías Vacías (Byes)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "After the team bow the byes are displayed on the scoreboard and wins are given. Example: if one mixed team has one (1) mixed team weight category empty: 1:0. Example: if both mixed teams have a different mixed team weight category empty: 1:1. Example: if both mixed teams have the same mixed team weight category empty: 0:0 (this is the only case when we stop a match when a team has reached 3 wins). These byes are skipped later, no athlete needs to return to the tatami to bow again if there is no contest to be fought.",
+  "contenido_traduccion": "Después del saludo de los equipos, las ausencias (byes) se muestran en el marcador y se otorgan las victorias. Ejemplo: si un equipo mixto tiene una (1) categoría de peso vacía: 1:0. Ejemplo: si ambos equipos mixtos tienen una categoría de peso vacía diferente: 1:1. Ejemplo: si ambos equipos mixtos tienen la misma categoría de peso vacía: 0:0 (este es el único caso en el que detenemos un encuentro cuando un equipo alcanza las 3 victorias). Estas ausencias se omiten posteriormente; ningún atleta necesita regresar al tatami para saludar nuevamente si no hay combate por disputar.",
+  "interpretacion": "Al finalizar el saludo inicial entre equipos, el marcador contabiliza automáticamente los puntos concedidos por categorías no cubiertas ('no competitor'). Estas divisiones se omiten durante el desarrollo de la serie y los deportistas no tienen que salir al tatami a saludar en dichos turnos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 38",
+  "tags": [
+    "scoring",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0488: Criterio de Victoria del Encuentro y Combates Restantes
+```json
+{
+  "id_conocimiento": "KUN-0488",
+  "titulo": "Criterio de Victoria del Encuentro y Combates Restantes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The first mixed team to win the majority of contests is declared the winner. In IJF events the remaining contests will not be fought except in case of small numbers (round robin rules). In other events the organiser can decide if the remaining contests will take place or not.",
+  "contenido_traduccion": "El primer equipo mixto que gane la mayoría de los combates se declara ganador. En eventos IJF los combates restantes no se disputarán excepto en caso de números reducidos (reglas de liga/round robin). En otros eventos, el organizador puede decidir si los combates restantes se llevarán a cabo o no.",
+  "interpretacion": "El ganador del encuentro por equipos es el primero en alcanzar la mayoría de victorias. Una vez conseguida la mayoría matemática, en torneos oficiales IJF el encuentro concluye inmediatamente sin disputar los combates pendientes, salvo cuando se utilice el sistema liguilla (round robin).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 38",
+  "tags": [
+    "scoring",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0489: Negativa a competir en el tatami durante competencia de equipos mixtos
+```json
+{
+  "id_conocimiento": "KUN-0489",
+  "titulo": "Negativa a competir en el tatami durante competencia de equipos mixtos",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If during the match, in one contest, an athlete enters the tatami and refuses to compete, he will be given a direct hansoku-make (cannot continue in competition) and the opponent will be declared the winner. The losing athlete cannot continue in the next rounds. The mixed team of the losing athlete can continue in the next round if applicable.",
+  "contenido_traduccion": "Si durante el encuentro, en un combate, un atleta entra al tatami y se niega a competir, se le dará un hansoku-make directo (no puede continuar en la competición) y el oponente será declarado ganador. El atleta perdedor no podrá continuar en las siguientes rondas. El equipo mixto del atleta perdedor puede continuar en la siguiente ronda si corresponde.",
+  "interpretacion": "La falta de disposición o rechazo explícito a combatir tras ingresar al tatami conlleva la descalificación inmediata del atleta de todo el torneo (hansoku-make directo grave). No obstante, esta descalificación individual no inhabilita al equipo mixto en su conjunto para avanzar a las siguientes rondas si logran clasificar.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 39",
+  "tags": [
+    "hansoku-make",
+    "conduct",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0490: No presentación de un equipo mixto a un encuentro
+```json
+{
+  "id_conocimiento": "KUN-0490",
+  "titulo": "No presentación de un equipo mixto a un encuentro",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If one (1) mixed team does not arrive for a match, the other mixed team will be declared the winner. They are considered out of competition and cannot return for a later match (if applicable).",
+  "contenido_traduccion": "Si un (1) equipo mixto no se presenta para un encuentro, el otro equipo mixto será declarado ganador. Se considera que el equipo no presentado está fuera de la competición y no puede regresar para un combate posterior (si corresponde).",
+  "interpretacion": "Si un equipo no se presenta a tiempo para disputar la serie contra su oponente, pierde por comparecencia y queda automáticamente eliminado del torneo sin posibilidad de reincorporarse a rondas posteriores o de repesca.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 39",
+  "tags": [
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0491: Procedimiento de sorteo informático para combate decisivo en Golden Score (Equipos Mixtos)
+```json
+{
+  "id_conocimiento": "KUN-0491",
+  "titulo": "Procedimiento de sorteo informático para combate decisivo en Golden Score (Equipos Mixtos)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If there are an equal number of wins at the end of the match, there is a draw for the mixed team weight category that will compete in a golden score contest (see table below) to decide the winning mixed team. The draw is done by computer and displayed on the athlete and public (big screen) scoreboards. If the public scoreboard is not available, the coaches or the mixed teams should be invited to watch the computer monitor when the draw is taking place.",
+  "contenido_traduccion": "Si hay un número igual de victorias al final del encuentro, se realiza un sorteo para la categoría de peso del equipo mixto que competirá en un combate de Golden Score para decidir al equipo mixto ganador. El sorteo se realiza por computadora y se muestra en los marcadores de los atletas y del público (pantalla grande). Si el marcador público no está disponible, se debe invitar a los entrenadores o a los equipos mixtos a ver el monitor de la computadora cuando se realice el sorteo.",
+  "interpretacion": "Ante un empate en victorias al concluir los combates reglamentarios de un encuentro por equipos, se sortea aleatoriamente mediante computadora la categoría de peso que disputará el combate de desempate a Golden Score. Para garantizar transparencia, el sorteo debe ser visible en las pantallas del estadio o ante la presencia directa de los entrenadores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 39",
+  "tags": [
+    "competition-system",
+    "draw",
+    "procedure",
+    "coaches"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0492: Sorteo Golden Score - Escenario 1: Categoría vacía en ambos equipos
+```json
+{
+  "id_conocimiento": "KUN-0492",
+  "titulo": "Sorteo Golden Score - Escenario 1: Categoría vacía en ambos equipos",
+  "tipo": "CAS",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Draw for Golden Score Contest - Scenario 1: Both mixed teams have “no competitor” in the same mixed team weight category. Action: Mixed team weight category is removed from the draw.",
+  "contenido_traduccion": "Sorteo para combate de Golden Score - Escenario 1: Ambos equipos mixtos tienen 'sin competidor' en la misma categoría de peso de equipo mixto. Acción: La categoría de peso de equipo mixto se retira del sorteo.",
+  "interpretacion": "Si ambos equipos carecen de atleta presentado en una misma categoría de peso, esa división se elimina del sorteo automatizado de Golden Score para evitar seleccionar un combate donde ningún equipo pueda competir.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 39",
+  "tags": [
+    "competition-system",
+    "draw",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0493: Sorteo Golden Score - Escenario 2: Categoría con competidor único o atleta imposibilitado
+```json
+{
+  "id_conocimiento": "KUN-0493",
+  "titulo": "Sorteo Golden Score - Escenario 2: Categoría con competidor único o atleta imposibilitado",
+  "tipo": "CAS",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Draw for Golden Score Contest - Scenario 2: One mixed team has “no competitor” or after the regular contest an athlete is unable to continue (injured, ill, direct hansoku-make cannot continue in competition etc.). Action: Mixed team weight category remains in the draw and the win is given directly to the other team.",
+  "contenido_traduccion": "Sorteo para combate de Golden Score - Escenario 2: Un equipo mixto tiene 'sin competidor' o después del combate regular un atleta no puede continuar (lesionado, enfermo, hansoku-make directo sin continuidad en la competición, etc.). Acción: La categoría de peso del equipo mixto permanece en el sorteo y la victoria se otorga directamente al otro equipo.",
+  "interpretacion": "Si una división de peso tiene un competidor indisponible en uno de los equipos (por lesión, enfermedad, ausencia o descalificación grave previa), dicha categoría se mantiene en el sorteo. En caso de ser elegida por la computadora, la victoria del encuentro se otorga inmediatamente al equipo con el atleta disponible.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 39",
+  "tags": [
+    "competition-system",
+    "draw",
+    "procedure",
+    "hansoku-make"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0494: Sorteo Golden Score - Escenario 3: Ambos atletas sancionados con Hansoku-make indirecto o directo con continuidad
+```json
+{
+  "id_conocimiento": "KUN-0494",
+  "titulo": "Sorteo Golden Score - Escenario 3: Ambos atletas sancionados con Hansoku-make indirecto o directo con continuidad",
+  "tipo": "CAS",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Draw for Golden Score Contest - Scenario 3: In the regular contest both athletes given an indirect hansoku-make (3 shido) or a direct hansoku-make (can continue in competition). Action: Mixed team weight category remains in the draw.",
+  "contenido_traduccion": "Sorteo para combate de Golden Score - Escenario 3: En el combate regular, ambos atletas reciben un hansoku-make indirecto (3 shido) o un hansoku-make directo (con permiso para continuar en la competición). Acción: La categoría de peso de equipo mixto permanece en el sorteo.",
+  "interpretacion": "Si en el combate regular ambos atletas sufrieron descalificación por acumulación de shidos (3 shidos) o por una falta técnica que sí permite continuar en la competición, la categoría permanece en el sorteo. De ser seleccionada, ambos judocas deberán ingresar de nuevo a disputar el combate decisivo en Golden Score.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 39",
+  "tags": [
+    "competition-system",
+    "draw",
+    "procedure",
+    "shido",
+    "hansoku-make"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0495: Sorteo Golden Score - Escenario 4: Ambos atletas sancionados con Hansoku-make directo sin continuidad
+```json
+{
+  "id_conocimiento": "KUN-0495",
+  "titulo": "Sorteo Golden Score - Escenario 4: Ambos atletas sancionados con Hansoku-make directo sin continuidad",
+  "tipo": "CAS",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Draw for Golden Score Contest - Scenario 4: In the regular contest both athletes given a direct hansoku-make (cannot continue in competition). Action: Mixed team weight category is removed from the draw.",
+  "contenido_traduccion": "Sorteo para combate de Golden Score - Escenario 4: En el combate regular, ambos atletas reciben un hansoku-make directo (sin permiso para continuar en la competición). Acción: La categoría de peso del equipo mixto se retira del sorteo.",
+  "interpretacion": "Si en la fase regular ambos atletas resultaron descalificados con hansoku-make directo grave (acciones antideportivas o peligrosas que impiden continuar en la competición), ninguno puede volver a competir. Por consiguiente, esa categoría de peso se elimina del bombo informático de desempate.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 39",
+  "tags": [
+    "competition-system",
+    "draw",
+    "procedure",
+    "hansoku-make"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0496: Reglas para Doble Hansoku-Make en Golden Score en Equipos Mixtos
+```json
+{
+  "id_conocimiento": "KUN-0496",
+  "titulo": "Reglas para Doble Hansoku-Make en Golden Score en Equipos Mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If there is a double hansoku-make during the golden score contest the following rules will be respected:\nScenario 1: Both athletes given an indirect hansoku-make (3 shido) in the golden score contest -> Mixed team weight category is included in a new draw for another golden score contest.\nScenario 2: Both athletes given a direct hansoku-make (can continue in competition) in the golden score contest -> Mixed team weight category is included in a new draw for another golden score contest.\nScenario 3: Both athletes given a direct hansoku-make (cannot continue in competition) in the golden score contest -> Mixed team weight category is removed and there is a new draw for another golden score contest.",
+  "contenido_traduccion": "Si hay un doble hansoku-make durante el combate de golden score, se respetarán las siguientes reglas:\nEscenario 1: Ambos atletas reciben un hansoku-make indirecto (3 shido) en el combate de golden score -> La categoría de peso del equipo mixto se incluye en un nuevo sorteo para otro combate de golden score.\nEscenario 2: Ambos atletas reciben un hansoku-make directo (pueden continuar en la competición) en el combate de golden score -> La categoría de peso del equipo mixto se incluye en un nuevo sorteo para otro combate de golden score.\nEscenario 3: Ambos atletas reciben un hansoku-make directo (no pueden continuar en la competición) en el combate de golden score -> La categoría de peso del equipo mixto se elimina y se realiza un nuevo sorteo para otro combate de golden score.",
+  "interpretacion": "Regula el procedimiento cuando un combate decisivo de desempate (golden score) entre equipos mixtos finaliza con descalificación simultánea (doble hansoku-make). Si la descalificación es indirecta o directa con permiso de continuidad, esa misma categoría vuelve al bombo del sorteo. Si es directa con expulsión definitiva del torneo, la categoría se excluye del sorteo y se elige una categoría diferente mediante un nuevo sorteo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 40",
+  "tags": [
+    "competition-system",
+    "draw",
+    "hansoku-make",
+    "shido"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0497: Jurisdicción de la Comisión Ad Hoc de la IJF sobre Descalificación de Equipos Completo
+```json
+{
+  "id_conocimiento": "KUN-0497",
+  "titulo": "Jurisdicción de la Comisión Ad Hoc de la IJF sobre Descalificación de Equipos Completo",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF Ad Hoc Commission will decide the consequences in any situation that may result in a whole team being disqualified.",
+  "contenido_traduccion": "La Comisión Ad Hoc de la IJF decidirá las consecuencias en cualquier situación que pueda dar lugar a la descalificación de un equipo completo.",
+  "interpretacion": "Cualquier incidente o infracción severa durante una competencia por equipos que pudiera derivar en la descalificación total de la delegación o equipo queda bajo la autoridad directa de la Comisión Ad Hoc de la IJF para evaluar las consecuencias disciplinarias e institucionales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 40",
+  "tags": [
+    "competition-system",
+    "hansoku-make",
+    "referee"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0498: Procedimiento Formal por Ausencia o Incomparecencia de un Equipo Mixto
+```json
+{
+  "id_conocimiento": "KUN-0498",
+  "titulo": "Procedimiento Formal por Ausencia o Incomparecencia de un Equipo Mixto",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If for any reason (disqualification, insufficient number of athletes, forfeit, etc.) one (1) mixed team cannot compete in a match, the other mixed team has to come on the tatami for the declaration of the winner. The match should still be announced in the sports hall with an explanation and the mixed teams displayed on the scoreboard (eg. ITA v GBR) with the withdrawn one struck through and the result of 4:0.",
+  "contenido_traduccion": "Si por cualquier motivo (descalificación, número insuficiente de atletas, abandono/incomparecencia, etc.) un (1) equipo mixto no puede competir en un encuentro, el otro equipo mixto debe presentarse en el tatami para la declaración del ganador. El encuentro debe anunciarse igualmente en el pabellón deportivo con una explicación y los equipos mixtos deben mostrarse en el marcador (ej. ITA v GBR) con el retirado tachado y el resultado de 4:0.",
+  "interpretacion": "Asegura el protocolo del evento cuando un equipo no se presenta o queda inhabilitado. El equipo rival debe ingresar formalmente al tatami para ser declarado ganador. En el marcador público se indicará la victoria por 4:0 marcando con una línea el nombre del equipo que no compitió.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 40",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "tatami"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0499: Criterios de Elegibilidad de Atletas para el Evento de Equipos Mixtos en Juegos Olímpicos
+```json
+{
+  "id_conocimiento": "KUN-0499",
+  "titulo": "Criterios de Elegibilidad de Atletas para el Evento de Equipos Mixtos en Juegos Olímpicos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If a National Olympic Committee (NOC) qualifies for the Olympic Games mixed team event, all athletes who qualified for the individual competition can take part in the mixed team competition, up to a maximum of seven (7) women and seven (7) men.",
+  "contenido_traduccion": "Si un Comité Olímpico Nacional (CON) se clasifica para el evento por equipos mixtos de los Juegos Olímpicos, todos los atletas que se hayan clasificado para la competición individual pueden participar en la competición por equipos mixtos, hasta un máximo de siete (7) mujeres y siete (7) hombres.",
+  "interpretacion": "Establece los límites de plantilla para los Juegos Olímpicos en la modalidad de equipos mixtos. Un equipo clasificado solo puede alinear atletas previamente clasificados individualmente, con una cuota máxima de 7 hombres y 7 mujeres por país.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 40",
+  "tags": [
+    "competition-system",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0500: Composición e Inscripción de Equipos en Eventos Masculinos y Femeninos
+```json
+{
+  "id_conocimiento": "KUN-0500",
+  "titulo": "Composición e Inscripción de Equipos en Eventos Masculinos y Femeninos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2 .7 .2 Regulations for Female and Male Team Events\nEach team will consist of up to five (5) athletes and has the possibility to have up to five (5) reserves. A team must consist of a minimum of three (3) athletes.\nA total of 10 athletes can be inscribed with a maximum of two (2) athletes per category.",
+  "contenido_traduccion": "2.7.2 Reglamento para Eventos por Equipos Femeninos y Masculinos\nCada equipo estará compuesto por hasta cinco (5) atletas y tiene la posibilidad de contar con hasta cinco (5) reservas. Un equipo debe estar compuesto por un mínimo de tres (3) atletas.\nSe puede inscribir un total de 10 atletas con un máximo de dos (2) atletas por categoría.",
+  "interpretacion": "Determina las reglas de inscripción para campeonatos tradicionales de equipos masculinos o femeninos de 5 divisiones. Se permite inscribir hasta 10 deportistas por delegación (máximo 2 por división de peso), debiendo presentar al menos 3 judocas para poder competir de forma válida.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 40",
+  "tags": [
+    "competition-system",
+    "men",
+    "women",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0501: Modificación de Listas de Equipo y Reglas de Pesaje
+```json
+{
+  "id_conocimiento": "KUN-0501",
+  "titulo": "Modificación de Listas de Equipo y Reglas de Pesaje",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Weigh-in rules can be found in Section 6. Before the start of the official weigh-in the coach can update the team list.",
+  "contenido_traduccion": "Las reglas del pesaje se encuentran en la Sección 6. Antes del inicio del pesaje oficial, el entrenador puede actualizar la lista del equipo.",
+  "interpretacion": "Otorga flexibilidad al entrenador para realizar cambios o actualizaciones en la nómina oficial de atletas inscritos en la prueba por equipos, siempre y cuando se efectúe antes de que dé inicio la sesión oficial de pesaje.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 40",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "coaches",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0502: Permisión de Categoría de Peso Superior en Competencias por Equipos
+```json
+{
+  "id_conocimiento": "KUN-0502",
+  "titulo": "Permisión de Categoría de Peso Superior en Competencias por Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "During female and male team events each athlete is entitled to compete in their own weight category or in the next higher category.",
+  "contenido_traduccion": "Durante los eventos por equipos femeninos y masculinos, cada atleta tiene derecho a competir en su propia categoría de peso o en la categoría inmediatamente superior.",
+  "interpretacion": "En las pruebas por equipos, un judoca no está restringido estrictamente a su peso exacto de inscripción individual; se le permite subir a la categoría de peso superior inmediata si la estrategia del equipo así lo requiere.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 40",
+  "tags": [
+    "weight-categories",
+    "competition-system",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0503: Protocolo en el Área de Competición y Orden de Combates en Eventos por Equipos
+```json
+{
+  "id_conocimiento": "KUN-0503",
+  "titulo": "Protocolo en el Área de Competición y Orden de Combates en Eventos por Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "During the contests, the non-competing athletes must stay within a marked area on the field of play. Reserve athletes must not enter the field of play.\nOne (1) coach and one (1) doctor per team will be allowed to enter the field of play. Athletes should enter the field of play in the order that they will compete in.\nThe contests in female and male team matches will be fought from the lightest weight to the highest weight.",
+  "contenido_traduccion": "Durante los combates, los atletas que no estén compitiendo deben permanecer dentro de un área marcada en el campo de juego. Los atletas de reserva no deben entrar al campo de juego.\nSe permitirá la entrada al campo de juego a un (1) entrenador y un (1) médico por equipo. Los atletas deben entrar al campo de juego en el orden en que van a competir.\nLos combates en los encuentros por equipos femeninos y masculinos se disputarán desde la categoría de peso más liviana hasta la más pesada.",
+  "interpretacion": "Establece el protocolo de acceso y circulación en la zona de competición. Solo los atletas titulares activos, 1 entrenador y 1 médico pueden ingresar. Los reservas deben permanecer fuera. La entrada de deportistas debe seguir el orden estricto de los combates, los cuales se desarrollan siempre de la categoría más liviana a la más pesada.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 40",
+  "tags": [
+    "procedure",
+    "coaches",
+    "medical",
+    "weight-categories",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0504: Selección y Sustitución de Atletas en Encuentros por Equipos
+```json
+{
+  "id_conocimiento": "KUN-0504",
+  "titulo": "Selección y Sustitución de Atletas en Encuentros por Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Before each match the team leader must select the athletes for each contest. From the maximum of two (2) athletes inscribed in each category they can select one (1). If the team has the possibility to put an inscribed athlete in a category, they must do so. An athlete cannot be rested for one (1) match and return for the next unless they have been replaced by the other inscribed athlete.",
+  "contenido_traduccion": "Antes de cada encuentro, el delegado/entrenador del equipo debe seleccionar a los atletas para cada combate. De un máximo de dos (2) atletas inscritos en cada categoría, pueden seleccionar a uno (1). Si el equipo tiene la posibilidad de colocar a un atleta inscrito en una categoría, debe hacerlo obligatoriamente. Un atleta no puede descansar en un encuentro y regresar para el siguiente a menos que haya sido reemplazado por el otro atleta inscrito en esa categoría.",
+  "interpretacion": "Garantiza la integridad de la alineación por equipos. Obliga a los equipos a presentar atletas si los tienen disponibles. Si hay dos atletas inscritos en una categoría, se pueden rotar entre encuentros. Sin embargo, un atleta no puede simplemente ser reservado o 'saltarse' un encuentro sin que el segundo atleta de esa categoría combata en su lugar.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 41",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0505: Declaración de Categoría Vacía en Encuentros por Equipos
+```json
+{
+  "id_conocimiento": "KUN-0505",
+  "titulo": "Declaración de Categoría Vacía en Encuentros por Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the team has no athlete in a category, they must select the “no competitor” option.",
+  "contenido_traduccion": "Si el equipo no tiene ningún atleta en una categoría, debe seleccionar la opción 'sin competidor' (no competitor).",
+  "interpretacion": "Al completar la hoja de alineación antes de un encuentro, si un equipo carece de judoka en una determinada categoría de peso, el delegado debe marcar explícitamente la opción de 'sin competidor' para oficializar la vacante ante la Mesa de Control y la Comisión de Deporte.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 41",
+  "tags": [
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0506: Sanción por Presentación de Atleta Incorrecto en el Tatami
+```json
+{
+  "id_conocimiento": "KUN-0506",
+  "titulo": "Sanción por Presentación de Atleta Incorrecto en el Tatami",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the wrong athlete goes to the tatami for a contest that is not his own he will be disqualified, and the opponent he was initially supposed to meet will win by fusen-gachi.",
+  "contenido_traduccion": "Si el atleta equivocado sale al tatami para un combate que no le corresponde, será descalificado y el oponente al que debía enfrentarse inicialmente ganará por fusen-gachi.",
+  "interpretacion": "Si por error o estrategia irregular un deportista entra al tatami a combatir en una categoría o turno que no le fue asignado en la lista oficial enviada, es descalificado de inmediato. El competidor rival de su combate correcto se adjudica la victoria por no presentación del oponente (fusen-gachi).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 41",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "conduct",
+    "hansoku-make"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0507: Plazos para la Entrega de Listas de Alineación de Equipos
+```json
+{
+  "id_conocimiento": "KUN-0507",
+  "titulo": "Plazos para la Entrega de Listas de Alineación de Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For the first round the lists must be returned at least 30 minutes before the start of the competition. For other rounds it must be returned 5 minutes after receiving the list from the IJF Sport Commission. Once it is returned to the IJF Sport Commission it cannot be changed.",
+  "contenido_traduccion": "Para la primera ronda, las listas deben entregarse al menos 30 minutos antes del inicio de la competición. Para las demás rondas, deben entregarse 5 minutos después de recibir la lista por parte de la Comisión de Deporte de la IJF. Una vez entregada a la Comisión de Deporte de la IJF, no se puede cambiar.",
+  "interpretacion": "Establece los tiempos límite estrictos para que los entrenadores/delegados entreguen las alineaciones de su equipo. 30 minutos antes de comenzar el bloque inicial y 5 minutos tras recibir el formato para rondas posteriores. La alineación entregada es irrevocable.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 41",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0508: Duración de Combates en Competencias por Equipos
+```json
+{
+  "id_conocimiento": "KUN-0508",
+  "titulo": "Duración de Combates en Competencias por Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Duration of each contest: women four (4) minutes and men four (4) minutes (real time).",
+  "contenido_traduccion": "Duración de cada combate: mujeres cuatro (4) minutos y hombres cuatro (4) minutos (tiempo real).",
+  "interpretacion": "Cada combate individual dentro de un encuentro por equipos tiene una duración fija de 4 minutos de tiempo real de combate, de igual manera tanto en la categoría femenina como en la masculina.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 41",
+  "tags": [
+    "contest-duration",
+    "time",
+    "men",
+    "women",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0509: Asignación de Puntos y Marcador para Categorías Vacías (Byes) por Equipos
+```json
+{
+  "id_conocimiento": "KUN-0509",
+  "titulo": "Asignación de Puntos y Marcador para Categorías Vacías (Byes) por Equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "After the team bow the byes are displayed on the scoreboard and wins are given. Example: if one team has one (1) category empty: 1:0. Example: if both teams have a different category empty: 1:1. Example: if both teams have the same category empty: 0:0 (this is the only case when we stop a match when a team has reached 3 wins). These byes are skipped later, no athlete needs to return to the tatami to bow again if there is no contest to be fought.",
+  "contenido_traduccion": "Después del saludo de los equipos, los pases libres (byes/categorías vacías) se muestran en el marcador y se otorgan las victorias. Ejemplo: si un equipo tiene una (1) categoría vacía: 1:0. Ejemplo: si ambos equipos tienen una categoría vacía diferente: 1:1. Ejemplo: si ambos equipos tienen la misma categoría vacía: 0:0 (este es el único caso en el que detenemos un encuentro cuando un equipo alcanza las 3 victorias). Estos pases libres se omiten más adelante, ningún atleta necesita regresar al tatami para saludar nuevamente si no hay un combate que disputar.",
+  "interpretacion": "Manejo automatizado del marcador tras el saludo inicial de equipos: las victorias por no presentación/categoría vacía se cargan de inmediato al marcador antes de los combates reales. Evita entradas innecesarias de competidores al tatami para combates inexistentes.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 41",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "tatami"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0510: Criterio de Victoria en Encuentros por Equipos y Combates Restantes
+```json
+{
+  "id_conocimiento": "KUN-0510",
+  "titulo": "Criterio de Victoria en Encuentros por Equipos y Combates Restantes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The first team to win the majority of contests is declared the winner. The organiser can decide if the remaining contests will take place or not.",
+  "contenido_traduccion": "El primer equipo en ganar la mayoría de los combates es declarado ganador. El organizador puede decidir si los combates restantes se llevarán a cabo o no.",
+  "interpretacion": "Un equipo gana la serie al alcanzar la mayoría absoluta de victorias. Dependiendo del reglamento particular del evento o decisión organizativa, los combates restantes de la serie pueden suspenderse o continuarse por espectáculo o transmisión.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 41",
+  "tags": [
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0511: Penalización por Negativa a Competir de un Atleta en Competencia por Equipos
+```json
+{
+  "id_conocimiento": "KUN-0511",
+  "titulo": "Penalización por Negativa a Competir de un Atleta en Competencia por Equipos",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If during the match, in one contest, an athlete enters the tatami and refuses to compete, he will be given a direct hansoku-make (cannot continue in competition) and the opponent will be declared the winner. The losing athlete cannot continue in the next rounds. The team of the losing athlete can continue in the next round if applicable.",
+  "contenido_traduccion": "Si durante el encuentro, en un combate, un atleta entra al tatami y se niega a competir, se le dará hansoku-make directo (no puede continuar en la competición) y el oponente será declarado ganador. El atleta perdedor no puede continuar en las siguientes rondas. El equipo del atleta perdedor puede continuar en la siguiente ronda si corresponde.",
+  "interpretacion": "La negativa a combatir al estar en el tatami constituye conducta antideportiva severa sancionada con Hansoku-Make directo. El atleta queda descalificado individualmente de todo el torneo, pero no descalifica a su equipo de avanzar si el equipo logra ganar el encuentro o disputar la siguiente ronda.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 41",
+  "tags": [
+    "hansoku-make",
+    "conduct",
+    "competition-system",
+    "tatami"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0512: Incomparecencia de un Equipo al Encuentro
+```json
+{
+  "id_conocimiento": "KUN-0512",
+  "titulo": "Incomparecencia de un Equipo al Encuentro",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If one (1) team does not arrive for a match, the other team will be declared the winner. They are considered out of competition and cannot return for a later match (if applicable). If there are an equal number of wins at the end of the match see Section 2.7.1 for the necessary action.",
+  "contenido_traduccion": "Si un (1) equipo no se presenta para un encuentro, el otro equipo será declarado ganador. El equipo no presentado se considera fuera de la competición y no puede regresar para un encuentro posterior (si aplicase). Si hay un número igual de victorias al final del encuentro, consulte la Sección 2.7.1 para la acción necesaria.",
+  "interpretacion": "La no presentación de un equipo completo a su combate conlleva la pérdida inmediata del encuentro y la eliminación definitiva del torneo, perdiendo cualquier derecho a repesca o rondas posteriores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 41",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0513: Procedimiento Formal ante el Retiro o Imposibilidad de Competir de un Equipo
+```json
+{
+  "id_conocimiento": "KUN-0513",
+  "titulo": "Procedimiento Formal ante el Retiro o Imposibilidad de Competir de un Equipo",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If for any reason (disqualification, insufficient number of athletes, forfeit, etc.) one (1) team cannot compete in a match, the other team has to come on the tatami for the declaration of the winner. The match should still be announced in the sports hall with an explanation and the teams displayed on the scoreboard (eg. ITA v GBR) with the withdrawn one struck through and the result of 3:0.",
+  "contenido_traduccion": "Si por cualquier motivo (descalificación, número insuficiente de atletas, abandono/forfeit, etc.) un (1) equipo no puede competir en un encuentro, el otro equipo debe salir al tatami para la declaración del ganador. El encuentro aún debe anunciarse en el pabellón deportivo con una explicación y los equipos deben mostrarse en el marcador (ej. ITA v GBR) con el equipo retirado tachado y el resultado de 3:0.",
+  "interpretacion": "Incluso si un equipo abandona o no puede presentarse por razones administrativas/médicas, el equipo presente debe subir formalmente al tatami para la proclamación oficial. Se proyecta en pantalla el enfrentamiento con el nombre del equipo ausente tachado y el resultado oficial de abandono.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 41",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "tatami"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0514: Publicación y Cumplimiento de los Event Outlines
+```json
+{
+  "id_conocimiento": "KUN-0514",
+  "titulo": "Publicación y Cumplimiento de los Event Outlines",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.8 Event Outlines\nFor each IJF WJT event outlines will be published on the IJF website and sent to the national federations. The deadlines in the outlines must be respected.",
+  "contenido_traduccion": "2.8 Programas del Evento (Event Outlines)\nPara cada evento del IJF WJT se publicarán los programas (outlines) en el sitio web de la IJF y se enviarán a las federaciones nacionales. Deben respetarse los plazos límite establecidos en los programas.",
+  "interpretacion": "Las federaciones nacionales deben revisar detenidamente los programas oficiales (outlines) de cada competición del World Judo Tour y cumplir estrictamente con los plazos límite administrativos indicados para inscripciones, pagos y trámites.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 42",
+  "tags": [
+    "procedure",
+    "documentation",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0515: Proceso de Solicitud de Visados y Responsabilidad
+```json
+{
+  "id_conocimiento": "KUN-0515",
+  "titulo": "Proceso de Solicitud de Visados y Responsabilidad",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.8.1 Visas\nThe IJF is not authorised to intervene in visa application processes. The decision to grant a visa rests solely with the relevant immigration authorities. Athletes and officials are responsible for ensuring compliance with the visa requirements of the host country and should apply well in advance to allow sufficient processing time.",
+  "contenido_traduccion": "2.8.1 Visados\nLa IJF no está autorizada a intervenir en los procesos de solicitud de visado. La decisión de conceder un visado recae únicamente en las autoridades de inmigración pertinentes. Los atletas y oficiales son responsables de garantizar el cumplimiento de los requisitos de visado del país anfitrión y deben solicitarlo con suficiente antelación para permitir un tiempo de procesamiento adecuado.",
+  "interpretacion": "La IJF no gestiona ni interviene ante las embajadas. Atletas y delegados deben tramitar sus visados con suficiente antelación, siendo ellos y sus federaciones los únicos responsables de cumplir con las leyes migratorias del país sede.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 42",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0516: Documentación del LOC para Visados e Inscripción en Judobase
+```json
+{
+  "id_conocimiento": "KUN-0516",
+  "titulo": "Documentación del LOC para Visados e Inscripción en Judobase",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The LOC can provide official documentation such as letters of invitation or confirmation of participation to support your application. Visa application requests will only be accepted for people who are inscribed in Judobase for the event. LOC documents must only be used for visa application for the concerned event.",
+  "contenido_traduccion": "El LOC puede proporcionar documentación oficial, como cartas de invitación o confirmación de participación, para apoyar su solicitud. Las solicitudes de documentación para visados solo se aceptarán para personas que estén inscritas en Judobase para el evento. Los documentos del LOC solo deben utilizarse para la solicitud de visado del evento en cuestión.",
+  "interpretacion": "El Comité Organizador Local (LOC) únicamente emitirá documentos de apoyo (cartas de invitación) para personas previamente registradas en la plataforma oficial Judobase. Dichos documentos tienen un fin exclusivo y no pueden usarse para fines ajenos al evento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 42",
+  "tags": [
+    "procedure",
+    "documentation",
+    "portal"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0517: Responsabilidad de la Federación Nacional sobre las Condiciones de Estancia
+```json
+{
+  "id_conocimiento": "KUN-0517",
+  "titulo": "Responsabilidad de la Federación Nacional sobre las Condiciones de Estancia",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "It is the responsibility of the national federation to ensure that their delegation respects the conditions of stay defined by the Government of the country hosting the event. If any participant does not respect these conditions, any costs arising will be borne by the national federation concerned.",
+  "contenido_traduccion": "Es responsabilidad de la federación nacional garantizar que su delegación respete las condiciones de estancia definidas por el Gobierno del país anfitrión del evento. Si algún participante no respeta estas condiciones, los costes derivados correrán a cargo de la federación nacional correspondiente.",
+  "interpretacion": "Si un participante incumple las normas de estancia del país anfitrión (por ejemplo, permanencia ilegal o infracciones locales), la Federación Nacional de dicho participante asumirá la totalidad de los gastos e imprevistos financieros generados.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 42",
+  "tags": [
+    "procedure",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0518: Condiciones para el Uso del Transporte Oficial del Evento
+```json
+{
+  "id_conocimiento": "KUN-0518",
+  "titulo": "Condiciones para el Uso del Transporte Oficial del Evento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.8.2 Transportation\nThe LOC will provide transportation for competing delegations during the competition. This transportation service (including airport transfers) is only offered on the days when the delegations are booked in an official hotel through the LOC. On days delegations are using an unofficial hotel or an official hotel, not reserved through the LOC, they are not allowed to use the official event transportation.",
+  "contenido_traduccion": "2.8.2 Transporte\nEl LOC proporcionará transporte para las delegaciones competidoras durante la competición. Este servicio de transporte (incluidos los traslados al aeropuerto) solo se ofrece en los días en que las delegaciones están reservadas en un hotel oficial a través del LOC. En los días en que las delegaciones utilicen un hotel no oficial o un hotel oficial no reservado a través del LOC, no se les permite utilizar el transporte oficial del evento.",
+  "interpretacion": "El servicio de transporte de la organización (shuttles, traslados aeropuerto-hotel) queda estrictamente restringido a los días en que la delegación esté alojada mediante reserva tramitada por el LOC en un hotel oficial. Los días no cubiertos por esta condición no otorgan derecho al servicio.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 42",
+  "tags": [
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0519: Carga de Información de Viaje y Penalización por Incumplimiento
+```json
+{
+  "id_conocimiento": "KUN-0519",
+  "titulo": "Carga de Información de Viaje y Penalización por Incumplimiento",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Travel information must be uploaded to my.ijf.org according to the hotel reservation arrival and departure dates. If the delegation misses the transport deadline and travel information is not uploaded airport, train or bus station transfers are NOT guaranteed and a fee may be charged by the LOC.",
+  "contenido_traduccion": "La información del viaje debe cargarse en my.ijf.org de acuerdo con las fechas de llegada y salida de la reserva de hotel. Si la delegación no cumple con la fecha límite de transporte y no se carga la información del viaje, los traslados desde la estación de autobús, tren o aeropuerto NO están garantizados y el LOC podría cobrar una tarifa.",
+  "interpretacion": "Las federaciones deben registrar a tiempo los itinerarios de viaje en la plataforma my.ijf.org. Si se omite este requisito dentro del plazo fijado, el LOC no garantiza prestar el servicio de traslado y podrá aplicar cargos económicos adicionales si se requiere gestionar el transporte a última hora.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 42",
+  "tags": [
+    "procedure",
+    "portal",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0520: Obligatoriedad de Reserva de Alojamiento a través del LOC
+```json
+{
+  "id_conocimiento": "KUN-0520",
+  "titulo": "Obligatoriedad de Reserva de Alojamiento a través del LOC",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.8.3 Accommodation\nAll delegations, who inscribe for an IJF WJT event, must reserve their accommodation in one (1) of the official hotels published in the event outlines. The reservation must be made with the LOC (not directly with the hotel).",
+  "contenido_traduccion": "2.8.3 Alojamiento\nTodas las delegaciones que se inscriban en un evento del IJF WJT deben reservar su alojamiento en uno (1) de los hoteles oficiales publicados en los programas del evento. La reserva debe realizarse con el LOC (no directamente con el hotel).",
+  "interpretacion": "Todas las delegaciones inscritas en eventos del IJF World Judo Tour están obligadas a gestionar su hospedaje de manera directa a través del Comité Organizador Local (LOC) eligiendo hoteles del listado oficial. No se permiten reservas directas con los establecimientos hoteleros.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 42",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0521: Cálculo de Estancia Mínima Obligatoria de Alojamiento por Delegación
+```json
+{
+  "id_conocimiento": "KUN-0521",
+  "titulo": "Cálculo de Estancia Mínima Obligatoria de Alojamiento por Delegación",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The minimum reservation for a delegation is two (2) nights multiplied by the total number of people inscribed in Judobase. The national federation President and referee nominated by the IJF are not included in this calculation.\nExamples:\n• 4 people inscribed in Judobase (no referee) = 4 x 2 nights = 8 nights or more must be reserved.\n• 17 people inscribed in Judobase (including 1 referee) = (17-1) x 2 = 32 nights or more must be reserved.",
+  "contenido_traduccion": "La reserva mínima para una delegación es de dos (2) noches multiplicadas por el número total de personas inscritas en Judobase. El presidente de la federación nacional y el árbitro nominado por la IJF no se incluyen en este cálculo.\nEjemplos:\n• 4 personas inscritas en Judobase (sin árbitro) = 4 x 2 noches = se deben reservar 8 noches o más.\n• 17 personas inscritas en Judobase (incluido 1 árbitro) = (17-1) x 2 = se deben reservar 32 noches o más.",
+  "interpretacion": "El volumen de reserva hotelera obligatorio para una delegación equivale al número de personas en Judobase multiplicado por 2 noches. Del cómputo total de inscritos se resta al Presidente de la Federación Nacional y al árbitro asignado por la IJF. La cuota total acumulada de noches debe reservarse mediante el LOC.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 42",
+  "tags": [
+    "procedure",
+    "portal"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0522: Excepción de Alojamiento Mínimo para la Federación Anfitriona y Disponibilidad de Habitaciones
+```json
+{
+  "id_conocimiento": "KUN-0522",
+  "titulo": "Excepción de Alojamiento Mínimo para la Federación Anfitriona y Disponibilidad de Habitaciones",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "This rule does not apply to the host national federation delegates.\nThe LOC will do their best to provide the first choice of accommodation but as rooms might be limited this cannot be guaranteed.",
+  "contenido_traduccion": "Esta regla no se aplica a los delegados de la federación nacional anfitriona.\nEl LOC hará todo lo posible para proporcionar la primera opción de alojamiento, pero como las habitaciones pueden ser limitadas, esto no se puede garantizar.",
+  "interpretacion": "Los delegados de la federación nacional del país organizador están exentos de la regla de reserva mínima de 2 noches por persona a través del LOC. Asimismo, la asignación de hoteles queda sujeta a la disponibilidad real de habitaciones, por lo que se recomienda reservar oportunamente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 42",
+  "tags": [
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0523: Plazos de reserva de alojamiento e incremento de precios
+```json
+{
+  "id_conocimiento": "KUN-0523",
+  "titulo": "Plazos de reserva de alojamiento e incremento de precios",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "After the accommodation deadline, the LOC cannot promise rooms in the hotels detailed in the outlines and another official hotel may be added. Accommodation cancellation fees will be detailed in the event outlines. The hotel prices are not guaranteed after the reservation deadline and delegations requesting accommodation late may be subject to a price increase.",
+  "contenido_traduccion": "Después de la fecha límite de alojamiento, el COL no puede garantizar habitaciones en los hoteles detallados en el programa y se podrá agregar otro hotel oficial. Las tarifas de cancelación de alojamiento se detallarán en el programa del evento. Los precios de los hoteles no están garantizados después de la fecha límite de reserva y las delegaciones que soliciten alojamiento con retraso pueden estar sujetas a un aumento de precio.",
+  "interpretacion": "Las federaciones nacionales deben realizar sus reservas de hotel estrictamente dentro de los plazos estipulados. Las solicitudes fuera de plazo no garantizan disponibilidad en los hoteles oficiales principales y pueden conllevar costes adicionales o recargos en las tarifas por habitación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 43",
+  "tags": [
+    "procedure",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0524: Responsabilidad por daños a la propiedad hotelera
+```json
+{
+  "id_conocimiento": "KUN-0524",
+  "titulo": "Responsabilidad por daños a la propiedad hotelera",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Any damage to hotel property resulting from the stay of a national delegation will be charged to the national federation and must be paid in full.",
+  "contenido_traduccion": "Cualquier daño causado a la propiedad del hotel resultante de la estancia de una delegación nacional se cobrará a la federación nacional y debe ser pagado en su totalidad.",
+  "interpretacion": "Las delegaciones nacionales son responsables financieras y legalmente por cualquier daño físico que sus integrantes ocasionen en las instalaciones del hotel. Los gastos directos derivados del desperfecto deben ser abonados en su totalidad por la Federación Nacional correspondiente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 43",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0525: Prohibición de secado de ropa y entrenamientos en pasillos de hoteles
+```json
+{
+  "id_conocimiento": "KUN-0525",
+  "titulo": "Prohibición de secado de ropa y entrenamientos en pasillos de hoteles",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Delegations are kindly requested not to dry clothing (including judogi) or have training sessions in the corridors of the official hotels.",
+  "contenido_traduccion": "Se solicita amablemente a las delegaciones que no sequen ropa (incluido el judogi) ni realicen sesiones de entrenamiento en los pasillos de los hoteles oficiales.",
+  "interpretacion": "Queda prohibido el uso de pasillos hoteleros como áreas de secado de prendas/judogis o como zonas de ejercicio y calentamiento, con el fin de mantener el orden, la higiene y la convivencia en las instalaciones oficiales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 43",
+  "tags": [
+    "conduct",
+    "judogi",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0526: Exención de recargos por pago en efectivo en caso de imposibilidad bancaria
+```json
+{
+  "id_conocimiento": "KUN-0526",
+  "titulo": "Exención de recargos por pago en efectivo en caso de imposibilidad bancaria",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "According to the IJF rule enacted on the 2 December 2012 in Tokyo, “the organising country should not request penalties fee for participating countries who cannot make bank transfers but can pay in cash upon arrival. Those countries who cannot make bank transfers should inform the LOC well in advance that they will pay cash on arrival”.",
+  "contenido_traduccion": "Según la regla de la IJF promulgada el 2 de diciembre de 2012 en Tokio, “el país organizador no debe solicitar tarifas de penalización a los países participantes que no puedan realizar transferencias bancarias pero puedan pagar en efectivo a su llegada. Aquellos países que no puedan realizar transferencias bancarias deben informar al COL con suficiente antelación de que pagarán en efectivo a su llegada”.",
+  "interpretacion": "Los países que acrediten la imposibilidad de realizar transferencias bancarias internacionales están exentos de pagar recargos por pago tardío, siempre y cuando notifiquen formalmente y con suficiente antelación al COL su intención de abonar los pagos en efectivo al llegar.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 43",
+  "tags": [
+    "procedure",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0527: Comisiones bancarias y acreditación de comprobantes de pago
+```json
+{
+  "id_conocimiento": "KUN-0527",
+  "titulo": "Comisiones bancarias y acreditación de comprobantes de pago",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "All bank fees and bank transfer costs must be paid by the participating national federation. If payment is being made by bank transfer the bank information must be inserted correctly and completely on the transfer document and any procedures related to amendment of the bank transfer must be done before arrival. Delegations must ensure that all bank charges are paid at their end so that the LOC receive the correct amount of funds without any deductions. The person attending accreditation must bring proof of the bank transfer.",
+  "contenido_traduccion": "Todas las comisiones y costes de transferencia bancaria deben ser pagados por la federación nacional participante. Si el pago se realiza mediante transferencia bancaria, la información bancaria debe introducirse de forma correcta y completa en el documento de transferencia y cualquier procedimiento relacionado con la enmienda de la transferencia bancaria debe realizarse antes de la llegada. Las delegaciones deben asegurarse de que todos los cargos bancarios se paguen en su origen para que el COL reciba el importe exacto de los fondos sin deducciones. La persona que asista a la acreditación debe llevar el comprobante de la transferencia bancaria.",
+  "interpretacion": "Las federaciones deben cubrir la totalidad de los costes de las comisiones bancarias para garantizar que el COL reciba el monto neto exacto. Además, el delegado que asista al proceso presencial de acreditación tiene la obligación de presentar el comprobante físico o digital oficial de la transferencia realizada.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 43",
+  "tags": [
+    "procedure",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0528: Provisión y reserva de instalaciones de entrenamiento (Sección 2.8.4)
+```json
+{
+  "id_conocimiento": "KUN-0528",
+  "titulo": "Provisión y reserva de instalaciones de entrenamiento (Sección 2.8.4)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2 .8 .4 Training\nThe LOC are responsible to provide training facilities (from 2 days before the competition until the end of the final weigh-in) that will be approved by the IJF Sport Commission. Planning and scheduling of training sessions will be organised taking into consideration requests made by delegations daily on a first request made first served basis. To book training contact the LOC.",
+  "contenido_traduccion": "2.8.4 Entrenamiento\nEl COL es responsable de proporcionar instalaciones de entrenamiento (desde 2 días antes de la competición hasta el final del pesaje final) que serán aprobadas por la Comisión Deportiva de la IJF. La planificación y programación de las sesiones de entrenamiento se organizará teniendo en cuenta las solicitudes realizadas diariamente por las delegaciones por orden de llegada (el primero que solicita es el primero en ser atendido). Para reservar el entrenamiento póngase en contacto con el COL.",
+  "interpretacion": "El COL debe garantizar espacios de entrenamiento homologados desde 2 días antes del torneo hasta el pesaje final. Las franjas horarias se asignan estrictamente por orden de solicitud diaria ante el COL.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 43",
+  "tags": [
+    "procedure",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0529: Suministro de agua e hielo en zonas de entrenamiento y competición (Sección 2.8.4)
+```json
+{
+  "id_conocimiento": "KUN-0529",
+  "titulo": "Suministro de agua e hielo en zonas de entrenamiento y competición (Sección 2.8.4)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Ice and water (in sealed bottles, cans or containers up to 500 ml), with a low sodium and/or chloride content (below 200 mg/l) must be provided for delegations at all training venues for all training days. This rule applies to warm-up areas, all training areas, medical rooms and doping control rooms.",
+  "contenido_traduccion": "Se debe proporcionar hielo y agua (en botellas, latas o envases sellados de hasta 500 ml), con un bajo contenido de sodio y/o cloruro (por debajo de 200 mg/l) para las delegaciones en todas las sedes de entrenamiento durante todos los días de entrenamiento. Esta regla se aplica a las zonas de calentamiento, todas las zonas de entrenamiento, salas médicas y salas de control de dopaje.",
+  "interpretacion": "Es requisito obligatorio del COL suministrar agua embotellada/sellada (máximo 500 ml y bajo contenido mineral <200 mg/l) e hielo en todas las áreas técnicas, operativas y de calentamiento durante todo el evento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 43",
+  "tags": [
+    "procedure",
+    "medical",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0530: Consentimiento para uso de datos, imágenes y grabaciones (Sección 2.8.5)
+```json
+{
+  "id_conocimiento": "KUN-0530",
+  "titulo": "Consentimiento para uso de datos, imágenes y grabaciones (Sección 2.8.5)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.8.5 Consent for use of data/photography/videos/filming\nDelegates inscribed by their national federations for WJT events consent to the IJF and its media partners to use content of them, including data, live results, photographs and/or video recordings (hereafter referred to as Media). This media may be obtained from national federations and IJF. It will also be acquired by the IJF and its media partners from in and around all IJF WJT event venues. Media could be used in print and digital media formats including print publications, websites, e-marketing, posters banners, advertising, film, broadcast, social media, education purposes and other purposes.",
+  "contenido_traduccion": "2.8.5 Consentimiento para el uso de datos/fotografías/vídeos/filmaciones\nLos delegados inscritos por sus federaciones nacionales para los eventos del WJT consienten que la IJF y sus socios de medios utilicen su contenido, incluidos datos, resultados en vivo, fotografías y/o grabaciones de vídeo (en lo sucesivo denominado Medios). Estos medios se pueden obtener de las federaciones nacionales y de la IJF. También serán adquiridos por la IJF y sus socios de medios dentro y alrededor de todas las sedes de eventos del IJF WJT. Los medios podrían utilizarse en formatos de medios impresos y digitales, incluidas publicaciones impresas, sitios web, marketing electrónico, carteles, pancartas, publicidad, películas, transmisiones, redes sociales, fines educativos y otros fines.",
+  "interpretacion": "Todos los acreditados en eventos del World Judo Tour ceden los derechos de imagen, datos e información deportiva a la IJF y sus socios comerciales para retransmisiones, mercadotecnia, difusión en redes sociales e investigaciones educativas sin restricciones territoriales ni temporales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 43",
+  "tags": [
+    "procedure",
+    "video",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0531: Permiso y Consentimiento de Delegados y Menores de Edad
+```json
+{
+  "id_conocimiento": "KUN-0531",
+  "titulo": "Permiso y Consentimiento de Delegados y Menores de Edad",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The national federation must ensure that they have the permission of each delegate or in the case of a minor the permission of the parent/guardian.",
+  "contenido_traduccion": "La federación nacional debe asegurarse de contar con el permiso de cada delegado o, en el caso de un menor, el permiso del padre/madre o tutor legal.",
+  "interpretacion": "Las federaciones nacionales son legalmente responsables de recopilar y verificar las autorizaciones requeridas para todos los miembros de su delegación. Si el participante es menor de edad, es indispensable contar con la autorización firmada por sus padres o tutores legales antes de su inscripción/participación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 44",
+  "tags": [
+    "procedure",
+    "conduct",
+    "age",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0532: Procedimiento de Notificación por Falta de Consentimiento
+```json
+{
+  "id_conocimiento": "KUN-0532",
+  "titulo": "Procedimiento de Notificación por Falta de Consentimiento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If a delegate does not give consent, then the national federation must inform the International Judo Federation by writing to registration@ijf .org",
+  "contenido_traduccion": "Si un delegado no da su consentimiento, la federación nacional debe informar a la Federación Internacional de Judo escribiendo a registration@ijf.org",
+  "interpretacion": "En el caso de que un integrante de la delegación (o su tutor legal) decida no otorgar el consentimiento requerido, la federación nacional no debe asumir ni omitir el dato; debe comunicar formalmente esta situación por correo electrónico al departamento de registro de la IJF (registration@ijf.org) para su gestión administrativa.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 44",
+  "tags": [
+    "procedure",
+    "conduct",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0533: Tableros Oficiales de Anuncios y Canales de Información del Evento
+```json
+{
+  "id_conocimiento": "KUN-0533",
+  "titulo": "Tableros Oficiales de Anuncios y Canales de Información del Evento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2.9 Official Notice Boards\nAll event information (transport times, training schedule, departure schedule etc.) for the delegations will be communicated and posted on the official notice boards in each official hotel and in the warm-up area. The information can also be found online in the IJF notice board Telegram group.",
+  "contenido_traduccion": "2.9 Tableros de anuncios oficiales\nToda la información del evento (horarios de transporte, calendario de entrenamientos, horarios de salida, etc.) para las delegaciones se comunicará y publicará en los tableros de anuncios oficiales de cada hotel oficial y en la zona de calentamiento. La información también se puede encontrar en línea en el grupo de Telegram del tablero de anuncios de la IJF.",
+  "interpretacion": "Es responsabilidad de las delegaciones monitorear constantemente la información logística del evento (transportes, pesajes, entrenamientos). Esta información está disponible físicamente en las pizarras de anuncios de los hoteles oficiales y en el área de calentamiento, así como en formato digital a través del canal/grupo oficial de Telegram de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 44",
+  "tags": [
+    "procedure",
+    "competition-system",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0534: Sistema de Liguilla (Round Robin) para 5 o menos participantes
+```json
+{
+  "id_conocimiento": "KUN-0534",
+  "titulo": "Sistema de Liguilla (Round Robin) para 5 o menos participantes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For weight categories with five (5) or fewer entered athletes, a Round Robin system will be used. Each athlete in the category must fight against all other athletes in the same group.",
+  "contenido_traduccion": "Para las categorías de peso con cinco (5) o menos atletas inscritos, se utilizará un sistema de liguilla (Round Robin). Cada atleta de la categoría deberá competir contra todos los demás atletas del mismo grupo.",
+  "interpretacion": "Cuando una categoría cuenta con un número muy reducido de competidores (entre 2 y 5), no se aplica la eliminación directa. En su lugar, todos se enfrentan contra todos para garantizar que cada atleta dispute un número suficiente de combates y la clasificación final refleje de manera justa el rendimiento global.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 45",
+  "tags": [
+    "competition-system",
+    "bracket",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0535: Criterios de clasificación y desempate en el Sistema Round Robin
+```json
+{
+  "id_conocimiento": "KUN-0535",
+  "titulo": "Criterios de clasificación y desempate en el Sistema Round Robin",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In a Round Robin system, the ranking is determined by the highest number of wins. If there is a tie in wins, the total points scored (Ippon = 10, Waza-ari = 1) will decide. Further ties are broken by head-to-head result, total contest time, or a re-match contest if necessary.",
+  "contenido_traduccion": "En un sistema de liguilla (Round Robin), la clasificación se determina por el mayor número de victorias. Si existe un empate en victorias, se decidirá por el total de puntos obtenidos (Ippon = 10, Waza-ari = 1). Los empates subsiguientes se resolverán por el resultado directo entre los involucrados, el tiempo total de combate o un combate de desempate si fuera necesario.",
+  "interpretacion": "Para definir las medallas en categorías pequeñas, la prioridad es la cantidad de combates ganados. Si hay empate, la calidad técnica (Ippon sobre Waza-ari) otorga ventaja. Si persiste el empate entre dos o más competidores, los árbitros y la mesa técnica aplican los criterios sucesivos de enfrentamiento directo o tiempo invertido para definir la tabla final.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 45",
+  "tags": [
+    "competition-system",
+    "procedure",
+    "scoring"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0536: Sistema de competición para 6 o 7 participantes (Grupos dobles)
+```json
+{
+  "id_conocimiento": "KUN-0536",
+  "titulo": "Sistema de competición para 6 o 7 participantes (Grupos dobles)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For categories with six (6) or seven (7) entries, athletes are divided into two pools (Pool A and Pool B) competing in a Round Robin format. The top two athletes from each pool advance to the crossover semi-finals (A1 vs B2, B1 vs A2), followed by the final and bronze medal contests.",
+  "contenido_traduccion": "Para las categorías con seis (6) o siete (7) inscritos, los atletas se dividen en dos grupos (Grupo A y Grupo B) compitiendo en formato de liguilla. Los dos mejores atletas de cada grupo avanzan a las semifinales cruzadas (A1 vs B2, B1 vs A2), seguidas de la final y los combates por la medalla de bronce.",
+  "interpretacion": "Este formato mixto combina una fase de grupos (Round Robin) con una fase final de eliminación directa. Garantiza que todos disputen al menos 2 combates en su grupo inicial, permitiendo que solo los dos clasificados de cada grupo compitan por las medallas en semifinales y finales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 45",
+  "tags": [
+    "competition-system",
+    "bracket",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0537: Sistema de Repesca desde Cuartos de Final (8 o más participantes)
+```json
+{
+  "id_conocimiento": "KUN-0537",
+  "titulo": "Sistema de Repesca desde Cuartos de Final (8 o más participantes)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For categories with eight (8) or more entry athletes, the quarter-final repechage system is applied. The four losers of the quarter-finals enter the repechage block to compete for the two bronze medals.",
+  "contenido_traduccion": "Para categorías con ocho (8) o más atletas inscritos, se aplica el sistema de repesca desde cuartos de final. Los cuatro perdedores de los cuartos de final entran al cuadro de repesca para competir por las dos medallas de bronce.",
+  "interpretacion": "En cuadros principales de 8 o más competidores, perder en las rondas preliminares iniciales significa eliminación directa. Sin embargo, alcanzar los cuartos de final asegura al competidor una segunda oportunidad: si pierde el pase a semifinales, pasa automáticamente al bloque de repesca donde puede disputar y ganar una de las dos medallas de bronce.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 2 - Sistemas de Competencia, Página 45",
+  "tags": [
+    "competition-system",
+    "repechage",
+    "bracket",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0538: Tipos y Uso de las Listas de Clasificación Mundial de la IJF (WRL)
+```json
+{
+  "id_conocimiento": "KUN-0538",
+  "titulo": "Tipos y Uso de las Listas de Clasificación Mundial de la IJF (WRL)",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3 .1 IJF World Ranking Lists\nThe International Judo Federation (IJF) produces World Ranking Lists (WRL) for individuals and mixed teams. These WRL lists are used for seeding athletes/teams in the draw for ranking events. There is also an IJF Nation WRL which shows the total ranking points from each WRL per nation.",
+  "contenido_traduccion": "3.1 Listas de Clasificación Mundial de la IJF\nLa Federación Internacional de Judo (IJF) elabora Listas de Clasificación Mundial (WRL) para individuos y equipos mixtos. Estas listas WRL se utilizan para seriar (cabezas de serie) a los atletas/equipos en el sorteo de eventos con puntuación de ranking. También existe una WRL de Naciones de la IJF que muestra el total de puntos de ranking de cada WRL por nación.",
+  "interpretacion": "La IJF administra tres tipos de Listas de Clasificación Mundial (WRL): individual, por equipos mixtos y por naciones. Las clasificaciones individuales y de equipos mixtos se utilizan de forma oficial para determinar los cabezas de serie en los sorteos de eventos puntuables, asegurando que los mejor clasificados no se enfrenten en las fases iniciales del torneo. La WRL de naciones sirve para reflejar la puntuación global acumulada por cada país.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 47",
+  "tags": [
+    "world-ranking-list",
+    "seeding",
+    "draw"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0539: Criterios de Asignación de Puntos WRL e Inviolabilidad de Categoría
+```json
+{
+  "id_conocimiento": "KUN-0539",
+  "titulo": "Criterios de Asignación de Puntos WRL e Inviolabilidad de Categoría",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The number of points earned depends on the type of event and how far an athlete/team progresses in the competition. In the individual competition, the points are allocated to the athlete in the weight category in which they participate and cannot be transferred to another weight category. Apart from participation points (which are allocated to all athletes that passed the official weigh-in) the ranking points are scored only if a minimum of one (1) contest is won. In the mixed team competition, the points are allocated to the respective nation. Points of the mixed teams will be allocated even if no match was won.",
+  "contenido_traduccion": "El número de puntos ganados depende del tipo de evento y de lo lejos que un atleta/equipo avance en la competición. En la competición individual, los puntos se asignan al atleta en la categoría de peso en la que participa y no pueden transferirse a otra categoría de peso. Aparte de los puntos de participación (que se asignan a todos los atletas que superaron el pesaje oficial), los puntos de ranking se obtienen solo si se gana un mínimo de un (1) combate. En la competición por equipos mixtos, los puntos se asignan a la nación respectiva. Los puntos de los equipos mixtos se asignarán incluso si no se ganó ningún combate.",
+  "interpretacion": "Para torneos individuales, los puntos obtenidos quedan estrictamente vinculados a la categoría de peso en la que compitió el judoka; si el atleta cambia de categoría de peso, no puede trasladar esos puntos. Para sumar puntos de avance en la gráfica (más allá de la puntuación básica por superar el pesaje oficial), es obligatorio ganar al menos un combate. En cambio, en la modalidad de equipos mixtos, los puntos computan para la federación nacional respectiva y se otorgan por el hecho de participar, independientemente de si ganaron o no algún combate.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 47",
+  "tags": [
+    "world-ranking-list",
+    "weight-categories",
+    "official-weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0540: Regla General de Reducción y Expiración Anual de Puntos WRL (ISO 8601)
+```json
+{
+  "id_conocimiento": "KUN-0540",
+  "titulo": "Regla General de Reducción y Expiración Anual de Puntos WRL (ISO 8601)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The lists are updated following the ranking events where athletes/teams earn points to be ranked on an IJF WRL.\nAnnually points either reduce or expire. The dividing line for reduction or expiration is the following week in which the competition was held, the beginning of the week is defined as Monday (week numbering is following the international standard ISO 8601).\nExample: If the competition is held in week 10 of the year (YYYY), the points are reduced to half at the beginning of week 11 in the next year (YYYY+1) and expired at the beginning of week 11 in the year after (YYYY+2).",
+  "contenido_traduccion": "Las listas se actualizan tras los eventos puntuables donde los atletas/equipos ganan puntos para clasificarse en una WRL de la IJF.\nAnualmente, los puntos se reducen o expiran. La línea divisoria para la reducción o expiración es la semana posterior en la que se celebró la competición; el inicio de la semana se define como el lunes (la numeración de semanas sigue la norma internacional ISO 8601).\nEjemplo: Si la competición se celebra en la semana 10 del año (AAAA), los puntos se reducen a la mitad al inicio de la semana 11 del año siguiente (AAAA+1) y expiran al inicio de la semana 11 del año posterior (AAAA+2).",
+  "interpretacion": "El sistema WRL actualiza la puntuación tras cada torneo. Los puntos de un evento tienen una vigencia máxima de dos años con una devaluación progresiva: se mantienen al 100% durante 52 semanas; al inicio de la semana posterior al cumplirse el primer año (contando desde el lunes según el estándar ISO 8601), se reducen al 50%; al inicio de la semana posterior al cumplirse el segundo año, caducan por completo (0%).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 47",
+  "tags": [
+    "world-ranking-list",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0541: Excepción de Temporalidad para Campeonatos Continentales Senior y Equipos Mixtos
+```json
+{
+  "id_conocimiento": "KUN-0541",
+  "titulo": "Excepción de Temporalidad para Campeonatos Continentales Senior y Equipos Mixtos",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "There are exceptions for Continental Championships Seniors and Mixed Teams, for the equal treatment of all continents, points will be handled as follows, regardless of the week that the competition takes place.\nThe Continental Championships Seniors Individual and Mixed Teams 2024 will be treated as if they were held in week number 17 regardless of the week number that they are organised in (points are added when competition is held). The points reduction will be done on Monday of week 18, 2025 (50%) and week 18, 2026 (0%).\nIn 2025, the Continental Championships Seniors and Mixed Teams 2023 and 2024 will be treated as if they were held in week 17 regardless of the week number that they are organised in. The period change will be done on Monday of week 18, 2025.",
+  "contenido_traduccion": "Existen excepciones para los Campeonatos Continentales Senior y de Equipos Mixtos; para garantizar un trato equitativo a todos los continentes, los puntos se gestionarán de la siguiente manera, independientemente de la semana en que se celebre la competición.\nLos Campeonatos Continentales Senior Individual y Equipos Mixtos 2024 se tratarán como si se hubieran celebrado en la semana número 17, independientemente del número de semana en que estén organizados (los puntos se añaden cuando se celebra la competición). La reducción de puntos se realizará el lunes de la semana 18 de 2025 (50%) y de la semana 18 de 2026 (0%).\nEn 2025, los Campeonatos Continentales Senior y Equipos Mixtos 2023 y 2024 se tratarán como si se hubieran celebrado en la semana 17, independientemente del número de semana en que estén organizados. El cambio de periodo se realizará el lunes de la semana 18 de 2025.",
+  "interpretacion": "Debido a que cada continente organiza su Campeonato Continental Senior (individual y equipos) en fechas distintas del calendario, la IJF aplica una ficción jurídica asignando ficticiamente a todos ellos la semana 17 del año como fecha de celebración. De esta forma, la reducción del 50% de los puntos siempre se ejecuta el lunes de la semana 18 del año siguiente y la expiración total el lunes de la semana 18 del segundo año posterior, garantizando igualdad de oportunidades y vigencia de puntos entre judokas de distintas uniones continentales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 47",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0542: Excepción de puntuación WRL para Campeonatos Continentales Junior y Cadete
+```json
+{
+  "id_conocimiento": "KUN-0542",
+  "titulo": "Excepción de puntuación WRL para Campeonatos Continentales Junior y Cadete",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "There are exceptions for Continental Championships Juniors and Mixed Teams and Cadets and Mixed Teams. For the equal treatment of all continents, points will be handled as follows, regardless of the week that the competition takes place (points are added when competition is held). Continental Championships Juniors and Mixed Teams: Points allocation as if competition was held in week number 26, Points reduction/expiration on Monday of week number 27. Continental Championships Cadets and Mixed Teams: Points allocation as if competition was held in week number 26, Points reduction/expiration on Monday of week number 27.",
+  "contenido_traduccion": "Existen excepciones para los Campeonatos Continentales Juniors y Equipos Mixtos, y Cadetes y Equipos Mixtos. Para la igualdad de trato de todos los continentes, los puntos se gestionarán de la siguiente manera, independientemente de la semana en que se celebre la competición (los puntos se añaden cuando se celebra la competición). Campeonatos Continentales Juniors y Equipos Mixtos: Asignación de puntos como si la competición se hubiera celebrado en la semana número 26, Reducción/expiración de puntos el lunes de la semana número 27. Campeonatos Continentales Cadetes y Equipos Mixtos: Asignación de puntos como si la competición se hubiera celebrado en la semana número 26, Reducción/expiración de puntos el lunes de la semana número 27.",
+  "interpretacion": "Para garantizar la equidad entre continentes cuyos calendarios varían, los puntos del Ranking Mundial (WRL) obtenidos en Campeonatos Continentales Cadetes y Juniors (individuales y por equipos mixtos) se contabilizan normativamente como si el evento hubiera ocurrido en la semana 26 del año. La reducción o expiración periódica de dichos puntos se ejecuta siempre el lunes de la semana 27.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 48",
+  "tags": [
+    "world-ranking-list",
+    "cadet",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0543: Uso de las listas WRL para determinación de cabezas de serie en sorteos
+```json
+{
+  "id_conocimiento": "KUN-0543",
+  "titulo": "Uso de las listas WRL para determinación de cabezas de serie en sorteos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "These WRL lists are used for seeding athletes/teams in the draw for ranking events.",
+  "contenido_traduccion": "Estas listas WRL se utilizan para clasificar como cabezas de serie a atletas/equipos en el sorteo de eventos con puntuación de ranking.",
+  "interpretacion": "Las listas oficiales del Ranking Mundial (WRL), actualizadas tras la aplicación de las reglas de cálculo de puntos y expiración, constituyen la base obligatoria para determinar qué judocas o equipos serán designados como cabezas de serie (seeding) durante la realización de los sorteos oficiales en torneos puntuables.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 48",
+  "tags": [
+    "world-ranking-list",
+    "seeding",
+    "draw",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0544: Listas de Clasificación Mundial de la IJF para Individuales
+```json
+{
+  "id_conocimiento": "KUN-0544",
+  "titulo": "Listas de Clasificación Mundial de la IJF para Individuales",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3.2 IJF World Ranking Lists for Individuals\nThere are three IJF WRL for individuals; IJF Seniors WRL, IJF Juniors WRL and IJF Cadets WRL.",
+  "contenido_traduccion": "3.2 Listas de Clasificación Mundial de la IJF para Individuales\nExisten tres WRL de la IJF para individuales: WRL de Seniors de la IJF, WRL de Juniors de la IJF y WRL de Cadetes de la IJF.",
+  "interpretacion": "Establece la existencia oficial de tres escalafones o rankings mundiales individuales diferenciados según la categoría de edad del atleta (Seniors, Juniors y Cadetes), los cuales sirven de base para las siembras en sorteos y criterios de clasificación internacional.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 49",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "cadet",
+    "age"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0545: Criterios de Puntuación para la Lista de Clasificación Mundial de Seniors (IJF Seniors WRL)
+```json
+{
+  "id_conocimiento": "KUN-0545",
+  "titulo": "Criterios de Puntuación para la Lista de Clasificación Mundial de Seniors (IJF Seniors WRL)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3.2.1 IJF Seniors World Ranking List\nAthletes can earn points for the IJF Seniors WRL by competing in IJF World Judo Tour (WJT) events for senior, World Championships Juniors, Continental Championships and Continental Opens for seniors.\n\nPlacing | Continental Opens | Continental Championships | Junior World Championships | Grand Prix | Grand Slam | Masters | World Championships | Olympic Games\n1st place | 100 | 800 | 700 | 700 | 1000 | 1800 | 2000 | 2200\n2nd place | 70 | 560 | 490 | 490 | 700 | 1260 | 1400 | 1540\n3rd place | 50 | 400 | 350 | 350 | 500 | 900 | 1000 | 1100\n5th place | 36 | 288 | 252 | 252 | 360 | 648 | 720 | 792\n7th place | 26 | 208 | 182 | 182 | 260 | 468 | 520 | 572\n9th place (1/16) | 16 | 128 | 112 | 112 | 160 | 288 | 320 | 352\n17th place (1/32) | 12 | 96 | 84 | 84 | 120 | 240 | 264 | -\n1 contest won | 10 | 80 | 70 | 70 | 100 | 200 | - | -\nParticipation | 2 | 6 | 6 | 6 | 10 | 100 | 20 | -",
+  "contenido_traduccion": "3.2.1 Lista de Clasificación Mundial de Seniors de la IJF\nLos atletas pueden ganar puntos para la WRL de Seniors de la IJF compitiendo en eventos del IJF World Judo Tour (WJT) para seniors, Campeonatos Mundiales Juniors, Campeonatos Continentales y Continental Opens para seniors.\n\nPosición | Continental Opens | Campeonatos Continentales | Campeonato Mundial Junior | Grand Prix | Grand Slam | Masters | Campeonato Mundial | Juegos Olímpicos\n1º lugar | 100 | 800 | 700 | 700 | 1000 | 1800 | 2000 | 2200\n2º lugar | 70 | 560 | 490 | 490 | 700 | 1260 | 1400 | 1540\n3º lugar | 50 | 400 | 350 | 350 | 500 | 900 | 1000 | 1100\n5º lugar | 36 | 288 | 252 | 252 | 360 | 648 | 720 | 792\n7º lugar | 26 | 208 | 182 | 182 | 260 | 468 | 520 | 572\n9º lugar (1/16) | 16 | 128 | 112 | 112 | 160 | 288 | 320 | 352\n17º lugar (1/32) | 12 | 96 | 84 | 84 | 120 | 240 | 264 | -\n1 combate ganado | 10 | 80 | 70 | 70 | 100 | 200 | - | -\nParticipación | 2 | 6 | 6 | 6 | 10 | 100 | 20 | -",
+  "interpretacion": "Establece el baremo oficial de puntos que suma un competidor de categoría Senior según el nivel del torneo disputado y el puesto alcanzado. Sirve para calcular el escalafón mundial que determina cabezas de serie e ingresos a competencias continentales, mundiales y olímpicas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 49",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0546: Periodos de Valoración y Expiración de Puntos en el Ranking Mundial (Regla de los 6 Mejores Resultados)
+```json
+{
+  "id_conocimiento": "KUN-0546",
+  "titulo": "Periodos de Valoración y Expiración de Puntos en el Ranking Mundial (Regla de los 6 Mejores Resultados)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Participation points will be given for Continental Opens, Grand Prix, Grand Slam, Masters, Continental Championships and World Championships.\nThe points for each competition will count as follows from 1st January 2025:\n100% Period Look back 12 months • 6 best results 100%\n50% Period Look back 13-24 months • 6 best results 50%\nAfter 24 months • Points expire 0%",
+  "contenido_traduccion": "Se otorgarán puntos de participación para Continental Opens, Grand Prix, Grand Slam, Masters, Campeonatos Continentales y Campeonatos Mundiales.\nLos puntos para cada competición contarán de la siguiente manera desde el 1 de enero de 2025:\nPeríodo 100%: Mirada hacia atrás 12 meses • 6 mejores resultados al 100%\nPeríodo 50%: Mirada hacia atrás de 13 a 24 meses • 6 mejores resultados al 50%\nDespués de 24 meses: Los puntos expiran al 0%",
+  "interpretacion": "Regula el cálculo temporal de la puntuación acumulada. En el primer año (meses 1 a 12), los puntos de los 6 mejores torneos valen el 100%. En el segundo año (meses 13 a 24), los 6 mejores resultados de ese periodo pasan a valer la mitad (50%). Cumplidos los 24 meses desde la fecha del evento, la puntuación caduca completamente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 49",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0547: Reglas de Transición en la Puntuación WRL: Cambio del Formato '5+1' al Sistema de '6' Mejores Resultados
+```json
+{
+  "id_conocimiento": "KUN-0547",
+  "titulo": "Reglas de Transición en la Puntuación WRL: Cambio del Formato '5+1' al Sistema de '6' Mejores Resultados",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The new WRL system of 6 best results (started in 2025) will take into consideration all events with no extra result for Continentals or Masters. The following transition rules will be applied:\nTransition from “5+1” to “6” best results\n100% Period:\nThe new 6th result will be the current result in “+1”.\nIt can only be replaced either\n• By higher points from events starting in 2025.\n• Or when there are no more eligible events in the previous “+1” section. This will occur when the Continental Championships 2024 are reduced to 50% (week 18 of 2025).\n50% Period:\nThe new 6th result will also be the current result in “+1”.\nIt can only be replaced:\n• If another event decreases from 2025 onwards with higher points.\n• Otherwise, it follows the previous “+1” rule for extra points from Continentals or Masters until there are no more eligible events in the “+1” section. This will happen when the Continental Championships 2024 expire (week 18 of 2026).",
+  "contenido_traduccion": "El nuevo sistema de WRL de 6 mejores resultados (iniciado en 2025) tomará en consideración todos los eventos sin ningún resultado extra para Continentales o Masters. Se aplicarán las siguientes reglas de transición:\nTransición de “5+1” a “6” mejores resultados\nPeríodo 100%:\nEl nuevo sexto resultado será el resultado actual en “+1”.\nSolo se puede reemplazar ya sea:\n• Por puntos más altos de eventos que comiencen en 2025.\n• O cuando ya no haya más eventos elegibles en la sección anterior de “+1”. Esto ocurrirá cuando los Campeonatos Continentales 2024 se reduzcan al 50% (semana 18 de 2025).\nPeríodo 50%:\nEl nuevo sexto resultado también será el resultado actual en “+1”.\nSolo se puede reemplazar:\n• Si otro evento disminuye a partir de 2025 con puntos más altos.\n• De lo contrario, sigue la regla anterior de “+1” para puntos extra de Continentales o Masters hasta que no haya más eventos elegibles en la sección “+1”. Esto sucederá cuando los Campeonatos Continentales 2024 expiren (semana 18 de 2026).",
+  "interpretacion": "Define el procedimiento transitorio para migrar del antiguo esquema de puntuación (5 mejores eventos generales + 1 evento extra para Continental/Masters) al nuevo esquema unificado de los 6 mejores eventos absolutos. Afecta el modo en que se recalcula el 6º resultado durante el periodo de 100% (hasta la semana 18 de 2025) y el periodo de 50% (hasta la semana 18 de 2026).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 49",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0548: Sustitución de puntos de bonificación en el cálculo de los mejores resultados del Ranking Mundial
+```json
+{
+  "id_conocimiento": "KUN-0548",
+  "titulo": "Sustitución de puntos de bonificación en el cálculo de los mejores resultados del Ranking Mundial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The previous “+1” points are only replaced by new event points if the “+1” points are the lowest compared to the other five best results. If they are not the lowest, the new points will first be counted among the five best results, pushing the lowest result out.",
+  "contenido_traduccion": "Los puntos anteriores de \"+1\" solo se reemplazan por los nuevos puntos de un evento si dichos puntos de \"+1\" son los más bajos en comparación con los otros cinco mejores resultados. Si no son los más bajos, los nuevos puntos se contabilizarán primero entre los cinco mejores resultados, desplazando al resultado más bajo.",
+  "interpretacion": "Regula la actualización del Ranking Mundial Senior cuando un atleta obtiene una nueva puntuación. Los puntos base por participación o victoria en ronda (+1) solo se eliminan directamente si representan el valor más bajo dentro de los cinco mejores resultados del judoca; de no ser así, la nueva puntuación entra entre los mejores cinco resultados sustituyendo al resultado de menor valor.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 50",
+  "tags": [
+    "world-ranking-list",
+    "procedure",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0549: Tratamiento de casilleros vacíos en los mejores resultados del Ranking Mundial
+```json
+{
+  "id_conocimiento": "KUN-0549",
+  "titulo": "Tratamiento de casilleros vacíos en los mejores resultados del Ranking Mundial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Empty spots in the five best results count as 0 and are filled first.",
+  "contenido_traduccion": "Los casilleros vacíos en los cinco mejores resultados cuentan como 0 y se llenan primero.",
+  "interpretacion": "Para aquellos atletas que no han alcanzado el límite de cinco resultados puntuables en su histórico del Ranking Mundial, los espacios faltantes se consideran con un valor de 0 puntos y se irán ocupando de forma prioritaria conforme el competidor participe y obtenga puntos en torneos oficiales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 50",
+  "tags": [
+    "world-ranking-list",
+    "procedure",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0550: Asignación de puntos WRL para atletas locales en Grand Prix y Grand Slam
+```json
+{
+  "id_conocimiento": "KUN-0550",
+  "titulo": "Asignación de puntos WRL para atletas locales en Grand Prix y Grand Slam",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "At Grand Prix and Grand Slam events only the two (2) best domestic athletes per category can obtain points for the IJF Seniors WRL. In case of equality the points will be automatically given to the highest ranked athlete. If still equal, the domestic national federation will decide.",
+  "contenido_traduccion": "En los eventos Grand Prix y Grand Slam, solo los dos (2) mejores atletas locales por categoría pueden obtener puntos para el WRL Senior de la IJF. En caso de igualdad, los puntos se otorgarán automáticamente al atleta mejor clasificado. Si persiste la igualdad, la federación nacional local decidirá.",
+  "interpretacion": "Dado que la federación anfitriona puede inscribir una mayor cantidad de competidores locales, la regla limita a un máximo de 2 atletas nacionales por categoría la posibilidad de sumar puntos para el Ranking Mundial Senior. En situaciones donde haya empate en el puesto alcanzado, el punto se adjudica al de mejor ranking previo; si el empate persiste, corresponde a la federación anfitriona determinar cuál atleta recibe los puntos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 50",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0551: Criterios de desempate en la clasificación general del Ranking Mundial IJF
+```json
+{
+  "id_conocimiento": "KUN-0551",
+  "titulo": "Criterios de desempate en la clasificación general del Ranking Mundial IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If two or more athletes have an equal number of total WRL points, the higher ranking will be decided by:\n• The highest sum of the current points from all World Championships.\n• The highest sum of the current points from all Grand Prix, Grand Slams and Masters.\n• The highest current points from a single event, then, if needed, the second highest, and so on.",
+  "contenido_traduccion": "Si dos o más atletas tienen un número igual de puntos totales en el WRL, la posición más alta se decidirá por:\n• La suma más alta de los puntos vigentes de todos los Campeonatos Mundiales.\n• La suma más alta de los puntos vigentes de todos los Grand Prix, Grand Slams y Masters.\n• Los puntos vigentes más altos obtenidos en un solo evento, luego, si es necesario, los segundos más altos, y así sucesivamente.",
+  "interpretacion": "Aplica una escala jerárquica para resolver empates en el Ranking Mundial: primero se compara la puntuación lograda en Campeonatos Mundiales; de persistir el empate, se evalúa la suma de puntos en Grand Prix, Grand Slam y Masters; finalmente se recurre al mejor resultado individual obtenido en un solo torneo y, sucesivamente, al segundo mejor resultado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 50",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0552: Resolución discrecional de empates en la Clasificación Olímpica
+```json
+{
+  "id_conocimiento": "KUN-0552",
+  "titulo": "Resolución discrecional de empates en la Clasificación Olímpica",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In the case of Olympic Qualification, if the athletes are still equal the IJF Executive Committee will make the decision.",
+  "contenido_traduccion": "En el caso de la Clasificación Olímpica, si los atletas continúan empatados, el Comité Ejecutivo de la IJF tomará la decisión.",
+  "interpretacion": "Excepción procesal para el ciclo olímpico: si tras agotar todos los criterios técnicos de desempate en el Ranking Mundial persiste una igualdad de puntos afectando plazas olímpicas, la determinación definitiva del puesto o plaza corresponderá de forma directa e inapelable al Comité Ejecutivo de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 50",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0553: Inclusión de puntos del Campeonato Mundial Junior en el Ranking Mundial Senior
+```json
+{
+  "id_conocimiento": "KUN-0553",
+  "titulo": "Inclusión de puntos del Campeonato Mundial Junior en el Ranking Mundial Senior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes participating in the World Championships Juniors, will be added to the IJF Seniors WRL, and will be given the same points as those given for a Grand Prix with the same rules as for the Junior ranking (see point 3.2.2).",
+  "contenido_traduccion": "Los atletas que participen en el Campeonato Mundial Junior serán añadidos al WRL Senior de la IJF, y se les otorgarán los mismos puntos que los dados para un Grand Prix con las mismas reglas que para el ranking Junior (ver punto 3.2.2).",
+  "interpretacion": "Permite que los judocas de categoría Junior que compitan en su respectivo Campeonato Mundial sumen automáticamente puntos en el Ranking Mundial Senior. La escala de puntos otorgada en el Mundial Junior equivale a la de un torneo de nivel Grand Prix, aplicando la normativa técnica estipulada para la categoría Junior.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 50",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0554: Eventos y escala de puntos para la Lista de Clasificación Mundial Junior de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0554",
+  "titulo": "Eventos y escala de puntos para la Lista de Clasificación Mundial Junior de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3.2.2 IJF Juniors World Ranking List\nAthletes can earn points for the IJF Juniors WRL by competing in Continental Cups Juniors, Continental Championships Juniors and World Championships Juniors.\nPlacing / Continental Cups / Continental Championships / World Championships\n1st place: 100 / 300 / 700\n2nd place: 70 / 210 / 490\n3rd place: 50 / 150 / 350\n5th place: 40 / 120 / 280\n7th place: 30 / 90 / 210\n1/16: - / - / 112\n1/32: - / - / 84\n1/64: - / - / 70\nEach contest won: 6 / 18 / 42\nParticipation: 2 / 4 / 6\nParticipation points will be given for all juniors events. Other ranking points will be given when there is at least one (1) contest won.",
+  "contenido_traduccion": "3.2.2 Lista de Clasificación Mundial Junior de la IJF\nLos atletas pueden ganar puntos para la WRL Junior de la IJF compitiendo en Copas Continentales Junior, Campeonatos Continentales Junior y Campeonatos Mundiales Junior.\nPuesto / Copas Continentales / Campeonatos Continentales / Campeonatos Mundiales\n1.er lugar: 100 / 300 / 700\n2.º lugar: 70 / 210 / 490\n3.er lugar: 50 / 150 / 350\n5.º lugar: 40 / 120 / 280\n7.º lugar: 30 / 90 / 210\n1/16: - / - / 112\n1/32: - / - / 84\n1/64: - / - / 70\nCada combate ganado: 6 / 18 / 42\nParticipación: 2 / 4 / 6\nSe otorgarán puntos de participación en todos los eventos junior. Los demás puntos de clasificación se otorgarán cuando haya al menos un (1) combate ganado.",
+  "interpretacion": "Establece la tabla de puntuación del ranking mundial para la categoría Junior. Para sumar puntos por posición o por combate ganado en un evento, el judoca debe haber ganado como mínimo un combate. Si no gana ningún combate, únicamente se le otorgarán los puntos por participación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 51",
+  "tags": [
+    "world-ranking-list",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0555: Periodo de validez y caducidad de puntos para la WRL Junior
+```json
+{
+  "id_conocimiento": "KUN-0555",
+  "titulo": "Periodo de validez y caducidad de puntos para la WRL Junior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The points for each competition will count as follows:\n100% period Look back 12 months:\n• Three best results from Continental Cup\n• Result from the last Continental Championships\n• Result from the last World Championships\n50% period Look back 13-24 months:\n• Three best results from Continental Cup\n• Result from the last Continental Championships\n• Result from the last World Championships\nAfter 24 months: Points expire 0%",
+  "contenido_traduccion": "Los puntos para cada competición se contabilizarán de la siguiente manera:\nPeriodo del 100% (últimos 12 meses):\n• Los tres mejores resultados de Copa Continental\n• Resultado del último Campeonato Continental\n• Resultado del último Campeonato Mundial\nPeriodo del 50% (meses 13 a 24):\n• Los tres mejores resultados de Copa Continental\n• Resultado del último Campeonato Continental\n• Resultado del último Campeonato Mundial\nDespués de 24 meses: Los puntos caducan (0%)",
+  "interpretacion": "Regula la vigencia temporal de los puntos acumulados por los atletas junior. Durante los primeros 12 meses cuentan al 100%, del mes 13 al 24 se devalúan al 50%, y transcurridos 24 meses expiran por completo (0%). También establece topes en la cantidad de torneos computables por categoría.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 51",
+  "tags": [
+    "world-ranking-list",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0556: Límite de atletas del país anfitrión considerados para WRL en el Campeonato Mundial Junior
+```json
+{
+  "id_conocimiento": "KUN-0556",
+  "titulo": "Límite de atletas del país anfitrión considerados para WRL en el Campeonato Mundial Junior",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "At World Championships Juniors only the nine (9) best domestic male and nine (9) best domestic female athletes from the host country will be considered for the IJF Juniors WRL and IJF Seniors WRL. In case of equality the points will be automatically given to the highest ranked athlete. If still equal, the domestic federation will decide.",
+  "contenido_traduccion": "En los Campeonatos Mundiales Junior, solo los nueve (9) mejores atletas masculinos y las nueve (9) mejores atletas femeninas locales del país anfitrión serán considerados para la WRL Junior de la IJF y la WRL Senior de la IJF. En caso de igualdad, los puntos se otorgarán automáticamente al atleta mejor clasificado. Si persiste la igualdad, la federación nacional decidirá.",
+  "interpretacion": "El país sede de un Campeonato Mundial Junior tiene permitido inscribir competidores adicionales, pero existe una restricción de elegibilidad para el ranking: sólo un máximo de 9 hombres y 9 mujeres locales pueden acumular puntos de ranking mundial (Junior y Senior). En caso de empate entre competidores locales para ingresar en esa cuota, el puesto asignable se define por su posición previa en el ranking o por decisión de su federación nacional.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 51",
+  "tags": [
+    "world-ranking-list",
+    "men",
+    "women",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0557: Criterios de desempate en la Lista de Clasificación Mundial Junior de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0557",
+  "titulo": "Criterios de desempate en la Lista de Clasificación Mundial Junior de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If two or more athletes have an equal number of total WRL points, the higher ranking will be decided by:\n• The highest sum of the current points from all World Championships Juniors.\n• The highest sum of the current points from all Continental Championships Juniors.\n• The highest sum of the current points from all Continental Cups Juniors.\n• The highest current points from a single event, then, if needed, the second highest, and so on.",
+  "contenido_traduccion": "Si dos o más atletas tienen un número igual de puntos totales en la WRL, la posición más alta se decidirá por:\n• La suma más alta de los puntos actuales de todos los Campeonatos Mundiales Junior.\n• La suma más alta de los puntos actuales de todos los Campeonatos Continentales Junior.\n• La suma más alta de los puntos actuales de todas las Copas Continentales Junior.\n• Los puntos actuales más altos en un solo evento, luego, si es necesario, los segundos más altos, y así sucesivamente.",
+  "interpretacion": "Establece el orden de prioridad sistemático para resolver empates en puntos en la WRL Junior. La jerarquía de criterios prioriza primero la suma de puntos en torneos de mayor relevancia mundial, luego continentales, luego copas, y finalmente los puntajes individuales más altos en eventos individuales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 51",
+  "tags": [
+    "world-ranking-list",
+    "procedure",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0558: Eventos computables y escala de puntos para la WRL Cadetes de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0558",
+  "titulo": "Eventos computables y escala de puntos para la WRL Cadetes de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3.2.3 IJF Cadets World Ranking List\nAthletes can earn points for the IJF Cadets WRL by competing in Continental Cups Cadets, Continental Championships Cadets and World Championships Cadets.\nPlacing | Continental Cups | Continental Championships | World Championships\n1st place | 100 | 300 | 700\n2nd place | 70 | 210 | 490\n3rd place | 50 | 150 | 350\n5th place | 40 | 120 | 280\n7th place | 30 | 90 | 210\n1/16 | - | - | 112\n1/32 | - | - | 84\n1/64 | - | - | 70\nEach contest won | 6 | 18 | 42\nParticipation | 2 | 4 | 6",
+  "contenido_traduccion": "3.2.3 Lista de Clasificación Mundial (WRL) Cadetes de la IJF\nLos atletas pueden ganar puntos para la WRL Cadetes de la IJF compitiendo en Copas Continentales Cadetes, Campeonatos Continentales Cadetes y Campeonatos Mundiales Cadetes.\nPuesto | Copas Continentales | Campeonatos Continentales | Campeonatos Mundiales\n1.er puesto | 100 | 300 | 700\n2.º puesto | 70 | 210 | 490\n3.er puesto | 50 | 150 | 350\n5.º puesto | 40 | 120 | 280\n7.º puesto | 30 | 90 | 210\n1/16 | - | - | 112\n1/32 | - | - | 84\n1/64 | - | - | 70\nCada combate ganado | 6 | 18 | 42\nParticipación | 2 | 4 | 6",
+  "interpretacion": "Define los torneos oficiales autorizados para sumar puntos en la categoría Cadetes y establece la escala formal de puntuación según la posición final obtenida, los combates ganados o la sola participación en cada tipo de evento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 52",
+  "tags": [
+    "cadet",
+    "world-ranking-list",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0559: Requisito de victoria en combates para obtención de puntos en WRL Cadetes
+```json
+{
+  "id_conocimiento": "KUN-0559",
+  "titulo": "Requisito de victoria en combates para obtención de puntos en WRL Cadetes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Participation points will be given for all cadets events. Other ranking points will be given when there is at least one (1) contest won.",
+  "contenido_traduccion": "Los puntos de participación se otorgarán en todos los eventos de cadetes. Los demás puntos de clasificación se otorgarán cuando se haya ganado al menos uno (1) combate.",
+  "interpretacion": "Un atleta en categoría cadetes siempre sumará los puntos por participación. Sin embargo, para obtener los puntos correspondientes al puesto alcanzado en la tabla de clasificación o por combates ganados, es obligatorio haber ganado como mínimo un (1) combate en la competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 52",
+  "tags": [
+    "cadet",
+    "world-ranking-list",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0560: Validez, ponderación y expiración de puntos en la WRL Cadetes
+```json
+{
+  "id_conocimiento": "KUN-0560",
+  "titulo": "Validez, ponderación y expiración de puntos en la WRL Cadetes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The points for each competition will count as follows:\n100% period Look back 12 months\n• Three best results from Continental Cup\n• Result from the last Continental Championships\n• Result from the last World Championships\n100%\n50% period Look back 13-24 months\n• Three best results from Continental Cup\n• Result from the last Continental Championships\n• Result from the last World Championships\n50%\nAfter 24 months • Points expire 0%",
+  "contenido_traduccion": "Los puntos de cada competición contarán de la siguiente manera:\nPeríodo al 100% (últimos 12 meses):\n• Los tres mejores resultados de Copas Continentales\n• Resultado del último Campeonato Continental\n• Resultado del último Campeonato Mundial\n100%\nPeríodo al 50% (meses 13 a 24):\n• Los tres mejores resultados de Copas Continentales\n• Resultado del último Campeonato Continental\n• Resultado del último Campeonato Mundial\n50%\nDespués de 24 meses • Los puntos expiran al 0%",
+  "interpretacion": "Establece el método de cálculo de la WRL Cadetes en dos periodos de 12 meses. En los primeros 12 meses los puntos computan al 100%, tomando en cuenta los tres mejores resultados en Copas Continentales, el último Campeonato Continental y el último Campeonato Mundial. En los meses 13 a 24, esa misma selección de eventos pasa a valer el 50%. A partir de los 24 meses, los puntos expiran por completo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 52",
+  "tags": [
+    "cadet",
+    "world-ranking-list",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0561: Límite de atletas nacionales elegibles para WRL en Campeonatos Mundiales Cadetes
+```json
+{
+  "id_conocimiento": "KUN-0561",
+  "titulo": "Límite de atletas nacionales elegibles para WRL en Campeonatos Mundiales Cadetes",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "At World Championships Cadets only the ten (10) best domestic male and ten (10) best domestic female athletes will be considered for the IJF Cadets WRL. In case of equality the points will be automatically given to the highest ranked athlete. If still equal, the domestic federation will decide.",
+  "contenido_traduccion": "En los Campeonatos Mundiales Cadetes, solo los diez (10) mejores atletas masculinos locales y las diez (10) mejores atletas femeninas locales serán considerados para la WRL Cadetes de la IJF. En caso de igualdad, los puntos se otorgarán automáticamente al atleta mejor clasificado. Si persiste la igualdad, la federación nacional decidirá.",
+  "interpretacion": "En el Campeonato Mundial Cadetes, la federación del país anfitrión/local tiene restringido el cupo de atletas que acumulan puntos en la WRL a un máximo de 10 masculinos y 10 femeninos. Si hay empate de condiciones entre atletas locales, se asignan al atleta con mejor clasificación en el ranking. De mantenerse el empate, la federación nacional correspondiente determina quién recibe la puntuación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 52",
+  "tags": [
+    "cadet",
+    "world-ranking-list",
+    "men",
+    "women",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0562: Criterios de desempate en la Clasificación Mundial Cadetes
+```json
+{
+  "id_conocimiento": "KUN-0562",
+  "titulo": "Criterios de desempate en la Clasificación Mundial Cadetes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If two or more athletes have an equal number of total WRL points, the higher ranking will be decided by:\n• The highest sum of the current points from all World Championships Cadets.\n• The highest sum of the current points from all Continental Championships Cadets.\n• The highest sum of the current points from all Continental Cups Cadets.\n• The highest current points from a single event, then, if needed, the second highest, and so on.",
+  "contenido_traduccion": "Si dos o más atletas tienen un número igual de puntos totales en la WRL, la posición más alta se decidirá por:\n• La mayor suma de puntos vigentes de todos los Campeonatos Mundiales Cadetes.\n• La mayor suma de puntos vigentes de todos los Campeonatos Continentales Cadetes.\n• La mayor suma de puntos vigentes de todas las Copas Continentales Cadetes.\n• Los puntos vigentes más altos obtenidos en un solo evento, y luego, si es necesario, los segundos más altos, y así sucesivamente.",
+  "interpretacion": "Procedimiento jerárquico paso a paso para dirimir empates en puntos dentro de la WRL Cadetes. Se da prioridad primero a quien tenga más puntos acumulados en Campeonatos Mundiales Cadetes; si continúan empatados, se compara la suma en Campeonatos Continentales Cadetes; luego en Copas Continentales Cadetes; y finalmente se comparan los eventos individuales con mayor puntaje obtenido.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 52",
+  "tags": [
+    "cadet",
+    "world-ranking-list",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0563: Estructura de las Listas de Ranking Mundial IJF para Equipos Mixtos
+```json
+{
+  "id_conocimiento": "KUN-0563",
+  "titulo": "Estructura de las Listas de Ranking Mundial IJF para Equipos Mixtos",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3.3 IJF World Ranking Lists for Mixed Teams\nThere are three (3) IJF WRL for mixed teams; IJF Seniors Mixed Teams WRL, IJF Juniors Mixed Teams WRL and IJF Cadets Mixed Teams WRL.",
+  "contenido_traduccion": "3.3 Listas de Ranking Mundial de la IJF para Equipos Mixtos\nExisten tres (3) WRL de la IJF para equipos mixtos: WRL de Equipos Mixtos Senior de la IJF, WRL de Equipos Mixtos Junior de la IJF y WRL de Equipos Mixtos Cadetes de la IJF.",
+  "interpretacion": "Establece la existencia y división oficial de las listas de ranking mundial por equipos mixtos en tres categorías de edad dentro de la IJF: Cadetes, Juniors y Seniors, cada una con su propia clasificación acumulativa e independiente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 53",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "cadet",
+    "age"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0564: Sistema de Puntuación para la WRL de Equipos Mixtos Senior
+```json
+{
+  "id_conocimiento": "KUN-0564",
+  "titulo": "Sistema de Puntuación para la WRL de Equipos Mixtos Senior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3.3.1 IJF Seniors Mixed Teams World Ranking List\nMixed teams can earn points for the IJF WRL Seniors Mixed Teams by competing in Continental Championships Seniors Mixed Teams and World Championships Seniors Mixed Teams.\nPlacing Continental Championship points / World Championship points / Olympic Games points\n1st place: 4200 / 12000 / 13200\n2nd place: 2940 / 8400 / 9240\n3rd place: 2100 / 6000 / 6600\n5th place: 1512 / 4320 / 4752\n7th place: 1092 / 3120 / 3432\n9th place (1/16): 672 / 1920 / 2112\n17th place (1/32): 504 / 1440 / 1584\nPoints will be allocated even if no match was won.",
+  "contenido_traduccion": "3.3.1 Lista de Ranking Mundial de Equipos Mixtos Senior de la IJF\nLos equipos mixtos pueden ganar puntos para la WRL de Equipos Mixtos Senior de la IJF compitiendo en Campeonatos Continentales de Equipos Mixtos Senior y Campeonatos Mundiales de Equipos Mixtos Senior.\nPuesto / Puntos Campeonato Continental / Puntos Campeonato Mundial / Puntos Juegos Olímpicos:\n1.er lugar: 4200 / 12000 / 13200\n2.º lugar: 2940 / 8400 / 9240\n3.er lugar: 2100 / 6000 / 6600\n5.º lugar: 1512 / 4320 / 4752\n7.º lugar: 1092 / 3120 / 3432\n9.º lugar (1/16): 672 / 1920 / 2112\n17.º lugar (1/32): 504 / 1440 / 1584\nSe asignarán puntos incluso si no se ganó ningún combate.",
+  "interpretacion": "Regula la escala oficial de puntos otorgados a los equipos mixtos en la categoría Senior según el puesto alcanzado en torneos oficiales (Campeonatos Continentales, Campeonatos Mundiales y Juegos Olímpicos). Además, aclara que un equipo recibe los puntos correspondientes a su posición final en la tabla, aun cuando no haya ganado ningún combate en el evento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 53",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0565: Degradación Temporal y Expiración de Puntos en la WRL de Equipos Mixtos Senior
+```json
+{
+  "id_conocimiento": "KUN-0565",
+  "titulo": "Degradación Temporal y Expiración de Puntos en la WRL de Equipos Mixtos Senior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The points for each competition will count as follows:\n100% period Look back 12 months • Championships points 100%\n50% period Look back 13-24 months • Championships points 50%\nAfter 24 months • Points expire 0%",
+  "contenido_traduccion": "Los puntos para cada competición se contabilizarán de la siguiente manera:\nPeríodo del 100% (últimos 12 meses): Puntos de campeonatos al 100%\nPeríodo del 50% (de 13 a 24 meses atrás): Puntos de campeonatos al 50%\nDespués de 24 meses: Los puntos expiran al 0%",
+  "interpretacion": "Establece la regla de depreciación de puntos por antigüedad para los equipos mixtos Senior: los puntos ganados mantienen el 100% de su valor durante los primeros 12 meses, se reducen al 50% entre los meses 13 y 24, y expiran por completo (0%) al transcurrir más de 24 meses desde la competencia.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 53",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0566: Criterios de Desempate en la WRL de Equipos Mixtos Senior
+```json
+{
+  "id_conocimiento": "KUN-0566",
+  "titulo": "Criterios de Desempate en la WRL de Equipos Mixtos Senior",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Additional rules in the case of equality of total points, the higher ranking will be decided by:\n• The highest sum of the current points from all World Championships Seniors Mixed Teams.\n• The highest sum of the current points from all Continental Championships Seniors Mixed Teams.\nNote: for decreasing exceptions, please see 3.1 IJF World Ranking Lists.",
+  "contenido_traduccion": "Reglas adicionales en caso de igualdad de puntos totales, la posición más alta se decidirá por:\n• La mayor suma de puntos actuales de todos los Campeonatos Mundiales de Equipos Mixtos Senior.\n• La mayor suma de puntos actuales de todos los Campeonatos Continentales de Equipos Mixtos Senior.\nNota: para excepciones de decrecimiento, consulte la sección 3.1 Listas de Ranking Mundial de la IJF.",
+  "interpretacion": "Determina los criterios sucesivos para desempatar a dos o más equipos mixtos Senior que tengan la misma cantidad total de puntos en el ranking mundial. El primer criterio es la mayor suma acumulada de puntos vigentes en Campeonatos Mundiales de Equipos Mixtos Senior; si persiste el empate, se evalúa la mayor suma de puntos vigentes en Campeonatos Continentales de Equipos Mixtos Senior.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 53",
+  "tags": [
+    "world-ranking-list",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0567: Asignación de puntos en la WRL de Equipos Mixtos Juniors
+```json
+{
+  "id_conocimiento": "KUN-0567",
+  "titulo": "Asignación de puntos en la WRL de Equipos Mixtos Juniors",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3.3.2 IJF Juniors Mixed Teams World Ranking List\nMixed teams can earn points for the IJF Juniors Mixed Teams WRL by competing in the Continental Championships Juniors Mixed Teams and World Championships Juniors Mixed Teams.\nPlacing Continental Championship points World Championship points\n1st place 700 2000\n2nd place 490 1400\n3rd place 350 1000\n5th place 252 720\n7th place 182 520\n9th place (1/16) 112 320\n17th place (1/32) 84 240",
+  "contenido_traduccion": "3.3.2 Lista de Clasificación Mundial de Equipos Mixtos Juniors de la IJF\nLos equipos mixtos pueden ganar puntos para la WRL de Equipos Mixtos Juniors de la IJF compitiendo en el Campeonato Continental de Equipos Mixtos Juniors y el Campeonato Mundial de Equipos Mixtos Juniors.\nPuesto / Puntos del Campeonato Continental / Puntos del Campeonato Mundial\n1.er lugar: 700 / 2000\n2.º lugar: 490 / 1400\n3.er lugar: 350 / 1000\n5.º lugar: 252 / 720\n7.º lugar: 182 / 520\n9.º lugar (1/16): 112 / 320\n17.º lugar (1/32): 84 / 240",
+  "interpretacion": "Establece la escala oficial de puntos acumulables para la clasificación mundial por equipos mixtos en la categoría junior. Los puntos dependen exclusivamente de la posición final alcanzada en los Campeonatos Continentales o Mundiales de la categoría.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 54",
+  "tags": [
+    "world-ranking-list",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0568: Asignación de puntos sin victorias en Equipos Mixtos Juniors
+```json
+{
+  "id_conocimiento": "KUN-0568",
+  "titulo": "Asignación de puntos sin victorias en Equipos Mixtos Juniors",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Points will be allocated even if no match was won.",
+  "contenido_traduccion": "Se asignarán puntos incluso si no se ganó ningún encuentro.",
+  "interpretacion": "Permite que un equipo mixto junior sume puntos para la lista de clasificación mundial correspondiente a la ronda alcanzada, aun cuando no haya logrado ganar ningún combate o serie durante su participación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 54",
+  "tags": [
+    "world-ranking-list",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0569: Depreciación y caducidad de puntos en la WRL de Equipos Mixtos Juniors
+```json
+{
+  "id_conocimiento": "KUN-0569",
+  "titulo": "Depreciación y caducidad de puntos en la WRL de Equipos Mixtos Juniors",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The points for each competition will count as follows:\n100% period Look back 12 months • Championships points 100%\n50% period Look back 13-24 months • Championships points 50%\nAfter 24 months • Points expire 0%",
+  "contenido_traduccion": "Los puntos para cada competición se contabilizarán de la siguiente manera:\nPeriodo 100%: Revisión de los últimos 12 meses • Puntos de campeonatos al 100%\nPeriodo 50%: Revisión de 13 a 24 meses • Puntos de campeonatos al 50%\nDespués de 24 meses • Los puntos expiran (0%)",
+  "interpretacion": "Regula el ciclo de vida de la puntuación en la clasificación mundial de equipos mixtos juniors. Durante los primeros 12 meses los puntos se mantienen en su totalidad (100%), entre los meses 13 y 24 su valor se reduce a la mitad (50%), y pasados los 24 meses vencen por completo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 54",
+  "tags": [
+    "world-ranking-list",
+    "time",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0570: Criterios de desempate en la WRL de Equipos Mixtos Juniors
+```json
+{
+  "id_conocimiento": "KUN-0570",
+  "titulo": "Criterios de desempate en la WRL de Equipos Mixtos Juniors",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Additional rules in the case of equality of total points, the higher ranking will be decided by:\n• The highest sum of the current points from all World Championships Juniors Mixed Teams.\n• The highest sum of the current points from all Continental Championships Juniors Mixed Teams.",
+  "contenido_traduccion": "Reglas adicionales en el caso de igualdad de puntos totales, la posición más alta se decidirá por:\n• La suma más alta de los puntos actuales de todos los Campeonatos Mundiales de Equipos Mixtos Juniors.\n• La suma más alta de los puntos actuales de todos los Campeonatos Continentales de Equipos Mixtos Juniors.",
+  "interpretacion": "Establece el orden de prioridad jerárquica para resolver empates entre dos o más equipos mixtos juniors con la misma puntuación en el ranking mundial. Se evalúa primero el total de puntos vigentes en Campeonatos Mundiales Juniors; si persiste el empate, se compara el total de puntos vigentes en Campeonatos Continentales Juniors.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 54",
+  "tags": [
+    "world-ranking-list",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0571: Lista de Clasificación Mundial de Equipos Mixtos Cadetes de la IJF - Escala de Puntos
+```json
+{
+  "id_conocimiento": "KUN-0571",
+  "titulo": "Lista de Clasificación Mundial de Equipos Mixtos Cadetes de la IJF - Escala de Puntos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3.3.3 IJF Cadets Mixed Teams World Ranking List\nMixed teams can earn points for the IJF Cadets Mixed Teams WRL by competing in the Continental Championships Cadets Mixed Teams and World Championships Cadets Mixed Teams.\nPlacing Continental Championship points World Championship points\n1st place 700 2000\n2nd place 490 1400\n3rd place 350 1000\n5th place 252 720\n7th place 182 520\n9th place (1/16) 112 320\n17th place (1/32) 84 240",
+  "contenido_traduccion": "3.3.3 Lista de Clasificación Mundial de Equipos Mixtos Cadetes de la IJF\nLos equipos mixtos pueden ganar puntos para el WRL de Equipos Mixtos Cadetes de la IJF compitiendo en los Campeonatos Continentales de Equipos Mixtos Cadetes y Campeonatos Mundiales de Equipos Mixtos Cadetes.\nUbicación - Puntos Campeonato Continental - Puntos Campeonato Mundial\n1.er lugar: 700 - 2000\n2.º lugar: 490 - 1400\n3.er lugar: 350 - 1000\n5.º lugar: 252 - 720\n7.º lugar: 182 - 520\n9.º lugar (1/16): 112 - 320\n17.º lugar (1/32): 84 - 240",
+  "interpretacion": "Define la escala de puntos que suman los equipos mixtos cadetes según su resultado final en los Campeonatos Mundiales y Continentales. Esta puntuación determina el posicionamiento del equipo en el ranking mundial de la categoría.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 55",
+  "tags": [
+    "world-ranking-list",
+    "cadet",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0572: WRL Equipos Mixtos Cadetes - Asignación de Puntos sin Victorias
+```json
+{
+  "id_conocimiento": "KUN-0572",
+  "titulo": "WRL Equipos Mixtos Cadetes - Asignación de Puntos sin Victorias",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Points will be allocated even if no match was won.",
+  "contenido_traduccion": "Se asignarán puntos incluso si no se ganó ningún combate.",
+  "interpretacion": "Garantiza que un equipo mixto cadete reciba la puntuación del ranking correspondiente a su posición en la tabla final del torneo, aunque no haya obtenido ninguna victoria en sus encuentros.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 55",
+  "tags": [
+    "world-ranking-list",
+    "cadet",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0573: WRL Equipos Mixtos Cadetes - Periodos de Ponderación y Expiración de Puntos
+```json
+{
+  "id_conocimiento": "KUN-0573",
+  "titulo": "WRL Equipos Mixtos Cadetes - Periodos de Ponderación y Expiración de Puntos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The points for each competition will count as follows:\n100% period Look back 12 months • Championships points 100%\n50% period Look back 13-24 months • Championships points 50%\nAfter 24 months • Points expire 0%",
+  "contenido_traduccion": "Los puntos para cada competición se contabilizarán de la siguiente manera:\nPeriodo al 100% (últimos 12 meses) • Puntos de campeonatos al 100%\nPeriodo al 50% (meses 13 a 24) • Puntos de campeonatos al 50%\nDespués de 24 meses • Los puntos expiran al 0%",
+  "interpretacion": "Regula la vigencia y degradación temporal de los puntos en el WRL de equipos mixtos cadetes. Los puntos mantienen su valor total durante el primer año, se reducen a la mitad durante el segundo año y se eliminan totalmente tras transcurrir 24 meses.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 55",
+  "tags": [
+    "world-ranking-list",
+    "cadet",
+    "competition-system",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0574: WRL Equipos Mixtos Cadetes - Criterios de Desempate en Puntuación
+```json
+{
+  "id_conocimiento": "KUN-0574",
+  "titulo": "WRL Equipos Mixtos Cadetes - Criterios de Desempate en Puntuación",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Additional rules in the case of equality of total points, the higher ranking will be decided by:\n• The highest sum of the current points from all World Championships Cadets Mixed Teams.\n• The highest sum of the current points from all Continental Championships Cadets Mixed Teams.",
+  "contenido_traduccion": "Reglas adicionales en caso de igualdad de puntos totales, la posición más alta se decidirá por:\n• La mayor suma de puntos vigentes de todos los Campeonatos Mundiales de Equipos Mixtos Cadetes.\n• La mayor suma de puntos vigentes de todos los Campeonatos Continentales de Equipos Mixtos Cadetes.",
+  "interpretacion": "Establece el orden de prioridad jerárquico para desempatar a dos o más equipos mixtos cadetes en el WRL cuando tienen exactamente la misma cantidad de puntos totales: primero la suma acumulada en Mundiales y luego la suma en Continentales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 55",
+  "tags": [
+    "world-ranking-list",
+    "cadet",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0575: Lista de Clasificación Mundial de Naciones IJF - Cálculo del Puntaje Total
+```json
+{
+  "id_conocimiento": "KUN-0575",
+  "titulo": "Lista de Clasificación Mundial de Naciones IJF - Cálculo del Puntaje Total",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3.4 IJF Nations World Ranking List\nThe IJF Nations WRL consists of the sum of the current WRL points (seniors, juniors and cadets) plus the sum of the current Mixed Team (seniors, juniors and cadets) WRL for that nation.",
+  "contenido_traduccion": "3.4 Lista de Clasificación Mundial de Naciones de la IJF\nEl WRL de Naciones de la IJF consiste en la suma de los puntos vigentes del WRL (seniors, juniors y cadetes) más la suma del WRL vigente de Equipos Mixtos (seniors, juniors y cadetes) para esa nación.",
+  "interpretacion": "Define la estructura del ranking mundial por naciones de la IJF, especificando que se consolida mediante la suma global de todos los puntos vigentes individuales y por equipos mixtos en todas las categorías de edad (cadetes, juniors y seniors).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 55",
+  "tags": [
+    "world-ranking-list",
+    "cadet",
+    "senior",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0576: Entrada en competición y atleta único en la categoría tras pesaje
+```json
+{
+  "id_conocimiento": "KUN-0576",
+  "titulo": "Entrada en competición y atleta único en la categoría tras pesaje",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "An athlete is in the competition only once he passes the official weigh-in. If an athlete passes the official weigh-in and is alone in the category he will get the participation ranking points, if applicable.",
+  "contenido_traduccion": "Un atleta está en la competición únicamente una vez que supera el pesaje oficial. Si un atleta supera el pesaje oficial y está solo en la categoría, obtendrá los puntos de participación del ranking, si corresponde.",
+  "interpretacion": "Un deportista no se considera oficialmente participante de un torneo hasta superar el pesaje oficial. En caso de no haber más competidores en su categoría tras el pesaje, el judoka en regla obtiene los puntos de participación del WRL asignados a esa competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 56",
+  "tags": [
+    "official-weigh-in",
+    "weigh-in",
+    "world-ranking-list",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0577: Procedimiento por no comparecencia al tatami y victoria por Fusen-gachi
+```json
+{
+  "id_conocimiento": "KUN-0577",
+  "titulo": "Procedimiento por no comparecencia al tatami y victoria por Fusen-gachi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Any athlete who does not come to the tatami for a contest will have a line put through his name on the draw sheet. His opponent must come to the tatami and bow. He will be declared the winner by fusen-gachi and WRL points will be given.",
+  "contenido_traduccion": "A cualquier atleta que no se presente en el tatami para un combate se le tachará el nombre en la hoja del sorteo. Su oponente debe acudir al tatami y saludar. Será declarado ganador por fusen-gachi y se le otorgarán los puntos del WRL.",
+  "interpretacion": "Si un atleta no acude al combate cuando es llamado, su nombre es tachado en la gráfica de sorteo. El adversario presente debe subir al tatami y realizar el saludo reglamentario para ser declarado oficial ganador por fusen-gachi y adjudicarse los puntos WRL correspondientes.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 56",
+  "tags": [
+    "tatami",
+    "draw",
+    "procedure",
+    "world-ranking-list"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0578: Consecuencias del Hansoku-make directo por actos contra el espíritu del judo
+```json
+{
+  "id_conocimiento": "KUN-0578",
+  "titulo": "Consecuencias del Hansoku-make directo por actos contra el espíritu del judo",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "When an athlete loses a contest by a direct hansoku-make for acts against the spirit of judo, ranking points will be assigned for the position that the athlete reached in the competition. However, points, medals and prize money may be removed depending on the results of any further disciplinary action.",
+  "contenido_traduccion": "Cuando un atleta pierde un combate por hansoku-make directo por actos contrarios al espíritu del judo, se le asignarán puntos del ranking para la posición que alcanzó en la competición. Sin embargo, los puntos, medallas y premios en económico podrán ser retirados dependiendo de los resultados de cualquier acción disciplinaria posterior.",
+  "interpretacion": "Si se sanciona a un judoka con hansoku-make directo por conducta contraria al espíritu del judo, inicialmente se le acreditan los puntos de la posición alcanzada, pero queda sujeto a un expediente disciplinario que puede despojarlo de sus puntos de ranking, medalla y premio en metálico.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 56",
+  "tags": [
+    "hansoku-make",
+    "world-ranking-list",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0579: Reglas de conservación o reinicio de puntos WRL ante cambios del atleta
+```json
+{
+  "id_conocimiento": "KUN-0579",
+  "titulo": "Reglas de conservación o reinicio de puntos WRL ante cambios del atleta",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In the event of any change in age group, gender, nationality, and/or weight category of an athlete on the IJF WRL, the following rules apply:\n• Change of age group: The athlete starts from zero points.\n• Change of gender: The athlete starts from zero points.\n• Change of nationality: The athlete retains all previously acquired points in all weight categories where they have previously competed.\n• Change of weight category: The athlete starts from zero points.",
+  "contenido_traduccion": "En caso de cualquier cambio de grupo de edad, género, nacionalidad y/o categoría de peso de un atleta en la WRL de la IJF, se aplican las siguientes reglas:\n• Cambio de grupo de edad: El atleta comienza desde cero puntos.\n• Cambio de género: El atleta comienza desde cero puntos.\n• Cambio de nacionalidad: El atleta conserva todos los puntos adquiridos previamente en todas las categorías de peso donde haya competido previamente.\n• Cambio de categoría de peso: El atleta comienza desde cero puntos.",
+  "interpretacion": "Al cambiar de división de edad, género o categoría de peso en la WRL, el competidor reinicia a cero puntos en el ranking de esa nueva clasificación. Excepcionalmente, si cambia de nacionalidad, conserva intactos los puntos obtenidos anteriormente en todas las categorías.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 56",
+  "tags": [
+    "world-ranking-list",
+    "age",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0580: Inclusión en clasificación general y puntos por victoria vs no apto en pesaje
+```json
+{
+  "id_conocimiento": "KUN-0580",
+  "titulo": "Inclusión en clasificación general y puntos por victoria vs no apto en pesaje",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "All in-competition athletes are shown in the standings of the category regardless of number of wins/loses. The relevant position ranking points will be assigned only in case of a win, participation points are always given when applicable. If an athlete who has passed the official weigh-in does not show up for the competition, he will still appear in the standings and his name will be struck through.\nA no show due to failing the official weigh-in is not considered in-competition therefore the athlete will not be shown in the standings or given ranking points nor participation points if applicable.",
+  "contenido_traduccion": "Todos los atletas en competición se muestran en la clasificación de la categoría independientemente del número de victorias/derrotas. Los puntos de ranking por posición relevante se asignarán únicamente en caso de victoria; los puntos de participación siempre se otorgan cuando corresponda. Si un atleta que ha superado el pesaje oficial no se presenta a la competición, seguirá apareciendo en la clasificación y su nombre aparecerá tachado.\nUna no comparecencia debida a no superar el pesaje oficial no se considera en competición; por lo tanto, el atleta no aparecerá en la clasificación ni recibirá puntos de ranking ni de participación, si corresponde.",
+  "interpretacion": "Para obtener puntos de ranking por puesto final es indispensable lograr al menos una victoria. Quienes superan el pesaje oficial pero no combaten quedan con su nombre tachado en la tabla final pero computan como competidores. Quienes no superan o no asisten al pesaje no entran a la competición, quedando excluidos totalmente de resultados y puntos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 56",
+  "tags": [
+    "world-ranking-list",
+    "official-weigh-in",
+    "weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0581: Prohibición de competir en otros deportes de combate sin autorización de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0581",
+  "titulo": "Prohibición de competir en otros deportes de combate sin autorización de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "An athlete classified in any IJF WRL (either cadets, juniors or seniors) is not authorised to take part in an international competition of any combat sport, other than judo, unless authorisation has been given by the IJF. An international competition is defined as a competition where two (2) or more different nations take part. The national federation is responsible for controlling and sending the information on any cases to the IJF General Secretariat (gs@ijf .org). Failure to do so may result in disciplinary action for the national federation.",
+  "contenido_traduccion": "Un atleta clasificado en cualquier WRL de la IJF (ya sea cadetes, júniores o séniores) no está autorizado a participar en una competición internacional de cualquier deporte de combate que no sea judo, a menos que la IJF haya otorgado autorización. Una competición internacional se define como una competición donde participan dos (2) o más naciones diferentes. La federación nacional es responsable de controlar y enviar la información sobre cualquier caso a la Secretaría General de la IJF (gs@ijf.org). El incumplimiento de esto puede dar lugar a acciones disciplinarias para la federación nacional.",
+  "interpretacion": "Cualquier deportista que figure en la WRL (cadete, júnior o sénior) tiene prohibido participar en torneos internacionales de otras disciplinas de combate (donde compitan 2 o más países) sin permiso previo escrito de la IJF. Las federaciones nacionales deben vigilar este cumplimiento y reportarlo, so pena de sanciones a la propia federación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 56",
+  "tags": [
+    "cadet",
+    "senior",
+    "world-ranking-list",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0582: Sanciones automáticas por participación no autorizada en otros deportes de combate
+```json
+{
+  "id_conocimiento": "KUN-0582",
+  "titulo": "Sanciones automáticas por participación no autorizada en otros deportes de combate",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The automatic sanction system for athletes who did not ask the IJF for authorisation or did not respect the IJF decision is applicable as follows:\n• 1st violation: 2 months suspension from IJF and Continental Unions competitions and other judo activities e.g., training camp.\n• 2nd violation: 2 years suspension from IJF and Continental Unions competitions and other judo activities e.g., training camp.\n• Further violations will be referred to the IJF Disciplinary Committee.",
+  "contenido_traduccion": "El sistema de sanción automática para los atletas que no hayan solicitado autorización a la IJF o no hayan respetado la decisión de la IJF es aplicable de la siguiente manera:\n• 1.ª infracción: 2 meses de suspensión de competiciones de la IJF y Uniones Continentales y otras actividades de judo, p. ej., campos de entrenamiento.\n• 2.ª infracción: 2 años de suspensión de competiciones de la IJF y Uniones Continentales y otras actividades de judo, p. ej., campos de entrenamiento.\n• Infracciones adicionales: Se remitirán al Comité Disciplinario de la IJF.",
+  "interpretacion": "Si un judoka clasificado compite en otro deporte de combate sin autorización de la IJF, la primera infracción conlleva 2 meses de suspensión de toda actividad de judo (competiciones IJF, continentales y concentraciones); la segunda infracción acarrea 2 años de suspensión; reincidencias posteriores pasan directamente al Comité Disciplinario.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 56",
+  "tags": [
+    "world-ranking-list",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0583: Validez y degradación temporal de puntos en la Lista de Clasificación Mundial (WRL)
+```json
+{
+  "id_conocimiento": "KUN-0583",
+  "titulo": "Validez y degradación temporal de puntos en la Lista de Clasificación Mundial (WRL)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF World Ranking List (WRL) points count for 104 weeks (2 years) from the date of the event. During the first 52 weeks (year 1), points count at 100%. From week 53 to week 104 (year 2), points count at 50%. After 104 weeks, points expire completely (0%).",
+  "contenido_traduccion": "Los puntos de la Lista de Clasificación Mundial (WRL) de la IJF son válidos durante 104 semanas (2 años) a partir de la fecha del evento. Durante las primeras 52 semanas (año 1), los puntos cuentan al 100%. De la semana 53 a la semana 104 (año 2), los puntos cuentan al 50%. Después de las 104 semanas, los puntos expiran por completo (0%).",
+  "interpretacion": "Este sistema de degradación progresiva incentiva la participación constante de los competidores en el circuito oficial. Entrenadores y atletas deben considerar que los puntos pierden la mitad de su valor al cumplirse un año del evento y desaparecen tras dos años, afectando la posición de siembra para torneos posteriores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 57",
+  "tags": [
+    "world-ranking-list",
+    "seeding",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0584: Criterios de desempate en la Lista de Clasificación Mundial (WRL)
+```json
+{
+  "id_conocimiento": "KUN-0584",
+  "titulo": "Criterios de desempate en la Lista de Clasificación Mundial (WRL)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In the case of equal total points on the World Ranking List (WRL), the highest position will be assigned to the athlete who achieved the highest single score in a competition within the last 104 weeks. If athletes are still equal, the second best result, third best result, and so on will be compared. If still equal, the athlete who achieved the highest score chronologically first will be ranked higher.",
+  "contenido_traduccion": "En caso de igualdad de puntos totales en la Lista de Clasificación Mundial (WRL), la posición más alta se asignará al atleta que haya obtenido la mayor puntuación individual en una competición dentro de las últimas 104 semanas. Si continúan igualados, se comparará el segundo mejor resultado, el tercer mejor resultado y así sucesivamente. Si la igualdad persiste, el atleta que haya obtenido la puntuación más alta cronológicamente primero ocupará el lugar superior.",
+  "interpretacion": "Cuando dos judokas empatan en el total de puntos de la WRL, el sistema determina su puesto en el ranking evaluando primero la calidad de su mejor resultado individual. Esto resuelve la asignación de cabezas de serie antes del sorteo de un evento sin requerir decisiones discrecionales o sorteos manuales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 57",
+  "tags": [
+    "world-ranking-list",
+    "seeding",
+    "draw",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0585: No transferibilidad de puntos WRL entre categorías de peso
+```json
+{
+  "id_conocimiento": "KUN-0585",
+  "titulo": "No transferibilidad de puntos WRL entre categorías de peso",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "World Ranking List (WRL) points are specific to the weight category in which they were earned and cannot be transferred to another weight category under any circumstances. An athlete competing in a new weight category starts with zero points in that specific category.",
+  "contenido_traduccion": "Los puntos de la Lista de Clasificación Mundial (WRL) son específicos de la categoría de peso en la que se obtuvieron y no se pueden transferir a otra categoría de peso bajo ninguna circunstancia. Un atleta que compite en una nueva categoría de peso comienza con cero puntos en esa categoría específica.",
+  "interpretacion": "Si un atleta decide cambiar de categoría de peso corporal, debe acumular puntos de clasificación desde cero en la nueva división. Los puntos logrados anteriormente se mantendrán activos únicamente dentro del ranking de la categoría original hasta su vencimiento regular.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 57",
+  "tags": [
+    "world-ranking-list",
+    "weight-categories",
+    "seeding",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0586: Elegibilidad institucional para sumatoria de puntos en la WRL
+```json
+{
+  "id_conocimiento": "KUN-0586",
+  "titulo": "Elegibilidad institucional para sumatoria de puntos en la WRL",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Only athletes officially registered by their respective IJF recognised National Federation or competing under official IJF neutral athlete status are eligible to earn and accumulate World Ranking List (WRL) points in official IJF World Judo Tour events.",
+  "contenido_traduccion": "Solo los atletas inscritos oficialmente por su respectiva Federación Nacional reconocida por la IJF o que compitan bajo el estatus oficial de atleta neutral de la IJF son elegibles para ganar y acumular puntos en la Lista de Clasificación Mundial (WRL) en eventos oficiales del IJF World Judo Tour.",
+  "interpretacion": "Para acumular puntos oficiales para el ranking mundial y los procesos de clasificación olímpica/continental, los judokas deben estar avalados por su Federación Nacional afiliada o por el comité neutral autorizado por la IJF. No es posible participar o registrar puntos de forma independiente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 57",
+  "tags": [
+    "world-ranking-list",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0587: Responsabilidad y gestión de inscripciones en eventos de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0587",
+  "titulo": "Responsabilidad y gestión de inscripciones en eventos de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Entries for IJF events are the responsibility of the IJF Sport Commission and are managed by the IJF IT Team.",
+  "contenido_traduccion": "Las inscripciones para los eventos de la IJF son responsabilidad de la Comisión Deportiva de la IJF y son gestionadas por el Equipo de TI de la IJF.",
+  "interpretacion": "Establece el reparto de competencias organizativas para el proceso de inscripción en torneos oficiales de la IJF: la Comisión Deportiva supervisa el cumplimiento de las normas de elegibilidad e inscripción, mientras que el Equipo de TI administra operativamente los sistemas y plataformas informáticas de registro.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección Entradas y Acreditación, Página 58",
+  "tags": [
+    "procedure",
+    "portal",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0588: Canal de asistencia y contacto para inscripciones en eventos de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0588",
+  "titulo": "Canal de asistencia y contacto para inscripciones en eventos de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For assistance on the entries please contact registration@ijf.org",
+  "contenido_traduccion": "Para obtener asistencia sobre las inscripciones, comuníquese con registration@ijf.org",
+  "interpretacion": "Indica la vía oficial de soporte técnico y administrativo (registration@ijf.org) a la que deben dirigirse las Federaciones Nacionales o delegaciones que requieran ayuda, soporte o resolución de problemas durante el proceso de inscripción de sus competidores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección Entradas y Acreditación, Página 58",
+  "tags": [
+    "procedure",
+    "portal",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0589: Requisitos Generales de Elegibilidad para Delegados
+```json
+{
+  "id_conocimiento": "KUN-0589",
+  "titulo": "Requisitos Generales de Elegibilidad para Delegados",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "4 .1 Participation Rules for IJF WJT Events\nAny delegate is eligible to participate in a competition provided he fulfils the following requirements:\n• Not under a disciplinary suspension.\n• Not under suspension for anti-doping rule violation.\n• Not carrying any communicable diseases that may risk other delegates’ health.",
+  "contenido_traduccion": "4 .1 Reglas de Participación para Eventos del IJF WJT\nCualquier delegado es elegible para participar en una competición siempre que cumpla con los siguientes requisitos:\n• No estar bajo una suspensión disciplinaria.\n• No estar bajo suspensión por violación de las reglas antidopaje.\n• No ser portador de ninguna enfermedad transmisible que pueda poner en riesgo la salud de otros delegados.",
+  "interpretacion": "Todo participante acreditado como delegado (atletas, entrenadores, médicos u oficiales de equipo) debe cumplir con los requisitos básicos de disciplina, integridad antidopaje y salud pública. Si un delegado se encuentra suspendido formalmente por dopaje o medidas disciplinarias, o si padece una afección médica transmisible que amenace la salud de la delegación, se le denegará el derecho a participar en torneos del circuito IJF World Judo Tour.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.1 - Reglas de Participación para Eventos del IJF WJT, Página 59",
+  "tags": [
+    "procedure",
+    "medical",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0590: Certificación Obligatoria para Entrenadores en Torneos del IJF WJT
+```json
+{
+  "id_conocimiento": "KUN-0590",
+  "titulo": "Certificación Obligatoria para Entrenadores en Torneos del IJF WJT",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In addition to the above, to coach in Grand Prix, Grand Slam, Masters, World Championships Cadets Individual and Mixed Teams, World Championships Juniors Individual and Mixed Teams, World Championships Seniors Individual and Mixed Teams and Olympic Games, coaches must have either the IJF Academy Level 1 Instructor, the Undergraduate certificate Judo Instructor (UCJI), or the Master Coach certification.",
+  "contenido_traduccion": "Además de lo anterior, para entrenar en Grand Prix, Grand Slam, Masters, Campeonatos Mundiales Cadetes Individual y Equipos Mixtos, Campeonatos Mundiales Juniors Individual y Equipos Mixtos, Campeonatos Mundiales Seniors Individual y Equipos Mixtos y Juegos Olímpicos, los entrenadores deben poseer la certificación de Instructor Nivel 1 de la IJF Academy, el Certificado Universitario de Instructor de Judo (UCJI), o la certificación de Master Coach.",
+  "interpretacion": "Para ejercer funciones de entrenador a pie de tatami en competiciones oficiales de máximo nivel (Grand Prix, Grand Slam, Masters, Mundiales de cualquier categoría y Juegos Olímpicos), es requisito obligatorio contar con la titulación técnica oficial de la IJF Academy (mínimo Nivel 1, UCJI o Master Coach). De no poseer la certificación requerida, el entrenador no será acreditado para la zona de competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.1 - Reglas de Participación para Eventos del IJF WJT, Página 59",
+  "tags": [
+    "coaches",
+    "procedure",
+    "cadet",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0591: Exención de Certificación para Entrenadores en Campeonatos Mundiales de Veteranos
+```json
+{
+  "id_conocimiento": "KUN-0591",
+  "titulo": "Exención de Certificación para Entrenadores en Campeonatos Mundiales de Veteranos",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Coaches at the World Championships Veterans are exempt from this certification rule.",
+  "contenido_traduccion": "Los entrenadores en el Campeonato Mundial de Veteranos están exentos de esta regla de certificación.",
+  "interpretacion": "Representa una excepción expresa a la regla de titulación de la IJF Academy: los técnicos y entrenadores que asistan a deportistas en el Campeonato Mundial de Veteranos no necesitan contar obligatoriamente con el nivel 1 de la IJF Academy, UCJI o Master Coach para poder dirigir.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.1 - Reglas de Participación para Eventos del IJF WJT, Página 59",
+  "tags": [
+    "coaches",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0592: Requisitos de Elegibilidad y Cumplimiento de Edad para Atletas
+```json
+{
+  "id_conocimiento": "KUN-0592",
+  "titulo": "Requisitos de Elegibilidad y Cumplimiento de Edad para Atletas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In addition, athletes must:\n• Meet the IJF Athlete Eligibility Regulations (found in the IJF Governance Policies: www .ijf .org/ijf/documents/3)\n• Not be under medical suspension.\n• Be healthy and fit for competition.\n• Is the correct age for the competition that the athlete wants to enter. Any national federation entering athletes that are not of the correct age will be subject to an investigation and possible disciplinary action.",
+  "contenido_traduccion": "Además, los atletas deben:\n• Cumplir con las Regulaciones de Elegibilidad de Atletas de la IJF (que se encuentran en las Políticas de Gobernanza de la IJF: www.ijf.org/ijf/documents/3)\n• No estar bajo suspensión médica.\n• Estar sanos y aptos para la competición.\n• Tener la edad correcta para la competición en la que el atleta desea inscribirse. Cualquier federación nacional que inscriba atletas que no tengan la edad correcta estará sujeta a una investigación y a posibles acciones disciplinarias.",
+  "interpretacion": "Los competidores deben verificar su capacidad física y su encuadre en el grupo de edad estipulado. Si una Federación Nacional inscribe a un competidor fuera de los límites de edad exigidos por la categoría (ejemplo: cadete o junior fuera del rango de año de nacimiento), la IJF incoará expediente de investigación y sanción disciplinaria a la federación nacional responsable.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.1 - Reglas de Participación para Eventos del IJF WJT, Página 59",
+  "tags": [
+    "age",
+    "procedure",
+    "medical",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0593: Requisitos Técnicos Mínimos y Conocimiento del Reglamento para Atletas
+```json
+{
+  "id_conocimiento": "KUN-0593",
+  "titulo": "Requisitos Técnicos Mínimos y Conocimiento del Reglamento para Atletas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In addition, athletes must:\n• Have sufficient technical knowledge (know the terminology and all Kodokan classified judo techniques and variants; can execute all the techniques in Appendix G) and understand fully the IJF sport and refereeing rules. For all participants in World Championships juniors and cadets minimum technical requirements will be requested under the supervision of the IJF Judo Academy.",
+  "contenido_traduccion": "Además, los atletas deben:\n• Tener suficiente conocimiento técnico (conocer la terminología y todas las técnicas de judo clasificadas por el Kodokan y sus variantes; poder ejecutar todas las técnicas del Apéndice G) y comprender plenamente las reglas deportivas y de arbitraje de la IJF. Para todos los participantes en Campeonatos Mundiales juniors y cadetes, se requerirán requisitos técnicos mínimos bajo la supervisión de la IJF Judo Academy.",
+  "interpretacion": "Los competidores deben poseer el dominio teórico y práctico de las técnicas reconocidas por el Kodokan y de las reglas de arbitraje vigentes. Para las categorías Junior y Cadete que participan en Campeonatos Mundiales, la IJF Judo Academy verifica formalmente que los deportistas alcancen el estándar técnico mínimo para autorizar su participación en la competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.1 - Reglas de Participación para Eventos del IJF WJT, Página 59",
+  "tags": [
+    "cadet",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0594: Inscripción en Eventos del WJT y Excepción de Bandera Neutral o IJF
+```json
+{
+  "id_conocimiento": "KUN-0594",
+  "titulo": "Inscripción en Eventos del WJT y Excepción de Bandera Neutral o IJF",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "4 .2 Entries for IJF WJT Events\nOnly entries from member national judo federations will be accepted.\nIn some exceptional cases, the IJF can, to protect an athlete’s career, inscribe an athlete into an IJF event, under his national federation flag or under the IJF flag, according to the specificity of the case.",
+  "contenido_traduccion": "4 .2 Inscripciones para Eventos del IJF WJT\nSolo se aceptarán inscripciones de federaciones nacionales de judo miembro.\nEn algunos casos excepcionales, la IJF puede, para proteger la carrera de un atleta, inscribir a un atleta en un evento de la IJF, bajo la bandera de su federación nacional o bajo la bandera de la IJF, según la especificidad del caso.",
+  "interpretacion": "Por norma general, únicamente las federaciones nacionales asociadas a la IJF pueden inscribir judocas. Como excepción de protección deportiva, el Comité Ejecutivo de la IJF posee la potestad discrecional de inscribir directamente a un atleta (por ejemplo, en estatus de refugiado o ante disputas gubernamentales/federativas) bajo su bandera nacional o bajo la bandera de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.2 - Inscripciones para Eventos del IJF WJT, Página 59",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0595: Perfil Obligatorio de Judobase y Plazo Límite de Inscripción
+```json
+{
+  "id_conocimiento": "KUN-0595",
+  "titulo": "Perfil Obligatorio de Judobase y Plazo Límite de Inscripción",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "All participating delegates must have a Judobase profile and a valid IJF card and be inscribed in the event in Judobase by their national federation by the event deadline.",
+  "contenido_traduccion": "Todos los delegados participantes deben tener un perfil de Judobase y una tarjeta IJF válida y estar inscritos en el evento en Judobase por su federación nacional antes de la fecha límite del evento.",
+  "interpretacion": "Todo miembro de una delegación oficial (deportistas, médicos, entrenadores, directivos) requiere disponer de perfil en la plataforma Judobase y contar con la tarjeta de identificación IJF vigente. Las federaciones nacionales deben formalizar la inscripción antes del cierre del plazo en el sistema.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.2 - Inscripciones para Eventos del IJF WJT, Página 59",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0596: Tipos de Tarjetas IJF y su Alcance de Validez
+```json
+{
+  "id_conocimiento": "KUN-0596",
+  "titulo": "Tipos de Tarjetas IJF y su Alcance de Validez",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "There are two types of IJF cards:\n• IJF international cards (renewable every two years) can be used for all functions (athlete, coach, team official, doctor etc.) at IJF World Judo Tour events including world championships kata and veterans.\n• IJF veterans/kata cards (valid for life) can be used for all functions (athlete, coach, team official, doctor etc.) at the world championships kata and veterans. It cannot be used at other IJF World Judo Tour events.",
+  "contenido_traduccion": "Existen dos tipos de tarjetas IJF:\n• Tarjetas internacionales de la IJF (renovables cada dos años): se pueden utilizar para todas las funciones (atleta, entrenador, oficial de equipo, médico, etc.) en los eventos del IJF World Judo Tour, incluidos los campeonatos mundiales de kata y veteranos.\n• Tarjetas de veteranos/kata de la IJF (válidas de por vida): se pueden utilizar para todas las funciones (atleta, entrenador, oficial de equipo, médico, etc.) en los campeonatos mundiales de kata y veteranos. No se pueden utilizar en otros eventos del IJF World Judo Tour.",
+  "interpretacion": "Existen dos modalidades de credenciales oficiales: 1) La Tarjeta Internacional IJF, con validez de dos años, habilita al titular para desempeñarse en cualquier función en torneos del World Judo Tour, Kata y Veteranos. 2) La Tarjeta Veteranos/Kata, vitalicia, otorga acreditación exclusivamente para campeonatos de Kata y Veteranos, no siendo válida para torneos regulares del circuito mundial WJT.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.2 - Inscripciones para Eventos del IJF WJT, Página 59",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0597: Coincidencia de Datos con Pasaporte y Procedimiento de Corrección de Nombres
+```json
+{
+  "id_conocimiento": "KUN-0597",
+  "titulo": "Coincidencia de Datos con Pasaporte y Procedimiento de Corrección de Nombres",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The name and date of birth of each delegate should match that of their passport. If the person wishes to be known by another name, they should write to the IJF General Secretariat (gs@ijf .org) with copy to registration@ijf .org for approval. If someone has a name change or their name/date of birth is incorrect, the national federation should send a copy of the valid passport to registration@ijf .org so that their Judobase record can be updated.",
+  "contenido_traduccion": "El nombre y la fecha de nacimiento de cada delegado deben coincidir con los de su pasaporte. Si la persona desea ser conocida por otro nombre, debe escribir a la Secretaría General de la IJF (gs@ijf.org) con copia a registration@ijf.org para su aprobación. Si alguien tiene un cambio de nombre o si su nombre/fecha de nacimiento es incorrecto, la federación nacional debe enviar una copia del pasaporte válido a registration@ijf.org para que su registro en Judobase pueda ser actualizado.",
+  "interpretacion": "Los datos registrales de los participantes en Judobase deben ser estrictamente idénticos a los del pasaporte oficial. Para solicitar el uso de un nombre preferente, la persona debe requerir aprobación previa por correo electrónico. Para corregir fe de erratas o cambios de nombre legales, la federación nacional debe aportar copia legible del pasaporte en vigor al departamento de registro de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.2 - Inscripciones para Eventos del IJF WJT, Página 59",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0598: Inscripción en una Sola Categoría de Peso y Función por Evento
+```json
+{
+  "id_conocimiento": "KUN-0598",
+  "titulo": "Inscripción en una Sola Categoría de Peso y Función por Evento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes can be entered in ONLY one weight category per IJF World Ranking List (WRL) event. Each person can only be inscribed with one function (i.e., athlete, coach, referee, team official etc.) per event. This rule is not the same for veteran events (Appendix A).",
+  "contenido_traduccion": "Los atletas solo pueden ser inscritos en UNA categoría de peso por evento de la Lista de Clasificación Mundial de la IJF (WRL). Cada persona solo puede ser inscrita con una función (es decir, atleta, entrenador, árbitro, oficial de equipo, etc.) por evento. Esta regla no es la misma para los eventos de veteranos (Apéndice A).",
+  "interpretacion": "En eventos del circuito de la IJF puntuables para la WRL, ningún deportista puede competir en más de una categoría de peso ni se permite que una persona ejerza roles dobles o múltiples (por ejemplo, competir como atleta y al mismo tiempo ejercer como entrenador u oficial) durante la misma competición. Los torneos de veteranos están exentos de esta limitación estricta según su propio reglamento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 60",
+  "tags": [
+    "weight-categories",
+    "procedure",
+    "world-ranking-list",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0599: Procedimiento y Plazos para Cambios, Reemplazos y Cancelaciones de Delegaciones
+```json
+{
+  "id_conocimiento": "KUN-0599",
+  "titulo": "Procedimiento y Plazos para Cambios, Reemplazos y Cancelaciones de Delegaciones",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "After the deadline changes can be made one to one, like for like, due to injury or illness. For example, an injured athlete can be replaced by another athlete regardless of gender or weight category. An ill team official can be replaced by another team official etc.\nThe process is as follows:\n• Until fourteen (14) days before draw, the correct names of the complete delegation (athletes and officials) must be registered online on the IJF registration page (https://admin .judobase .org). During the period of Olympic qualification, for events where Olympic qualification points can be earned, no additional athletes (under any circumstances) can be inscribed after this deadline.\n• Until 5 days before the start of accreditation if a delegation has replacements and/or cancellations these changes must be entered online on Judobase.\n• Until start of accreditation, any last-minute replacements or cancellations must be sent to the IJF registration e-mail: registration@ijf .org. A confirmation will be sent from the IJF. Emails to registration@ijf .org only cancel the delegate for the competition, for accommodation cancellations you must email the LOC directly.\nDuring accreditation, registered athletes can be replaced by other athletes and registered officials can be replaced by other officials.",
+  "contenido_traduccion": "Después de la fecha límite, se pueden realizar cambios uno a uno, equivalente por equivalente, debido a lesión o enfermedad. Por ejemplo, un atleta lesionado puede ser reemplazado por otro atleta independientemente del género o categoría de peso. Un oficial de equipo enfermo puede ser reemplazado por otro oficial, etc.\nEl proceso es el siguiente:\n• Hasta catorce (14) días antes del sorteo, los nombres correctos de la delegación completa (atletas y oficiales) deben registrarse en línea en la página de registro de la IJF (https://admin .judobase .org). Durante el período de clasificación olímpica, para eventos donde se pueden ganar puntos de clasificación olímpica, no se pueden inscribir atletas adicionales (bajo ninguna circunstancia) después de esta fecha límite.\n• Hasta 5 días antes del inicio de la acreditación, si una delegación tiene reemplazos y/o cancelaciones, estos cambios deben ingresarse en línea en Judobase.\n• Hasta el inicio de la acreditación, cualquier reemplazo o cancelación de último minuto debe enviarse al correo electrónico de registro de la IJF: registration@ijf .org. Se enviará una confirmación desde la IJF. Los correos a registration@ijf .org solo cancelan al delegado para la competición; para cancelaciones de alojamiento se debe enviar un correo directamente al LOC.\nDurante la acreditación, los atletas registrados pueden ser reemplazados por otros atletas y los oficiales registrados pueden ser reemplazados por otros oficiales.",
+  "interpretacion": "Regula el protocolo de sustituciones y cancelaciones de la delegación. Hasta 14 días antes del sorteo vence la inscripción inicial (inamovible durante la clasificación olímpica). Entre los días 14 y 5 previos a la acreditación los cambios se realizan en Judobase; posteriormente y hasta el inicio de acreditación, mediante e-mail a registration@ijf.org. Durante la acreditación presencial solo se permite el reemplazo uno a uno del mismo tipo de función.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 60",
+  "tags": [
+    "procedure",
+    "portal",
+    "documentation",
+    "world-ranking-list"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0600: Acreditación Excepcional de Entrenadores para Múltiples Países
+```json
+{
+  "id_conocimiento": "KUN-0600",
+  "titulo": "Acreditación Excepcional de Entrenadores para Múltiples Países",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "A national federation coach can be accredited for ONLY one country per event except when prior permission has been given by the IJF after confirmation that all national federations involved agree. Requests from each of the national federation involved must be sent to the IJF General Secretariat, by email (gs@ijf .org). The coach must then be inscribed in the event for each country and an explanation sent to the LOC informing them that IJF permission has been given in order for them not to charge twice for the accommodation etc. and also inform them who is paying for the accommodation.",
+  "contenido_traduccion": "Un entrenador de una federación nacional solo puede ser acreditado para UN país por evento, excepto cuando la IJF haya otorgado autorización previa tras confirmar que todas las federaciones nacionales involucradas están de acuerdo. Las solicitudes de cada una de las federaciones nacionales involucradas deben enviarse a la Secretaría General de la IJF por correo electrónico (gs@ijf .org). El entrenador debe ser inscrito en el evento para cada país y se debe enviar una explicación al LOC informándoles que se ha otorgado el permiso de la IJF para que no cobren dos veces por el alojamiento, etc., e informándoles también quién paga el alojamiento.",
+  "interpretacion": "Un entrenador solo puede representar a un país en cada evento. Para dirigir a competidores de más de una federación, se requiere permiso previo por escrito concedido por la IJF tras la solicitud formal enviada a gs@ijf.org por todas las federaciones implicadas, garantizando además la coordinación de pago y alojamiento con el Comité Organizador Local.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 60",
+  "tags": [
+    "coaches",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0601: Incompatibilidad de Funciones para Presidentes de Federaciones Nacionales
+```json
+{
+  "id_conocimiento": "KUN-0601",
+  "titulo": "Incompatibilidad de Funciones para Presidentes de Federaciones Nacionales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The President of a national federation cannot act as a coach or referee during events organised by the IJF.",
+  "contenido_traduccion": "El Presidente de una federación nacional no puede actuar como entrenador o árbitro durante los eventos organizados por la IJF.",
+  "interpretacion": "Establece una prohibición expresa de incompatibilidad de roles directivos y técnicos: ninguna persona que ejerza la presidencia de una Federación Nacional de Judo puede desempeñarse como entrenador en la silla ni arbitrar combates en competiciones organizadas por la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 60",
+  "tags": [
+    "coaches",
+    "referee",
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0602: Sanción Económica por Cancelación de Atletas en Acreditación sin Notificación
+```json
+{
+  "id_conocimiento": "KUN-0602",
+  "titulo": "Sanción Económica por Cancelación de Atletas en Acreditación sin Notificación",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "4 .3 Cancellation of Athletes\nWhenever possible, cancellations should be made before accreditation. Any cancellation of an athlete during accreditation without replacement will result in the following penalty:\nIf registered athletes are cancelled during accreditation without previous notification to IJF, a penalty of 100 USD per athlete will apply.\nThis penalty will be charged by the IJF to the national federation.\nThe LOC has the right to charge cancellation fees as detailed in the event outlines.",
+  "contenido_traduccion": "4.3 Cancelación de Atletas\nSiempre que sea posible, las cancelaciones deben hacerse antes de la acreditación. Cualquier cancelación de un atleta durante la acreditación sin reemplazo dará lugar a la siguiente penalización:\nSi los atletas registrados son cancelados durante la acreditación sin notificación previa a la IJF, se aplicará una multa de 100 USD por atleta.\nEsta multa será cobrada por la IJF a la federación nacional.\nEl LOC tiene derecho a cobrar tarifas de cancelación según se detalla en las bases del evento.",
+  "interpretacion": "Si una Federación Nacional da de baja a un deportista durante la acreditación presencial, sin haber notificado con antelación a la IJF y sin presentar un reemplazo, la IJF impondrá una multa administrativa de 100 USD por atleta afectado a dicha federación. Esto no exime de los cobros o penalizaciones de alojamiento que ejecute el Comité Organizador Local (LOC).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.3 - Cancelación de Atletas, Página 60",
+  "tags": [
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0603: Inscripción Estándar y Elegibilidad por Ranking en Campeonato Mundial Senior
+```json
+{
+  "id_conocimiento": "KUN-0603",
+  "titulo": "Inscripción Estándar y Elegibilidad por Ranking en Campeonato Mundial Senior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "World Championships Seniors\nOnly athletes ranked number 1-100* in the IJF Seniors WRL, and athletes ranked number 1-16* in the IJF Juniors WRL, can take part with each national federation allowed to enter:\n• Up to 9 entries for women with maximum 2 athletes per category.\n• Up to 9 entries for men with maximum 2 athletes per category.\n*Equally ranked athletes can all participate.",
+  "contenido_traduccion": "Campeonato Mundial Senior\nSolo pueden participar los atletas clasificados del número 1 al 100* en la WRL Senior de la IJF, y los atletas clasificados del número 1 al 16* en la WRL Junior de la IJF, estando permitida a cada federación nacional la inscripción de:\n• Hasta 9 inscripciones para mujeres con un máximo de 2 atletas por categoría.\n• Hasta 9 inscripciones para hombres con un máximo de 2 atletas por categoría.\n*Todos los atletas que compartan la misma posición de clasificación pueden participar.",
+  "interpretacion": "Regula la cuota básica e itinerario de elegibilidad para el Campeonato Mundial Senior. Cada federación nacional puede inscribir como máximo 9 hombres y 9 mujeres (con un límite de 2 deportistas por categoría de peso). Para ser elegibles, los atletas deben figurar entre los 100 primeros de la Lista de Clasificación Mundial Senior o entre los 16 primeros de la WRL Junior. Si existen empates en los puestos de clasificación límite, todos los competidores involucrados tienen derecho a participar.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.4 - Número de Inscripciones, Página 61",
+  "tags": [
+    "senior",
+    "men",
+    "women",
+    "weight-categories",
+    "world-ranking-list",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0604: Cuotas de Inscripción y Puntuación WRL para el País Anfitrión en Mundial Senior
+```json
+{
+  "id_conocimiento": "KUN-0604",
+  "titulo": "Cuotas de Inscripción y Puntuación WRL para el País Anfitrión en Mundial Senior",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The host country may enter:\n• Up to 9 entries for women with maximum 2 athletes per category, regardless of WRL position.\n• Up to 9 entries for men with maximum 2 athletes per category, regardless of WRL position.\nHowever, from the host country only the best results from 9 men and 9 women will be considered for the IJF Seniors WRL.",
+  "contenido_traduccion": "El país anfitrión puede inscribir:\n• Hasta 9 inscripciones para mujeres con un máximo de 2 atletas por categoría, independientemente de su posición en la WRL.\n• Hasta 9 inscripciones para hombres con un máximo de 2 atletas por categoría, independientemente de su posición en la WRL.\nSin embargo, del país anfitrión solo se considerarán para la WRL Senior de la IJF los mejores resultados de 9 hombres y 9 mujeres.",
+  "interpretacion": "Exime al país anfitrión de la restricción de posición en el ranking (1-100 Senior / 1-16 Junior) para disputar el Mundial Senior, permitiéndole presentar hasta 9 competidores masculinos y 9 femeninos (máximo 2 por categoría). No obstante, para mantener la equidad competitiva en la WRL, únicamente se otorgarán puntos de ranking a los 9 mejores resultados obtenidos en cada rama por el país sede.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.4 - Número de Inscripciones, Página 61",
+  "tags": [
+    "senior",
+    "men",
+    "women",
+    "weight-categories",
+    "world-ranking-list",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0605: Wild Cards del Comité Organizador Local (LOC) en Campeonato Mundial Senior
+```json
+{
+  "id_conocimiento": "KUN-0605",
+  "titulo": "Wild Cards del Comité Organizador Local (LOC) en Campeonato Mundial Senior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Organisers of World Championships Seniors (especially cities and regions) could have additional wild cards for their local and regional athletes, not affecting quotas of the national federation. The number of athletes proposed by the LOC will be agreed by the IJF Head Sport Director. These athletes do not necessarily need to be ranked within the top 1-100 of the IJF Seniors WRL.",
+  "contenido_traduccion": "Los organizadores del Campeonato Mundial Senior (especialmente ciudades y regiones) podrían disponer de invitaciones (wild cards) adicionales para sus atletas locales y regionales, sin afectar las cuotas de la federación nacional. El número de atletas propuestos por el LOC será acordado por el Director Deportivo Principal de la IJF. Estos atletas no necesitan necesariamente estar clasificados dentro del top 1-100 de la WRL Senior de la IJF.",
+  "interpretacion": "Faculta al Comité Organizador Local (LOC) a otorgar invitaciones especiales a competidores de la ciudad o región anfitriona. Estas invitaciones son adicionales a la cuota nacional asignada a su federación y no exigen que el deportista esté situado en el top 100 del ranking mundial, requiriendo únicamente el acuerdo previo del Director Deportivo Principal de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.4 - Número de Inscripciones, Página 61",
+  "tags": [
+    "senior",
+    "world-ranking-list",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0606: Asignación y Procedimiento de Solicitud de Wild Cards por el Comité Ejecutivo de la IJF
+```json
+{
+  "id_conocimiento": "KUN-0606",
+  "titulo": "Asignación y Procedimiento de Solicitud de Wild Cards por el Comité Ejecutivo de la IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Up to 20 wild cards will be allocated by the IJF Executive Committee. Requests must be submitted by email to president@ijf .org, with a copy to gs@ijf .org, no later than four (4) weeks before the first day of competition.",
+  "contenido_traduccion": "El Comité Ejecutivo de la IJF asignará hasta 20 invitaciones (wild cards). Las solicitudes deben enviarse por correo electrónico a president@ijf.org, con copia a gs@ijf.org, a más tardar cuatro (4) semanas antes del primer día de competición.",
+  "interpretacion": "Establece el procedimiento de solicitud de las invitaciones directas gestionadas por el Comité Ejecutivo de la IJF (límite máximo global de 20 plazas). Las federaciones interesadas deben remitir su petición por correo electrónico formal a la Presidencia y Secretaría General de la IJF con una antelación mínima estricta de 4 semanas respecto al inicio del torneo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.4 - Número de Inscripciones, Página 61",
+  "tags": [
+    "senior",
+    "procedure",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0607: Fecha de Corte WRL y Prohibición de Categoría Open en Campeonato Mundial Senior
+```json
+{
+  "id_conocimiento": "KUN-0607",
+  "titulo": "Fecha de Corte WRL y Prohibición de Categoría Open en Campeonato Mundial Senior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF Head Sport Director will choose a date when the IJF Seniors WRL will be used for qualification and seeding for the World Championships Seniors.\nThere is no open category.",
+  "contenido_traduccion": "El Director Deportivo Principal de la IJF elegirá una fecha en la que se utilizará la WRL Senior de la IJF para la clasificación y cabezas de serie para el Campeonato Mundial Senior.\nNo hay categoría abierta (open).",
+  "interpretacion": "Determina que corresponde al Director Deportivo de la IJF fijar la fecha exacta de publicación de la WRL que servirá de referencia formal para validar clasificaciones y establecer las cabezas de serie en el Mundial Senior. Asimismo, confirma la inexistencia de la categoría abierta (Open/sin límite de peso) en el programa del Mundial Senior.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.4 - Número de Inscripciones, Página 61",
+  "tags": [
+    "senior",
+    "seeding",
+    "world-ranking-list",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0608: Cuotas de Inscripción para el Campeonato Mundial Open
+```json
+{
+  "id_conocimiento": "KUN-0608",
+  "titulo": "Cuotas de Inscripción para el Campeonato Mundial Open",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "World Championships Open\n• Up to 4 entries for women.\n• Up to 4 entries for men.",
+  "contenido_traduccion": "Campeonato Mundial Open\n• Hasta 4 inscripciones para mujeres.\n• Hasta 4 inscripciones para hombres.",
+  "interpretacion": "Fija las cuotas máximas de participación permitidas por federación nacional para el Campeonato Mundial de la categoría Open (sin límite de peso): cada país puede inscribir hasta 4 competidoras en la rama femenina y hasta 4 competidores en la masculina.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.4 - Número de Inscripciones, Página 61",
+  "tags": [
+    "men",
+    "women",
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0609: Cuotas de Inscripción y Wild Cards en Campeonato Mundial Junior
+```json
+{
+  "id_conocimiento": "KUN-0609",
+  "titulo": "Cuotas de Inscripción y Wild Cards en Campeonato Mundial Junior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "World Championships Juniors\n• Up to 9 entries for women with maximum 2 athletes per category.\n• Up to 9 entries for men with maximum 2 athletes per category.\nThe host country may enter:\n• Up to 14 entries for women with maximum 2 athletes per category.\n• Up to 14 entries for men with maximum 2 athletes per category.\nOrganisers of World Championships Juniors (especially cities and regions) could have additional wild cards for their local and regional athletes, not affecting quotas of the national federation. The number of athletes proposed by the LOC will be agreed by the IJF Head Sport Director.",
+  "contenido_traduccion": "Campeonato Mundial Junior\n• Hasta 9 inscripciones para mujeres con un máximo de 2 atletas por categoría.\n• Hasta 9 inscripciones para hombres con un máximo de 2 atletas por categoría.\nEl país anfitrión puede inscribir:\n• Hasta 14 inscripciones para mujeres con un máximo de 2 atletas por categoría.\n• Hasta 14 inscripciones para hombres con un máximo de 2 atletas por categoría.\nLos organizadores del Campeonato Mundial Junior (especialmente ciudades y regiones) podrían disponer de invitaciones (wild cards) adicionales para sus atletas locales y regionales, sin afectar las cuotas de la federación nacional. El número de atletas propuestos por el LOC será acordado por el Director Deportivo Principal de la IJF.",
+  "interpretacion": "Define el régimen de cuotas para el Campeonato Mundial Junior. Las federaciones participantes pueden enviar un máximo de 9 hombres y 9 mujeres (máx. 2 por categoría). Al país anfitrión se le concede una cuota ampliada de hasta 14 hombres y 14 mujeres (manteniendo el tope de 2 por categoría). Se autoriza además al comité organizador local a incluir judocas de la región mediante wild cards consensuadas con la Dirección Deportiva de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 4.4 - Número de Inscripciones, Página 61",
+  "tags": [
+    "men",
+    "women",
+    "weight-categories",
+    "competition-system",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0610: Limitación de Puntuación WRL para País Anfitrión en Juniors y Seniors
+```json
+{
+  "id_conocimiento": "KUN-0610",
+  "titulo": "Limitación de Puntuación WRL para País Anfitrión en Juniors y Seniors",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "However, from the host country only the best results from 9 men and 9 women will be considered for the IJF Juniors WRL and IJF Seniors WRL. There is no open category.",
+  "contenido_traduccion": "Sin embargo, del país anfitrión solo se considerarán los mejores resultados de 9 hombres y 9 mujeres para el WRL de IJF Juniors y WRL de IJF Seniors. No hay categoría abierta.",
+  "interpretacion": "Para el país anfitrión en competiciones Junior y Senior, aunque pueda presentar una mayor cantidad de deportistas, únicamente puntuarán en la clasificación mundial (WRL) los 9 mejores resultados masculinos y los 9 mejores femeninos. Asimismo, se reitera la no existencia de categoría de peso abierto.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 62",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0611: Cuotas de Inscripción para el Campeonato Mundial Cadetes
+```json
+{
+  "id_conocimiento": "KUN-0611",
+  "titulo": "Cuotas de Inscripción para el Campeonato Mundial Cadetes",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "World Championships Cadets\n• Up to 10 entries for women with maximum 2 athletes per category.\n• Up to 10 entries for men with maximum 2 athletes per category.\nThe host country may enter:\n• Up to 16 entries for women with maximum 2 athletes per category.\n• Up to 16 entries for men with maximum 2 athletes per category.",
+  "contenido_traduccion": "Campeonatos Mundiales Cadetes\n• Hasta 10 inscripciones para mujeres con un máximo de 2 atletas por categoría.\n• Hasta 10 inscripciones para hombres con un máximo de 2 atletas por categoría.\nEl país anfitrión puede inscribir:\n• Hasta 16 inscripciones para mujeres con un máximo de 2 atletas por categoría.\n• Hasta 16 inscripciones para hombres con un máximo de 2 atletas por categoría.",
+  "interpretacion": "En el Campeonato Mundial Cadete, cada federación nacional puede inscribir hasta 10 competidores masculinos y 10 femeninos, garantizando que no haya más de 2 atletas por categoría de peso. Para la federación del país anfitrión, la cuota total se incrementa hasta 16 atletas masculinos y 16 femeninos, manteniendo la restricción de un máximo de 2 por categoría.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 62",
+  "tags": [
+    "cadet",
+    "men",
+    "women",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0612: Invitaciones Wild Cards y Puntuación WRL del País Anfitrión en Cadetes
+```json
+{
+  "id_conocimiento": "KUN-0612",
+  "titulo": "Invitaciones Wild Cards y Puntuación WRL del País Anfitrión en Cadetes",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "Organisers of World Championships Cadets (especially cities and regions) could have additional wild cards for their local and regional athletes, not affecting quotas of the national federation. The number of athletes proposed by the local organising committee will be agreed by the IJF Head Sport Director.\nHowever, from the host country only the best results from 10 men and 10 women will be considered for the IJF Cadets WRL.\nThere is no open category.",
+  "contenido_traduccion": "Los organizadores de los Campeonatos Mundiales Cadetes (especialmente ciudades y regiones) podrían disponer de invitaciones (wild cards) adicionales para sus atletas locales y regionales, sin afectar las cuotas de la federación nacional. El número de atletas propuesto por el comité organizador local será acordado por el Director de Deportes de la IJF.\nSin embargo, del país anfitrión solo se considerarán los mejores resultados de 10 hombres y 10 mujeres para el WRL de IJF Cadetes.\nNo hay categoría abierta.",
+  "interpretacion": "Los organizadores del Mundial Cadete pueden solicitar cupos adicionales (wild cards) para deportistas locales sin perjudicar el cupo general de la federación nacional, previa aprobación de la IJF. Sin embargo, a efectos del ranking mundial de cadetes (Cadets WRL), solo se contabilizarán los puntos de los 10 mejores masculinos y las 10 mejores femeninas del país anfitrión.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 62",
+  "tags": [
+    "cadet",
+    "world-ranking-list",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0613: Cuota de Inscripción para el Campeonato Mundial de Equipos Mixtos
+```json
+{
+  "id_conocimiento": "KUN-0613",
+  "titulo": "Cuota de Inscripción para el Campeonato Mundial de Equipos Mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "World Championships Mixed Teams\n• 1 mixed team per national federation with maximum 2 athletes per mixed team category.",
+  "contenido_traduccion": "Campeonatos Mundiales por Equipos Mixtos\n• 1 equipo mixto por federación nacional con un máximo de 2 atletas por categoría de equipo mixto.",
+  "interpretacion": "Cada federación nacional participante en los Campeonatos Mundiales de Equipos Mixtos está limitada a presentar un único equipo. Dentro de la plantilla del equipo, se autoriza inscribir hasta 2 judocas por cada categoría de peso reglamentada para la prueba mixta.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 62",
+  "tags": [
+    "competition-system"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0614: Reglas de Inscripción para Campeonato Mundial y Series Mundiales de Kata
+```json
+{
+  "id_conocimiento": "KUN-0614",
+  "titulo": "Reglas de Inscripción para Campeonato Mundial y Series Mundiales de Kata",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "World Championships Kata\nSeniors and U21 groups\n• A maximum of 3 pairs in a kata.\nKata World Series\nSeniors and U21 groups\nThere is no limit to the number of athletes from the same country that can be inscribed in a kata.",
+  "contenido_traduccion": "Campeonatos Mundiales de Kata\nGrupos Seniors y U21\n• Un máximo de 3 parejas en un kata.\nKata World Series\nGrupos Seniors y U21\nNo hay límite para el número de atletas del mismo país que pueden inscribirse en un kata.",
+  "interpretacion": "En el Campeonato Mundial de Kata (categorías Senior y Sub-21), cada federación puede anotar como máximo 3 parejas en una misma modalidad de kata. En contraste, para los eventos del circuito Kata World Series, no existe restricción de número de participantes ni parejas de un mismo país por modalidad.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 62",
+  "tags": [
+    "competition-system",
+    "senior",
+    "age"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0615: Inscripción en el Campeonato Mundial Veteranos
+```json
+{
+  "id_conocimiento": "KUN-0615",
+  "titulo": "Inscripción en el Campeonato Mundial Veteranos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "World Championships Veterans\nThere is no limit to the number of athletes from the same country that can be inscribed in a category.",
+  "contenido_traduccion": "Campeonatos Mundiales Veteranos\nNo hay límite para el número de atletas del mismo país que pueden inscribirse en una categoría.",
+  "interpretacion": "Para el Campeonato Mundial de la categoría de Veteranos, no se aplican restricciones ni cuotas máximas de deportistas que un país o federación nacional pueda inscribir dentro de una misma categoría de peso/edad.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 62",
+  "tags": [
+    "age"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0616: Criterios de Clasificación y Selección para el World Masters
+```json
+{
+  "id_conocimiento": "KUN-0616",
+  "titulo": "Criterios de Clasificación y Selección para el World Masters",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "World Masters\n• The top 36 athletes in the IJF Seniors WRL in each weight category will be invited. No reserve athletes will be invited.\nIf an athlete qualifies in more than one category, the national federation can decide in which category they will take part. The national federation will be given a deadline for this decision.\nIf they do not decide on time, the IJF will take the decision based on the highest-ranking position and that will be the category that is chosen. No replacement athlete will be invited in the category that is not chosen.\nAthletes can only be entered in the weight category for which they have been selected.",
+  "contenido_traduccion": "World Masters\n• Se invitará a los 36 mejores atletas del WRL IJF Seniors en cada categoría de peso. No se invitará a atletas de reserva.\nSi un atleta clasifica en más de una categoría, la federación nacional puede decidir en qué categoría participará. Se otorgará un plazo a la federación nacional para tomar esta decisión.\nSi no deciden a tiempo, la IJF tomará la decisión basándose en la posición de ranking más alta y esa será la categoría elegida. No se invitará a un atleta de reemplazo en la categoría no elegida.\nLos atletas solo pueden ser inscritos en la categoría de peso para la cual han sido seleccionados.",
+  "interpretacion": "El prestigioso torneo World Masters convoca estrictamente a los primeros 36 del ranking mundial Senior de cada peso, sin lista de reservas ni sustitutos. Si un competidor está entre los 36 mejores en dos categorías, la federación debe informar en cuál participará antes de la fecha límite estipulada; si no lo hace, la IJF elegirá automáticamente aquella en la que tenga mejor posición. La plaza libre que quede en la otra categoría no se cubrirá con ningún otro deportista.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 3 - Clasificación Mundial (WRL), Página 62",
+  "tags": [
+    "world-ranking-list",
+    "senior",
+    "weight-categories",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0617: Ubicación y requisitos técnicos de básculas para el pesaje oficial
+```json
+{
+  "id_conocimiento": "KUN-0617",
+  "titulo": "Ubicación y requisitos técnicos de básculas para el pesaje oficial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The weigh-in can take place in one (1) location, either in the competition venue or in an official hotel allocated by the LOC for participating delegations. The official weigh-in must be held in separate rooms for men and women, with sufficient calibrated electronic scales (maximum 4 digits, e.g., 000.0, 200 kg capacity) displaying only one decimal place (e.g., 51.9 kg, 154.6 kg). If the scales display more than one decimal place, the extra digits must be covered with tape. If more than one (1) scale is used, the corresponding weight category to be controlled must be clearly indicated next to each scale. A level, solid floor is preferred; if the room has carpet, the scales should be placed on a large, level piece of solid wood.",
+  "contenido_traduccion": "El pesaje puede llevarse a cabo en una (1) ubicación, ya sea en el recinto de competición o en un hotel oficial asignado por el COL para las delegaciones participantes. El pesaje oficial debe realizarse en salas separadas para hombres y mujeres, con suficientes básculas electrónicas calibradas (máximo 4 dígitos, p. ej., 000.0, capacidad de 200 kg) que muestren solo un decimal (p. ej., 51.9 kg, 154.6 kg). Si las básculas muestran más de un decimal, los dígitos adicionales deben cubrirse con cinta adhesiva. Si se utiliza más de una (1) báscula, la categoría de peso correspondiente a controlar debe estar claramente indicada al lado de cada báscula. Se prefiere un suelo nivelado y sólido; si la sala tiene moqueta, las básculas deben colocarse sobre una pieza grande y nivelada de madera sólida.",
+  "interpretacion": "Establece las condiciones físicas e instrumentales obligatorias para la ejecución del pesaje oficial. Exige el uso de salas separadas por género, básculas calibradas configuradas para mostrar un único decimal y colocadas sobre una superficie firme y nivelada para evitar imprecisiones por deformaciones en superficies blandas como alfombras.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 73",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "procedure",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0618: Horario, duración y responsabilidad del atleta en el pesaje oficial
+```json
+{
+  "id_conocimiento": "KUN-0618",
+  "titulo": "Horario, duración y responsabilidad del atleta en el pesaje oficial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For IJF events, the official weigh-in is scheduled one day before the competition at 16:00 local time. Any changes to this schedule (e.g., Olympic Games opening ceremony) must be approved by the IJF Sport Commission. The official weigh-in lasts between 30 and 60 minutes; the exact times will be published in the event outlines. Passing the official weigh-in is the responsibility of the athlete. Only the weight recorded on the official scale for the athlete’s weight category will be considered. Full details of the weigh-in procedures are provided in the event outlines.",
+  "contenido_traduccion": "Para los eventos de la IJF, el pesaje oficial está programado un día antes de la competición a las 16:00 hora local. Cualquier cambio en este horario (p. ej., la ceremonia de apertura de los Juegos Olímpicos) debe ser aprobado por la Comisión Deportiva de la IJF. El pesaje oficial dura entre 30 y 60 minutos; los horarios exactos se publicarán en el programa general del evento (outlines). Pasar el pesaje oficial es responsabilidad del atleta. Solo se considerará el peso registrado en la báscula oficial correspondiente a la categoría de peso del atleta. Todos los detalles de los procedimientos de pesaje se proporcionan en el programa del evento.",
+  "interpretacion": "Regula el marco temporal estricto del pesaje oficial (16:00 del día anterior a competir, con duración de 30 a 60 minutos). Asigna la responsabilidad absoluta al competidor de dar el peso en su báscula designada dentro del lapso estipulado, aclarando que únicamente se valida la lectura de la báscula oficial de su categoría.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 73",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "time",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0619: Personal oficial, privacidad y listas de control para el pesaje oficial
+```json
+{
+  "id_conocimiento": "KUN-0619",
+  "titulo": "Personal oficial, privacidad y listas de control para el pesaje oficial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The LOC must provide a minimum of two (2) national referees/officials per official scale: • One (1) to verify the athlete’s passport and weight. • One (1) to record the exact weight on the official weigh-in list. • An additional official or volunteer should manage the flow of athletes. To ensure athlete privacy, officials supervising the weigh-in must be of the same gender as the athletes. The IJF IT team will provide one copy of the weigh-in list per weight category for the LOC and one copy for each member of the IJF Sport Commission conducting the weigh-in before the official weigh-in begins.",
+  "contenido_traduccion": "El COL debe proporcionar un mínimo de dos (2) árbitros/oficiales nacionales por báscula oficial: • Uno (1) para verificar el pasaporte y el peso del atleta. • Uno (1) para registrar el peso exacto en la lista oficial de pesaje. • Un oficial o voluntario adicional debe gestionar el flujo de atletas. Para garantizar la privacidad del atleta, los oficiales que supervisen el pesaje deben ser del mismo género que los atletas. El equipo de TI de la IJF proporcionará una copia de la lista de pesaje por categoría de peso para el COL y una copia para cada miembro de la Comisión Deportiva de la IJF que dirija el pesaje antes de que comience el pesaje oficial.",
+  "interpretacion": "Define los recursos humanos obligatorios por báscula para garantizar el control documental y el registro preciso del peso. Exige la coincidencia de género entre oficiales y competidores para resguardar la privacidad de los atletas, y norma la entrega previa de las listas de pesaje a las autoridades de la competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 73",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "procedure",
+    "referee"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0620: Prohibición de grabación audiovisual y restricciones de acceso en el área de pesaje
+```json
+{
+  "id_conocimiento": "KUN-0620",
+  "titulo": "Prohibición de grabación audiovisual y restricciones de acceso en el área de pesaje",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Photography or filming is strictly prohibited in the weigh-in area. Access to weigh-in rooms is restricted by gender: only male coaches, officials, athletes, and referees may enter the men’s room, and only female personnel may enter the women’s room. All coaches and team delegates must leave the weigh-in room before the unofficial weigh-in begins and may only return after the official weigh-in concludes.",
+  "contenido_traduccion": "Fotografiar o filmar está estrictamente prohibido en el área de pesaje. El acceso a las salas de pesaje está restringido por género: solo entrenadores, oficiales, atletas y árbitros masculinos pueden entrar en la sala de hombres, y solo el personal femenino puede entrar en la sala de mujeres. Todos los entrenadores y delegados del equipo deben abandonar la sala de pesaje antes de que comience el pesaje no oficial y solo podrán regresar después de que concluya el pesaje oficial.",
+  "interpretacion": "Prohíbe totalmente tomar fotos o videos en el recinto de pesaje para proteger la privacidad de los deportistas. Restringe el acceso a la sala estrictamente al personal del mismo sexo del pesaje e impone el desalojo obligatorio de entrenadores y delegados durante los períodos de pesaje no oficial y oficial.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 73",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "coaches",
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0621: Protocolo de conducta y vestimenta del atleta durante el pesaje oficial
+```json
+{
+  "id_conocimiento": "KUN-0621",
+  "titulo": "Protocolo de conducta y vestimenta del atleta durante el pesaje oficial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The weigh-in area should maintain a calm and quiet atmosphere. Athletes should remain quiet throughout the process unless asked a question by a weigh-in official. To ensure a smooth process, athletes should line up in their underclothing with all documents ready before the official weigh-in starts.",
+  "contenido_traduccion": "El área de pesaje debe mantener un ambiente de calma y silencio. Los atletas deben permanecer en silencio durante todo el proceso, a menos que un oficial de pesaje les haga una pregunta. Para garantizar un proceso fluido, los atletas deben alinearse en ropa interior con todos los documentos listos antes de que comience el pesaje oficial.",
+  "interpretacion": "Instruye la disciplina dentro de la sala de pesaje: mantener silencio, presentarse alineados en ropa interior y contar con toda la documentación oficial de identificación en mano previamente al inicio formal para agilizar la verificación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 73",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "conduct",
+    "procedure",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0622: Documentación requerida para el pesaje oficial
+```json
+{
+  "id_conocimiento": "KUN-0622",
+  "titulo": "Documentación requerida para el pesaje oficial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes must present:\n• Their IJF accreditation card issued for the competition.\n• Photographic proof of identity: valid passport or national ID card showing the same nationality as the country of issue. The document presented must be the same nationality that the athlete is representing in the competition. Travel documents resembling passports are not accepted. Athletes who have permission to take part in IJF events under rule 1.7.2 who do not have a valid passport issued by the represented country must present either a photographic identity or refugee travel document and the IJF authorisation letter.\nThe officials will verify all documents before inviting the athlete to step on the scales.",
+  "contenido_traduccion": "Los atletas deben presentar:\n• Su tarjeta de acreditación de la IJF emitida para la competición.\n• Prueba de identidad con fotografía: pasaporte válido o documento nacional de identidad que muestre la misma nacionalidad que el país de emisión. El documento presentado debe ser de la misma nacionalidad que el atleta representa en la competición. No se aceptan documentos de viaje similares a pasaportes. Los atletas que tengan permiso para participar en eventos de la IJF según la regla 1.7.2 y no posean un pasaporte válido emitido por el país representado deben presentar una identidad con fotografía o documento de viaje de refugiado y la carta de autorización de la IJF.\nLos oficiales verificarán todos los documentos antes de invitar al atleta a subir a la báscula.",
+  "interpretacion": "Antes de permitir que el atleta suba a la báscula, los oficiales del pesaje deben comprobar formalmente su acreditación de la competición y su documento de identidad original con foto. La nacionalidad del documento debe coincidir con la que representa el deportista. Para casos especiales (atletas bajo la regla 1.7.2), se requiere un documento de viaje de refugiado o documento con foto junto con la carta de autorización explícita de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 74",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0623: Vestimenta, objetos prohibidos y procedimiento en la báscula para el pesaje oficial
+```json
+{
+  "id_conocimiento": "KUN-0623",
+  "titulo": "Vestimenta, objetos prohibidos y procedimiento en la báscula para el pesaje oficial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes must weigh in wearing only underclothing:\n• Men: underpants, optionally a vest top.\n• Women: underpants and a bra or vest top.\nAll head coverings, watches, glasses, socks, jewelry, and body piercings must be removed. Athletes may remove underclothing without stepping off the scales to meet the weight limits of their category. Each athlete may stand on the scales only once during the official weigh-in period. The supervising official will record the weight in kilograms to one decimal place (e.g., 51.9 kg, 73.0 kg). The athlete will then steps off the scales.",
+  "contenido_traduccion": "Los atletas deben pesarse vistiendo únicamente ropa interior:\n• Hombres: calzoncillos y opcionalmente una camiseta interior sin mangas.\n• Mujeres: ropa interior y un sujetador o camiseta interior sin mangas.\nSe deben retirar todas las prendas para la cabeza, relojes, gafas, calcetines, joyas y piercings corporales. Los atletas pueden quitarse la ropa interior sin bajarse de la báscula para cumplir con los límites de peso de su categoría. Cada atleta puede subirse a la báscula una sola vez durante el período de pesaje oficial. El oficial supervisor registrará el peso en kilogramos con un decimal (ej. 51,9 kg, 73,0 kg). A continuación, el atleta bajará de la báscula.",
+  "interpretacion": "El atleta dispone de un solo intento para pesarse durante el pesaje oficial. Debe acudir sin ningún accesorio (relojes, gafas, calcetines, joyas, piercings o cobertura para la cabeza). Si se encuentra cerca del límite, se le autoriza a quitarse la ropa interior sin bajarse de la báscula. El peso oficial es registrado por el oficial a cargo en kilogramos con un único decimal.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 74",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "procedure",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0624: Incomparecencia al pesaje oficial (Sección 6.2.5.1)
+```json
+{
+  "id_conocimiento": "KUN-0624",
+  "titulo": "Incomparecencia al pesaje oficial (Sección 6.2.5.1)",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6.2.5.1 Failure to Appear for the Official Weigh-in\nIf an athlete does not appear for the official weigh-in, this is noted beside his name on the official weigh-in list. The notation must be signed by a weigh-in official and the IJF delegate.\nThe athlete will be excluded from the competition.\nA decision on special cases (force majeure etc.) will be taken by the IJF Sport Commission.",
+  "contenido_traduccion": "6.2.5.1 Incomparecencia al pesaje oficial\nSi un atleta no se presenta al pesaje oficial, esto se anotará al lado de su nombre en la lista oficial de pesaje. La anotación debe ser firmada por un oficial de pesaje y el delegado de la IJF.\nEl atleta será excluido de la competición.\nLa decisión sobre casos especiales (fuerza mayor, etc.) será tomada por la Comisión Deportiva de la IJF.",
+  "interpretacion": "Si un competidor no acude dentro del tiempo reglamentario al pesaje oficial, queda automáticamente descalificado y excluido del evento. Se realiza una anotación formal avalada por un oficial de pesaje y el delegado de la IJF. Únicamente la Comisión Deportiva de la IJF tiene la potestad de evaluar y resolver casos especiales justificados por fuerza mayor.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 74",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0625: Incumplimiento de los límites de peso de la categoría (Sección 6.2.5.2)
+```json
+{
+  "id_conocimiento": "KUN-0625",
+  "titulo": "Incumplimiento de los límites de peso de la categoría (Sección 6.2.5.2)",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6.2.5.2 Failure to Weigh Within the Category Limits\nIf an athlete weighs above or below their category limits: The exact weight will be recorded and signed by a weigh-in official, an IJF Sport Commission member, and the athlete or a representative of his delegation. The athlete will be excluded from the competition.",
+  "contenido_traduccion": "6.2.5.2 Incumplimiento de los límites de peso de la categoría\nSi un atleta se pesa por encima o por debajo de los límites de su categoría: Se registrará el peso exacto y será firmado por un oficial de pesaje, un miembro de la Comisión Deportiva de la IJF y el atleta o un representante de su delegación. El atleta será excluido de la competición.",
+  "interpretacion": "Si el resultado en la báscula no coincide exactamente con el rango permitido para la categoría inscrita (ya sea por exceso o por defecto), el atleta queda formalmente excluido del torneo. Para ratificar la falta, el peso exacto se hace constar en un acta firmada conjuntamente por el oficial de pesaje, un delegado de la Comisión Deportiva de la IJF y el deportista o su delegado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 74",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0626: Incumplimiento de instrucciones oficiales o de la normativa SOR durante el pesaje (Sección 6.2.5.3)
+```json
+{
+  "id_conocimiento": "KUN-0626",
+  "titulo": "Incumplimiento de instrucciones oficiales o de la normativa SOR durante el pesaje (Sección 6.2.5.3)",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6.2.5.3 Failure to Comply with Official Directions or the IJF SOR\nAny athlete who ignores instructions from a weigh-in official or an IJF delegate, or fails to comply with the IJF SOR, will be prevented from participating in the weigh-in. The infraction will be immediately reported to the IJF Sport Director.",
+  "contenido_traduccion": "6.2.5.3 Incumplimiento de las instrucciones oficiales o del SOR de la IJF\nCualquier atleta que ignore las instrucciones de un oficial de pesaje o delegado de la IJF, o no cumpla con la normativa SOR de la IJF, se le impedirá participar en el pesaje. La infracción se reportará inmediatamente al Director Deportivo de la IJF.",
+  "interpretacion": "Cualquier falta de respeto, desacato a las instrucciones de los oficiales o incumplimiento del reglamento deportivo durante la sesión de pesaje impedirá que el atleta realice el pesaje, quedando en la práctica fuera del evento. La falta debe comunicarse de forma inmediata al Director Deportivo de la IJF para las sanciones correspondientes.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 74",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0627: Inhabilitación para competir por pesaje oficial no superado (Sección 6.2.5.4)
+```json
+{
+  "id_conocimiento": "KUN-0627",
+  "titulo": "Inhabilitación para competir por pesaje oficial no superado (Sección 6.2.5.4)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6.2.5.4 After Official Weigh-in\nAthletes who do not pass the official weigh-in are not allowed to compete (see Section 3.5).",
+  "contenido_traduccion": "6.2.5.4 Después del pesaje oficial\nLos atletas que no superen el pesaje oficial no tienen permitido competir (véase la Sección 3.5).",
+  "interpretacion": "Es requisito indispensable superar con éxito el pesaje oficial para ser incluido en las llaves de competición y poder salir al tatami. Si el atleta no supera el pesaje por cualquier razón reglamentaria, no podrá competir bajo ninguna circunstancia.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 74",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0628: Regla General del Pesaje Aleatorio y Límite de Tolerancia (+5%)
+```json
+{
+  "id_conocimiento": "KUN-0628",
+  "titulo": "Regla General del Pesaje Aleatorio y Límite de Tolerancia (+5%)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Random weight checks for athletes will be organised and are the responsibility of the IJF Education and Coaching Commission. Random weigh-in is carried out for individual events only, there will be no random weigh-in for IJF Mixed Team events. For IJF World Judo Tour (WJT) events the random weigh-in will open one hour before the start of the competition each day. The time limit to arrive to the random weigh-in is 30 minutes or 6 contests before the athlete’s first contest at the latest. The athletes must bring their accreditation for identification. The weight of the athlete cannot be more than 5 % higher than the official maximum weight limit of the category (refer to table 6.3.4: Weight Categories for the Random Weigh-in with Tolerances).",
+  "contenido_traduccion": "Los controles aleatorios de peso para atletas serán organizados y son responsabilidad de la Comisión de Educación y Entrenamiento de la IJF. El pesaje aleatorio se realiza únicamente para eventos individuales; no habrá pesaje aleatorio para los eventos de Equipos Mixtos de la IJF. Para los eventos del IJF World Judo Tour (WJT), el pesaje aleatorio se abrirá una hora antes del inicio de la competición cada día. El límite de tiempo para llegar al pesaje aleatorio es de 30 minutos o 6 combates antes del primer combate del atleta como máximo. Los atletas deben presentar su acreditación para su identificación. El peso del atleta no puede superar en más del 5 % el límite máximo oficial de peso de la categoría (consulte la tabla 6.3.4: Categorías de peso para el pesaje aleatorio con tolerancias).",
+  "interpretacion": "El pesaje aleatorio aplica solo en competencias individuales y busca verificar que los atletas no hayan subido excesivamente de peso tras el pesaje oficial del día anterior. La tolerancia máxima permitida es de un 5% sobre el límite de la categoría. El atleta seleccionado debe acudir con su acreditación oficial como máximo 30 minutos antes de su primer combate o 6 combates antes del mismo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6.3 - Reglamento de Pesaje, Página 75",
+  "tags": [
+    "weigh-in",
+    "random-weigh-in",
+    "tolerance",
+    "procedure",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0629: Sorteo de Atletas para el Pesaje Aleatorio
+```json
+{
+  "id_conocimiento": "KUN-0629",
+  "titulo": "Sorteo de Atletas para el Pesaje Aleatorio",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6 .3 .1 Draw of the Athletes (individual events)\nThe draw of the athletes will be done by means of software on a laptop, one (1) hour before the start of the competition. This will be done at the place of the IJF IT person running the competition. Four athletes per category (except those that are plus categories) will be drawn.",
+  "contenido_traduccion": "6.3.1 Sorteo de Atletas (eventos individuales)\nEl sorteo de los atletas se realizará mediante un software en un ordenador portátil, una (1) hora antes del inicio de la competición. Esto se llevará a cabo en el lugar de la persona de TI de la IJF que gestiona la competición. Se sortearán cuatro atletas por categoría (excepto las categorías de peso pesado/+).",
+  "interpretacion": "Exactamente una hora antes de iniciar las acciones del día, el responsable de sistemas de la IJF genera un sorteo digital aleatorio eligiendo a 4 competidores por cada categoría de peso. Las categorías de peso pesado (+ de cada rama) quedan totalmente exentas del pesaje aleatorio.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6.3.1 - Reglamento de Pesaje, Página 75",
+  "tags": [
+    "draw",
+    "random-weigh-in",
+    "weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0630: Publicación de la Lista de Atletas para el Pesaje Aleatorio
+```json
+{
+  "id_conocimiento": "KUN-0630",
+  "titulo": "Publicación de la Lista de Atletas para el Pesaje Aleatorio",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6 .3 .2 Collecting the Athletes\nThe list of named athletes drawn for the random weigh-in will be officially posted on the official notice board placed near the warm-up area and online in the IJF notice board Telegram group.",
+  "contenido_traduccion": "6.3.2 Convocatoria de los Atletas\nLa lista de los atletas seleccionados por sorteo para el pesaje aleatorio se publicará oficialmente en el tablón de anuncios oficial situado cerca de la zona de calentamiento y en línea en el grupo de Telegram del tablón de anuncios de la IJF.",
+  "interpretacion": "Es responsabilidad de los entrenadores y atletas revisar de inmediato la lista de elegidos tan pronto como se publica. Esta se difunde físicamente junto a la zona de calentamiento y digitalmente a través del grupo oficial de Telegram del torneo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6.3.2 - Reglamento de Pesaje, Página 75",
+  "tags": [
+    "procedure",
+    "random-weigh-in",
+    "weigh-in"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0631: Procedimiento Operativo del Pesaje Aleatorio y Uso de Básculas de Prueba
+```json
+{
+  "id_conocimiento": "KUN-0631",
+  "titulo": "Procedimiento Operativo del Pesaje Aleatorio y Uso de Básculas de Prueba",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6 .3 .3 Random Weigh-in Procedure\nFour (4) volunteers (two (2) men and two (2) women) will operate the random weigh-in. Two (2) volunteers will identify the athletes and the two (2) others will proceed with the random weigh-in in two (2) separate private rooms. Test scales should be available for the duration of the random weigh-in so that the athletes can test their weight before they choose to go to the official weigh-in.",
+  "contenido_traduccion": "6.3.3 Procedimiento del Pesaje Aleatorio\nCuatro (4) voluntarios (dos (2) hombres y dos (2) mujeres) operarán el pesaje aleatorio. Dos (2) voluntarios identificarán a los atletas y los otros dos (2) procederán con el pesaje aleatorio en dos (2) salas privadas separadas. Deberá haber básculas de prueba disponibles durante toda la duración del pesaje aleatorio para que los atletas puedan probar su peso antes de decidir ingresar al pesaje oficial.",
+  "interpretacion": "El pesaje aleatorio es operado por 4 voluntarios (2 hombres y 2 mujeres). Dos verifican la acreditación y dos controlan el peso en cuartos privados separados por sexo. Los atletas tienen el derecho de usar básculas de prueba para verificar su peso de forma previa antes de someterse al pesaje oficial del control aleatorio.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6.3.3 - Reglamento de Pesaje, Página 75",
+  "tags": [
+    "procedure",
+    "random-weigh-in",
+    "weigh-in",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0632: Consecuencia por Exceder el Límite en el Pesaje Aleatorio
+```json
+{
+  "id_conocimiento": "KUN-0632",
+  "titulo": "Consecuencia por Exceder el Límite en el Pesaje Aleatorio",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6 .3 .4 After Random Weigh-in Procedure\nAnyone not passing the random weigh-in will not be allowed to take part in the competition (refer to Section 3.5).",
+  "contenido_traduccion": "6.3.4 Procedimiento Posterior al Pesaje Aleatorio\nA cualquier persona que no supere el pesaje aleatorio no se le permitirá participar en la competición (consulte la Sección 3.5).",
+  "interpretacion": "Si un atleta sobrepasa el límite del 5% de tolerancia durante el pesaje aleatorio o no se presenta en el tiempo establecido, es descalificado inmediatamente y se le prohíbe competir en el torneo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6.3.4 - Reglamento de Pesaje, Página 75",
+  "tags": [
+    "random-weigh-in",
+    "weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0633: Límites de Pesaje Aleatorio y Tolerancia del 5% para Categorías Senior y Junior
+```json
+{
+  "id_conocimiento": "KUN-0633",
+  "titulo": "Límites de Pesaje Aleatorio y Tolerancia del 5% para Categorías Senior y Junior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Weight Categories for the Random Weigh-in with Tolerances\nSenior and Junior Women +5% Tolerance\n-48 kg Up to and including 48.0 kg Up to and including 50.4 kg\n-52 kg Over 48.0 kg up to and including 52.0 kg Over 48.0 kg up to and including 54.6 kg\n-57 kg Over 52.0 kg up to and including 57.0 kg Over 52.0 kg up to and including 59.9 kg\n-63 kg Over 57.0 kg up to and including 63.0 kg Over 57.0 kg up to and including 66.2 kg\n-70 kg Over 63.0 kg up to and including 70.0 kg Over 63.0 kg up to and including 73.5 kg\n-78 kg Over 70.0 kg up to and including 78.0 kg Over 70.0 kg up to and including 81.9 kg\nSenior and Junior Men +5% Tolerance\n-60 kg Up to and including 60.0 kg Up to and including 63.0 kg\n-66 kg Over 60.0 kg up to and including 66.0 kg Over 60.0 kg up to and including 69.3 kg\n-73 kg Over 66.0 kg up to and including 73.0 kg Over 66.0 kg up to and including 76.7 kg\n-81 kg Over 73.0 kg up to and including 81.0 kg Over 73.0 kg up to and including 85.1 kg\n-90 kg Over 81.0 kg up to and including 90.0 kg Over 81.0 kg up to and including 94.5 kg\n-100 kg Over 90.0 kg up to and including 100.0 kg Over 90.0 kg up to and including 105.0 kg",
+  "contenido_traduccion": "Categorías de Peso para el Pesaje Aleatorio con Tolerancias\nSenior y Junior Mujeres +5% Tolerancia\n-48 kg Hasta e incluyendo 48.0 kg | Hasta e incluyendo 50.4 kg\n-52 kg Más de 48.0 kg hasta e incluyendo 52.0 kg | Más de 48.0 kg hasta e incluyendo 54.6 kg\n-57 kg Más de 52.0 kg hasta e incluyendo 57.0 kg | Más de 52.0 kg hasta e incluyendo 59.9 kg\n-63 kg Más de 57.0 kg hasta e incluyendo 63.0 kg | Más de 57.0 kg hasta e incluyendo 66.2 kg\n-70 kg Más de 63.0 kg hasta e incluyendo 70.0 kg | Más de 63.0 kg hasta e incluyendo 73.5 kg\n-78 kg Más de 70.0 kg hasta e incluyendo 78.0 kg | Más de 70.0 kg hasta e incluyendo 81.9 kg\nSenior y Junior Hombres +5% Tolerancia\n-60 kg Hasta e incluyendo 60.0 kg | Hasta e incluyendo 63.0 kg\n-66 kg Más de 60.0 kg hasta e incluyendo 66.0 kg | Más de 60.0 kg hasta e incluyendo 69.3 kg\n-73 kg Más de 66.0 kg hasta e incluyendo 73.0 kg | Más de 66.0 kg hasta e incluyendo 76.7 kg\n-81 kg Más de 73.0 kg hasta e incluyendo 81.0 kg | Más de 73.0 kg hasta e incluyendo 85.1 kg\n-90 kg Más de 81.0 kg hasta e incluyendo 90.0 kg | Más de 81.0 kg hasta e incluyendo 94.5 kg\n-100 kg Más de 90.0 kg hasta e incluyendo 100.0 kg | Más de 90.0 kg hasta e incluyendo 105.0 kg",
+  "interpretacion": "En el pesaje aleatorio de las categorías Senior y Junior (femenino y masculino), los competidores seleccionados no deben exceder el límite superior permitido con el +5% de tolerancia establecido para su respectiva categoría de peso antes de sus combates.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 76",
+  "tags": [
+    "random-weigh-in",
+    "tolerance",
+    "senior",
+    "women",
+    "men",
+    "weight-categories",
+    "procedure",
+    "weigh-in"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0634: Límites de Pesaje Aleatorio y Tolerancia del 5% para Categorías Cadetes (Sub-18)
+```json
+{
+  "id_conocimiento": "KUN-0634",
+  "titulo": "Límites de Pesaje Aleatorio y Tolerancia del 5% para Categorías Cadetes (Sub-18)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Cadet Women under 18 years +5% Tolerance\n+0.2 kg allowed for underwear\n-40 kg Up to and including 40.0 kg Up to and including 42.2 kg\n-44 kg Over 40.0 kg up to and including 44.0 kg Up to and including 46.4 kg\n-48 kg Over 44.0 kg up to and including 48.0 kg Up to and including 50.6 kg\n-52 kg Over 48.0 kg up to and including 52.0 kg Up to and including 54.8 kg\n-57 kg Over 52.0 kg up to and including 57.0 kg Up to and including 60.1 kg\n-63 kg Over 57.0 kg up to and including 63.0 kg Up to and including 66.4 kg\n-70 kg Over 63.0 kg up to and including 70.0 kg Up to and including 73.7 kg\nCadet Men under 18 years +5% Tolerance\n+0.2 kg allowed for underwear\n-50 kg Up to and including 50.0 kg Up to and including 52.7 kg\n-55 kg Over 50 kg up to and including 55.0 kg Up to and including 58.0 kg\n-60 kg Over 55 kg up to and including 60.0 kg Up to and including 63.2 kg\n-66 kg Over 60 kg up to and including 66.0 kg Up to and including 69.5 kg\n-73 kg Over 66 kg up to and including 73.0 kg Up to and including 76.9 kg\n-81 kg Over 73 kg up to and including 81.0 kg Up to and including 85.3 kg\n-90 kg Over 81 kg up to and including 90.0 kg Up to and including 94.7 kg",
+  "contenido_traduccion": "Cadetes Mujeres menores de 18 años +5% Tolerancia\n+0.2 kg permitidos por ropa interior\n-40 kg Hasta e incluyendo 40.0 kg | Hasta e incluyendo 42.2 kg\n-44 kg Más de 40.0 kg hasta e incluyendo 44.0 kg | Hasta e incluyendo 46.4 kg\n-48 kg Más de 44.0 kg hasta e incluyendo 48.0 kg | Hasta e incluyendo 50.6 kg\n-52 kg Más de 48.0 kg hasta e incluyendo 52.0 kg | Hasta e incluyendo 54.8 kg\n-57 kg Más de 52.0 kg hasta e incluyendo 57.0 kg | Hasta e incluyendo 60.1 kg\n-63 kg Más de 57.0 kg hasta e incluyendo 63.0 kg | Hasta e incluyendo 66.4 kg\n-70 kg Más de 63.0 kg hasta e incluyendo 70.0 kg | Hasta e incluyendo 73.7 kg\nCadetes Hombres menores de 18 años +5% Tolerancia\n+0.2 kg permitidos por ropa interior\n-50 kg Hasta e incluyendo 50.0 kg | Hasta e incluyendo 52.7 kg\n-55 kg Más de 50 kg hasta e incluyendo 55.0 kg | Hasta e incluyendo 58.0 kg\n-60 kg Más de 55 kg hasta e incluyendo 60.0 kg | Hasta e incluyendo 63.2 kg\n-66 kg Más de 60 kg hasta e incluyendo 66.0 kg | Hasta e incluyendo 69.5 kg\n-73 kg Más de 66 kg hasta e incluyendo 73.0 kg | Hasta e incluyendo 76.9 kg\n-81 kg Más de 73 kg hasta e incluyendo 81.0 kg | Hasta e incluyendo 85.3 kg\n-90 kg Más de 81 kg hasta e incluyendo 90.0 kg | Hasta e incluyendo 94.7 kg",
+  "interpretacion": "Para la categoría cadete (sub-18), en el pesaje aleatorio se aplica el margen de tolerancia del +5% sobre el peso oficial, añadiendo además un permiso de +0.2 kg por concepto de ropa interior al calcular el peso límite superior máximo permitido.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 76",
+  "tags": [
+    "random-weigh-in",
+    "tolerance",
+    "cadet",
+    "women",
+    "men",
+    "weight-categories",
+    "procedure",
+    "weigh-in"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0635: Regla General de Pesaje para Eventos de Equipos Mixtos
+```json
+{
+  "id_conocimiento": "KUN-0635",
+  "titulo": "Regla General de Pesaje para Eventos de Equipos Mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6.4 Mixed Teams Events Weigh-in\nThe athletes must be within the weight limits of the category in which they are inscribed.",
+  "contenido_traduccion": "6.4 Pesaje para Eventos de Equipos Mixtos\nLos atletas deben estar dentro de los límites de peso de la categoría en la que están inscritos.",
+  "interpretacion": "Todos los judokas inscritos en una competencia por equipos mixtos están obligados a registrar un peso que no supere ni quede fuera de los límites normativos fijados para la categoría de peso individual en la que hayan sido inscritos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6.4 - Reglamento de Pesaje, Página 76",
+  "tags": [
+    "weigh-in",
+    "procedure",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0636: Exención de Pesaje en Equipos Mixtos para Atletas de Categorías Plus que Compitieron el Último Día Individual
+```json
+{
+  "id_conocimiento": "KUN-0636",
+  "titulo": "Exención de Pesaje en Equipos Mixtos para Atletas de Categorías Plus que Compitieron el Último Día Individual",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the mixed team event follows an individual competition, the following rules apply:\n• Athletes competing on the final day of the individual event, who are registered in the plus mixed team categories, do not need to weigh in for the mixed teams.",
+  "contenido_traduccion": "Si el evento de equipos mixtos sigue a una competencia individual, se aplican las siguientes reglas:\n• Los atletas que compiten en el último día del evento individual, que están registrados en las categorías plus de equipos mixtos, no necesitan pesarse para los equipos mixtos.",
+  "interpretacion": "Cuando el torneo de equipos mixtos se celebra inmediatamente después de la competencia individual, aquellos atletas de categorías superiores (plus/pesadas) que hayan competido en la jornada final de los combates individuales quedan totalmente eximidos de acudir al pesaje para la prueba de equipos mixtos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6.4 - Reglamento de Pesaje, Página 76",
+  "tags": [
+    "weigh-in",
+    "procedure",
+    "tolerance",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0637: Requisitos de Pesaje y Tolerancia del 5% para Categorías Minus en Equipos Mixtos
+```json
+{
+  "id_conocimiento": "KUN-0637",
+  "titulo": "Requisitos de Pesaje y Tolerancia del 5% para Categorías Minus en Equipos Mixtos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the mixed team event follows an individual competition, the following rules apply:\n• All athletes in the minus mixed team categories MUST weigh in. A +5% weight tolerance will be given for athletes who competed in the preceding individual competition (they must have passed the weigh in for the individual competition) and NO tolerance for athletes who are only inscribed for the mixed team competition or who did not pass the official weigh in for the preceding individual competition.",
+  "contenido_traduccion": "Si el evento de equipos mixtos sigue a una competencia individual, se aplican las siguientes reglas:\n• Todos los atletas de las categorías minus de equipos mixtos DEBEN pesarse. Se otorgará una tolerancia de peso del +5% para los atletas que compitieron en la competencia individual precedente (deben haber pasado el pesaje para la competencia individual) y NINGUNA tolerancia para los atletas que solo están inscritos para la competencia de equipos mixtos o que no pasaron el pesaje oficial para la competencia individual precedente.",
+  "interpretacion": "En competencias por equipos mixtos tras el torneo individual, los competidores de las categorías minus deben acudir obligatoriamente al pesaje. Tienen derecho a un 5% de tolerancia respecto al peso de su categoría solo si compitieron y superaron el pesaje oficial del evento individual previo. Si entran directamente a la prueba de equipos o fallaron el pesaje individual previo, deben dar el peso exacto (0% de tolerancia).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6.4 - Reglamento de Pesaje, Página 76",
+  "tags": [
+    "weigh-in",
+    "procedure",
+    "tolerance",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0638: Pesaje programado para competidores del bloque final el último día (Equipos Mixtos)
+```json
+{
+  "id_conocimiento": "KUN-0638",
+  "titulo": "Pesaje programado para competidores del bloque final el último día (Equipos Mixtos)",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If an athlete competing in the final block of the final day of the individual event is registered in the minus mixed team categories, he must weigh in. For these cases the IJF Sport Commission will schedule the weigh-in one (1) hour before the start of the mixed teams competition.",
+  "contenido_traduccion": "Si un atleta que compite en el bloque final del último día de la competición individual está inscrito en las categorías 'minus' de equipos mixtos, debe pesarse. Para estos casos, la Comisión Deportiva de la IJF programará el pesaje una (1) hora antes del inicio de la competición de equipos mixtos.",
+  "interpretacion": "Atletas que clasifiquen al bloque final de medallas el último día de la competencia individual y que vayan a competir al día siguiente en equipos mixtos dentro de una categoría con límite superior (minus) tienen la obligación de pesarse. Para no interrumpir su preparación y descanso, la Comisión Deportiva de la IJF programa su pesaje exactamente una hora antes del comienzo de la competición por equipos mixtos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 77",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "procedure",
+    "senior",
+    "cadet",
+    "weight-categories"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0639: Límites de peso y tolerancia del +5% para Equipos Mixtos Sénior y Júnior
+```json
+{
+  "id_conocimiento": "KUN-0639",
+  "titulo": "Límites de peso y tolerancia del +5% para Equipos Mixtos Sénior y Júnior",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Weight Categories for Mixed Team Competitions with +5% Tolerance\nSenior and Junior Mixed Team\n-57 kg Women: Up to and including 59.9 kg\n-73 kg Men: Up to and including 76.7 kg\n-70 kg Women: Over 57.0 kg up to and including 73.5 kg\n-90 kg Men: Over 73.0 kg up to and including 94.5 kg\n+70 kg Women: Over 70.0 kg\n+90 kg Men: Over 90.0 kg",
+  "contenido_traduccion": "Categorías de peso para competiciones de Equipos Mixtos con +5% de tolerancia\nEquipo Mixto Sénior y Júnior:\n-57 kg Femenino: Hasta 59.9 kg inclusive\n-73 kg Masculino: Hasta 76.7 kg inclusive\n-70 kg Femenino: Más de 57.0 kg hasta 73.5 kg inclusive\n-90 kg Masculino: Más de 73.0 kg hasta 94.5 kg inclusive\n+70 kg Femenino: Más de 70.0 kg\n+90 kg Masculino: Más de 90.0 kg",
+  "interpretacion": "En las competiciones de equipos mixtos de las categorías Sénior y Júnior que siguen a un evento individual, se aplica un margen de tolerancia del +5% sobre el peso reglamentario de la categoría. Los límites máximos permitidos en la báscula para cada categoría se fijan estrictamente conforme a esta tabla.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 77",
+  "tags": [
+    "weight-categories",
+    "weigh-in",
+    "tolerance",
+    "senior",
+    "women",
+    "men"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0640: Límites de peso y elegibilidad para Equipos Mixtos en Juegos Olímpicos
+```json
+{
+  "id_conocimiento": "KUN-0640",
+  "titulo": "Límites de peso y elegibilidad para Equipos Mixtos en Juegos Olímpicos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Senior Mixed Team Olympic Games\n-57 kg Women (48 kg, 52 kg, 57 kg*): Up to and including 59.9 kg\n-73 kg Men (60 kg, 66 kg, 73 kg*): Up to and including 76.7 kg\n-70 kg Women (57 kg, 63 kg, 70 kg*): Over 57.0 kg up to and including 73.5 kg\n-90 kg Men (73 kg, 81 kg, 90 kg*): Over 73.0 kg up to and including 94.5 kg\n+70 kg Women (70 kg, 78 kg, +78 kg*): Over 70.0 kg\n+90 kg Men (90 kg, 100 kg, +100 kg*): Over 90.0 kg\n*Athletes qualified only in these individual categories can take part in the mixed team category.",
+  "contenido_traduccion": "Equipo Mixto Sénior - Juegos Olímpicos:\n-57 kg Femenino (48 kg, 52 kg, 57 kg*): Hasta 59.9 kg inclusive\n-73 kg Masculino (60 kg, 66 kg, 73 kg*): Hasta 76.7 kg inclusive\n-70 kg Femenino (57 kg, 63 kg, 70 kg*): Más de 57.0 kg hasta 73.5 kg inclusive\n-90 kg Masculino (73 kg, 81 kg, 90 kg*): Más de 73.0 kg hasta 94.5 kg inclusive\n+70 kg Femenino (70 kg, 78 kg, +78 kg*): Más de 70.0 kg\n+90 kg Masculino (90 kg, 100 kg, +100 kg*): Más de 90.0 kg\n*Solo los atletas cualificados en estas categorías individuales pueden participar en la categoría de equipos mixtos.",
+  "interpretacion": "Para la prueba de equipos mixtos en Juegos Olímpicos, los atletas deben haberse clasificado previamente en alguna de las categorías individuales especificadas entre paréntesis. Durante el pesaje de la prueba de equipos mixtos, se aplican los límites máximos permitidos con el +5% de tolerancia para cada rango de división.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 77",
+  "tags": [
+    "weight-categories",
+    "weigh-in",
+    "tolerance",
+    "senior",
+    "women",
+    "men"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0641: Categorías de peso y tolerancia para Equipos Mixtos Cadete
+```json
+{
+  "id_conocimiento": "KUN-0641",
+  "titulo": "Categorías de peso y tolerancia para Equipos Mixtos Cadete",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Cadet Mixed Team (+0.2 kg allowed for underwear)\n-48 kg Women: Up to and including 50.6 kg\n-60 kg Men: Up to and including 63.2 kg\n-63 kg Women: Over 48 kg up to and including 66.4 kg\n-81 kg Men: Over 60 kg up to and including 85.3 kg\n+63 kg Women: Over 63.0 kg\n+81 kg Men: Over 81.0 kg",
+  "contenido_traduccion": "Equipo Mixto Cadete (+0.2 kg permitidos para ropa interior):\n-48 kg Femenino: Hasta 50.6 kg inclusive\n-60 kg Masculino: Hasta 63.2 kg inclusive\n-63 kg Femenino: Más de 48 kg hasta 66.4 kg inclusive\n-81 kg Masculino: Más de 60 kg hasta 85.3 kg inclusive\n+63 kg Femenino: Más de 63.0 kg\n+81 kg Masculino: Más de 81.0 kg",
+  "interpretacion": "En la división Cadete para competiciones de equipos mixtos, se contemplan límites de peso específicos con tolerancia calculada. Adicionalmente, se autoriza un margen fijo de 0.2 kg adicionales en la báscula debido al uso obligatorio de ropa interior durante el procedimiento de pesaje.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 77",
+  "tags": [
+    "weight-categories",
+    "weigh-in",
+    "tolerance",
+    "cadet",
+    "women",
+    "men"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0642: Facultad del organizador para reglas de pesaje en equipos mixtos no estándar
+```json
+{
+  "id_conocimiento": "KUN-0642",
+  "titulo": "Facultad del organizador para reglas de pesaje en equipos mixtos no estándar",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If, on the last day of the individual event, the mixed team weigh-in categories are not the same as those in IJF events, the organiser can decide the weigh-in rules.",
+  "contenido_traduccion": "Si, en el último día de la competición individual, las categorías de pesaje de equipos mixtos no son las mismas que las de los eventos de la IJF, el organizador puede decidir las reglas de pesaje.",
+  "interpretacion": "Cuando en un evento la estructura o categorías del torneo de equipos mixtos no coincidan exactamente con el formato oficial regulado por la IJF, el comité organizador local ostenta la facultad discrecional para establecer y reglamentar los procedimientos y normas de pesaje aplicables.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 77",
+  "tags": [
+    "weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0643: Pesaje para eventos por equipos femeninos y masculinos (Sección 6.5)
+```json
+{
+  "id_conocimiento": "KUN-0643",
+  "titulo": "Pesaje para eventos por equipos femeninos y masculinos (Sección 6.5)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6.5 Female and Male Teams Events Weigh-in\nThe athletes must be within the weight limits of the category in which they are inscribed.\nIf the team event follows an individual competition, the following rules apply:",
+  "contenido_traduccion": "6.5 Pesaje para eventos de equipos femeninos y masculinos\nLos atletas deben estar dentro de los límites de peso de la categoría en la que están inscritos.\nSi el evento por equipos se celebra a continuación de una competición individual, se aplican las siguientes reglas:",
+  "interpretacion": "Establece el requisito general para las competencias por equipos masculinos o femeninos: todos los judocas deben cumplir obligatoriamente con el peso correspondiente a su categoría de inscripción, sujeto a normas específicas si el torneo sucede inmediatamente a una prueba individual.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 77",
+  "tags": [
+    "weigh-in",
+    "procedure",
+    "weight-categories",
+    "women",
+    "men"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0644: Exención de pesaje para atletas en categorías 'plus' por equipos
+```json
+{
+  "id_conocimiento": "KUN-0644",
+  "titulo": "Exención de pesaje para atletas en categorías 'plus' por equipos",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes competing on the final day of the individual event, who are registered in the plus team categories, do not need to weigh in for the teams.",
+  "contenido_traduccion": "Los atletas que compiten en el último día de la competición individual, y que están inscritos en las categorías por equipos 'plus', no necesitan pesarse para la competición por equipos.",
+  "interpretacion": "Aquellos atletas que disputen la última jornada del torneo individual y estén inscritos en categorías por equipos sin límite máximo de peso (categorías 'plus', como +70 kg o +90 kg) están totalmente exentos de acudir al pesaje oficial para el evento por equipos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 77",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0645: Condiciones de pesaje y tolerancia para categorías 'minus' en torneos por equipos
+```json
+{
+  "id_conocimiento": "KUN-0645",
+  "titulo": "Condiciones de pesaje y tolerancia para categorías 'minus' en torneos por equipos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "All athletes in the minus team categories MUST weigh in. A +5% weight tolerance will be given for athletes who competed in the preceding individual competition (they must have passed the weigh in for the individual competition) and NO tolerance for athletes who are only inscribed for the team competition or who did not pass the official weigh-in for the preceding individual competition.",
+  "contenido_traduccion": "Todos los atletas en las categorías por equipos 'minus' DEBEN pesarse. Se otorgará una tolerancia de peso del +5% a los atletas que compitieron en la competición individual precedente (deben haber superado el pesaje de la competición individual) y NINGUNA tolerancia para los atletas que solo estén inscritos para la competición por equipos o que no hayan superado el pesaje oficial de la competición individual precedente.",
+  "interpretacion": "Todos los judocas de categorías por equipos con límite de peso superior ('minus') deben pasar por la báscula. Si el atleta superó exitosamente el pesaje individual previo y compitió en él, se le concede un +5% de margen sobre el límite de su categoría. Por el contrario, si solo participa en la prueba por equipos o fue descalificado en el pesaje del torneo individual, no dispondrá de margen de tolerancia (+0%).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 77",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "tolerance",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0646: Pesaje de atletas del bloque final individual para equipos masculinos y femeninos
+```json
+{
+  "id_conocimiento": "KUN-0646",
+  "titulo": "Pesaje de atletas del bloque final individual para equipos masculinos y femeninos",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If an athlete competing in the final block of the final day of the individual event is registered in the minus team categories, he must weigh in. For these cases the IJF Sport Commission will schedule the weigh-in one (1) hour before the start of the teams competition.",
+  "contenido_traduccion": "Si un atleta que compite en el bloque final del último día de la competición individual está inscrito en las categorías por equipos 'minus', debe pesarse. Para estos casos, la Comisión Deportiva de la IJF programará el pesaje una (1) hora antes del inicio de la competición por equipos.",
+  "interpretacion": "En torneos por equipos por género (femeninos o masculinos), si un deportista participa en el bloque final de medallas en la última jornada de la prueba individual y compite en una categoría 'minus' por equipos, debe cumplir con el pesaje obligatoriamente, pero este se calendarizará por la Comisión Deportiva de la IJF exactamente 1 hora antes de que comience la competencia por equipos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 77",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0647: Categorías de peso para competencias por equipos con tolerancia del +5% (Mujeres Senior y Junior)
+```json
+{
+  "id_conocimiento": "KUN-0647",
+  "titulo": "Categorías de peso para competencias por equipos con tolerancia del +5% (Mujeres Senior y Junior)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Weight Categories for Team Competitions with +5% Tolerance\nSenior and Junior Women Team\n-52 kg Up to and including 54.6 kg\n-57 kg Over 52.0 kg up to and including 59.9 kg\n-63 kg Over 57.0 kg up to and including 66.2 kg\n-70 kg Over 63.0 kg up to and including 73.5 kg\n+70 kg Over 70.0 kg",
+  "contenido_traduccion": "Categorías de peso para competencias por equipos con tolerancia del +5%\nEquipo de Mujeres Senior y Junior\n-52 kg Hasta 54.6 kg inclusive\n-57 kg Más de 52.0 kg hasta 59.9 kg inclusive\n-63 kg Más de 57.0 kg hasta 66.2 kg inclusive\n-70 kg Más de 63.0 kg hasta 73.5 kg inclusive\n+70 kg Más de 70.0 kg",
+  "interpretacion": "Establece los límites máximos de peso permitidos al aplicar un 5% de tolerancia para atletas femeninas en categorías Senior y Junior durante competencias por equipos. Los árbitros y oficiales de pesaje deben validar que las competidoras no excedan el límite especificado para su respectiva división.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 78",
+  "tags": [
+    "weight-categories",
+    "women",
+    "senior",
+    "weigh-in",
+    "tolerance",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0648: Categorías de peso para competencias por equipos con tolerancia del +5% (Mujeres Cadet)
+```json
+{
+  "id_conocimiento": "KUN-0648",
+  "titulo": "Categorías de peso para competencias por equipos con tolerancia del +5% (Mujeres Cadet)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Weight Categories for Team Competitions with +5% Tolerance\nCadet Women Team (+0.2 kg allowed for underwear)\n-48 kg Up to and including 50.6 kg\n-52 kg Over 48.0 kg up to and including 54.8 kg\n-57 kg Over 52.0 kg up to and including 60.1 kg\n-63 kg Over 57.0 kg up to and including 66.4 kg\n+63 kg Over 63.0 kg",
+  "contenido_traduccion": "Categorías de peso para competencias por equipos con tolerancia del +5%\nEquipo de Mujeres Cadet (se permiten +0.2 kg por ropa interior)\n-48 kg Hasta 50.6 kg inclusive\n-52 kg Más de 48.0 kg hasta 54.8 kg inclusive\n-57 kg Más de 52.0 kg hasta 60.1 kg inclusive\n-63 kg Más de 57.0 kg hasta 66.4 kg inclusive\n+63 kg Más de 63.0 kg",
+  "interpretacion": "Regula los límites de peso permitidos para competidoras de la categoría Cadet en eventos por equipos, incluyendo un margen de 5% de tolerancia más una adición de 0.2 kg autorizada por el uso de ropa interior. Los encargados del pesaje deben aplicar estrictamente estas cifras límite.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 78",
+  "tags": [
+    "weight-categories",
+    "women",
+    "cadet",
+    "weigh-in",
+    "tolerance",
+    "procedure",
+    "age"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0649: Categorías de peso para competencias por equipos con tolerancia del +5% (Varones Senior y Junior)
+```json
+{
+  "id_conocimiento": "KUN-0649",
+  "titulo": "Categorías de peso para competencias por equipos con tolerancia del +5% (Varones Senior y Junior)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Weight Categories for Team Competitions with +5% Tolerance\nSenior and Junior Men Team\n-66 kg Up to and including 69.3 kg\n-73 kg Over 66.0 kg up to and including 76.7 kg\n-81 kg Over 73.0 kg up to and including 85.1 kg\n-90 kg Over 81.0 kg up to and including 94.5 kg\n+90 kg Over 90.0 kg",
+  "contenido_traduccion": "Categorías de peso para competencias por equipos con tolerancia del +5%\nEquipo de Varones Senior y Junior\n-66 kg Hasta 69.3 kg inclusive\n-73 kg Más de 66.0 kg hasta 76.7 kg inclusive\n-81 kg Más de 73.0 kg hasta 85.1 kg inclusive\n-90 kg Más de 81.0 kg hasta 94.5 kg inclusive\n+90 kg Más de 90.0 kg",
+  "interpretacion": "Especifica los rangos de peso máximos tolerados (5% adicional) para atletas masculinos de las categorías Senior y Junior en competiciones por equipos. Si un judoka supera el peso límite superior de su categoría, no estará habilitado para participar en la competición por equipos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 78",
+  "tags": [
+    "weight-categories",
+    "men",
+    "senior",
+    "weigh-in",
+    "tolerance",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0650: Categorías de peso para competencias por equipos con tolerancia del +5% (Varones Cadet)
+```json
+{
+  "id_conocimiento": "KUN-0650",
+  "titulo": "Categorías de peso para competencias por equipos con tolerancia del +5% (Varones Cadet)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Weight Categories for Team Competitions with +5% Tolerance\nCadet Men Team (+0.2 kg allowed for underwear)\n-60 kg Up to and including 63.2 kg\n-66 kg Over 60.0 kg up to and including 69.5 kg\n-73 kg Over 66.0 kg up to and including 76.9 kg\n-81 kg Over 73.0 kg up to and including 85.3 kg\n+81 kg Over 81.0 kg",
+  "contenido_traduccion": "Categorías de peso para competencias por equipos con tolerancia del +5%\nEquipo de Varones Cadet (se permiten +0.2 kg por ropa interior)\n-60 kg Hasta 63.2 kg inclusive\n-66 kg Más de 60.0 kg hasta 69.5 kg inclusive\n-73 kg Más de 66.0 kg hasta 76.9 kg inclusive\n-81 kg Más de 73.0 kg hasta 85.3 kg inclusive\n+81 kg Más de 81.0 kg",
+  "interpretacion": "Define los límites superiores de peso aplicables a la categoría Cadet masculina en torneos por equipos, considerando la tolerancia del 5% y la concesión especial de +0.2 kg por concepto de ropa interior. Es la referencia obligatoria para los árbitros y el personal de control durante el pesaje oficial.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 78",
+  "tags": [
+    "weight-categories",
+    "men",
+    "cadet",
+    "weigh-in",
+    "tolerance",
+    "procedure",
+    "age"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0651: Procedimiento y Requisitos Generales del Pesaje Oficial
+```json
+{
+  "id_conocimiento": "KUN-0651",
+  "titulo": "Procedimiento y Requisitos Generales del Pesaje Oficial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "The official weigh-in takes place the day before the competition for each weight category. Athletes must present their official IJF accreditation card and national passport at the weigh-in control. Only one official weigh-in attempt is allowed per athlete on the official scale during the official weigh-in period.",
+  "contenido_traduccion": "El pesaje oficial se realiza el día anterior a la competición para cada categoría de peso. Los atletas deben presentar su tarjeta de acreditación oficial de la IJF y su pasaporte nacional en el control de pesaje. Solo se permite un intento de pesaje oficial por atleta en la báscula oficial durante el período de pesaje oficial.",
+  "interpretacion": "Regla procedimental que establece la logística obligatoria para la verificación de peso el día anterior a la competencia. Exige la presentación de acreditación y pasaporte, y prohíbe subirse varias veces a la báscula oficial si el primer intento no da el peso correcto dentro del horario establecido.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 79",
+  "tags": [
+    "procedure",
+    "weigh-in",
+    "official-weigh-in"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0652: Código de Vestimenta e Higiene Durante el Pesaje Oficial
+```json
+{
+  "id_conocimiento": "KUN-0652",
+  "titulo": "Código de Vestimenta e Higiene Durante el Pesaje Oficial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "Athletes must weigh in wearing undergarments (men: underpants; women: underpants and bra). Weighing in completely naked is strictly prohibited. No weight allowance is granted for the weight of the undergarments.",
+  "contenido_traduccion": "Los atletas deben pesarse con ropa interior (hombres: calzoncillos; mujeres: calzoncillos y sujetador/top deportivo). Está estrictamente prohibido pesarse completamente desnudo. No se concede ninguna tolerancia de peso por el uso de la ropa interior.",
+  "interpretacion": "Asegura el respeto y la decencia durante el proceso de pesaje prohibiendo la desnudez total. Los judocas deben prever el peso exacto de su ropa interior, ya que la báscula no restará margen alguno por estas prendas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 79",
+  "tags": [
+    "procedure",
+    "weigh-in",
+    "official-weigh-in",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0653: Pesaje Aleatorio y Tolerancia Máxima del 5%
+```json
+{
+  "id_conocimiento": "KUN-0653",
+  "titulo": "Pesaje Aleatorio y Tolerancia Máxima del 5%",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "Random weigh-in takes place on the morning of the competition before the first contests. Selected athletes must present themselves for random weigh-in, where their weight must not exceed the maximum weight limit of their category by more than 5%.",
+  "contenido_traduccion": "El pesaje aleatorio se lleva a cabo la mañana de la competición antes de los primeros combates. Los atletas seleccionados deben presentarse al pesaje aleatorio, donde su peso no debe exceder el límite máximo de su categoría en más de un 5%.",
+  "interpretacion": "Mecanismo de control matutino para evitar rehidrataciones extremas y peligrosas entre el pesaje oficial y el día del combate. Un competidor de -60 kg no puede superar los 63,0 kg la mañana del evento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 79",
+  "tags": [
+    "procedure",
+    "weigh-in",
+    "random-weigh-in",
+    "tolerance"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0654: Penalización por Incumplimiento del Pesaje Oficial o Aleatorio
+```json
+{
+  "id_conocimiento": "KUN-0654",
+  "titulo": "Penalización por Incumplimiento del Pesaje Oficial o Aleatorio",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": null,
+  "contenido_original": "If an athlete fails to make weight at the official weigh-in, fails to present themselves, or exceeds the 5% tolerance during the random weigh-in, they will be disqualified (hansoku-make) from the competition and will not be ranked.",
+  "contenido_traduccion": "Si un atleta no da el peso en el pesaje oficial, no se presenta, o supera la tolerancia del 5% durante el pesaje aleatorio, será descalificado (hansoku-make) de la competición y no obtendrá clasificación.",
+  "interpretacion": "Sanción estricta e inapelable. Si el judoca supera el peso o falta al pesaje oficial/aleatorio, queda automáticamente fuera del torneo, perdiendo la opción a disputar combates, acumular puntos para el ranking o figurar en los resultados oficiales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 6 - Reglamento de Pesaje, Página 79",
+  "tags": [
+    "weigh-in",
+    "official-weigh-in",
+    "random-weigh-in",
+    "hansoku-make"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0655: Responsabilidad de la Comisión de Educación y Entrenadores
+```json
+{
+  "id_conocimiento": "KUN-0655",
+  "titulo": "Responsabilidad de la Comisión de Educación y Entrenadores",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Education and Coaching is the responsibility of the IJF Education and Coaching Commission.",
+  "contenido_traduccion": "La Educación y el Entrenamiento son responsabilidad de la Comisión de Educación y Entrenadores de la IJF.",
+  "interpretacion": "Esta norma define el marco de autoridad organizativa dentro de la IJF, estableciendo que la Comisión de Educación y Entrenadores es el órgano oficial encargado de la supervisión, regulación y desarrollo de los programas educativos y normativas sobre entrenadores en competencias y eventos internacionales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 80",
+  "tags": [
+    "coaches",
+    "procedure",
+    "documentation"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0656: Código de Conducta y Responsabilidades Generales de los Entrenadores
+```json
+{
+  "id_conocimiento": "KUN-0656",
+  "titulo": "Código de Conducta y Responsabilidades Generales de los Entrenadores",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Coaches must respect the Code of Ethics, statutes and regulations of the International Judo Federation (IJF). In the case of an infringement proven, penalties may range from a simple verbal warning to exclusion of competition. The IJF Ad Hoc Commission may consider sending a report to the IJF General Secretariat calling for the opening of a disciplinary session. Coaches must make sure that their athletes follow the instructions of the organisers, the schedules and different protocols.",
+  "contenido_traduccion": "Los entrenadores deben respetar el Código de Ética, los estatutos y los reglamentos de la Federación Internacional de Judo (IJF). En caso de comprobarse una infracción, las sanciones pueden variar desde una simple advertencia verbal hasta la exclusión de la competición. La Comisión Ad Hoc de la IJF puede considerar enviar un informe a la Secretaría General de la IJF solicitando la apertura de una sesión disciplinaria. Los entrenadores deben asegurarse de que sus atletas sigan las instrucciones de los organizadores, los horarios y los diferentes protocolos.",
+  "interpretacion": "Los entrenadores son responsables directos del comportamiento y la puntualidad de sus atletas. Cualquier incumplimiento del código ético o reglamentario puede acarrear desde una llamada de atención verbal hasta la expulsión del torneo o un proceso disciplinario formal ante la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 81",
+  "tags": [
+    "coaches",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0657: Posición e Inamovibilidad del Entrenador Durante el Combate
+```json
+{
+  "id_conocimiento": "KUN-0657",
+  "titulo": "Posición e Inamovibilidad del Entrenador Durante el Combate",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Coach positions are provided for each tatami and the coach must remain seated on the chair throughout the contest. The coach who enters the field of play with the athlete is the only coach allowed to sit in the coach’s chair, he cannot be replaced by another coach during the contest.",
+  "contenido_traduccion": "Se proporcionan posiciones para los entrenadores en cada tatami y el entrenador debe permanecer sentado en la silla durante todo el combate. El entrenador que ingresa al área de competición con el atleta es el único autorizado para sentarse en la silla del entrenador y no puede ser reemplazado por otro entrenador durante el combate.",
+  "interpretacion": "En cada tatami se asigna una silla exclusiva para el entrenador. Este debe permanecer sentado en ella en todo momento mientras dure el combate. No se permiten sustituciones de entrenadores una vez que inicia el combate; el técnico que entra a la pista con el atleta es el único que puede permanecer en la silla.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 81",
+  "tags": [
+    "coaches",
+    "conduct",
+    "procedure",
+    "tatami"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0658: Momentos y Tipo de Indicaciones Permitidas para el Entrenador
+```json
+{
+  "id_conocimiento": "KUN-0658",
+  "titulo": "Momentos y Tipo de Indicaciones Permitidas para el Entrenador",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "During the contest the coach can only give instructions from this position. Coaching is authorised only during the pause after Mate! and before Hajime! It is strictly limited to communication with his athlete, for tactical advice, encouragements, and instructions.",
+  "contenido_traduccion": "Durante el combate, el entrenador solo puede dar instrucciones desde esa posición. Solo se autoriza dar indicaciones durante la pausa posterior a Mate! y antes de Hajime! Se limita estrictamente a la comunicación con su atleta para consejos tácticos, ánimos e instrucciones.",
+  "interpretacion": "El entrenador no puede gritar ni dar instrucciones activas mientras las acciones del combate están en desarrollo. Únicamente puede dirigirse a su judoka durante las interrupciones del arbitraje (entre el Mate! y el Hajime!). Las indicaciones deben limitarse a aspectos tácticos, estímulo verbal e instrucciones dirigidas exclusivamente a su competidor.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 81",
+  "tags": [
+    "coaches",
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0659: Penalizaciones por Indicaciones Fuera de Tiempo y Mala Conducta del Entrenador
+```json
+{
+  "id_conocimiento": "KUN-0659",
+  "titulo": "Penalizaciones por Indicaciones Fuera de Tiempo y Mala Conducta del Entrenador",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If a coach gives indications during the contest, he receives a first warning. In case of repetition, he will be excluded from the competition area for the rest of the day. Any attitude contrary to the spirit of judo will be penalised. If a coach is sanctioned by a referee, the Referee Director will inform immediately the Director of Education for a sanction to be applied.",
+  "contenido_traduccion": "Si un entrenador da indicaciones durante el combate, recibe una primera advertencia. En caso de reincidencia, será excluido del área de competición durante el resto del día. Cualquier actitud contraria al espíritu del judo será sancionada. Si un entrenador es sancionado por un árbitro, el Director de Arbitraje informará inmediatamente al Director de Educación para que se aplique la sanción correspondiente.",
+  "interpretacion": "Si el entrenador habla o da órdenes mientras la acción está en curso (fuera del lapso entre Mate! y Hajime!), el árbitro le dará un primer aviso. Si reincide en el mismo combate o jornada, será expulsado de la zona de competición por lo que resta del día. Conductas antideportivas conllevan notificación inmediata entre los Directores de Arbitraje y Educación para la aplicación formal de la sanción.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 81",
+  "tags": [
+    "coaches",
+    "conduct",
+    "referee"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0660: Prohibición de Dirigir e Impartir Indicaciones desde las Tribunas
+```json
+{
+  "id_conocimiento": "KUN-0660",
+  "titulo": "Prohibición de Dirigir e Impartir Indicaciones desde las Tribunas",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If an accredited coach communicates from the tribunes, his accreditation will be withdrawn, and he will be excluded from the sport hall.",
+  "contenido_traduccion": "Si un entrenador acreditado se comunica desde las tribunas, se le retirará la acreditación y será expulsado del pabellón deportivo.",
+  "interpretacion": "Está completamente prohibido que los entrenadores que se encuentren en las gradas o tribunas den instrucciones a los atletas sobre el tatami. Si se detecta a un entrenador realizando esta acción, perderá inmediatamente su acreditación oficial del evento y será expulsado de las instalaciones.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 81",
+  "tags": [
+    "coaches",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0661: Prohibición de Dispositivos de Comunicación para Entrenadores
+```json
+{
+  "id_conocimiento": "KUN-0661",
+  "titulo": "Prohibición de Dispositivos de Comunicación para Entrenadores",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The coach during the contest must not be in possession of a communication device. If this is the case, it will be excluded immediately from the competition area.",
+  "contenido_traduccion": "El entrenador no debe estar en posesión de ningún dispositivo de comunicación durante el combate. Si este es el caso, será expulsado inmediatamente del área de competición.",
+  "interpretacion": "Queda estrictamente prohibido llevar teléfonos móviles, auriculares, radios, relojes inteligentes u otros dispositivos de comunicación cuando se está en la silla de entrenador durante un combate. La simple posesión de estos dispositivos derivará en la expulsión inmediata del área de juego.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 81",
+  "tags": [
+    "coaches",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0662: Responsabilidad de Delegación y Sanciones Colectivas a Entrenadores
+```json
+{
+  "id_conocimiento": "KUN-0662",
+  "titulo": "Responsabilidad de Delegación y Sanciones Colectivas a Entrenadores",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Coaches are responsible for their delegation and must educate their athletes. If a delegation does not follow the rules ALL coaches from that delegation will have their accreditation removed for that day and if found coaching from the tribune will be subject to a disciplinary sanction.",
+  "contenido_traduccion": "Los entrenadores son responsables de su delegación y deben educar a sus atletas. Si una delegación no cumple con las reglas, a TODOS los entrenadores de esa delegación se les retirará la acreditación por ese día y, si se les descubre dando indicaciones desde la tribuna, serán sujetos a una sanción disciplinaria.",
+  "interpretacion": "Existe una responsabilidad compartida: si los miembros de una delegación incumplen sistemáticamente las reglas o protocolos, la sanción afectará a la totalidad de los entrenadores de esa delegación, retirándoles las acreditaciones del día. Además, intentar dirigir desde la tribuna tras la retirada de la acreditación agravará la penalización con expediente disciplinario.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 81",
+  "tags": [
+    "coaches",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0663: Código de Vestimenta de Entrenadores para el Sorteo
+```json
+{
+  "id_conocimiento": "KUN-0663",
+  "titulo": "Código de Vestimenta de Entrenadores para el Sorteo",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "7 .2 Coaches’ Dress Code\nCoaches must respect the following dress code:\n• Draw: formal suit (jacket, trousers, shirt, and tie for men; jacket, trousers/skirt/dress, blouse for women) and formal shoes (no sport shoes or flip-flops).",
+  "contenido_traduccion": "7 .2 Código de Vestimenta para Entrenadores\nLos entrenadores deben respetar el siguiente código de vestimenta:\n• Sorteo: traje formal (chaqueta, pantalones, camisa y corbata para hombres; chaqueta, pantalones/falda/vestido, blusa para mujeres) y zapatos formales (no se permiten zapatillas deportivas ni chanclas).",
+  "interpretacion": "Durante la celebración del sorteo oficial del torneo (Draw), los entrenadores deben vestir de forma estrictamente formal (traje de vestir completo y calzado formal). Se prohíbe taxativamente el uso de ropa deportiva, calzado deportivo o chanclas en este evento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 81",
+  "tags": [
+    "coaches",
+    "dress-code",
+    "draw",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0664: Código de Vestimenta de Entrenadores para Rondas Eliminatorias y Prendas Prohibidas
+```json
+{
+  "id_conocimiento": "KUN-0664",
+  "titulo": "Código de Vestimenta de Entrenadores para Rondas Eliminatorias y Prendas Prohibidas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "• Preliminary rounds: national tracksuit with trousers reaching down to shoes. Coaches can wear national official short sleeved or long-sleeved T-shirts and sport shoes (no flip-flops). The following are forbidden at any time: shorter trousers, undressed upper body, any kind of head caps or head covering, jeans, sweaters or similar unrelated sports clothing.",
+  "contenido_traduccion": "• Rondas preliminares: chándal nacional con pantalones que lleguen hasta los zapatos. Los entrenadores pueden llevar camisetas oficiales nacionales de manga corta o larga y calzado deportivo (no chanclas). Queda prohibido en todo momento: pantalones cortos/3/4, torso al descubierto, cualquier tipo de gorra o prenda que cubra la cabeza, vaqueros, suéteres u otra ropa deportiva ajena.",
+  "interpretacion": "Para las eliminatorias preliminares, el entrenador debe vestir el chándal oficial de su equipo nacional (pantalón largo hasta los zapatos) y calzado deportivo cerrado. Están totalmente prohibidas las gorras o cubrimientos para la cabeza, pantalones cortos, jeans, chanclas y ropa que no pertenezca al equipamiento oficial de la federación nacional.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 81",
+  "tags": [
+    "coaches",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0665: Código de Vestimenta de Entrenadores para el Bloque Final (Televisión)
+```json
+{
+  "id_conocimiento": "KUN-0665",
+  "titulo": "Código de Vestimenta de Entrenadores para el Bloque Final (Televisión)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "• For the final block program (TV time): formal suit (jacket, trousers, shirt, and tie for men; jacket, trousers/skirt/dress, blouse for women) and formal shoes (no sport shoes or flip-flops).",
+  "contenido_traduccion": "• Para el programa del bloque final (horario de TV): traje formal (chaqueta, pantalones, camisa y corbata para hombres; chaqueta, pantalones/falda/vestido, blusa para mujeres) y zapatos formales (no se permiten zapatillas deportivas ni chanclas).",
+  "interpretacion": "Durante el bloque final (combates por medalla retransmitidos por televisión), los entrenadores están obligados a abandonar el chándal deportivo y vestir formalmente con traje completo (chaqueta, camisa, corbata para hombres; traje o conjunto formal para mujeres) y calzado formal cerrado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 81",
+  "tags": [
+    "coaches",
+    "dress-code",
+    "men",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0666: Proceso de revisión de combate - Momento y derecho de solicitud
+```json
+{
+  "id_conocimiento": "KUN-0666",
+  "titulo": "Proceso de revisión de combate - Momento y derecho de solicitud",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "7.3 Contest Review Process\nA coach can request to review a contest at the end of the preliminaries or final block.",
+  "contenido_traduccion": "7.3 Proceso de revisión de combates\nUn entrenador puede solicitar la revisión de un combate al final de las eliminatorias o del bloque final.",
+  "interpretacion": "Establece la facultad oficial del entrenador para solicitar la revisión formal de un combate disputado durante el evento. Esta solicitud no se puede realizar de forma inmediata tras el combate, sino exclusivamente en dos momentos específicos del programa: al término del bloque de eliminatorias o al concluir el bloque final.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 82",
+  "tags": [
+    "coaches",
+    "procedure",
+    "conduct",
+    "referee"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0667: Proceso de revisión de combate - Formulario y procedimiento de solicitud
+```json
+{
+  "id_conocimiento": "KUN-0667",
+  "titulo": "Proceso de revisión de combate - Formulario y procedimiento de solicitud",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "A form, available from the person in charge of judogi control, must be completed and returned to judogi control.",
+  "contenido_traduccion": "Un formulario, disponible a través del encargado del control de judogi, debe ser completado y devuelto al control de judogi.",
+  "interpretacion": "Regula el procedimiento administrativo necesario para iniciar la revisión. El entrenador debe acudir al puesto de control de judogi, solicitar el formulario oficial al responsable del área, rellenar los datos requeridos sobre el combate objeto de revisión y entregarlo formalmente en el mismo lugar dentro del plazo establecido.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 82",
+  "tags": [
+    "coaches",
+    "procedure",
+    "control",
+    "judogi"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0668: Proceso de revisión de combate - Asistencia del entrenador y traductor
+```json
+{
+  "id_conocimiento": "KUN-0668",
+  "titulo": "Proceso de revisión de combate - Asistencia del entrenador y traductor",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Only one coach can attend and may be accompanied by a translator.",
+  "contenido_traduccion": "Solo un entrenador puede asistir y puede estar acompañado por un traductor.",
+  "interpretacion": "Especifica la norma de participación en la reunión o sesión presencial de revisión del combate. La asistencia está estrictamente limitada a un solo entrenador acreditado, con la opción permitida de contar con la asistencia presencial de un traductor para asegurar una comunicación clara durante la revisión.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 82",
+  "tags": [
+    "coaches",
+    "procedure",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0669: Ubicación y comportamiento del entrenador durante el combate
+```json
+{
+  "id_conocimiento": "KUN-0669",
+  "titulo": "Ubicación y comportamiento del entrenador durante el combate",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Coaches must sit on the designated chair provided at the edge of the tatami during the contest. They must remain seated throughout the entire contest, unless instructed otherwise by the referee or officials, and must refrain from making gestures or comments toward the referee or care system.",
+  "contenido_traduccion": "Los entrenadores deben sentarse en la silla designada ubicada al borde del tatami durante el combate. Deben permanecer sentados durante todo el combate, a menos que el árbitro o los oficiales indiquen lo contrario, y deben abstenerse de hacer gestos o comentarios dirigidos al árbitro o al sistema care.",
+  "interpretacion": "Durante el combate, el entrenador está obligado a permanecer sentado en la silla asignada junto al área de competición. No está permitido levantarse, gesticular ni desautorizar las decisiones arbitrales o las revisiones de video (Care System). Esta norma busca mantener el orden, el respeto y la disciplina alrededor de la zona de combate.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 83",
+  "tags": [
+    "coaches",
+    "conduct",
+    "procedure",
+    "tatami",
+    "care-system",
+    "referee"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0670: Momentos permitidos para dar instrucciones al atleta
+```json
+{
+  "id_conocimiento": "KUN-0670",
+  "titulo": "Momentos permitidos para dar instrucciones al atleta",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Coaching is only allowed during the pauses between mate and hajime. Once hajime is called, the coach must remain silent and not give any verbal instructions to the athlete until mate is called again.",
+  "contenido_traduccion": "Solo se permite dar instrucciones durante las pausas entre mate y hajime. Una vez que se da la voz de hajime, el entrenador debe permanecer en silencio y no dar ninguna instrucción verbal al atleta hasta que se vuelva a dar la voz de mate.",
+  "interpretacion": "El entrenador únicamente puede gritar o dar indicaciones tácticas a su judoka cuando el combate esté detenido (entre las voces de Mate y Hajime o Yoshi). Durante la acción fluida del combate (mientras el tiempo corre tras el Hajime), el entrenador debe guardar estricto silencio para no interferir en el desarrollo de la lucha ni distraer al árbitro.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 83",
+  "tags": [
+    "coaches",
+    "conduct",
+    "procedure",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0671: Prohibición del uso de dispositivos electrónicos para entrenadores
+```json
+{
+  "id_conocimiento": "KUN-0671",
+  "titulo": "Prohibición del uso de dispositivos electrónicos para entrenadores",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Coaches are strictly forbidden from bringing or using any electronic communication devices, including mobile phones, smartwatches, headsets, or tablets, while seated in the coach's chair.",
+  "contenido_traduccion": "Queda estrictamente prohibido que los entrenadores lleven o utilicen cualquier dispositivo electrónico de comunicación, incluidos teléfonos móviles, relojes inteligentes, auriculares o tabletas, mientras estén sentados en la silla del entrenador.",
+  "interpretacion": "Está completamente vetado el uso de tecnología de comunicación en la silla de coacheo. El entrenador no puede llevar teléfonos, auriculares, relojes inteligentes u otros aparatos que le permitan comunicarse con el exterior o recibir análisis de video externos durante el combate de su atleta.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 83",
+  "tags": [
+    "coaches",
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0672: Código de vestimenta para entrenadores en competencia
+```json
+{
+  "id_conocimiento": "KUN-0672",
+  "titulo": "Código de vestimenta para entrenadores en competencia",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Coaches must respect the dress code. During preliminary rounds, national tracksuits or official team attire are required. During final block matches, male coaches must wear a suit jacket, trousers, shirt, and tie, and female coaches must wear an equivalent formal suit or dress.",
+  "contenido_traduccion": "Los entrenadores deben respetar el código de vestimenta. Durante las rondas eliminatorias, se requiere el uso de chándal nacional o indumentaria oficial del equipo. Durante el bloque de finales, los entrenadores masculinos deben usar chaqueta de traje, pantalón, camisa y corbata, y las entrenadoras femeninas deben usar un traje formal equivalente o vestido.",
+  "interpretacion": "Dependiendo de la fase del torneo, el entrenador debe vestir formalmente: en las eliminatorias matutinas es obligatorio el chándal/deportivo oficial de la delegación o país; en el bloque de finales (por medallas) es obligatorio el traje formal de chaqueta y corbata (o vestimenta formal equivalente para mujeres). Incumplir esto impide al entrenador sentarse en la silla.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 83",
+  "tags": [
+    "coaches",
+    "dress-code",
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0673: Sanciones por conducta inapropiada del entrenador y expulsión
+```json
+{
+  "id_conocimiento": "KUN-0673",
+  "titulo": "Sanciones por conducta inapropiada del entrenador y expulsión",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If a coach violates the coaching rules or shows disrespectful behavior towards the referee or officials, the referee can issue a warning or request the IJF Education/Coaching Commission to remove the coach. On the first infraction, the coach is removed from the chair for the remainder of that contest. For repeated or severe misconduct, the coach's accreditation may be withdrawn for the rest of the event or longer.",
+  "contenido_traduccion": "Si un entrenador viola las reglas de coacheo o muestra un comportamiento irrespetuoso hacia el árbitro u oficiales, el árbitro puede emitir una advertencia o solicitar a la Comisión de Educación/Entrenadores de la IJF la expulsión del entrenador. En la primera infracción, el entrenador es retirado de la silla por el resto de ese combate. En caso de conducta inapropiada reiterada o grave, se podrá retirar la acreditación del entrenador durante el resto del evento o por más tiempo.",
+  "interpretacion": "Si el entrenador grita durante el combate fuera de mate, insulta o gesticula contra el arbitraje, el árbitro central le ordenará abandonar la silla de coacheo durante ese combate. En situaciones más graves o conductas reincidentes, la Comisión de la IJF puede retirarle la acreditación oficial, impidiéndole entrenar durante todo el torneo o suspensiones posteriores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 7 - Educación y Entrenadores, Página 83",
+  "tags": [
+    "coaches",
+    "conduct",
+    "procedure",
+    "referee"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0674: Responsabilidad del Lugar de Competencia
+```json
+{
+  "id_conocimiento": "KUN-0674",
+  "titulo": "Responsabilidad del Lugar de Competencia",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "COMPETITION VENUE. The competition venue is the responsibility of the IJF Sport Commission.",
+  "contenido_traduccion": "LUGAR DE COMPETENCIA. El lugar de competencia es responsabilidad de la Comisión Deportiva de la IJF.",
+  "interpretacion": "Asigna oficialmente a la Comisión Deportiva de la IJF la máxima responsabilidad sobre el recinto de competencia, garantizando la supervisión, aprobación y cumplimiento de los estándares organizativos y técnicos requeridos para el evento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 84",
+  "tags": [
+    "procedure",
+    "structure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0675: Requisitos generales y especificaciones de la sede de competencia
+```json
+{
+  "id_conocimiento": "KUN-0675",
+  "titulo": "Requisitos generales y especificaciones de la sede de competencia",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "8.1 Venue\nThe competition venue should be large enough to host the event and have adequate seating for spectators, VIPs, delegations, and media. For the Olympic Games the seating capacity should be a minimum of 10,000. The venue should be well lit and of a constant temperature of between 18 – 22°C. Information for event organisers can be found in the International Judo Federation (IJF) Event Organisation Guide (EOG).",
+  "contenido_traduccion": "8.1 Sede de competencia\nLa sede de competencia debe ser lo suficientemente grande como para albergar el evento y contar con asientos adecuados para espectadores, VIP, delegaciones y medios de comunicación. Para los Juegos Olímpicos, la capacidad de asientos debe ser de un mínimo de 10.000. La sede debe estar bien iluminada y mantener una temperatura constante de entre 18 y 22 °C. La información para los organizadores de eventos se puede encontrar en la Guía de Organización de Eventos (EOG) de la Federación Internacional de Judo (IJF).",
+  "interpretacion": "El comité organizador debe garantizar un recinto que cumpla con el aforo necesario (mínimo 10,000 para JJ.OO.), iluminación idónea y un control climático estricto entre 18 °C y 22 °C para garantizar el óptimo desempeño físico de los competidores y el confort de las delegaciones y espectadores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Subsección 8.1, Página 85",
+  "tags": [
+    "layout",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0676: Zonificación y gestión de flujos de circulación en la sede
+```json
+{
+  "id_conocimiento": "KUN-0676",
+  "titulo": "Zonificación y gestión de flujos de circulación en la sede",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "To operate effectively, the venue should be separated into zones for different activities and client groups. Wherever possible, different entry/exit doors and movement flows should be also be established for different groups. If groups must cross or mix, then it may be necessary to have security to assist with managing this.",
+  "contenido_traduccion": "Para funcionar de manera efectiva, la sede debe estar dividida en zonas para diferentes actividades y grupos de usuarios. Siempre que sea posible, también se deben establecer diferentes puertas de entrada/salida y flujos de circulación para los distintos grupos. Si los grupos deben cruzarse o mezclarse, puede ser necesario contar con personal de seguridad para ayudar a gestionar esto.",
+  "interpretacion": "Se requiere una separación física o logística por zonas de acreditación (atletas, VIP, prensa, público) con sus propios accesos. Los organizadores y la seguridad del evento deben coordinar los puntos de intersección para evitar la interferencia o aglomeración con los competidores antes y durante sus combates.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Subsección 8.1, Página 85",
+  "tags": [
+    "layout",
+    "procedure",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0677: Requisitos de pantallas de video integradas y monitores de seguimiento
+```json
+{
+  "id_conocimiento": "KUN-0677",
+  "titulo": "Requisitos de pantallas de video integradas y monitores de seguimiento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "At least one large video display (LED screen) of sufficient size and resolution must be installed in the competition venue, positioned for clear visibility from all spectator areas. The display shall be integrated with the official timing and scoring system and capable of showing live action from all competition areas, official replays, and event information. Live action and replays shall also be made available on monitors in designated functional areas, including the warm-up zone and judogi control, to ensure that athletes, coaches, and officials can follow the competition flow.",
+  "contenido_traduccion": "Se debe instalar al menos una pantalla grande de video (pantalla LED) de suficiente tamaño y resolución en la sede de competencia, ubicada para una clara visibilidad desde todas las áreas de espectadores. La pantalla estará integrada con el sistema oficial de cronometraje y puntuación y será capaz de mostrar acción en vivo de todas las áreas de competencia, repeticiones oficiales e información del evento. La acción en vivo y las repeticiones también estarán disponibles en monitores en áreas funcionales designadas, incluyendo la zona de calentamiento y el control de judogi, para garantizar que atletas, entrenadores y oficiales puedan seguir el flujo de la competencia.",
+  "interpretacion": "La instalación debe contar con pantallas principales conectadas al sistema oficial de marcador/tiempo y repetición, además de monitores en la zona de calentamiento y en el control de judogi. Esto permite a atletas y entrenadores calcular adecuadamente los tiempos de calentamiento y llamados a pista según el avance en los tatamis.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Subsección 8.1, Página 85",
+  "tags": [
+    "video",
+    "layout",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0678: Acceso de niños a áreas de atletas y apoyo a madres lactantes
+```json
+{
+  "id_conocimiento": "KUN-0678",
+  "titulo": "Acceso de niños a áreas de atletas y apoyo a madres lactantes",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF is committed to helping athletes on their return to competition following childbirth and will do our best to support those mothers who are breastfeeding babies. Children are NOT allowed in any of the athlete areas unless it has been approved by the IJF. A detailed request should be sent to the IJF General Secretariat, by email (gs@ijf.org). Any relevant venue policies will be considered and if approved there must be no disturbance to other athletes and delegates and if this happens, the access will be withdrawn.",
+  "contenido_traduccion": "La IJF está comprometida a ayudar a las atletas en su regreso a la competencia tras el parto y hará todo lo posible por apoyar a las madres en periodo de lactancia. NO se permiten niños en ninguna de las áreas de atletas a menos que haya sido aprobado por la IJF. Se debe enviar una solicitud detallada a la Secretaría General de la IJF por correo electrónico (gs@ijf.org). Se considerará cualquier política relevante de la sede y, si se aprueba, no debe haber molestias para otros atletas y delegados; si esto ocurre, se retirará el acceso.",
+  "interpretacion": "Como regla general, los niños tienen prohibida la entrada a las zonas reservadas para atletas. Como excepción, las madres lactantes pueden solicitar autorización previa por correo a la IJF (gs@ijf.org). La aprobación está sujeta a normativas del recinto y a no causar molestias a otros atletas; si el menor causa interrupciones o disturbios, la autorización de acceso será revocada de inmediato.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Subsección 8.1, Página 85",
+  "tags": [
+    "conduct",
+    "safety",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0679: Especificaciones técnicas de la sede de entrenamiento y del tatami
+```json
+{
+  "id_conocimiento": "KUN-0679",
+  "titulo": "Especificaciones técnicas de la sede de entrenamiento y del tatami",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "8.2 Training Venue\nThe LOC shall provide training areas and transport for all delegations. The training areas should be sufficient to accommodate the number of participants; it should be adequately ventilated and a temperature of 18 - 22oC maintained. Tatami used in the training venue should be approved by the IJF Head Sport Director. The tatami must be placed on a resilient floor at ground level. If the floor is concrete, there should be Taraflex (or similar) underneath the tatami. The minimum height above the tatami must be 5 m from the lowest hanging object.",
+  "contenido_traduccion": "8.2 Sede de entrenamiento\nEl LOC debe proporcionar áreas de entrenamiento y transporte para todas las delegaciones. Las áreas de entrenamiento deben ser suficientes para albergar al número de participantes; deben estar adecuadamente ventiladas y mantenerse a una temperatura de 18 - 22 °C. El tatami utilizado en la sede de entrenamiento debe ser aprobado por el Director Deportivo Principal de la IJF. El tatami debe colocarse sobre un suelo elástico a nivel del suelo. Si el suelo es de hormigón, debe haber Taraflex (o similar) debajo del tatami. La altura mínima sobre el tatami debe ser de 5 m desde el objeto colgado más bajo.",
+  "interpretacion": "El Comité Organizador Local debe asegurar transporte y recintos de entrenamiento aptos. El tatami requiere autorización explícita del Director Deportivo Principal de la IJF, colocación sobre base elástica (p. ej., Taraflex sobre concreto) a nivel del suelo, altura libre de al menos 5 metros de cualquier obstáculo colgado y climatización entre 18 °C y 22 °C.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Subsección 8.2, Página 85",
+  "tags": [
+    "tatami",
+    "layout",
+    "safety",
+    "dimensions"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0680: Independencia y privacidad en zonas de entrenamiento para grandes eventos
+```json
+{
+  "id_conocimiento": "KUN-0680",
+  "titulo": "Independencia y privacidad en zonas de entrenamiento para grandes eventos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "During World Championships and Olympic Games training areas should be provided that are separate from the warm-up area.\nFor Olympic Games and other large multi-sport games curtain or screen separation should be provided for privacy between the delegations with sufficient circulation space for coaches and support staff and benches for sitting.",
+  "contenido_traduccion": "Durante los Campeonatos Mundiales y los Juegos Olímpicos, se deben proporcionar áreas de entrenamiento independientes de la zona de calentamiento.\nPara los Juegos Olímpicos y otros grandes juegos multideportivos, se debe proporcionar una separación mediante cortinas o pantallas para ofrecer privacidad entre las delegaciones, con suficiente espacio de circulación para entrenadores y personal de apoyo, y bancos para sentarse.",
+  "interpretacion": "En Campeonatos Mundiales y JJ.OO., el área de entrenamiento no puede ser la misma que la zona de calentamiento adyacente a la competencia. En eventos multideportivos grandes, es obligatorio instalar mamparas o cortinas de separación que aíslen visual y físicamente a los equipos para resguardar su privacidad táctica y logística.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Subsección 8.2, Página 85",
+  "tags": [
+    "layout",
+    "procedure",
+    "coaches"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0681: Servicios auxiliares y coordinación de horarios en la sede de entrenamiento
+```json
+{
+  "id_conocimiento": "KUN-0681",
+  "titulo": "Servicios auxiliares y coordinación de horarios en la sede de entrenamiento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Scales and medical provision must be provided. Additional facilities can include changing rooms with lockers, showers, saunas, fitness equipment and a lounge area with drinks and snacks.\nTraining times should be coordinated between the organising committee and the delegations.",
+  "contenido_traduccion": "Se deben proporcionar básculas y atención médica. Las instalaciones adicionales pueden incluir vestuarios con casilleros, duchas, saunas, equipos de gimnasio y un área de descanso con bebidas y refrigerios.\nLos horarios de entrenamiento deben coordinarse entre el comité organizador y las delegaciones.",
+  "interpretacion": "La sede de entrenamiento debe contar indispensablemente con básculas oficiales de control de peso y servicio médico de primeros auxilios. Las delegaciones deben agendar y coordinar formalmente sus bloques de entrenamiento con el comité organizador para evitar sobrecupos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Subsección 8.2, Página 85",
+  "tags": [
+    "weigh-in",
+    "medical",
+    "procedure",
+    "layout"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0682: Reglas de conducta y equipamiento en las instalaciones de entrenamiento
+```json
+{
+  "id_conocimiento": "KUN-0682",
+  "titulo": "Reglas de conducta y equipamiento en las instalaciones de entrenamiento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The training venue must have the same rules as a dojo and should be always kept tidy. Delegations should not play music through speakers nor bring large items of sport equipment (e.g., stationary bikes, rowing machines etc.) into the venue.",
+  "contenido_traduccion": "El lugar de entrenamiento debe tener las mismas reglas que un dojo y debe mantenerse siempre ordenado. Las delegaciones no deben reproducir música a través de altavoces ni llevar artículos grandes de equipamiento deportivo (por ejemplo, bicicletas estáticas, máquinas de remo, etc.) a las instalaciones.",
+  "interpretacion": "Las delegaciones deben mantener la etiqueta tradicional de un dojo y el orden dentro de la sala de entrenamiento. Está prohibido utilizar altavoces para reproducir música o introducir equipamiento de gimnasio voluminoso como bicicletas estáticas o remos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 86",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0683: Control de Judogi - Responsabilidad e informes de infracción
+```json
+{
+  "id_conocimiento": "KUN-0683",
+  "titulo": "Control de Judogi - Responsabilidad e informes de infracción",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "8 .3 Judogi Control\nCheck-in and judogi control are the responsibility of the IJF Education and Coaching Commission. The Commission must inform, by email, the IJF General Secretariat of any cases where there is a breaching of the rules. The full IJF Judogi Rules can be found in Appendix C.",
+  "contenido_traduccion": "8.3 Control de Judogi\nEl registro de entrada y el control de judogi son responsabilidad de la Comisión de Educación y Entrenamiento de la IJF. La Comisión debe informar, por correo electrónico, a la Secretaría General de la IJF sobre cualquier caso en que se produzca una infracción de las reglas. Las Reglas de Judogi completas de la IJF se encuentran en el Apéndice C.",
+  "interpretacion": "La gestión del chequeo y control del uniforme (judogi) recae sobre la Comisión de Educación y Entrenamiento de la IJF. Cualquier incumplimiento detectado debe ser notificado de manera oficial por correo electrónico a la Secretaría General de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 86",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0684: Zona de calentamiento - Requisitos, etiqueta del tatami y equipamiento permitido
+```json
+{
+  "id_conocimiento": "KUN-0684",
+  "titulo": "Zona de calentamiento - Requisitos, etiqueta del tatami y equipamiento permitido",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "8 .4 Warm-Up Area\nThere must be space(s) in the venue for warming up in accordance with the IJF warm-up area template which includes tatami for training and areas for resting. The size and final layout of the warm-up area(s) will be agreed by the IJF Sport Commission.\nThe warm-up area must have the same rules as a dojo and should be always kept tidy. The main purpose of the warm-up tatami is for the athletes competing that day to warm up and there will be a strict nothing on the warm-up tatami policy.\nDelegations should not guard a space for their team, play music through speakers nor bring large items of sport equipment (e.g., stationary bikes, rowing machines etc.) in to the warm-up area. The number of massage beds that a delegation can bring to the warm-up may be restricted to one depending on the space.",
+  "contenido_traduccion": "8.4 Zona de Calentamiento\nDebe haber espacio(s) en la sede para el calentamiento de acuerdo con la plantilla de la zona de calentamiento de la IJF, que incluye tatami para entrenamiento y áreas de descanso. El tamaño y la disposición final de la(s) zona(s) de calentamiento serán acordados por la Comisión Deportiva de la IJF.\nLa zona de calentamiento debe tener las mismas reglas que un dojo y debe mantenerse siempre ordenada. El propósito principal del tatami de calentamiento es que los atletas que compiten ese día calienten, y habrá una estricta política de 'nada sobre el tatami de calentamiento'.\nLas delegaciones no deben acaparar espacio para su equipo, reproducir música a través de altavoces ni llevar artículos grandes de equipamiento deportivo (por ejemplo, bicicletas estáticas, máquinas de remo, etc.) a la zona de calentamiento. El número de camillas de masaje que una delegación puede llevar a la zona de calentamiento puede restringirse a una según el espacio.",
+  "interpretacion": "El tatami de calentamiento debe permanecer absolutamente libre de objetos (bolsas, zapatillas, botellas, etc.). Queda prohibido reservar zonas exclusivas para un equipo, usar altavoces o introducir maquinaria voluminosa. Además, según la disponibilidad de espacio, se puede limitar a un máximo de una camilla de masaje por delegación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 86",
+  "tags": [
+    "tatami",
+    "conduct",
+    "layout",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0685: Zona de calentamiento - Restricciones de acceso para competidores y no competidores
+```json
+{
+  "id_conocimiento": "KUN-0685",
+  "titulo": "Zona de calentamiento - Restricciones de acceso para competidores y no competidores",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF Sport Commission will restrict warm-up area access to those athletes that are competing that day. If there are no other training venue(s) then non-competing athletes will not be allowed to access the warm-up area until two (2) hours after the start of the competition.\nOnce athletes finish their competition, they should leave the main warm-up area, taking their belongings, and ensure that the used area remains clean.",
+  "contenido_traduccion": "La Comisión Deportiva de la IJF restringirá el acceso a la zona de calentamiento a los atletas que compitan ese día. Si no hay otras instalaciones de entrenamiento, a los atletas que no compitan no se les permitirá acceder a la zona de calentamiento hasta dos (2) horas después del inicio de la competición.\nUna vez que los atletas terminan su competición, deben abandonar la zona principal de calentamiento, llevándose sus pertenencias y asegurándose de que el área utilizada permanezca limpia.",
+  "interpretacion": "Solo los judocas programados para combatir en el día tienen acceso prioritario al calentamiento. Si no existen otras salas de entrenamiento alternativamente, los deportistas que no compitan ese día deben esperar al menos 2 horas tras el inicio del evento para entrar. Tras finalizar la participación, el atleta debe desalojar y limpiar el área utilizada.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 86",
+  "tags": [
+    "procedure",
+    "time",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0686: Suministro de agua, hielo y normatividad sobre consumo de alimentos en la sede
+```json
+{
+  "id_conocimiento": "KUN-0686",
+  "titulo": "Suministro de agua, hielo y normatividad sobre consumo de alimentos en la sede",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Ice and water (in sealed bottles, cans or containers up to 500 ml), with a low sodium and/or chloride content (below 200 mg/l), must be provided for delegations during the entire competition. This rule applies to warm-up areas, all training areas, medical rooms and doping control rooms.\nDrinks and snacks are allowed on the resting area. Main meals must take place in the delegations’ lounge.\nFor other activities (eating, changing clothes etc.) alternative spaces will be used. It is a shared space for all athletes to use.",
+  "contenido_traduccion": "Se debe proporcionar a las delegaciones hielo y agua (en botellas, latas o envases sellados de hasta 500 ml), con un bajo contenido de sodio y/o cloruro (por debajo de 200 mg/l), durante toda la competición. Esta regla se aplica a las zonas de calentamiento, todas las zonas de entrenamiento, salas médicas y salas de control de dopaje.\nSe permiten bebidas y aperitivos en el área de descanso. Las comidas principales deben realizarse en la sala de delegaciones (delegations' lounge).\nPara otras actividades (comer, cambiarse de ropa, etc.) se utilizarán espacios alternativos. Es un espacio compartido para el uso de todos los atletas.",
+  "interpretacion": "La organización debe proveer de forma continua agua embotellada de baja mineralización (<=500 ml, sodio/cloruro <200 mg/l) e hielo en zonas clave (calentamiento, entrenamiento, médica, dopaje). En el área de descanso solo se permite consumir refrigerios ligeros; los almuerzos o comidas principales deben hacerse estrictamente en la sala de delegaciones.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 86",
+  "tags": [
+    "procedure",
+    "medical"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0687: Reglas y restricciones para los medios de comunicación en la zona de calentamiento
+```json
+{
+  "id_conocimiento": "KUN-0687",
+  "titulo": "Reglas y restricciones para los medios de comunicación en la zona de calentamiento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Media with photographic or television cameras may be given permission to film in the warm-up area. However, this is not compulsory and is subject to the capacity of the warm-up area and the feedback from the delegations. Requests to film and take photos in the warm-up area must be sent at least one week prior to the first day of competition by the media at media@ijf .org, and must be coordinated by the LOC media department, under the supervision of the IJF media team. At any time to access to the warm-up area can be restricted or cancelled. Full access all day is not possible, time slots must be set up. Interviews in the warm-up area are not permitted.",
+  "contenido_traduccion": "Los medios de comunicación con cámaras fotográficas o de televisión pueden recibir autorización para filmar en la zona de calentamiento. Sin embargo, esto no es obligatorio y está sujeto a la capacidad de la zona de calentamiento y a los comentarios de las delegaciones. Las solicitudes para filmar y tomar fotos en la zona de calentamiento deben enviarse al menos una semana antes del primer día de competición por los medios a media@ijf.org, y deben ser coordinadas por el departamento de medios del LOC, bajo la supervisión del equipo de medios de la IJF. En cualquier momento el acceso a la zona de calentamiento puede ser restringido o cancelado. No es posible el acceso completo durante todo el día; se deben establecer franjas horarias. No se permiten entrevistas en la zona de calentamiento.",
+  "interpretacion": "La cobertura de prensa en el área de calentamiento requiere solicitud previa (mínimo 1 semana antes a media@ijf.org) y está limitada a franjas horarias fijas según espacio. La IJF o la organización pueden revocar el acceso en cualquier momento. Queda estrictamente prohibido realizar entrevistas periodísticas dentro de la zona de calentamiento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 86",
+  "tags": [
+    "procedure",
+    "conduct",
+    "video"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0688: Restricciones de acceso y presencia para medios de comunicación en el área de calentamiento
+```json
+{
+  "id_conocimiento": "KUN-0688",
+  "titulo": "Restricciones de acceso y presencia para medios de comunicación en el área de calentamiento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Accredited media should always remain in the passage area, ensuring they do not disturb the athletes or disrupt the flow. They are never allowed to step onto the main mat area or the athletes’ resting areas, in other words, onto any tatami. All media (unless authorised by the IJF) should leave the warm-up area 20 minutes before the start of competition, for both the preliminary rounds and the final block. Based on the number of media accredited, a green card access system may be put in place to ensure smooth running of the event in terms of media access. Information will be sent to all accredited media prior to the competition.",
+  "contenido_traduccion": "Los medios acreditados deben permanecer siempre en el área de paso, asegurándose de no molestar a los atletas ni interrumpir el flujo. Nunca se les permite pisar el área principal de tapiz o las áreas de descanso de los atletas, en otras palabras, ningún tatami. Todos los medios (a menos que estén autorizados por la IJF) deben abandonar el área de calentamiento 20 minutos antes del inicio de la competencia, tanto para las rondas preliminares como para el bloque final. Según el número de medios acreditados, se podrá implementar un sistema de acceso con tarjeta verde para garantizar el buen funcionamiento del evento en términos de acceso de medios. La información se enviará a todos los medios acreditados antes de la competencia.",
+  "interpretacion": "Los periodistas y fotógrafos deben limitar sus desplazamientos a los pasillos designados. Tienen prohibido subir o pisar cualquier tatami. Además, deben desalojar el área de calentamiento 20 minutos antes de que inicien las preliminares y el bloque final, salvo permiso explícito de la IJF. Un sistema de tarjeta verde puede regular el cupo según el evento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Área de Calentamiento, Página 87",
+  "tags": [
+    "procedure",
+    "conduct",
+    "layout",
+    "coaches"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0689: Especificaciones técnicas del tatami y superficie en el área de calentamiento
+```json
+{
+  "id_conocimiento": "KUN-0689",
+  "titulo": "Especificaciones técnicas del tatami y superficie en el área de calentamiento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Tatami used in the warm-up area should respect the IJF tatami rules (see 8.7). The tatami needs to be placed on a resilient floor at ground level. If the floor is concrete, there should be Taraflex (or similar) underneath the mats. The minimum height above the mats must be 5 m from the lowest hanging object.",
+  "contenido_traduccion": "El tatami utilizado en el área de calentamiento debe respetar las reglas de tatami de la IJF (ver 8.7). El tatami debe colocarse sobre un suelo elástico a nivel del suelo. Si el suelo es de hormigón/concreto, debe haber Taraflex (o similar) debajo de los colchones. La altura mínima por encima de los colchones debe ser de 5 m desde el objeto colgado más bajo.",
+  "interpretacion": "Garantiza que el área de calentamiento ofrezca la misma seguridad e higiene biomecánica que el campo de juego. Si el pabellón tiene piso rígido de concreto, la organización está obligada a instalar una capa amortiguadora tipo Taraflex previa a la colocación del tatami y asegurar una altura libre de techos u objetos de al menos 5 metros.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Área de Calentamiento, Página 87",
+  "tags": [
+    "tatami",
+    "layout",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0690: Sistemas de información en tiempo real y aplicación Coach Assistant
+```json
+{
+  "id_conocimiento": "KUN-0690",
+  "titulo": "Sistemas de información en tiempo real y aplicación Coach Assistant",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The contest order, competition schedule and live contests must be displayed in real time in both the warm-up area and the judogi control area, using monitors or screens of adequate size and visibility, so that coaches and athletes can always follow the competition. These displays shall be automatically updated from the official competition management system to ensure accuracy. The IJF “Coach Assistant” application, or an IJF-approved equivalent, shall be available in the warm-up area to allow coaches and team officials to access the contest order, athlete call times, and related competition updates. A notice board should be placed in or near the warm-up area so that information for the delegations can be displayed.",
+  "contenido_traduccion": "El orden de los combates, el cronograma de competencia y los combates en vivo deben mostrarse en tiempo real tanto en el área de calentamiento como en el área de control de judogi, utilizando monitores o pantallas de tamaño y visibilidad adecuados, para que los entrenadores y atletas siempre puedan seguir la competencia. Estas pantallas se actualizarán automáticamente desde el sistema oficial de gestión de competencias para garantizar la precisión. La aplicación 'Coach Assistant' de la IJF, o un equivalente aprobado por la IJF, estará disponible en el área de calentamiento para permitir a los entrenadores y oficiales de equipo acceder al orden de combates, tiempos de llamada de los atletas y actualizaciones relacionadas con la competencia. Se debe colocar un tablero de anuncios en o cerca del área de calentamiento para que se pueda mostrar la información dirigida a las delegaciones.",
+  "interpretacion": "Los entrenadores y atletas dependen de pantallas visibles y sincronizadas automáticamente en la zona de calentamiento y en el control de judogi. Adicionalmente, el personal técnico del equipo utiliza la app móvil oficial Coach Assistant para recibir alertas exactas de tiempos de llamada a combate y cambios en el cuadro de competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Área de Calentamiento, Página 87",
+  "tags": [
+    "procedure",
+    "coaches",
+    "layout"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0691: Ubicación de tribunas de atletas e instalaciones de servicio
+```json
+{
+  "id_conocimiento": "KUN-0691",
+  "titulo": "Ubicación de tribunas de atletas e instalaciones de servicio",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "8 .5 Athlete Seating and Facilities\nThe athlete tribune, changing rooms, toilets and other facilities etc. should be as close as possible to the warm-up area.",
+  "contenido_traduccion": "8 .5 Asientos e Instalaciones para Atletas\nLa tribuna de atletas, los vestuarios, sanitarios y otras instalaciones, etc., deben estar lo más cerca posible del área de calentamiento.",
+  "interpretacion": "El diseño arquitectónico del recinto de competencia debe minimizar las distancias entre la zona de descanso de los competidores (tribunas, vestidores, baños) y la zona de calentamiento para optimizar el flujo de deportistas y prevenir retrasos en la programación del torneo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8.5 - Asientos e Instalaciones para Atletas, Página 87",
+  "tags": [
+    "layout",
+    "coaches",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0692: Prohibición de manifestaciones políticas, religiosas, personales o comerciales en el campo de juego
+```json
+{
+  "id_conocimiento": "KUN-0692",
+  "titulo": "Prohibición de manifestaciones políticas, religiosas, personales o comerciales en el campo de juego",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "8 .6 Entry to and Exit from Field of Play\nReligious, political, personal, commercial connotation or manifestation is prohibited for everyone on the field of play.",
+  "contenido_traduccion": "8 .6 Entrada y Salida del Campo de Juego\nQueda prohibida toda connotación o manifestación religiosa, política, personal o comercial para cualquier persona dentro del campo de juego.",
+  "interpretacion": "Atletas, entrenadores, médicos y personal técnico tienen estrictamente prohibido realizar gestos, exhibir pancartas, parches, prendas u objetos que contengan mensajes o símbolos religiosos, políticos, comerciales o personales en toda la superficie del campo de juego (Field of Play). El incumplimiento conlleva sanciones disciplinarias inmediatas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8.6 - Entrada y Salida del Campo de Juego, Página 87",
+  "tags": [
+    "conduct",
+    "procedure",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0693: Procedimiento de entrada al tapiz, anuncios e ingrese según orientación de mesa técnica
+```json
+{
+  "id_conocimiento": "KUN-0693",
+  "titulo": "Procedimiento de entrada al tapiz, anuncios e ingrese según orientación de mesa técnica",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The venue speaker(s) announce the athletes as they enter the field of play and the result of the contest.\nThe athletes go onto the tatami on the side opposite that of the technical table. If the athletes walk from the left the first athlete called is the one in the blue judogi followed by white. If it is from the right the first athlete called is the one in the white judogi followed by blue.",
+  "contenido_traduccion": "El o los locutores del recinto anuncian a los atletas cuando ingresan al campo de juego y el resultado del combate.\nLos atletas entran al tatami por el lado opuesto al de la mesa técnica. Si los atletas caminan desde la izquierda, el primer atleta llamado es el del judogi azul seguido por el blanco. Si es desde la derecha, el primer atleta llamado es el del judogi blanco seguido por el azul.",
+  "interpretacion": "Regula el protocolo visual y de audio durante la entrada de competidores. La entrada al tatami se efectúa siempre enfrente de la mesa técnica. Dependiendo de la lateralidad del pasillo de acceso (izquierda o derecha respecto a la mesa), el orden de caminata de los judocas (azul y blanco) se ajusta para que coincida con la ubicación oficial de las esquinas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8.6 - Entrada y Salida del Campo de Juego, Página 87",
+  "tags": [
+    "procedure",
+    "color",
+    "layout"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0694: Acompañantes autorizados del atleta al campo de juego en competencias individuales
+```json
+{
+  "id_conocimiento": "KUN-0694",
+  "titulo": "Acompañantes autorizados del atleta al campo de juego en competencias individuales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In individual competitions an athlete can be accompanied onto the field of play with one coach and one doctor who must follow the dress code (for team competitions refer to Section 2).",
+  "contenido_traduccion": "En competencias individuales, un atleta puede estar acompañado en el campo de juego por un entrenador y un médico, quienes deben cumplir con el código de vestimenta (para competencias por equipos, consulte la Sección 2).",
+  "interpretacion": "Durante las competencias individuales, únicamente se permite el acceso al recinto del tapiz a un entrenador y un médico por competidor. Ambos acompañantes oficiales deben respetar de manera obligatoria el código de vestimenta (dress code) normado por la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8.6 - Entrada y Salida del Campo de Juego, Página 87",
+  "tags": [
+    "coaches",
+    "medical",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0695: Integridad de la vestimenta y accesorios en el campo de juego y zona mixta
+```json
+{
+  "id_conocimiento": "KUN-0695",
+  "titulo": "Integridad de la vestimenta y accesorios en el campo de juego y zona mixta",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes must enter and leave the field of play wearing their judogi in the proper way. It is not allowed to remove any part of the judogi or the belt or to add items of clothing or accessories (caps, sunglasses etc.) until the athlete has left both the field of play and the mixed zone.",
+  "contenido_traduccion": "Los atletas deben entrar y salir del campo de juego vistiendo su judogi de la manera adecuada. No está permitido quitarse ninguna parte del judogi o del cinturón, ni agregar prendas de vestir o accesorios (gorras, gafas de sol, etc.) hasta que el atleta haya abandonado tanto el campo de juego como la zona mixta.",
+  "interpretacion": "El judoca debe mantener su chaqueta atada adecuadamente con el cinturón en todo momento desde que entra al campo de juego hasta que abandona totalmente la zona mixta. Queda estrictamente prohibido quitarse la chaqueta, desatarse el cinturón, bajarse pantalones o ponerse accesorios (gorras, lentes de sol) durante este trayecto.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8.6 - Entrada y Salida del Campo de Juego, Página 87",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "uniform",
+    "procedure",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0696: Uso de gafas graduadas por los atletas en el campo de juego
+```json
+{
+  "id_conocimiento": "KUN-0696",
+  "titulo": "Uso de gafas graduadas por los atletas en el campo de juego",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The wearing of athlete prescription glasses in the field of play will be permitted but they must be removed before entering the tatami for their contest.",
+  "contenido_traduccion": "Se permitirá el uso de gafas graduadas por parte del atleta en el campo de juego, pero se deben retirar antes de ingresar al tatami para su combate.",
+  "interpretacion": "Los competidores que requieran anteojos formulados o de prescripción médica pueden usarlos dentro del recinto y en la zona perimetral del campo de juego (FOP), pero por razones de seguridad deben quitárselos obligatoriamente antes de pisar el tatami para iniciar su combate.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "dress-code",
+    "procedure",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0697: Aplicación de la regla de los 30 segundos por llegada tardía del atleta
+```json
+{
+  "id_conocimiento": "KUN-0697",
+  "titulo": "Aplicación de la regla de los 30 segundos por llegada tardía del atleta",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If an athlete does not arrive at the athlete entry to the tatami on time for their contest the 30 second rule will be applied (see Appendix D, Article 19).",
+  "contenido_traduccion": "Si un atleta no llega a tiempo a la entrada de atletas del tatami para su combate, se aplicará la regla de los 30 segundos (ver Apéndice D, Artículo 19).",
+  "interpretacion": "Cuando un competidor no se presenta puntualmente en el punto de acceso al tatami tras ser llamado, los oficiales inician una cuenta regresiva de 30 segundos. Su no comparecencia al finalizar el tiempo deriva en sanciones reglamentarias por incomparecencia.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "procedure",
+    "time",
+    "time-wasting"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0698: Sanción al entrenador por presentación tardía del atleta durante el conteo
+```json
+{
+  "id_conocimiento": "KUN-0698",
+  "titulo": "Sanción al entrenador por presentación tardía del atleta durante el conteo",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes arriving during the 30 second countdown will not be allowed to have their coach accompany them.",
+  "contenido_traduccion": "A los atletas que lleguen durante la cuenta regresiva de 30 segundos no se les permitirá estar acompañados por su entrenador.",
+  "interpretacion": "Si un deportista llega a la entrada del tatami cuando la cuenta regresiva de 30 segundos ya ha comenzado pero antes de que expire, se le permite ingresar a combatir pero pierde el derecho a contar con su entrenador en la silla de coaching durante dicho combate.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "coaches",
+    "procedure",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0699: Sanción por negativa a abandonar el tatami tras el combate
+```json
+{
+  "id_conocimiento": "KUN-0699",
+  "titulo": "Sanción por negativa a abandonar el tatami tras el combate",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If an athlete refuses to leave the tatami at the end of the contest, in serious cases both the athlete and the coach may be subject to a suspension of up to one year.",
+  "contenido_traduccion": "Si un atleta se niega a abandonar el tatami al finalizar el combate, en casos graves, tanto el atleta como el entrenador podrán ser sancionados con una suspensión de hasta un año.",
+  "interpretacion": "Rehusarse a abandonar el tatami al finalizar la lucha es una infracción disciplinaria grave. Ante este comportamiento antirreglamentario, la IJF puede imponer una suspensión disciplinaria de hasta 12 meses aplicable tanto al competidor como a su entrenador.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "conduct",
+    "coaches",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0700: Procedimiento de retiro de la competencia y verificación médica
+```json
+{
+  "id_conocimiento": "KUN-0700",
+  "titulo": "Procedimiento de retiro de la competencia y verificación médica",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If any athlete is not able to continue in the competition the IJF Sport Commission must be informed immediately. The IJF Medical Commission delegate will verify the withdrawal if it is due to a medical reason.",
+  "contenido_traduccion": "Si un atleta no puede continuar en la competición, se debe informar inmediatamente a la Comisión de Deportes de la IJF. El delegado de la Comisión Médica de la IJF verificará el retiro si se debe a una razón médica.",
+  "interpretacion": "En caso de imposibilidad para continuar en el torneo, la delegación del atleta debe notificar sin demora a la Comisión de Deportes de la IJF. Si el retiro es por lesión o enfermedad, el delegado médico oficial debe auditar y corroborar formalmente el diagnóstico.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "medical",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0701: Requisitos de accesos al área de juego y numeración de áreas de combate
+```json
+{
+  "id_conocimiento": "KUN-0701",
+  "titulo": "Requisitos de accesos al área de juego y numeración de áreas de combate",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "A minimum of three entrances to the field of play are needed to run the competition and if there are less than this, it must be approved by the IJF Sport Commission. The contest areas are numbered from left to right from the side where the technical table is located.",
+  "contenido_traduccion": "Se requiere un mínimo de tres entradas al campo de juego para desarrollar la competición y, si hay menos, debe ser aprobado por la Comisión de Deportes de la IJF. Las áreas de combate se numeran de izquierda a derecha desde el lado donde se ubica la mesa técnica.",
+  "interpretacion": "Establece los requisitos logísticos del área de competición: mínimo 3 puertas/accesos al FOP (salvo dispensa expresa de la Comisión de Deportes) y orden secuencial obligatorio de numeración de los tatamis (de izquierda a derecha situándose de frente a la mesa técnica).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "tatami",
+    "procedure",
+    "structure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0702: Restricción de acceso de delegados a la mesa técnica
+```json
+{
+  "id_conocimiento": "KUN-0702",
+  "titulo": "Restricción de acceso de delegados a la mesa técnica",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "To not disturb the running of the competition, delegates should not enter the technical table unless invited by IJF personnel.",
+  "contenido_traduccion": "Para no perturbar el desarrollo de la competición, los delegados no deben ingresar a la mesa técnica a menos que sean invitados por el personal de la IJF.",
+  "interpretacion": "Prohíbe a entrenadores, delegados o miembros de federaciones nacionales dirigirse o ingresar al área restringida de la mesa técnica principal sin autorización expresa o invitación directa del personal oficial de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0703: Zonas del tatami y dimensiones reglamentarias de combate y seguridad
+```json
+{
+  "id_conocimiento": "KUN-0703",
+  "titulo": "Zonas del tatami y dimensiones reglamentarias de combate y seguridad",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Each competition tatami is divided into two (2) zones: the contest area and the safety area. Each area is a different colour with sufficient contrast to avoid misleading edge situations. The IJF Sport Commission must agree the number of contest areas required. The contest area for IJF events shall be a minimum of 8 m x 8 m and a maximum of 10 m x 10 m. The safety area shall be a minimum of 3 m. Where two (2) or more adjoining contest areas are used, a common safe zone may be used to satisfy the minimum distance of 4 m between them. A free zone of 50 cm minimum must be maintained around the entire competition area.",
+  "contenido_traduccion": "Cada tatami de competición se divide en dos (2) zonas: el área de combate y el área de seguridad. Cada área es de un color diferente con suficiente contraste para evitar situaciones confusas en los límites. La Comisión de Deportes de la IJF debe acordar el número de áreas de combate requeridas. El área de combate para eventos de la IJF será de un mínimo de 8 m x 8 m y un máximo de 10 m x 10 m. El área de seguridad será de un mínimo de 3 m. Cuando se utilicen dos (2) o más áreas de combate adyacentes, se podrá utilizar una zona de seguridad común para cumplir con la distancia mínima de 4 m entre ellas. Se debe mantener una zona libre de un mínimo de 50 cm alrededor de toda el área de competición.",
+  "interpretacion": "Especifica la anatomía del tapiz de judo: zona de combate (8x8 m a 10x10 m) y zona de seguridad (mínimo 3 m) en colores contrastantes. Entre tatamis contiguos debe haber mínimo 4 m de zona compartida de seguridad y un margen periférico exterior libre de al menos 50 cm.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "tatami",
+    "dimensions",
+    "safety-area"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0704: Aprobación de cambios en las dimensiones del área de combate y seguridad
+```json
+{
+  "id_conocimiento": "KUN-0704",
+  "titulo": "Aprobación de cambios en las dimensiones del área de combate y seguridad",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Any requests to change the size of the contest and safety area must be approved by the IJF Head Sport Director.",
+  "contenido_traduccion": "Cualquier solicitud para cambiar el tamaño del área de combate y de seguridad debe ser aprobada por el Director Principal de Deportes de la IJF.",
+  "interpretacion": "Los comités organizadores locales no pueden modificar el tamaño o proporción de las zonas de combate o seguridad sin contar con la autorización explícita previa del Director Deportivo Principal de la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "tatami",
+    "dimensions",
+    "safety-area",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0705: Especificaciones técnicas y homologación del material de tatami
+```json
+{
+  "id_conocimiento": "KUN-0705",
+  "titulo": "Especificaciones técnicas y homologación del material de tatami",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "All tatami for IJF events must be IJF approved (the list of official suppliers is available at https://www .ijf .org/supplier-list). Each tatami should measure 1 m x 2 m x 5 cm and be made of pressed foam. They must be firm under foot, have the property of absorbing shock during ukemi, and not be slippery or too rough. The tatami must be placed on a resilient floor at ground level.",
+  "contenido_traduccion": "Todos los tatamis para eventos de la IJF deben estar homologados por la IJF (la lista de proveedores oficiales está disponible en https://www.ijf.org/supplier-list). Cada tatami debe medir 1 m x 2 m x 5 cm y estar hecho de espuma prensada. Deben ser firmes bajo los pies, tener la propiedad de absorber impactos durante los ukemi y no ser resbaladizos ni demasiado rugosos. El tatami debe colocarse sobre un suelo elástico a nivel del suelo.",
+  "interpretacion": "Obliga al uso de planchas homologadas IJF de 1m x 2m y 5 cm de grosor fabricadas en espuma prensada de alta densidad. Deben garantizar firmeza para los desplazamientos, amortiguación adecuada en proyecciones (ukemi), textura equilibrada y base con respuesta elástica a nivel de piso.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "tatami",
+    "dimensions",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0706: Fijación, montaje del tatami y altura mínima vertical de la instalación
+```json
+{
+  "id_conocimiento": "KUN-0706",
+  "titulo": "Fijación, montaje del tatami y altura mínima vertical de la instalación",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The elements making up the floor surface must be aligned without space in between; the surface must be smooth and fixed in such a way that the individual mats cannot be displaced. A mechanism (eg. wooden frame) should be used around the entire FOP tatami to prevent movement during use, ensuring stability and safety. If the floor is concrete, there should be Taraflex (or similar) underneath the mats. The minimum height above the tatami must be 12 m from the lowest hanging object.",
+  "contenido_traduccion": "Los elementos que componen la superficie del suelo deben estar alineados sin espacios entre ellos; la superficie debe ser lisa y estar fija de tal manera que las colchonetas individuales no puedan desplazarse. Se debe utilizar un mecanismo (p. ej., un marco de madera) alrededor de todo el tatami del área de juego para evitar el movimiento durante el uso, garantizando la estabilidad y la seguridad. Si el suelo es de hormigón, debe haber Taraflex (o similar) debajo de las colchonetas. La altura mínima sobre el tatami debe ser de 12 m desde el objeto colgado más bajo.",
+  "interpretacion": "Dicta normas estrictas de montaje: las colchonetas deben estar unidas herméticamente sin rendijas y enmarcadas (ej. marco de madera) para impedir desplazamientos. Sobre concreto se debe instalar una capa intermedia (Taraflex) y la altura libre hasta techos o luces colgadas debe ser de al menos 12 metros.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "tatami",
+    "safety",
+    "structure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0707: Colores oficiales del tatami para eventos WJT y reserva de material
+```json
+{
+  "id_conocimiento": "KUN-0707",
+  "titulo": "Colores oficiales del tatami para eventos WJT y reserva de material",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The official tatami colours, for IJF World Judo Tour (WJT) events, are yellow (123C) and red (1795C). Any other colours proposed by the LOC must be approved by the IJF before use. If a tatami needs to be changed, reserve tatami should be available close to the field of play.",
+  "contenido_traduccion": "Los colores oficiales del tatami para los eventos del IJF World Judo Tour (WJT) son amarillo (123C) y rojo (1795C). Cualquier otro color propuesto por el Comité Organizador Local (LOC) debe ser aprobado por la IJF antes de su uso. Si un tatami necesita ser cambiado, debe haber tatamis de reserva disponibles cerca del campo de juego.",
+  "interpretacion": "Establece el estándar de color Pantone oficial en el World Judo Tour: amarillo (123C) y rojo (1795C). La propuesta de cualquier otro color exige aprobación de la IJF. Exige mantener planchas de tatami de repuesto junto al FOP para reemplazo rápido en caso de desgaste o contaminación durante el torneo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 88",
+  "tags": [
+    "tatami",
+    "color",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0708: Dimensiones del área de combate y seguridad para grandes eventos IJF
+```json
+{
+  "id_conocimiento": "KUN-0708",
+  "titulo": "Dimensiones del área de combate y seguridad para grandes eventos IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For Masters, World Championships Seniors and Olympic Games, the contest area shall be 10 m x 10 m with a minimum common safety area of 4 m and a minimum exterior safety area of 4 m. This size is also recommended for Continental Championships.",
+  "contenido_traduccion": "Para Masters, Campeonatos Mundiales Senior y Juegos Olímpicos, el área de combate debe ser de 10 m x 10 m con un área de seguridad común mínima de 4 m y un área de seguridad exterior mínima de 4 m. Este tamaño también se recomienda para los Campeonatos Continentales.",
+  "interpretacion": "Establece las medidas obligatorias de la superficie de competición para los eventos de máximo nivel. El área activa de combate debe ser un cuadrado de 10x10 metros, rodeada por 4 metros de zona de seguridad perimetral para prevenir colisiones o lesiones cuando los judocas salen disparados proyectados fuera de la zona central.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 89",
+  "tags": [
+    "tatami",
+    "dimensions",
+    "safety-area",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0709: Restricciones de decoración y marcas publicitarias en el tatami
+```json
+{
+  "id_conocimiento": "KUN-0709",
+  "titulo": "Restricciones de decoración y marcas publicitarias en el tatami",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Any decoration on the tatami, such as the host city name, year or event logos, can only be placed on the safety area, never on the contest area. This decoration should not be slippery.",
+  "contenido_traduccion": "Cualquier decoración en el tatami, como el nombre de la ciudad sede, el año o los logotipos del evento, solo se puede colocar en el área de seguridad, nunca en el área de combate. Esta decoración no debe ser resbaladiza.",
+  "interpretacion": "Prohíbe terminantemente la presencia de logotipos o texto sobre la zona activa de combate para no distraer ni comprometer la adherencia del deportista. En el área de seguridad donde sí se permite la serigrafía o rotulación, se exige que la pintura o material aplicado no reduzca la tracción para evitar resbalones accidentales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 89",
+  "tags": [
+    "tatami",
+    "safety-area",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0710: Requisitos del sistema de video replay en competiciones IJF
+```json
+{
+  "id_conocimiento": "KUN-0710",
+  "titulo": "Requisitos del sistema de video replay en competiciones IJF",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "A certified Video Replay System is mandatory for all IJF-sanctioned competitions. The system must be the official IJF Video Replay System or an alternative expressly approved by the IJF. It shall be available for all competition areas, operated by trained personnel, and integrated with the official timing and scoring system. The purpose of the system is to ensure fairness, accuracy, and athlete safety by enabling the review of critical moments from multiple angles and speeds. The system’s output must be provided to the venue’s main video display(s) and to the host broadcaster for inclusion in television and streaming coverage, and shall be displayed in selected cases such as official reviews, confirmed scores, or educational sequences as determined by the IJF Referee Commission.",
+  "contenido_traduccion": "Un Sistema de Reclamación por Video (Video Replay System) certificado es obligatorio para todas las competiciones sancionadas por la IJF. El sistema debe ser el Sistema oficial de Video Replay de la IJF o una alternativa expresamente aprobada por la IJF. Estará disponible para todas las áreas de competición, será operado por personal capacitado e integrado con el sistema oficial de cronometraje y puntuación. El propósito del sistema es garantizar la equidad, la precisión y la seguridad del atleta mediante la revisión de momentos críticos desde múltiples ángulos y velocidades. La salida del sistema debe proporcionarse a la(s) pantalla(s) de video principal(es) del recinto y a la cadena de radiodifusión anfitriona para su inclusión en la cobertura de televisión y transmisión en directo, y se mostrará en casos seleccionados como revisiones oficiales, puntuaciones confirmadas o secuencias educativas según lo determine la Comisión de Arbitraje de la IJF.",
+  "interpretacion": "Regula el uso del sistema tecnológico de revisión por video obligatorio en cada tapiz. Permite a los comisionados de arbitraje revisar acciones complejas (puntuaciones, marcas de tiempo, acciones prohibidas) desde múltiples ángulos y a cámara lenta. Las imágenes también se integran en las pantallas gigantes del pabellón y la señal televisiva para transparencia hacia el público y entrenadores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 89",
+  "tags": [
+    "care-system",
+    "video",
+    "referee",
+    "safety",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0711: Suministro de señales de TV con audio para el sistema CARE y archivos
+```json
+{
+  "id_conocimiento": "KUN-0711",
+  "titulo": "Suministro de señales de TV con audio para el sistema CARE y archivos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The LOC must give the IJF all audio-embedded TV feeds for the Computer Assisted Replay (CARE) system, live streaming and TV archives. Refer to the EOG for further information.",
+  "contenido_traduccion": "El LOC (Comité Organizador Local) debe entregar a la IJF todas las señales de TV con audio integrado para el sistema de Replay Asistido por Ordenador (CARE), la transmisión en vivo y los archivos de TV. Consulte las EOG para obtener más información.",
+  "interpretacion": "Obliga al comité organizador local a alimentar técnicamente la mesa de arbitraje y los servidores del sistema CARE con la señal completa de vídeo y audio de televisión, permitiendo la revisión precisa de anuncios verbales del árbitro (Mate, Sore-made, etc.) e incidencias en el combate.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 89",
+  "tags": [
+    "care-system",
+    "video",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0712: Requisitos de marcadores y equipamiento manual de respaldo
+```json
+{
+  "id_conocimiento": "KUN-0712",
+  "titulo": "Requisitos de marcadores y equipamiento manual de respaldo",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For each competition area there must be two (2) scoreboards that indicate the scores horizontally, placed outside the competition area where they can be easily seen by the athletes, referees, commission members, officials, and spectators. Manual scoreboards, manual timers, bell or similar audio device and flags (yellow and green) must be available as backup.",
+  "contenido_traduccion": "Para cada área de competición debe haber dos (2) marcadores que indiquen las puntuaciones horizontalmente, colocados fuera del área de competición donde puedan ser vistos fácilmente por atletas, árbitros, miembros de comisiones, oficiales y espectadores. Deben estar disponibles como respaldo marcadores manuales, cronómetros manuales, campana o dispositivo de audio similar y banderas (amarilla y verde).",
+  "interpretacion": "Exige dos marcadores electrónicos horizontales por tatami bien visibilizados por todos los estamentos. Además, obliga a tener un kit físico de contingencia (marcadores de mesa manuales, cronómetros mecánicos/digitales portátiles, campana y banderas amarilla/verde) listo para ser usado de inmediato si falla el sistema informático o eléctrico.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 89",
+  "tags": [
+    "scoring",
+    "time",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0713: Diferenciación de señales acústicas en pabellones con múltiples tatamis
+```json
+{
+  "id_conocimiento": "KUN-0713",
+  "titulo": "Diferenciación de señales acústicas en pabellones con múltiples tatamis",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "When using several competition areas at the same time - the use of different audible signals is required. The time signal must be loud enough to be heard over the noise of the spectators.",
+  "contenido_traduccion": "Cuando se utilicen varias áreas de competición al mismo tiempo, se requiere el uso de diferentes señales audibles. La señal de tiempo debe ser lo suficientemente alta como para escucharse por encima del ruido de los espectadores.",
+  "interpretacion": "Para evitar confusiones en torneos con varios tatamis simultáneos, cada área de combate debe programar un sonido de fin de tiempo claramente distinguible del resto. El volumen debe ser elevado para sobreponerse al griterío de la grada y asegurar que los deportistas y el árbitro detengan las acciones a tiempo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 89",
+  "tags": [
+    "time",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0714: Radios de comunicación de reserva para la organización
+```json
+{
+  "id_conocimiento": "KUN-0714",
+  "titulo": "Radios de comunicación de reserva para la organización",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The LOC must have a set of reserve radios in case there are any issues with the IJF ones.",
+  "contenido_traduccion": "El LOC debe disponer de un juego de radios de reserva en caso de que haya algún problema con las de la IJF.",
+  "interpretacion": "Requisito operativo que exige al organizador local proveer unidades de walkie-talkie/radio de repuesto para mantener la comunicación constante entre la mesa técnica, dirección de arbitraje y personal sanitario si los equipos principales fallan.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 89",
+  "tags": [
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0715: Especificaciones de montaje del tatami sobre plataforma elevada
+```json
+{
+  "id_conocimiento": "KUN-0715",
+  "titulo": "Especificaciones de montaje del tatami sobre plataforma elevada",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For certain events e.g., Olympic Games the tatami may be placed on a solid platform. The platform must be made of wood or a similar material. It must be one metre wider and longer than the tatami dimensions. The height will depend on the sightlines in the sport hall. When using a platform, the exterior tatami safety area must be a minimum of 4 m. If the tatami needs to have microphones installed between them then this should be done by contractors.",
+  "contenido_traduccion": "Para ciertos eventos, por ejemplo, los Juegos Olímpicos, el tatami se puede colocar sobre una plataforma sólida. La plataforma debe estar hecha de madera o un material similar. Debe ser un metro más ancha y más larga que las dimensiones del tatami. La altura dependerá de las líneas de visión en el pabellón deportivo. Al utilizar una plataforma, el área de seguridad exterior del tatami debe ser de un mínimo de 4 m. Si el tatami necesita tener micrófonos instalados entre ellos, esto debe ser realizado por contratistas.",
+  "interpretacion": "Específica la construcción del estrado elevado para grandes citas. La plataforma de madera debe exceder en 1 metro adicional la superficie total del tatami por cada lado para asegurar soporte estructural, manteniendo obligatoriamente los 4 metros de área de seguridad exterior para evitar caída de judocas al vacío desde la altura.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 89",
+  "tags": [
+    "tatami",
+    "dimensions",
+    "safety-area",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0716: Jurisdicción médica y gobernanza en la competición
+```json
+{
+  "id_conocimiento": "KUN-0716",
+  "titulo": "Jurisdicción médica y gobernanza en la competición",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "8 .8 Medical\nAll medical matters are the responsibility of the IJF Medical Commission. Refer to the IJF Medical Handbook in Appendix E.",
+  "contenido_traduccion": "8 .8 Médico\nTodos los asuntos médicos son responsabilidad de la Comisión Médica de la IJF. Consulte el Manual Médico de la IJF en el Apéndice E.",
+  "interpretacion": "Establece que todas las decisiones sanitarias, intervenciones de urgencia en el tatami, evaluaciones de conmoción cerebral, sangrados o idoneidad para continuar compitiendo quedan bajo la autoridad exclusiva de la Comisión Médica de la IJF, remitiéndose al Apéndice E para sus reglamentos detallados.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8.8 - Médico, Página 89",
+  "tags": [
+    "medical",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0717: Prohibición de transmisión en vivo por parte de los medios de comunicación
+```json
+{
+  "id_conocimiento": "KUN-0717",
+  "titulo": "Prohibición de transmisión en vivo por parte de los medios de comunicación",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "All media matters are the responsibility of the IJF Media Director. It is expressly forbidden for all media including photographers to live stream at any time during the draw, competition or any other official IJF activity, unless specifically authorised, following proper request, by email to media@ijf.org.",
+  "contenido_traduccion": "Todos los asuntos de los medios de comunicación son responsabilidad del Director de Medios de la IJF. Está expresamente prohibido para todos los medios, incluidos los fotógrafos, transmitir en vivo en cualquier momento durante el sorteo, la competencia o cualquier otra actividad oficial de la IJF, a menos que esté específicamente autorizado, tras la solicitud correspondiente por correo electrónico a media@ijf.org.",
+  "interpretacion": "Ningún representante de los medios de comunicación ni fotógrafo puede transmitir en directo ningún evento oficial de la IJF (sorteo, combates o ceremonias) sin contar con la autorización explícita previa por escrito emitida por el Director de Medios de la IJF tras solicitarlo vía correo electrónico.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 90",
+  "tags": [
+    "procedure",
+    "conduct",
+    "video"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0718: Restricciones de filmación y uso de equipos de medios en áreas de competencia
+```json
+{
+  "id_conocimiento": "KUN-0718",
+  "titulo": "Restricciones de filmación y uso de equipos de medios en áreas de competencia",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "They are not allowed to film, or photograph injured or bleeding athletes anywhere in the venue. Mobile devices must not be used for any function while mat side. No bags, laptops, tripods or selfie sticks are allowed mat side neither in the warm-up area nor on the field of play. The use of monopods is subject to approval based on the configuration of the venue. This will be coordinated between the IJF and LOC.",
+  "contenido_traduccion": "No se les permite filmar ni fotografiar a atletas lesionados o sangrando en ninguna parte del recinto. Los dispositivos móviles no deben usarse para ninguna función mientras se esté al borde del tatami. No se permiten bolsas, computadoras portátiles, trípodes ni bastones para selfies al borde del tatami, ni en el área de calentamiento ni en el campo de juego. El uso de monopiés está sujeto a aprobación según la configuración del recinto. Esto se coordinará entre la IJF y el LOC.",
+  "interpretacion": "Se prohíbe estrictamente capturar imágenes de competidores lesionados o con hemorragias. Asimismo, al borde del tatami, área de calentamiento y campo de juego no se permite ingresar bolsos, portátiles, trípodes, celulares ni bastones de selfie. La prensa solo puede usar monopiés si cuenta con la aprobación conjunta previa de la IJF y el Comité Organizador Local.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 90",
+  "tags": [
+    "procedure",
+    "conduct",
+    "bleeding",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0719: Código de vestimenta y sanción por incumplimiento para medios de comunicación
+```json
+{
+  "id_conocimiento": "KUN-0719",
+  "titulo": "Código de vestimenta y sanción por incumplimiento para medios de comunicación",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "We also remind all media representatives that an appropriate outfit (no hat, no shorts, appropriate footwear (closed toes, flat shoes), no clothes with political and/or religious messages) is required in the warm-up area and on the field of play. Any member of the media who does not follow the above risks losing their accreditation and access to the competition.",
+  "contenido_traduccion": "También recordamos a todos los representantes de los medios que se requiere una vestimenta adecuada (sin sombrero, sin pantalones cortos, calzado adecuado (puntera cerrada, zapatos planos), sin ropa con mensajes políticos y/o religiosos) en el área de calentamiento y en el campo de juego. Cualquier miembro de los medios que no siga lo anterior se arriesga a perder su acreditación y el acceso a la competencia.",
+  "interpretacion": "Los profesionales de los medios deben vestir adecuadamente (pantalón largo, calzado plano cerrado, sin gorras/sombreros ni simbología política/religiosa) dentro del campo de juego y área de calentamiento. La inobservancia de esta norma acarrea la retirada de la acreditación oficial y la expulsión del recinto.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 90",
+  "tags": [
+    "dress-code",
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0720: Ubicación de la ceremonia de premiación y asistencia obligatoria del atleta
+```json
+{
+  "id_conocimiento": "KUN-0720",
+  "titulo": "Ubicación de la ceremonia de premiación y asistencia obligatoria del atleta",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In IJF events the awarding ceremony area should be set up on the same side of the field of play as the athlete entry. Each athlete who has won a medal must be present at the ceremony to receive their medal personally. The athlete should go to the awarding area immediately after their medal contest. Any athlete who is absent from the awards ceremony without a good reason may forfeit the medal and prize money.",
+  "contenido_traduccion": "En los eventos de la IJF, el área de la ceremonia de premiación debe instalarse del mismo lado del campo de juego que la entrada de los atletas. Cada atleta que haya ganado una medalla debe estar presente en la ceremonia para recibir su medalla personalmente. El atleta debe ir al área de premiación inmediatamente después de su combate por la medalla. Cualquier atleta que esté ausente de la ceremonia de premios sin una buena razón puede perder la medalla y el dinero del premio.",
+  "interpretacion": "Los atletas que logren medalla están obligados a dirigirse a la zona de premiación (ubicada en el mismo margen del campo de juego que la entrada de deportistas) de forma inmediata tras terminar el combate. Ausentarse sin justificación válida conlleva la pérdida de la medalla y de la dotación económica.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 90",
+  "tags": [
+    "procedure",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0721: Código de vestimenta y prohibición de elementos en el podio de premiación
+```json
+{
+  "id_conocimiento": "KUN-0721",
+  "titulo": "Código de vestimenta y prohibición de elementos en el podio de premiación",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes must attend the medal ceremony barefoot, without any hat, cap or any similar head covering and wearing their IJF approved white judogi that conforms to the IJF judogi rules with special attention being paid to the advertising rule. If it is not clean, then they must wear a reserve judogi. It is strictly prohibited for athletes on the podium to have a mobile phone (or similar device), national flags or similar items other than those on their judogi. Any demonstration with religious, political, personal, or commercial connotation is also prohibited.",
+  "contenido_traduccion": "Los atletas deben asistir a la ceremonia de medallas descalzos, sin ningún sombrero, gorra o cobertura similar para la cabeza y vistiendo su judogi blanco aprobado por la IJF que cumpla con las reglas de judogi de la IJF, prestando especial atención a la regla de publicidad. Si no está limpio, deben usar un judogi de reserva. Está estrictamente prohibido que los atletas en el podio tengan un teléfono móvil (o dispositivo similar), banderas nacionales u objetos similares que no sean los de su judogi. También está prohibida cualquier manifestación con connotación religiosa, política, personal o comercial.",
+  "interpretacion": "En el podio, el medallista debe vestir judogi blanco oficial IJF limpio (o de reserva si está sucio), ir descalzo y con la cabeza descubierta. Se prohíbe subir con celulares, banderas nacionales adicionales o cualquier objeto no integrado en el judogi, así como realizar manifestaciones religiosas, políticas, personales o comerciales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 90",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0722: Requisitos documentales para el dinero del premio y asignación al entrenador
+```json
+{
+  "id_conocimiento": "KUN-0722",
+  "titulo": "Requisitos documentales para el dinero del premio y asignación al entrenador",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For each event the amount of prize money can be found in the outlines. For the prize money to be paid, each medallist must bring a copy of their passport and their personal tax number to the awarding ceremony. Prize money will be given to the athletes who are then responsible to give 20% to their coach.",
+  "contenido_traduccion": "Para cada evento, la cantidad del dinero del premio se puede encontrar en las bases (outlines). Para que se pague el dinero del premio, cada medallista debe llevar una copia de su pasaporte y su número de identificación fiscal personal a la ceremonia de premiación. El dinero del premio se entregará a los atletas, quienes luego son responsables de entregar el 20% a su entrenador.",
+  "interpretacion": "Para cobrar el dinero del premio estipulado en las bases del evento, el deportista debe entregar fotocopia de su pasaporte y su NIF/número fiscal personal durante la ceremonia. Una vez recibido el premio, el judoka tiene la obligación legal/reglamentaria de transferir el 20% del importe a su entrenador.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 90",
+  "tags": [
+    "procedure",
+    "coaches",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0723: Disponibilidad obligatoria de los atletas para actividades con los medios de comunicación
+```json
+{
+  "id_conocimiento": "KUN-0723",
+  "titulo": "Disponibilidad obligatoria de los atletas para actividades con los medios de comunicación",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes must also be available for interview or for the Golden Score show after the last awarding ceremony if requested by the IJF Media Team. If they do not attend disciplinary action may be taken.",
+  "contenido_traduccion": "Los atletas también deben estar disponibles para entrevistas o para el programa Golden Score después de la última ceremonia de premiación si lo solicita el equipo de medios de la IJF. Si no asisten, se pueden tomar medidas disciplinarias.",
+  "interpretacion": "Tras finalizar las ceremonias de premiación, los deportistas requeridos por el equipo de prensa de la IJF deben participar en entrevistas o en el programa 'Golden Score'. La negativa o inasistencia no justificada puede derivar en un expediente disciplinario.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 90",
+  "tags": [
+    "procedure",
+    "conduct",
+    "video"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0724: Protocolo de izado de banderas y excepción por doble hansoku-make en la final
+```json
+{
+  "id_conocimiento": "KUN-0724",
+  "titulo": "Protocolo de izado de banderas y excepción por doble hansoku-make en la final",
+  "tipo": "CAS",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The flags should be hung from left to right - silver, gold, bronze A, bronze B. For a double hansoku-make in the final the flags should be hung silver A flag, silver B flag, no gold flag, bronze A flag, bronze B flag.",
+  "contenido_traduccion": "Las banderas deben colgarse de izquierda a derecha: plata, oro, bronce A, bronce B. Para un doble hansoku-make en la final, las banderas deben colgarse bandera de plata A, bandera de plata B, ninguna bandera de oro, bandera de bronce A, bandera de bronce B.",
+  "interpretacion": "El orden estándar de las banderas en el podio (de izquierda a derecha) es Plata, Oro, Bronce A y Bronce B. En el caso especial de producirse una doble descalificación (hansoku-make) en el combate final, no hay campeón de oro; la disposición cambia a Banderas de Plata A, Plata B, espacio/ninguna bandera de oro, Bronce A y Bronce B.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Sección 8 - Instalaciones de Competencia, Página 90",
+  "tags": [
+    "procedure",
+    "hansoku-make",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0725: Cumplimiento General del Judogi y Responsabilidad de las Federaciones Nacionales
+```json
+{
+  "id_conocimiento": "KUN-0725",
+  "titulo": "Cumplimiento General del Judogi y Responsabilidad de las Federaciones Nacionales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes participating in International Judo Federation (IJF) official events should comply with the IJF Judogi regulations. National federations of the competing athletes are responsible for ensuring that the athletes are wearing approved IJF judogi that comply with the IJF judogi rules. The list of IJF approved judogi suppliers is available here: www.ijf.org/supplier-list",
+  "contenido_traduccion": "Los atletas que participen en eventos oficiales de la Federación Internacional de Judo (IJF) deben cumplir con los reglamentos de judogi de la IJF. Las federaciones nacionales de los atletas competidores son responsables de garantizar que los atletas lleven judogis aprobados por la IJF que cumplan con las reglas de judogi de la IJF. La lista de proveedores de judogi aprobados por la IJF está disponible en www.ijf.org/supplier-list",
+  "interpretacion": "Es responsabilidad directa e ineludible de las federaciones nacionales verificar previamente que todos sus competidores usen marcas y modelos homologados por la IJF. El incumplimiento de la normativa de uniformes antes del combate impedirá la participación del atleta.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 107",
+  "tags": [
+    "judogi",
+    "uniform",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0726: Excepción por Pérdida o Robo del Judogi
+```json
+{
+  "id_conocimiento": "KUN-0726",
+  "titulo": "Excepción por Pérdida o Robo del Judogi",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In the spirit of fair play if an athlete does not have his judogi due to it being lost or stolen, on production of an airline (or train) lost baggage claim or a police report, reserve judogi will be given and the coach permitted to sit in the chair.",
+  "contenido_traduccion": "En el espíritu del juego limpio, si un atleta no dispone de su judogi debido a que se ha perdido o ha sido robado, previa presentación de un reclamo de equipaje perdido de la aerolínea (o tren) o un informe policial, se le entregará un judogi de reserva y se permitirá al entrenador sentarse en la silla.",
+  "interpretacion": "Constituye una excepción de juego limpio que protege al competidor cuando no posee su uniforme por causas de fuerza mayor. Si presenta la reclamación de equipaje perdido o denuncia policial correspondiente, la organización le proveerá un judogi de reserva y su entrenador mantendrá el derecho de acompañarle en la silla.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 107",
+  "tags": [
+    "judogi",
+    "procedure",
+    "coaches",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0727: Composición del Judogi, Marca Única y Prohibición de Judogi Reversible
+```json
+{
+  "id_conocimiento": "KUN-0727",
+  "titulo": "Composición del Judogi, Marca Única y Prohibición de Judogi Reversible",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The judogi consists of a jacket and a pair of trousers and must be worn with a belt. The brand of both the jacket and trousers must be the same. Reversible judogi (white one side and blue on the other) are not allowed. The jacket must be worn with the left side crossed over the right.",
+  "contenido_traduccion": "El judogi consta de una chaqueta y un pantalón y debe usarse con un cinturón. La marca de la chaqueta y del pantalón debe ser la misma. No se permiten judogis reversibles (blancos de un lado y azules del otro). La chaqueta debe llevarse con el lado izquierdo cruzado sobre el derecho.",
+  "interpretacion": "Regula la composición estándar e indumentaria del judoka. Tanto la chaqueta como el pantalón deben pertenecer obligatoriamente a la misma marca comercial. Quedan prohibidos los modelos reversibles de doble color. La solapa izquierda siempre debe cruzar por encima de la derecha.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 107",
+  "tags": [
+    "judogi",
+    "uniform",
+    "dress-code",
+    "color"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0728: Normativa de Cinturones y Exenciones para Cinturones no Negros
+```json
+{
+  "id_conocimiento": "KUN-0728",
+  "titulo": "Normativa de Cinturones y Exenciones para Cinturones no Negros",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The belt can be of a different brand that is approved by the IJF. An athlete is not allowed to compete wearing a red and white belt. If the athlete wears a belt of a colour other than black, it must be made of a flexible material and is exempt from having the official IJF label.",
+  "contenido_traduccion": "El cinturón puede ser de una marca diferente aprobada por la IJF. Un atleta no tiene permitido competir usando un cinturón rojo y blanco. Si el atleta usa un cinturón de un color diferente al negro, debe estar hecho de un material flexible y está exento de tener la etiqueta oficial de la IJF.",
+  "interpretacion": "El cinturón puede ser de una marca autorizada distinta a la chaqueta y pantalón. Está estrictamente prohibido usar cinturón rojo y blanco en combate. Los cinturones de grados kyu o no negros no requieren la etiqueta roja oficial de la IJF, aunque deben ser de un material flexible adecuado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 107",
+  "tags": [
+    "judogi",
+    "uniform",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0729: Requisitos del Uso de Camiseta Interior (T-Shirt)
+```json
+{
+  "id_conocimiento": "KUN-0729",
+  "titulo": "Requisitos del Uso de Camiseta Interior (T-Shirt)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Female athletes shall and male athletes may wear a short-sleeved white T-shirt, with a round neck (see C1.11 T-shirt).",
+  "contenido_traduccion": "Las atletas femeninas deberán y los atletas masculinos podrán llevar una camiseta blanca de manga corta con cuello redondo (ver C1.11 T-shirt).",
+  "interpretacion": "Establece el uso de camiseta interior debajo de la chaqueta del judogi: es de uso obligatorio para la categoría femenina y opcional para la masculina. Debe ser lisa, de color blanco, manga corta y cuello redondo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 107",
+  "tags": [
+    "judogi",
+    "women",
+    "men",
+    "uniform",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0730: Prohibición y Penalización por Diseños Visibles del Fabricante en el Interior del Judogi
+```json
+{
+  "id_conocimiento": "KUN-0730",
+  "titulo": "Prohibición y Penalización por Diseños Visibles del Fabricante en el Interior del Judogi",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Any manufacturers design on the inside of the jacket or trousers should not be visible at any time during the contest. If it is a deliberate act, the athlete will be disqualified.",
+  "contenido_traduccion": "Cualquier diseño del fabricante en el interior de la chaqueta o el pantalón no debe ser visible en ningún momento durante el combate. Si se trata de un acto deliberado, el atleta será descalificado.",
+  "interpretacion": "Prohíbe la exhibición de logotipos o estampados interiores de la indumentaria durante el combate. Si el atleta muestra intencionadamente o mediante manipulaciones el diseño interior, la sanción correspondiente es la descalificación del combate (Hansoku-make).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 107",
+  "tags": [
+    "judogi",
+    "hansoku-make",
+    "uniform",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0731: Ubicación e Instalaciones para el Precontrol de Judogi y Dorsales
+```json
+{
+  "id_conocimiento": "KUN-0731",
+  "titulo": "Ubicación e Instalaciones para el Precontrol de Judogi y Dorsales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The judogi and backnumber pre-control can take place either in the competition venue or in an official hotel allocated by organisers for participating delegations. Organisers should provide for the judogi and backnumber pre-control a room, with sufficient space, ten (10) tables, ten (10) chairs and volunteers. Large waste baskets should be provided.",
+  "contenido_traduccion": "El precontrol de judogi y dorsal puede tener lugar en la sede de la competición o en un hotel oficial asignado por los organizadores para las delegaciones participantes. Los organizadores deben proporcionar para el precontrol de judogi y dorsal una sala con espacio suficiente, diez (10) mesas, diez (10) sillas y voluntarios. Se deben proporcionar papeleras grandes.",
+  "interpretacion": "Especifica las exigencias logísticas para los organizadores del evento. La sala designada (en pabellón u hotel oficial) debe contar obligatoriamente con espacio adecuado, 10 mesas, 10 sillas, personal voluntario y papeleras de gran tamaño para el correcto flujo del proceso de verificación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 107",
+  "tags": [
+    "judogi",
+    "backnumber",
+    "control",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0732: Calendario y Programación del Precontrol de Judogi y Dorsales
+```json
+{
+  "id_conocimiento": "KUN-0732",
+  "titulo": "Calendario y Programación del Precontrol de Judogi y Dorsales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF will arrange a judogi and backnumber pre-control starting two days before the first competition day, until the day before the last competition day. The exact time shall be mentioned in the outlines of the event.",
+  "contenido_traduccion": "La IJF organizará un precontrol de judogi y dorsal desde dos días antes del primer día de competición hasta el día anterior al último día de competición. La hora exacta se mencionará en el programa oficial (outlines) del evento.",
+  "interpretacion": "Establece la ventana temporal operativa del módulo de precontrol para coordinar la revisión preventiva de los uniformes. Comienza dos días antes de la primera jornada de combate y finaliza el día previo al último día de competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 107",
+  "tags": [
+    "judogi",
+    "backnumber",
+    "control",
+    "procedure",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0733: Procedimiento del Precontrol Voluntario de Judogi
+```json
+{
+  "id_conocimiento": "KUN-0733",
+  "titulo": "Procedimiento del Precontrol Voluntario de Judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The judogi pre-control will be operated upon request of the athletes who wish to do so. For this purpose, the athletes should wear their judogi with the belt tightened.",
+  "contenido_traduccion": "El precontrol de judogi se realizará a petición de los atletas que lo deseen. Para este propósito, los atletas deben llevar su judogi con el cinturón ajustado.",
+  "interpretacion": "Define la naturaleza opcional de la verificación previa del judogi. Los competidores que acudan voluntariamente para asegurarse de que su vestimenta cumple las normas de medida deben llevar puesto el judogi completo y correctamente atado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 107",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0734: Procedimiento de Precontrol de Dorsales, Verificación y Marcado de Judogis
+```json
+{
+  "id_conocimiento": "KUN-0734",
+  "titulo": "Procedimiento de Precontrol de Dorsales, Verificación y Marcado de Judogis",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "For the backnumber pre-control, athletes must bring both judogi (white and blue), for a control regarding any worn-out areas particularly on the collar and lapel, the colour, the IJF official label (obligatory), judogi brand (obligatory), national emblem, advertising, backnumber stitching, and any visible stains. Only if the judogi are compliant with the IJF rules, sponsor labels will be given and a special stamp will be placed on the jacket. This stamp can be checked using a special light.",
+  "contenido_traduccion": "Para el precontrol del dorsal, los atletas deben traer ambos judogis (blanco y azul) para una revisión con respecto a zonas desgastadas, particularmente en el cuello y la solapa, el color, la etiqueta oficial de la IJF (obligatoria), la marca del judogi (obligatoria), el emblema nacional, la publicidad, las costuras del dorsal y cualquier mancha visible. Solo si los judogis cumplen con las reglas de la IJF, se entregarán las etiquetas del patrocinador y se colocará un sello especial en la chaqueta. Este sello se puede comprobar utilizando una luz especial.",
+  "interpretacion": "Detalla el protocolo obligacional para la verificación de dorsales. El atleta debe presentar sus dos judogis (azul y blanco). Si cumplen exhaustivamente con el estado físico, etiquetas IJF, marcas, parches y costuras, se estampan con un sello óptico reactivo a luz especial que será verificado antes de ingresar al tatami.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 107",
+  "tags": [
+    "judogi",
+    "backnumber",
+    "control",
+    "procedure",
+    "color",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0735: Consecuencia por Ausencia en el Pre-Control de Dorsal
+```json
+{
+  "id_conocimiento": "KUN-0735",
+  "titulo": "Consecuencia por Ausencia en el Pre-Control de Dorsal",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes must show up for the backnumber pre-control. If they fail to do so, without a valid reason, the athlete will not be allowed to have a coach in the chair.",
+  "contenido_traduccion": "Los atletas deben presentarse al precontrol del dorsal. Si no lo hacen, sin un motivo válido, no se le permitirá al atleta tener un entrenador en la silla.",
+  "interpretacion": "Si un judoka no se presenta a la revisión previa del dorsal (backnumber) dentro de los plazos estipulados y no cuenta con una causa justificada aceptada por la IJF, la sanción aplicable es la retirada del derecho a contar con su entrenador en la silla del tatami durante sus encuentros.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 108",
+  "tags": [
+    "backnumber",
+    "control",
+    "coaches",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0736: Horarios y Tiempos de Llegada al Control de Judogi
+```json
+{
+  "id_conocimiento": "KUN-0736",
+  "titulo": "Horarios y Tiempos de Llegada al Control de Judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "On each competition day the official judogi control will take place for each contest. During the preliminaries, for the first contest, athletes and their coaches must arrive together at judogi control 15 minutes before the contest. For the following contests, athletes and their coaches must arrive together at least three (3) contests before their own (not counting the contest in progress). During the final block, for the first contest, athletes and their coaches must arrive together 10 minutes before the contest. For the following contests, athletes and their coaches must arrive together at least two (2) contests before their own (not counting the contest in progress).",
+  "contenido_traduccion": "En cada día de competición se llevará a cabo el control oficial del judogi para cada combate. Durante las eliminatorias, para el primer combate, los atletas y sus entrenadores deben llegar juntos al control de judogi 15 minutos antes del combate. Para los combates siguientes, los atletas y sus entrenadores deben llegar juntos al menos tres (3) combates antes del suyo (sin contar el combate en curso). Durante el bloque final, para el primer combate, los atletas y sus entrenadores deben llegar juntos 10 minutos antes del combate. Para los combates siguientes, los atletas y sus entrenadores deben llegar juntos al menos dos (2) combates antes del suyo (sin contar el combate en curso).",
+  "interpretacion": "Establece los tiempos mínimos obligatorios con los que atleta y entrenador deben presentarse juntos en la zona de control de judogi. En eliminatorias: 15 min antes para el 1.er combate y 3 combates antes para los posteriores. En bloque final: 10 min antes para el 1.er combate y 2 combates antes para los posteriores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 108",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure",
+    "coaches",
+    "time"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0737: Reglas sobre Retraso u Ausencia del Entrenador en el Control de Judogi
+```json
+{
+  "id_conocimiento": "KUN-0737",
+  "titulo": "Reglas sobre Retraso u Ausencia del Entrenador en el Control de Judogi",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the coach arrives late, he will not be allowed to accompany his athlete. However, if the coach is not present for a valid reason (such as coaching another athlete at the same time) they will be allowed to join the athlete later.",
+  "contenido_traduccion": "Si el entrenador llega tarde, no se le permitirá acompañar a su atleta. Sin embargo, si el entrenador no está presente por una razón válida (como estar dirigiendo a otro atleta al mismo tiempo), se le permitirá unirse al atleta más tarde.",
+  "interpretacion": "La impuntualidad sin justificación sanciona al entrenador impidiéndole acompañar al deportista al tatami. No obstante, si la ausencia se debe a un motivo válido contemplado (como estar asistiendo simultáneamente a otro judoka de su equipo en otro tatami), se le concede la excepción de incorporarse posteriormente.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 108",
+  "tags": [
+    "judogi",
+    "control",
+    "coaches",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0738: Estado de Vestimenta y Calzado al Presentarse en el Control de Judogi
+```json
+{
+  "id_conocimiento": "KUN-0738",
+  "titulo": "Estado de Vestimenta y Calzado al Presentarse en el Control de Judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes must arrive at judogi control wearing their judogi exactly as it should be to enter the tatami. Footwear is permitted at this point.",
+  "contenido_traduccion": "Los atletas deben llegar al control de judogi vistiendo su judogi exactamente como debe estar para entrar al tatami. Se permite el calzado en este punto.",
+  "interpretacion": "El judoka no puede arreglarse o colocarse la indumentaria en la mesa de control; debe llegar con el judogi impecablemente colocado y ajustado tal como entraría al área de combate. Como única excepción en esta zona de paso, se permite llevar calzado adecuado para mantener la higiene.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 108",
+  "tags": [
+    "judogi",
+    "control",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0739: Prohibición de Parches, Cinta y Marcajes No Autorizados en Judogi y Cinturón
+```json
+{
+  "id_conocimiento": "KUN-0739",
+  "titulo": "Prohibición de Parches, Cinta y Marcajes No Autorizados en Judogi y Cinturón",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The markings of the logo, emblem and advertising etc. must be made with a material that does not prevent good judo practice. It is not permitted to cover up/ patch any part of the judogi or belt with tape, stickers, or other material such as a sewn patch except under particular circumstances agreed by the IJF Executive Committee.",
+  "contenido_traduccion": "Las marcas del logotipo, emblema y publicidad, etc., deben estar hechas con un material que no impida la buena práctica del judo. No está permitido cubrir o parchear ninguna parte del judogi o cinturón con cinta adhesiva, pegatinas u otro material como un parche cosido, excepto en circunstancias particulares acordadas por el Comité Ejecutivo de la IJF.",
+  "interpretacion": "Queda estrictamente prohibido utilizar cinta adhesiva, pegatinas o parches provisionales para ocultar marcas, desperfectos o emparchar el judogi o el cinturón. Además, la textura de logos y publicidad no debe interferir con el agarre (kumikata). Solo el Comité Ejecutivo de la IJF puede autorizar excepciones.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 108",
+  "tags": [
+    "judogi",
+    "control",
+    "dress-code",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0740: Procedimiento de Convocatoria y Sanción por Judogi No Conforme
+```json
+{
+  "id_conocimiento": "KUN-0740",
+  "titulo": "Procedimiento de Convocatoria y Sanción por Judogi No Conforme",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Following the contest order that shall be displayed in the judogi control area, the Education and Coaching Commission is responsible for calling the athletes to the judogi control area. The LOC directly must provide a public announcement system for this purpose. Athletes and their judogi shall be checked prior to each contest ensuring that they are in accordance with the IJF judogi rules. If the judogi does not comply with the current judogi rules the athlete will wear a reserve judogi and cannot have a coach in the chair for that contest. The coach who accompanied the athlete to the judogi control area is not permitted to enter the judogi control area or to the area before the athletes’ entry.",
+  "contenido_traduccion": "Siguiendo el orden de combates que se mostrará en la zona de control de judogi, la Comisión de Educación y Entrenamiento es responsable de llamar a los atletas a la zona de control de judogi. El LOC directamente debe proporcionar un sistema de megafonía para este propósito. Los atletas y su judogi serán revisados antes de cada combate para garantizar que cumplen con las reglas de judogi de la IJF. Si el judogi no cumple con las reglas vigentes de judogi, el atleta usará un judogi de reserva y no podrá tener un entrenador en la silla para ese combate. El entrenador que acompañó al atleta a la zona de control de judogi no tiene permitido ingresar a la zona de control de judogi ni a la zona previa a la entrada de los atletas.",
+  "interpretacion": "Si un judogi incumple las especificaciones del reglamento en la inspección antes de un combate, se obliga al atleta a ponerse un judogi de reserva y se le penaliza impidiéndole llevar entrenador a la silla durante ese combate. Los entrenadores deben esperar fuera de la zona restringida de control.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 108",
+  "tags": [
+    "judogi",
+    "control",
+    "coaches",
+    "procedure",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0741: Sanción por Evitación Deliberada del Control de Judogi
+```json
+{
+  "id_conocimiento": "KUN-0741",
+  "titulo": "Sanción por Evitación Deliberada del Control de Judogi",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The IJF Ad Hoc Commission will decide on the consequences for an athlete who deliberately avoids passing through judogi control and goes to the tatami.",
+  "contenido_traduccion": "La Comisión Ad Hoc de la IJF decidirá las consecuencias para un atleta que evite deliberadamente pasar por el control de judogi y se dirija al tatami.",
+  "interpretacion": "Intentar saltarse la estación de control de judogi para ir directamente a combatir constituye una infracción grave. La Comisión Ad Hoc de la IJF evaluará el caso de forma disciplinaria directa, pudiendo determinar sanciones severas incluyendo la descalificación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 108",
+  "tags": [
+    "judogi",
+    "control",
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0742: Obligatoriedad y Consecuencia por Negarse al Control de Judogi
+```json
+{
+  "id_conocimiento": "KUN-0742",
+  "titulo": "Obligatoriedad y Consecuencia por Negarse al Control de Judogi",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Each athlete is obliged to have his judogi controlled before each contest. A specific zone is provided for this purpose. Before any control, officials must ask the athletes if they are ready to be checked. If the athlete refuses to apply the rules, he will be excluded from the competition.",
+  "contenido_traduccion": "Cada atleta está obligado a hacer controlar su judogi antes de cada combate. Se proporciona una zona específica para este propósito. Antes de cualquier control, los oficiales deben preguntar a los atletas si están listos para ser revisados. Si el atleta se niega a aplicar las reglas, será excluido de la competición.",
+  "interpretacion": "El procedimiento exige que los oficiales pregunten formalmente al deportista si está listo para la inspección. Si el atleta rehúsa someterse a la comprobación o se niega a seguir las indicaciones reglamentarias del control, queda inmediatamente excluido de la competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 108",
+  "tags": [
+    "judogi",
+    "control",
+    "conduct",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0743: Posición de Control de Judogi N.º 1
+```json
+{
+  "id_conocimiento": "KUN-0743",
+  "titulo": "Posición de Control de Judogi N.º 1",
+  "tipo": "DEF",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Control position 1: Athletes must be in a standing position with their arms straight down by the side of their body with open hands as close to the body as possible.",
+  "contenido_traduccion": "Posición de control 1: Los atletas deben estar en posición de pie con los brazos estirados hacia abajo a los lados de su cuerpo con las manos abiertas lo más cerca posible del cuerpo.",
+  "interpretacion": "Describe la postura anatómica estandarizada que debe adoptar obligatoriamente el competidor durante la fase inicial de medición: de pie, erguido, con los brazos completamente extendidos hacia abajo pegados a los costados y las palmas de las manos abiertas e inmóviles junto al cuerpo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 108",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure",
+    "sokuteiki"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0744: Posición de control de judogi 2 y regla de segunda oportunidad
+```json
+{
+  "id_conocimiento": "KUN-0744",
+  "titulo": "Posición de control de judogi 2 y regla de segunda oportunidad",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Control position 2 (see picture 10)\nThe athletes to be checked need to be in a standing position. The arms must be straight put in front at chest height, palms open, fingers pointed upwards. Thumbs and forefingers of both hands should be in contact with each other to form a triangle.\nIf the athlete fails the judogi control he will be given a second and last chance.",
+  "contenido_traduccion": "Posición de control 2 (ver imagen 10)\nLos atletas a ser revisados deben estar en posición de pie. Los brazos deben estar rectos hacia adelante a la altura del pecho, palmas abiertas, dedos apuntando hacia arriba. Los pulgares y los dedos índices de ambas manos deben estar en contacto entre sí para formar un triángulo.\nSi el atleta no supera el control de judogi, se le dará una segunda y última oportunidad.",
+  "interpretacion": "Establece la postura corporal exacta (Posición 2) que debe adoptar el atleta durante el control formal del judogi y la norma de procedimiento que le otorga un segundo y último intento para rectificar la vestimenta antes de la descalificación si no supera la inspección inicial.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "judogi",
+    "control",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0745: Procedimiento de control de judogi: Estado y limpieza del judogi
+```json
+{
+  "id_conocimiento": "KUN-0745",
+  "titulo": "Procedimiento de control de judogi: Estado y limpieza del judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1.1.5 Judogi Control Procedure\n1. Athletes’ judogi must be dry, exempt from stains, must not show any worn-out signs, particularly on the collar and the lapel. If the condition of the judogi is assessed as unsatisfactory, takes a reserve judogi.",
+  "contenido_traduccion": "C1.1.5 Procedimiento de control de judogi\n1. El judogi de los atletas debe estar seco, exento de manchas y no debe mostrar signos de desgaste, particularmente en el cuello y la solapa. Si la condición del judogi se evalúa como insatisfactoria, se toma un judogi de reserva.",
+  "interpretacion": "Regla que exige la perfecta higiene y mantenimiento de la prenda. Si un judogi presenta humedad, suciedad o deterioro físico en solapas/cuello, los oficiales obligarán al deportista a cambiarse utilizando el judogi de reserva.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "judogi",
+    "control",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0746: Procedimiento de control de judogi: Verificación del sello especial del dorsal
+```json
+{
+  "id_conocimiento": "KUN-0746",
+  "titulo": "Procedimiento de control de judogi: Verificación del sello especial del dorsal",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "2. A special stamp placed on the jacket during the backnumber pre-control will be checked using a special light.",
+  "contenido_traduccion": "2. Un sello especial colocado en la chaqueta durante el precontrol del dorsal se verificará utilizando una luz especial.",
+  "interpretacion": "Inspección de autenticidad en el control previo a la entrada al tatami, mediante la cual los oficiales confirman con una luz especial que la chaqueta cuenta con el sello de validación otorgado durante la verificación previa del dorsal.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "judogi",
+    "control",
+    "backnumber",
+    "uniform",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0747: Procedimiento de control de judogi: Control de etiqueta IJF Approved con luz UV
+```json
+{
+  "id_conocimiento": "KUN-0747",
+  "titulo": "Procedimiento de control de judogi: Control de etiqueta IJF Approved con luz UV",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "3. The “IJF Approved” label (approved by the IJF - picture 1) on the jacket, the trousers, and the belt is controlled with a UV lamp.",
+  "contenido_traduccion": "3. La etiqueta 'IJF Approved' (aprobada por la IJF - imagen 1) en la chaqueta, los pantalones y el cinturón se controla con una lámpara UV.",
+  "interpretacion": "Verificación del holograma y sello oficial de la IJF en todas las piezas de la indumentaria (chaqueta, pantalón y cinturón) utilizando iluminación ultravioleta para garantizar que el equipo está oficialmente homologado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "judogi",
+    "control",
+    "uniform",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0748: Procedimiento de control de judogi: Logotipo de fabricante oficial y uniformidad de marca
+```json
+{
+  "id_conocimiento": "KUN-0748",
+  "titulo": "Procedimiento de control de judogi: Logotipo de fabricante oficial y uniformidad de marca",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "4. The “IJF Official Supplier” logo of the judogi manufacturer (IJF official judogi supplier - picture 2) must appear on the jacket, the trousers and the belt. The brand of the judogi manufacturer must be identical for the jacket and the trousers and the judogi should be of a uniform colour. The brand of the belt can be different to that of the judogi.",
+  "contenido_traduccion": "4. El logotipo de 'IJF Official Supplier' del fabricante del judogi (proveedor oficial de judogi de la IJF - imagen 2) debe aparecer en la chaqueta, los pantalones y el cinturón. La marca del fabricante del judogi debe ser idéntica para la chaqueta y los pantalones, y el judogi debe ser de un color uniforme. La marca del cinturón puede ser diferente a la del judogi.",
+  "interpretacion": "Exige que la chaqueta y el pantalón pertenezcan exactamente a la misma marca de proveedor oficial e igual tono cromático. Excepción: el cinturón debe ser de un fabricante oficial IJF, pero se permite que sea de una marca distinta a la del judogi.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "judogi",
+    "color",
+    "control",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0749: Procedimiento de control de judogi: Verificación del dorsal y concordancia de nombre
+```json
+{
+  "id_conocimiento": "KUN-0749",
+  "titulo": "Procedimiento de control de judogi: Verificación del dorsal y concordancia de nombre",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "5. The backnumber (picture 8) must comply with the rules and be ordered via a supplier recognised by the IJF: www.ijf.org/supplier-list. The name of the athlete on the accreditation card must correspond with the name on the backnumber (picture 8).",
+  "contenido_traduccion": "5. El dorsal (imagen 8) debe cumplir con las reglas y pedirse a través de un proveedor reconocido por la IJF: www.ijf.org/supplier-list. El nombre del atleta en la tarjeta de acreditación debe corresponder con el nombre en el dorsal (imagen 8).",
+  "interpretacion": "El dorsal cosido a la espalda debe haber sido producido obligatoriamente por un proveedor oficial autorizado y el apellido impreso debe coincidir de forma exacta con la acreditación oficial del judoka.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "judogi",
+    "control",
+    "backnumber",
+    "uniform",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0750: Procedimiento de control de judogi: Emblema nacional y control de publicidad
+```json
+{
+  "id_conocimiento": "KUN-0750",
+  "titulo": "Procedimiento de control de judogi: Emblema nacional y control de publicidad",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "6. Only the national emblem can appear on the left-hand side of the jacket at chest level (picture 5, see C1.4).\n7. Control of the corresponding advertising, including the advertising reserved for the athlete (picture 6).",
+  "contenido_traduccion": "6. Solo el emblema nacional puede aparecer en el lado izquierdo de la chaqueta a la altura del pecho (imagen 5, ver C1.4).\n7. Control de la publicidad correspondiente, incluida la publicidad reservada para el atleta (imagen 6).",
+  "interpretacion": "Los inspectores de judogi verificarán que el pecho izquierdo muestre exclusivamente el escudo/bandera nacional oficial y revisaración que todos los parches publicitarios (federativos o personales del atleta) cumplan estrictamente con la ubicación y medidas normativas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "judogi",
+    "control",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0751: Procedimiento de control de judogi: Medidas de la chaqueta, esternón y faldón
+```json
+{
+  "id_conocimiento": "KUN-0751",
+  "titulo": "Procedimiento de control de judogi: Medidas de la chaqueta, esternón y faldón",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "8. The size of the jacket, the vertical distance between the sternum top (10 cm) and the point of intersection of the jacket lapels (25 cm, see picture 11), the length of the skirt to cover completely the buttocks (see picture 10).",
+  "contenido_traduccion": "8. El tamaño de la chaqueta, la distancia vertical entre la parte superior del esternón (10 cm) y el punto de intersección de las solapas de la chaqueta (25 cm, ver imagen 11), la longitud del faldón para cubrir completamente los glúteos (ver imagen 10).",
+  "interpretacion": "Revisión dimensional del cruce de la chaqueta: la parte superior del cruce de solapas no puede estar a más de 10 cm del esternón y el punto de cruce debe situarse a un máximo de 25 cm. Además, el faldón posterior de la chaqueta debe cubrir los glúteos por completo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "dimensions",
+    "judogi",
+    "control",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0752: Procedimiento de control de judogi: Medición con sokuteiki y longitud de mangas
+```json
+{
+  "id_conocimiento": "KUN-0752",
+  "titulo": "Procedimiento de control de judogi: Medición con sokuteiki y longitud de mangas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "9. The internal distance between the arm and the sleeve (checked with the sokuteiki - picture 10).\n10. The length of the sleeves must completely cover the wrist bone (head of the ulna - picture 10).",
+  "contenido_traduccion": "9. La distancia interna entre el brazo y la manga (comprobada con el sokuteiki - imagen 10).\n10. La longitud de las mangas debe cubrir completamente el hueso de la muñeca (cabeza del cúbito - imagen 10).",
+  "interpretacion": "Uso obligatorio del instrumento Sokuteiki para verificar que existe la holgura interna reglamentaria entre la manga y el brazo, comprobando además que con los brazos extendidos hacia adelante la manga cubra totalmente la cabeza del cúbito.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "dimensions",
+    "judogi",
+    "control",
+    "sokuteiki",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0753: Procedimiento de control de judogi: Longitud de pantalones y accesibilidad del maléolo
+```json
+{
+  "id_conocimiento": "KUN-0753",
+  "titulo": "Procedimiento de control de judogi: Longitud de pantalones y accesibilidad del maléolo",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "11. The length of the trousers (the malleolus must be visible and accessible to check the length of the trousers - picture 13).",
+  "contenido_traduccion": "11. La longitud de los pantalones (el maléolo debe estar visible y accesible para comprobar la longitud de los pantalones - imagen 13).",
+  "interpretacion": "Control del largo del pantalón: debe bajar hasta la articulación del tobillo de modo que el maléolo permanezca claramente visible e inspeccionable por los jueces del control de judogi.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "dimensions",
+    "judogi",
+    "control",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0754: Procedimiento de control de judogi: Verificación de la talla del cinturón
+```json
+{
+  "id_conocimiento": "KUN-0754",
+  "titulo": "Procedimiento de control de judogi: Verificación de la talla del cinturón",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "12. The size of the belt (picture 12) will be checked.",
+  "contenido_traduccion": "12. Se comprobará el tamaño del cinturón (imagen 12).",
+  "interpretacion": "Verificación formal de las dimensiones del cinturón, asegurando que el grosor, el ancho y la longitud de las puntas tras hacer el nudo cumplan con los parámetros mínimos y máximos estipulados.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "dimensions",
+    "judogi",
+    "control",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0755: Procedimiento de control de judogi: Verificación y restricciones de protecciones
+```json
+{
+  "id_conocimiento": "KUN-0755",
+  "titulo": "Procedimiento de control de judogi: Verificación y restricciones de protecciones",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "13. All protections (knee pads, elbow pads, shin guards, etc.) will be checked. The protections cannot be composed of or have the slightest metallic or rigid element. Judogi control is done with the protection worn by the athlete. Protections cannot be put on after the control.",
+  "contenido_traduccion": "13. Se comprobarán todas las protecciones (rodilleras, coderas, espinilleras, etc.). Las protecciones no pueden estar compuestas ni tener el más mínimo elemento metálico o rígido. El control del judogi se realiza con la protección puesta por el atleta. Las protecciones no se pueden colocar después del control.",
+  "interpretacion": "Inspección de las prendas de protección permitidas. Deben ser totalmente blandas, presentarse puestas durante la medición oficial para verificar el grosor bajo la manga/pantalón, y está prohibido añadirlas o ponérselas una vez superado el control.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 109",
+  "tags": [
+    "judogi",
+    "control",
+    "uniform",
+    "dress-code",
+    "procedure",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0756: Normativa sobre ropa interior, mallas y protecciones bajo el judogi
+```json
+{
+  "id_conocimiento": "KUN-0756",
+  "titulo": "Normativa sobre ropa interior, mallas y protecciones bajo el judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "14. Athletes can wear, from waist (below belt level) to knee length, underwear, or shorts. It is forbidden to wear tights. Protective pads for the arms or legs level must be of soft material and not be visible.",
+  "contenido_traduccion": "14. Los atletas pueden usar, desde la cintura (debajo del nivel del cinturón) hasta la altura de la rodilla, ropa interior o pantalones cortos. Está prohibido usar mallas. Las almohadillas protectoras para los brazos o las piernas deben ser de material blando y no estar a la vista.",
+  "interpretacion": "Los competidores tienen permitido llevar ropa interior o pantalones cortos por debajo del cinturón hasta la rodilla, pero las mallas ajustadas o licras largas están estrictamente prohibidas. Cualquier protección en brazos o piernas debe ser acolchada/blanda y quedar completamente cubierta por el judogi.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 110",
+  "tags": [
+    "judogi",
+    "uniform",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0757: Requisitos de higiene personal: cabello largo y corte de uñas
+```json
+{
+  "id_conocimiento": "KUN-0757",
+  "titulo": "Requisitos de higiene personal: cabello largo y corte de uñas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "15. Long hair must be tied up out of the way and not prevent the grip of the opponent. The nails of the feet and hands must be cut short.",
+  "contenido_traduccion": "15. El cabello largo debe estar recogido para no estorbar y no debe impedir el agarre del oponente. Las uñas de los pies y de las manos deben estar cortadas cortas.",
+  "interpretacion": "Los atletas con cabello largo deben atarlo con coleteros o gomas blandas para evitar obstaculizar los agarres del rival o la visión. Asimismo, las uñas de manos y pies deben recortarse al ras antes de entrar al control de judogi para prevenir arañazos o cortes accidentales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 110",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0758: Límite de intentos en el control oficial de judogi
+```json
+{
+  "id_conocimiento": "KUN-0758",
+  "titulo": "Límite de intentos en el control oficial de judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "In case the first judogi control is not conclusive, only one more control will be allowed.",
+  "contenido_traduccion": "En caso de que el primer control de judogi no sea concluyente, solo se permitirá un control más.",
+  "interpretacion": "Si el judogi o equipamiento de un atleta presenta irregularidades en la primera inspección oficial, se le otorga una única oportunidad adicional para corregirlo o cambiarlo. Si el segundo intento falla, no se permiten más revisiones.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 110",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0759: Requisitos de las etiquetas ópticas IJF y colores permitidos
+```json
+{
+  "id_conocimiento": "KUN-0759",
+  "titulo": "Requisitos de las etiquetas ópticas IJF y colores permitidos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .2 IJF Label\nEach jacket and trousers must have an unforgeable red or green optical label (see picture 1) which certifies that the judogi complies with the current IJF rules. For the belt, blue, red and green labels are accepted.",
+  "contenido_traduccion": "C1 .2 Etiqueta IJF\nCada chaqueta y pantalón debe tener una etiqueta óptica inalterable roja o verde (ver imagen 1) que certifique que el judogi cumple con las reglas actuales de la IJF. Para el cinturón, se aceptan etiquetas azules, rojas y verdes.",
+  "interpretacion": "Todo judogi utilizado en eventos IJF debe contar con una etiqueta óptica oficial que garantice su homologación. Chaqueta y pantalón requieren etiquetas rojas o verdes, mientras que los cinturones aceptan etiquetas azules, rojas o verdes.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 110",
+  "tags": [
+    "judogi",
+    "control",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0760: Ubicación exacta y número de etiquetas IJF en la indumentaria
+```json
+{
+  "id_conocimiento": "KUN-0760",
+  "titulo": "Ubicación exacta y número de etiquetas IJF en la indumentaria",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The label is fixed:\n• On the bottom of the jacket, front left side, near or in the reinforced edge.\n• On the top front side of the trousers, close to the centre.\n• At one of the two edges of the belt.\nBelt: two (2) possible locations\nOnly one (1) logo allowed\nJacket: one (1) possible location\nOnly one (1) logo allowed\nTrousers: two (2) possible locations\nOnly one (1) logo allowed\nPicture 1 - IJF label",
+  "contenido_traduccion": "La etiqueta se fija:\n• En la parte inferior de la chaqueta, lado frontal izquierdo, cerca o en el borde reforzado.\n• En la parte superior frontal del pantalón, cerca del centro.\n• En uno de los dos extremos del cinturón.\nCinturón: dos (2) ubicaciones posibles, solo se permite un (1) logo.\nChaqueta: una (1) ubicación posible, solo se permite un (1) logo.\nPantalón: dos (2) ubicaciones posibles, solo se permite un (1) logo.\nImagen 1 - Etiqueta IJF",
+  "interpretacion": "Regula la posición de la etiqueta óptica IJF: en la chaqueta va únicamente en la parte inferior frontal izquierda (1 posición posible, máximo 1 logo). En el pantalón y en el cinturón existen 2 ubicaciones posibles para colocarla, pero se permite solo 1 logo por prenda.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 110",
+  "tags": [
+    "judogi",
+    "control",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0761: Regla general y tamaño máximo del logo del fabricante en el judogi
+```json
+{
+  "id_conocimiento": "KUN-0761",
+  "titulo": "Regla general y tamaño máximo del logo del fabricante en el judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .3 Location of the Manufacturer’s Logo\nOnly one manufacturer’s logo per clothing item is allowed (jacket, trousers, and belt). It must be a maximum of 30 cm2 on the jacket and trousers and 9 cm2 on the belt.",
+  "contenido_traduccion": "C1 .3 Ubicación del logo del fabricante\nSolo se permite un logo del fabricante por prenda de vestir (chaqueta, pantalones y cinturón). Debe ser de un máximo de 30 cm² en la chaqueta y los pantalones, y de 9 cm² en el cinturón.",
+  "interpretacion": "En el control oficial de judogi, se verifica estrictamente que cada pieza de la indumentaria (chaqueta, pantalón y cinturón) tenga como máximo un único logo de la marca o fabricante. El tamaño de la marca no puede superar los 30 cm² en chaqueta y pantalón, ni los 9 cm² en el cinturón; de lo contrario, la prenda no será aprobada.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 111",
+  "tags": [
+    "judogi",
+    "control",
+    "dress-code",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0762: Ubicaciones permitidas para el logo del fabricante en la chaqueta del judogi
+```json
+{
+  "id_conocimiento": "KUN-0762",
+  "titulo": "Ubicaciones permitidas para el logo del fabricante en la chaqueta del judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "It should be fixed:\n• On the jacket in a visible area either on the bottom, front left side, near or in the reinforced edge or at the bottom edge and inside the advertising space (25 cm x 5 cm) permitted on the shoulders (see picture 2).\n25 cm x 5 cm\nThree (3) possible locations\nOnly one (1) logo allowed\nPicture 2 - Location of the manufacturer’s logo on the jacket",
+  "contenido_traduccion": "Debe estar fijado:\n• En la chaqueta en un área visible, ya sea en la parte inferior del lado frontal izquierdo, cerca o en el borde reforzado, o en el borde inferior e interior del espacio publicitario (25 cm x 5 cm) permitido en los hombros (ver imagen 2).\n25 cm x 5 cm\nTres (3) ubicaciones posibles\nSolo se permite un (1) logo\nImagen 2 - Ubicación del logo del fabricante en la chaqueta",
+  "interpretacion": "Existen solo tres ubicaciones posibles autorizadas para colocar el único logo del fabricante en la chaqueta del judogi: 1) en la parte frontal inferior izquierda (cerca o sobre el borde reforzado); 2) en el borde inferior del hombro; o 3) dentro del espacio publicitario de 25 cm x 5 cm situado en las bandas del hombro. No se permite situar el logo en ningún otro lugar ni colocar más de uno.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 111",
+  "tags": [
+    "judogi",
+    "control",
+    "dress-code",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0763: Ubicación del logo del fabricante en el cinturón de judo
+```json
+{
+  "id_conocimiento": "KUN-0763",
+  "titulo": "Ubicación del logo del fabricante en el cinturón de judo",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "• On one of the two edges of the belt, in a visible area, maximum 9 cm2 (see picture 3).\nTwo (2) possible locations\nOnly one (1) logo allowed\nPicture 3 - Location of the manufacturer’s logo on the belt",
+  "contenido_traduccion": "• En uno de los dos extremos del cinturón, en un área visible, máximo 9 cm² (ver imagen 3).\nDos (2) ubicaciones posibles\nSolo se permite un (1) logo\nImagen 3 - Ubicación del logo del fabricante en el cinturón",
+  "interpretacion": "El logo del fabricante en el cinturón debe estar situado de manera visible en uno de los dos extremos del mismo, con una superficie que no exceda los 9 cm². Está prohibido llevar logos en ambos extremos del cinturón o que sobrepasen las dimensiones normativas fijadas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 111",
+  "tags": [
+    "judogi",
+    "control",
+    "dress-code",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0764: Ubicación del logo del fabricante en los pantalones del judogi
+```json
+{
+  "id_conocimiento": "KUN-0764",
+  "titulo": "Ubicación del logo del fabricante en los pantalones del judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "On the trousers, in a visible area either at the top, at the front side or outside (maximum 20 cm from the waist string) or at the bottom, on one of the two trouser legs at the front side or outside, a maximum of 20 cm from the bottom of the lower edge of the trousers (see picture 4).\nSix (6) possible locations\nOnly one (1) logo allowed\nPicture 4 - Location of the manufacturer’s logo on the trousers",
+  "contenido_traduccion": "En los pantalones, en un área visible, ya sea en la parte superior, en la parte frontal o exterior (máximo a 20 cm del cordón de la cintura) o en la parte inferior, en una de las dos perneras del pantalón en el lado frontal o exterior, a un máximo de 20 cm del borde inferior del pantalón (ver imagen 4).\nSeis (6) ubicaciones posibles\nSolo se permite un (1) logo\nImagen 4 - Ubicación del logo del fabricante en los pantalones",
+  "interpretacion": "Solo se permite colocar un único logo del fabricante en el pantalón del judogi. El logo debe situarse en una de las seis ubicaciones autorizadas: en la zona superior (frente o lateral exterior, máximo 20 cm debajo del cordón de la cintura) o en la zona inferior (frente o lateral exterior de una pernera, máximo 20 cm sobre el borde inferior del bajo). El personal de control de judogi verificará la posición y cantidad de logos permitidos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 112",
+  "tags": [
+    "judogi",
+    "uniform",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0765: Especificaciones y ubicación del emblema nacional en la chaqueta del judogi
+```json
+{
+  "id_conocimiento": "KUN-0765",
+  "titulo": "Especificaciones y ubicación del emblema nacional en la chaqueta del judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .4 National Emblem\nThis must be the official identification of a nation, a National Olympic Committee (NOC) or a registered emblem of an IJF affiliated national federation. National federations are responsible to upload their official emblem on Judobase. Mention of an institution is not allowed. No commercial brand can be associated to it. It is fixed on the left-hand side, at the chest level (see picture 5) with a maximum surface of 100 cm². It can also appear in the advertising space (see picture 6).\nOne (1) possible location\nOnly one (1) emblem allowed\nPicture 5 - Location of the national emblem on the jacket",
+  "contenido_traduccion": "C1 .4 Emblema Nacional\nDebe ser la identificación oficial de una nación, un Comité Olímpico Nacional (CON) o un emblema registrado de una federación nacional afiliada a la FIJ. Las federaciones nacionales son responsables de cargar su emblema oficial en Judobase. No se permite la mención de una institución. Ninguna marca comercial puede estar asociada a él. Se fija en el lado izquierdo, a la altura del pecho (ver imagen 5) con una superficie máxima de 100 cm². También puede aparecer en el espacio publicitario (ver imagen 6).\nUna (1) ubicación posible\nSolo se permite un (1) emblema\nImagen 5 - Ubicación del emblema nacional en la chaqueta",
+  "interpretacion": "El emblema nacional representa de forma oficial a la nación, CON o federación nacional registrada en la plataforma Judobase. Se autoriza únicamente un emblema en la chaqueta, ubicado en el lado izquierdo del pecho con una superficie máxima de 100 cm² (pudiendo también incluirse en el espacio publicitario). Está estrictamente prohibido asociar marcas comerciales o menciones institucionales no autorizadas al emblema.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 112",
+  "tags": [
+    "judogi",
+    "uniform",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0766: Publicidad reservada para la federación nacional: Normas generales y contenidos prohibidos
+```json
+{
+  "id_conocimiento": "KUN-0766",
+  "titulo": "Publicidad reservada para la federación nacional: Normas generales y contenidos prohibidos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .5 Advertising\nAdvertising reserved for national federations (see picture 6 n° 2) is authorised only on the jacket. It must respect the practical provisions of IJF. The advertising cannot mention political, denominational or sport organisations other than the IJF, its Continental Unions, national federations, their organisations, and affiliated clubs. It is not authorised to promote, in advertising spaces, tobacco, alcohol, any prohibited substance listed in the list of products prohibited by the World Anti-Doping Agency, or any product, article or service contrary to morality or good ethics. Betting companies and organisations responsible for betting are not authorised.",
+  "contenido_traduccion": "C1 .5 Publicidad\nLa publicidad reservada para las federaciones nacionales (ver imagen 6 n° 2) está autorizada únicamente en la chaqueta. Debe respetar las disposiciones prácticas de la IJF. La publicidad no puede mencionar organizaciones políticas, confesionales o deportivas distintas de la IJF, sus Uniones Continentales, federaciones nacionales, sus organizaciones y clubes afiliados. No está autorizado promover, en los espacios publicitarios, tabaco, alcohol, cualquier sustancia prohibida incluida en la lista de productos prohibidos por la Agencia Mundial Antidopaje, o cualquier producto, artículo o servicio contrario a la moral o la buena ética. Las empresas de apuestas y organizaciones responsables de las apuestas no están autorizadas.",
+  "interpretacion": "Regula el contenido de los patrocinadores institucionales de las federaciones nacionales aplicados en la chaqueta del judogi. Prohíbe estrictamente la promoción de casas de apuestas, alcohol, tabaco, dopaje (lista WADA), filiaciones políticas/religiosas o entidades deportivas ajenas a la estructura oficial del judo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 113",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "uniform",
+    "control",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0767: Espacios permitidos y dimensiones para publicidad de la federación nacional
+```json
+{
+  "id_conocimiento": "KUN-0767",
+  "titulo": "Espacios permitidos y dimensiones para publicidad de la federación nacional",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "On the visible part of the jacket the advertising can appear in 4 advertising spaces:\n• On the sleeves, inside the surface of maximum 10 cm x 10 cm, situated at 25 cm from the lower part of the collar.\n• On the shoulders, a stripe of 25 cm x 5 cm. The stripe must be positioned from the lower part of the collar down the sleeve.\n• A maximum of 4 different publicities are permitted. Only one advertising is allowed per space.",
+  "contenido_traduccion": "En la parte visible de la chaqueta la publicidad puede aparecer en 4 espacios publicitarios:\n• En las mangas, dentro de una superficie máxima de 10 cm x 10 cm, situada a 25 cm de la parte inferior del cuello.\n• En los hombros, una franja de 25 cm x 5 cm. La franja debe colocarse desde la parte inferior del cuello hacia abajo por la manga.\n• Se permite un máximo de 4 publicidades diferentes. Solo se permite una publicidad por espacio.",
+  "interpretacion": "Especifica las dimensiones físicas y las ubicaciones exactas donde la federación nacional puede colocar anuncios en la chaqueta del atleta: mangas (máx. 10x10 cm a 25 cm del cuello) u hombros (franja de 25x5 cm). Se limita a un máximo de 4 anuncios en total y solo uno por espacio designado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 113",
+  "tags": [
+    "judogi",
+    "dimensions",
+    "dress-code",
+    "uniform",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0768: Publicidad adicional reservada para el atleta: Ubicación, dimensiones y restricciones
+```json
+{
+  "id_conocimiento": "KUN-0768",
+  "titulo": "Publicidad adicional reservada para el atleta: Ubicación, dimensiones y restricciones",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .6 Additional Advertising Reserved for the Athlete\nOn the judogi jacket (right-hand side lapel only) there is an advertisement space reserved for the athlete (see picture 6 no 1). It must be either a rectangle measuring a maximum of 10 cm by 5 cm (in vertical or horizontal orientation), a square, or a circle, provided that the surface area does not exceed 50 cm2. \nUnless there is a specific agreement with the national federation, the advertising cannot conflict with the brand of judogi that the athlete is wearing, the sponsors of the national federation and if the sponsor of the national federation has multi-activities, in the area concerned by the sponsorship.\nThis advertising shouldn’t be an organisation that is in competition with the national federation unless it is agreed with the national federation. It is not permitted, in the advertising spaces, to promote tobacco, alcohol, any prohibited substances listed in the Prohibited List of the World Anti-Doping Agency, or any product, goods or service contrary to morality or good ethics. Betting companies and organisations responsible for betting are not authorised.\n1. Advertising reserved for the athlete\n2. Advertising reserved for the national federation\nPicture 6 - Location of the advertising",
+  "contenido_traduccion": "C1 .6 Publicidad adicional reservada para el atleta\nEn la chaqueta del judogi (únicamente en la solapa del lado derecho) hay un espacio publicitario reservado para el atleta (ver imagen 6 n° 1). Debe ser un rectángulo con una medida máxima de 10 cm por 5 cm (en orientación vertical u horizontal), un cuadrado o un círculo, siempre que la superficie no supere los 50 cm².\nA menos que exista un acuerdo específico con la federación nacional, la publicidad no puede entrar en conflicto con la marca de judogi que viste el atleta, los patrocinadores de la federación nacional y, si el patrocinador de la federación nacional tiene múltiples actividades, en el área concerniente al patrocinio.\nEsta publicidad no debe ser una organización que esté en competencia con la federación nacional a menos que se acuerde con la federación nacional. No está permitido, en los espacios publicitarios, promocionar tabaco, alcohol, sustancias prohibidas incluidas en la Lista de Prohibiciones de la Agencia Mundial Antidopaje, o cualquier producto, bien o servicio contrario a la moral o a la buena ética. Las empresas de apuestas y organizaciones responsables de las apuestas no están autorizadas.\n1. Publicidad reservada para el atleta\n2. Publicidad reservada para la federación nacional\nImagen 6 - Ubicación de la publicidad",
+  "interpretacion": "Permite al atleta colocar un patrocinador personal exclusivamente en la solapa derecha de la chaqueta. La superficie no debe exceder los 50 cm² y no puede generar conflicto de intereses comercial con la marca de su judogi ni con los patrocinadores o competidores directos de su federación nacional, manteniendo además las prohibiciones éticas generales (apuestas, sustancias prohibidas, alcohol, tabaco).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 113",
+  "tags": [
+    "judogi",
+    "dimensions",
+    "dress-code",
+    "uniform",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0769: Marcado del nombre del atleta en el judogi y dimensiones permitidas
+```json
+{
+  "id_conocimiento": "KUN-0769",
+  "titulo": "Marcado del nombre del atleta en el judogi y dimensiones permitidas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .7 Marking\nThe name of the athlete is permitted:\n• On the bottom of the jacket (see picture 7.1)\n• On the top of the trousers (see picture 7.2)\n• On one of the two extremities of the belt (see picture 7.3)\nNicknames or shortened names are not accepted.\nThe letters composing the name of the athlete should not exceed a height of 4 cm and a length of 20 cm. No other marking will be accepted.",
+  "contenido_traduccion": "C1 .7 Marcado\nSe permite el nombre del atleta:\n• En la parte inferior de la chaqueta (ver imagen 7.1)\n• En la parte superior del pantalón (ver imagen 7.2)\n• En una de las dos extremidades del cinturón (ver imagen 7.3)\nNo se aceptan apodos ni nombres abreviados.\nLas letras que componen el nombre del atleta no deben superar una altura de 4 cm y una longitud de 20 cm. No se aceptará ningún otro marcado.",
+  "interpretacion": "Los competidores pueden colocar su apellido o nombre oficial en lugares específicos del judogi (faldón de la chaqueta, parte superior del pantalón o un extremo del cinturón). Está prohibido usar apodos o nombres acortados. La tipografía no puede exceder los 4 cm de alto ni los 20 cm de largo en total. Los inspectores de judogi rechazarán cualquier otro bordado o marcado no autorizado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 114",
+  "tags": [
+    "judogi",
+    "uniform",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0770: Ubicaciones y límites de texto de marcado por prenda del judogi
+```json
+{
+  "id_conocimiento": "KUN-0770",
+  "titulo": "Ubicaciones y límites de texto de marcado por prenda del judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Picture 7\nJacket: two (2) possible locations\nOnly one (1) text allowed\nTrousers: four (4) possible locations\nOnly one (1) text allowed\nBelt: two (2) possible locations\nOnly one (1) text allowed",
+  "contenido_traduccion": "Imagen 7\nChaqueta: dos (2) ubicaciones posibles\nSolo se permite un (1) texto\nPantalón: cuatro (4) ubicaciones posibles\nSolo se permite un (1) texto\nCinturón: dos (2) ubicaciones posibles\nSolo se permite un (1) texto",
+  "interpretacion": "Cada elemento del uniforme tiene definidos puntos permitidos para el marcado del nombre, pero existe un estricto límite de un solo texto por pieza: la chaqueta ofrece dos ubicaciones posibles pero solo se permite un texto; el pantalón tiene cuatro ubicaciones posibles pero solo un texto; el cinturón dispone de dos ubicaciones posibles pero solo un texto.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 114",
+  "tags": [
+    "judogi",
+    "uniform",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0771: Requisitos obligatorios, estado y proveedor del dorsal (Backnumber)
+```json
+{
+  "id_conocimiento": "KUN-0771",
+  "titulo": "Requisitos obligatorios, estado y proveedor del dorsal (Backnumber)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .8 Backnumber\nBacknumbers must be ordered from the official IJF backnumber suppliers:\nwww .ijf .org/supplier-list\n...\nThe backnumbers must be clean and free from any stains or sticky residue (picture 8).\nEach athlete is obliged to have sewn on the back of his judogi an official IJF backnumber bearing their last (family) name and the NOC abbreviation (see picture 8).",
+  "contenido_traduccion": "C1 .8 Dorsal (Backnumber)\nLos dorsales deben encargarse a los proveedores oficiales de dorsales de la IJF:\nwww.ijf.org/supplier-list\n...\nLos dorsales deben estar limpios y libres de manchas o residuos pegajosos (imagen 8).\nCada atleta está obligado a llevar cosido en la espalda de su judogi un dorsal oficial de la IJF con su apellido y la abreviatura del CNO (ver imagen 8).",
+  "interpretacion": "Es obligatorio para todo competidor llevar cosido en la espalda del judogi un dorsal oficial de la IJF que contenga su apellido y la sigla de su país (CNO). Este dorsal debe adquirirse exclusivamente con proveedores autorizados por la IJF y presentarse totalmente limpio y sin cinta pegajosa ni manchas residuales durante el control de judogi.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 114",
+  "tags": [
+    "judogi",
+    "backnumber",
+    "uniform",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0772: Dimensiones del dorsal oficial según categoría de peso
+```json
+{
+  "id_conocimiento": "KUN-0772",
+  "titulo": "Dimensiones del dorsal oficial según categoría de peso",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Backnumbers may be ordered in two different sizes:\n• Exclusively for the following weight categories (women’s -40 kg, -44 kg, -48 kg, -52 kg, -57 kg, men’s -50 kg, -55 kg, -60 kg): 35 cm x 34 cm may be used.\n• For all weight categories: 39 cm x 38 cm may be used.",
+  "contenido_traduccion": "Los dorsales se pueden solicitar en dos tamaños diferentes:\n• Exclusivamente para las siguientes categorías de peso (femenino -40 kg, -44 kg, -48 kg, -52 kg, -57 kg; masculino -50 kg, -55 kg, -60 kg): se puede utilizar 35 cm x 34 cm.\n• Para todas las categorías de peso: se puede utilizar 39 cm x 38 cm.",
+  "interpretacion": "El tamaño estándar universal del dorsal para judogi es de 39 cm x 38 cm. Sin embargo, para adaptar el dorsal a los uniformes de menor talla en las categorías ligeras (femeninas de -40 kg a -57 kg y masculinas de -50 kg a -60 kg), se permite la opción de utilizar un dorsal de menor tamaño (35 cm x 34 cm).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 114",
+  "tags": [
+    "backnumber",
+    "dimensions",
+    "weight-categories",
+    "women",
+    "men",
+    "judogi",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0773: Código del país en el dorsal en ausencia de CNO
+```json
+{
+  "id_conocimiento": "KUN-0773",
+  "titulo": "Código del país en el dorsal en ausencia de CNO",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the country does not have a NOC then the three letter country code recognised by the IJF must be used.",
+  "contenido_traduccion": "Si el país no tiene un CNO (Comité Olímpico Nacional), se debe utilizar el código de país de tres letras reconocido por la IJF.",
+  "interpretacion": "Garantiza la identificación uniforme de todos los atletas. Si una nación no cuenta con un Comité Olímpico Nacional oficial reconocido, debe aplicar obligatoriamente en su dorsal el código oficial de tres letras asignado por la IJF.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 115",
+  "tags": [
+    "backnumber",
+    "judogi",
+    "uniform",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0774: Coincidencia ortográfica del nombre en el dorsal con Judobase
+```json
+{
+  "id_conocimiento": "KUN-0774",
+  "titulo": "Coincidencia ortográfica del nombre en el dorsal con Judobase",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The last (family) name (and any part of the athletes given (first) name) on the backnumber must have the same letters as that registered in Judobase as this database provides the accreditation cards, athlete name on TV graphics and scoreboard etc. The backnumber can have a symbol on a letter, but the letters must be the same - for example: In Judobase Muller = backnumber Muller or Müller (letters match). In Judobase Weiss = backnumber Weiss but NOT Weiß (letters do not match).",
+  "contenido_traduccion": "El apellido (y cualquier parte del nombre de pila del atleta) en el dorsal debe contener las mismas letras que las registradas en Judobase, ya que esta base de datos provee las tarjetas de acreditación, el nombre del atleta en las gráficas de TV, marcador, etc. El dorsal puede llevar un símbolo sobre una letra, pero las letras deben ser las mismas; por ejemplo: En Judobase Muller = dorsal Muller o Müller (las letras coinciden). En Judobase Weiss = dorsal Weiss pero NO Weiß (las letras no coinciden).",
+  "interpretacion": "Permite acentos o diacríticos sobre letras existentes (por ejemplo, ü por u), pero prohíbe caracteres especiales que alteren el conjunto de letras base (como utilizar ß en lugar de ss). Esto asegura una correspondencia exacta entre la identidad digital en marcadores/televisión y el dorsal impreso del atleta.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 115",
+  "tags": [
+    "backnumber",
+    "judogi",
+    "uniform",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0775: Uso de dorsales especiales para campeones olímpicos y mundiales
+```json
+{
+  "id_conocimiento": "KUN-0775",
+  "titulo": "Uso de dorsales especiales para campeones olímpicos y mundiales",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Senior individual Olympic champions are entitled to wear a gold backnumber and senior individual world champions a red one. Current Olympic and world champions mixed teams must wear gold/red nation codes on their backnumbers for the day of the mixed teams championships. This backnumber is provided by the IJF, world champions will receive four, and Olympic champions will receive eight. This is valid only while the athlete/nation is the current holder of the title and must be changed to the blue backnumber if the title is lost. One month is allowed for the athlete/nation to return to the blue backnumber for competitions.",
+  "contenido_traduccion": "Los campeones olímpicos individuales senior tienen derecho a usar un dorsal dorado y los campeones mundiales individuales senior uno rojo. Los equipos mixtos vigentes campeones olímpicos y mundiales deben llevar los códigos de nación en dorado/rojo en sus dorsales durante el día del campeonato de equipos mixtos. Este dorsal es proporcionado por la IJF; los campeones mundiales recibirán cuatro y los campeones olímpicos recibirán ocho. Esto es válido únicamente mientras el atleta/nación sea el poseedor actual del título y debe cambiarse al dorsal azul si el título se pierde. Se concede un plazo de un mes para que el atleta/nación vuelva al dorsal azul para las competiciones.",
+  "interpretacion": "Regula la asignación y vigencia de dorsales de distinción especial (dorados para campeones olímpicos y rojos para campeones mundiales). Si un competidor o equipo pierde el título vigente, tiene un periodo máximo de gracia de un mes para reemplazar el dorsal especial por el dorsal azul estándar en competiciones oficiales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 115",
+  "tags": [
+    "backnumber",
+    "judogi",
+    "uniform",
+    "dress-code",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0776: Patrón de costura y fijación del dorsal
+```json
+{
+  "id_conocimiento": "KUN-0776",
+  "titulo": "Patrón de costura y fijación del dorsal",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The backnumber should be stitched around the entire perimeter and the lower and upper edges should be crossed to form an X or four (4) straight equidistant parallel horizontal lines within the perimeter. NOTE: The stitches are marked in red (see picture 8) for a better understanding of how the sewing should be done. For Olympic Games and other multi-sport games the sewing pattern will be specified by the IJF Education and Coaching Commission.",
+  "contenido_traduccion": "El dorsal debe estar cosido alrededor de todo el perímetro y los bordes inferior y superior deben cruzarse para formar una X o cuatro (4) líneas horizontales paralelas equidistantes dentro del perímetro. NOTA: Las puntadas están marcadas en rojo (ver imagen 8) para entender mejor cómo debe hacerse el cosido. Para Juegos Olímpicos y otros juegos multideportivos, el patrón de costura será especificado por la Comisión de Educación y Entrenadores de la IJF.",
+  "interpretacion": "Define la técnica de fijación obligatoria para evitar que el dorsal se desprenda o que los dedos de los oponentes se enganchen durante el kumikata. Exige cosido perimetral completo más un refuerzo interno en forma de 'X' o de cuatro líneas paralelas horizontales equidistantes.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 115",
+  "tags": [
+    "backnumber",
+    "judogi",
+    "uniform",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0777: Servicio de costura del LOC y sanción por falta de respeto
+```json
+{
+  "id_conocimiento": "KUN-0777",
+  "titulo": "Servicio de costura del LOC y sanción por falta de respeto",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The LOC will provide delegations with a sewing service. They have the right to charge for this service. The place, time and rate (if applicable) will be communicated to delegations on the event’s official notice boards. In case of non-respect of the place and persons providing this service to the delegations, the LOC, in agreement with the IJF, may refuse this service to those who were disrespectful.",
+  "contenido_traduccion": "El LOC (Comité Organizador Local) proporcionará a las delegaciones un servicio de costura. Tienen derecho a cobrar por este servicio. El lugar, la hora y la tarifa (si aplica) se comunicarán a las delegaciones en los tableros de anuncios oficiales del evento. En caso de falta de respeto hacia el lugar o las personas que brindan este servicio, el LOC, de acuerdo con la IJF, podrá denegar este servicio a quienes hayan sido irrespetuosos.",
+  "interpretacion": "Obliga al comité organizador local a ofrecer asistencia de costura para la colocación de dorsales. Establece que cualquier conducta irrespetuosa por parte de atletas o miembros del equipo hacia el personal de costura puede resultar en la denegación del servicio, impidiéndoles cumplir el control de judogi.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 115",
+  "tags": [
+    "backnumber",
+    "judogi",
+    "procedure",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0778: Ubicación, distancia del cuello y parches de patrocinadores en el dorsal
+```json
+{
+  "id_conocimiento": "KUN-0778",
+  "titulo": "Ubicación, distancia del cuello y parches de patrocinadores en el dorsal",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The top of the backnumber must be fixed horizontally and centrally three (3) cm from the bottom of the collar. During IJF competitions the competition sponsor labels must be worn on the lower part.",
+  "contenido_traduccion": "La parte superior del dorsal debe fijarse horizontal y centralmente a tres (3) cm de la parte inferior del cuello. Durante las competiciones de la IJF, las etiquetas de los patrocinadores de la competición deben usarse en la parte inferior.",
+  "interpretacion": "Instruye la alineación física exacta del dorsal en la chaqueta: centrado horizontalmente y ubicado a 3 cm exactamente por debajo de la base posterior del cuello. La sección inferior del dorsal queda reservada para los parches publicitarios oficiales asignados al evento.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 115",
+  "tags": [
+    "backnumber",
+    "judogi",
+    "uniform",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0779: Especificaciones de Color del Judogi (Blanco y Azul)
+```json
+{
+  "id_conocimiento": "KUN-0779",
+  "titulo": "Especificaciones de Color del Judogi (Blanco y Azul)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .9 Judogi Colour\nThe jacket and the trousers should be of a uniform colour and correspond to the following colour references:\n• White: Snow white reference.\n• Blue: between Pantone number n°18- 4051TCX(TPX) and n°18-4039TCX(TPX) on the textile Pantone scale and between n°285M and n° 286M on the print Pantone scale.",
+  "contenido_traduccion": "C1 .9 Color del Judogi\nLa chaqueta y el pantalón deben ser de un color uniforme y corresponder a las siguientes referencias de color:\n• Blanco: Referencia blanco nieve.\n• Azul: entre el número Pantone n°18-4051TCX(TPX) y n°18-4039TCX(TPX) en la escala Pantone textil y entre n°285M y n°286M en la escala Pantone de impresión.",
+  "interpretacion": "Tanto el judogi blanco como el azul deben mantener un color completamente homogéneo en chaqueta y pantalón. Las tonalidades deben ajustarse de manera estricta a las escalas Pantone especificadas para evitar discrepancias cromáticas y asegurar el cumplimiento de las normas de transmisión e imagen oficial.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 116",
+  "tags": [
+    "judogi",
+    "color",
+    "uniform",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0780: Control de Talle de Judogi y Cinturón mediante Sokuteiki
+```json
+{
+  "id_conocimiento": "KUN-0780",
+  "titulo": "Control de Talle de Judogi y Cinturón mediante Sokuteiki",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .10 Judogi Size\nThe judogi and belt size is controlled by sokuteiki (see picture 9).",
+  "contenido_traduccion": "C1 .10 Talle del Judogi\nEl talle del judogi y del cinturón se controla mediante el sokuteiki (ver imagen 9).",
+  "interpretacion": "El instrumento oficial sokuteiki es obligatorio para verificar que las dimensiones de la chaqueta, pantalón y cinturón cumplan de forma exacta con la normativa de la IJF antes de entrar al tatami de competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 116",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "uniform",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0781: Cobertura y Simetría de la Falda de la Chaqueta del Judogi
+```json
+{
+  "id_conocimiento": "KUN-0781",
+  "titulo": "Cobertura y Simetría de la Falda de la Chaqueta del Judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Jacket (see picture 10)\nThe “skirt” must cover the buttocks completely. The skirt must be of equivalent length at the front and at the back.",
+  "contenido_traduccion": "Chaqueta (ver imagen 10)\nLa 'falda' debe cubrir completamente los glúteos. La falda debe tener una longitud equivalente por delante y por detrás.",
+  "interpretacion": "La falda de la chaqueta del judogi debe envolver y cubrir por completo la parte posterior (glúteos) del atleta y guardar la misma longitud en la parte frontal y posterior para evitar prendas desproporcionadas o cortas que perjudiquen el agarre regular.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 116",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "uniform",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0782: Longitud Mínima de la Falda de la Chaqueta según Categoría de Peso
+```json
+{
+  "id_conocimiento": "KUN-0782",
+  "titulo": "Longitud Mínima de la Falda de la Chaqueta según Categoría de Peso",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The length of the judogi jacket will be measured from the front of the athlete with sokuteiki. The length of the jacket skirt, below the belt (to be worn on the waist above the hip bone and be tied very tightly) must measure as follows:\n• All athletes -73 kg*: a minimum of 20 cm\n• All athletes +73 kg*: a minimum of 25 cm\n*-73 kg (-48, -52, -57, -63, -70, -60, -66, -73 kg), +73 kg (-78, +78, -81, -90, -100, +100 kg)",
+  "contenido_traduccion": "La longitud de la chaqueta del judogi se medirá desde la parte frontal del atleta con el sokuteiki. La longitud de la falda de la chaqueta, por debajo del cinturón (el cual debe llevarse en la cintura por encima del hueso de la cadera y atarse muy ajustado) debe medir lo siguiente:\n• Todos los atletas de -73 kg*: un mínimo de 20 cm\n• Todos los atletas de +73 kg*: un mínimo de 25 cm\n*-73 kg (-48, -52, -57, -63, -70, -60, -66, -73 kg), +73 kg (-78, +78, -81, -90, -100, +100 kg)",
+  "interpretacion": "Al realizar el control con el sokuteiki por la parte frontal, el cinturón debe estar sujeto firmemente sobre la cintura por encima de las crestas ilíacas. En categorías de peso de hasta 73 kg (tanto femeninas como masculinas), la falda por debajo del cinturón debe tener al menos 20 cm; en categorías superiores a 73 kg, debe medir como mínimo 25 cm.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 116",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "uniform",
+    "weight-categories",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0783: Dimensiones de las Mangas del Judogi y Paso del Sokuteiki
+```json
+{
+  "id_conocimiento": "KUN-0783",
+  "titulo": "Dimensiones de las Mangas del Judogi y Paso del Sokuteiki",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "With the arms level, the sokuteiki must slip inside entirely and smoothly inside the sleeves. The judogi sleeves must cover up the full arm including the wrist bone (head of the ulna).",
+  "contenido_traduccion": "Con los brazos en posición horizontal, el sokuteiki debe deslizarse completamente y de manera fluida por el interior de las mangas. Las mangas del judogi deben cubrir la totalidad del brazo, incluyendo el hueso de la muñeca (cabeza del cúbito).",
+  "interpretacion": "Con el judoka sosteniendo los brazos estirados horizontalmente al frente, el instrumento sokuteiki debe entrar sin rozamiento ni resistencia por las mangas. Asimismo, la longitud de las mangas debe tapar por completo la prominencia ósea de la muñeca (cabeza del cúbito).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 116",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0784: Oportunidad Única de Ajuste de Mangas durante el Control
+```json
+{
+  "id_conocimiento": "KUN-0784",
+  "titulo": "Oportunidad Única de Ajuste de Mangas durante el Control",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The judoka are given one chance to adjust.",
+  "contenido_traduccion": "Se da a los judokas una oportunidad para ajustarse.",
+  "interpretacion": "Si las mangas del judogi no alcanzan la muñeca o el sokuteiki no se desliza libremente en el primer intento, se le concede al atleta una sola oportunidad para recolocar la prenda o acomodar los brazos/mangas antes de determinar el rechazo definitivo del judogi.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 116",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0785: Cruce de la chaqueta del judogi y posición del cinturón respecto al esternón y la cadera
+```json
+{
+  "id_conocimiento": "KUN-0785",
+  "titulo": "Cruce de la chaqueta del judogi y posición del cinturón respecto al esternón y la cadera",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The distance of the crossing points of the jacket, at belt level, must be at least 25 cm (see picture 11). The belt should be worn just above the hip bone and be tied tightly.\n• The distance between the sternum top and the lapel crossing point of the jacket vertically must be less than 10 cm.\nPicture 11",
+  "contenido_traduccion": "La distancia entre los puntos de cruce de la chaqueta, a la altura del cinturón, debe ser de al menos 25 cm (ver imagen 11). El cinturón debe llevarse justo por encima del hueso de la cadera y estar atado firmemente.\n• La distancia vertical entre la parte superior del esternón y el punto de cruce de la solapa de la chaqueta debe ser inferior a 10 cm.\nImagen 11",
+  "interpretacion": "Durante el control de judogi, los oficiales miden que la chaqueta de la persona competidora cruce de manera amplia a la altura del cinturón (mínimo 25 cm de traslape) y que el cruce superior no quede demasiado bajo en el pecho (la distancia vertical entre la parte superior del esternón y el cruce de las solapas debe ser menor a 10 cm). Además, se verifica que el cinturón esté firmemente ceñido justo sobre la cresta ilíaca para garantizar un ajuste correcto del uniforme.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 117",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "uniform",
+    "dress-code",
+    "procedure",
+    "diagram"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0786: Especificaciones de ancho y grosor de la solapa de la chaqueta del judogi
+```json
+{
+  "id_conocimiento": "KUN-0786",
+  "titulo": "Especificaciones de ancho y grosor de la solapa de la chaqueta del judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "• The thickness of the lapel side must be less or equal to 1 cm.\n• The width of the lapel side must be 4 cm.",
+  "contenido_traduccion": "• El grosor del lado de la solapa debe ser menor o igual a 1 cm.\n• El ancho del lado de la solapa debe ser de 4 cm.",
+  "interpretacion": "Las solapas de la chaqueta del judogi deben cumplir estrictamente con las dimensiones normativas: un ancho exacto de 4 cm y un grosor máximo de 1 cm. Solapas demasiado gruesas o anchas dificultan la toma de agarres reglamentarios (kumikata) por parte del oponente, por lo que cualquier desviación de estas medidas causará el rechazo del judogi en el control oficial con el calibre Sokuteiki.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 117",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0787: Especificaciones técnicas, dimensiones y material del cinturón de judogi
+```json
+{
+  "id_conocimiento": "KUN-0787",
+  "titulo": "Especificaciones técnicas, dimensiones y material del cinturón de judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Belt (see picture 12)\n• The thickness must be between 4 and 5 mm.\n• The tips starting from the central knot must have a length between 20 and 30 cm.\n• The belt must not be made of a stiff and/or slipping material and the knot must be correctly and tightly made.\nPicture 12",
+  "contenido_traduccion": "Cinturón (ver imagen 12)\n• El grosor debe ser de entre 4 y 5 mm.\n• Las puntas que salen del nudo central deben tener una longitud de entre 20 y 30 cm.\n• El cinturón no debe estar hecho de un material rígido y/o deslizante y el nudo debe estar hecho de forma correcta y apretada.\nImagen 12",
+  "interpretacion": "El cinturón oficial debe tener un grosor exacto de entre 4 y 5 mm. Al ser atado firmemente mediante un nudo correcto, los extremos sobrantes (puntas) que cuelgan del nudo central deben medir entre 20 cm y 30 cm cada uno. No se permiten cinturones de materiales excesivamente rígidos o resbaladizos que puedan desatarse fácilmente o complicar la fijación del uniforme durante el combate.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 117",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "uniform",
+    "dress-code",
+    "procedure",
+    "diagram"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0788: Dimensiones y ajuste de los pantalones del judogi
+```json
+{
+  "id_conocimiento": "KUN-0788",
+  "titulo": "Dimensiones y ajuste de los pantalones del judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Trousers (see picture 13)\n• The distance between the bottom of the trousers and the exterior malleolus (ankle bone) must be less or equal to 5 cm.\n• The width must be between 10 and 15 cm at the knee level.",
+  "contenido_traduccion": "Pantalones (ver imagen 13)\n• La distancia entre la parte inferior de los pantalones y el maléolo exterior (hueso del tobillo) debe ser menor o igual a 5 cm.\n• El ancho debe ser de entre 10 y 15 cm a la altura de la rodilla.",
+  "interpretacion": "Durante el control del judogi, se verifica que los pantalones no queden demasiado cortos (máximo 5 cm por encima del maléolo) ni demasiado ajustados o anchos en las rodillas (10-15 cm de holgura), permitiendo un agarre reglamentario y movilidad adecuada sin otorgar ventajas tácticas.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 118",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control",
+    "sokuteiki",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0789: Sello óptico de conformidad del judogi
+```json
+{
+  "id_conocimiento": "KUN-0789",
+  "titulo": "Sello óptico de conformidad del judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the judogi is compliant an optical stamp will be made on the jacket.",
+  "contenido_traduccion": "Si el judogi cumple con las normas, se aplicará un sello óptico en la chaqueta.",
+  "interpretacion": "Una vez que la chaqueta del judogi pasa con éxito la inspección oficial de control (medidas, parches y estado general), los controladores aplican un sello óptico visible/verificable que certifica que la prenda es apta para entrar al tatami de competición.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 118",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0790: Requisitos y marcas permitidas en la camiseta interior (T-shirt)
+```json
+{
+  "id_conocimiento": "KUN-0790",
+  "titulo": "Requisitos y marcas permitidas en la camiseta interior (T-shirt)",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .11 T-shirt\n• White in colour (not transparent), short-sleeved and round-necked.\n• Marking of the manufacturer logo, of maximum 30 cm2 is authorised. It cannot be visible when the judogi is fastened.\n• The national emblem representing the official identification of a nation, a National Olympic Committee, or a member national federation of the IJF, of a surface area of 100 cm2 can be fixed on the chest, on the left side.\n• No commercial marking can appear.",
+  "contenido_traduccion": "C1 .11 Camiseta (T-shirt)\n• De color blanco (no transparente), de manga corta y cuello redondo.\n• Se autoriza la marca del logotipo del fabricante, de un máximo de 30 cm2. No puede ser visible cuando el judogi está abrochado.\n• El emblema nacional que represente la identificación oficial de una nación, un Comité Olímpico Nacional o una federación nacional miembro de la IJF, de una superficie de 100 cm2, se puede fijar en el pecho, en el lado izquierdo.\n• No puede aparecer ninguna marca comercial.",
+  "interpretacion": "La camiseta interior (de uso obligatorio para competidoras femeninas) debe cumplir especificaciones estrictas: blanca, cuello redondo, sin transparencias. Solo se permiten el logo de marca (<30 cm2, oculto al abrochar la chaqueta) y el escudo nacional (<100 cm2 en el lado izquierdo del pecho). Se prohíbe completamente cualquier publicidad comercial.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 118",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "women",
+    "uniform",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0791: Excepción para el uso de camiseta interior en atletas masculinos
+```json
+{
+  "id_conocimiento": "KUN-0791",
+  "titulo": "Excepción para el uso de camiseta interior en atletas masculinos",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The wearing of a t-shirt for male athletes is authorised for medical reasons or to cover a tattoo mentioning political, religious or sporting bodies or promoting tobacco, alcohol, any prohibited substances listed in the Prohibited List of the World Anti-Doping Agency or any product, property or service contrary to good moral and ethical customs, which cannot be covered with an adhesive bandage or medical tape.",
+  "contenido_traduccion": "El uso de camiseta para atletas masculinos está autorizado por razones médicas o para cubrir un tatuaje que mencione entidades políticas, religiosas o deportivas, o que promocione tabaco, alcohol, sustancias prohibidas incluidas en la Lista de Prohibiciones de la Agencia Mundial Antidopaje o cualquier producto, propiedad o servicio contrario a las buenas costumbres morales y éticas, que no pueda cubrirse con una venda adhesiva o cinta médica.",
+  "interpretacion": "Aunque por regla general los competidores masculinos no llevan camiseta debajo de la chaqueta del judogi, se concede una excepción en dos casos: por prescripción médica debidamente justificada o para tapar tatuajes con contenidos prohibidos o inapropiados que no se puedan cubrir mediante esparadrapo o cinta médica.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 118",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "men",
+    "uniform",
+    "medical",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0792: Suministro de judogis de reserva y zona de cambio
+```json
+{
+  "id_conocimiento": "KUN-0792",
+  "titulo": "Suministro de judogis de reserva y zona de cambio",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .12 Reserve Judogi Supply\nDuring the competitions organised by the IJF, the LOC will supply reserve belts, blue and white judogi of different sizes. Judogi will be available in the “call room” so that any change requirement could be met as quickly as possible. A closed structure for any changing requests must be in the control zone.",
+  "contenido_traduccion": "C1 .12 Suministro de judogis de reserva\nDurante las competiciones organizadas por la IJF, el Comité Organizador Local (LOC) suministrará cinturones de reserva, así como judogis azules y blancos de diferentes tallas. Los judogis estarán disponibles en la sala de llamada (“call room”) para que cualquier requisito de cambio pueda cumplirse lo más rápidamente posible. Debe haber una estructura cerrada en la zona de control para cualquier solicitud de cambio de vestimenta.",
+  "interpretacion": "Para evitar descalificaciones o retrasos si el judogi de un judoka es rechazado en el control formal, el organizador local debe disponer de prendas de reserva (blancas, azules y cinturones) en la sala de llamada (call room) y contar con vestidores cerrados dentro del área de control para que el atleta se cambie de inmediato.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 118",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure",
+    "uniform"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0793: Casos autorizados para la provisión de judogi de reserva
+```json
+{
+  "id_conocimiento": "KUN-0793",
+  "titulo": "Casos autorizados para la provisión de judogi de reserva",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The reserve judogi are provided only in the following cases:\n• Torn judogi during a contest.\n• Bloodstains or any other apparent stains during a contest.\n• Irregular size.\n• Irregular or missing backnumber.\n• Inappropriate advertising.\n• Inappropriate emblem.\n• Unofficial brand.\n• Jacket and trousers not the same brand.\n• Inappropriate colour.\n• Worn out judogi.\n• When the name on the backnumber is different from the one on the accreditation.\n• Wet judogi.\n• Lost or stolen judogi (airline/train baggage claim or police report need to be provided).\n• Judogi is made non-compliant for use during the competition after IJF Referee Supervisor(s)’s decision.",
+  "contenido_traduccion": "El judogi de reserva se proporciona únicamente en los siguientes casos:\n• Judogi rasgado durante un combate.\n• Manchas de sangre o cualquier otra mancha evidente durante un combate.\n• Talla irregular.\n• Dorsal (backnumber) irregular o faltante.\n• Publicidad inapropiada.\n• Emblema inapropiado.\n• Marca no oficial.\n• Chaqueta y pantalón que no sean de la misma marca.\n• Color inapropiado.\n• Judogi desgastado.\n• Cuando el nombre en el dorsal sea diferente al de la acreditación.\n• Judogi mojado.\n• Judogi perdido o robado (se debe presentar el reclamo de equipaje de aerolínea/tren o denuncia policial).\n• Judogi no conforme para su uso durante la competición tras decisión de los Supervisores de Arbitraje de la IJF.",
+  "interpretacion": "Establece la lista exhaustiva de situaciones reglamentarias bajo las cuales la organización facilitará un judogi de reserva al atleta. En el caso de pérdida o robo durante el viaje, el atleta debe aportar prueba oficial.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 119",
+  "tags": [
+    "judogi",
+    "control",
+    "backnumber",
+    "uniform",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0794: Prohibición y sanción por verter agua sobre el judogi antes del combate
+```json
+{
+  "id_conocimiento": "KUN-0794",
+  "titulo": "Prohibición y sanción por verter agua sobre el judogi antes del combate",
+  "tipo": "PEN",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If an athlete is seen, before his contest, pouring water onto his judogi he will wear a reserve judogi and cannot have a coach in the chair for that contest.",
+  "contenido_traduccion": "Si se observa a un atleta, antes de su combate, vertiendo agua sobre su judogi, deberá usar un judogi de reserva y no podrá tener entrenador en la silla para ese combate.",
+  "interpretacion": "Acatar la prohibición de humedecer voluntariamente la indumentaria previa al encuentro. La sanción es doble: obligatoriedad de cambio a judogi de reserva y suspensión de la presencia del entrenador en la silla durante el combate afectado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 119",
+  "tags": [
+    "judogi",
+    "coaches",
+    "conduct",
+    "procedure",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0795: Procedimiento de entrega del judogi de reserva y penalización por incumplimiento
+```json
+{
+  "id_conocimiento": "KUN-0795",
+  "titulo": "Procedimiento de entrega del judogi de reserva y penalización por incumplimiento",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The athlete must leave his accreditation card and the part(s) of their judogi that do not comply with the rules with the organisers in exchange for the reserve judogi. The reserve judogi must be returned immediately after the contest it was used for. If an athlete refuses to comply with the rules, he will be excluded from the competition.\nNote: The LOC cannot be blamed if an athlete cannot find a judogi with a suitable size.",
+  "contenido_traduccion": "El atleta debe dejar su tarjeta de acreditación y la(s) parte(s) de su judogi que no cumplan con las reglas con los organizadores a cambio del judogi de reserva. El judogi de reserva debe devolverse inmediatamente después del combate para el que se utilizó. Si un atleta se niega a cumplir con las reglas, será excluido de la competición.\nNota: No se puede culpar al LOC si un atleta no encuentra un judogi con una talla adecuada.",
+  "interpretacion": "Regula el procedimiento de fianza y devolución del judogi de reserva. La negativa del atleta a someterse al cambio o entregar la documentación/prenda implica la descalificación inmediata de la competición. El comité organizador no es responsable si no hay una talla perfecta disponible.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 119",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0796: Funciones de Oficiales Técnicos Nacionales: Identidad, dorsal y sello de pre-control
+```json
+{
+  "id_conocimiento": "KUN-0796",
+  "titulo": "Funciones de Oficiales Técnicos Nacionales: Identidad, dorsal y sello de pre-control",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1.13 National Technical Officials’ Duties\n• Check that the athlete’s identity corresponds to the backnumber and check the sponsor’s label. The backnumber and competition sponsor label are compulsory.\n• Check with a special light if the special stamp placed on the jacket during the backnumber pre-control appears on the judogi jacket.",
+  "contenido_traduccion": "C1.13 Deberes de los Oficiales Técnicos Nacionales\n• Verificar que la identidad del atleta corresponda con el dorsal y verificar la etiqueta del patrocinador. El dorsal y la etiqueta del patrocinador de la competición son obligatorios.\n• Verificar con una luz especial si el sello especial colocado en la chaqueta durante el pre-control del dorsal aparece en la chaqueta del judogi.",
+  "interpretacion": "Obligación de los oficiales del control de judogi de corroborar la identidad del competidor frente al dorsal, constatar la presencia obligatoria del dorsal y parche del patrocinador, y verificar con luz UV la marca estampada en el pre-control.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 119",
+  "tags": [
+    "judogi",
+    "control",
+    "backnumber",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0797: Funciones de Oficiales Técnicos Nacionales: Código de vestimenta y acreditación de entrenadores y médicos
+```json
+{
+  "id_conocimiento": "KUN-0797",
+  "titulo": "Funciones de Oficiales Técnicos Nacionales: Código de vestimenta y acreditación de entrenadores y médicos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "• Check that the accompanying coach is in possession of an accreditation bearing the coach symbol. For preliminary rounds a coach should wear a national tracksuit with trousers reaching down to the shoes. They can wear national official short sleeved or long-sleeved T-shirt and closed-toe sport shoes (no flip-flops). For the final block, they must wear a formal suit (jacket, trousers, shirt, and tie for men; jacket, trousers/skirt/dress, blouse for women) and formal shoes (no sport shoes or flip-flops).\n• The following are forbidden at any time: shorter trousers, undressed upper body, any kind of head caps and cover, jeans, sweaters or similar sports unrelated dress, flip-flops. In case a doctor appears with the athlete he should have an accreditation with the doctor’s symbol (a first aid kit box).",
+  "contenido_traduccion": "• Verificar que el entrenador acompañante posea una acreditación con el símbolo de entrenador. Para las rondas preliminares, el entrenador debe usar chándal nacional con pantalones que lleguen hasta los zapatos. Puede usar camiseta oficial nacional de manga corta o larga y calzado deportivo cerrado (no chanclas). Para el bloque final, debe usar traje formal (chaqueta, pantalón, camisa y corbata para hombres; chaqueta, pantalón/falda/vestido, blusa para mujeres) y zapatos formales (no calzado deportivo ni chanclas).\n• Está prohibido en todo momento: pantalones cortos, torso descubierto, cualquier tipo de gorra o cobertura de cabeza, vaqueros, suéteres o indumentaria similar no deportiva, chanclas. En caso de que un médico acompañe al atleta, debe poseer una acreditación con el símbolo de médico (un botiquín de primeros auxilios).",
+  "interpretacion": "Establece los requisitos de acreditación y vestimenta estricta que los Oficiales Técnicos deben exigir a los entrenadores tanto en eliminatorias como en el bloque final, así como la prohibición de prendas informales o no autorizadas y la acreditación correcta del médico.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 119",
+  "tags": [
+    "coaches",
+    "dress-code",
+    "medical",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0798: Funciones de Oficiales Técnicos Nacionales: Verificación física y de etiquetas IJF del judogi y cinturón
+```json
+{
+  "id_conocimiento": "KUN-0798",
+  "titulo": "Funciones de Oficiales Técnicos Nacionales: Verificación física y de etiquetas IJF del judogi y cinturón",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "• Check the condition of the backnumber and sponsor label (it should not be torn off).\n• Check judogi condition (should be dry, not torn or showing any blood stains).\n• Check judogi colour (blue judogi should not look light blue).\n• Check the judogi label and brand. The logo of the judogi manufacturer must appear on the jacket, trousers and belt.\n• Jacket and trousers should be of the same brand. The belt (cannot be red and white) can be a different brand to that of the jacket and trousers.\n• Check “IJF APPROVED” label with a UV lamp. The label should be red or green. The belt label can be red, blue or green. Check belt ends length from central knot (between 20 cm and 30 cm).",
+  "contenido_traduccion": "• Verificar el estado del dorsal y la etiqueta del patrocinador (no deben estar desprendidos).\n• Verificar el estado del judogi (debe estar seco, no rasgado ni mostrar manchas de sangre).\n• Verificar el color del judogi (el judogi azul no debe verse azul claro).\n• Verificar la etiqueta y la marca del judogi. El logotipo del fabricante del judogi debe aparecer en la chaqueta, pantalón y cinturón.\n• La chaqueta y el pantalón deben ser de la misma marca. El cinturón (no puede ser rojo y blanco) puede ser de una marca diferente a la de la chaqueta y pantalón.\n• Verificar la etiqueta 'IJF APPROVED' con luz UV. La etiqueta debe ser roja o verde. La etiqueta del cinturón puede ser roja, azul o verde. Verificar la longitud de los extremos del cinturón desde el nudo central (entre 20 cm y 30 cm).",
+  "interpretacion": "Lista de inspecciones obligatorias que realiza el control técnico: estado impecable del gi, tonalidad adecuada de azul, coincidencia de marca en chaqueta y pantalón, validez del sello IJF Approved mediante lámpara UV y longitud correcta de las puntas del cinturón (20-30 cm).",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 119",
+  "tags": [
+    "judogi",
+    "control",
+    "color",
+    "uniform",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0799: Ubicación del nombre del atleta en la indumentaria de judogi
+```json
+{
+  "id_conocimiento": "KUN-0799",
+  "titulo": "Ubicación del nombre del atleta en la indumentaria de judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Check the name of the athlete on the belt (allowed on one side only), jacket and trousers. One location allowed on each piece of competition clothing. The name of the athlete is not compulsory.",
+  "contenido_traduccion": "Verificar el nombre del atleta en el cinturón (permitido solo en un lado), la chaqueta y el pantalón. Se permite una sola ubicación en cada prenda de la indumentaria de competición. El nombre del atleta no es obligatorio.",
+  "interpretacion": "Durante el control de judogi, se comprueba si el judoka lleva escrito su nombre en sus prendas. El nombre es optativo. En caso de llevarlo, sólo puede figurar en una posición por cada prenda (chaqueta, pantalón y cinturón), y en el cinturón debe estar únicamente de un lado.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0800: Posición y anudado del cinturón en la cintura
+```json
+{
+  "id_conocimiento": "KUN-0800",
+  "titulo": "Posición y anudado del cinturón en la cintura",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Check the belt position. It must be worn on the waist (above the hip bone) and be tied very tightly.",
+  "contenido_traduccion": "Verificar la posición del cinturón. Debe llevarse en la cintura (por encima del hueso de la cadera) y estar atado muy fuertemente.",
+  "interpretacion": "Los oficiales de control deben asegurarse de que el cinturón esté posicionado correctamente en la cintura del deportista, por encima de las crestas ilíacas, y firmemente anudado para evitar que se suelte fácilmente durante el combate.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0801: Postura corporal inicial para la revisión del judogi
+```json
+{
+  "id_conocimiento": "KUN-0801",
+  "titulo": "Postura corporal inicial para la revisión del judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes must be in a standing position with their arms straight down by the side of their body with open hands as close to the body as possible.",
+  "contenido_traduccion": "Los atletas deben estar en posición de pie con los brazos extendidos hacia abajo a los lados de su cuerpo con las manos abiertas lo más cerca posible del cuerpo.",
+  "interpretacion": "Al iniciar el control de judogi, el competidor debe colocarse totalmente erguido, con los brazos pegados al cuerpo y las manos abiertas apuntando hacia abajo para permitir la verificación inicial visual y de distancias del atuendo.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0802: Distancias del cruce de solapas del judogi y cruce a nivel del cinturón
+```json
+{
+  "id_conocimiento": "KUN-0802",
+  "titulo": "Distancias del cruce de solapas del judogi y cruce a nivel del cinturón",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Check the distance between the sternum top and the lapel crossing point of the jacket vertically. It must be less than 10 cm. The distance between the two lapels of the jacket at belt level, needs to be of a minimum of 25 cm.",
+  "contenido_traduccion": "Verificar la distancia vertical entre la parte superior del esternón y el punto de cruce de las solapas de la chaqueta. Debe ser inferior a 10 cm. La distancia entre las dos solapas de la chaqueta a la altura del cinturón debe ser de un mínimo de 25 cm.",
+  "interpretacion": "El cruce de la chaqueta no puede ser demasiado bajo ni estrecho. Verticalmente, desde la escotadura esternal hasta donde se cruzan las solapas debe haber menos de 10 cm. Horizontalmente, a la altura del cinturón, las solapas deben superponerse al menos 25 cm para garantizar un agarre reglamentario.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0803: Largo de la chaqueta y faldón por categoría de peso
+```json
+{
+  "id_conocimiento": "KUN-0803",
+  "titulo": "Largo de la chaqueta y faldón por categoría de peso",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Check length of the jacket (to cover completely the buttocks). The length of the judogi jacket will be measured from the front of the athlete with sokuteiki. The length of the jacket skirt, below the belt (to be worn on the waist above the hip bone and be tied very tightly) must measure as follows: • All athletes -73 kg (-48, -52, -57, -63, -70, -60, -66, -73 kg): a minimum of 20 cm. • All athletes +73 kg (-78, +78, -81, -90, -100, +100 kg): a minimum of 25 cm.",
+  "contenido_traduccion": "Verificar la longitud de la chaqueta (debe cubrir completamente los glúteos). La longitud de la chaqueta del judogi se medirá desde el frente del atleta con el sokuteiki. La longitud del faldón de la chaqueta, por debajo del cinturón (el cual debe usarse en la cintura por encima del hueso de la cadera y estar atado muy fuertemente) debe medir lo siguiente: • Todos los atletas de -73 kg (-48, -52, -57, -63, -70, -60, -66, -73 kg): un mínimo de 20 cm. • Todos los atletas de +73 kg (-78, +78, -81, -90, -100, +100 kg): un mínimo de 25 cm.",
+  "interpretacion": "La chaqueta del judogi debe cubrir los glúteos por completo. Se mide frontalmente con el sokuteiki desde el cinturón hacia abajo. Para categorías ligeras y medianas (-73 kg en hombres y equivalentes en mujeres) el faldón inferior debe medir al menos 20 cm; para categorías pesadas (+73 kg en hombres y superiores en mujeres) debe medir al menos 25 cm.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "weight-categories",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0804: Postura corporal del atleta para el control de mangas
+```json
+{
+  "id_conocimiento": "KUN-0804",
+  "titulo": "Postura corporal del atleta para el control de mangas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "The athletes to be checked need to be in a standing position. The arms must be straight put in front at chest height, palms open, fingers pointed upwards. Thumbs and forefingers of both hands should be in contact with each other to form a triangle.",
+  "contenido_traduccion": "Los atletas que van a ser revisados deben estar en posición de pie. Los brazos deben colocarse rectos hacia adelante a la altura del pecho, con las palmas abiertas y los dedos apuntando hacia arriba. Los pulgares e índices de ambas manos deben estar en contacto entre sí formando un triángulo.",
+  "interpretacion": "Para medir las mangas, el atleta debe pararse de pie y extender los brazos rectos al frente a la altura del pecho, uniendo los dedos pulgares e índices para formar la figura de un triángulo con las palmas mirando hacia afuera.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0805: Longitud obligatoria de las mangas del judogi
+```json
+{
+  "id_conocimiento": "KUN-0805",
+  "titulo": "Longitud obligatoria de las mangas del judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Check length of the sleeves. They need to cover up the full arms completely including the wrist bone (head of the ulna) in the defined control position (arms outstretched).",
+  "contenido_traduccion": "Verificar la longitud de las mangas. Deben cubrir los brazos completos por completo, incluyendo el hueso de la muñeca (cabeza del cúbito) en la posición de control definida (brazos extendidos).",
+  "interpretacion": "Con los brazos extendidos al frente en la posición reglamentaria, la tela de las mangas del judogi debe cubrir la articulación de la muñeca por completo, sobrepasando la apófisis estiloides / cabeza del cúbito.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "control",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0806: Mediciones con sokuteiki de mangas, solapa y pantalón
+```json
+{
+  "id_conocimiento": "KUN-0806",
+  "titulo": "Mediciones con sokuteiki de mangas, solapa y pantalón",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Check with a sokuteiki the width of the sleeves, width of lapel, and length of trousers (the ankle bone, the malleolus, must be accessible for checking).",
+  "contenido_traduccion": "Verificar con un sokuteiki el ancho de las mangas, el ancho de la solapa y la longitud de los pantalones (el hueso del tobillo, el maléolo, debe estar accesible para la verificación).",
+  "interpretacion": "Los inspectores emplean la herramienta sokuteiki para medir el grosor/ancho de la solapa, el holgura/ancho de la manga y la distancia del pantalón. El pantalón no debe cubrir excesivamente el tobillo, debiendo dejar accesible el maléolo para la comprobación.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "control",
+    "sokuteiki",
+    "dress-code"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0807: Procedimiento de segunda oportunidad tras no superar el control de judogi
+```json
+{
+  "id_conocimiento": "KUN-0807",
+  "titulo": "Procedimiento de segunda oportunidad tras no superar el control de judogi",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If the athlete fails the judogi control he will be given a second and last chance.",
+  "contenido_traduccion": "Si el atleta no supera el control de judogi, se le dará una segunda y última oportunidad.",
+  "interpretacion": "Si un atleta no cumple con las medidas reglamentarias del judogi en la primera revisión, dispone de un segundo intento definitivo para cambiar o corregir la indumentaria antes de ser descalificado del combate.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "control",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0808: Normas sobre ropa interior, mallas y protecciones inferiores
+```json
+{
+  "id_conocimiento": "KUN-0808",
+  "titulo": "Normas sobre ropa interior, mallas y protecciones inferiores",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Athletes can wear any underwear or leggings below the belt. These should not go below the knee, except if it is a separate protection made of soft material. The protection should not appear below the judogi trousers.",
+  "contenido_traduccion": "Los atletas pueden usar cualquier ropa interior o mallas debajo del cinturón. Estas no deben sobrepasar la rodilla, excepto si se trata de una protección independiente hecha de material blando. La protección no debe asomar por debajo del pantalón del judogi.",
+  "interpretacion": "Bajo el pantalón se permite el uso de mallas o ropa interior siempre que no sobrepasen la rodilla. Si el deportista usa musleras o rodilleras blandas de protección, se permite que lleguen más abajo, pero en ningún caso pueden sobresalir visiblemente por el bajo del pantalón.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0809: Verificación de publicidad y emblema nacional en la chaqueta
+```json
+{
+  "id_conocimiento": "KUN-0809",
+  "titulo": "Verificación de publicidad y emblema nacional en la chaqueta",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Check for athletes’ advertisements to meet requirements. Check national emblem (100 cm2) on left side of the jacket).",
+  "contenido_traduccion": "Verificar que la publicidad de los atletas cumpla con los requisitos. Verificar el emblema nacional (100 cm2) en el lado izquierdo de la chaqueta.",
+  "interpretacion": "En el control se revisa que los parches publicitarios autorizados cumplan las dimensiones y ubicaciones oficiales. Asimismo, se valida que el escudo o emblema nacional esté situado al lado izquierdo del pecho y tenga una superficie máxima de 100 cm².",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0810: Requisitos de la camiseta interior para atletas femeninas
+```json
+{
+  "id_conocimiento": "KUN-0810",
+  "titulo": "Requisitos de la camiseta interior para atletas femeninas",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Female athletes must and male athletes may wear a short sleeved white T-shirt (round necked). No visible advertisement should appear when judogi is done. Only logo of manufacturer (maximum 30 cm2) and national emblem can appear inside. No other marking allowed.",
+  "contenido_traduccion": "Las atletas femeninas deben y los atletas masculinos pueden llevar una camiseta blanca de manga corta (de cuello redondo). No debe verse ninguna publicidad cuando el judogi esté cerrado. Solo el logotipo del fabricante (máximo 30 cm2) y el emblema nacional pueden aparecer en el interior. No se permite ninguna otra marca.",
+  "interpretacion": "Las mujeres están obligadas a llevar una camiseta blanca lisa de cuello redondo y manga corta debajo del judogi (los hombres pueden usarla bajo excepciones reglamentarias). Al cruzar el judogi no debe ser visible ningún logotipo publicitario. Internamente solo se autoriza la marca del fabricante (máx. 30 cm²) y la bandera/emblema nacional.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control",
+    "women"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0811: Restricciones sobre tatuajes y obligación de cubrirlos
+```json
+{
+  "id_conocimiento": "KUN-0811",
+  "titulo": "Restricciones sobre tatuajes y obligación de cubrirlos",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "If an athlete presents themselves with a tattoo mentioning political, religious or sporting bodies or promoting tobacco, alcohol, any prohibited substances listed in the Prohibited List of the World Anti-Doping Agency or any product, property or service contrary to good moral and ethical customs, it must be covered with an adhesive bandage or medical tape.",
+  "contenido_traduccion": "Si un atleta se presenta con un tatuaje que mencione organismos políticos, religiosos o deportivos, o que promocione tabaco, alcohol, sustancias prohibidas de la Lista de la Agencia Mundial Antidopaje o cualquier producto, propiedad o servicio contrario a las buenas costumbres morales y éticas, debe cubrirse con una venda adhesiva o cinta médica.",
+  "interpretacion": "Queda prohibida la exhibición visible de tatuajes con contenido político, religioso, publicitario de sustancias prohibidas/nocivas (tabaco, alcohol, dopaje) o moralmente inapropiado. El competidor debe taparlos por completo mediante esparadrapo o venda adhesiva antes de entrar al tatami.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control",
+    "conduct"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0812: Vestimenta del torso superior para masculinos y excepciones médicas o por tatuajes
+```json
+{
+  "id_conocimiento": "KUN-0812",
+  "titulo": "Vestimenta del torso superior para masculinos y excepciones médicas o por tatuajes",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Check that male athletes are not wearing any clothing under their jacket, on upper body. The wearing of a t-shirt for male athletes is authorised for medical reasons or to cover a tattoo mentioning political, religious or sporting bodies or promoting tobacco, alcohol, any prohibited substances listed in the Prohibited List of the World Anti-Doping Agency or any product, property or service contrary to good moral and ethical customs, which cannot be covered with an adhesive bandage or medical tape.",
+  "contenido_traduccion": "Verificar que los atletas masculinos no lleven ninguna prenda debajo de la chaqueta en el torso superior. El uso de camiseta para atletas masculinos está autorizado por razones médicas o para cubrir un tatuaje que mencione organismos políticos, religiosos o deportivos, o que promocione tabaco, alcohol, sustancias prohibidas por la AMA o productos contrarios a la moral y ética, cuando no pueda cubrirse con una venda adhesiva o cinta médica.",
+  "interpretacion": "Por regla general, los competidores masculinos deben llevar el torso desnudo bajo la chaqueta. Solo se autoriza llevar camiseta blanca si existe prescripción médica o si poseen un tatuaje prohibido de gran tamaño que sea imposible de cubrir únicamente con cinta adhesiva médica.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control",
+    "men",
+    "medical"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0813: Higiene personal, longitud de uñas y sujeción del cabello largo
+```json
+{
+  "id_conocimiento": "KUN-0813",
+  "titulo": "Higiene personal, longitud de uñas y sujeción del cabello largo",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Verify the length of hand and foot nails and personal hygiene of the athlete. Long hair must be tied up with a non-metallic hair tie.",
+  "contenido_traduccion": "Verificar la longitud de las uñas de manos y pies y la higiene personal del atleta. El cabello largo debe estar recogido con una goma de pelo no metálica.",
+  "interpretacion": "En la inspección se comprueba la pulcritud del competidor y que las uñas de pies y manos estén perfectamente cortadas para evitar arañazos. El pelo largo debe recogerse obligatoriamente con una goma elástica sin elementos metálicos o plásticos rígidos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0814: Revisión de prendas de protección y dispositivos médicos portátiles
+```json
+{
+  "id_conocimiento": "KUN-0814",
+  "titulo": "Revisión de prendas de protección y dispositivos médicos portátiles",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Control any protective clothing (knee pad, elbow pad, shin pad etc.). No metallic part or any other part made of rigid material is allowed. Check any wearable medical devices are not a potential source of injury for the athlete or the athlete’s opponent.",
+  "contenido_traduccion": "Controlar cualquier prenda de protección (rodillera, codera, espinillera, etc.). No se permite ninguna parte metálica ni ninguna otra parte hecha de material rígido. Verificar que los dispositivos médicos portátiles no sean una fuente potencial de lesiones para el atleta o el oponente del atleta.",
+  "interpretacion": "Las protecciones blandas (coderas, rodilleras) están permitidas siempre que carezcan de partes plásticas duras o elementos metálicos. Si el judoka porta algún dispositivo médico (como sensores de glucosa), este debe ser inspeccionado para garantizar que no genere riesgo de corte o contusión para ninguno de los dos competidores.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control",
+    "safety",
+    "medical"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0815: Prohibición de objetos peligrosos, dispositivos electrónicos, joyas y piercings
+```json
+{
+  "id_conocimiento": "KUN-0815",
+  "titulo": "Prohibición de objetos peligrosos, dispositivos electrónicos, joyas y piercings",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Ensure that the athlete is not carrying a prohibited object. This includes the holding or wearing of any electronic devices. Any head covering, jewellery or body piercings must be removed.",
+  "contenido_traduccion": "Asegurarse de que el atleta no lleve ningún objeto prohibido. Esto incluye sostener o usar cualquier dispositivo electrónico. Se debe retirar cualquier cobertura para la cabeza, joyas o piercings corporales.",
+  "interpretacion": "Queda estrictamente prohibido ingresar al área de combate con relojes, pulseras inteligentes, teléfonos u otros aparatos electrónicos, así como joyas, pendientes o piercings (deben retirarse, no basta con taparlos). También deben retirarse los cubrimientos para la cabeza no autorizados por razones reglamentarias de seguridad.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 120",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "control",
+    "safety"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0816: Reglas de judogi para juegos multideportivos
+```json
+{
+  "id_conocimiento": "KUN-0816",
+  "titulo": "Reglas de judogi para juegos multideportivos",
+  "tipo": "EXC",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "Note: For multi-sport games (e.g., Olympic Games, Youth Olympic Games etc.) there may be special judogi rules, and these will be published separately and sent to all national federations.",
+  "contenido_traduccion": "Nota: Para juegos multideportivos (p. ej., Juegos Olímpicos, Juegos Olímpicos de la Juventud, etc.) puede haber reglas especiales de judogi, las cuales se publicarán por separado y se enviarán a todas las federaciones nacionales.",
+  "interpretacion": "En eventos multideportivos oficiales como los Juegos Olímpicos o Juegos Olímpicos de la Juventud, las regulaciones del judogi pueden variar o incluir requisitos especiales que la IJF comunica de forma independiente a las federaciones nacionales.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 121",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "uniform",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0817: Distinciones para campeones mundiales u olímpicos en el judogi
+```json
+{
+  "id_conocimiento": "KUN-0817",
+  "titulo": "Distinciones para campeones mundiales u olímpicos en el judogi",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .14 World Champion and/or Olympic Champion Titles Enhancement\nThe International Judo Federation gives the opportunity to athletes who are individual senior world and/or Olympic champions to enhance their title(s) with a marking on the judogi jacket at the level of the country’s emblem (left side chest).\nThe world champion title(s) is/are enhanced by a gold star, above the national emblem.\nThe Olympic champion title(s) is/are enhanced by a gold circle, below the national emblem.",
+  "contenido_traduccion": "C1 .14 Realce de títulos de Campeón Mundial y/o Campeón Olímpico\nLa Federación Internacional de Judo ofrece la oportunidad a los atletas que son campeones mundiales y/o olímpicos sénior individuales de realzar su(s) título(s) con una marca en la chaqueta del judogi al nivel del emblema del país (lado izquierdo del pecho).\nEl/los título(s) de campeón mundial se realza(n) con una estrella dorada, por encima del emblema nacional.\nEl/los título(s) de campeón olímpico se realza(n) con un círculo dorado, por debajo del emblema nacional.",
+  "interpretacion": "Los judocas que hayan ganado títulos mundiales o campeonatos olímpicos en categoría sénior individual están autorizados a bordar o colocar marcas de distinción doradas en su judogi, situadas en el pecho izquierdo junto al escudo nacional: una estrella dorada sobre el escudo por cada título mundial y un círculo dorado debajo del escudo por cada título olímpico.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 121",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "uniform",
+    "senior"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0818: Procedimiento y especificaciones para estrellas de Campeón Mundial
+```json
+{
+  "id_conocimiento": "KUN-0818",
+  "titulo": "Procedimiento y especificaciones para estrellas de Campeón Mundial",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1 .14 .1 Procedure Regarding World Champion Title(s)\nThe star(s) are placed above the national emblem and must not be in contact with any part of this emblem. There should be a space of 0.5 cm - 2 cm between each star. This symbol must be harmoniously placed in a circular arc, around the emblem in its upper part.\n• Size: It must be in a 1.5 cm diameter circle.\n• Colour: Gold.\n• Positioning: One star: at the centre.\nTwo stars: Spaced from 1.5 cm to 2 cm beside the centre.\nThree stars: one at the centre and 2 on each side.\nMaximum 5 stars per line.\nMore than 5 stars: superimpose them with a space of 0.5 cm.\n• Space between two stars: From 1.5 cm to 2 cm.",
+  "contenido_traduccion": "C1 .14 .1 Procedimiento relativo al/a los título(s) de Campeón Mundial\nLa(s) estrella(s) se ubican por encima del emblema nacional y no deben estar en contacto con ninguna parte de este emblema. Debe haber un espacio de 0.5 cm - 2 cm entre cada estrella. Este símbolo debe colocarse armoniosamente en un arco circular alrededor de la parte superior del emblema.\n• Tamaño: Debe caber en un círculo de 1.5 cm de diámetro.\n• Color: Dorado.\n• Posicionamiento: Una estrella: en el centro.\nDos estrellas: Espaciadas de 1.5 cm a 2 cm a los lados del centro.\nTres estrellas: una en el centro y 2 a cada lado.\nMáximo 5 estrellas por línea.\nMás de 5 estrellas: superponerlas con un espacio de 0.5 cm.\n• Espacio entre dos estrellas: De 1.5 cm a 2 cm.",
+  "interpretacion": "Detalla las especificaciones de diseño y posicionamiento para la colocación de las estrellas doradas de Campeón Mundial Sénior. Deben ser de color dorado, medir un máximo de 1.5 cm de diámetro, disponerse alineadas en un arco circular sobre el escudo nacional sin tocarlo, separadas entre 1.5 cm y 2 cm entre sí. Si un judoca acumula más de 5 estrellas en una sola línea, se deben superponer reduciendo la distancia entre ellas a 0.5 cm.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 121",
+  "tags": [
+    "judogi",
+    "dress-code",
+    "uniform",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0819: Ubicación General del Símbolo de Campeón Olímpico
+```json
+{
+  "id_conocimiento": "KUN-0819",
+  "titulo": "Ubicación General del Símbolo de Campeón Olímpico",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "C1.14.2 Procedure Regarding Olympic Champion Title(s)\nThe circle(s) are placed below the national emblem and must not be in contact with any part of this emblem. There should be a space of 0.5 cm - 2 cm between each circle. This symbol must be harmoniously placed, in line below the national emblem in its lower part.",
+  "contenido_traduccion": "C1.14.2 Procedimiento relativo a los Títulos de Campeón Olímpico\nEl círculo o círculos se colocan debajo del emblema nacional y no deben estar en contacto con ninguna parte de dicho emblema. Debe haber un espacio de 0.5 cm a 2 cm entre cada círculo. Este símbolo debe colocarse de forma armoniosa, en línea debajo del emblema nacional en su parte inferior.",
+  "interpretacion": "Establece la regla general para la ubicación de los círculos representativos de títulos olímpicos en la chaqueta del judogi. Deben colocarse siempre debajo del emblema nacional, sin tocarlo en ninguna de sus partes, manteniendo una distribución estética alineada y proporcional.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 122",
+  "tags": [
+    "judogi",
+    "uniform",
+    "dress-code",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
+
+
+---
+
+### KUN-0820: Especificaciones Técnicas y Posicionamiento de Círculos de Campeón Olímpico
+```json
+{
+  "id_conocimiento": "KUN-0820",
+  "titulo": "Especificaciones Técnicas y Posicionamiento de Círculos de Campeón Olímpico",
+  "tipo": "REG",
+  "nivel_autoridad": "Norma",
+  "version": "1.0",
+  "idioma_original": "en",
+  "vigencia_desde": "2026-01-01",
+  "vigencia_hasta": "null",
+  "contenido_original": "• Size: 1.5 cm diameter.\n• Colour: Gold.\n• Positioning: One circle: at the centre. Two circles: spaced from 1.5 cm to 2 cm beside the centre. Three circles: one at the centre and 2 on each side.\n• Space between the circles: From 1.5 cm to 2 cm.",
+  "contenido_traduccion": "• Tamaño: 1.5 cm de diámetro.\n• Color: Dorado.\n• Posicionamiento: Un círculo: en el centro. Dos círculos: distanciados de 1.5 cm a 2 cm al lado del centro. Tres círculos: uno en el centro y 2 a cada lado.\n• Espacio entre los círculos: De 1.5 cm a 2 cm.",
+  "interpretacion": "Define las dimensiones, color y alineación geométrica de los círculos dorados de campeón olímpico. Cada círculo mide 1.5 cm de diámetro. Si se ostenta un título, se centra; si son dos o tres, se distribuyen simétricamente con una separación de entre 1.5 cm y 2 cm entre ellos.",
+  "fuente_origen": "DOC-001",
+  "referencia_especifica": "Apéndice C - Reglamento de Judogi, Página 122",
+  "tags": [
+    "judogi",
+    "uniform",
+    "dress-code",
+    "color",
+    "procedure"
+  ],
+  "relaciones": []
+}
+```
