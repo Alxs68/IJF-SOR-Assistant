@@ -8,7 +8,7 @@
 | ID Permanente | Tipo | Título Oficial | Versión / Fecha | Idioma | Canonical URL | Clasificación | Pertinencia | Estado del Recurso | Estado de Decisión | Estado de Verificación |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **DOC-001** | Normativa | IJF Sport and Organisation Rules (SOR) | 21.01.2026 | English | [ijf.org/documents](https://www.ijf.org/ijf/documents) | Primaria | Alta | Disponible | **Incluir** | Verificado |
-| **DOC-002** | Normativa | Explanatory Guide of the Judo Refereeing Rules | Version 19 (25.03.2023) | English | [ijf.org/referee-commission](https://www.ijf.org/referee-commission) | Primaria | Alta | Disponible | **Incluir** | Verificado |
+| **DOC-002** | Normativa | Explanatory Guide of the Judo Refereeing Rules | Version 19 (25.03.2023) | English | [ijf.org/referee-commission](https://www.ijf.org/referee-commission) | Primaria | Alta | Obsoleto | **Excluir** | Obsoleto |
 | **DOC-003** | Normativa | 2026 IJF Kata Judges Guidelines | 2026 | English, Spanish, French | [ijf.org/kata/documents](https://www.ijf.org/kata/documents) | Secundaria | Media | Disponible | **Excluir** | Verificado |
 | **DOC-004** | Normativa | Medical Manual for Judo | 2026 Edition | English | [ijf.org/medical/documents](https://www.ijf.org/medical/documents) | Secundaria | Media | Disponible | **Incluir** | Verificado |
 | **DOC-005** | Normativa | Kata Competition Criteria for Evaluation | Enero 2025 | English | [ijf.org/kata/documents](https://www.ijf.org/kata/documents) | Secundaria | Media | Disponible | **Excluir** | Verificado |
@@ -49,7 +49,7 @@
 * **Justificación:** Es la norma madre del corpus; define todas las reglas de juego y organización de eventos de la federación.
 
 ### DOC-002: Explanatory Guide of the Judo Refereeing Rules
-* **ID:** DOC-002 | **Tipo:** Normativa | **Pertinencia:** Alta | **Estado del Recurso:** Disponible | **Decisión:** Incluir
+* **ID:** DOC-002 | **Tipo:** Normativa | **Pertinencia:** Alta | **Estado del Recurso:** Obsoleto | **Decisión:** Excluir
 * **Estado de Verificación:** Verificado | **Fuente de Descubrimiento:** Buscador general de la Comisión de Árbitros en ijf.org.
 * **Título oficial:** Explanatory Guide of the Judo Refereeing Rules (Version 19)
 * **Versión:** Version 19
