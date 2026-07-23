@@ -39,9 +39,23 @@ class RagEngine:
             
         if os.path.exists(self.vector_path):
             self.vs.load_index(self.vector_path)
+            
+            # Check if we need to re-index due to mode mismatch
+            needs_reindex = False
+            if self.api_key and self.vs.mode == "tfidf":
+                print("[LOG] [RAG Engine] API Key detectada pero el índice cargado es TF-IDF. Re-indexando en modo Embeddings...")
+                needs_reindex = True
+            elif not self.api_key and self.vs.mode == "embeddings":
+                print("[LOG] [RAG Engine] Sin API Key pero el índice cargado es Embeddings. Re-indexando en modo TF-IDF...")
+                needs_reindex = True
+                
+            if needs_reindex:
+                self.vs.index_kun_corpus(self.kg.nodes, api_key=self.api_key)
+                self.vs.save_index(self.vector_path)
         else:
             # Index on the fly
             self.vs.index_kun_corpus(self.kg.nodes, api_key=self.api_key)
+            self.vs.save_index(self.vector_path)
 
     def retrieve_context(self, query, k=3, min_score=0.10, depth=1):
         """Retrieves semantic hits and expands context using graph relations."""
