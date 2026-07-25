@@ -290,76 +290,76 @@ if st.session_state.active_index >= 0:
                         
     if show_audit and col_trace is not None:
         with col_trace:
-        active_item = st.session_state.history[st.session_state.active_index]
-        is_fallback = "lo siento" in active_item['answer'].lower()
-        
-        tab_cite, tab_graph = st.tabs(["📚 Trazabilidad y Citas", "🕸️ Subgrafo Relacional"])
-        
-        with tab_cite:
-            if not is_fallback and active_item['trazabilidad']:
-                with st.container():
-                    st.markdown(
-                        "ℹ️ **Disponibilidad de las fuentes oficiales**\n\n"
-                        "La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).\n\n"
-                        "Algunas fuentes pueden:\n"
-                        "* Permitir acceso directo al contenido específico;\n"
-                        "* Redirigir únicamente al portal oficial;\n"
-                        "* Haber sido migradas;\n"
-                        "* Dejar de estar disponibles debido a cambios en la plataforma de origen o por otros motivos externos al asistente.\n\n"
-                        "Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y, cuando exista una referencia oficial disponible y registrada en el sistema, el RRM la presentará al usuario."
-                    )
-                    st.markdown(
-                        "**Leyenda de Estados:** &nbsp; "
-                        "🟢 *Disponible* &nbsp;&nbsp; "
-                        "🟡 *Migrada* &nbsp;&nbsp; "
-                        "🔵 *Portal General* &nbsp;&nbsp; "
-                        "🔴 *No Disponible*"
-                    )
-                    st.markdown("---")
-                
-                st.caption("📱 *En celulares, desplázate manualmente a la página indicada (función en proceso de mejora).*")
-                for kun in active_item['trazabilidad']:
-                    res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
-                    url = res.get("url")
-                    is_clickable = res.get("is_clickable", True)
-                    op_status = res.get("operational_status", "AVAILABLE")
+            active_item = st.session_state.history[st.session_state.active_index]
+            is_fallback = "lo siento" in active_item['answer'].lower()
+            
+            tab_cite, tab_graph = st.tabs(["📚 Trazabilidad y Citas", "🕸️ Subgrafo Relacional"])
+            
+            with tab_cite:
+                if not is_fallback and active_item['trazabilidad']:
+                    with st.container():
+                        st.markdown(
+                            "ℹ️ **Disponibilidad de las fuentes oficiales**\n\n"
+                            "La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).\n\n"
+                            "Algunas fuentes pueden:\n"
+                            "* Permitir acceso directo al contenido específico;\n"
+                            "* Redirigir únicamente al portal oficial;\n"
+                            "* Haber sido migradas;\n"
+                            "* Dejar de estar disponibles debido a cambios en la plataforma de origen o por otros motivos externos al asistente.\n\n"
+                            "Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y, cuando exista una referencia oficial disponible y registrada en el sistema, el RRM la presentará al usuario."
+                        )
+                        st.markdown(
+                            "**Leyenda de Estados:** &nbsp; "
+                            "🟢 *Disponible* &nbsp;&nbsp; "
+                            "🟡 *Migrada* &nbsp;&nbsp; "
+                            "🔵 *Portal General* &nbsp;&nbsp; "
+                            "🔴 *No Disponible*"
+                        )
+                        st.markdown("---")
                     
-                    source_id = kun['fuente_origen']
-                    ref_spec = kun.get('referencia_especifica', 'Reglamento')
-                    name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
+                    st.caption("📱 *En celulares, desplázate manualmente a la página indicada (función en proceso de mejora).*")
+                    for kun in active_item['trazabilidad']:
+                        res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
+                        url = res.get("url")
+                        is_clickable = res.get("is_clickable", True)
+                        op_status = res.get("operational_status", "AVAILABLE")
+                        
+                        source_id = kun['fuente_origen']
+                        ref_spec = kun.get('referencia_especifica', 'Reglamento')
+                        name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
+                        
+                        if is_clickable and url:
+                            source_link = f"[{name} ({ref_spec})]({url})"
+                        elif op_status == "DELETED":
+                            source_link = f"~~{name} ({ref_spec})~~"
+                        else:
+                            source_link = f"{name} ({ref_spec})"
+                        
+                        badge_emoji = "🟢"
+                        if op_status == "MIGRATED":
+                            badge_emoji = "🟡"
+                        elif op_status == "FALLBACK_GENERAL":
+                            badge_emoji = "🔵"
+                        elif op_status == "DELETED":
+                            badge_emoji = "🔴"
+                        
+                        st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res.get('ux_message', '')}*")
+                        st.markdown(f"* **Fuente:** {source_link}")
+                        st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
+                        st.write(f"* Interpretación: {kun['interpretacion']}")
+                        st.write("---")
+                else:
+                    st.info("No hay trazabilidad legal disponible para esta consulta.")
                     
-                    if is_clickable and url:
-                        source_link = f"[{name} ({ref_spec})]({url})"
-                    elif op_status == "DELETED":
-                        source_link = f"~~{name} ({ref_spec})~~"
-                    else:
-                        source_link = f"{name} ({ref_spec})"
-                    
-                    badge_emoji = "🟢"
-                    if op_status == "MIGRATED":
-                        badge_emoji = "🟡"
-                    elif op_status == "FALLBACK_GENERAL":
-                        badge_emoji = "🔵"
-                    elif op_status == "DELETED":
-                        badge_emoji = "🔴"
-                    
-                    st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res.get('ux_message', '')}*")
-                    st.markdown(f"* **Fuente:** {source_link}")
-                    st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
-                    st.write(f"* Interpretación: {kun['interpretacion']}")
-                    st.write("---")
-            else:
-                st.info("No hay trazabilidad legal disponible para esta consulta.")
-                
-        with tab_graph:
-            if not is_fallback and active_item['dot_code']:
-                st.graphviz_chart(active_item['dot_code'])
-            else:
-                st.info("No hay relaciones de grafo disponibles para esta consulta.")
+            with tab_graph:
+                if not is_fallback and active_item['dot_code']:
+                    st.graphviz_chart(active_item['dot_code'])
+                else:
+                    st.info("No hay relaciones de grafo disponibles para esta consulta.")
 else:
     st.markdown("""
     <div style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">
-        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente del SOR de la IJF</h1>
+        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente del SOR de la FIJ</h1>
         <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4;">Tu consultor experto del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
     </div>
     """, unsafe_allow_html=True)
