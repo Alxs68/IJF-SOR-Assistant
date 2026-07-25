@@ -84,6 +84,30 @@ st.markdown("""
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
         color: var(--text-color) !important;
     }
+    div[data-testid="stButton"] button {
+        background-color: var(--secondary-background-color);
+        border: 1px solid rgba(128,128,128,0.25);
+        border-radius: 8px;
+        padding: 1rem 0.8rem !important;
+        text-align: left !important;
+        color: var(--text-color);
+        font-family: 'Inter', sans-serif;
+        font-size: 0.8rem;
+        line-height: 1.35;
+        white-space: normal;
+        display: block;
+        width: 100%;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    div[data-testid="stButton"] button p {
+        margin: 0;
+        text-align: left !important;
+    }
+    div[data-testid="stButton"] button:hover {
+        border-color: #1d4ed8 !important;
+        color: #1d4ed8 !important;
+        box-shadow: 0 4px 6px -1px rgba(29, 78, 216, 0.05);
+    }
     @media (max-width: 768px) {
         .block-container {
             padding-left: 0.8rem !important;
@@ -371,32 +395,17 @@ else:
     </div>
     """, unsafe_allow_html=True)
     
-    st.markdown("""
-    <div style="font-size: 0.85rem; font-weight: 600; text-align: center; margin-bottom: 0.8rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">💡 Temas Sugeridos</div>
-    """, unsafe_allow_html=True)
-    
-    scol1, scol2, scol3 = st.columns(3)
-    with scol1:
-        st.markdown("""
-        <div style="background-color: var(--secondary-background-color); border: 1px solid rgba(128,128,128,0.25); border-radius: 8px; padding: 0.8rem; text-align: left; height: 100%;">
-            <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 0.3rem; font-size: 0.9rem;">🚫 Reglas de Arbitraje</div>
-            <p style="font-size: 0.75rem; margin: 0; opacity: 0.8;">¿Se permite la defensa con la cabeza? o ¿Cómo se sanciona el abrazo de oso?</p>
-        </div>
-        """, unsafe_allow_html=True)
-    with scol2:
-        st.markdown("""
-        <div style="background-color: var(--secondary-background-color); border: 1px solid rgba(128,128,128,0.25); border-radius: 8px; padding: 0.8rem; text-align: left; height: 100%;">
-            <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 0.3rem; font-size: 0.9rem;">📐 Control de Uniformes</div>
-            <p style="font-size: 0.75rem; margin: 0; opacity: 0.8;">¿Qué es el Sokuteiki y cómo se usa? o Medidas oficiales del judogi</p>
-        </div>
-        """, unsafe_allow_html=True)
-    with scol3:
-        st.markdown("""
-        <div style="background-color: var(--secondary-background-color); border: 1px solid rgba(128,128,128,0.25); border-radius: 8px; padding: 0.8rem; text-align: left; height: 100%;">
-            <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 0.3rem; font-size: 0.9rem;">⏱️ Pesaje y Médicos</div>
-            <p style="font-size: 0.75rem; margin: 0; opacity: 0.8;">Tolerancia de peso aleatorio o Límite de atenciones médicas</p>
-        </div>
-        """, unsafe_allow_html=True)
+    # Suggested topics (interactive buttons)
+    st.markdown("""<div style=\"font-size: 0.85rem; font-weight: 600; text-align: center; margin-bottom: 0.8rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;\">💡 Temas Sugeridos</div>""", unsafe_allow_html=True)
+
+    # Use a subset of preguntas_ejemplo (skip placeholder at index 0)
+    example_questions = preguntas_ejemplo[1:7]  # first 6 example questions
+    cols = st.columns(3)
+    for i, q in enumerate(example_questions):
+        with cols[i % 3]:
+            if st.button(q, key=f"suggest_{i}", help="Haz clic para usar esta pregunta como entrada"):
+                st.session_state.query_to_run = q
+                st.rerun()
 
 st.write("---")
 with st.expander("📝 Alcance del Asistente & Cobertura de Temas"):
