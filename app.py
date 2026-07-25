@@ -15,7 +15,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
 
 from rag_engine import RagEngine
 
-from citation_resolver import RESOURCE_DETAILS, resolve_url
+from citation_resolver import RESOURCE_DETAILS, resolve_url, _rrm_manager
 
 # Automatic logo downloader on startup to ensure offline rendering on OCI
 logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
@@ -496,18 +496,34 @@ if st.session_state.active_index >= 0:
         with st.expander("📚 Ver Trazabilidad y Citas Oficiales"):
             st.caption("📱 *En celulares, desplázate manualmente a la página indicada (función en proceso de mejora).*")
             for kun in active_item['trazabilidad']:
-                st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}**")
+                res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
+                url = res.get("url")
+                is_clickable = res.get("is_clickable", True)
+                ux_message = res.get("ux_message", "")
+                op_status = res.get("operational_status", "AVAILABLE")
                 
                 source_id = kun['fuente_origen']
                 ref_spec = kun.get('referencia_especifica', 'Reglamento')
+                name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
                 
-                # Render source as clickable link with friendly name and specific article
-                source_link = f"`{source_id}` - {ref_spec}"
-                url = resolve_url(kun['id_conocimiento'], kun)
-                if url:
-                    name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
+                # Render source link with appropriate UX behavior (clickable vs plain text vs strike-through)
+                if is_clickable and url:
                     source_link = f"[{name} ({ref_spec})]({url})"
+                elif op_status == "DELETED":
+                    source_link = f"~~{name} ({ref_spec})~~"
+                else:
+                    source_link = f"{name} ({ref_spec})"
                 
+                # Determine badge color based on operational status
+                badge_emoji = "🟢"
+                if op_status == "MIGRATED":
+                    badge_emoji = "🟡"
+                elif op_status == "FALLBACK_GENERAL":
+                    badge_emoji = "🔵"
+                elif op_status == "DELETED":
+                    badge_emoji = "🔴"
+                
+                st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{ux_message}*")
                 st.markdown(f"* **Fuente:** {source_link}")
                 st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
                 st.write(f"* Interpretación: {kun['interpretacion']}")

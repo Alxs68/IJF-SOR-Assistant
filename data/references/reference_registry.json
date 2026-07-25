@@ -1,0 +1,470 @@
+{
+  "DOC-001": {
+    "reference_uid": "REF-DOC-001",
+    "source_id": "DOC-001",
+    "version": "1.0.0",
+    "type": "pdf",
+    "origin_source_class": "Official PDF",
+    "name": "Reglamento SOR 2026 (Sport and Organisation Rules)",
+    "url_original": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf",
+    "url_resolved": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Reglamento SOR 2026 oficial en PDF. URL estable.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "DOC-004": {
+    "reference_uid": "REF-DOC-004",
+    "source_id": "DOC-004",
+    "version": "1.0.0",
+    "type": "pdf",
+    "origin_source_class": "Official PDF",
+    "name": "Manual Médico de Judo (PDF)",
+    "url_original": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf",
+    "url_resolved": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Manual Médico oficial de la IJF. Hospedado en el mismo CDN del SOR.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "PAG-001": {
+    "reference_uid": "REF-PAG-001",
+    "source_id": "PAG-001",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official Rules Portal",
+    "name": "Portal de Reglas Interactivas de la IJF",
+    "url_original": "https://rules.ijf.org",
+    "url_resolved": "https://rules.ijf.org",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Portal interactivo principal de la IJF.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "PAG-002": {
+    "reference_uid": "REF-PAG-002",
+    "source_id": "PAG-002",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official Rules Portal",
+    "name": "Portal de Reglas IJF: Sección Kumikata (Agarres)",
+    "url_original": "https://rules.ijf.org/gripping",
+    "url_resolved": "https://rules.ijf.org/gripping",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Sección específica de agarres. 200 OK.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "PAG-003": {
+    "reference_uid": "REF-PAG-003",
+    "source_id": "PAG-003",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official Rules Portal",
+    "name": "Portal de Reglas IJF: Sección Scoring (Puntuaciones)",
+    "url_original": "https://rules.ijf.org/scoring",
+    "url_resolved": "https://rules.ijf.org/scoring",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Sección específica de puntuaciones. 200 OK.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "PAG-004": {
+    "reference_uid": "REF-PAG-004",
+    "source_id": "PAG-004",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official Rules Portal",
+    "name": "Portal de Reglas IJF: Sección Penalties (Faltas)",
+    "url_original": "https://rules.ijf.org/penalties",
+    "url_resolved": "https://rules.ijf.org/penalties",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Sección específica de faltas/sanciones. 200 OK.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "PAG-005": {
+    "reference_uid": "REF-PAG-005",
+    "source_id": "PAG-005",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official Rules Portal",
+    "name": "Portal Oficial de Arbitraje IJF",
+    "url_original": "https://referee.ijf.org",
+    "url_resolved": "https://referee.ijf.org",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Portal principal de árbitros de la IJF.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "VID-001": {
+    "reference_uid": "REF-VID-001",
+    "source_id": "VID-001",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official Seminar",
+    "name": "Videoteca de Reglas y Seminarios de Arbitraje IJF",
+    "url_original": "https://www.ijf.org/referee-videos",
+    "url_resolved": "https://referee.ijf.org",
+    "operational_status": "MIGRATED",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "SHOW_REFERENCE_WITH_NOTICE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "La URL original devuelve 404. El recurso fue migrado al nuevo portal de arbitraje referee.ijf.org.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      },
+      {
+        "date": "2026-07-25T11:40:00Z",
+        "action": "STATUS_CHANGED",
+        "from": "AVAILABLE",
+        "to": "MIGRATED"
+      }
+    ]
+  },
+  "VID-002": {
+    "reference_uid": "REF-VID-002",
+    "source_id": "VID-002",
+    "version": "1.0.0",
+    "type": "video",
+    "origin_source_class": "Official Seminar",
+    "name": "Video de Arbitraje IJF: Demostración de Agarre (Kumikata)",
+    "url_original": "https://rules.ijf.org/gripping",
+    "url_resolved": "https://rules.ijf.org/gripping",
+    "operational_status": "FALLBACK_GENERAL",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "SHOW_REFERENCE_WITH_NOTICE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Abre la sección general de agarres por diseño SPA del portal de la IJF.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "VID-003": {
+    "reference_uid": "REF-VID-003",
+    "source_id": "VID-003",
+    "version": "1.0.0",
+    "type": "video",
+    "origin_source_class": "Official Seminar",
+    "name": "Video de Arbitraje IJF: Criterio de Caídas Yuko",
+    "url_original": "https://rules.ijf.org/scoring",
+    "url_resolved": "https://rules.ijf.org/scoring",
+    "operational_status": "FALLBACK_GENERAL",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "SHOW_REFERENCE_WITH_NOTICE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Abre la sección general de scoring por diseño SPA del portal de la IJF.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "VID-004": {
+    "reference_uid": "REF-VID-004",
+    "source_id": "VID-004",
+    "version": "1.0.0",
+    "type": "video",
+    "origin_source_class": "Official Seminar",
+    "name": "Video de Arbitraje IJF: Seguridad en Ushiro-Sankaku-Gatame",
+    "url_original": "https://rules.ijf.org/penalties",
+    "url_resolved": "https://rules.ijf.org/penalties",
+    "operational_status": "FALLBACK_GENERAL",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "SHOW_REFERENCE_WITH_NOTICE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Abre la sección general de sanciones por diseño SPA del portal de la IJF.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "VID-005": {
+    "reference_uid": "REF-VID-005",
+    "source_id": "VID-005",
+    "version": "1.0.0",
+    "type": "video",
+    "origin_source_class": "Official Seminar",
+    "name": "Video de Arbitraje IJF: Evasión y Pérdida de Tiempo",
+    "url_original": "https://rules.ijf.org/penalties",
+    "url_resolved": "https://rules.ijf.org/penalties",
+    "operational_status": "FALLBACK_GENERAL",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "SHOW_REFERENCE_WITH_NOTICE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Abre la sección general de sanciones por diseño SPA del portal de la IJF.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "PPT-001": {
+    "reference_uid": "REF-PPT-001",
+    "source_id": "PPT-001",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official IJF",
+    "name": "Presentación del Congreso de Tecnología",
+    "url_original": "https://www.ijf.org/ijf/documents",
+    "url_resolved": "https://www.ijf.org/ijf/documents",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Sección general de documentos. 200 OK.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "PPT-002": {
+    "reference_uid": "REF-PPT-002",
+    "source_id": "PPT-002",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official IJF",
+    "name": "Presentación del Seminario de Arbitraje 2026",
+    "url_original": "https://www.ijf.org/referee-commission",
+    "url_resolved": "https://www.ijf.org/referee-commission",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Comisión de arbitraje. 200 OK.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "NEW-001": {
+    "reference_uid": "REF-NEW-001",
+    "source_id": "NEW-001",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official IJF",
+    "name": "Comunicado Oficial: Reglas de Arbitraje LA28 (Noticias IJF)",
+    "url_original": "https://www.ijf.org/news/show/the-new-refereeing-rules-point-by-point",
+    "url_resolved": "https://www.ijf.org/news/show/the-new-refereeing-rules-point-by-point",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Artículo técnico de noticias point-by-point. 200 OK.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "NEW-002": {
+    "reference_uid": "REF-NEW-002",
+    "source_id": "NEW-002",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official IJF",
+    "name": "Congreso IJF 2025: Evolución de Tecnología y Reglas (Noticias IJF)",
+    "url_original": "https://www.ijf.org/news/show/ijf-congress-2025-tech-and-rule-evolution",
+    "url_resolved": "https://www.ijf.org/news/show/ijf-congress-2025-tech-and-rule-evolution",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Artículo del Congreso 2025. 200 OK.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "NEW-003": {
+    "reference_uid": "REF-NEW-003",
+    "source_id": "NEW-003",
+    "version": "1.0.0",
+    "type": "web",
+    "origin_source_class": "Official IJF",
+    "name": "Reglas Confirmadas para la Temporada 2026 (Noticias IJF)",
+    "url_original": "https://www.ijf.org/news/show/rules-confirmed-ahead-of-the-2026-season",
+    "url_resolved": "https://www.ijf.org/news/show/rules-confirmed-ahead-of-the-2026-season",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Artículo de confirmación de temporada 2026. 200 OK.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "IMG-001": {
+    "reference_uid": "REF-IMG-001",
+    "source_id": "IMG-001",
+    "version": "1.0.0",
+    "type": "image",
+    "origin_source_class": "Official PDF",
+    "name": "Diagrama Oficial del Área de Competencia y Tatami",
+    "url_original": "https://www.ijf.org/ijf/documents",
+    "url_resolved": "https://www.ijf.org/ijf/documents",
+    "operational_status": "AVAILABLE",
+    "verification_status": "VERIFIED",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "OPEN_RESOURCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Área de documentos de la IJF.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      }
+    ]
+  },
+  "https://www.youtube.com/watch?v=uK8fF41wOqI": {
+    "reference_uid": "REF-VID-004-YOUTUBE",
+    "source_id": "VID-004",
+    "version": "1.0.0",
+    "type": "video",
+    "origin_source_class": "Official YouTube",
+    "name": "Video de Demostración - Hansoku-make por Head Defence",
+    "url_original": "https://www.youtube.com/watch?v=uK8fF41wOqI",
+    "url_resolved": "https://www.youtube.com/watch?v=uK8fF41wOqI",
+    "operational_status": "DELETED",
+    "verification_status": "MANUAL_REVIEW",
+    "date_created": "2026-07-23T00:00:00Z",
+    "date_updated": "2026-07-25T11:40:00Z",
+    "date_last_checked": "2026-07-25T11:09:40Z",
+    "resolution_policy": "DISPLAY_DISABLED_REFERENCE",
+    "fallback_policy": "REDIRECT_PORTAL",
+    "observations": "Video dado de baja o puesto en privado por la IJF. Indicadores de UNPLAYABLE detectados en HTML.",
+    "history": [
+      {
+        "date": "2026-07-23T00:00:00Z",
+        "action": "CREATED"
+      },
+      {
+        "date": "2026-07-25T11:10:00Z",
+        "action": "STATUS_CHANGED",
+        "from": "AVAILABLE",
+        "to": "DELETED"
+      }
+    ]
+  }
+}

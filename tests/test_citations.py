@@ -59,8 +59,8 @@ class TestCitations(unittest.TestCase):
 
     def test_resolve_url_video_structured(self):
         url = resolve_url("KUN-0004", self.kun_video_structured)
-        expected = "https://www.youtube.com/watch?v=uK8fF41wOqI&t=220s"
-        self.assertEqual(url, expected)
+        # Bajo RRM, KUN-0004 está marcada como DELETED, por lo que retorna None
+        self.assertIsNone(url)
 
     def test_resolve_url_web_structured(self):
         url = resolve_url("KUN-0023", self.kun_web_structured)
@@ -75,7 +75,8 @@ class TestCitations(unittest.TestCase):
 
     def test_resolve_url_video_compatibility(self):
         url = resolve_url("KUN-0202", self.kun_video_compat)
-        expected = RESOURCE_DETAILS["VID-001"]["url"]
+        # Bajo RRM, VID-001 se resuelve a la URL migrada
+        expected = "https://referee.ijf.org"
         self.assertEqual(url, expected)
 
     def test_format_citations_valid_and_retrieved(self):

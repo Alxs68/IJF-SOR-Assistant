@@ -1,8 +1,9 @@
 import re
 import urllib.parse
+from reference_manager import ReferenceManager
 
 # Catálogo oficial con detalles y URLs directas a los PDF/páginas de reglas de la IJF
-# Trasladado desde app.py para desacoplar el backend del frontend
+# Mantenido aquí para compatibilidad con código legado y pruebas unitarias
 RESOURCE_DETAILS = {
     "DOC-001": {
         "name": "Reglamento SOR 2026 (Sport and Organisation Rules)",
@@ -78,143 +79,24 @@ RESOURCE_DETAILS = {
     }
 }
 
+# Instanciar el singleton maestro del RRM
+_rrm_manager = ReferenceManager()
+
 def clean_url(url):
-    """Limpia espacios en blanco y caracteres inválidos de una URL base."""
-    if not url:
-        return ""
-    return url.strip()
+    return _rrm_manager.clean_url(url)
 
 def append_query_param(url, param_name, param_value):
-    """Añade un parámetro de consulta a una URL de forma segura preservando los existentes."""
-    parsed = urllib.parse.urlparse(url)
-    query_params = urllib.parse.parse_qs(parsed.query)
-    query_params[param_name] = [str(param_value)]
-    new_query = urllib.parse.urlencode(query_params, doseq=True)
-    return urllib.parse.urlunparse((
-        parsed.scheme,
-        parsed.netloc,
-        parsed.path,
-        parsed.params,
-        new_query,
-        parsed.fragment
-    ))
-
-# Mapeo de subpáginas SPA de rules.ijf.org al PDF correspondiente de explicación detallada (1-to-1 con los slides)
-RULES_PDF_URL = "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2023/04/Detailed_Explanation_of_the_IJF_Judo_Refereeing_Rules_25.03.2023.pdf"
-
-RULES_DEEP_LINKS = {
-    # Gripping (Kumikata)
-    "rules.ijf.org/gripping": f"{RULES_PDF_URL}#page=3",
-    "rules.ijf.org/gripping/illegal": f"{RULES_PDF_URL}#page=12",
-    # Scoring (Puntuaciones)
-    "rules.ijf.org/scoring/osaekomi": f"{RULES_PDF_URL}#page=22",
-    "rules.ijf.org/scoring/landing": f"{RULES_PDF_URL}#page=6",
-    # Penalties (Faltas/Sanciones)
-    "rules.ijf.org/penalties/false-attack": f"{RULES_PDF_URL}#page=24",
-    "rules.ijf.org/penalties/stepping-out": f"{RULES_PDF_URL}#page=24",
-    "rules.ijf.org/penalties/diving": f"{RULES_PDF_URL}#page=21",
-}
+    return _rrm_manager.append_query_param(url, param_name, param_value)
 
 def resolve_url(kun_id, kun_data):
-    """
-    Resuelve la URL exacta para una KUN basándose en sus metadatos fuente.
-    Soporta metadatos estructurados ('fuente') y fallback compatible basado en expresiones regulares.
-    """
-    if not kun_data:
-        return None
-
-    # Interceptar enlaces de rules.ijf.org para dirigirlos a la página exacta del PDF de explicación detallada
-    ref_spec = kun_data.get("referencia_especifica", "").strip()
-    norm_ref = re.sub(r'^https?://', '', ref_spec).rstrip('/')
-    
-    source_url = ""
-    if "fuente" in kun_data and isinstance(kun_data["fuente"], dict):
-        source_url = kun_data["fuente"].get("url") or ""
-    norm_url = re.sub(r'^https?://', '', source_url).strip().rstrip('/')
-    
-    for link_key, deep_url in RULES_DEEP_LINKS.items():
-        if (norm_ref and norm_ref.startswith(link_key)) or (norm_url and norm_url.startswith(link_key)):
-            return deep_url
-
-    # Caso A: Metadatos Estructurados (Nuevo formato)
-    if "fuente" in kun_data and isinstance(kun_data["fuente"], dict):
-        fuente = kun_data["fuente"]
-        tipo = fuente.get("tipo", "").lower()
-        base_url = clean_url(fuente.get("url"))
-        
-        if not base_url:
-            # Fallback a URL de catálogo si no se provee una URL explícita
-            source_id = kun_data.get("fuente_origen")
-            if source_id in RESOURCE_DETAILS:
-                base_url = clean_url(RESOURCE_DETAILS[source_id]["url"])
-        
-        if not base_url:
-            return None
-
-        if tipo == "pdf":
-            pagina = fuente.get("pagina")
-            if pagina is not None:
-                # Los PDFs abren en páginas específicas usando fragmentos del navegador (#page=N)
-                parsed = urllib.parse.urlparse(base_url)
-                return urllib.parse.urlunparse((
-                    parsed.scheme,
-                    parsed.netloc,
-                    parsed.path,
-                    parsed.params,
-                    parsed.query,
-                    f"page={pagina}"
-                ))
-            return base_url
-
-        elif tipo == "video":
-            inicio = fuente.get("inicio_segundos")
-            if inicio is not None:
-                # El parámetro de tiempo de YouTube u otros portales se añade de forma segura
-                return append_query_param(base_url, "t", f"{inicio}s")
-            return base_url
-
-        elif tipo == "web":
-            return base_url
-
-    # Caso B: Fallback de compatibilidad (Formato antiguo basado en expresiones regulares)
-    source_id = kun_data.get("fuente_origen")
-    ref_spec = kun_data.get("referencia_especifica", "")
-
-    if source_id in RESOURCE_DETAILS:
-        base_url = clean_url(RESOURCE_DETAILS[source_id]["url"])
-        if not base_url:
-            return None
-
-        # Intento de extracción por regex de página para PDFs
-        page_match = re.search(r'(?:pág|página|page)\.?\s*(\d+)', ref_spec, re.IGNORECASE)
-        if page_match and base_url.endswith(".pdf"):
-            page_num = page_match.group(1)
-            parsed = urllib.parse.urlparse(base_url)
-            return urllib.parse.urlunparse((
-                parsed.scheme,
-                parsed.netloc,
-                parsed.path,
-                parsed.params,
-                parsed.query,
-                f"page={page_num}"
-            ))
-
-        # Intento de extracción por regex de minutos/segundos para videos de YouTube
-        ts_match = re.search(r'(\d{1,2}):(\d{2})', ref_spec)
-        if ts_match and "youtube.com" in base_url:
-            mins = int(ts_match.group(1))
-            secs = int(ts_match.group(2))
-            total_secs = mins * 60 + secs
-            return append_query_param(base_url, "t", f"{total_secs}s")
-
-        return base_url
-
-    return None
+    """Resuelve la URL operativa de una KUN delegando en el Reference Resolution Manager (RRM)."""
+    res = _rrm_manager.resolve_reference(kun_id, kun_data)
+    return res.get("url")
 
 def format_citations(answer, retrieved_kuns):
     """
     Busca todas las citas [KUN-xxxx] en la respuesta y las convierte en enlaces clicables
-    si y solo si la KUN citada pertenece al conjunto de KUNs recuperadas.
+    (o texto tachado si está DELETED) usando las resoluciones del RRM.
     """
     if not answer:
         return ""
@@ -225,7 +107,6 @@ def format_citations(answer, retrieved_kuns):
         if isinstance(k, dict) and "id_conocimiento" in k:
             retrieved_map[k["id_conocimiento"]] = k
         elif isinstance(k, str):
-            # Si solo es una cadena de ID, guardamos un dict vacío
             retrieved_map[k] = {"id_conocimiento": k}
 
     def replace_citation(match):
@@ -235,11 +116,14 @@ def format_citations(answer, retrieved_kuns):
         # Validar trazabilidad estricta
         if kun_id in retrieved_map:
             kun_data = retrieved_map[kun_id]
-            url = resolve_url(kun_id, kun_data)
-            if url:
-                return f"[{kun_id}]({url})"
+            res = _rrm_manager.resolve_reference(kun_id, kun_data)
+            
+            if res.get("is_clickable") and res.get("url"):
+                return f"[{kun_id}]({res['url']})"
+            elif res.get("operational_status") == "DELETED":
+                # UX para referencias inhabilitadas/borradas
+                return f"~~[{kun_id}]~~"
         
-        # Si no fue recuperada o no tiene URL, se queda como texto plano para evitar alucinaciones
         return full_match
 
     # Reemplazar citas del tipo [KUN-xxxx]
