@@ -268,22 +268,24 @@ if query_to_run:
         st.session_state.active_index = len(st.session_state.history) - 1
 
 if st.session_state.active_index >= 0:
-    active_item = st.session_state.history[st.session_state.active_index]
+    col_chat, col_trace = st.columns([0.60, 0.40], gap="large")
     
-    col_chat, col_trace = st.columns([0.55, 0.45], gap="large")
     with col_chat:
-        st.markdown(f"""
-        <div class="active-query-card">
-            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; font-weight: 700; margin-bottom: 0.3rem;">❓ Consulta Activa</div>
-            <div style="font-size: 1.1rem; color: #f8fafc; font-weight: 600;">{active_item['query']}</div>
-        </div>
-        """, unsafe_allow_html=True)
-        st.markdown(active_item['answer'])
-        
+        for i, item in enumerate(st.session_state.history):
+            if i <= st.session_state.active_index:
+                with st.chat_message("user"):
+                    st.markdown(item['query'])
+                with st.chat_message("assistant"):
+                    st.markdown(item['answer'])
+                    
     with col_trace:
+        active_item = st.session_state.history[st.session_state.active_index]
         is_fallback = "lo siento" in active_item['answer'].lower()
-        if not is_fallback and active_item['trazabilidad']:
-            with st.expander("📚 Ver Trazabilidad y Citas Oficiales", expanded=True):
+        
+        tab_cite, tab_graph = st.tabs(["📚 Trazabilidad y Citas", "🕸️ Subgrafo Relacional"])
+        
+        with tab_cite:
+            if not is_fallback and active_item['trazabilidad']:
                 with st.container():
                     st.markdown(
                         "ℹ️ **Disponibilidad de las fuentes oficiales**\n\n"
@@ -335,36 +337,51 @@ if st.session_state.active_index >= 0:
                     st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
                     st.write(f"* Interpretación: {kun['interpretacion']}")
                     st.write("---")
-            with st.expander("🕸️ Ver Subgrafo de Relaciones", expanded=False):
+            else:
+                st.info("No hay trazabilidad legal disponible para esta consulta.")
+                
+        with tab_graph:
+            if not is_fallback and active_item['dot_code']:
                 st.graphviz_chart(active_item['dot_code'])
+            else:
+                st.info("No hay relaciones de grafo disponibles para esta consulta.")
 else:
     st.markdown("""
-    <div style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">
+    <div style="text-align: center; margin-top: 3.5rem; margin-bottom: 2rem;">
         <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente IJF SOR</h1>
-        <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4;">Tu consultor experto del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
+        <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4;">
+            Tu consultor experto del Reglamento de Organización y Deporte (SOR 2026).
+            Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.
+        </p>
     </div>
     """, unsafe_allow_html=True)
     
     st.markdown("""
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; max-width: 800px; margin: 1.5rem auto;">
-        <div style="background-color: var(--secondary-background-color); border: 1px solid rgba(128,128,128,0.25); border-radius: 8px; padding: 1rem; text-align: left; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-            <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 0.4rem; font-size: 0.95rem;">🚫 Reglas de Arbitraje</div>
-            <p style="font-size: 0.8rem; margin: 0; opacity: 0.8;">¿Se permite la defensa con la cabeza? <br> ¿Cómo se sanciona el abrazo de oso (bear hug)?</p>
-        </div>
-        <div style="background-color: var(--secondary-background-color); border: 1px solid rgba(128,128,128,0.25); border-radius: 8px; padding: 1rem; text-align: left; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-            <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 0.4rem; font-size: 0.95rem;">📐 Control de Uniformes</div>
-            <p style="font-size: 0.8rem; margin: 0; opacity: 0.8;">¿Qué es el Sokuteiki y cómo se usa? <br> Medidas oficiales permitidas del judogi</p>
-        </div>
-        <div style="background-color: var(--secondary-background-color); border: 1px solid rgba(128,128,128,0.25); border-radius: 8px; padding: 1rem; text-align: left; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-            <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 0.4rem; font-size: 0.95rem;">⏱️ Pesaje y Tolerancias</div>
-            <p style="font-size: 0.8rem; margin: 0; opacity: 0.8;">Tolerancia de peso en pesaje aleatorio <br> Límite de tiempo para presentarse al tatami</p>
-        </div>
-        <div style="background-color: var(--secondary-background-color); border: 1px solid rgba(128,128,128,0.25); border-radius: 8px; padding: 1rem; text-align: left; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-            <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 0.4rem; font-size: 0.95rem;">🏥 Comisión Médica</div>
-            <p style="font-size: 0.8rem; margin: 0; opacity: 0.8;">Límite de atenciones médicas por sangrado <br> Protocolo de conmoción cerebral y días de baja</p>
-        </div>
-    </div>
+    <div style="font-size: 0.85rem; font-weight: 600; text-align: center; margin-bottom: 0.8rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">💡 Temas Sugeridos</div>
     """, unsafe_allow_html=True)
+    
+    scol1, scol2, scol3 = st.columns(3)
+    with scol1:
+        st.markdown("""
+        <div style="background-color: var(--secondary-background-color); border: 1px solid rgba(128,128,128,0.25); border-radius: 8px; padding: 0.8rem; text-align: left; height: 100%;">
+            <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 0.3rem; font-size: 0.9rem;">🚫 Reglas de Arbitraje</div>
+            <p style="font-size: 0.75rem; margin: 0; opacity: 0.8;">¿Se permite la defensa con la cabeza? o ¿Cómo se sanciona el abrazo de oso?</p>
+        </div>
+        """, unsafe_allow_html=True)
+    with scol2:
+        st.markdown("""
+        <div style="background-color: var(--secondary-background-color); border: 1px solid rgba(128,128,128,0.25); border-radius: 8px; padding: 0.8rem; text-align: left; height: 100%;">
+            <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 0.3rem; font-size: 0.9rem;">📐 Control de Uniformes</div>
+            <p style="font-size: 0.75rem; margin: 0; opacity: 0.8;">¿Qué es el Sokuteiki y cómo se usa? o Medidas oficiales del judogi</p>
+        </div>
+        """, unsafe_allow_html=True)
+    with scol3:
+        st.markdown("""
+        <div style="background-color: var(--secondary-background-color); border: 1px solid rgba(128,128,128,0.25); border-radius: 8px; padding: 0.8rem; text-align: left; height: 100%;">
+            <div style="font-weight: 700; color: #1d4ed8; margin-bottom: 0.3rem; font-size: 0.9rem;">⏱️ Pesaje y Médicos</div>
+            <p style="font-size: 0.75rem; margin: 0; opacity: 0.8;">Tolerancia de peso aleatorio o Límite de atenciones médicas</p>
+        </div>
+        """, unsafe_allow_html=True)
 
 st.write("---")
 with st.expander("📝 Alcance del Asistente & Cobertura de Temas"):
