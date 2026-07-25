@@ -67,37 +67,6 @@ Este archivo contiene las Unidades de Conocimiento (KUN) extraídas de **NEW-001
 
 ---
 
-### KUN-0074: Límites Permisivos de Agarre del Judogi bajo el Cinturón
-```json
-{
-  "id_conocimiento": "KUN-0074",
-  "titulo": "Límites Permisivos de Agarre del Judogi bajo el Cinturón",
-  "tipo": "REG",
-  "nivel_autoridad": "Comunicado",
-  "version": "1.0",
-  "idioma_original": "en",
-  "vigencia_desde": "2026-01-01",
-  "vigencia_hasta": "null",
-  "contenido_original": "Jacket grips and gripping under the belt (up to the level of the top of the inner thigh) are allowed, provided they are not used negatively.",
-  "contenido_traduccion": "Los agarres de la chaqueta y el agarre bajo el cinturón (hasta el nivel de la parte superior del muslo interno) están permitidos, siempre que no se utilicen negativamente.",
-  "interpretacion": "Permite sujetar la chaqueta por debajo del cinturón hasta el límite anatómico de la parte superior del muslo interno del oponente, con la condición reglamentaria de que este agarre se emplee para construir un ataque y no con fines defensivos o pasivos.",
-  "fuente_origen": "NEW-001",
-  "referencia_especifica": "IJF Finalized Refereeing Rules for LA28 Cycle - Sección Kumikata",
-  "tags": [
-    "kumikata",
-    "shido"
-  ],
-  "relaciones": [
-    {
-      "tipo_relacion": "modifica_a",
-      "id_destino": "KUN-0042"
-    }
-  ]
-}
-```
-
----
-
 ### KUN-0075: Límite de Tiempo para el Trabajo de Kumi-kata sin Fase de Ataque
 ```json
 {

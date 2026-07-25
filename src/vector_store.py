@@ -99,6 +99,10 @@ class VectorStore:
 
     def index_kun_corpus(self, kuns_dict, api_key=None):
         """Indexes KUNs using Gemini Embeddings if api_key is provided, otherwise falls back to local TF-IDF."""
+        # Filter out duplicate news KUNs from the vector search index
+        excluded_ids = {'KUN-0058', 'KUN-0056', 'KUN-0055', 'KUN-0054', 'KUN-0074'}
+        kuns_dict = {k: v for k, v in kuns_dict.items() if k not in excluded_ids}
+        
         if api_key:
             print("[LOG] [VectorStore] Inicializando indexación con Gemini Embeddings en lotes...")
             self.kun_ids = []

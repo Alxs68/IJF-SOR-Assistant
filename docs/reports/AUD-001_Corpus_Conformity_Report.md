@@ -3,19 +3,19 @@
 
 ---
 ## 1. Resumen Ejecutivo de Métricas del Grafo
-* **Número de Nodos (KUNs):** 841
-* **Número de Aristas (Relaciones Únicas):** 72
-* **Grado Promedio de Conexión:** 0.34
+* **Número de Nodos (KUNs):** 836
+* **Número de Aristas (Relaciones Únicas):** 67
+* **Grado Promedio de Conexión:** 0.30
 * **Nodos Aislados (Huérfanos):** 770
 
 ### Distribución por Tipo de Conocimiento:
 * **CAS (CAS):** 13
 * **DEF (DEF):** 38
 * **EXC (EXC):** 66
-* **PEN (PEN):** 115
+* **PEN (PEN):** 112
 * **PRO (PRO):** 9
 * **PUN (PUN):** 8
-* **REG (REG):** 592
+* **REG (REG):** 590
 
 ---
 ## 2. No Conformidades Críticas (Errores)
@@ -23,7 +23,7 @@
 
 ---
 ## 3. Observaciones y Advertencias Menores
-⚠️ Se identificaron **36 observaciones** que requieren revisión metodológica:
+⚠️ Se identificaron **44 observaciones** que requieren revisión metodológica:
 
 1. **[Antipatrón de Intención]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0085)
    * *Detalle:* La interpretación contiene la frase prohibida de intención: "para evitar".
@@ -133,6 +133,30 @@
 36. **[Antipatrón de Intención]** en file: [kuns_doc_004.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_004.md) (KUN: KUN-0839)
    * *Detalle:* La interpretación contiene la frase prohibida de intención: "Para evitar".
 
+37. **[Falta de Reciprocidad de Grafo]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0042)
+   * *Detalle:* La relación KUN-0042 --(es_modificado_por)--> KUN-0237 no tiene una relación recíproca en KUN-0237 (esperado "modifica_a").
+
+38. **[Falta de Reciprocidad de Grafo]** en file: [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) (KUN: KUN-0044)
+   * *Detalle:* La relación KUN-0044 --(es_desarrollado_por)--> KUN-0271 no tiene una relación recíproca en KUN-0271 (esperado "desarrolla_a").
+
+39. **[Falta de Reciprocidad de Grafo]** en file: [kuns_doc_004.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_004.md) (KUN: KUN-0052)
+   * *Detalle:* La relación KUN-0052 --(complementado_por)--> KUN-0270 no tiene una relación recíproca en KUN-0270 (esperado "complementa_a").
+
+40. **[Falta de Reciprocidad de Grafo]** en file: [kuns_vid_002.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_vid_002.md) (KUN: KUN-0061)
+   * *Detalle:* La relación KUN-0061 --(desarrolla_a)--> KUN-0024 no tiene una relación recíproca en KUN-0024 (esperado "es_desarrollado_por").
+
+41. **[Falta de Reciprocidad de Grafo]** en file: [kuns_vid_004.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_vid_004.md) (KUN: KUN-0069)
+   * *Detalle:* La relación KUN-0069 --(ilustra_a)--> KUN-0285 no tiene una relación recíproca en KUN-0285 (esperado "ilustrado_por").
+
+42. **[Falta de Reciprocidad de Grafo]** en file: [kuns_vid_005.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_vid_005.md) (KUN: KUN-0066)
+   * *Detalle:* La relación KUN-0066 --(complementa_a)--> KUN-0271 no tiene una relación recíproca en KUN-0271 (esperado "complementado_por").
+
+43. **[Falta de Reciprocidad de Grafo]** en file: [kuns_vid_005.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_vid_005.md) (KUN: KUN-0067)
+   * *Detalle:* La relación KUN-0067 --(desarrolla_a)--> KUN-0271 no tiene una relación recíproca en KUN-0271 (esperado "es_desarrollado_por").
+
+44. **[Falta de Reciprocidad de Grafo]** en file: [kuns_vid_005.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_vid_005.md) (KUN: KUN-0068)
+   * *Detalle:* La relación KUN-0068 --(complementa_a)--> KUN-0270 no tiene una relación recíproca en KUN-0270 (esperado "complementado_por").
+
 ---
 ## 4. Candidatos a Duplicidad Semántica
 🟢 **No se encontraron candidatos a duplicidad semántica (>80% similitud).**
@@ -140,11 +164,11 @@
 ---
 ## 5. Análisis Técnico del Grafo
 ### Nodos más conectados (Hubs):
-* **KUN-0001:** 16 conexiones.
+* **KUN-0001:** 14 conexiones.
 * **KUN-0026:** 12 conexiones.
 * **KUN-0018:** 10 conexiones.
-* **KUN-0055:** 10 conexiones.
 * **KUN-0023:** 10 conexiones.
+* **KUN-0007:** 8 conexiones.
 
 ### Nodos Huérfanos y Justificación:
 * **KUN-0006** (REG) en [kuns_doc_001.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_001.md) - ⚠️ No Justificado (Revisar por qué está aislado)

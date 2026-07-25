@@ -91,7 +91,7 @@ Este archivo contiene las Unidades de Conocimiento (KUN) extraídas de **VID-002
   "relaciones": [
     {
       "tipo_relacion": "desarrolla_a",
-      "id_destino": "KUN-0054"
+      "id_destino": "KUN-0024"
     }
   ]
 }

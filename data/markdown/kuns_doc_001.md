@@ -60,10 +60,6 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
     {
       "tipo_relacion": "complementado_por",
       "id_destino": "KUN-0046"
-    },
-    {
-      "tipo_relacion": "complementado_por",
-      "id_destino": "KUN-0056"
     }
   ]
 }
@@ -294,10 +290,6 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
     {
       "tipo_relacion": "complementado_por",
       "id_destino": "KUN-0013"
-    },
-    {
-      "tipo_relacion": "penalizado_por",
-      "id_destino": "KUN-0054"
     }
   ]
 }
@@ -628,7 +620,7 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
     },
     {
       "tipo_relacion": "es_modificado_por",
-      "id_destino": "KUN-0074"
+      "id_destino": "KUN-0237"
     }
   ]
 }
@@ -661,10 +653,6 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
     {
       "tipo_relacion": "complementa_a",
       "id_destino": "KUN-0024"
-    },
-    {
-      "tipo_relacion": "es_desarrollado_por",
-      "id_destino": "KUN-0054"
     },
     {
       "tipo_relacion": "complementado_por",
@@ -707,7 +695,7 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
     },
     {
       "tipo_relacion": "es_desarrollado_por",
-      "id_destino": "KUN-0055"
+      "id_destino": "KUN-0271"
     }
   ]
 }

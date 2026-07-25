@@ -23,8 +23,8 @@ class TestGoldenDataset(unittest.TestCase):
             ("Tolerancia de peso en sorteo de pesaje aleatorio matutino", "KUN-0010"),
             ("Duración del combate en categorías senior y cadet", "KUN-0011"),
             ("Medidas del judogi con el calibrador Sokuteiki", "KUN-0013"),
-            ("Agarre Ushiro-sangaku con riesgo cervical en suelo", "KUN-0056"),
-            ("Límite máximo de intervenciones médicas por combate", "KUN-0058"),
+            ("Agarre Ushiro-sangaku con riesgo cervical en suelo", "KUN-0285"),
+            ("Límite máximo de intervenciones médicas por combate", "KUN-0048"),
             ("Proyección de seoi-nage inverso permitida en seniors", "KUN-0073"),
             ("Incorporación de uniformes inteligentes Smart Judogi NFC", "KUN-0076"),
             ("Uso de Inteligencia Artificial para arbitraje por la IJF", "KUN-0077")

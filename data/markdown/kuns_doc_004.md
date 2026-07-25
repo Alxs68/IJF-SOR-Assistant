@@ -77,10 +77,6 @@ Este archivo contiene el corpus de conocimiento extraído de **DOC-004** (Medica
     {
       "tipo_relacion": "complementado_por",
       "id_destino": "KUN-0051"
-    },
-    {
-      "tipo_relacion": "es_desarrollado_por",
-      "id_destino": "KUN-0058"
     }
   ]
 }
@@ -113,10 +109,6 @@ Este archivo contiene el corpus de conocimiento extraído de **DOC-004** (Medica
     {
       "tipo_relacion": "complementa_a",
       "id_destino": "KUN-0048"
-    },
-    {
-      "tipo_relacion": "es_desarrollado_por",
-      "id_destino": "KUN-0058"
     }
   ]
 }
@@ -214,7 +206,7 @@ Este archivo contiene el corpus de conocimiento extraído de **DOC-004** (Medica
     },
     {
       "tipo_relacion": "complementado_por",
-      "id_destino": "KUN-0055"
+      "id_destino": "KUN-0270"
     }
   ]
 }

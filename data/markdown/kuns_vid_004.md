@@ -30,7 +30,7 @@ Este archivo contiene las Unidades de Conocimiento (KUN) extraídas de **VID-004
   "relaciones": [
     {
       "tipo_relacion": "ilustra_a",
-      "id_destino": "KUN-0056"
+      "id_destino": "KUN-0285"
     },
     {
       "tipo_relacion": "exceptuado_por",

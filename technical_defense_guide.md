@@ -690,7 +690,7 @@ Esta sección contiene preguntas y respuestas detalladas enfocadas en **Arquitec
 
 ### 85. ¿Cuál es el límite máximo de intervenciones médicas autorizadas en un combate de Shiai?
 *   **Respuesta Esperada:** Dos intervenciones médicas por atleta por combate. Una tercera intervención resulta en la pérdida del combate por decisión del árbitro (excepto por sangrado incontrolable o lesiones provocadas por faltas directas del oponente).
-*   **Justificación Técnica:** Codificado bajo `KUN-0058` de la base médica del SOR 2026. Esta es una regla clave del dataset de oro para validar la precisión del RAG médico.
+*   **Justificación Técnica:** Codificado bajo `KUN-0048 (límite de dos asistencias médicas)` de la base médica del SOR 2026. Esta es una regla clave del dataset de oro para validar la precisión del RAG médico.
 *   **Archivos Relacionados:** [kuns_doc_004.md](file:///C:/PROYECTOS/IJF-SOR-Assistant/data/markdown/kuns_doc_004.md)
 *   **Concepto de Ingeniería de Software:** Modelado de Reglas de Negocio Complejas.
 
