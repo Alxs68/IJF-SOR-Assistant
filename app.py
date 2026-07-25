@@ -347,12 +347,9 @@ if st.session_state.active_index >= 0:
                 st.info("No hay relaciones de grafo disponibles para esta consulta.")
 else:
     st.markdown("""
-    <div style="text-align: center; margin-top: 3.5rem; margin-bottom: 2rem;">
-        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente IJF SOR</h1>
-        <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4;">
-            Tu consultor experto del Reglamento de Organización y Deporte (SOR 2026).
-            Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.
-        </p>
+    <div style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">
+        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente del SOR de la IJF</h1>
+        <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4;">Tu consultor experto del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
     </div>
     """, unsafe_allow_html=True)
     
