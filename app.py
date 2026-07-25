@@ -213,9 +213,9 @@ with st.sidebar:
 base64_logo = get_base64_logo(logo_path)
 if base64_logo:
     st.markdown(f"""
-    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.6rem 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
+    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
         <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem;">
-            <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 65px; height: 65px; object-fit: contain;" />
+            <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 60px; height: 60px; object-fit: contain; display: block;" />
         </div>
         <div style="flex-grow: 1; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;">
             <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la FIJ</h2>
@@ -225,7 +225,7 @@ if base64_logo:
     """, unsafe_allow_html=True)
 else:
     st.markdown("""
-    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.6rem 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
+    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
         <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la FIJ</h2>
         <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 1.0rem; margin-left: 1.2rem; line-height: 1.1;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
     </div>
