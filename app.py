@@ -215,7 +215,7 @@ if base64_logo:
     st.markdown(f"""
     <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.5rem 1rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
         <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1rem;">
-            <img src="data:image/png;base64,{base64_logo}" style="width: 45px; height: 45px; border-radius: 50%; border: 1.5px solid #1d4ed8; object-fit: cover;" />
+            <img src="data:image/png;base64,{base64_logo}" style="width: 45px; height: 45px; object-fit: contain;" />
         </div>
         <div style="flex-grow: 1; display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap;">
             <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.3rem; margin: 0; font-weight: 700;">IJF SOR Assistant</h2>
