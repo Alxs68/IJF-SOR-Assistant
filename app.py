@@ -393,6 +393,8 @@ with st.container(border=True):
         )
     with scol2:
         buscar_btn = st.button("Buscar Regla", use_container_width=True, type="primary")
+    
+    st.caption("💡 Puede realizar su consulta en el idioma que prefiera. El asistente detectará automáticamente el idioma y responderá en ese mismo idioma.")
 
 # --- 💡 Example Questions Card Area ---
 with st.container(border=True):
