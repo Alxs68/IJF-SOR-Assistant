@@ -15,22 +15,9 @@ from citation_resolver import RESOURCE_DETAILS, resolve_url, _rrm_manager
 
 logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
 logo_path = os.path.join(logo_dir, 'logo.svg')
-if not os.path.exists(logo_path):
-    try:
-        os.makedirs(logo_dir, exist_ok=True)
-        import urllib.request
-        req = urllib.request.Request(
-            'https://upload.wikimedia.org/wikipedia/fr/7/70/International_Judo_Federation_logo.svg',
-            headers={'User-Agent': 'Mozilla/5.0'}
-        )
-        with urllib.request.urlopen(req) as response:
-            with open(logo_path, 'wb') as f:
-                f.write(response.read())
-    except Exception:
-        pass
 
 st.set_page_config(
-    page_title="Asistente del SOR de la FIJ",
+    page_title="Asistente del SOR de la IJF",
     page_icon="🥋",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -222,7 +209,7 @@ if base64_logo:
             <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 60px; height: 60px; object-fit: contain; display: block;" />
         </div>
         <div style="flex-grow: 1; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; pointer-events: auto;">
-            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la FIJ</h2>
+            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la IJF</h2>
             <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 1.0rem; margin: 0; line-height: 1.1;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
         </div>
     </div>
@@ -230,13 +217,13 @@ if base64_logo:
 else:
     st.markdown("""
     <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem 0.8rem 4.5rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
-        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la FIJ</h2>
+        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la IJF</h2>
         <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 1.0rem; margin-left: 1.2rem; line-height: 1.1;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
     </div>
     """, unsafe_allow_html=True)
 
 query_to_run = None
-user_input = st.chat_input("Escribe tu consulta sobre el reglamento de la FIJ...")
+user_input = st.chat_input("Escribe tu consulta sobre el reglamento de la IJF...")
 
 if user_input:
     query_to_run = user_input.strip()
@@ -359,7 +346,7 @@ if st.session_state.active_index >= 0:
 else:
     st.markdown("""
     <div style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">
-        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente del SOR de la FIJ</h1>
+        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente del SOR de la IJF</h1>
         <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4;">Tu consultor experto del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
     </div>
     """, unsafe_allow_html=True)
