@@ -494,6 +494,27 @@ if st.session_state.active_index >= 0:
     
     if not is_fallback and active_item['trazabilidad']:
         with st.expander("📚 Ver Trazabilidad y Citas Oficiales"):
+            # Bloque Informativo sobre la Disponibilidad de las Fuentes
+            with st.container():
+                st.markdown(
+                    "ℹ️ **Disponibilidad de las fuentes oficiales**\n\n"
+                    "La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).\n\n"
+                    "Algunas fuentes pueden:\n"
+                    "* Permitir acceso directo al contenido específico;\n"
+                    "* Redirigir únicamente al portal oficial;\n"
+                    "* Haber sido migradas;\n"
+                    "* Dejar de estar disponibles o ser retiradas por el propietario.\n\n"
+                    "Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y, cuando exista una alternativa oficial, la presentará al usuario."
+                )
+                st.markdown(
+                    "**Leyenda de Estados:** &nbsp; "
+                    "🟢 *Disponible* &nbsp;&nbsp; "
+                    "🟡 *Migrada* &nbsp;&nbsp; "
+                    "🔵 *Portal General* &nbsp;&nbsp; "
+                    "🔴 *No Disponible*"
+                )
+                st.markdown("---")
+            
             st.caption("📱 *En celulares, desplázate manualmente a la página indicada (función en proceso de mejora).*")
             for kun in active_item['trazabilidad']:
                 res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
