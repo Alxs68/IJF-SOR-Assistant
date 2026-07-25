@@ -56,3 +56,13 @@ Se mantendrán aisladas las funciones de:
 4.  **Auditoría y Certificación:** Revisión e informes de calidad de código y despliegue.
 
 Estas funciones no deberán combinarse o ejecutarse de forma paralela en una misma interacción sin la debida instrucción o hito aprobado.
+
+---
+
+## 📋 5. Control de Versiones (Historial de Cambios)
+
+Este documento normativo se rige por las políticas de versionado semántico de gestión de documentación del proyecto.
+
+| Versión | Fecha | Autor | Descripción |
+| :--- | :--- | :--- | :--- |
+| **1.0.0** | 2026-07-25 | AntiGravity (IA) & Product Owner | Creación inicial de la Política de Autonomía y Gobernanza del Proyecto. |
