@@ -90,6 +90,12 @@ Este archivo contiene las Unidades de Conocimiento (KUN) extraídas de **VID-004
   "interpretacion": "Muestra un ejemplo real de combate en el que el competidor comete la infracción deliberadamente bloqueando la puntuación de Seoi-nage del oponente.",
   "fuente_origen": "VID-004",
   "referencia_especifica": "Marca de tiempo 03:40 - Clip 14",
+  "fuente": {
+    "tipo": "video",
+    "url": "https://www.youtube.com/watch?v=uK8fF41wOqI",
+    "inicio_segundos": 220,
+    "fin_segundos": 240
+  },
   "tags": [
     "head-defence",
     "referee",

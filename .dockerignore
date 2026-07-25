@@ -1,0 +1,17 @@
+.env
+.env.*
+.git
+.gitignore
+.venv
+__pycache__/
+*.log
+streamlit.log
+scratch/*.json
+scratch/*.md
+scratch/*.csv
+tests/
+Dockerfile
+docker-compose.yml
+walkthrough.md
+task.md
+technical_defense_guide.md

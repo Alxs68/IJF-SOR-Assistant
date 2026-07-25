@@ -9,6 +9,7 @@ import urllib.error
 # Import our components
 from graph_manager import KnowledgeGraph
 from vector_store import VectorStore
+from citation_resolver import format_citations
 
 class RagEngine:
     """Orchestrates Hybrid RAG: semantic search, knowledge graph expansion, and LLM response generation."""
@@ -192,11 +193,15 @@ class RagEngine:
         else:
             print(f"[LOG] [RAG Flow] Respuesta del modelo lista para enviarse a Streamlit.")
             
+        # Formatear citas [KUN-xxxx] válidas a enlaces clicables
+        formatted_answer = format_citations(answer, retrieved_kuns)
+            
         print(f"[LOG] [RAG Flow] --- FIN DE CONSULTA ---")
         return {
             'query': user_query,
-            'answer': answer,
+            'answer': formatted_answer,
             'retrieved_kuns': kun_ids,
+            'retrieved_kuns_data': retrieved_kuns,
             'context': context_text
         }
 

@@ -107,7 +107,6 @@ Para lograr un sistema robusto, rápido y libre de dependencias pesadas de Machi
 C:\PROYECTOS\IJF-SOR-Assistant/
 ├── app.py                      # Frontend Streamlit interactivo
 ├── README.md                   # Documentación principal (este archivo)
-├── LICENSE                     # Licencia del proyecto
 ├── requirements.txt            # Dependencias del proyecto
 ├── kuns_doc_*.md               # Repositorio de KUNs por recurso (Corpus de reglas)
 ├── assets/                     # Recursos estáticos (Logotipos e imágenes)

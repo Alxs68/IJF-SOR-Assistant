@@ -21,6 +21,13 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
   "interpretacion": "Establece la autorización para el uso táctico de la cabeza en categorías Senior y Junior. Elimina la sanción de Hansoku-make por defensa de cabeza común, reservando esta penalización de descalificación directa únicamente para el 'head diving' (buceo/clavado de cabeza) debido al riesgo extremo de lesiones cervicales.",
   "fuente_origen": "DOC-001",
   "referencia_especifica": "Artículo 20 - Apéndice D (Reglas de Arbitraje)",
+  "fuente": {
+    "tipo": "pdf",
+    "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf",
+    "pagina": 181,
+    "articulo": "18.2.1",
+    "seccion": "Apéndice D"
+  },
   "tags": [
     "head-defence",
     "hansoku-make",

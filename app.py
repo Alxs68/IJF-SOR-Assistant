@@ -15,82 +15,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
 
 from rag_engine import RagEngine
 
-# Catálogo oficial con detalles y URLs directas a los PDF/páginas de reglas de la IJF
-RESOURCE_DETAILS = {
-    "DOC-001": {
-        "name": "Reglamento SOR 2026 (Sport and Organisation Rules)",
-        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf"
-    },
-
-    "DOC-004": {
-        "name": "Manual Médico de Judo (PDF)",
-        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/Medical_Manual_for_Judo_2026-1768917812.pdf"
-    },
-    "PAG-001": {
-        "name": "Portal de Reglas Interactivas de la IJF",
-        "url": "https://rules.ijf.org"
-    },
-    "PAG-002": {
-        "name": "Portal de Reglas IJF: Sección Kumikata (Agarres)",
-        "url": "https://rules.ijf.org/gripping"
-    },
-    "PAG-003": {
-        "name": "Portal de Reglas IJF: Sección Scoring (Puntuaciones)",
-        "url": "https://rules.ijf.org/scoring"
-    },
-    "PAG-004": {
-        "name": "Portal de Reglas IJF: Sección Penalties (Faltas)",
-        "url": "https://rules.ijf.org/penalties"
-    },
-    "PAG-005": {
-        "name": "Portal Oficial de Arbitraje IJF",
-        "url": "https://referee.ijf.org"
-    },
-    "VID-001": {
-        "name": "Videoteca de Reglas y Seminarios de Arbitraje IJF",
-        "url": "https://www.ijf.org/referee-videos"
-    },
-    "VID-002": {
-        "name": "Video de Arbitraje IJF: Demostración de Agarre (Kumikata)",
-        "url": "https://rules.ijf.org/gripping"
-    },
-    "VID-003": {
-        "name": "Video de Arbitraje IJF: Criterio de Caídas Yuko",
-        "url": "https://rules.ijf.org/scoring"
-    },
-    "VID-004": {
-        "name": "Video de Arbitraje IJF: Seguridad en Ushiro-Sankaku-Gatame",
-        "url": "https://rules.ijf.org/penalties"
-    },
-    "VID-005": {
-        "name": "Video de Arbitraje IJF: Evasión y Pérdida de Tiempo",
-        "url": "https://rules.ijf.org/penalties"
-    },
-    "PPT-001": {
-        "name": "Presentación del Congreso de Tecnología",
-        "url": "https://www.ijf.org/ijf/documents"
-    },
-    "PPT-002": {
-        "name": "Presentación del Seminario de Arbitraje 2026",
-        "url": "https://www.ijf.org/referee-commission"
-    },
-    "NEW-001": {
-        "name": "Comunicado Oficial: Reglas de Arbitraje LA28 (Noticias IJF)",
-        "url": "https://www.ijf.org/news"
-    },
-    "NEW-002": {
-        "name": "Congreso IJF 2025: Evolución de Tecnología y Reglas (Noticias IJF)",
-        "url": "https://www.ijf.org/news/show/ijf-congress-2025-tech-and-rule-evolution"
-    },
-    "NEW-003": {
-        "name": "Reglas Confirmadas para la Temporada 2026 (Noticias IJF)",
-        "url": "https://www.ijf.org/news/show/rules-confirmed-ahead-of-the-2026-season"
-    },
-    "IMG-001": {
-        "name": "Diagrama Oficial del Área de Competencia y Tatami",
-        "url": "https://www.ijf.org/ijf/documents"
-    }
-}
+from citation_resolver import RESOURCE_DETAILS, resolve_url
 
 # Automatic logo downloader on startup to ensure offline rendering on OCI
 logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
@@ -519,7 +444,7 @@ else:
 if query_to_run:
     with st.spinner("Buscando en la base de datos y consultando modelo..."):
         res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
-        _, retrieved_kuns = engine.retrieve_context(query_to_run, k=k_param, min_score=min_score_param)
+        retrieved_kuns = res.get('retrieved_kuns_data', [])
         
         # Compile Graphviz DOT code
         dot_code = "digraph {\n  rankdir=LR;\n  node [shape=box, style=filled, fontname=\"Arial\", fontsize=10];\n"
@@ -575,26 +500,9 @@ if st.session_state.active_index >= 0:
                 
                 # Render source as clickable link with friendly name and specific article
                 source_link = f"`{source_id}` - {ref_spec}"
-                if source_id in RESOURCE_DETAILS:
-                    details = RESOURCE_DETAILS[source_id]
-                    url = details["url"]
-                    name = details["name"]
-                    
-                    # Extract page number for PDFs to open directly at the correct page (e.g. #page=124)
-                    import re
-                    page_match = re.search(r'(?:pág|página|page)\.?\s*(\d+)', ref_spec, re.IGNORECASE)
-                    if page_match and url.endswith(".pdf"):
-                        page_num = page_match.group(1)
-                        url = f"{url}#page={page_num}"
-                        
-                    # Extract timestamp for YouTube videos if applicable
-                    ts_match = re.search(r'(\d{1,2}):(\d{2})', ref_spec)
-                    if ts_match and "youtube.com" in url:
-                        mins = int(ts_match.group(1))
-                        secs = int(ts_match.group(2))
-                        total_secs = mins * 60 + secs
-                        url = f"{url}&t={total_secs}s"
-                        
+                url = resolve_url(kun['id_conocimiento'], kun)
+                if url:
+                    name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
                     source_link = f"[{name} ({ref_spec})]({url})"
                 
                 st.markdown(f"* **Fuente:** {source_link}")

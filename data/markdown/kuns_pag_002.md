@@ -21,6 +21,10 @@ Este archivo contiene el corpus extraído de **PAG-002** (Portal de reglas de Ag
   "interpretacion": "Establece la postura y técnica estándar de agarre requerida para iniciar acciones ofensivas antes de que se considere pasividad o combatividad negativa.",
   "fuente_origen": "PAG-002",
   "referencia_especifica": "rules.ijf.org/gripping/normal",
+  "fuente": {
+    "tipo": "web",
+    "url": "https://rules.ijf.org/gripping"
+  },
   "tags": [
     "kumikata"
   ],
