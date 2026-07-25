@@ -30,7 +30,7 @@ if not os.path.exists(logo_path):
         pass
 
 st.set_page_config(
-    page_title="IJF SOR Assistant - MVP",
+    page_title="Asistente del SOR de la FIJ",
     page_icon="🥋",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -215,10 +215,10 @@ if base64_logo:
     st.markdown(f"""
     <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.6rem 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
         <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem;">
-            <img src="data:image/png;base64,{base64_logo}" style="width: 75px; height: 75px; object-fit: contain;" />
+            <img src="data:image/png;base64,{base64_logo}" style="width: 65px; height: 65px; border-radius: 50%; border: 2px solid #1d4ed8; object-fit: cover;" />
         </div>
         <div style="flex-grow: 1; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;">
-            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">IJF SOR Assistant</h2>
+            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la FIJ</h2>
             <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 1.0rem; margin: 0; line-height: 1.1;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
         </div>
     </div>
@@ -226,13 +226,13 @@ if base64_logo:
 else:
     st.markdown("""
     <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.6rem 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
-        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">IJF SOR Assistant</h2>
+        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la FIJ</h2>
         <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 1.0rem; margin-left: 1.2rem; line-height: 1.1;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
     </div>
     """, unsafe_allow_html=True)
 
 query_to_run = None
-user_input = st.chat_input("Escribe tu consulta sobre el reglamento de la IJF...")
+user_input = st.chat_input("Escribe tu consulta sobre el reglamento de la FIJ...")
 
 if user_input:
     query_to_run = user_input.strip()
