@@ -494,6 +494,7 @@ if st.session_state.active_index >= 0:
     
     if not is_fallback and active_item['trazabilidad']:
         with st.expander("📚 Ver Trazabilidad y Citas Oficiales"):
+            st.caption("📱 *En celulares, desplázate manualmente a la página indicada (función en proceso de mejora).*")
             for kun in active_item['trazabilidad']:
                 st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}**")
                 
