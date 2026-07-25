@@ -180,6 +180,10 @@ with st.sidebar:
     st.metric("Grado Promedio", f"{kg_metrics['avg_degree']:.2f}")
     
     st.write("---")
+    st.markdown("**🛡️ Auditoría Legal**")
+    show_audit = st.toggle("🔍 Mostrar Trazabilidad y Grafo", value=False, help="Muestra la columna derecha con la trazabilidad de citas, badges RRM y el subgrafo relacional.")
+    
+    st.write("---")
     st.markdown("**🧭 Ajustes de Búsqueda**")
     k_param = st.slider("Cantidad de Reglas a Consultar", 1, 5, 3)
     min_score_param = st.slider("Filtro Anti-Distracciones", 0.05, 0.50, 0.10, 0.05)
@@ -268,8 +272,12 @@ if query_to_run:
         st.session_state.active_index = len(st.session_state.history) - 1
 
 if st.session_state.active_index >= 0:
-    col_chat, col_trace = st.columns([0.60, 0.40], gap="large")
-    
+    if show_audit:
+        col_chat, col_trace = st.columns([0.60, 0.40], gap="large")
+    else:
+        col_chat = st.container()
+        col_trace = None
+        
     with col_chat:
         for i, item in enumerate(st.session_state.history):
             if i <= st.session_state.active_index:
@@ -277,8 +285,11 @@ if st.session_state.active_index >= 0:
                     st.markdown(item['query'])
                 with st.chat_message("assistant"):
                     st.markdown(item['answer'])
-                    
-    with col_trace:
+                    if not show_audit and i == st.session_state.active_index:
+                        st.caption("💡 Puedes activar el panel de **Trazabilidad y Grafo** en la barra lateral para auditar las citas oficiales de esta consulta.")
+                        
+    if show_audit and col_trace is not None:
+        with col_trace:
         active_item = st.session_state.history[st.session_state.active_index]
         is_fallback = "lo siento" in active_item['answer'].lower()
         
