@@ -517,11 +517,25 @@ if st.session_state.active_index >= 0:
 
 # Scope explanation moved to the bottom to keep the core action prominent
 st.write("---")
-with st.expander("📝 Alcance de la Demo & Temas Disponibles"):
-    st.markdown("""
-    Esta demo cuenta con **841 Unidades de Conocimiento certificadas** sobre los siguientes temas clave del SOR 2026:
-    *   **🥋 Equipamiento e Instalaciones:** Área de combate (tatami), control de judogi con Sokuteiki y tecnología de uniformes Smart Judogi NFC.
-    *   **⏱️ Sistemas y Pesaje:** Sistemas de llaves, repechajes, sorteo de cabezas de serie y reglamento de pesaje oficial y aleatorio.
-    *   **🚫 Arbitraje y Sanciones:** Puntuaciones (Ippon, Waza-ari, Yuko) e infracciones (puente, defensa de cabeza, diving, no-combatividad, oso).
-    *   **🏥 Manual Médico:** Atención médica, desmayos por shime-waza, conmociones (7 días de inhabilitación), código de vestimenta de médicos y dopaje.
-    """)
+with st.expander("📝 Alcance del Asistente & Cobertura de Temas"):
+    st.markdown(f"El asistente cuenta con **{kg_metrics['nodes_count']} Unidades de Conocimiento certificadas** extraídas de las fuentes oficiales de la IJF.")
+    col_cov, col_uncov = st.columns(2)
+    with col_cov:
+        st.markdown("""
+        #### ✅ Temas Cubiertos
+        *   **🚫 Reglas de Arbitraje (Apéndice D - 100%):** Todos los artículos (1 al 21), gestos oficiales, puntuaciones, Osaekomi, Mate, luxaciones, descalificaciones directas (Hansoku-make) y conmoción cerebral.
+        *   **🥋 Control de Judogi (Apéndice C - 100%):** Proceso de control, medidas permitidas, Sokuteiki, colocación de logotipos, colores (blanco/azul) e indumentaria.
+        *   **⏱️ Sistemas y Pesaje (Secciones 2, 3, 4):** Pesaje oficial y sorteo aleatorio, tolerancias, llaves de competencia con repechaje, siembra de cabezas de serie y gestión de categorías.
+        *   **🏥 Manual Médico (Sección 6):** Asistencia médica en tatami, límite de 2 atenciones para lesiones con sangrado, conmociones y días de inhabilitación.
+        *   **🎖️ Protocolos de Premiación (Sección 8):** Ceremonias de medallas, izado de banderas, himnos nacionales y código de vestimenta oficial.
+        """)
+    with col_uncov:
+        st.markdown("""
+        #### ❌ Fuera de Alcance (No Cubiertos)
+        *   **🏫 Educación y Coaches (Sección 5):** Códigos de vestimenta para entrenadores en la silla, acreditaciones técnicas y penalización de tarjetas en la silla de coach.
+        *   **💵 Finanzas y Seguros (Sección 9):** Tarifas de inscripción, depósitos de hotel, multas por cancelaciones tardías, distribución de premios económicos y coberturas de seguros.
+        *   **📢 Marketing y Difusión (Sección 10):** Contratos de patrocinadores oficiales de la IJF, derechos de transmisión de televisión y publicidad permitida en los banners.
+        *   **🏟️ Infraestructura del Recinto (Sección 11):** Disposición física del pabellón, áreas VIP, vestuarios, requisitos de iluminación y climatización de la arena.
+        *   **📋 Estatutos y Apelaciones (Apéndices A, B):** Normas internas de la IJF, elecciones directivas, el Código Disciplinario y procesos de apelación federativos.
+        *   **🧬 Transición y Categorías Especiales (Apéndices E, F, G, H):** Reglamentos de transición de género, control antidopaje de laboratorio, reglas modificadas para veteranos/masters y arbitraje de competencias de Kata.
+        """)
