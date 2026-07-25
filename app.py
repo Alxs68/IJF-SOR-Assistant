@@ -14,13 +14,13 @@ from rag_engine import RagEngine
 from citation_resolver import RESOURCE_DETAILS, resolve_url, _rrm_manager
 
 logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
-logo_path = os.path.join(logo_dir, 'logo.png')
+logo_path = os.path.join(logo_dir, 'logo.svg')
 if not os.path.exists(logo_path):
     try:
         os.makedirs(logo_dir, exist_ok=True)
         import urllib.request
         req = urllib.request.Request(
-            'https://7769528.fs1.hubspotusercontent-na1.net/hubfs/7769528/ijf-logo.png',
+            'https://upload.wikimedia.org/wikipedia/fr/7/70/International_Judo_Federation_logo.svg',
             headers={'User-Agent': 'Mozilla/5.0'}
         )
         with urllib.request.urlopen(req) as response:
@@ -215,7 +215,7 @@ if base64_logo:
     st.markdown(f"""
     <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.6rem 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
         <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem;">
-            <img src="data:image/png;base64,{base64_logo}" style="width: 65px; height: 65px; border-radius: 50%; border: 2px solid #1d4ed8; object-fit: cover;" />
+            <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 65px; height: 65px; object-fit: contain;" />
         </div>
         <div style="flex-grow: 1; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;">
             <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la FIJ</h2>
