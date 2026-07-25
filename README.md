@@ -112,8 +112,9 @@ C:\PROYECTOS\IJF-SOR-Assistant/
 ├── assets/                     # Recursos estáticos (Logotipos e imágenes)
 │   └── logo.png                # Logotipo oficial de la aplicación
 ├── docs/                       # Documentación del proyecto, auditorías y reportes
+│   ├── architecture/           # Especificaciones del Reference Resolution Manager (RRM) y gobernanza de referencias
 │   ├── deployment/             # Guías de instalación y despliegue (OCI)
-│   ├── project-management/     # Inventario maestro de reglas y protocolos de extracción
+│   ├── project-management/     # Extracción de KUNs, inventarios y políticas de autonomía y gobernanza de IA
 │   └── reports/                # Reportes de auditoría y certificación de conformidad (AUD/CERT)
 ├── src/                        # Código fuente del backend
 │   ├── graph_manager.py        # Compilador y analista de relaciones de grafos
@@ -265,6 +266,10 @@ Para mantener un historial de cambios trazable, legible y alineado con los está
     *   `style:` para cambios estéticos, ajustes visuales e interactividad (como el encabezado fijo y paddings de logo).
     *   `docs:` para la redacción de reportes y READMEs técnicos.
 *   **Hitos de Versión:** Las diferentes etapas de desarrollo se estructuraron de forma incremental, culminando en la auditoría técnica final y el etiquetado del commit de producción mediante tags de Git (como `v1.0.0`) para marcar de forma profesional la versión de entrega oficial.
+
+### 3. Gobernanza Operativa y Autonomía de Agentes
+*   **Política de Gobernanza:** Todas las actividades de desarrollo, transición de fases y modificación de activos críticos en el proyecto se rigen de forma estricta por la [Política de Autonomía y Gobernanza](file:///C:/PROYECTOS/IJF-SOR-Assistant/docs/project-management/autonomy_and_governance_policy.md).
+*   **Stage Gates (Compuertas de Control):** Se definen compuertas síncronas que exigen la validación técnica y aprobación del Product Owner antes de aplicar cambios a la arquitectura aprobada, iniciar nuevas fases de desarrollo, modificar el corpus, realizar despliegues de producción en OCI o declarar cierres/certificaciones del sistema.
 
 ---
 

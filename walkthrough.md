@@ -1,5 +1,9 @@
 # Walkthrough: Citas Clicables, Seguridad de Docker y Consistencia Documental (Final)
 
+> [!IMPORTANT]
+> **Nota de Gobernanza (25 de Julio de 2026):**  
+> Este proyecto se rige estrictamente por la [Política de Autonomía y Gobernanza](file:///C:/PROYECTOS/IJF-SOR-Assistant/docs/project-management/autonomy_and_governance_policy.md). Toda transición de hito, auditoría, despliegue o modificación arquitectónica (como la evolución del resolvedor al Reference Resolution Manager RRM v1.0) se gestiona de forma síncrona bajo este marco regulatorio.
+
 Este documento resume los cambios definitivos implementados y verificados en la rama `feature/clickable-citations-refactor` para dotar al asistente de citas hipervinculadas a fuentes oficiales exactas, resolver la seguridad de compilación en Docker, asegurar la auto-invalidación del caché de grafos en despliegues y asegurar la no regresión del sistema.
 
 ---
