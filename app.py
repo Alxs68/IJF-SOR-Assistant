@@ -503,8 +503,8 @@ if st.session_state.active_index >= 0:
                     "* Permitir acceso directo al contenido específico;\n"
                     "* Redirigir únicamente al portal oficial;\n"
                     "* Haber sido migradas;\n"
-                    "* Dejar de estar disponibles o ser retiradas por el propietario.\n\n"
-                    "Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y, cuando exista una alternativa oficial, la presentará al usuario."
+                    "* Dejar de estar disponibles debido a cambios en la plataforma de origen o por otros motivos externos al asistente.\n\n"
+                    "Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y, cuando exista una referencia oficial disponible y registrada en el sistema, el RRM la presentará al usuario."
                 )
                 st.markdown(
                     "**Leyenda de Estados:** &nbsp; "
