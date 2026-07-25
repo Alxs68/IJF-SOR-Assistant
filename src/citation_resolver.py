@@ -99,6 +99,22 @@ def append_query_param(url, param_name, param_value):
         parsed.fragment
     ))
 
+# Mapeo de subpáginas SPA de rules.ijf.org al PDF correspondiente de explicación detallada (1-to-1 con los slides)
+RULES_PDF_URL = "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2023/04/Detailed_Explanation_of_the_IJF_Judo_Refereeing_Rules_25.03.2023.pdf"
+
+RULES_DEEP_LINKS = {
+    # Gripping (Kumikata)
+    "rules.ijf.org/gripping": f"{RULES_PDF_URL}#page=3",
+    "rules.ijf.org/gripping/illegal": f"{RULES_PDF_URL}#page=12",
+    # Scoring (Puntuaciones)
+    "rules.ijf.org/scoring/osaekomi": f"{RULES_PDF_URL}#page=22",
+    "rules.ijf.org/scoring/landing": f"{RULES_PDF_URL}#page=6",
+    # Penalties (Faltas/Sanciones)
+    "rules.ijf.org/penalties/false-attack": f"{RULES_PDF_URL}#page=24",
+    "rules.ijf.org/penalties/stepping-out": f"{RULES_PDF_URL}#page=24",
+    "rules.ijf.org/penalties/diving": f"{RULES_PDF_URL}#page=21",
+}
+
 def resolve_url(kun_id, kun_data):
     """
     Resuelve la URL exacta para una KUN basándose en sus metadatos fuente.
@@ -106,6 +122,19 @@ def resolve_url(kun_id, kun_data):
     """
     if not kun_data:
         return None
+
+    # Interceptar enlaces de rules.ijf.org para dirigirlos a la página exacta del PDF de explicación detallada
+    ref_spec = kun_data.get("referencia_especifica", "").strip()
+    norm_ref = re.sub(r'^https?://', '', ref_spec).rstrip('/')
+    
+    source_url = ""
+    if "fuente" in kun_data and isinstance(kun_data["fuente"], dict):
+        source_url = kun_data["fuente"].get("url") or ""
+    norm_url = re.sub(r'^https?://', '', source_url).strip().rstrip('/')
+    
+    for link_key, deep_url in RULES_DEEP_LINKS.items():
+        if (norm_ref and norm_ref.startswith(link_key)) or (norm_url and norm_url.startswith(link_key)):
+            return deep_url
 
     # Caso A: Metadatos Estructurados (Nuevo formato)
     if "fuente" in kun_data and isinstance(kun_data["fuente"], dict):

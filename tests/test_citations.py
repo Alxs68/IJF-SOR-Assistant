@@ -156,5 +156,16 @@ class TestCitations(unittest.TestCase):
         retrieved_data_ids = [k["id_conocimiento"] for k in res["retrieved_kuns_data"]]
         self.assertEqual(sorted(retrieved_ids), sorted(retrieved_data_ids))
 
+    def test_rules_ijf_deep_links(self):
+        # Test that rules.ijf.org SPA URLs resolve to the exact slide page in the detailed PDF
+        kun_false_attack = {
+            "id_conocimiento": "KUN-0028",
+            "fuente_origen": "PAG-004",
+            "referencia_especifica": "rules.ijf.org/penalties/false-attack"
+        }
+        url = resolve_url("KUN-0028", kun_false_attack)
+        expected = "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2023/04/Detailed_Explanation_of_the_IJF_Judo_Refereeing_Rules_25.03.2023.pdf#page=24"
+        self.assertEqual(url, expected)
+
 if __name__ == '__main__':
     unittest.main()
