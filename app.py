@@ -97,7 +97,8 @@ st.markdown("""
         white-space: normal;
         display: block;
         width: 100%;
-        transition: border-color 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+        transition: all 0.25s ease;
     }
     div[data-testid="stButton"] button p {
         margin: 0;
@@ -106,7 +107,13 @@ st.markdown("""
     div[data-testid="stButton"] button:hover {
         border-color: #1d4ed8 !important;
         color: #1d4ed8 !important;
-        box-shadow: 0 4px 6px -1px rgba(29, 78, 216, 0.05);
+        background-color: rgba(29, 78, 216, 0.06) !important;
+        box-shadow: 0 4px 12px -2px rgba(29, 78, 216, 0.12);
+        transform: translateY(-1px);
+    }
+    div[data-testid="stButton"] button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px -1px rgba(29, 78, 216, 0.08);
     }
     @media (max-width: 768px) {
         .block-container {
@@ -263,14 +270,17 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
+# Handle user input
 query_to_run = None
-user_input = st.chat_input("Escribe tu consulta sobre el reglamento de la IJF...")
 
+# Check if a suggestion card was clicked
+if st.session_state.get("query_to_run"):
+    query_to_run = st.session_state.pop("query_to_run")
+
+# Chat input for manual queries
+user_input = st.chat_input("Escribe tu consulta sobre el reglamento de la IJF...")
 if user_input:
     query_to_run = user_input.strip()
-elif st.session_state.query_to_run:
-    query_to_run = st.session_state.query_to_run
-    st.session_state.query_to_run = None
 
 if query_to_run:
     with st.spinner("Buscando en la base de datos..."):
@@ -398,12 +408,19 @@ else:
     # Suggested topics (interactive buttons)
     st.markdown("""<div style=\"font-size: 0.85rem; font-weight: 600; text-align: center; margin-bottom: 0.8rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;\">💡 Temas Sugeridos</div>""", unsafe_allow_html=True)
 
-    # Use a subset of preguntas_ejemplo (skip placeholder at index 0)
-    example_questions = preguntas_ejemplo[1:7]  # first 6 example questions
+    # Six individual suggestion cards – one clear question per card
+    suggestion_cards = [
+        "¿Se permite la defensa con la cabeza?",
+        "¿Cuáles son las dimensiones del tatami?",
+        "¿Cuántas intervenciones médicas se permiten por combate?",
+        "¿Qué es el Sokuteiki y cómo se usa?",
+        "¿Cómo se sanciona el reverse seoi-nage en cadetes?",
+        "¿Cuáles son las reglas de color de Judogi?",
+    ]
     cols = st.columns(3)
-    for i, q in enumerate(example_questions):
+    for i, q in enumerate(suggestion_cards):
         with cols[i % 3]:
-            if st.button(q, key=f"suggest_{i}", help="Haz clic para usar esta pregunta como entrada"):
+            if st.button(q, key=f"suggest_{i}", help="Haz clic para consultar"):
                 st.session_state.query_to_run = q
                 st.rerun()
 
