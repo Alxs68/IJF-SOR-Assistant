@@ -1,6 +1,7 @@
 import unittest
 import sys
 import os
+import re
 
 # Add src to system path
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'src'))
@@ -10,13 +11,12 @@ from citation_resolver import resolve_url, format_citations, RESOURCE_DETAILS
 class TestCitations(unittest.TestCase):
     
     def setUp(self):
-        # Mocks of KUN data representing different types of sources
+        # Mocks of KUN data representing different types of sources (without duplicate URLs where catalog fallback is tested)
         self.kun_pdf_structured = {
             "id_conocimiento": "KUN-0001",
             "fuente_origen": "DOC-001",
             "fuente": {
                 "tipo": "pdf",
-                "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf",
                 "pagina": 181
             }
         }
@@ -35,8 +35,7 @@ class TestCitations(unittest.TestCase):
             "id_conocimiento": "KUN-0023",
             "fuente_origen": "PAG-002",
             "fuente": {
-                "tipo": "web",
-                "url": "https://rules.ijf.org/gripping"
+                "tipo": "web"
             }
         }
         
@@ -70,14 +69,11 @@ class TestCitations(unittest.TestCase):
 
     def test_resolve_url_pdf_compatibility(self):
         url = resolve_url("KUN-0101", self.kun_pdf_compat)
-        # Should fallback to catalog base URL for DOC-001 + parse page 181 from referencia_especifica
         expected_base = RESOURCE_DETAILS["DOC-001"]["url"]
         expected = f"{expected_base}#page=181"
         self.assertEqual(url, expected)
 
     def test_resolve_url_video_compatibility(self):
-        # VID-001 url is https://www.ijf.org/referee-videos (not a youtube URL)
-        # So it should return the base URL as is since youtube.com is not in base url
         url = resolve_url("KUN-0202", self.kun_video_compat)
         expected = RESOURCE_DETAILS["VID-001"]["url"]
         self.assertEqual(url, expected)
@@ -101,6 +97,46 @@ class TestCitations(unittest.TestCase):
         
         formatted = format_citations(answer, retrieved_kuns)
         self.assertEqual(formatted, "Muestra de video de defensa [KUN-0004].")
+
+    def test_formatted_citations_correspond_to_retrieved_kuns(self):
+        # Generamos una respuesta formateada de RAG
+        answer = "De acuerdo con [KUN-0001], head diving es hansoku-make. Para cadetes se aplica [KUN-0047]. Y no se recuperó [KUN-9999]."
+        retrieved_kuns = [
+            {
+                "id_conocimiento": "KUN-0001",
+                "fuente_origen": "DOC-001",
+                "fuente": {
+                    "tipo": "pdf",
+                    "pagina": 181
+                }
+            },
+            {
+                "id_conocimiento": "KUN-0047",
+                "fuente_origen": "DOC-004",
+                "fuente": {
+                    "tipo": "pdf",
+                    "pagina": 269
+                }
+            }
+        ]
+        
+        formatted = format_citations(answer, retrieved_kuns)
+        
+        # Extraer todos los enlaces de la forma [KUN-xxxx](url)
+        links = re.findall(r'\[(KUN-\d{4})\]\((.*?)\)', formatted)
+        
+        # Debe haber exactamente 2 enlaces convertidos (KUN-0001 y KUN-0047)
+        self.assertEqual(len(links), 2)
+        
+        # Verificar que todos los IDs enlazados estén en la lista de KUNs recuperadas
+        retrieved_ids = {k["id_conocimiento"] for k in retrieved_kuns}
+        for kun_id, url in links:
+            self.assertIn(kun_id, retrieved_ids)
+            self.assertTrue(url.startswith("http"))
+            
+        # Y KUN-9999 debe permanecer como texto plano [KUN-9999] sin ser enlazado
+        self.assertIn("[KUN-9999]", formatted)
+        self.assertNotIn("[KUN-9999](", formatted)
 
     def test_non_regression_reused_context(self):
         # Ensures that a RAG query returns exact retrieved KUNs matching the citations resolved

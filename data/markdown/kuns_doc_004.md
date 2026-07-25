@@ -20,10 +20,9 @@ Este archivo contiene el corpus de conocimiento extraído de **DOC-004** (Medica
   "contenido_traduccion": "En eventos de cadetes, si un atleta pierde el conocimiento durante shime-waza (estrangulación), NO PUEDE continuar en la competencia. En caso de que el atleta se rinda ('Maitta!') antes de perder el conocimiento, con o sin el anuncio de 'Mate!'/'Ippon!' por parte del árbitro, puede continuar en la competencia, si aplica.",
   "interpretacion": "Establece que un atleta cadete que pierde el conocimiento durante shime-waza no puede continuar en la competición. Se exceptúa y se le permite continuar en el torneo si realiza la rendición voluntaria (Maitta!) antes de desmayarse.",
   "fuente_origen": "DOC-004",
-  "referencia_especifica": "Medical and Anti-Doping Handbook - Artículo 20 (Note), Página 188 / E1.1",
+  "referencia_especifica": "Manual Médico (Apéndice D, Artículo 20 Nota), Página 269",
   "fuente": {
     "tipo": "pdf",
-    "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf",
     "pagina": 269,
     "articulo": "20",
     "seccion": "Apéndice D (Nota)"

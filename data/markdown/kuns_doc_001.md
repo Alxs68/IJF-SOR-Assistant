@@ -20,10 +20,9 @@ Este archivo contiene el corpus inicial extraído de **DOC-001** (SOR principal)
   "contenido_traduccion": "El uso de la cabeza para realizar una proyección o para defenderse está permitido en las categorías Senior y Junior. Apoyar voluntariamente la cabeza en el tatami (defensa de cabeza) para evitar una puntuación ya no se sanciona con Hansoku-make. Sin embargo, el 'buceo de cabeza' (head diving - zambullirse de cabeza sobre el tatami) sigue estando estrictamente prohibido para todas las categorías y se sanciona con Hansoku-make directo.",
   "interpretacion": "Establece la autorización para el uso táctico de la cabeza en categorías Senior y Junior. Elimina la sanción de Hansoku-make por defensa de cabeza común, reservando esta penalización de descalificación directa únicamente para el 'head diving' (buceo/clavado de cabeza) debido al riesgo extremo de lesiones cervicales.",
   "fuente_origen": "DOC-001",
-  "referencia_especifica": "Artículo 20 - Apéndice D (Reglas de Arbitraje)",
+  "referencia_especifica": "Apéndice D (Artículo 18.2.1), Página 181",
   "fuente": {
     "tipo": "pdf",
-    "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf",
     "pagina": 181,
     "articulo": "18.2.1",
     "seccion": "Apéndice D"

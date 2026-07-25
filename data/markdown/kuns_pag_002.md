@@ -20,10 +20,9 @@ Este archivo contiene el corpus extraído de **PAG-002** (Portal de reglas de Ag
   "contenido_traduccion": "El Kumikata Normal consiste en tomar un agarre sobre la chaqueta del oponente con ambas manos: manga y solapa, manga y cuello, o agarre clásico en la solapa.",
   "interpretacion": "Establece la postura y técnica estándar de agarre requerida para iniciar acciones ofensivas antes de que se considere pasividad o combatividad negativa.",
   "fuente_origen": "PAG-002",
-  "referencia_especifica": "rules.ijf.org/gripping/normal",
+  "referencia_especifica": "rules.ijf.org/gripping",
   "fuente": {
-    "tipo": "web",
-    "url": "https://rules.ijf.org/gripping"
+    "tipo": "web"
   },
   "tags": [
     "kumikata"

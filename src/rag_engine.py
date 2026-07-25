@@ -30,15 +30,34 @@ class RagEngine:
         self.load_resources()
 
     def load_resources(self):
-        """Loads KnowledgeGraph and VectorStore from local serialized files."""
+        """Loads KnowledgeGraph and VectorStore from local serialized files, with auto cache invalidation."""
+        cache_outdated = False
         if os.path.exists(self.graph_path):
+            cache_mtime = os.path.getmtime(self.graph_path)
+            # Check data/markdown directory for newer files
+            markdown_dir = os.path.join(self.brain_dir, 'data', 'markdown')
+            if os.path.exists(markdown_dir):
+                for f in os.listdir(markdown_dir):
+                    if f.endswith('.md'):
+                        fpath = os.path.join(markdown_dir, f)
+                        if os.path.getmtime(fpath) > cache_mtime:
+                            cache_outdated = True
+                            print(f"[LOG] [RAG Engine] Archivo de corpus detectado más reciente que el caché: {f}. Invalidando caché del grafo...")
+                            break
+        else:
+            cache_outdated = True
+
+        if not cache_outdated:
             self.kg.load_from_json(self.graph_path)
         else:
-            # Fallback compile on the fly
+            # Recompile on the fly and save graph
             from graph_manager import compile_graph_from_markdown
             self.kg = compile_graph_from_markdown(self.brain_dir)
+            os.makedirs(os.path.dirname(self.graph_path), exist_ok=True)
+            self.kg.save_to_json(self.graph_path)
+            print(f"[LOG] [RAG Engine] Grafo de conocimiento recompilado y guardado en {self.graph_path}")
             
-        if os.path.exists(self.vector_path):
+        if not cache_outdated and os.path.exists(self.vector_path):
             self.vs.load_index(self.vector_path)
             
             # Check if we need to re-index due to mode mismatch
@@ -54,7 +73,8 @@ class RagEngine:
                 self.vs.index_kun_corpus(self.kg.nodes, api_key=self.api_key)
                 self.vs.save_index(self.vector_path)
         else:
-            # Index on the fly
+            # Re-index on the fly if cache was outdated or missing
+            print("[LOG] [RAG Engine] Re-indexando buscador local por caché desactualizado o inexistente...")
             self.vs.index_kun_corpus(self.kg.nodes, api_key=self.api_key)
             self.vs.save_index(self.vector_path)
 

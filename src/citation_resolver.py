@@ -10,7 +10,7 @@ RESOURCE_DETAILS = {
     },
     "DOC-004": {
         "name": "Manual Médico de Judo (PDF)",
-        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/Medical_Manual_for_Judo_2026-1768917812.pdf"
+        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf"
     },
     "PAG-001": {
         "name": "Portal de Reglas Interactivas de la IJF",
