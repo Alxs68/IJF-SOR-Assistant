@@ -85,35 +85,34 @@ st.markdown("""
         color: var(--text-color) !important;
     }
     div[data-testid="stButton"] button {
-        background-color: var(--secondary-background-color);
+        background-color: transparent;
         border: 1px solid rgba(128,128,128,0.25);
-        border-radius: 8px;
-        padding: 1rem 0.8rem !important;
-        text-align: left !important;
+        border-radius: 9999px;
+        padding: 0.4rem 0.85rem !important;
+        text-align: center !important;
         color: var(--text-color);
         font-family: 'Inter', sans-serif;
-        font-size: 0.8rem;
-        line-height: 1.35;
-        white-space: normal;
+        font-size: 0.78rem;
+        line-height: 1.3;
+        white-space: nowrap;
         display: block;
         width: 100%;
         cursor: pointer;
-        transition: all 0.25s ease;
+        transition: all 0.2s ease;
+        opacity: 0.8;
     }
     div[data-testid="stButton"] button p {
         margin: 0;
-        text-align: left !important;
+        text-align: center !important;
     }
     div[data-testid="stButton"] button:hover {
         border-color: #1d4ed8 !important;
         color: #1d4ed8 !important;
-        background-color: rgba(29, 78, 216, 0.06) !important;
-        box-shadow: 0 4px 12px -2px rgba(29, 78, 216, 0.12);
-        transform: translateY(-1px);
+        background-color: rgba(29, 78, 216, 0.08) !important;
+        opacity: 1;
     }
     div[data-testid="stButton"] button:active {
-        transform: translateY(0);
-        box-shadow: 0 2px 4px -1px rgba(29, 78, 216, 0.08);
+        background-color: rgba(29, 78, 216, 0.14) !important;
     }
     @media (max-width: 768px) {
         .block-container {
@@ -405,23 +404,23 @@ else:
     </div>
     """, unsafe_allow_html=True)
     
-    # Suggested topics (interactive buttons)
-    st.markdown("""<div style=\"font-size: 0.85rem; font-weight: 600; text-align: center; margin-bottom: 0.8rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;\">💡 Temas Sugeridos</div>""", unsafe_allow_html=True)
+    # Suggested topic chips – minimal, non-intrusive
+    st.markdown("""<div style=\"font-size: 0.72rem; font-weight: 500; text-align: center; margin-bottom: 0.5rem; margin-top: 0.5rem; color: #94a3b8; letter-spacing: 0.04em;\">Prueba con alguna de estas consultas</div>""", unsafe_allow_html=True)
 
-    # Six individual suggestion cards – one clear question per card
-    suggestion_cards = [
-        "¿Se permite la defensa con la cabeza?",
-        "¿Cuáles son las dimensiones del tatami?",
-        "¿Cuántas intervenciones médicas se permiten por combate?",
-        "¿Qué es el Sokuteiki y cómo se usa?",
-        "¿Cómo se sanciona el reverse seoi-nage en cadetes?",
-        "¿Cuáles son las reglas de color de Judogi?",
+    # Chip labels (short) mapped to full questions
+    suggestion_chips = [
+        ("Defensa con la cabeza", "¿Se permite la defensa con la cabeza?"),
+        ("Dimensiones del tatami", "¿Cuáles son las dimensiones del tatami?"),
+        ("Intervenciones médicas", "¿Cuántas intervenciones médicas se permiten por combate?"),
+        ("Sokuteiki y su uso", "¿Qué es el Sokuteiki y cómo se usa?"),
+        ("Reverse seoi-nage", "¿Cómo se sanciona el reverse seoi-nage en cadetes?"),
+        ("Color de Judogi", "¿Cuáles son las reglas de color de Judogi?"),
     ]
-    cols = st.columns(3)
-    for i, q in enumerate(suggestion_cards):
-        with cols[i % 3]:
-            if st.button(q, key=f"suggest_{i}", help="Haz clic para consultar"):
-                st.session_state.query_to_run = q
+    chip_cols = st.columns(len(suggestion_chips))
+    for i, (label, full_query) in enumerate(suggestion_chips):
+        with chip_cols[i]:
+            if st.button(label, key=f"chip_{i}", help=full_query):
+                st.session_state.query_to_run = full_query
                 st.rerun()
 
 st.write("---")
