@@ -213,21 +213,21 @@ with st.sidebar:
 base64_logo = get_base64_logo(logo_path)
 if base64_logo:
     st.markdown(f"""
-    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.5rem 1rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
-        <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1rem;">
-            <img src="data:image/png;base64,{base64_logo}" style="width: 45px; height: 45px; object-fit: contain;" />
+    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.7rem 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
+        <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.2rem;">
+            <img src="data:image/png;base64,{base64_logo}" style="width: 55px; height: 55px; object-fit: contain;" />
         </div>
-        <div style="flex-grow: 1; display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap;">
-            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.3rem; margin: 0; font-weight: 700;">IJF SOR Assistant</h2>
-            <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.75; font-size: 0.8rem; margin: 0;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
+        <div style="flex-grow: 1; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.5rem; margin: 0; font-weight: 700; line-height: 1.1;">IJF SOR Assistant</h2>
+            <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.8; font-size: 0.9rem; margin: 0; line-height: 1.1;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 else:
     st.markdown("""
-    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.5rem 1rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
-        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.3rem; margin: 0; font-weight: 700;">IJF SOR Assistant</h2>
-        <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.75; font-size: 0.8rem; margin-left: 0.8rem;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
+    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.7rem 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
+        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.5rem; margin: 0; font-weight: 700; line-height: 1.1;">IJF SOR Assistant</h2>
+        <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.8; font-size: 0.9rem; margin-left: 1rem; line-height: 1.1;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
     </div>
     """, unsafe_allow_html=True)
 
