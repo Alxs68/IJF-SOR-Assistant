@@ -166,14 +166,25 @@ with st.sidebar:
         st.metric("Relaciones", kg_metrics['edges_count'])
     st.metric("Grado Promedio", f"{kg_metrics['avg_degree']:.2f}")
     
-    st.write("---")
     st.markdown("**🛡️ Auditoría Legal**")
-    show_audit = st.toggle("🔍 Mostrar Trazabilidad y Grafo", value=False, help="Muestra la columna derecha con la trazabilidad de citas, badges RRM y el subgrafo relacional.")
+    show_audit = st.toggle(
+        "🔍 Mostrar Trazabilidad y Grafo", 
+        value=False, 
+        help="Activa un panel adicional donde podrás consultar las fuentes oficiales utilizadas para construir la respuesta y visualizar las relaciones entre las reglas encontradas. Si solo deseas conversar con el asistente, puedes dejar esta opción desactivada."
+    )
     
     st.write("---")
     st.markdown("**🧭 Ajustes de Búsqueda**")
-    k_param = st.slider("Cantidad de Reglas a Consultar", 1, 5, 3)
-    min_score_param = st.slider("Filtro Anti-Distracciones", 0.05, 0.50, 0.10, 0.05)
+    k_param = st.slider(
+        "Cantidad de Reglas a Consultar", 
+        1, 5, 3,
+        help="Define cuántas reglas oficiales revisará el asistente antes de elaborar la respuesta. Un valor mayor puede ofrecer respuestas más completas, aunque también puede aumentar ligeramente el tiempo de búsqueda."
+    )
+    min_score_param = st.slider(
+        "Filtro Anti-Distracciones", 
+        0.05, 0.50, 0.10, 0.05,
+        help="Controla qué tan relacionadas deben estar las reglas encontradas con tu consulta. Valores bajos permiten considerar más información; valores altos muestran únicamente las coincidencias más relevantes."
+    )
     
     st.write("---")
     st.markdown("**🕸️ Nodos Hub**")
@@ -187,14 +198,20 @@ with st.sidebar:
         preguntas_ejemplo,
         key="example_select_widget",
         on_change=load_example,
-        label_visibility="collapsed"
+        label_visibility="collapsed",
+        help="Elige una pregunta predefinida para ver cómo responde el asistente."
     )
 
     if len(st.session_state.history) > 0:
         st.write("---")
         st.markdown("**📚 Historial**")
         options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
-        selected_option = st.selectbox("Revisar consulta:", options, index=st.session_state.active_index)
+        selected_option = st.selectbox(
+            "Revisar consulta:", 
+            options, 
+            index=st.session_state.active_index,
+            help="Te permite volver a ver cualquiera de las consultas realizadas anteriormente en esta sesión de forma instantánea."
+        )
         new_active = options.index(selected_option)
         if new_active != st.session_state.active_index:
             st.session_state.active_index = new_active
