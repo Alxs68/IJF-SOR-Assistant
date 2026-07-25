@@ -62,7 +62,7 @@ RESOURCE_DETAILS = {
     },
     "NEW-001": {
         "name": "Comunicado Oficial: Reglas de Arbitraje LA28 (Noticias IJF)",
-        "url": "https://www.ijf.org/news"
+        "url": "https://www.ijf.org/news/show/the-new-refereeing-rules-point-by-point"
     },
     "NEW-002": {
         "name": "Congreso IJF 2025: Evolución de Tecnología y Reglas (Noticias IJF)",
