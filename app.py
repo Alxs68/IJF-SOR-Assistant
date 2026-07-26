@@ -207,11 +207,16 @@ with st.sidebar:
     st.metric("Grado Promedio", f"{kg_metrics['avg_degree']:.2f}")
     
     st.markdown("**🛡️ Auditoría Legal**")
+    prev_audit = st.session_state.get("_prev_show_audit", False)
     show_audit = st.toggle(
         "🔍 Mostrar Trazabilidad y Grafo", 
-        value=False, 
+        value=prev_audit,
+        key="show_audit_toggle",
         help="Activa un panel adicional donde podrás consultar las fuentes oficiales utilizadas para construir la respuesta y visualizar las relaciones entre las reglas encontradas. Si solo deseas conversar con el asistente, puedes dejar esta opción desactivada."
     )
+    if show_audit != prev_audit:
+        st.session_state["_prev_show_audit"] = show_audit
+        st.rerun()
     
     st.write("---")
     st.markdown("**🧭 Ajustes de Búsqueda**")
@@ -329,9 +334,9 @@ if st.session_state.active_index >= 0:
     with col_chat:
         for i, item in enumerate(st.session_state.history):
             if i <= st.session_state.active_index:
-                with st.chat_message("user", avatar="💬"):
+                with st.chat_message("user", avatar="👤"):
                     st.markdown(item['query'])
-                with st.chat_message("assistant", avatar="🥋"):
+                with st.chat_message("assistant", avatar="⚖️"):
                     st.markdown(item['answer'])
                     if not show_audit and i == st.session_state.active_index:
                         st.caption("💡 Puedes activar el panel de **Trazabilidad y Grafo** en la barra lateral para auditar las citas oficiales de esta consulta.")
