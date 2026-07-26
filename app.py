@@ -126,7 +126,7 @@ st.markdown("""
         text-align: left;
         font-size: 0.85rem;
         color: #64748b;
-        padding: 0.4rem 0 0.4rem 0;
+        padding: 0.4rem 0 0.4rem 3rem;
         font-family: 'Inter', sans-serif;
         line-height: 1.3;
     }
