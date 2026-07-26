@@ -348,7 +348,7 @@ if user_input:
 
 
 if query_to_run:
-    with st.status("Consultando el Reglamento SOR 2026...", expanded=False) as status:
+    with st.status("Consultando el Reglamento SOR 2026...", expanded=True) as status:
         status.write("🔍 Buscando en la base de conocimiento...")
         res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
         retrieved_kuns = res.get('retrieved_kuns_data', [])
