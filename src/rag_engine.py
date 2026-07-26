@@ -1,7 +1,14 @@
 import os
+import sys
 import json
 import urllib.request
 import urllib.error
+
+# Fix Windows cp1252 encoding for print statements with Unicode
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8')
+if sys.stderr.encoding != 'utf-8':
+    sys.stderr.reconfigure(encoding='utf-8')
 
 # Carga de variables de entorno administrada externamente por systemd en producción
 # o por load_dotenv() en app.py en desarrollo local.

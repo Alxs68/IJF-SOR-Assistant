@@ -329,9 +329,9 @@ if st.session_state.active_index >= 0:
     with col_chat:
         for i, item in enumerate(st.session_state.history):
             if i <= st.session_state.active_index:
-                with st.chat_message("user"):
+                with st.chat_message("user", avatar="💬"):
                     st.markdown(item['query'])
-                with st.chat_message("assistant"):
+                with st.chat_message("assistant", avatar="🥋"):
                     st.markdown(item['answer'])
                     if not show_audit and i == st.session_state.active_index:
                         st.caption("💡 Puedes activar el panel de **Trazabilidad y Grafo** en la barra lateral para auditar las citas oficiales de esta consulta.")
