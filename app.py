@@ -92,7 +92,7 @@ st.markdown("""
         text-align: center !important;
         color: var(--text-color);
         font-family: 'Inter', sans-serif;
-        font-size: 0.78rem;
+        font-size: 0.85rem;
         line-height: 1.3;
         white-space: nowrap;
         display: block;
@@ -281,8 +281,6 @@ user_input = st.chat_input("Escribe tu consulta sobre el reglamento de la IJF...
 if user_input:
     query_to_run = user_input.strip()
 
-# Multilingual hint – contextual helper below chat input
-st.markdown('<p style="font-size: 0.72rem; color: #94a3b8; text-align: center; margin-top: -0.6rem; margin-bottom: 0.2rem; line-height: 1.35;">🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.</p>', unsafe_allow_html=True)
 
 if query_to_run:
     with st.spinner("Buscando en la base de datos..."):
@@ -405,7 +403,7 @@ else:
     """, unsafe_allow_html=True)
     
     # Suggested topic chips – minimal, non-intrusive
-    st.markdown("""<div style=\"font-size: 0.72rem; font-weight: 500; text-align: center; margin-bottom: 0.5rem; margin-top: 0.5rem; color: #94a3b8; letter-spacing: 0.04em;\">Prueba con alguna de estas consultas</div>""", unsafe_allow_html=True)
+    st.markdown("""<div style=\"font-size: 0.8rem; font-weight: 500; text-align: center; margin-bottom: 0.6rem; margin-top: 1.5rem; color: #94a3b8; letter-spacing: 0.04em;\">Prueba con alguna de estas consultas</div>""", unsafe_allow_html=True)
 
     # Chip labels (short) mapped to full questions
     suggestion_chips = [
@@ -445,3 +443,6 @@ with st.expander("📝 Alcance del Asistente & Cobertura de Temas"):
         *   **📋 Estatutos y Apelaciones (Apéndices A, B):** Normas internas de la IJF, elecciones directivas, el Código Disciplinario y procesos de apelación federativos.
         *   **🧬 Transición y Categorías Especiales (Apéndices E, F, G, H):** Reglamentos de transición de género, control antidopaje de laboratorio, reglas modificadas para veteranos/masters y arbitraje de competencias de Kata.
         """)
+
+# Multilingual hint – contextual helper near chat input (renders at bottom of content, above fixed chat bar)
+st.markdown('<p style="font-size: 0.78rem; color: #64748b; text-align: center; margin-top: 0.5rem; margin-bottom: 0.5rem; line-height: 1.35;">🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.</p>', unsafe_allow_html=True)
