@@ -17,7 +17,7 @@ logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
 logo_path = os.path.join(logo_dir, 'logo.svg')
 
 st.set_page_config(
-    page_title="Asistente del SOR de la IJF",
+    page_title="Asistente SOR IJF",
     page_icon="🥋",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -266,21 +266,65 @@ with st.sidebar:
 base64_logo = get_base64_logo(logo_path)
 if base64_logo:
     st.markdown(f"""
-    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem 0.8rem 4.5rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; position: relative; z-index: 99; pointer-events: none;">
-        <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem; pointer-events: auto;">
+    <style>
+    .ijf-tooltip {{
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        cursor: default;
+    }}
+    .ijf-tooltip .ijf-tooltiptext {{
+        visibility: hidden;
+        background-color: #1e293b;
+        color: #e2e8f0;
+        text-align: left;
+        padding: 0.5rem 0.8rem;
+        border-radius: 6px;
+        font-size: 0.78rem;
+        font-family: 'Inter', sans-serif;
+        white-space: nowrap;
+        position: absolute;
+        z-index: 999;
+        top: 130%;
+        left: 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }}
+    .ijf-tooltip:hover .ijf-tooltiptext {{
+        visibility: visible;
+    }}
+    .ijf-help-icon {{
+        width: 16px; height: 16px;
+        background: rgba(29,78,216,0.15);
+        border: 1px solid #1d4ed8;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        color: #1d4ed8;
+        font-weight: 700;
+        margin-left: 0.5rem;
+        font-family: 'Inter', sans-serif;
+        flex-shrink: 0;
+    }}
+    </style>
+    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem 0.8rem 4.5rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; position: relative; z-index: 99;">
+        <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem;">
             <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 60px; height: 60px; object-fit: contain; display: block;" />
         </div>
-        <div style="flex-grow: 1; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; pointer-events: auto;">
-            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la IJF</h2>
-            <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 1.0rem; margin: 0; line-height: 1.1;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
+        <div style="flex-grow: 1; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
+            <div class="ijf-tooltip">
+                <div class="ijf-help-icon">?</div>
+                <div class="ijf-tooltiptext">Reglamento de la Federación Internacional de Judo (SOR 2026)</div>
+            </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
 else:
     st.markdown("""
     <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem 0.8rem 4.5rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
-        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente del SOR de la IJF</h2>
-        <span style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 1.0rem; margin-left: 1.2rem; line-height: 1.1;">Reglamento de la Federación Internacional de Judo (SOR 2026)</span>
+        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
     </div>
     """, unsafe_allow_html=True)
 
