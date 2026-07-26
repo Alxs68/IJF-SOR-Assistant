@@ -398,9 +398,7 @@ else:
     <div style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">
         <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente del SOR de la IJF</h1>
         <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4; margin-bottom: 1rem;">Tu consultor experto del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
-        <div style="background-color: var(--secondary-background-color); border: 1px dashed #1d4ed8; border-radius: 8px; padding: 0.8rem 1rem; max-width: 600px; margin: 0.8rem auto; text-align: left; font-size: 0.85rem; line-height: 1.35; color: var(--text-color); opacity: 0.9;">
-            🌐 <b>Soporte Multilingüe:</b> Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma de la consulta. En ocasiones, la respuesta podrá generarse en español aun cuando la pregunta se haya realizado en otro idioma. Esta capacidad continúa en proceso de mejora.
-        </div>
+        <p style="font-size: 0.75rem; color: #94a3b8; max-width: 560px; margin: 0.6rem auto 0; line-height: 1.4; text-align: center;">🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma. En ocasiones, la respuesta podrá generarse en español. Esta capacidad continúa en proceso de mejora.</p>
     </div>
     """, unsafe_allow_html=True)
     
