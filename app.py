@@ -281,6 +281,9 @@ user_input = st.chat_input("Escribe tu consulta sobre el reglamento de la IJF...
 if user_input:
     query_to_run = user_input.strip()
 
+# Multilingual hint – contextual helper below chat input
+st.markdown('<p style="font-size: 0.72rem; color: #94a3b8; text-align: center; margin-top: -0.6rem; margin-bottom: 0.2rem; line-height: 1.35;">🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.</p>', unsafe_allow_html=True)
+
 if query_to_run:
     with st.spinner("Buscando en la base de datos..."):
         res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
@@ -398,7 +401,6 @@ else:
     <div style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">
         <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente del SOR de la IJF</h1>
         <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4; margin-bottom: 1rem;">Tu consultor experto del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
-        <p style="font-size: 0.75rem; color: #94a3b8; max-width: 560px; margin: 0.6rem auto 0; line-height: 1.4; text-align: center;">🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma. En ocasiones, la respuesta podrá generarse en español. Esta capacidad continúa en proceso de mejora.</p>
     </div>
     """, unsafe_allow_html=True)
     
