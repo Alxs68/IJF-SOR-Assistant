@@ -47,9 +47,15 @@ st.markdown("""
         font-size: 0.75rem;
         font-weight: 600;
     }
+    :root {
+        --ijf-blue: #003399;
+        --ijf-blue-light: #1d4ed8;
+        --ijf-red: #ED1C24;
+        --kun-bg: #F9FAFB;
+    }
     .kun-card {
-        border-left: 3px solid #3B82F6;
-        background-color: #F9FAFB;
+        border-left: 3px solid var(--ijf-blue);
+        background-color: var(--kun-bg);
         padding: 0.6rem;
         border-radius: 0 6px 6px 0;
         margin-bottom: 0.4rem;
@@ -58,7 +64,7 @@ st.markdown("""
     [data-testid="stMetricValue"] {
         font-size: 1.15rem !important;
         font-weight: 700 !important;
-        color: #1E3A8A !important;
+        color: var(--ijf-blue) !important;
     }
     [data-testid="stMetricLabel"] {
         font-size: 0.75rem !important;
@@ -106,9 +112,9 @@ st.markdown("""
         text-align: center !important;
     }
     div[data-testid="stButton"] button:hover {
-        border-color: #1d4ed8 !important;
-        color: #1d4ed8 !important;
-        background-color: rgba(29, 78, 216, 0.08) !important;
+        border-color: var(--ijf-blue) !important;
+        color: var(--ijf-blue) !important;
+        background-color: rgba(0, 51, 153, 0.08) !important;
         opacity: 1;
     }
     div[data-testid="stButton"] button:active {
@@ -342,9 +348,12 @@ if user_input:
 
 
 if query_to_run:
-    with st.spinner("Buscando en la base de datos..."):
+    with st.status("Consultando el Reglamento SOR 2026...", expanded=False) as status:
+        status.write("🔍 Buscando en la base de conocimiento...")
         res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
         retrieved_kuns = res.get('retrieved_kuns_data', [])
+        status.write(f"📚 {len(retrieved_kuns)} regla(s) recuperada(s) del grafo...")
+        status.write("✍️ Generando respuesta con el modelo...")
         
         dot_code = "digraph {\n  rankdir=LR;\n  node [shape=box, style=filled, fontname=\"Arial\", fontsize=10];\n"
         retrieved_ids = {k['id_conocimiento'] for k in retrieved_kuns}
@@ -367,6 +376,7 @@ if query_to_run:
             "dot_code": dot_code
         })
         st.session_state.active_index = len(st.session_state.history) - 1
+        status.update(label="✅ Respuesta generada", state="complete", expanded=False)
 
 if st.session_state.active_index >= 0:
     if show_audit:
