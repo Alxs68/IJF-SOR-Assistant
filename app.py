@@ -121,12 +121,12 @@ st.markdown("""
         }
     }
     [data-testid="stBottom"]::before {
-        content: "\1F310  Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.";
+        content: "🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.";
         display: block;
-        text-align: center;
+        text-align: left;
         font-size: 0.85rem;
         color: #64748b;
-        padding: 0.4rem 1rem 0.2rem;
+        padding: 0.4rem 0 0.4rem 0;
         font-family: 'Inter', sans-serif;
         line-height: 1.3;
     }
