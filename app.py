@@ -345,25 +345,19 @@ if st.session_state.active_index >= 0:
             
             with tab_cite:
                 if not is_fallback and active_item['trazabilidad']:
-                    with st.container():
+                    with st.expander("ℹ️ Sobre la disponibilidad de las fuentes oficiales", expanded=False):
                         st.markdown(
-                            "ℹ️ **Disponibilidad de las fuentes oficiales**\n\n"
-                            "La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).\n\n"
-                            "Algunas fuentes pueden:\n"
-                            "* Permitir acceso directo al contenido específico;\n"
-                            "* Redirigir únicamente al portal oficial;\n"
-                            "* Haber sido migradas;\n"
-                            "* Dejar de estar disponibles debido a cambios en la plataforma de origen o por otros motivos externos al asistente.\n\n"
-                            "Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y, cuando exista una referencia oficial disponible y registrada en el sistema, el RRM la presentará al usuario."
+                            '<div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">'
+                            'La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).<br><br>'
+                            'Algunas fuentes pueden: permitir acceso directo al contenido específico; redirigir únicamente al portal oficial; haber sido migradas; o dejar de estar disponibles debido a cambios en la plataforma de origen.<br><br>'
+                            'Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y presentará una referencia alternativa cuando exista.<br><br>'
+                            '<strong>Leyenda:</strong> &nbsp; '
+                            '🟢 <em>Disponible</em> &nbsp;&nbsp; '
+                            '🟡 <em>Migrada</em> &nbsp;&nbsp; '
+                            '🔵 <em>Portal General</em> &nbsp;&nbsp; '
+                            '🔴 <em>No Disponible</em>'
+                            '</div>', unsafe_allow_html=True
                         )
-                        st.markdown(
-                            "**Leyenda de Estados:** &nbsp; "
-                            "🟢 *Disponible* &nbsp;&nbsp; "
-                            "🟡 *Migrada* &nbsp;&nbsp; "
-                            "🔵 *Portal General* &nbsp;&nbsp; "
-                            "🔴 *No Disponible*"
-                        )
-                        st.markdown("---")
                     
                     st.caption("📱 *En celulares, desplázate manualmente a la página indicada (función en proceso de mejora).*")
                     for kun in active_item['trazabilidad']:
