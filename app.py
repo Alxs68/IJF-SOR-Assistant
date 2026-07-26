@@ -444,5 +444,5 @@ with st.expander("📝 Alcance del Asistente & Cobertura de Temas"):
         *   **🧬 Transición y Categorías Especiales (Apéndices E, F, G, H):** Reglamentos de transición de género, control antidopaje de laboratorio, reglas modificadas para veteranos/masters y arbitraje de competencias de Kata.
         """)
 
-# Multilingual hint – contextual helper near chat input (renders at bottom of content, above fixed chat bar)
-st.markdown('<p style="font-size: 0.78rem; color: #64748b; text-align: center; margin-top: 0.5rem; margin-bottom: 0.5rem; line-height: 1.35;">🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.</p>', unsafe_allow_html=True)
+# Multilingual hint – fixed above chat input bar
+st.markdown('<div style="position: fixed; bottom: 52px; left: 0; right: 0; text-align: center; z-index: 99; pointer-events: none;"><p style="font-size: 0.85rem; color: #64748b; margin: 0; line-height: 1.3;">🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.</p></div>', unsafe_allow_html=True)
