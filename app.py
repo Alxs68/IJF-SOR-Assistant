@@ -120,6 +120,16 @@ st.markdown("""
             padding-right: 0.8rem !important;
         }
     }
+    [data-testid="stBottom"]::before {
+        content: "\1F310  Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.";
+        display: block;
+        text-align: center;
+        font-size: 0.85rem;
+        color: #64748b;
+        padding: 0.4rem 1rem 0.2rem;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.3;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -443,6 +453,3 @@ with st.expander("📝 Alcance del Asistente & Cobertura de Temas"):
         *   **📋 Estatutos y Apelaciones (Apéndices A, B):** Normas internas de la IJF, elecciones directivas, el Código Disciplinario y procesos de apelación federativos.
         *   **🧬 Transición y Categorías Especiales (Apéndices E, F, G, H):** Reglamentos de transición de género, control antidopaje de laboratorio, reglas modificadas para veteranos/masters y arbitraje de competencias de Kata.
         """)
-
-# Multilingual hint – fixed above chat input bar
-st.markdown('<div style="position: fixed; bottom: 52px; left: 0; right: 0; text-align: center; z-index: 99; pointer-events: none;"><p style="font-size: 0.85rem; color: #64748b; margin: 0; line-height: 1.3;">🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.</p></div>', unsafe_allow_html=True)
