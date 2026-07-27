@@ -464,77 +464,9 @@ else:
         <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4; margin-bottom: 1rem;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
     </div>
     """, unsafe_allow_html=True)
-    
-    st.markdown(active_item['answer'])
-    
-    # Hide citations and graph if it's a fallback "not found" answer
-    is_fallback = "lo siento" in active_item['answer'].lower()
-    
-    if not is_fallback and active_item['trazabilidad']:
-        with st.expander("📚 Ver Trazabilidad y Citas Oficiales"):
-            # Bloque Informativo sobre la Disponibilidad de las Fuentes
-            with st.container():
-                st.markdown(
-                    "ℹ️ **Disponibilidad de las fuentes oficiales**\n\n"
-                    "La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).\n\n"
-                    "Algunas fuentes pueden:\n"
-                    "* Permitir acceso directo al contenido específico;\n"
-                    "* Redirigir únicamente al portal oficial;\n"
-                    "* Haber sido migradas;\n"
-                    "* Dejar de estar disponibles debido a cambios en la plataforma de origen o por otros motivos externos al asistente.\n\n"
-                    "Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y, cuando exista una referencia oficial disponible y registrada en el sistema, el RRM la presentará al usuario."
-                )
-                st.markdown(
-                    "**Leyenda de Estados:** &nbsp; "
-                    "🟢 *Disponible* &nbsp;&nbsp; "
-                    "🟡 *Migrada* &nbsp;&nbsp; "
-                    "🔵 *Portal General* &nbsp;&nbsp; "
-                    "🔴 *No Disponible*"
-                )
-                st.markdown("---")
-            
-            st.caption("📱 *En celulares, desplázate manualmente a la página indicada (función en proceso de mejora).*")
-            for kun in active_item['trazabilidad']:
-                res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
-                url = res.get("url")
-                is_clickable = res.get("is_clickable", True)
-                ux_message = res.get("ux_message", "")
-                op_status = res.get("operational_status", "AVAILABLE")
-                
-                source_id = kun['fuente_origen']
-                ref_spec = kun.get('referencia_especifica', 'Reglamento')
-                name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
-                
-                # Render source link with appropriate UX behavior (clickable vs plain text vs strike-through)
-                if is_clickable and url:
-                    source_link = f"[{name} ({ref_spec})]({url})"
-                elif op_status == "DELETED":
-                    source_link = f"~~{name} ({ref_spec})~~"
-                else:
-                    source_link = f"{name} ({ref_spec})"
-                
-                # Determine badge color based on operational status
-                badge_emoji = "🟢"
-                if op_status == "MIGRATED":
-                    badge_emoji = "🟡"
-                elif op_status == "FALLBACK_GENERAL":
-                    badge_emoji = "🔵"
-                elif op_status == "DELETED":
-                    badge_emoji = "🔴"
-                
-                st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{ux_message}*")
-                st.markdown(f"* **Fuente:** {source_link}")
-                st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
-                st.write(f"* Interpretación: {kun['interpretacion']}")
-                st.write("---")
-                
-        with st.expander("🕸️ Ver Subgrafo de Relaciones"):
-            st.graphviz_chart(active_item['dot_code'])
 
-    # Suggested topic chips – minimal, non-intrusive
     st.markdown("""<div style=\"font-size: 0.8rem; font-weight: 500; text-align: center; margin-bottom: 0.6rem; margin-top: 1.5rem; color: #94a3b8; letter-spacing: 0.04em;\">Prueba con alguna de estas consultas</div>""", unsafe_allow_html=True)
 
-    # Chip labels (short) mapped to full questions
     suggestion_chips = [
         ("Defensa con la cabeza", "¿Se permite la defensa con la cabeza?"),
         ("Dimensiones del tatami", "¿Cuáles son las dimensiones del tatami?"),
