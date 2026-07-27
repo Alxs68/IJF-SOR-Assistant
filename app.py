@@ -125,7 +125,31 @@ st.markdown("""
             padding-left: 0.8rem !important;
             padding-right: 0.8rem !important;
         }
+        .stMarkdown h1,
+        .stMarkdown h2,
+        .stMarkdown h3,
+        .stMarkdown h4,
+        .stMarkdown h5,
+        .stMarkdown h6 {
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            line-height: 1.3 !important;
+            margin-top: 0.75rem !important;
+            margin-bottom: 0.5rem !important;
+        }
     }
+    .stMarkdown h1,
+    .stMarkdown h2,
+    .stMarkdown h3,
+    .stMarkdown h4,
+    .stMarkdown h5,
+    .stMarkdown h6 {
+        font-weight: 600 !important;
+        line-height: 1.35 !important;
+    }
+    .stMarkdown h1 { font-size: 1.2rem !important; }
+    .stMarkdown h2 { font-size: 1.1rem !important; }
+    .stMarkdown h3 { font-size: 1rem !important; }
     [data-testid="stBottom"]::before {
         content: "🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.";
         display: block;
@@ -318,8 +342,8 @@ if base64_logo:
         <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem;">
             <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 60px; height: 60px; object-fit: contain; display: block;" />
         </div>
-        <div style="flex-grow: 1; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
-            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
+        <div style="flex-grow: 1; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; justify-content: center;">
+            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.5rem; margin: 0; font-weight: 700; line-height: 1.1; min-width: 0;">Asistente SOR IJF</h2>
             <div class="ijf-tooltip">
                 <div class="ijf-help-icon">?</div>
                 <div class="ijf-tooltiptext">Reglamento de la Federación Internacional de Judo (SOR 2026)</div>
@@ -460,8 +484,8 @@ if st.session_state.active_index >= 0:
 else:
     st.markdown("""
     <div style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">
-        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente del SOR de la IJF</h1>
-        <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4; margin-bottom: 1rem;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
+        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.85rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.6rem; max-width: 32rem; margin-left: auto; margin-right: auto;">🥋 Bienvenido al Asistente del SOR de la IJF</h1>
+        <p style="font-size: 1rem; opacity: 0.85; max-width: 640px; margin: 0 auto; line-height: 1.45; margin-bottom: 1rem;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
     </div>
     """, unsafe_allow_html=True)
 
