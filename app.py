@@ -5,49 +5,29 @@ import base64
 
 from dotenv import load_dotenv
 
-# Carga de variables de entorno desde .env (exclusivamente para desarrollo local si el archivo existe)
-# En producción, se depende únicamente del entorno inyectado por systemd (EnvironmentFile=/etc/ijf-assistant.env)
 if os.path.exists('.env'):
     load_dotenv()
 
-# Add src to system path
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
 
 from rag_engine import RagEngine
-
 from citation_resolver import RESOURCE_DETAILS, resolve_url, _rrm_manager
 
-# Automatic logo downloader on startup to ensure offline rendering on OCI
 logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
-logo_path = os.path.join(logo_dir, 'logo.png')
-if not os.path.exists(logo_path):
-    try:
-        os.makedirs(logo_dir, exist_ok=True)
-        import urllib.request
-        req = urllib.request.Request(
-            'https://7769528.fs1.hubspotusercontent-na1.net/hubfs/7769528/ijf-logo.png',
-            headers={'User-Agent': 'Mozilla/5.0'}
-        )
-        with urllib.request.urlopen(req) as response:
-            with open(logo_path, 'wb') as f:
-                f.write(response.read())
-    except Exception:
-        pass
+logo_path = os.path.join(logo_dir, 'logo.svg')
 
-# Page configuration for a premium, clean look
 st.set_page_config(
-    page_title="IJF SOR Assistant - MVP",
+    page_title="Asistente SOR IJF",
     page_icon="🥋",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom Styling for modern premium UI with smaller typography and metric sizing
+# Custom Styling for modern premium UI
 st.markdown("""
 <style>
-    /* Adjust Streamlit main page top padding to raise content */
     .block-container {
-        padding-top: 1.2rem !important;
+        padding-top: 0.8rem !important;
         padding-bottom: 1.5rem !important;
     }
     
@@ -67,38 +47,98 @@ st.markdown("""
         font-size: 0.75rem;
         font-weight: 600;
     }
+    :root {
+        --ijf-blue: #003399;
+        --ijf-blue-light: #1d4ed8;
+        --ijf-red: #ED1C24;
+        --kun-bg: #F9FAFB;
+    }
     .kun-card {
-        border-left: 3px solid #3B82F6;
-        background-color: #F9FAFB;
+        border-left: 3px solid var(--ijf-blue);
+        background-color: var(--kun-bg);
         padding: 0.6rem;
         border-radius: 0 6px 6px 0;
         margin-bottom: 0.4rem;
         font-size: 0.85rem;
     }
-    /* Metric styling adjustments */
     [data-testid="stMetricValue"] {
         font-size: 1.15rem !important;
         font-weight: 700 !important;
-        color: #1E3A8A !important;
+        color: var(--ijf-blue) !important;
     }
     [data-testid="stMetricLabel"] {
         font-size: 0.75rem !important;
         font-weight: 600 !important;
         color: #4B5563 !important;
     }
-    /* Compact sidebar padding */
     [data-testid="stSidebar"] [data-testid="stVerticalBlock"] > div {
         padding-top: 0.15rem !important;
         padding-bottom: 0.15rem !important;
     }
-    /* General element spacing */
     .element-container {
         margin-bottom: 0.4rem !important;
+    }
+    .active-query-card {
+        background-color: rgba(234, 179, 8, 0.08) !important;
+        border-left: 5px solid #eab308 !important;
+        border-right: 1px solid rgba(234, 179, 8, 0.15) !important;
+        border-top: 1px solid rgba(234, 179, 8, 0.15) !important;
+        border-bottom: 1px solid rgba(234, 179, 8, 0.15) !important;
+        padding: 1rem 1.25rem !important;
+        border-radius: 0 8px 8px 0 !important;
+        margin-bottom: 1.2rem !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
+        color: var(--text-color) !important;
+    }
+    div[data-testid="stButton"] button {
+        background-color: transparent;
+        border: 1px solid rgba(128,128,128,0.25);
+        border-radius: 9999px;
+        padding: 0.4rem 0.85rem !important;
+        text-align: center !important;
+        color: var(--text-color);
+        font-family: 'Inter', sans-serif;
+        font-size: 0.85rem;
+        line-height: 1.3;
+        white-space: nowrap;
+        display: block;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        opacity: 0.8;
+    }
+    div[data-testid="stButton"] button p {
+        margin: 0;
+        text-align: center !important;
+    }
+    div[data-testid="stButton"] button:hover {
+        border-color: var(--ijf-blue) !important;
+        color: var(--ijf-blue) !important;
+        background-color: rgba(0, 51, 153, 0.08) !important;
+        opacity: 1;
+    }
+    div[data-testid="stButton"] button:active {
+        background-color: rgba(29, 78, 216, 0.14) !important;
+    }
+    @media (max-width: 768px) {
+        .block-container {
+            padding-left: 0.8rem !important;
+            padding-right: 0.8rem !important;
+        }
+    }
+    [data-testid="stBottom"]::before {
+        content: "🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.";
+        display: block;
+        text-align: left;
+        font-size: 0.85rem;
+        color: #64748b;
+        padding: 0.4rem 0 0.4rem 3rem;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.3;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Helper function to load logo image as Base64 for inline HTML rendering
 def get_base64_logo(path):
     if os.path.exists(path):
         try:
@@ -108,7 +148,6 @@ def get_base64_logo(path):
             return None
     return None
 
-# Initialize Engine
 @st.cache_resource
 def get_rag_engine():
     brain_path = os.path.dirname(os.path.abspath(__file__))
@@ -121,20 +160,43 @@ except Exception as e:
     st.error(f"Error initializing RAG Engine: {e}")
     st.stop()
 
-# Environment Credentials Check
 api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
 is_connected = api_key is not None
 
-# Chat/Query Session State Initialization
 if "history" not in st.session_state:
-    st.session_state.history = []  # List of dicts: {"query": str, "answer": str, "trazabilidad": list, "dot_code": str}
+    st.session_state.history = []
 if "active_index" not in st.session_state:
     st.session_state.active_index = -1
+if "query_to_run" not in st.session_state:
+    st.session_state.query_to_run = None
 
-# Sidebar - Graph Info and Parameters (Condensed Layout)
+preguntas_ejemplo = [
+    "Elige una pregunta para consultar...",
+    "¿Se permite la defensa con la cabeza?",
+    "¿Cuáles son las dimensiones del tatami?",
+    "¿Cuántas intervenciones médicas se permiten por combate?",
+    "¿Qué es la tecnología Smart Judogi con chip NFC?",
+    "¿Cómo se sanciona el abrazo de oso (bear hug)?",
+    "¿Cómo se sanciona el reverse seoi-nage en cadetes?",
+    "¿Qué sucede si un competidor se desmaya por estrangulación (shime-waza)?",
+    "¿Qué es el Sokuteiki y cómo se usa?",
+    "¿Cuáles son las reglas de color de Judogi (blanco y azul)?",
+    "¿Cómo funciona el protocolo de conmoción cerebral (head trauma) y cuántos días de inhabilitación genera?",
+    "¿Cuál es el tiempo de tolerancia para presentarse en el tatami antes de la descalificación?",
+    "¿Cuáles son las diferencias de tolerancia de peso entre el pesaje oficial y el pesaje aleatorio?",
+    "¿Cómo se dividen las llaves de competencia con repechaje en el sistema oficial?",
+    "¿Cuál es el código de vestimenta oficial para los médicos de los equipos?",
+    "¿Está permitido el uso de vendajes (taping) en los dedos y cómo debe ser aprobado?"
+]
+
+def load_example():
+    sel = st.session_state.get("example_select_widget")
+    if sel and sel != "Elige una pregunta para consultar...":
+        st.session_state.query_to_run = sel
+
+# Sidebar
 with st.sidebar:
     st.markdown("### 🥋 Gobernanza del Grafo")
-    
     if is_connected:
         st.markdown('<span class="status-badge-connected">🟢 Modo Conectado (Gemini)</span>', unsafe_allow_html=True)
     else:
@@ -142,7 +204,6 @@ with st.sidebar:
         
     st.write("---")
     
-    # Graph Metrics Display (Condensed columns)
     st.markdown("**📈 Módulos de Conocimiento**")
     mcol1, mcol2 = st.columns(2)
     with mcol1:
@@ -151,304 +212,149 @@ with st.sidebar:
         st.metric("Relaciones", kg_metrics['edges_count'])
     st.metric("Grado Promedio", f"{kg_metrics['avg_degree']:.2f}")
     
-    st.write("---")
+    st.markdown("**🛡️ Auditoría Legal**")
+    prev_audit = st.session_state.get("_prev_show_audit", False)
+    show_audit = st.toggle(
+        "🔍 Mostrar Trazabilidad y Grafo", 
+        value=prev_audit,
+        key="show_audit_toggle",
+        help="Activa un panel adicional donde podrás consultar las fuentes oficiales utilizadas para construir la respuesta y visualizar las relaciones entre las reglas encontradas. Si solo deseas conversar con el asistente, puedes dejar esta opción desactivada."
+    )
+    if show_audit != prev_audit:
+        st.session_state["_prev_show_audit"] = show_audit
+        st.rerun()
     
-    # Retrieval Tuning Params (Tightened spacing)
+    st.write("---")
     st.markdown("**🧭 Ajustes de Búsqueda**")
     k_param = st.slider(
         "Cantidad de Reglas a Consultar", 
         1, 5, 3,
-        help="Es como elegir cuántos libros abrir en la biblioteca. Un número bajo (1 o 2) busca rápido la regla directa. Un número alto (4 o 5) consulta más artículos relacionados para darte una respuesta más completa."
+        help="Define cuántas reglas oficiales revisará el asistente antes de elaborar la respuesta. Un valor mayor puede ofrecer respuestas más completas, aunque también puede aumentar ligeramente el tiempo de búsqueda."
     )
     min_score_param = st.slider(
         "Filtro Anti-Distracciones", 
         0.05, 0.50, 0.10, 0.05,
-        help="El 'guardián' del chatbot. Evita que te conteste cosas que no tengan que ver con el Judo (como recetas o fútbol). Si lo subes, el asistente será más estricto y no responderá a menos que esté muy seguro."
+        help="Controla qué tan relacionadas deben estar las reglas encontradas con tu consulta. Valores bajos permiten considerar más información; valores altos muestran únicamente las coincidencias más relevantes."
     )
     
-    # Hubs list
     st.write("---")
     st.markdown("**🕸️ Nodos Hub**")
     for node, deg in kg_metrics['hubs'][:2]:
         st.markdown(f"- `{node}` ({deg} enlaces)", unsafe_allow_html=True)
 
-    # History Selector (Brought to sidebar)
+    st.write("---")
+    st.markdown("**💡 Sugerencias Rápidas**")
+    st.selectbox(
+        "Selecciona una pregunta ejemplo:",
+        preguntas_ejemplo,
+        key="example_select_widget",
+        on_change=load_example,
+        label_visibility="collapsed",
+        help="Elige una pregunta predefinida para ver cómo responde el asistente."
+    )
+
     if len(st.session_state.history) > 0:
         st.write("---")
         st.markdown("**📚 Historial**")
         options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
         selected_option = st.selectbox(
-            "Revisar consulta:",
-            options,
-            index=st.session_state.active_index
+            "Revisar consulta:", 
+            options, 
+            index=st.session_state.active_index,
+            help="Te permite volver a ver cualquiera de las consultas realizadas anteriormente en esta sesión de forma instantánea."
         )
         new_active = options.index(selected_option)
         if new_active != st.session_state.active_index:
             st.session_state.active_index = new_active
             st.rerun()
 
-# --- Main Page Header Box (Defined Area, Text on Left, Logo on Right) ---
+# Header
 base64_logo = get_base64_logo(logo_path)
-
 if base64_logo:
-    # Premium Header Container with logo on the left side and theme-aware background
     st.markdown(f"""
-    <div style="
-        position: sticky;
-        top: 2.875rem;
-        z-index: 99;
-        display: flex;
+    <style>
+    .ijf-tooltip {{
+        position: relative;
+        display: inline-flex;
         align-items: center;
-        background-color: var(--secondary-background-color);
-        border: 1px solid rgba(128, 128, 128, 0.25);
-        border-radius: 8px;
-        padding: 1.4rem 1.5rem;
-        margin-bottom: 1rem;
-        width: 100%;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    ">
-        <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem;">
-            <img src="data:image/png;base64,{base64_logo}" style="width: 85px; height: 85px; border-radius: 50%; border: 2.5px solid #1d4ed8; object-fit: cover;" />
-        </div>
-        <div style="flex-grow: 1;">
-            <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.6rem; margin: 0; font-weight: 700; line-height: 1.2;">
-                IJF SOR Assistant
-            </h1>
-            <p style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 0.88rem; margin: 0.2rem 0 0 0; line-height: 1.3;">
-                Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)
-            </p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-else:
-    # Fallback header if logo not found (Sticky at the top)
-    st.markdown("""
-    <div style="
-        position: sticky;
-        top: 2.875rem;
-        z-index: 99;
-        background-color: var(--secondary-background-color);
-        border: 1px solid rgba(128, 128, 128, 0.25);
-        border-radius: 8px;
-        padding: 0.8rem 1.2rem;
-        margin-bottom: 1rem;
-        width: 100%;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    ">
-        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.6rem; margin: 0; font-weight: 700;">
-            IJF SOR Assistant
-        </h1>
-        <p style="font-family: 'Inter', sans-serif; color: var(--text-color); opacity: 0.85; font-size: 0.88rem; margin: 0.2rem 0 0 0;">
-            Asistente de Consulta del Reglamento de la Federación Internacional de Judo (KUNs v1.0)
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-
-# Initialize session states
-if "search_query_input_widget" not in st.session_state:
-    st.session_state.search_query_input_widget = ""
-if "last_query" not in st.session_state:
-    st.session_state.last_query = ""
-if "active_placeholder" not in st.session_state:
-    st.session_state.active_placeholder = "Ej: ¿Cómo se sanciona el puente de cabeza? o ¿Cuál es la tolerancia de peso?"
-if "trigger_search" not in st.session_state:
-    st.session_state.trigger_search = False
-
-# --- Custom Premium Theme-Aware CSS ---
-st.markdown("""
-<style>
-    /* Vertically center elements in columns */
-    div[data-testid="stHorizontalBlock"] {
-        align-items: center !important;
-    }
-    /* Reset default top margins for buttons inside columns */
-    div[data-testid="stButton"] {
-        margin-top: 0px !important;
-    }
-    /* Styling search input wrapper */
-    div[data-testid="stTextInput"] {
-        margin-top: -0.5rem !important;
-        margin-bottom: 0.5rem !important;
-    }
-    /* Styling selectbox wrapper */
-    div[data-testid="stSelectbox"] {
-        margin-top: -0.5rem !important;
-        margin-bottom: 0.5rem !important;
-    }
-    /* Reduce selectbox value font size when closed */
-    div[data-testid="stSelectbox"] * {
-        font-family: 'Inter', sans-serif !important;
-        font-size: 0.95rem !important;
-    }
-    /* Reduce selectbox dropdown option items font size when open */
-    div[role="listbox"] * {
-        font-family: 'Inter', sans-serif !important;
-        font-size: 0.95rem !important;
-    }
-    /* Input field itself - Adapt to dark/light backgrounds */
-    div[data-testid="stTextInput"] input {
-        font-family: 'Inter', sans-serif !important;
-        font-size: 1.05rem !important;
-        padding: 0.75rem 1rem 0.75rem 2.8rem !important; /* Left padding for search icon */
-        border-radius: 8px !important;
-        border: 2px solid rgba(128, 128, 128, 0.3) !important;
-        background-color: var(--background-color) !important;
-        color: var(--text-color) !important;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    }
-    div[data-testid="stTextInput"] input:focus {
-        border-color: #1d4ed8 !important;
-        box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.2) !important;
-    }
-    /* Custom magnifying glass icon inside input */
-    div[data-testid="stTextInput"] > div::before {
-        content: "🔍";
+        cursor: default;
+    }}
+    .ijf-tooltip .ijf-tooltiptext {{
+        visibility: hidden;
+        background-color: #1e293b;
+        color: #e2e8f0;
+        text-align: left;
+        padding: 0.5rem 0.8rem;
+        border-radius: 6px;
+        font-size: 0.78rem;
+        font-family: 'Inter', sans-serif;
+        white-space: nowrap;
         position: absolute;
-        left: 0.9rem;
-        top: 0.75rem;
-        z-index: 10;
-        font-size: 1.1rem;
-        opacity: 0.7;
-    }
-    /* Placeholder styling - softer color and semi-transparent */
-    div[data-testid="stTextInput"] input::placeholder {
-        color: var(--text-color) !important;
-        opacity: 0.55 !important;
-        transition: opacity 0.2s ease !important;
-    }
-    div[data-testid="stTextInput"] input:focus::placeholder {
-        opacity: 0.2 !important;
-    }
-    /* Style primary search button (IJF Cobalt Blue) */
-    div.stButton > button[type="primary"] {
-        background-color: #1d4ed8 !important;
-        border: none !important;
-        color: #ffffff !important;
-        border-radius: 8px !important;
-        font-family: 'Inter', sans-serif !important;
-        font-weight: 600 !important;
-        font-size: 0.95rem !important;
-        padding: 0.6rem 1rem !important;
-        transition: all 0.2s ease !important;
-        box-shadow: 0 4px 6px -1px rgba(29, 78, 216, 0.2) !important;
-    }
-    div.stButton > button[type="primary"]:hover {
-        background-color: #1e40af !important;
-        box-shadow: 0 6px 12px -1px rgba(29, 78, 216, 0.4) !important;
-        transform: translateY(-1px);
-    }
-    /* Style secondary button (Outline IJF Blue) */
-    div.stButton > button:not([type="primary"]) {
-        border: 2px solid #1d4ed8 !important;
-        background-color: transparent !important;
-        color: var(--text-color) !important;
-        border-radius: 8px !important;
-        font-family: 'Inter', sans-serif !important;
-        font-weight: 600 !important;
-        font-size: 0.95rem !important;
-        padding: 0.6rem 1rem !important;
-        transition: all 0.2s ease !important;
-    }
-    div.stButton > button:not([type="primary"]):hover {
-        background-color: #1d4ed8 !important;
-        color: #ffffff !important;
-    }
-    /* Custom Active Query Card (IJF Gold highlight) */
-    .active-query-card {
-        background-color: rgba(234, 179, 8, 0.08) !important;
-        border-left: 5px solid #eab308 !important;
-        border-right: 1px solid rgba(234, 179, 8, 0.15) !important;
-        border-top: 1px solid rgba(234, 179, 8, 0.15) !important;
-        border-bottom: 1px solid rgba(234, 179, 8, 0.15) !important;
-        padding: 1rem 1.25rem !important;
-        border-radius: 0 8px 8px 0 !important;
-        margin-top: 1.5rem !important;
-        margin-bottom: 1.2rem !important;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
-        color: var(--text-color) !important;
-    }
-</style>
-""", unsafe_allow_html=True)
-
-# Callback to safely load example question before widgets are drawn
-def load_example():
-    sel = st.session_state.get("example_select_widget")
-    if sel and sel != "Elige una pregunta para consultar...":
-        st.session_state.active_placeholder = sel
-        st.session_state.search_query_input_widget = ""
-        st.session_state.trigger_search = True
-
-# --- 🔍 Direct Question Card Area ---
-with st.container(border=True):
-    st.markdown('<div style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; font-family: \'Outfit\', sans-serif; display: flex; align-items: center; gap: 0.5rem; color: #1d4ed8;">🥋 <span>Realiza tu pregunta:</span></div>', unsafe_allow_html=True)
-    
-    scol1, scol2 = st.columns([4.5, 1.5])
-    with scol1:
-        user_input = st.text_input(
-            "Consulta",
-            placeholder=st.session_state.active_placeholder,
-            label_visibility="collapsed",
-            key="search_query_input_widget"
-        )
-    with scol2:
-        buscar_btn = st.button("Buscar Regla", use_container_width=True, type="primary")
-    
-    st.caption("💡 You may ask your question in your preferred language. Multilingual support is currently being evaluated and continuously improved.")
-
-# --- 💡 Example Questions Card Area ---
-with st.container(border=True):
-    st.markdown('<div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">💡 Sugerencias:</div>', unsafe_allow_html=True)
-    
-    preguntas_ejemplo = [
-        "Elige una pregunta para consultar...",
-        "¿Se permite la defensa con la cabeza?",
-        "¿Cuáles son las dimensiones del tatami?",
-        "¿Cuántas intervenciones médicas se permiten por combate?",
-        "¿Qué es la tecnología Smart Judogi con chip NFC?",
-        "¿Cómo se sanciona el abrazo de oso (bear hug)?",
-        "¿Cómo se sanciona el reverse seoi-nage en cadetes?",
-        "¿Qué sucede si un competidor se desmaya por estrangulación (shime-waza)?",
-        "¿Qué es el Sokuteiki y cómo se usa?",
-        "¿Cuáles son las reglas de color de Judogi (blanco y azul)?",
-        "¿Cómo funciona el protocolo de conmoción cerebral (head trauma) y cuántos días de inhabilitación genera?",
-        "¿Cuál es el tiempo de tolerancia para presentarse en el tatami antes de la descalificación?",
-        "¿Cuáles son las diferencias de tolerancia de peso entre el pesaje oficial y el pesaje aleatorio?",
-        "¿Cómo se dividen las llaves de competencia con repechaje en el sistema oficial?",
-        "¿Cuál es el código de vestimenta oficial para los médicos de los equipos?",
-        "¿Está permitido el uso de vendajes (taping) en los dedos y cómo debe ser aprobado?"
-    ]
-    
-    col_sel, col_btn = st.columns([4.5, 1.5])
-    with col_sel:
-        seleccionada = st.selectbox("Selecciona una pregunta predefinida para probar de inmediato:", preguntas_ejemplo, label_visibility="collapsed", key="example_select_widget")
-    with col_btn:
-        trigger_ejemplo = st.button("Probar Ejemplo", use_container_width=True, on_click=load_example)
-
-st.write("")
-
-# Query validation trigger logic
-query_to_run = None
-user_input_clean = user_input.strip() if user_input else ""
-
-if user_input_clean:
-    if buscar_btn or user_input_clean != st.session_state.get("last_query", ""):
-        query_to_run = user_input_clean
-        st.session_state.last_query = user_input_clean
+        z-index: 999;
+        top: 130%;
+        left: 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }}
+    .ijf-tooltip:hover .ijf-tooltiptext {{
+        visibility: visible;
+    }}
+    .ijf-help-icon {{
+        width: 16px; height: 16px;
+        background: rgba(29,78,216,0.15);
+        border: 1px solid #1d4ed8;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        color: #1d4ed8;
+        font-weight: 700;
+        margin-left: 0.5rem;
+        font-family: 'Inter', sans-serif;
+        flex-shrink: 0;
+    }}
+    </style>
+    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem 0.8rem 4.5rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; position: relative; z-index: 99;">
+        <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem;">
+            <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 60px; height: 60px; object-fit: contain; display: block;" />
+        </div>
+        <div style="flex-grow: 1; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
+            <div class="ijf-tooltip">
+                <div class="ijf-help-icon">?</div>
+                <div class="ijf-tooltiptext">Reglamento de la Federación Internacional de Judo (SOR 2026)</div>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 else:
-    if st.session_state.get("active_placeholder") and st.session_state.active_placeholder != "Ej: ¿Cómo se sanciona el puente de cabeza? o ¿Cuál es la tolerancia de peso?":
-        if buscar_btn or st.session_state.get("trigger_search", False):
-            query_to_run = st.session_state.active_placeholder
-            st.session_state.last_query = st.session_state.active_placeholder
-            st.session_state.trigger_search = False
+    st.markdown("""
+    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem 0.8rem 4.5rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
+        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
+    </div>
+    """, unsafe_allow_html=True)
 
-# Run query and append to history
+# Handle user input
+query_to_run = None
+
+# Check if a suggestion card was clicked
+if st.session_state.get("query_to_run"):
+    query_to_run = st.session_state.pop("query_to_run")
+
+# Chat input for manual queries
+user_input = st.chat_input("Escribe tu consulta sobre el reglamento de la IJF...")
+if user_input:
+    query_to_run = user_input.strip()
+
+
 if query_to_run:
-    with st.spinner("Buscando en la base de datos y consultando modelo..."):
+    with st.status("Consultando el Reglamento SOR 2026...", expanded=True) as status:
+        status.write("🔍 Buscando en la base de conocimiento...")
         res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
         retrieved_kuns = res.get('retrieved_kuns_data', [])
+        status.write(f"📚 {len(retrieved_kuns)} regla(s) recuperada(s) del grafo...")
+        status.write("✍️ Generando respuesta con el modelo...")
         
-        # Compile Graphviz DOT code
         dot_code = "digraph {\n  rankdir=LR;\n  node [shape=box, style=filled, fontname=\"Arial\", fontsize=10];\n"
         retrieved_ids = {k['id_conocimiento'] for k in retrieved_kuns}
         for kun in retrieved_kuns:
@@ -470,20 +376,92 @@ if query_to_run:
             "dot_code": dot_code
         })
         st.session_state.active_index = len(st.session_state.history) - 1
+        status.update(label="✅ Respuesta generada", state="complete", expanded=False)
 
-# Render only the ACTIVE query-answer pair
 if st.session_state.active_index >= 0:
-    active_item = st.session_state.history[st.session_state.active_index]
-    
-    # Styled active query card
-    st.markdown(f"""
-    <div class="active-query-card">
-        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; font-weight: 700; margin-bottom: 0.3rem;">
-            ❓ Consulta Activa
-        </div>
-        <div style="font-size: 1.1rem; color: #f8fafc; font-weight: 600;">
-            {active_item['query']}
-        </div>
+    if show_audit:
+        col_chat, col_trace = st.columns([0.60, 0.40], gap="large")
+    else:
+        col_chat = st.container()
+        col_trace = None
+        
+    with col_chat:
+        for i, item in enumerate(st.session_state.history):
+            if i <= st.session_state.active_index:
+                with st.chat_message("user", avatar="👤"):
+                    st.markdown(item['query'])
+                with st.chat_message("assistant", avatar="⚖️"):
+                    st.markdown(item['answer'])
+                    if not show_audit and i == st.session_state.active_index:
+                        st.caption("💡 Puedes activar el panel de **Trazabilidad y Grafo** en la barra lateral para auditar las citas oficiales de esta consulta.")
+                        
+    if show_audit and col_trace is not None:
+        with col_trace:
+            active_item = st.session_state.history[st.session_state.active_index]
+            is_fallback = "lo siento" in active_item['answer'].lower()
+            
+            tab_cite, tab_graph = st.tabs(["📚 Trazabilidad y Citas", "🕸️ Subgrafo Relacional"])
+            
+            with tab_cite:
+                if not is_fallback and active_item['trazabilidad']:
+                    with st.expander("ℹ️ Sobre la disponibilidad de las fuentes oficiales", expanded=False):
+                        st.markdown(
+                            '<div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">'
+                            'La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).<br><br>'
+                            'Algunas fuentes pueden: permitir acceso directo al contenido específico; redirigir únicamente al portal oficial; haber sido migradas; o dejar de estar disponibles debido a cambios en la plataforma de origen.<br><br>'
+                            'Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y presentará una referencia alternativa cuando exista.<br><br>'
+                            '<strong>Leyenda:</strong> &nbsp; '
+                            '🟢 <em>Disponible</em> &nbsp;&nbsp; '
+                            '🟡 <em>Migrada</em> &nbsp;&nbsp; '
+                            '🔵 <em>Portal General</em> &nbsp;&nbsp; '
+                            '🔴 <em>No Disponible</em>'
+                            '</div>', unsafe_allow_html=True
+                        )
+                    
+                    st.caption("📱 *En celulares, desplázate manualmente a la página indicada (función en proceso de mejora).*")
+                    for kun in active_item['trazabilidad']:
+                        res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
+                        url = res.get("url")
+                        is_clickable = res.get("is_clickable", True)
+                        op_status = res.get("operational_status", "AVAILABLE")
+                        
+                        source_id = kun['fuente_origen']
+                        ref_spec = kun.get('referencia_especifica', 'Reglamento')
+                        name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
+                        
+                        if is_clickable and url:
+                            source_link = f"[{name} ({ref_spec})]({url})"
+                        elif op_status == "DELETED":
+                            source_link = f"~~{name} ({ref_spec})~~"
+                        else:
+                            source_link = f"{name} ({ref_spec})"
+                        
+                        badge_emoji = "🟢"
+                        if op_status == "MIGRATED":
+                            badge_emoji = "🟡"
+                        elif op_status == "FALLBACK_GENERAL":
+                            badge_emoji = "🔵"
+                        elif op_status == "DELETED":
+                            badge_emoji = "🔴"
+                        
+                        st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res.get('ux_message', '')}*")
+                        st.markdown(f"* **Fuente:** {source_link}")
+                        st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
+                        st.write(f"* Interpretación: {kun['interpretacion']}")
+                        st.write("---")
+                else:
+                    st.info("No hay trazabilidad legal disponible para esta consulta.")
+                    
+            with tab_graph:
+                if not is_fallback and active_item['dot_code']:
+                    st.graphviz_chart(active_item['dot_code'])
+                else:
+                    st.info("No hay relaciones de grafo disponibles para esta consulta.")
+else:
+    st.markdown("""
+    <div style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">
+        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.1rem; font-weight: 700; margin-bottom: 0.8rem;">🥋 Bienvenido al Asistente del SOR de la IJF</h1>
+        <p style="font-size: 1.05rem; opacity: 0.85; max-width: 600px; margin: 0 auto; line-height: 1.4; margin-bottom: 1rem;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -553,7 +531,25 @@ if st.session_state.active_index >= 0:
         with st.expander("🕸️ Ver Subgrafo de Relaciones"):
             st.graphviz_chart(active_item['dot_code'])
 
-# Scope explanation moved to the bottom to keep the core action prominent
+    # Suggested topic chips – minimal, non-intrusive
+    st.markdown("""<div style=\"font-size: 0.8rem; font-weight: 500; text-align: center; margin-bottom: 0.6rem; margin-top: 1.5rem; color: #94a3b8; letter-spacing: 0.04em;\">Prueba con alguna de estas consultas</div>""", unsafe_allow_html=True)
+
+    # Chip labels (short) mapped to full questions
+    suggestion_chips = [
+        ("Defensa con la cabeza", "¿Se permite la defensa con la cabeza?"),
+        ("Dimensiones del tatami", "¿Cuáles son las dimensiones del tatami?"),
+        ("Intervenciones médicas", "¿Cuántas intervenciones médicas se permiten por combate?"),
+        ("Sokuteiki y su uso", "¿Qué es el Sokuteiki y cómo se usa?"),
+        ("Reverse seoi-nage", "¿Cómo se sanciona el reverse seoi-nage en cadetes?"),
+        ("Color de Judogi", "¿Cuáles son las reglas de color de Judogi?"),
+    ]
+    chip_cols = st.columns(len(suggestion_chips))
+    for i, (label, full_query) in enumerate(suggestion_chips):
+        with chip_cols[i]:
+            if st.button(label, key=f"chip_{i}", help=full_query):
+                st.session_state.query_to_run = full_query
+                st.rerun()
+
 st.write("---")
 with st.expander("📝 Alcance del Asistente & Cobertura de Temas"):
     st.markdown(f"El asistente cuenta con **{kg_metrics['nodes_count']} Unidades de Conocimiento certificadas** extraídas de las fuentes oficiales de la IJF.")
@@ -571,7 +567,6 @@ with st.expander("📝 Alcance del Asistente & Cobertura de Temas"):
         st.markdown("""
         #### ❌ Fuera de Alcance (No Cubiertos)
         *   **🏫 Educación y Coaches (Sección 5):** Códigos de vestimenta para entrenadores en la silla, acreditaciones técnicas y penalización de tarjetas en la silla de coach.
-        *   **💵 Finanzas y Seguros (Sección 9):** Tarifas de inscripción, depósitos de hotel, multas por cancelaciones tardías, distribución de premios económicos y coberturas de seguros.
         *   **📢 Marketing y Difusión (Sección 10):** Contratos de patrocinadores oficiales de la IJF, derechos de transmisión de televisión y publicidad permitida en los banners.
         *   **🏟️ Infraestructura del Recinto (Sección 11):** Disposición física del pabellón, áreas VIP, vestuarios, requisitos de iluminación y climatización de la arena.
         *   **📋 Estatutos y Apelaciones (Apéndices A, B):** Normas internas de la IJF, elecciones directivas, el Código Disciplinario y procesos de apelación federativos.
