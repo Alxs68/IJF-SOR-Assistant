@@ -147,19 +147,9 @@ st.markdown("""
         font-weight: 600 !important;
         line-height: 1.35 !important;
     }
-    .stMarkdown h1 { font-size: 1.2rem !important; }
-    .stMarkdown h2 { font-size: 1.1rem !important; }
-    .stMarkdown h3 { font-size: 1rem !important; }
-    [data-testid="stBottom"]::before {
-        content: "🌐 Puede realizar sus consultas en el idioma de su preferencia. El asistente intentará responder en el mismo idioma.";
-        display: block;
-        text-align: left;
-        font-size: 0.85rem;
-        color: #64748b;
-        padding: 0.4rem 0 0.4rem 3rem;
-        font-family: 'Inter', sans-serif;
-        line-height: 1.3;
-    }
+    .stMarkdown h1 { font-size: 1.4rem !important; }
+    .stMarkdown h2 { font-size: 1.2rem !important; }
+    .stMarkdown h3 { font-size: 1.05rem !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -338,16 +328,16 @@ if base64_logo:
         flex-shrink: 0;
     }}
     </style>
-    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem 0.8rem 4.5rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; position: relative; z-index: 99;">
-        <div style="flex-shrink: 0; display: flex; align-items: center; margin-right: 1.5rem;">
-            <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 60px; height: 60px; object-fit: contain; display: block;" />
+    <div style="display: flex; align-items: center; justify-content: space-between; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; position: relative; z-index: 99; flex-wrap: wrap; gap: 1rem;">
+        <div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 80px;">
+            <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 62px; height: 62px; object-fit: contain; display: block;" />
         </div>
-        <div style="flex-grow: 1; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; justify-content: center;">
-            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.5rem; margin: 0; font-weight: 700; line-height: 1.1; min-width: 0;">Asistente SOR IJF</h2>
-            <div class="ijf-tooltip">
-                <div class="ijf-help-icon">?</div>
-                <div class="ijf-tooltiptext">Reglamento de la Federación Internacional de Judo (SOR 2026)</div>
+        <div style="flex-grow: 1; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 640px;">
+            <div class="ijf-tooltip" style="order: 0;">
+                <div class="ijf-help-icon" style="margin-left: 0; margin-right: 0.5rem;">?</div>
+                <div class="ijf-tooltiptext" style="left: 0; top: 130%;">Reglamento de la Federación Internacional de Judo (SOR 2026)</div>
             </div>
+            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2rem; margin: 0; font-weight: 700; line-height: 1.05; min-width: 0; text-align: center;">Asistente SOR IJF</h2>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -366,7 +356,7 @@ if st.session_state.get("query_to_run"):
     query_to_run = st.session_state.pop("query_to_run")
 
 # Chat input for manual queries
-user_input = st.chat_input("Escribe tu consulta sobre el reglamento de la IJF...")
+user_input = st.chat_input("Haga su consulta")
 if user_input:
     query_to_run = user_input.strip()
 
@@ -442,7 +432,7 @@ if st.session_state.active_index >= 0:
                             '</div>', unsafe_allow_html=True
                         )
                     
-                    st.caption("📱 *En celulares, desplázate manualmente a la página indicada (función en proceso de mejora).*")
+                    st.caption("📱 *En celulares, el documento se abre pero no siempre dirige al detalle. En navegadores web funciona como enlace directo al contenido relevante.*")
                     for kun in active_item['trazabilidad']:
                         res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
                         url = res.get("url")
@@ -483,9 +473,9 @@ if st.session_state.active_index >= 0:
                     st.info("No hay relaciones de grafo disponibles para esta consulta.")
 else:
     st.markdown("""
-    <div style="text-align: center; margin-top: 3rem; margin-bottom: 1.5rem;">
-        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.85rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.6rem; max-width: 32rem; margin-left: auto; margin-right: auto;">🥋 Bienvenido al Asistente del SOR de la IJF</h1>
-        <p style="font-size: 1rem; opacity: 0.85; max-width: 640px; margin: 0 auto; line-height: 1.45; margin-bottom: 1rem;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame abajo sobre arbitraje, uniformes (Sokuteiki), pesaje o asistencia médica.</p>
+    <div style="text-align: center; margin-top: 1.6rem; margin-bottom: 1.2rem;">
+        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.05rem; font-weight: 700; line-height: 1.05; margin-bottom: 0.4rem; max-width: 28rem; margin-left: auto; margin-right: auto;">Bienvenido al Asistente SOR IJF</h1>
+        <p style="font-size: 1rem; opacity: 0.85; max-width: 640px; margin: 0 auto; line-height: 1.45; margin-bottom: 1rem;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame sobre arbitraje, uniformes, pesaje o asistencia médica.</p>
     </div>
     """, unsafe_allow_html=True)
 
