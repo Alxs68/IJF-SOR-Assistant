@@ -328,23 +328,23 @@ if base64_logo:
         flex-shrink: 0;
     }}
     </style>
-    <div style="display: flex; align-items: center; justify-content: space-between; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; position: relative; z-index: 99; flex-wrap: wrap; gap: 1rem;">
-        <div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 80px;">
-            <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 62px; height: 62px; object-fit: contain; display: block;" />
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 1.5rem 1rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; position: relative; z-index: 99; text-align: center; gap: 0.8rem;">
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 80px; height: 80px; object-fit: contain; display: block;" />
         </div>
-        <div style="flex-grow: 1; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 640px;">
-            <div class="ijf-tooltip" style="order: 0;">
-                <div class="ijf-help-icon" style="margin-left: 0; margin-right: 0.5rem;">?</div>
-                <div class="ijf-tooltiptext" style="left: 0; top: 130%;">Reglamento de la Federación Internacional de Judo (SOR 2026)</div>
+        <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem;">
+            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.2rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
+            <div class="ijf-tooltip">
+                <div class="ijf-help-icon" style="margin-left: 0;">?</div>
+                <div class="ijf-tooltiptext" style="left: 50%; transform: translateX(-50%); top: 130%;">Reglamento de la Federación Internacional de Judo (SOR 2026)</div>
             </div>
-            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2rem; margin: 0; font-weight: 700; line-height: 1.05; min-width: 0; text-align: center;">Asistente SOR IJF</h2>
         </div>
     </div>
     """, unsafe_allow_html=True)
 else:
     st.markdown("""
-    <div style="display: flex; align-items: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 0.8rem 1.2rem 0.8rem 4.5rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px;">
-        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 1.7rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 1.5rem 1rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; text-align: center;">
+        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.2rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
     </div>
     """, unsafe_allow_html=True)
 
