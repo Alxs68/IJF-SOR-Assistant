@@ -210,79 +210,6 @@ def load_example():
 
 # Sidebar
 with st.sidebar:
-    st.markdown("### 🥋 Gobernanza del Grafo")
-    if is_connected:
-        st.markdown('<span class="status-badge-connected">🟢 Modo Conectado (Gemini)</span>', unsafe_allow_html=True)
-    else:
-        st.markdown('<span class="status-badge-offline">🟡 Modo Offline (Simulado)</span>', unsafe_allow_html=True)
-        
-    st.write("---")
-    
-    st.markdown("**📈 Módulos de Conocimiento**")
-    mcol1, mcol2 = st.columns(2)
-    with mcol1:
-        st.metric("Total KUNs", kg_metrics['nodes_count'])
-    with mcol2:
-        st.metric("Relaciones", kg_metrics['edges_count'])
-    st.metric("Grado Promedio", f"{kg_metrics['avg_degree']:.2f}")
-    
-    st.markdown("**🛡️ Auditoría Legal**")
-    prev_audit = st.session_state.get("_prev_show_audit", False)
-    show_audit = st.toggle(
-        "🔍 Mostrar Trazabilidad y Grafo", 
-        value=prev_audit,
-        key="show_audit_toggle",
-        help="Activa un panel adicional donde podrás consultar las fuentes oficiales utilizadas para construir la respuesta y visualizar las relaciones entre las reglas encontradas. Si solo deseas conversar con el asistente, puedes dejar esta opción desactivada."
-    )
-    if show_audit != prev_audit:
-        st.session_state["_prev_show_audit"] = show_audit
-        st.rerun()
-    
-    st.write("---")
-    st.markdown("**🧭 Ajustes de Búsqueda**")
-    k_param = st.slider(
-        "Cantidad de Reglas a Consultar", 
-        1, 5, 3,
-        help="Define cuántas reglas oficiales revisará el asistente antes de elaborar la respuesta. Un valor mayor puede ofrecer respuestas más completas, aunque también puede aumentar ligeramente el tiempo de búsqueda."
-    )
-    min_score_param = st.slider(
-        "Filtro Anti-Distracciones", 
-        0.05, 0.50, 0.10, 0.05,
-        help="Controla qué tan relacionadas deben estar las reglas encontradas con tu consulta. Valores bajos permiten considerar más información; valores altos muestran únicamente las coincidencias más relevantes."
-    )
-    
-    st.write("---")
-    st.markdown("**🕸️ Nodos Hub**")
-    for node, deg in kg_metrics['hubs'][:2]:
-        st.markdown(f"- `{node}` ({deg} enlaces)", unsafe_allow_html=True)
-
-    st.write("---")
-    st.markdown("**💡 Sugerencias Rápidas**")
-    st.selectbox(
-        "Selecciona una pregunta ejemplo:",
-        preguntas_ejemplo,
-        key="example_select_widget",
-        on_change=load_example,
-        label_visibility="collapsed",
-        help="Elige una pregunta predefinida para ver cómo responde el asistente."
-    )
-
-    if len(st.session_state.history) > 0:
-        st.write("---")
-        st.markdown("**📚 Historial**")
-        options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
-        selected_option = st.selectbox(
-            "Revisar consulta:", 
-            options, 
-            index=st.session_state.active_index,
-            help="Te permite volver a ver cualquiera de las consultas realizadas anteriormente en esta sesión de forma instantánea."
-        )
-        new_active = options.index(selected_option)
-        if new_active != st.session_state.active_index:
-            st.session_state.active_index = new_active
-            st.rerun()
-
-    st.write("---")
     st.markdown("**ℹ️ Información**")
     
     with st.expander("1. Proyecto", expanded=False):
@@ -331,6 +258,65 @@ Basado en **Sport and Organisation Rules (SOR) 2026**
 
 Última actualización: **Julio de 2026**
         """)
+
+    st.write("---")
+    st.markdown("**🧭 Ajustes de Búsqueda**")
+    k_param = st.slider(
+        "Cantidad de Reglas a Consultar", 
+        1, 5, 3,
+        help="Define cuántas reglas oficiales revisará el asistente antes de elaborar la respuesta. Un valor mayor puede ofrecer respuestas más completas, aunque también puede aumentar ligeramente el tiempo de búsqueda."
+    )
+    min_score_param = st.slider(
+        "Filtro Anti-Distracciones", 
+        0.05, 0.50, 0.10, 0.05,
+        help="Controla qué tan relacionadas deben estar las reglas encontradas con tu consulta. Valores bajos permiten considerar más información; valores altos muestran únicamente las coincidencias más relevantes."
+    )
+
+    st.write("---")
+    st.markdown("**💡 Sugerencias Rápidas**")
+    st.selectbox(
+        "Selecciona una pregunta ejemplo:",
+        preguntas_ejemplo,
+        key="example_select_widget",
+        on_change=load_example,
+        label_visibility="collapsed",
+        help="Elige una pregunta predefinida para ver cómo responde el asistente."
+    )
+
+    if len(st.session_state.history) > 0:
+        st.write("---")
+        st.markdown("**📚 Historial**")
+        options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
+        selected_option = st.selectbox(
+            "Revisar consulta:", 
+            options, 
+            index=st.session_state.active_index,
+            help="Te permite volver a ver cualquiera de las consultas realizadas anteriormente en esta sesión de forma instantánea."
+        )
+        new_active = options.index(selected_option)
+        if new_active != st.session_state.active_index:
+            st.session_state.active_index = new_active
+            st.rerun()
+
+    st.write("---")
+    st.markdown("### 🥋 Gobernanza del Grafo")
+    if is_connected:
+        st.markdown('<span class="status-badge-connected">🟢 Modo Conectado (Gemini)</span>', unsafe_allow_html=True)
+    else:
+        st.markdown('<span class="status-badge-offline">🟡 Modo Offline (Simulado)</span>', unsafe_allow_html=True)
+        
+    st.markdown("**📈 Módulos de Conocimiento**")
+    mcol1, mcol2 = st.columns(2)
+    with mcol1:
+        st.metric("Total KUNs", kg_metrics['nodes_count'])
+    with mcol2:
+        st.metric("Relaciones", kg_metrics['edges_count'])
+    st.metric("Grado Promedio", f"{kg_metrics['avg_degree']:.2f}")
+    
+    st.markdown("**🕸️ Nodos Hub**")
+    for node, deg in kg_metrics['hubs'][:2]:
+        st.markdown(f"- `{node}` ({deg} enlaces)", unsafe_allow_html=True)
+
 
 
 # Header
@@ -444,84 +430,76 @@ if query_to_run:
         status.update(label="✅ Respuesta generada", state="complete", expanded=False)
 
 if st.session_state.active_index >= 0:
-    if show_audit:
-        col_chat, col_trace = st.columns([0.60, 0.40], gap="large")
-    else:
-        col_chat = st.container()
-        col_trace = None
-        
-    with col_chat:
-        for i, item in enumerate(st.session_state.history):
-            if i <= st.session_state.active_index:
-                with st.chat_message("user", avatar="👤"):
-                    st.markdown(item['query'])
-                with st.chat_message("assistant", avatar="⚖️"):
-                    st.markdown(item['answer'])
-                    if not show_audit and i == st.session_state.active_index:
-                        st.caption("💡 Puedes activar el panel de **Trazabilidad y Grafo** en la barra lateral para auditar las citas oficiales de esta consulta.")
-                        
-    if show_audit and col_trace is not None:
-        with col_trace:
-            active_item = st.session_state.history[st.session_state.active_index]
-            is_fallback = "lo siento" in active_item['answer'].lower()
+    history_to_show = st.session_state.history[:st.session_state.active_index + 1]
+    
+    st.write("---")
+    
+    for original_i, item in reversed(list(enumerate(history_to_show))):
+        with st.chat_message("user", avatar="👤"):
+            st.markdown(item['query'])
+        with st.chat_message("assistant", avatar="⚖️"):
+            st.markdown(item['answer'])
             
-            tab_cite, tab_graph = st.tabs(["📚 Trazabilidad y Citas", "🕸️ Subgrafo Relacional"])
-            
-            with tab_cite:
-                if not is_fallback and active_item['trazabilidad']:
-                    with st.expander("ℹ️ Sobre la disponibilidad de las fuentes oficiales", expanded=False):
-                        st.markdown(
-                            '<div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">'
-                            'La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).<br><br>'
-                            'Algunas fuentes pueden: permitir acceso directo al contenido específico; redirigir únicamente al portal oficial; haber sido migradas; o dejar de estar disponibles debido a cambios en la plataforma de origen.<br><br>'
-                            'Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y presentará una referencia alternativa cuando exista.<br><br>'
-                            '<strong>Leyenda:</strong> &nbsp; '
-                            '🟢 <em>Disponible</em> &nbsp;&nbsp; '
-                            '🟡 <em>Migrada</em> &nbsp;&nbsp; '
-                            '🔵 <em>Portal General</em> &nbsp;&nbsp; '
-                            '🔴 <em>No Disponible</em>'
-                            '</div>', unsafe_allow_html=True
-                        )
+            is_fallback = "lo siento" in item['answer'].lower()
+            if not is_fallback and item.get('trazabilidad'):
+                with st.expander("🔍 Mostrar Trazabilidad y Grafo", expanded=False):
+                    tab_cite, tab_graph = st.tabs(["📚 Trazabilidad y Citas", "🕸️ Subgrafo Relacional"])
                     
-                    st.caption("📱 *En celulares, el documento se abre pero no siempre dirige al detalle. En navegadores web funciona como enlace directo al contenido relevante.*")
-                    for kun in active_item['trazabilidad']:
-                        res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
-                        url = res.get("url")
-                        is_clickable = res.get("is_clickable", True)
-                        op_status = res.get("operational_status", "AVAILABLE")
+                    with tab_cite:
+                        with st.expander("ℹ️ Sobre la disponibilidad de las fuentes oficiales", expanded=False):
+                            st.markdown(
+                                '<div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">'
+                                'La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).<br><br>'
+                                'Algunas fuentes pueden: permitir acceso directo al contenido específico; redirigir únicamente al portal oficial; haber sido migradas; o dejar de estar disponibles debido a cambios en la plataforma de origen.<br><br>'
+                                'Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y presentará una referencia alternativa cuando exista.<br><br>'
+                                '<strong>Leyenda:</strong> &nbsp; '
+                                '🟢 <em>Disponible</em> &nbsp;&nbsp; '
+                                '🟡 <em>Migrada</em> &nbsp;&nbsp; '
+                                '🔵 <em>Portal General</em> &nbsp;&nbsp; '
+                                '🔴 <em>No Disponible</em>'
+                                '</div>', unsafe_allow_html=True
+                            )
                         
-                        source_id = kun['fuente_origen']
-                        ref_spec = kun.get('referencia_especifica', 'Reglamento')
-                        name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
-                        
-                        if is_clickable and url:
-                            source_link = f"[{name} ({ref_spec})]({url})"
-                        elif op_status == "DELETED":
-                            source_link = f"~~{name} ({ref_spec})~~"
+                        st.caption("📱 *En celulares, el documento se abre pero no siempre dirige al detalle. En navegadores web funciona como enlace directo al contenido relevante.*")
+                        for kun in item['trazabilidad']:
+                            res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
+                            url = res.get("url")
+                            is_clickable = res.get("is_clickable", True)
+                            op_status = res.get("operational_status", "AVAILABLE")
+                            
+                            source_id = kun['fuente_origen']
+                            ref_spec = kun.get('referencia_especifica', 'Reglamento')
+                            name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
+                            
+                            if is_clickable and url:
+                                source_link = f"[{name} ({ref_spec})]({url})"
+                            elif op_status == "DELETED":
+                                source_link = f"~~{name} ({ref_spec})~~"
+                            else:
+                                source_link = f"{name} ({ref_spec})"
+                            
+                            badge_emoji = "🟢"
+                            if op_status == "MIGRATED":
+                                badge_emoji = "🟡"
+                            elif op_status == "FALLBACK_GENERAL":
+                                badge_emoji = "🔵"
+                            elif op_status == "DELETED":
+                                badge_emoji = "🔴"
+                            
+                            st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res.get('ux_message', '')}*")
+                            st.markdown(f"* **Fuente:** {source_link}")
+                            st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
+                            st.write(f"* Interpretación: {kun['interpretacion']}")
+                            st.write("---")
+                            
+                    with tab_graph:
+                        if item.get('dot_code'):
+                            st.graphviz_chart(item['dot_code'])
                         else:
-                            source_link = f"{name} ({ref_spec})"
-                        
-                        badge_emoji = "🟢"
-                        if op_status == "MIGRATED":
-                            badge_emoji = "🟡"
-                        elif op_status == "FALLBACK_GENERAL":
-                            badge_emoji = "🔵"
-                        elif op_status == "DELETED":
-                            badge_emoji = "🔴"
-                        
-                        st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res.get('ux_message', '')}*")
-                        st.markdown(f"* **Fuente:** {source_link}")
-                        st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
-                        st.write(f"* Interpretación: {kun['interpretacion']}")
-                        st.write("---")
-                else:
+                            st.info("No hay relaciones de grafo disponibles para esta consulta.")
+            elif not is_fallback:
+                with st.expander("🔍 Mostrar Trazabilidad y Grafo", expanded=False):
                     st.info("No hay trazabilidad legal disponible para esta consulta.")
-                    
-            with tab_graph:
-                if not is_fallback and active_item['dot_code']:
-                    st.graphviz_chart(active_item['dot_code'])
-                else:
-                    st.info("No hay relaciones de grafo disponibles para esta consulta.")
 else:
     st.markdown("""
     <div style="text-align: center; margin-top: 1.6rem; margin-bottom: 1.2rem;">
