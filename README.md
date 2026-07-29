@@ -14,17 +14,16 @@ La interfaz interactiva está desarrollada en **Streamlit** y provee un chatbot 
 | Asistente Oficial de Consulta del Reglamento IJF             |
 +--------------------------------------------------------------+
 | [ Bar Lateral ]          | [ Panel Principal ]               |
+| ℹ️ Información           |                                   |
+| 🧭 Ajustes de Búsqueda   | ⚖️ Assistant: Sanción con...       |
+| 💡 Sugerencias           | [KUN-0001] [SOR Art. 20]          |
+| 📚 Historial             |                                   |
+| 🥋 Gobernanza del Grafo  | 🔍 [ Mostrar Trazabilidad ]       |
 | 🟢 Conectado (Gemini)    |                                   |
-| Nodos Grafo: 841         | 🔍 [ Escribe tu pregunta aquí ]   |
+| Nodos Grafo: 841         | 👤 User: ¿Otra pregunta?          |
 | Relaciones:  144         |                                   |
-|                          | Active Query: ¿Defensa de cabeza? |
-| Parámetros:              |                                   |
-| - K semántico            | Assistant: Sanción con            |
-| - Umbral score           | Hansoku-make directo...           |
-|                          | [KUN-0001] [SOR Art. 20]          |
-| Hubs Centrales:          |                                   |
-| - KUN-0001 (16 enlaces)  | 📚 [ Ver Trazabilidad ]           |
-| - KUN-0026 (12 enlaces)  | 🕸️ [ Ver Subgrafo ]               |
+| Hubs Centrales:          | 🔍 [ Escribe tu pregunta aquí ]   |
+| - KUN-0001 (16 enlaces)  |                                   |
 +--------------------------------------------------------------+
 ```
 
