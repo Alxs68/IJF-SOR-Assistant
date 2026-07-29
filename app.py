@@ -475,7 +475,7 @@ else:
     st.markdown("""
     <div style="text-align: center; margin-top: 1.6rem; margin-bottom: 1.2rem;">
         <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.05rem; font-weight: 700; line-height: 1.05; margin-bottom: 0.4rem; max-width: 28rem; margin-left: auto; margin-right: auto;">Bienvenido</h1>
-        <p style="font-size: 0.9rem; color: rgba(212, 175, 55, 0.9); max-width: 640px; margin: 0 auto; line-height: 1.45; margin-bottom: 1rem; font-weight: 500;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame sobre arbitraje, uniformes, pesaje o asistencia médica.</p>
+        <p style="font-size: 0.85rem; color: rgba(212, 175, 55, 0.45); max-width: 640px; margin: 0 auto; line-height: 1.45; margin-bottom: 1rem; font-weight: 400;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame sobre arbitraje, uniformes, pesaje o asistencia médica.</p>
     </div>
     """, unsafe_allow_html=True)
 
