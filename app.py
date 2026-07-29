@@ -282,6 +282,57 @@ with st.sidebar:
             st.session_state.active_index = new_active
             st.rerun()
 
+    st.write("---")
+    st.markdown("**ℹ️ Información**")
+    
+    with st.expander("1. Proyecto", expanded=False):
+        st.markdown("""
+**IJF SOR Assistant**
+
+El IJF SOR Assistant es un asistente especializado diseñado para facilitar la consulta y comprensión del *Sport and Organisation Rules (SOR)* de la Federación Internacional de Judo (IJF).
+
+Su propósito es ofrecer respuestas fundamentadas exclusivamente en documentación oficial, permitiendo acceder de manera rápida y organizada a la información normativa utilizada en el arbitraje y la competición internacional.
+        """)
+        
+    with st.expander("2. Propósito", expanded=False):
+        st.markdown("""
+Esta aplicación fue desarrollada con el objetivo de apoyar el estudio, la preparación y la consulta del reglamento oficial de la IJF.
+
+El asistente organiza y presenta la información oficial de forma clara, facilitando el acceso al contenido normativo para árbitros, entrenadores, deportistas y demás miembros de la comunidad del judo.
+
+Las respuestas generadas constituyen una ayuda documental y educativa. En caso de discrepancia o interpretación, siempre prevalecen los documentos oficiales publicados por la Federación Internacional de Judo y las decisiones adoptadas por sus órganos competentes.
+        """)
+        
+    with st.expander("3. Fuentes", expanded=False):
+        st.markdown("""
+Este asistente utiliza exclusivamente fuentes oficiales publicadas por la Federación Internacional de Judo (IJF), incluyendo reglamentos, documentos técnicos, comunicados y otros recursos oficiales.
+        """)
+        
+    with st.expander("4. Autor", expanded=False):
+        st.markdown("""
+**Alexis Oliveros**
+
+National Judo Referee – Colombia
+
+2nd Dan
+
+Desarrollador del proyecto **IJF SOR Assistant**.
+
+© 2026 Alexis Oliveros. Todos los derechos reservados.
+        """)
+        
+    with st.expander("5. Versión", expanded=False):
+        st.markdown("""
+**IJF SOR Assistant**
+
+Versión **1.0.0**
+
+Basado en **Sport and Organisation Rules (SOR) 2026**
+
+Última actualización: **Julio de 2026**
+        """)
+
+
 # Header
 base64_logo = get_base64_logo(logo_path)
 if base64_logo:
