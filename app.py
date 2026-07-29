@@ -332,9 +332,9 @@ if base64_logo:
         <div style="display: flex; align-items: center; justify-content: center;">
             <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 80px; height: 80px; object-fit: contain; display: block;" />
         </div>
-        <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem;">
-            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.2rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
-            <div class="ijf-tooltip">
+        <div style="position: relative; display: inline-block;">
+            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
+            <div class="ijf-tooltip" style="position: absolute; right: -28px; top: 50%; transform: translateY(-50%);">
                 <div class="ijf-help-icon" style="margin-left: 0;">?</div>
                 <div class="ijf-tooltiptext" style="left: 50%; transform: translateX(-50%); top: 130%;">Reglamento de la Federación Internacional de Judo (SOR 2026)</div>
             </div>
@@ -344,7 +344,7 @@ if base64_logo:
 else:
     st.markdown("""
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 1.5rem 1rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; text-align: center;">
-        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.2rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
+        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
     </div>
     """, unsafe_allow_html=True)
 
@@ -474,8 +474,8 @@ if st.session_state.active_index >= 0:
 else:
     st.markdown("""
     <div style="text-align: center; margin-top: 1.6rem; margin-bottom: 1.2rem;">
-        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.05rem; font-weight: 700; line-height: 1.05; margin-bottom: 0.4rem; max-width: 28rem; margin-left: auto; margin-right: auto;">Bienvenido al Asistente SOR IJF</h1>
-        <p style="font-size: 1rem; opacity: 0.85; max-width: 640px; margin: 0 auto; line-height: 1.45; margin-bottom: 1rem;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame sobre arbitraje, uniformes, pesaje o asistencia médica.</p>
+        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.05rem; font-weight: 700; line-height: 1.05; margin-bottom: 0.4rem; max-width: 28rem; margin-left: auto; margin-right: auto;">Bienvenido</h1>
+        <p style="font-size: 0.9rem; color: rgba(212, 175, 55, 0.9); max-width: 640px; margin: 0 auto; line-height: 1.45; margin-bottom: 1rem; font-weight: 500;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame sobre arbitraje, uniformes, pesaje o asistencia médica.</p>
     </div>
     """, unsafe_allow_html=True)
 
