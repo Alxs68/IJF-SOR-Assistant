@@ -10,6 +10,7 @@ from core.transport import StdioTransport
 from core.protocol import MCPProtocolHandler
 from core.logger import mcp_logger
 from tools.filesystem import FsExistsTool, ListDirectoryTool, ReadFileTool, GetMetadataTool
+from tools.git_ops import GitStatusTool, GitLogTool, GitShowTool, GitDiffTool
 
 def main():
     mcp_logger.info("Iniciando Servidor MCP Síncrono v1.0...", extra={"method": "STARTUP"})
@@ -23,7 +24,14 @@ def main():
     registry.register("fs_list_directory", ListDirectoryTool())
     registry.register("fs_read_file", ReadFileTool())
     registry.register("fs_get_metadata", GetMetadataTool())
-    mcp_logger.info("Herramientas de Filesystem registradas exitosamente.")
+    
+    # Registrar herramientas Git Ops
+    registry.register("git_status", GitStatusTool())
+    registry.register("git_log", GitLogTool())
+    registry.register("git_show", GitShowTool())
+    registry.register("git_diff", GitDiffTool())
+    
+    mcp_logger.info("Herramientas de Filesystem y Git Ops registradas exitosamente.")
 
     while True:
         raw_line = transport.read_line()
