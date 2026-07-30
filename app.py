@@ -393,9 +393,16 @@ if st.session_state.get("query_to_run"):
     query_to_run = st.session_state.pop("query_to_run")
 
 # Chat input for manual queries
-user_input = st.chat_input("Haga su consulta")
-if user_input:
-    query_to_run = user_input.strip()
+with st.container():
+    with st.form(key="chat_form", clear_on_submit=True, border=False):
+        col1, col2 = st.columns([0.85, 0.15])
+        with col1:
+            user_input = st.text_input("Haga su consulta", placeholder="Escribe tu pregunta aquí...", label_visibility="collapsed")
+        with col2:
+            submit_button = st.form_submit_button("Enviar 📤", use_container_width=True)
+        
+        if submit_button and user_input:
+            query_to_run = user_input.strip()
 
 
 if query_to_run:
