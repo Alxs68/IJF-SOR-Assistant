@@ -100,6 +100,16 @@ Para lograr un sistema robusto, rápido y libre de dependencias pesadas de Machi
 
 ---
 
+## 🔌 Infraestructura Core MCP (v1.2.1-Oficial)
+El proyecto incorpora un Servidor MCP (Model Context Protocol) nativo, síncrono y desacoplado, diseñado bajo una arquitectura de capas puras para dotar a los LLMs de capacidades de explotación de entorno seguras.
+
+- **Ubicación del Código:** `src/mcp/`
+- **Gobernanza y Reglas de Integración:** [Manual de Contratos Técnicos v1.2](docs/architecture/contracts.md)
+- **Mapa de Ruta y Futuras Capacidades:** [Planificación del Ecosistema ALXOL](docs/architecture/roadmap.md)
+- **Estado Actual:** Fase 2 (Filesystem Read-Only) completada con validación estricta de lista blanca y protección contra Path Traversal.
+
+---
+
 ## 📂 Estructura del Proyecto
 
 ```text
