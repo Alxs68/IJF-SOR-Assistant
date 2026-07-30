@@ -9,7 +9,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from core.transport import StdioTransport
 from core.protocol import MCPProtocolHandler
 from core.logger import mcp_logger
-from tools.filesystem import ListDirectoryTool, ReadFileTool, GetMetadataTool
+from tools.filesystem import FsExistsTool, ListDirectoryTool, ReadFileTool, GetMetadataTool
 
 def main():
     mcp_logger.info("Iniciando Servidor MCP Síncrono v1.0...", extra={"method": "STARTUP"})
@@ -19,6 +19,7 @@ def main():
     
     # Importar el registry dinámicamente para inyectar herramientas
     from core.registry import registry
+    registry.register("fs_exists", FsExistsTool())
     registry.register("fs_list_directory", ListDirectoryTool())
     registry.register("fs_read_file", ReadFileTool())
     registry.register("fs_get_metadata", GetMetadataTool())

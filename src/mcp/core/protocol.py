@@ -75,11 +75,31 @@ class MCPProtocolHandler:
 
             # Aislamiento completo de herramientas
             try:
-                result_payload = tool_instance.execute(ctx, tool_args)
+                # CONTRATO INTERNO: La herramienta devuelve un dict o list puro de Python.
+                internal_payload = tool_instance.execute(ctx, tool_args)
+                
+                # CAPA DE ADAPTACIÓN DE INTERCAMBIO MCP: 
+                # Encapsulamos el dict/list nativo dentro del formato esperado por el protocolo MCP
+                # y serializamos a string para el transporte (text).
+                if isinstance(internal_payload, (dict, list)):
+                    text_content = json.dumps(internal_payload, ensure_ascii=False)
+                else:
+                    text_content = str(internal_payload)
+                    
+                mcp_formatted_result = {
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": text_content
+                        }
+                    ],
+                    "isError": False
+                }
+                
                 return json.dumps({
                     "jsonrpc": "2.0",
                     "id": msg_id,
-                    "result": result_payload
+                    "result": mcp_formatted_result
                 })
             except ValueError as val_err:
                 return json.dumps(self._make_error(msg_id, -32602, f"Invalid params: {str(val_err)}"))
