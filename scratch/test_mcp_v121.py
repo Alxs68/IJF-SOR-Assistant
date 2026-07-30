@@ -60,6 +60,16 @@ def run_tests():
     assert "Acceso denegado" in resp_traversal["error"]["message"] or "Invalid params" in resp_traversal["error"]["message"]
     print("[OK] Path Traversal estrictamente bloqueado.")
     
+    # 5.5. Verificación explícita del contrato interno (Solicitud del CTO)
+    import logging
+    from core.registry import ToolContext
+    ctx = ToolContext(request_id="test", session_id="test", logger=logging.getLogger(), config={}, workspace=os.getcwd())
+    tool_instance = registry.find("fs_exists")
+    internal_result = tool_instance.execute(ctx, {"path": "."})
+    assert isinstance(internal_result, (dict, list)), f"Violación del contrato: execute() debe retornar dict/list puro, pero retornó {type(internal_result)}"
+    assert not isinstance(internal_result, str), "Violación del contrato: La herramienta no debe realizar la serialización JSON (json.dumps())."
+    print("[OK] Contrato interno validado: execute() retorna estructuras nativas y delega serialización al protocolo.")
+    
     # 6. Extension Validation Protection
     req_ext = {"jsonrpc": "2.0", "id": 5, "method": "tools/call", "params": {"name": "fs_read_file", "arguments": {"path": "C:/PROYECTOS/IJF-SOR-Assistant/data/raw/ijf_sor_2026.pdf"}}}
     # Because workspace is current working directory (os.getcwd()), we need to ensure the test path is relative or absolute inside it.
