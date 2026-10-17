@@ -1,0 +1,5295 @@
+{
+  "audit_metadata": {
+    "source_edition": "14 August 2026 (Official)",
+    "source_sha256": "9426B10D11C21A4CB9EB23150C2C4FC95BFCD463511E66BA451D2CFF005AE620",
+    "total_physical_pages": 298,
+    "total_toc_sections": 272,
+    "verified_sections_count": 238,
+    "partial_sections_count": 34,
+    "absent_sections_count": 0,
+    "verification_rate_pct": 87.5
+  },
+  "reconciliation_items": [
+    {
+      "item_id": "SEC-001",
+      "level": 1,
+      "title": "GENERAL INFORMATION",
+      "page_start": 12,
+      "page_end": 13,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P013-S001"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 12-13), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-002",
+      "level": 2,
+      "title": "1.1 Preamble and Fundamental Principles",
+      "page_start": 13,
+      "page_end": 14,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P013-S002",
+        "SOR-2026-08-P014-S002"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 13-14), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-003",
+      "level": 3,
+      "title": "1.1.1 Behaviour at IJF Events",
+      "page_start": 14,
+      "page_end": 14,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P014-S002",
+        "SOR-2026-08-P014-S003"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 14-14), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-004",
+      "level": 4,
+      "title": "1.1.2 Athletes Returning to Competition After Pregnancy",
+      "page_start": 14,
+      "page_end": 14,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P014-S002",
+        "SOR-2026-08-P014-S004",
+        "SOR-2026-08-P014-S005"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 14-14), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-005",
+      "level": 4,
+      "title": "1.2 Clean Judo",
+      "page_start": 14,
+      "page_end": 14,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P014-S005"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 14-14), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-006",
+      "level": 5,
+      "title": "1.2.1 Disciplinary Committee",
+      "page_start": 14,
+      "page_end": 15,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P014-S005",
+        "SOR-2026-08-P014-S006",
+        "SOR-2026-08-P015-S006"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 14-15), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-007",
+      "level": 5,
+      "title": "1.2.2 Match Fixing and Competition Manipulation",
+      "page_start": 15,
+      "page_end": 16,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P015-S007",
+        "SOR-2026-08-P016-S007"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 15-16), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-008",
+      "level": 5,
+      "title": "1.2.3 Safeguarding",
+      "page_start": 16,
+      "page_end": 17,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P016-S008",
+        "SOR-2026-08-P017-S008"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 16-17), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-009",
+      "level": 4,
+      "title": "1.3 Insurance and Civil Liability",
+      "page_start": 17,
+      "page_end": 17,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P017-S009"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 17-17), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-010",
+      "level": 4,
+      "title": "1.4 Biological Sex Control",
+      "page_start": 17,
+      "page_end": 18,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P017-S010",
+        "SOR-2026-08-P018-S010"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 17-18), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-011",
+      "level": 4,
+      "title": "1.5 Minor Athletes",
+      "page_start": 18,
+      "page_end": 18,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P018-S011"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 18-18), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-012",
+      "level": 4,
+      "title": "1.6 IJF Calendar",
+      "page_start": 18,
+      "page_end": 18,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P018-S012"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 18-18), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-013",
+      "level": 4,
+      "title": "1.7 Athlete Nationality",
+      "page_start": 18,
+      "page_end": 19,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P018-S013",
+        "SOR-2026-08-P019-S013"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 18-19), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-014",
+      "level": 5,
+      "title": "1.7.1 Change of Athlete Nationality",
+      "page_start": 19,
+      "page_end": 20,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P019-S013",
+        "SOR-2026-08-P019-S014",
+        "SOR-2026-08-P020-S014"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 19-20), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-015",
+      "level": 6,
+      "title": "1.7.1.1 Change of Athlete Nationality for a Period of Less than Three Years",
+      "page_start": 20,
+      "page_end": 20,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P020-S014",
+        "SOR-2026-08-P020-S015"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 20-20), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-016",
+      "level": 6,
+      "title": "1.7.1.2 Change of Athlete Nationality after a Period of Three Years or Longer",
+      "page_start": 20,
+      "page_end": 21,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P020-S014",
+        "SOR-2026-08-P020-S016",
+        "SOR-2026-08-P021-S016"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 20-21), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-017",
+      "level": 5,
+      "title": "1.7.2 Special Circumstances",
+      "page_start": 21,
+      "page_end": 21,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P021-S017"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 21-21), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-018",
+      "level": 6,
+      "title": "1.7.2.1 Athletes with an Official Refugee Status under Host Country",
+      "page_start": 21,
+      "page_end": 22,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P021-S016",
+        "SOR-2026-08-P021-S017",
+        "SOR-2026-08-P021-S018"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 21-22), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-019",
+      "level": 6,
+      "title": "1.7.2.2 IJF Refugee Team",
+      "page_start": 22,
+      "page_end": 23,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P022-S019",
+        "SOR-2026-08-P023-S019"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 22-23), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-020",
+      "level": 6,
+      "title": "1.7.2.3 Junior and Younger Immigrants",
+      "page_start": 23,
+      "page_end": 24,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P023-S020",
+        "SOR-2026-08-P024-S020"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 23-24), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-021",
+      "level": 6,
+      "title": "1.7.2.4 Veterans Immigrants",
+      "page_start": 24,
+      "page_end": 25,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P024-S021",
+        "SOR-2026-08-P025-S021"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 24-25), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-022",
+      "level": 6,
+      "title": "1.7.2.5 Kata Immigrants",
+      "page_start": 25,
+      "page_end": 25,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P025-S022"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 25-25), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-023",
+      "level": 4,
+      "title": "1.8 Referee Nationality",
+      "page_start": 25,
+      "page_end": 26,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P025-S023",
+        "SOR-2026-08-P026-S023"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 25-26), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-024",
+      "level": 5,
+      "title": "1.8.1 Change of Referee Nationality",
+      "page_start": 26,
+      "page_end": 27,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P026-S023",
+        "SOR-2026-08-P026-S024",
+        "SOR-2026-08-P027-S024"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 26-27), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-025",
+      "level": 5,
+      "title": "1.8.2 Special Circumstances",
+      "page_start": 27,
+      "page_end": 27,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P027-S025"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 27-27), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-026",
+      "level": 6,
+      "title": "1.8.2.1 Referee Immigrants",
+      "page_start": 27,
+      "page_end": 28,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P027-S025",
+        "SOR-2026-08-P027-S026",
+        "SOR-2026-08-P028-S026"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 27-28), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-027",
+      "level": 6,
+      "title": "1.8.2.2 Referees with an Official Refugee Status under Host Country",
+      "page_start": 28,
+      "page_end": 29,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P028-S026",
+        "SOR-2026-08-P028-S027",
+        "SOR-2026-08-P029-S027"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 28-29), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-028",
+      "level": 6,
+      "title": "1.8.2.3 IJF Refugee Team for Referees",
+      "page_start": 29,
+      "page_end": 30,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P029-S028",
+        "SOR-2026-08-P030-S028"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 29-30), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-029",
+      "level": 7,
+      "title": "COMPETITION RULES",
+      "page_start": 30,
+      "page_end": 31,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P030-S028",
+        "SOR-2026-08-P030-S029",
+        "SOR-2026-08-P031-S029"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 30-31), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-030",
+      "level": 7,
+      "title": "2.1 Competition Format and Schedules",
+      "page_start": 31,
+      "page_end": 31,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P031-S030"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 31-31), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-031",
+      "level": 8,
+      "title": "2.1.1 Competition Format and Schedules for the IJF World Judo Tour",
+      "page_start": 31,
+      "page_end": 32,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P031-S030",
+        "SOR-2026-08-P031-S031",
+        "SOR-2026-08-P032-S031"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 31-32), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-032",
+      "level": 8,
+      "title": "2.1.2 Competition Format and Schedules for Other Events",
+      "page_start": 32,
+      "page_end": 32,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P032-S032"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 32-32), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-033",
+      "level": 8,
+      "title": "2.1.3 Responsibility for Anti-Doping Result Management",
+      "page_start": 32,
+      "page_end": 33,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P032-S033",
+        "SOR-2026-08-P033-S033"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 32-33), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-034",
+      "level": 7,
+      "title": "2.2 Weight Categories for IJF Events",
+      "page_start": 33,
+      "page_end": 33,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P033-S034"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 33-33), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-035",
+      "level": 8,
+      "title": "2.2.1 Weight Categories for Individual Competitions",
+      "page_start": 33,
+      "page_end": 34,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P033-S034",
+        "SOR-2026-08-P033-S035",
+        "SOR-2026-08-P034-S035"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 33-34), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-036",
+      "level": 8,
+      "title": "2.2.2 Weight Categories for Mixed Team Competitions",
+      "page_start": 34,
+      "page_end": 34,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P034-S036"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 34-34), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-037",
+      "level": 8,
+      "title": "2.2.3 Weight Categories Mixed Team Competitions Olympic Games",
+      "page_start": 34,
+      "page_end": 35,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P034-S037",
+        "SOR-2026-08-P035-S037",
+        "SOR-2026-08-P035-S039"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 34-35), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-038",
+      "level": 8,
+      "title": "2.2.4 Weight Categories for Team Competitions",
+      "page_start": 35,
+      "page_end": 35,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P035-S038"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 35-35), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-039",
+      "level": 7,
+      "title": "2.3 Age Groups",
+      "page_start": 35,
+      "page_end": 36,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P035-S039",
+        "SOR-2026-08-P036-S039"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 35-36), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-040",
+      "level": 7,
+      "title": "2.4 Time Duration of Contests",
+      "page_start": 36,
+      "page_end": 37,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P036-S040",
+        "SOR-2026-08-P037-S040"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 36-37), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-041",
+      "level": 7,
+      "title": "2.5 Competition Systems",
+      "page_start": 37,
+      "page_end": 38,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P037-S041",
+        "SOR-2026-08-P038-S041"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 37-38), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-042",
+      "level": 8,
+      "title": "2.5.1 Direct Knockout",
+      "page_start": 38,
+      "page_end": 38,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P038-S041",
+        "SOR-2026-08-P038-S042"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 38-38), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-043",
+      "level": 8,
+      "title": "2.5.2 Quarter-final Repechage",
+      "page_start": 38,
+      "page_end": 38,
+      "passages_count": 5,
+      "passage_ids": [
+        "SOR-2026-08-P038-S041",
+        "SOR-2026-08-P038-S042",
+        "SOR-2026-08-P038-S043"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 38-38), 5 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-044",
+      "level": 8,
+      "title": "2.5.3 Double Repechage",
+      "page_start": 38,
+      "page_end": 38,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P038-S041",
+        "SOR-2026-08-P038-S044"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 38-38), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-045",
+      "level": 8,
+      "title": "2.5.4 Full Repechage",
+      "page_start": 38,
+      "page_end": 39,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P038-S041",
+        "SOR-2026-08-P038-S045",
+        "SOR-2026-08-P039-S045"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 38-39), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-046",
+      "level": 8,
+      "title": "2.5.5 Round Robin",
+      "page_start": 39,
+      "page_end": 39,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P039-S046"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 39-39), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-047",
+      "level": 9,
+      "title": "2.5.5.1 Round Robin Rules for Individual Events",
+      "page_start": 39,
+      "page_end": 40,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P039-S046",
+        "SOR-2026-08-P039-S047",
+        "SOR-2026-08-P040-S047"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 39-40), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-048",
+      "level": 9,
+      "title": "2.5.5.2 Round Robin Rules for Team Events",
+      "page_start": 40,
+      "page_end": 40,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P040-S048"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 40-40), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-049",
+      "level": 8,
+      "title": "2.5.6 Best of Three",
+      "page_start": 40,
+      "page_end": 41,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P040-S049",
+        "SOR-2026-08-P041-S049"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 40-41), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-050",
+      "level": 7,
+      "title": "2.6 Regulations for Low Numbers of Athletes or Teams",
+      "page_start": 41,
+      "page_end": 41,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P041-S050"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 41-41), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-051",
+      "level": 8,
+      "title": "2.6.1 Low Numbers System for IJF WJT Events",
+      "page_start": 41,
+      "page_end": 42,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P041-S050",
+        "SOR-2026-08-P041-S051",
+        "SOR-2026-08-P042-S051"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 41-42), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-052",
+      "level": 8,
+      "title": "2.6.2 Low Numbers System for Other Events",
+      "page_start": 42,
+      "page_end": 42,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P042-S052"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 42-42), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-053",
+      "level": 7,
+      "title": "2.7 Competition System for Mixed Team and Team Events",
+      "page_start": 42,
+      "page_end": 42,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P042-S053"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 42-42), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-054",
+      "level": 8,
+      "title": "2.7.1 Regulations for Mixed Team Events",
+      "page_start": 42,
+      "page_end": 45,
+      "passages_count": 5,
+      "passage_ids": [
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P043-S054"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 42-45), 5 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-055",
+      "level": 8,
+      "title": "2.7.2 Regulations for Female and Male Team Events",
+      "page_start": 45,
+      "page_end": 47,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P046-S055",
+        "SOR-2026-08-P047-S055"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 45-47), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-056",
+      "level": 8,
+      "title": "2.8 Event Outlines",
+      "page_start": 47,
+      "page_end": 47,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P047-S056"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 47-47), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-057",
+      "level": 8,
+      "title": "2.8.1 Visas",
+      "page_start": 47,
+      "page_end": 47,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P047-S056",
+        "SOR-2026-08-P047-S057"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 47-47), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-058",
+      "level": 8,
+      "title": "2.8.2 Transportation",
+      "page_start": 47,
+      "page_end": 48,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P047-S056",
+        "SOR-2026-08-P047-S058",
+        "SOR-2026-08-P048-S058"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 47-48), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-059",
+      "level": 8,
+      "title": "2.8.3 Accommodation",
+      "page_start": 48,
+      "page_end": 49,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P048-S059",
+        "SOR-2026-08-P049-S059"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 48-49), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-060",
+      "level": 8,
+      "title": "2.8.4 Training",
+      "page_start": 49,
+      "page_end": 49,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P049-S060"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 49-49), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-061",
+      "level": 8,
+      "title": "2.8.5 Consent for use of data/photography/videos/filming",
+      "page_start": 49,
+      "page_end": 49,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P049-S059",
+        "SOR-2026-08-P049-S060",
+        "SOR-2026-08-P049-S061"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 49-49), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-062",
+      "level": 7,
+      "title": "2.9 Official Notice Boards",
+      "page_start": 49,
+      "page_end": 50,
+      "passages_count": 5,
+      "passage_ids": [
+        "SOR-2026-08-P049-S059",
+        "SOR-2026-08-P049-S060",
+        "SOR-2026-08-P049-S061"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 49-50), 5 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-063",
+      "level": 8,
+      "title": "IJF WORLD RANKING LISTS",
+      "page_start": 50,
+      "page_end": 51,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P050-S063",
+        "SOR-2026-08-P051-S063",
+        "SOR-2026-08-P051-S064"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 50-51), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-064",
+      "level": 9,
+      "title": "3.1 IJF World Ranking Lists",
+      "page_start": 51,
+      "page_end": 52,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P051-S064",
+        "SOR-2026-08-P052-S064"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 51-52), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-065",
+      "level": 10,
+      "title": "3.2 IJF World Ranking Lists for Individuals",
+      "page_start": 52,
+      "page_end": 52,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P052-S065"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 52-52), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-066",
+      "level": 11,
+      "title": "3.2.1 IJF Seniors World Ranking List",
+      "page_start": 52,
+      "page_end": 53,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P052-S066",
+        "SOR-2026-08-P053-S066"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 52-53), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-067",
+      "level": 11,
+      "title": "3.2.2 IJF Juniors World Ranking List",
+      "page_start": 53,
+      "page_end": 54,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P053-S067",
+        "SOR-2026-08-P054-S067"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 53-54), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-068",
+      "level": 11,
+      "title": "3.2.3 IJF Cadets World Ranking List",
+      "page_start": 54,
+      "page_end": 55,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P054-S068",
+        "SOR-2026-08-P055-S068"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 54-55), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-069",
+      "level": 10,
+      "title": "3.3 IJF World Ranking Lists for Mixed Teams",
+      "page_start": 55,
+      "page_end": 55,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P055-S069"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 55-55), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-070",
+      "level": 11,
+      "title": "3.3.1 IJF Seniors Mixed Teams World Ranking List",
+      "page_start": 55,
+      "page_end": 56,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P055-S069",
+        "SOR-2026-08-P055-S070",
+        "SOR-2026-08-P056-S070"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 55-56), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-071",
+      "level": 11,
+      "title": "3.3.2 IJF Juniors Mixed Teams World Ranking List",
+      "page_start": 56,
+      "page_end": 57,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P057-S071"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 56-57), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-072",
+      "level": 11,
+      "title": "3.3.3 IJF Cadets Mixed Teams World Ranking List",
+      "page_start": 57,
+      "page_end": 57,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P057-S072"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 57-57), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-073",
+      "level": 10,
+      "title": "3.4 IJF Nations World Ranking List",
+      "page_start": 57,
+      "page_end": 57,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P057-S073"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 57-57), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-074",
+      "level": 10,
+      "title": "3.5 Additional Rules",
+      "page_start": 57,
+      "page_end": 60,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P057-S074",
+        "SOR-2026-08-P058-S074",
+        "SOR-2026-08-P059-S074"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 57-60), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-075",
+      "level": 11,
+      "title": "ENTRIES AND ACCREDITATION",
+      "page_start": 60,
+      "page_end": 61,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P060-S075",
+        "SOR-2026-08-P061-S075"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 60-61), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-076",
+      "level": 12,
+      "title": "4.1 Participation Rules for IJF WJT Events",
+      "page_start": 61,
+      "page_end": 61,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P061-S076"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 61-61), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-077",
+      "level": 12,
+      "title": "4.2 Entries",
+      "page_start": 61,
+      "page_end": 63,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P061-S077",
+        "SOR-2026-08-P062-S077",
+        "SOR-2026-08-P063-S077"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 61-63), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-078",
+      "level": 12,
+      "title": "4.3 Cancellation of Athletes",
+      "page_start": 63,
+      "page_end": 64,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P063-S078",
+        "SOR-2026-08-P064-S078"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 63-64), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-079",
+      "level": 12,
+      "title": "4.4 Number of Entries",
+      "page_start": 64,
+      "page_end": 67,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P064-S079",
+        "SOR-2026-08-P065-S079",
+        "SOR-2026-08-P066-S079"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 64-67), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-080",
+      "level": 12,
+      "title": "4.5 Accreditation",
+      "page_start": 67,
+      "page_end": 70,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P067-S080",
+        "SOR-2026-08-P068-S080",
+        "SOR-2026-08-P069-S080"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 67-70), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-081",
+      "level": 13,
+      "title": "DRAW",
+      "page_start": 70,
+      "page_end": 71,
+      "passages_count": 5,
+      "passage_ids": [
+        "SOR-2026-08-P070-S080",
+        "SOR-2026-08-P070-S081",
+        "SOR-2026-08-P071-S081"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 70-71), 5 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-082",
+      "level": 13,
+      "title": "5.1 Draw Regulations",
+      "page_start": 71,
+      "page_end": 71,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P071-S082"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 71-71), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-083",
+      "level": 13,
+      "title": "5.2 Seeding for IJF WJT Events",
+      "page_start": 71,
+      "page_end": 72,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P071-S083",
+        "SOR-2026-08-P072-S083"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 71-72), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-084",
+      "level": 13,
+      "title": "5.3 Seeding for Olympic Games",
+      "page_start": 72,
+      "page_end": 74,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P072-S084",
+        "SOR-2026-08-P073-S084",
+        "SOR-2026-08-P074-S084"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 72-74), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-085",
+      "level": 14,
+      "title": "WEIGH-IN",
+      "page_start": 74,
+      "page_end": 75,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P074-S084",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P075-S085"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 74-75), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-086",
+      "level": 14,
+      "title": "6.1 Weight Categories and Limits for Individual Events",
+      "page_start": 75,
+      "page_end": 76,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P075-S086",
+        "SOR-2026-08-P076-S086"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 75-76), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-087",
+      "level": 14,
+      "title": "6.2 Weigh-in Overview",
+      "page_start": 76,
+      "page_end": 76,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P076-S087"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 76-76), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-088",
+      "level": 15,
+      "title": "6.2.1 Pre-Weight Check Rooms (Test Scales)",
+      "page_start": 76,
+      "page_end": 76,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P076-S087",
+        "SOR-2026-08-P076-S088"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 76-76), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-089",
+      "level": 15,
+      "title": "6.2.2 Unofficial Weigh-in",
+      "page_start": 76,
+      "page_end": 77,
+      "passages_count": 5,
+      "passage_ids": [
+        "SOR-2026-08-P076-S086",
+        "SOR-2026-08-P076-S087",
+        "SOR-2026-08-P076-S088"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 76-77), 5 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-090",
+      "level": 15,
+      "title": "6.2.3 Official Weigh-in",
+      "page_start": 77,
+      "page_end": 77,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P077-S089",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P077-S091"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 77-77), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-091",
+      "level": 15,
+      "title": "6.2.4 Official Weigh-in Procedure",
+      "page_start": 77,
+      "page_end": 78,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P077-S089",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P077-S091"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 77-78), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-092",
+      "level": 15,
+      "title": "6.2.5 Compliance Rules",
+      "page_start": 78,
+      "page_end": 79,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P078-S092",
+        "SOR-2026-08-P079-S092"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 78-79), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-093",
+      "level": 14,
+      "title": "6.3 Random Weigh-in",
+      "page_start": 79,
+      "page_end": 79,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P079-S093"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 79-79), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-094",
+      "level": 15,
+      "title": "6.3.1 Draw of the Athletes",
+      "page_start": 79,
+      "page_end": 79,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S094"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 79-79), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-095",
+      "level": 15,
+      "title": "6.3.2 Collecting the Athletes",
+      "page_start": 79,
+      "page_end": 79,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S095"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 79-79), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-096",
+      "level": 15,
+      "title": "6.3.3 Random Weigh-in Procedure",
+      "page_start": 79,
+      "page_end": 79,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S096"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 79-79), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-097",
+      "level": 15,
+      "title": "6.3.4 After Random Weigh-in Procedure",
+      "page_start": 79,
+      "page_end": 80,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S097",
+        "SOR-2026-08-P080-S097"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 79-80), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-098",
+      "level": 14,
+      "title": "6.4 Mixed Teams Events Weigh-in",
+      "page_start": 80,
+      "page_end": 81,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P080-S098",
+        "SOR-2026-08-P081-S098"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 80-81), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-099",
+      "level": 15,
+      "title": "6.4.1. Standalone Mixed Team Weigh-in",
+      "page_start": 81,
+      "page_end": 81,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P081-S098",
+        "SOR-2026-08-P081-S099"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 81-81), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-100",
+      "level": 15,
+      "title": "6.4.2. Mixed Team Following an Individual Competition Weigh-in",
+      "page_start": 81,
+      "page_end": 83,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P081-S098",
+        "SOR-2026-08-P081-S100",
+        "SOR-2026-08-P082-S100"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 81-83), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-101",
+      "level": 15,
+      "title": "6.4.3 Olympic Games Mixed Team Weigh-in",
+      "page_start": 83,
+      "page_end": 84,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P084-S101"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 83-84), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-102",
+      "level": 14,
+      "title": "6.5 Female and Male Teams Events Weigh-in",
+      "page_start": 84,
+      "page_end": 88,
+      "passages_count": 5,
+      "passage_ids": [
+        "SOR-2026-08-P084-S102",
+        "SOR-2026-08-P085-S102",
+        "SOR-2026-08-P086-S102"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 84-88), 5 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-103",
+      "level": 15,
+      "title": "EDUCATION AND COACHING",
+      "page_start": 88,
+      "page_end": 89,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P088-S102",
+        "SOR-2026-08-P088-S103",
+        "SOR-2026-08-P089-S103"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 88-89), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-104",
+      "level": 16,
+      "title": "7.1 Coaches’ Code of Conduct",
+      "page_start": 89,
+      "page_end": 89,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P089-S104"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 89-89), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-105",
+      "level": 16,
+      "title": "7.2 Coaches’ Dress Code",
+      "page_start": 89,
+      "page_end": 90,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P089-S105",
+        "SOR-2026-08-P090-S105"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 89-90), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-106",
+      "level": 16,
+      "title": "7.3 Contest Review Process",
+      "page_start": 90,
+      "page_end": 92,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P090-S106",
+        "SOR-2026-08-P091-S106",
+        "SOR-2026-08-P092-S106"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 90-92), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-107",
+      "level": 17,
+      "title": "COMPETITION VENUE",
+      "page_start": 92,
+      "page_end": 93,
+      "passages_count": 5,
+      "passage_ids": [
+        "SOR-2026-08-P092-S106",
+        "SOR-2026-08-P092-S107",
+        "SOR-2026-08-P093-S107"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 92-93), 5 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-108",
+      "level": 17,
+      "title": "8.1 Venue",
+      "page_start": 93,
+      "page_end": 93,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P093-S108"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 93-93), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-109",
+      "level": 17,
+      "title": "8.2 Training Venue",
+      "page_start": 93,
+      "page_end": 94,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P093-S109",
+        "SOR-2026-08-P094-S109"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 93-94), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-110",
+      "level": 17,
+      "title": "8.3 Judogi Control",
+      "page_start": 94,
+      "page_end": 94,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P094-S110"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 94-94), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-111",
+      "level": 17,
+      "title": "8.4 Warm-Up Area ",
+      "page_start": 94,
+      "page_end": 95,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P094-S111",
+        "SOR-2026-08-P095-S111"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 94-95), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-112",
+      "level": 17,
+      "title": "8.5 Athlete Seating and Facilities",
+      "page_start": 95,
+      "page_end": 95,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P095-S112"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 95-95), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-113",
+      "level": 17,
+      "title": "8.6 Entry to and Exit from Field of Play",
+      "page_start": 95,
+      "page_end": 96,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P095-S113",
+        "SOR-2026-08-P096-S113"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 95-96), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-114",
+      "level": 17,
+      "title": "8.7 Field of Play and Competition Area",
+      "page_start": 96,
+      "page_end": 97,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P097-S114"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 96-97), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-115",
+      "level": 17,
+      "title": "8.8 Medical",
+      "page_start": 97,
+      "page_end": 97,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P097-S115"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 97-97), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-116",
+      "level": 17,
+      "title": "8.9 Media",
+      "page_start": 97,
+      "page_end": 98,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P097-S116",
+        "SOR-2026-08-P098-S116"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 97-98), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-117",
+      "level": 17,
+      "title": "8.10 Awarding Ceremonies",
+      "page_start": 98,
+      "page_end": 99,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P099-S117"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 98-99), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-118",
+      "level": 17,
+      "title": "8.11 Delay, Postponement or Cancellation of a Competition",
+      "page_start": 99,
+      "page_end": 100,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P099-S118",
+        "SOR-2026-08-P100-S118"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 99-100), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-119",
+      "level": 18,
+      "title": "REGULATIONS FOR VETERANS",
+      "page_start": 100,
+      "page_end": 101,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P100-S119",
+        "SOR-2026-08-P101-S119"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 100-101), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-120",
+      "level": 1,
+      "title": "A1.1 Organisation",
+      "page_start": 101,
+      "page_end": 101,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P101-S120"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 101-101), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-121",
+      "level": 1,
+      "title": "A1.2 Competition Rules for Veterans",
+      "page_start": 101,
+      "page_end": 101,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P101-S121"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 101-101), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-122",
+      "level": 1,
+      "title": "A1.3 Eligibility to Participate",
+      "page_start": 101,
+      "page_end": 102,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P101-S122",
+        "SOR-2026-08-P102-S122"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 101-102), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-123",
+      "level": 2,
+      "title": "A1.3.1 Event Inscription",
+      "page_start": 102,
+      "page_end": 103,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P102-S122",
+        "SOR-2026-08-P102-S123",
+        "SOR-2026-08-P103-S123"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 102-103), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-124",
+      "level": 1,
+      "title": "A1.4 Age Divisions for Veterans",
+      "page_start": 103,
+      "page_end": 103,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P103-S124"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 103-103), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-125",
+      "level": 1,
+      "title": "A1.5 Weight Categories for Veterans",
+      "page_start": 103,
+      "page_end": 103,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P103-S125"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 103-103), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-126",
+      "level": 1,
+      "title": "A1.6 Time Duration of Contests for Veterans",
+      "page_start": 103,
+      "page_end": 103,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P103-S126"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 103-103), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-127",
+      "level": 1,
+      "title": "A1.7 Category Combining for Veterans",
+      "page_start": 103,
+      "page_end": 105,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P103-S127",
+        "SOR-2026-08-P104-S127",
+        "SOR-2026-08-P105-S127"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 103-105), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-128",
+      "level": 1,
+      "title": "A1.8 Draw for Veterans",
+      "page_start": 105,
+      "page_end": 105,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P105-S128"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 105-105), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-129",
+      "level": 1,
+      "title": "A1.9 Seeding for Veterans",
+      "page_start": 105,
+      "page_end": 105,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P105-S129"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 105-105), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-130",
+      "level": 1,
+      "title": "A1.10 Weigh-in for Veterans",
+      "page_start": 105,
+      "page_end": 105,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P105-S130"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 105-105), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-131",
+      "level": 1,
+      "title": "A1.11 Judogi Rules for Veterans",
+      "page_start": 105,
+      "page_end": 105,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P105-S131"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 105-105), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-132",
+      "level": 1,
+      "title": "A1.12 Backnumbers for Veterans",
+      "page_start": 105,
+      "page_end": 105,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P105-S132"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 105-105), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-133",
+      "level": 1,
+      "title": "A1.13 Competition System for Veterans",
+      "page_start": 105,
+      "page_end": 105,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P105-S133"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 105-105), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-134",
+      "level": 1,
+      "title": "A1.14 Round Robin Golden Score ",
+      "page_start": 105,
+      "page_end": 106,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P105-S134",
+        "SOR-2026-08-P106-S134"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 105-106), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-135",
+      "level": 1,
+      "title": "A1.15 Awarding of Medals for Veterans",
+      "page_start": 106,
+      "page_end": 108,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P107-S135",
+        "SOR-2026-08-P108-S135"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 106-108), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-136",
+      "level": 2,
+      "title": "REGULATIONS FOR KATA",
+      "page_start": 108,
+      "page_end": 109,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P109-S136"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 108-109), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-137",
+      "level": 1,
+      "title": "B1.1 Eligibility to Participate",
+      "page_start": 109,
+      "page_end": 109,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P109-S137"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 109-109), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-138",
+      "level": 1,
+      "title": "B1.2 Kata",
+      "page_start": 109,
+      "page_end": 109,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P109-S138"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 109-109), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-139",
+      "level": 1,
+      "title": "B1.3 Accreditation",
+      "page_start": 109,
+      "page_end": 110,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P109-S139",
+        "SOR-2026-08-P110-S139"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 109-110), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-140",
+      "level": 1,
+      "title": "B1.4 Draw",
+      "page_start": 110,
+      "page_end": 110,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P110-S140"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 110-110), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-141",
+      "level": 1,
+      "title": "B1.5 Ranking Points",
+      "page_start": 110,
+      "page_end": 111,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P111-S141"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 110-111), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-142",
+      "level": 1,
+      "title": "B1.6 Competition Formula",
+      "page_start": 111,
+      "page_end": 112,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P112-S142"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 111-112), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-143",
+      "level": 1,
+      "title": "B1.8 Competition Area",
+      "page_start": 112,
+      "page_end": 113,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P112-S143",
+        "SOR-2026-08-P113-S143"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 112-113), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-144",
+      "level": 1,
+      "title": "B1.9 Awarding Ceremony",
+      "page_start": 113,
+      "page_end": 113,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P113-S144"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 113-113), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-145",
+      "level": 1,
+      "title": "B1.10 Coaches",
+      "page_start": 113,
+      "page_end": 113,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P113-S145"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 113-113), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-146",
+      "level": 1,
+      "title": "B1.11 Medical Situation",
+      "page_start": 113,
+      "page_end": 113,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P113-S146"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 113-113), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-147",
+      "level": 1,
+      "title": "B1.12 Judogi Control",
+      "page_start": 113,
+      "page_end": 114,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P113-S147",
+        "SOR-2026-08-P114-S147"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 113-114), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-148",
+      "level": 2,
+      "title": "IJF JUDOGI RULES",
+      "page_start": 114,
+      "page_end": 115,
+      "passages_count": 8,
+      "passage_ids": [
+        "SOR-2026-08-P114-S147",
+        "SOR-2026-08-P114-S148",
+        "SOR-2026-08-P115-S148"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 114-115), 8 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-149",
+      "level": 1,
+      "title": "C1.1 IJF Approved Judogi",
+      "page_start": 115,
+      "page_end": 115,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P115-S149"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 115-115), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-150",
+      "level": 2,
+      "title": "C1.1.1 Location of the Judogi and Backnumber Pre-Control",
+      "page_start": 115,
+      "page_end": 115,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P115-S149",
+        "SOR-2026-08-P115-S150"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 115-115), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-151",
+      "level": 3,
+      "title": "C1.1.2 Judogi and Backnumber Pre-Control",
+      "page_start": 115,
+      "page_end": 115,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P115-S149",
+        "SOR-2026-08-P115-S151"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 115-115), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-152",
+      "level": 2,
+      "title": "C1.1.2.1 Judogi Pre-Control",
+      "page_start": 115,
+      "page_end": 115,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P115-S149",
+        "SOR-2026-08-P115-S151",
+        "SOR-2026-08-P115-S152"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 115-115), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-153",
+      "level": 2,
+      "title": "C1.1.2.2 Backnumber Pre-Control",
+      "page_start": 115,
+      "page_end": 116,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P115-S149",
+        "SOR-2026-08-P115-S151",
+        "SOR-2026-08-P115-S153"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 115-116), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-154",
+      "level": 3,
+      "title": "C1.1.3 Consequences of Failing Judogi Control",
+      "page_start": 116,
+      "page_end": 116,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P116-S154"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 116-116), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-155",
+      "level": 3,
+      "title": "C1.1.4 Judogi Control Verification Positions",
+      "page_start": 116,
+      "page_end": 117,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P116-S153",
+        "SOR-2026-08-P116-S154",
+        "SOR-2026-08-P116-S155"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 116-117), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-156",
+      "level": 3,
+      "title": "C1.1.5 Judogi Control Procedure",
+      "page_start": 117,
+      "page_end": 118,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P117-S156",
+        "SOR-2026-08-P118-S156"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 117-118), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-157",
+      "level": 1,
+      "title": "C1.2 IJF Label",
+      "page_start": 118,
+      "page_end": 119,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P118-S157",
+        "SOR-2026-08-P119-S157"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 118-119), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-158",
+      "level": 1,
+      "title": "C1.3 Location of the Manufacturer’s Logo",
+      "page_start": 119,
+      "page_end": 120,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P119-S158",
+        "SOR-2026-08-P120-S158"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 119-120), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-159",
+      "level": 1,
+      "title": "C1.4 National Emblem",
+      "page_start": 120,
+      "page_end": 121,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P120-S159",
+        "SOR-2026-08-P121-S159"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 120-121), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-160",
+      "level": 1,
+      "title": "C1.5 Advertising",
+      "page_start": 121,
+      "page_end": 121,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P121-S160"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 121-121), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-161",
+      "level": 1,
+      "title": "C1.6 Additional Advertising Reserved for the Athlete",
+      "page_start": 121,
+      "page_end": 122,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P121-S161",
+        "SOR-2026-08-P122-S161"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 121-122), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-162",
+      "level": 1,
+      "title": "C1.7 Marking",
+      "page_start": 122,
+      "page_end": 122,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P122-S162"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 122-122), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-163",
+      "level": 1,
+      "title": "C1.8 Backnumber",
+      "page_start": 122,
+      "page_end": 124,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P122-S163",
+        "SOR-2026-08-P123-S163",
+        "SOR-2026-08-P124-S163"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 122-124), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-164",
+      "level": 1,
+      "title": "C1.9 Judogi Colour",
+      "page_start": 124,
+      "page_end": 124,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P124-S164"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 124-124), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-165",
+      "level": 1,
+      "title": "C1.10 Judogi Size",
+      "page_start": 124,
+      "page_end": 126,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P124-S165",
+        "SOR-2026-08-P125-S165",
+        "SOR-2026-08-P126-S165"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 124-126), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-166",
+      "level": 1,
+      "title": "C1.11 T-shirt",
+      "page_start": 126,
+      "page_end": 126,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P126-S166"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 126-126), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-167",
+      "level": 1,
+      "title": "C1.12 Reserve Judogi Supply",
+      "page_start": 126,
+      "page_end": 127,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P126-S167",
+        "SOR-2026-08-P127-S167"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 126-127), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-168",
+      "level": 1,
+      "title": "C1.13 National Technical Officials’ Duties",
+      "page_start": 127,
+      "page_end": 129,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P127-S167",
+        "SOR-2026-08-P127-S168",
+        "SOR-2026-08-P128-S168"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 127-129), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-169",
+      "level": 1,
+      "title": "C1.14 World Champion and/or Olympic Champion Titles Enhancement",
+      "page_start": 129,
+      "page_end": 129,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P129-S169"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 129-129), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-170",
+      "level": 2,
+      "title": "C1.14.1 Procedure Regarding World Champion Title(s)",
+      "page_start": 129,
+      "page_end": 130,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P129-S169",
+        "SOR-2026-08-P129-S170",
+        "SOR-2026-08-P130-S170"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 129-130), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-171",
+      "level": 3,
+      "title": "C1.14.2 Procedure Regarding Olympic Champion Title(s)",
+      "page_start": 130,
+      "page_end": 132,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P130-S171",
+        "SOR-2026-08-P132-S171"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 130-132), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-172",
+      "level": 4,
+      "title": "IJF REFEREEING RULES",
+      "page_start": 132,
+      "page_end": 133,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P132-S172",
+        "SOR-2026-08-P133-S172"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 132-133), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-173",
+      "level": 1,
+      "title": "D1.1 Refereeing - Culture, History and Principles",
+      "page_start": 133,
+      "page_end": 135,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P133-S173",
+        "SOR-2026-08-P134-S173",
+        "SOR-2026-08-P135-S173"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 133-135), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-174",
+      "level": 1,
+      "title": "Article 1 Referees and Officials",
+      "page_start": 135,
+      "page_end": 136,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P135-S173",
+        "SOR-2026-08-P135-S174",
+        "SOR-2026-08-P136-S174"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 135-136), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-175",
+      "level": 1,
+      "title": "Article 2 Position and Function of the Referee",
+      "page_start": 136,
+      "page_end": 137,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P136-S174",
+        "SOR-2026-08-P136-S175",
+        "SOR-2026-08-P137-S175"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 136-137), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-176",
+      "level": 1,
+      "title": "Article 3 Role of Non-Officiating Referees",
+      "page_start": 137,
+      "page_end": 137,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P137-S175",
+        "SOR-2026-08-P137-S176",
+        "SOR-2026-08-P137-S177"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 137-137), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-177",
+      "level": 1,
+      "title": "Article 4 Gestures",
+      "page_start": 137,
+      "page_end": 151,
+      "passages_count": 17,
+      "passage_ids": [
+        "SOR-2026-08-P137-S175",
+        "SOR-2026-08-P137-S176",
+        "SOR-2026-08-P137-S177"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 137-151), 17 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-178",
+      "level": 1,
+      "title": "Article 5 Location (Valid Areas)",
+      "page_start": 151,
+      "page_end": 152,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P151-S177",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P152-S178"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 151-152), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-179",
+      "level": 1,
+      "title": "Article 6 Duration of the Contest",
+      "page_start": 152,
+      "page_end": 152,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P152-S178",
+        "SOR-2026-08-P152-S179",
+        "SOR-2026-08-P152-S180"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 152-152), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-180",
+      "level": 1,
+      "title": "Article 7 Osaekomi Time",
+      "page_start": 152,
+      "page_end": 153,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P152-S178",
+        "SOR-2026-08-P152-S179",
+        "SOR-2026-08-P152-S180"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 152-153), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-181",
+      "level": 1,
+      "title": "Article 8 Technique Coinciding with the Time Signal",
+      "page_start": 153,
+      "page_end": 153,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P153-S180",
+        "SOR-2026-08-P153-S181",
+        "SOR-2026-08-P153-S182"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 153-153), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-182",
+      "level": 1,
+      "title": "Article 9 Start of the Contest",
+      "page_start": 153,
+      "page_end": 155,
+      "passages_count": 5,
+      "passage_ids": [
+        "SOR-2026-08-P153-S180",
+        "SOR-2026-08-P153-S181",
+        "SOR-2026-08-P153-S182"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 153-155), 5 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-183",
+      "level": 1,
+      "title": "Article 10 Transition from Tachi-waza into Ne-waza (A) and from Ne-waza into Tachi-waza (B)",
+      "page_start": 155,
+      "page_end": 160,
+      "passages_count": 8,
+      "passage_ids": [
+        "SOR-2026-08-P155-S182",
+        "SOR-2026-08-P155-S183",
+        "SOR-2026-08-P156-S183"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 155-160), contenido cubierto por 8 pasajes de la página e indexado."
+    },
+    {
+      "item_id": "SEC-184",
+      "level": 1,
+      "title": "Article 11 Application of Mate",
+      "page_start": 160,
+      "page_end": 162,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P160-S183",
+        "SOR-2026-08-P160-S184",
+        "SOR-2026-08-P161-S184"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 160-162), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-185",
+      "level": 1,
+      "title": "Article 12 Sono-mama",
+      "page_start": 162,
+      "page_end": 163,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P162-S184",
+        "SOR-2026-08-P162-S185",
+        "SOR-2026-08-P163-S185"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 162-163), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-186",
+      "level": 1,
+      "title": "Article 13 End of the Contest",
+      "page_start": 163,
+      "page_end": 166,
+      "passages_count": 5,
+      "passage_ids": [
+        "SOR-2026-08-P163-S185",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P164-S186"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 163-166), 5 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-187",
+      "level": 1,
+      "title": "Article 14 Ippon",
+      "page_start": 166,
+      "page_end": 168,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P166-S186",
+        "SOR-2026-08-P166-S187",
+        "SOR-2026-08-P167-S187"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 166-168), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-188",
+      "level": 1,
+      "title": "Article 15 Waza-ari and Yuko",
+      "page_start": 168,
+      "page_end": 172,
+      "passages_count": 6,
+      "passage_ids": [
+        "SOR-2026-08-P168-S187",
+        "SOR-2026-08-P168-S188",
+        "SOR-2026-08-P169-S188"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 168-172), 6 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-189",
+      "level": 1,
+      "title": "Article 16 Waza-ari-awasete-ippon",
+      "page_start": 172,
+      "page_end": 173,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P172-S188",
+        "SOR-2026-08-P172-S189",
+        "SOR-2026-08-P173-S189"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 172-173), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-190",
+      "level": 1,
+      "title": "Article 17 Osaekomi-waza",
+      "page_start": 173,
+      "page_end": 175,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P173-S189",
+        "SOR-2026-08-P173-S190",
+        "SOR-2026-08-P174-S190"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 173-175), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-191",
+      "level": 1,
+      "title": "Article 18 Prohibited Acts and Penalties",
+      "page_start": 175,
+      "page_end": 176,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P175-S190",
+        "SOR-2026-08-P175-S191",
+        "SOR-2026-08-P176-S191"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 175-176), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-192",
+      "level": 2,
+      "title": "Article 18.1 Shido (Slight Infringements Group)",
+      "page_start": 176,
+      "page_end": 177,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P176-S191",
+        "SOR-2026-08-P176-S192",
+        "SOR-2026-08-P177-S192"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 176-177), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-193",
+      "level": 2,
+      "title": "Article 18.1.1 Shido for a Lack of Combativity",
+      "page_start": 177,
+      "page_end": 178,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P177-S192",
+        "SOR-2026-08-P177-S193",
+        "SOR-2026-08-P178-S193"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 177-178), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-194",
+      "level": 2,
+      "title": "Article 18.1.2 Shido for an Illegal Move",
+      "page_start": 178,
+      "page_end": 188,
+      "passages_count": 11,
+      "passage_ids": [
+        "SOR-2026-08-P178-S194",
+        "SOR-2026-08-P179-S194",
+        "SOR-2026-08-P180-S194"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 178-188), 11 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-195",
+      "level": 2,
+      "title": "Article 18.1.3 Untidy Attire or Hair and Wasting Time",
+      "page_start": 188,
+      "page_end": 188,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P188-S195"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 188-188), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-196",
+      "level": 2,
+      "title": "Article 18.1.4 Penalties (Shido) in Cadet Competitions",
+      "page_start": 188,
+      "page_end": 190,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P188-S196",
+        "SOR-2026-08-P189-S196",
+        "SOR-2026-08-P190-S196"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 188-190), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-197",
+      "level": 2,
+      "title": "Article 18.2.1 Hansoku-make for Dangerous Techniques",
+      "page_start": 190,
+      "page_end": 190,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P190-S197"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 190-190), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-198",
+      "level": 2,
+      "title": "Article 18.2.2 Hansoku-make for Acts against the Spirit of Judo",
+      "page_start": 190,
+      "page_end": 194,
+      "passages_count": 5,
+      "passage_ids": [
+        "SOR-2026-08-P190-S198",
+        "SOR-2026-08-P191-S198",
+        "SOR-2026-08-P192-S198"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 190-194), 5 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-199",
+      "level": 3,
+      "title": "Article 18.3 Double Hansoku-make",
+      "page_start": 194,
+      "page_end": 194,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P194-S199"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 194-194), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-200",
+      "level": 2,
+      "title": "Article 18.3.1 Double hansoku-make (Indirect)",
+      "page_start": 194,
+      "page_end": 194,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P194-S199",
+        "SOR-2026-08-P194-S200"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 194-194), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-201",
+      "level": 2,
+      "title": "Article 18.3.2 Double hansoku-make (Direct)",
+      "page_start": 194,
+      "page_end": 195,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P194-S199",
+        "SOR-2026-08-P194-S201",
+        "SOR-2026-08-P195-S201"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 194-195), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-202",
+      "level": 1,
+      "title": "Article 19 Default and Withdrawal",
+      "page_start": 195,
+      "page_end": 195,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P195-S201",
+        "SOR-2026-08-P195-S202",
+        "SOR-2026-08-P195-S203"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 195-195), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-203",
+      "level": 2,
+      "title": "Article 19.1 Default",
+      "page_start": 195,
+      "page_end": 195,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P195-S202",
+        "SOR-2026-08-P195-S203"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 195-195), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-204",
+      "level": 3,
+      "title": "Article 19.2 Withdrawal",
+      "page_start": 195,
+      "page_end": 196,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P195-S202",
+        "SOR-2026-08-P195-S204",
+        "SOR-2026-08-P196-S204"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 195-196), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-205",
+      "level": 1,
+      "title": "Article 20 Injury, Illness or Accident",
+      "page_start": 196,
+      "page_end": 196,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P196-S204",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P196-S206"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 196-196), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-206",
+      "level": 2,
+      "title": "Article 20.1 Continuation of a Contest",
+      "page_start": 196,
+      "page_end": 197,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P196-S206",
+        "SOR-2026-08-P197-S206"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 196-197), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-207",
+      "level": 3,
+      "title": "Article 20.2 Medical Examinations and Treatment Inside the Contest Area",
+      "page_start": 197,
+      "page_end": 198,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P198-S207"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 197-198), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-208",
+      "level": 3,
+      "title": "Article 20.3 Medical Examination and Treatment Outside the Contest Area",
+      "page_start": 198,
+      "page_end": 198,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P198-S208"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 198-198), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-209",
+      "level": 2,
+      "title": "Article 20.3.1 Treatment of Bleeding",
+      "page_start": 198,
+      "page_end": 198,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P198-S208",
+        "SOR-2026-08-P198-S209"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 198-198), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-210",
+      "level": 2,
+      "title": "Article 20.3.2 Treatment of Minor Injuries",
+      "page_start": 198,
+      "page_end": 199,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P198-S208",
+        "SOR-2026-08-P198-S210",
+        "SOR-2026-08-P199-S210"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 198-199), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-211",
+      "level": 1,
+      "title": "Article 21 Situations not Covered by the Refereeing Rules",
+      "page_start": 199,
+      "page_end": 200,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P199-S210",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P200-S211"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 199-200), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-212",
+      "level": 2,
+      "title": "IJF MEDICAL AND ANTI-DOPING HANDBOOK",
+      "page_start": 200,
+      "page_end": 201,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P200-S212",
+        "SOR-2026-08-P201-S212"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 200-201), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-213",
+      "level": 1,
+      "title": "E1.1 Medical Requirements",
+      "page_start": 201,
+      "page_end": 201,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P201-S213"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 201-201), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-214",
+      "level": 2,
+      "title": "E1.1.1 Decision Making on the Field of Play",
+      "page_start": 201,
+      "page_end": 201,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P201-S213",
+        "SOR-2026-08-P201-S214"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 201-201), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-215",
+      "level": 3,
+      "title": "E1.1.2 Decision Making off the Field of Play",
+      "page_start": 201,
+      "page_end": 201,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P201-S213",
+        "SOR-2026-08-P201-S215"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 201-201), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-216",
+      "level": 3,
+      "title": "E1.1.3 Rights and Responsibilities",
+      "page_start": 201,
+      "page_end": 202,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P201-S213",
+        "SOR-2026-08-P201-S216",
+        "SOR-2026-08-P202-S216"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 201-202), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-217",
+      "level": 1,
+      "title": "E1.2 Medical Suspension Following Concussion",
+      "page_start": 202,
+      "page_end": 202,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P202-S217"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 202-202), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-218",
+      "level": 1,
+      "title": "E1.3 Hygiene",
+      "page_start": 202,
+      "page_end": 202,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P202-S218"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 202-202), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-219",
+      "level": 1,
+      "title": "E1.4 Wearable Medical Devices",
+      "page_start": 202,
+      "page_end": 202,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P202-S219"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 202-202), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-220",
+      "level": 1,
+      "title": "E1.5 Doctors’ Code of Conduct",
+      "page_start": 202,
+      "page_end": 203,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P202-S220",
+        "SOR-2026-08-P203-S220"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 202-203), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-221",
+      "level": 1,
+      "title": "E1.6 Doping Control Requirements",
+      "page_start": 203,
+      "page_end": 203,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P203-S221"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 203-203), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-222",
+      "level": 2,
+      "title": "E1.6.1 Event Testing",
+      "page_start": 203,
+      "page_end": 203,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P203-S221",
+        "SOR-2026-08-P203-S222"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 203-203), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-223",
+      "level": 3,
+      "title": "E1.6.2 Selection Procedure for Doping Control",
+      "page_start": 203,
+      "page_end": 203,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P203-S221",
+        "SOR-2026-08-P203-S223"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 203-203), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-224",
+      "level": 3,
+      "title": "E1.6.3 Athlete Notification",
+      "page_start": 203,
+      "page_end": 203,
+      "passages_count": 7,
+      "passage_ids": [
+        "SOR-2026-08-P203-S220",
+        "SOR-2026-08-P203-S221",
+        "SOR-2026-08-P203-S222"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 203-203), 7 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-225",
+      "level": 2,
+      "title": "E1.6.3.1 Modification of Notification for Minor Athletes",
+      "page_start": 203,
+      "page_end": 203,
+      "passages_count": 7,
+      "passage_ids": [
+        "SOR-2026-08-P203-S220",
+        "SOR-2026-08-P203-S221",
+        "SOR-2026-08-P203-S222"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 203-203), 7 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-226",
+      "level": 3,
+      "title": "E1.6.4 Laboratory",
+      "page_start": 203,
+      "page_end": 204,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P203-S221",
+        "SOR-2026-08-P203-S226",
+        "SOR-2026-08-P204-S226"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 203-204), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-227",
+      "level": 4,
+      "title": "SPORT COMPETITION",
+      "page_start": 204,
+      "page_end": 205,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P204-S226",
+        "SOR-2026-08-P204-S227",
+        "SOR-2026-08-P205-S227"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 204-205), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-228",
+      "level": 1,
+      "title": "F1.1 IJF Event Phases",
+      "page_start": 205,
+      "page_end": 207,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P205-S228",
+        "SOR-2026-08-P206-S228",
+        "SOR-2026-08-P207-S228"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 205-207), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-229",
+      "level": 1,
+      "title": "F1.2 Athlete Scoreboards",
+      "page_start": 207,
+      "page_end": 208,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P207-S229",
+        "SOR-2026-08-P208-S229"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 207-208), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-230",
+      "level": 1,
+      "title": "F1.3 Standard Forms for IJF Events",
+      "page_start": 208,
+      "page_end": 208,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P208-S230"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 208. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-231",
+      "level": 2,
+      "title": "F1.3.1 Delegation Control List",
+      "page_start": 208,
+      "page_end": 209,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P208-S230",
+        "SOR-2026-08-P208-S231",
+        "SOR-2026-08-P209-S231"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 208. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-232",
+      "level": 3,
+      "title": "F1.3.2 Weigh-in List",
+      "page_start": 209,
+      "page_end": 210,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P209-S232",
+        "SOR-2026-08-P210-S232"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 209. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-233",
+      "level": 3,
+      "title": "F1.3.3 Contest Order",
+      "page_start": 210,
+      "page_end": 211,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P210-S233",
+        "SOR-2026-08-P211-S233"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 210. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-234",
+      "level": 3,
+      "title": "F1.3.4 Referees’ List",
+      "page_start": 211,
+      "page_end": 212,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P211-S234",
+        "SOR-2026-08-P212-S234"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 211. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-235",
+      "level": 3,
+      "title": "F1.3.5 Contest Sheet",
+      "page_start": 212,
+      "page_end": 213,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P212-S235",
+        "SOR-2026-08-P213-S235"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 212. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-236",
+      "level": 3,
+      "title": "F1.3.6 Direct Knockout",
+      "page_start": 213,
+      "page_end": 214,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P213-S236",
+        "SOR-2026-08-P214-S236"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 213. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-237",
+      "level": 3,
+      "title": "F1.3.7 Quarter-Final Repechage",
+      "page_start": 214,
+      "page_end": 215,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P214-S237",
+        "SOR-2026-08-P215-S237"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 214. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-238",
+      "level": 3,
+      "title": "F1.3.8 Quarter-Final Repechage up to 64 Athletes or Teams",
+      "page_start": 215,
+      "page_end": 216,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P215-S238",
+        "SOR-2026-08-P216-S238"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 215. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-239",
+      "level": 3,
+      "title": "F1.3.9 Quarter-Final Repechage up to 32 Athletes or Teams",
+      "page_start": 216,
+      "page_end": 217,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P216-S239",
+        "SOR-2026-08-P217-S239"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 216. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-240",
+      "level": 3,
+      "title": "F1.3.10 Quarter-Final Repechage up to 16 Athletes or Teams",
+      "page_start": 217,
+      "page_end": 218,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P217-S240",
+        "SOR-2026-08-P218-S240"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 217. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-241",
+      "level": 3,
+      "title": "F1.3.11 Quarter-Final Repechage up to 8 Athletes or Teams",
+      "page_start": 218,
+      "page_end": 219,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P218-S241",
+        "SOR-2026-08-P219-S241"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 218. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-242",
+      "level": 3,
+      "title": "F1.3.12 Double Repechage up to 64 Athletes or Teams",
+      "page_start": 219,
+      "page_end": 220,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P219-S242",
+        "SOR-2026-08-P220-S242"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 219. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-243",
+      "level": 3,
+      "title": "F1.3.13 Double Repechage up to 32 Athletes or Teams",
+      "page_start": 220,
+      "page_end": 221,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P220-S243",
+        "SOR-2026-08-P221-S243"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 220. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-244",
+      "level": 3,
+      "title": "F1.3.14 Double Repechage up to 16 Athletes or Teams",
+      "page_start": 221,
+      "page_end": 222,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P221-S244",
+        "SOR-2026-08-P222-S244"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 221. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-245",
+      "level": 3,
+      "title": "F1.3.15 Double Repechage up to 8 Athletes or Teams",
+      "page_start": 222,
+      "page_end": 223,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P222-S245",
+        "SOR-2026-08-P223-S245"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 222. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-246",
+      "level": 3,
+      "title": "F1.3.16 Full Repechage up to 32 Athletes or Teams",
+      "page_start": 223,
+      "page_end": 224,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P223-S246",
+        "SOR-2026-08-P224-S246"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 223. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-247",
+      "level": 3,
+      "title": "F1.3.17 Full Repechage up to 16 Athletes or Teams",
+      "page_start": 224,
+      "page_end": 225,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P224-S247",
+        "SOR-2026-08-P225-S247"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 224. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-248",
+      "level": 3,
+      "title": "F1.3.18 Five (5) Athletes or Teams - Option 1",
+      "page_start": 225,
+      "page_end": 226,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P225-S248",
+        "SOR-2026-08-P226-S248"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 225. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-249",
+      "level": 3,
+      "title": "F1.3.19 Five (5) Athletes or Teams - Option 2",
+      "page_start": 226,
+      "page_end": 227,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P226-S249",
+        "SOR-2026-08-P227-S249"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 226. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-250",
+      "level": 3,
+      "title": "F1.3.20 Four (4) Athletes or Teams - Option 1",
+      "page_start": 227,
+      "page_end": 228,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P227-S250",
+        "SOR-2026-08-P228-S250"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 227. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-251",
+      "level": 3,
+      "title": "F1.3.21 Four (4) Athletes or Teams - Option 2",
+      "page_start": 228,
+      "page_end": 229,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P228-S251",
+        "SOR-2026-08-P229-S251"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 228. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-252",
+      "level": 3,
+      "title": "F1.3.22 Three (3) Athletes or Teams - Option 1",
+      "page_start": 229,
+      "page_end": 230,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P229-S252",
+        "SOR-2026-08-P230-S252"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 229. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-253",
+      "level": 3,
+      "title": "F1.3.23 Three (3) Athletes or Teams - Option 2",
+      "page_start": 230,
+      "page_end": 231,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P230-S253",
+        "SOR-2026-08-P231-S253"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 230. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-254",
+      "level": 3,
+      "title": "F1.3.24 Example of Winners’ List",
+      "page_start": 231,
+      "page_end": 232,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P231-S254",
+        "SOR-2026-08-P232-S254"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 231. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-255",
+      "level": 3,
+      "title": "F1.3.25 Example of Teams Line Up Confirmation",
+      "page_start": 232,
+      "page_end": 233,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P232-S254",
+        "SOR-2026-08-P232-S255",
+        "SOR-2026-08-P233-S255"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 232. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-256",
+      "level": 3,
+      "title": "F1.3.26 Example of Mixed Teams Line Up Confirmation",
+      "page_start": 233,
+      "page_end": 234,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P233-S255",
+        "SOR-2026-08-P233-S256",
+        "SOR-2026-08-P234-S256"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 233. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-257",
+      "level": 3,
+      "title": "F1.3.27 Example of Team Sheet",
+      "page_start": 234,
+      "page_end": 235,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P234-S257",
+        "SOR-2026-08-P235-S257"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 234. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-258",
+      "level": 3,
+      "title": "F1.3.28 Example of Mixed Teams Match Sheet - with Results",
+      "page_start": 235,
+      "page_end": 236,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P235-S258",
+        "SOR-2026-08-P236-S258"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 235. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-259",
+      "level": 3,
+      "title": "F1.3.29 Coach Suspension Form",
+      "page_start": 236,
+      "page_end": 237,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P236-S259",
+        "SOR-2026-08-P237-S259"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 236. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-260",
+      "level": 3,
+      "title": "F1.3.30 Article 18 Direct Hansoku-make Form",
+      "page_start": 237,
+      "page_end": 238,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P237-S260",
+        "SOR-2026-08-P238-S260"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 237. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-261",
+      "level": 3,
+      "title": "F1.3.31 Coaches Request to Review Action",
+      "page_start": 238,
+      "page_end": 239,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P238-S261",
+        "SOR-2026-08-P239-S261"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 238. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-262",
+      "level": 3,
+      "title": "F1.3.32 Record Sheet - Judogi Breaches",
+      "page_start": 239,
+      "page_end": 240,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P239-S262",
+        "SOR-2026-08-P240-S262"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 239. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-263",
+      "level": 3,
+      "title": "F1.3.33 Exceptional Registration Request Form",
+      "page_start": 240,
+      "page_end": 242,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P240-S263",
+        "SOR-2026-08-P241-S263"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "PARCIAL",
+      "justification": "Formulario/diagrama F1.3 en pág 240. Texto extraído parcialmente, pendiente validación visual diagramática."
+    },
+    {
+      "item_id": "SEC-264",
+      "level": 4,
+      "title": "GLOSSARY",
+      "page_start": 242,
+      "page_end": 243,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P243-S264",
+        "SOR-2026-08-P243-S265"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 242-243), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-265",
+      "level": 1,
+      "title": "G1.1 Glossary of Japanese Terms",
+      "page_start": 243,
+      "page_end": 250,
+      "passages_count": 8,
+      "passage_ids": [
+        "SOR-2026-08-P243-S265",
+        "SOR-2026-08-P244-S265",
+        "SOR-2026-08-P245-S265"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 243-250), 8 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-266",
+      "level": 1,
+      "title": "G1.2 Names of Judo Techniques",
+      "page_start": 250,
+      "page_end": 250,
+      "passages_count": 1,
+      "passage_ids": [
+        "SOR-2026-08-P250-S266"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 250-250), 1 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-267",
+      "level": 2,
+      "title": "G1.2.1 Nage-waza (68)",
+      "page_start": 250,
+      "page_end": 252,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P250-S266",
+        "SOR-2026-08-P250-S267",
+        "SOR-2026-08-P251-S267"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 250-252), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-268",
+      "level": 3,
+      "title": "G1.2.2 Katame-waza (32)",
+      "page_start": 252,
+      "page_end": 254,
+      "passages_count": 3,
+      "passage_ids": [
+        "SOR-2026-08-P252-S268",
+        "SOR-2026-08-P253-S268",
+        "SOR-2026-08-P254-S268"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 252-254), 3 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-269",
+      "level": 1,
+      "title": "G1.3 Penalty Codes",
+      "page_start": 254,
+      "page_end": 257,
+      "passages_count": 4,
+      "passage_ids": [
+        "SOR-2026-08-P254-S269",
+        "SOR-2026-08-P255-S269",
+        "SOR-2026-08-P256-S269"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 254-257), 4 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-270",
+      "level": 1,
+      "title": "G1.4 Terminology",
+      "page_start": 257,
+      "page_end": 258,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P257-S270",
+        "SOR-2026-08-P258-S270"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 257-258), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-271",
+      "level": 2,
+      "title": "DOCUMENT CONTROL",
+      "page_start": 258,
+      "page_end": 259,
+      "passages_count": 2,
+      "passage_ids": [
+        "SOR-2026-08-P258-S271",
+        "SOR-2026-08-P259-S271"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 258-259), 2 pasajes concordantes identificados e indexados en vector store."
+    },
+    {
+      "item_id": "SEC-272",
+      "level": 1,
+      "title": "H1.1 Document Version History",
+      "page_start": 259,
+      "page_end": 298,
+      "passages_count": 40,
+      "passage_ids": [
+        "SOR-2026-08-P259-S272",
+        "SOR-2026-08-P260-S272",
+        "SOR-2026-08-P261-S272"
+      ],
+      "is_extracted": true,
+      "is_indexed": true,
+      "status": "COMPLETO_VERIFICADO",
+      "justification": "Presente en fuente (pág 259-298), 40 pasajes concordantes identificados e indexados en vector store."
+    }
+  ],
+  "reconstructed_complex_tables": {
+    "WEIGHT_CATEGORIES_SENIOR_JUNIOR_INDIVIDUAL": {
+      "source_table_id": "TAB-P033-01",
+      "pdf_page_index": 33,
+      "title": "Weight Categories for Senior and Junior (Individual)",
+      "records": [
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-48 kg",
+          "classification_name": "Extra-lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-52 kg",
+          "classification_name": "Half-lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-57 kg",
+          "classification_name": "Lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-63 kg",
+          "classification_name": "Half-middleweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-70 kg",
+          "classification_name": "Middleweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-78 kg",
+          "classification_name": "Half-heavyweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "+78 kg",
+          "classification_name": "Heavyweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-40 kg",
+          "classification_name": "Featherweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-44 kg",
+          "classification_name": "Extra-lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-48 kg",
+          "classification_name": "Half-lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-52 kg",
+          "classification_name": "Lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-57 kg",
+          "classification_name": "Half-middleweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-63 kg",
+          "classification_name": "Middleweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "-70 kg",
+          "classification_name": "Half-heavyweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Women",
+          "weight_category": "+70 kg",
+          "classification_name": "Heavyweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-60 kg",
+          "classification_name": "Extra-lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-66 kg",
+          "classification_name": "Half-lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-73 kg",
+          "classification_name": "Lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-81 kg",
+          "classification_name": "Half-middleweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-90 kg",
+          "classification_name": "Middleweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-100 kg",
+          "classification_name": "Half-heavyweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "+100 kg",
+          "classification_name": "Heavyweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-50 kg",
+          "classification_name": "Featherweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-55 kg",
+          "classification_name": "Extra-lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-60 kg",
+          "classification_name": "Half-lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-66 kg",
+          "classification_name": "Lightweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-73 kg",
+          "classification_name": "Half-middleweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-81 kg",
+          "classification_name": "Middleweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "-90 kg",
+          "classification_name": "Half-heavyweight"
+        },
+        {
+          "division": "Senior and Junior",
+          "gender": "Men",
+          "weight_category": "+90 kg",
+          "classification_name": "Heavyweight"
+        }
+      ]
+    },
+    "MIXED_TEAM_WEIGHT_CATEGORIES": {
+      "source_table_id": "TAB-P034-01",
+      "pdf_page_index": 34,
+      "title": "Senior and Junior Mixed Team Weight Categories and Eligibility",
+      "records": [
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-57 kg",
+          "gender": "Women",
+          "eligible_individual_weights": "Up to and including 57.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-73 kg",
+          "gender": "Men",
+          "eligible_individual_weights": "Up to and including 73.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-70 kg",
+          "gender": "Women",
+          "eligible_individual_weights": "Over 57.0 kg up to and including 70.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-90 kg",
+          "gender": "Men",
+          "eligible_individual_weights": "Over 73.0 kg up to and including 90.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "+70 kg",
+          "gender": "Women",
+          "eligible_individual_weights": "Over 70.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "+90 kg",
+          "gender": "Men",
+          "eligible_individual_weights": "Over 90.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-57 kg",
+          "gender": "Women (48 kg, 52 kg, 57 kg*)",
+          "eligible_individual_weights": "Up to and including 57.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-73 kg",
+          "gender": "Men (60 kg, 66 kg, 73 kg*)",
+          "eligible_individual_weights": "Up to and including 73.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-70 kg",
+          "gender": "Women (57 kg, 63 kg, 70 kg*)",
+          "eligible_individual_weights": "Up to and including 70.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-90 kg",
+          "gender": "Men (73 kg, 81 kg, 90 kg*)",
+          "eligible_individual_weights": "Up to and including 90.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "+70 kg",
+          "gender": "Women (70 kg, 78 kg, +78 kg*)",
+          "eligible_individual_weights": "Over 70.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "+90 kg",
+          "gender": "Men (90 kg, 100 kg, +100 kg*)",
+          "eligible_individual_weights": "Over 90.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-48 kg",
+          "gender": "Women",
+          "eligible_individual_weights": "Up to and including 48.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-60 kg",
+          "gender": "Men",
+          "eligible_individual_weights": "Up to and including 60.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-63 kg",
+          "gender": "Women",
+          "eligible_individual_weights": "Over 48 kg up to and including 63.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "-81 kg",
+          "gender": "Men",
+          "eligible_individual_weights": "Over 60 kg up to and including 81.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "+63 kg",
+          "gender": "Women",
+          "eligible_individual_weights": "Over 63.0 kg"
+        },
+        {
+          "event_type": "Senior and Junior Mixed Team",
+          "contest_weight": "+81 kg",
+          "gender": "Men",
+          "eligible_individual_weights": "Over 81.0 kg"
+        }
+      ]
+    },
+    "WRL_POINTS_ALLOCATION_MATRIX": {
+      "source_table_id": "TAB-P052-01",
+      "pdf_page_index": 52,
+      "title": "World Ranking List (WRL) Points Allocation by Competition Level",
+      "headers": [
+        "Placing",
+        "Continental Opens",
+        "Continental Championships",
+        "Junior World Championships",
+        "Grand Prix",
+        "Grand Slam",
+        "Masters",
+        "World Championships",
+        "Olympic Games"
+      ],
+      "records": [
+        {
+          "placing": "1st place",
+          "points_by_competition": {
+            "Continental Opens": "100",
+            "Continental Championships": "800",
+            "Junior World Championships": "700",
+            "Grand Prix": "700",
+            "Grand Slam": "1000",
+            "Masters": "1800",
+            "World Championships": "2000",
+            "Olympic Games": "2200"
+          }
+        },
+        {
+          "placing": "2nd place",
+          "points_by_competition": {
+            "Continental Opens": "70",
+            "Continental Championships": "560",
+            "Junior World Championships": "490",
+            "Grand Prix": "490",
+            "Grand Slam": "700",
+            "Masters": "1260",
+            "World Championships": "1400",
+            "Olympic Games": "1540"
+          }
+        },
+        {
+          "placing": "3rd place",
+          "points_by_competition": {
+            "Continental Opens": "50",
+            "Continental Championships": "400",
+            "Junior World Championships": "350",
+            "Grand Prix": "350",
+            "Grand Slam": "500",
+            "Masters": "900",
+            "World Championships": "1000",
+            "Olympic Games": "1100"
+          }
+        },
+        {
+          "placing": "5th place",
+          "points_by_competition": {
+            "Continental Opens": "36",
+            "Continental Championships": "288",
+            "Junior World Championships": "252",
+            "Grand Prix": "252",
+            "Grand Slam": "360",
+            "Masters": "648",
+            "World Championships": "720",
+            "Olympic Games": "792"
+          }
+        },
+        {
+          "placing": "7th place",
+          "points_by_competition": {
+            "Continental Opens": "26",
+            "Continental Championships": "208",
+            "Junior World Championships": "182",
+            "Grand Prix": "182",
+            "Grand Slam": "260",
+            "Masters": "468",
+            "World Championships": "520",
+            "Olympic Games": "572"
+          }
+        },
+        {
+          "placing": "9th place (1/16)",
+          "points_by_competition": {
+            "Continental Opens": "16",
+            "Continental Championships": "128",
+            "Junior World Championships": "112",
+            "Grand Prix": "112",
+            "Grand Slam": "160",
+            "Masters": "288",
+            "World Championships": "320",
+            "Olympic Games": "352"
+          }
+        },
+        {
+          "placing": "17th place (1/32)",
+          "points_by_competition": {
+            "Continental Opens": "12",
+            "Continental Championships": "96",
+            "Junior World Championships": "84",
+            "Grand Prix": "84",
+            "Grand Slam": "120",
+            "Masters": "216",
+            "World Championships": "240",
+            "Olympic Games": "264"
+          }
+        },
+        {
+          "placing": "1 contest won",
+          "points_by_competition": {
+            "Continental Opens": "10",
+            "Continental Championships": "80",
+            "Junior World Championships": "70",
+            "Grand Prix": "70",
+            "Grand Slam": "100",
+            "Masters": "0",
+            "World Championships": "200"
+          }
+        },
+        {
+          "placing": "Participation",
+          "points_by_competition": {
+            "Continental Opens": "2",
+            "Continental Championships": "6",
+            "Junior World Championships": "6",
+            "Grand Prix": "6",
+            "Grand Slam": "10",
+            "Masters": "100",
+            "World Championships": "20"
+          }
+        }
+      ]
+    },
+    "COMPETITION_SYSTEM_BY_ATHLETE_COUNT": {
+      "source_table_id": "TAB-P041-01",
+      "pdf_page_index": 41,
+      "title": "Competition Systems and Medals Awarded Based on Athlete Count",
+      "records": [
+        {
+          "num_athletes_or_teams": "5*",
+          "system": "Individuals and mixed teams The athletes/teams will be divided as follow: Pool A – 3 athletes/teams will compete in a round robin system. The winner will go to the final, the second will compete against the loser from pool B in the bronze medal contest. Pool B – 2 athletes/teams will compete for a place in the final.",
+          "medals": "Gold, silver and one bronze"
+        },
+        {
+          "num_athletes_or_teams": "4*",
+          "system": "Elimination system with two (2) pools of two (2) single contests/ matches, then a contest/match between the two (2) losers of each pool for the single bronze medal and a contest/match between the two (2) winners of each pool for the gold and silver medals.",
+          "medals": "Gold, silver and one bronze"
+        },
+        {
+          "num_athletes_or_teams": "3*",
+          "system": "A round robin system will be held in the elimination round. The best and the second best will compete in a final for the gold and silver medal. The third athlete/team will be awarded the single bronze medal.",
+          "medals": "Gold, silver and one bronze"
+        },
+        {
+          "num_athletes_or_teams": "2*",
+          "system": "One final contest/match.",
+          "medals": "Gold and silver"
+        },
+        {
+          "num_athletes_or_teams": "1*",
+          "system": "No competition.",
+          "medals": "None"
+        }
+      ]
+    },
+    "VETERANS_REGULATIONS_TAB-P103-01": {
+      "source_table_id": "TAB-P103-01",
+      "pdf_page_index": 103,
+      "rows": [
+        [
+          "Age Division",
+          "Actual Age (in year of event)"
+        ],
+        [
+          "F1/M1",
+          "30-34"
+        ],
+        [
+          "F2/M2",
+          "35-39"
+        ],
+        [
+          "F3/M3",
+          "40-44"
+        ],
+        [
+          "F4/M4",
+          "45-49"
+        ],
+        [
+          "F5/M5",
+          "50-54"
+        ],
+        [
+          "F6/M6",
+          "55-59"
+        ],
+        [
+          "F7/M7",
+          "60 - 64 (no shime-waza)"
+        ],
+        [
+          "F8/M8",
+          "65 - 69 (no shime-waza)"
+        ],
+        [
+          "F9/M9",
+          "70+ (no shime-waza)"
+        ]
+      ]
+    },
+    "VETERANS_REGULATIONS_TAB-P103-02": {
+      "source_table_id": "TAB-P103-02",
+      "pdf_page_index": 103,
+      "rows": [
+        [
+          "Age Range",
+          "Age Division",
+          "Contest Duration",
+          "Golden Score"
+        ],
+        [
+          "30-59",
+          "M1/F1 to/including M6/F6",
+          "3 minutes",
+          "No limit"
+        ],
+        [
+          "60+",
+          "M7/F7 to/including M9/F9",
+          "2.5 minutes",
+          "1 minute"
+        ]
+      ]
+    },
+    "VETERANS_REGULATIONS_TAB-P104-01": {
+      "source_table_id": "TAB-P104-01",
+      "pdf_page_index": 104,
+      "rows": [
+        [
+          "Age Division",
+          "Higher Age Division",
+          "Lower Age Division",
+          "Age Span"
+        ],
+        [
+          "F1/M1",
+          "F2/M2, F3/M3",
+          "Not applicable",
+          "30-44"
+        ],
+        [
+          "F2/M2",
+          "F3/M3, F4/M4",
+          "F1/M1",
+          "30-49"
+        ],
+        [
+          "F3/M3",
+          "F4/M4, F5/M5",
+          "F1/M1, F2/M2",
+          "30-54"
+        ],
+        [
+          "F4/M4",
+          "F5/M5, F6/M6",
+          "F2/M2, F3/M3",
+          "35-59"
+        ],
+        [
+          "F5/M5",
+          "F6/M6",
+          "F3/M3, F4/M4",
+          "40-59"
+        ],
+        [
+          "F6/M6",
+          "F7/M7",
+          "F4/M4, F5/M5",
+          "45-64"
+        ],
+        [
+          "F7/M7",
+          "F8/M8",
+          "F6/M6",
+          "55-69"
+        ],
+        [
+          "F8/M8",
+          "F9/M9",
+          "F7/M7",
+          "60-70+"
+        ],
+        [
+          "F9/M9",
+          "Not applicable",
+          "F8/M8",
+          "65-70+"
+        ]
+      ]
+    },
+    "PENALTY_CODES_TABLE_TAB-P254-01": {
+      "source_table_id": "TAB-P254-01",
+      "pdf_page_index": 254,
+      "title": "Referee Penalty Codes (Appendix G1.3) - TAB-P254-01",
+      "records": [
+        {
+          "code_or_article": "Action",
+          "description": "Penalty code",
+          "sanction": "Penalty given"
+        },
+        {
+          "code_or_article": "Negative positions",
+          "description": "PS1",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "False attack",
+          "description": "PS2",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Pull down",
+          "description": "PS3",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Non combativity",
+          "description": "PS4",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Intentionally leave contest area",
+          "description": "PS5",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Hand, arm, foot, or leg directly on the opponent’s face",
+          "description": "PS6",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Grip avoidance",
+          "description": "PS7",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Grab below belt",
+          "description": "PS8",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Duck under arm",
+          "description": "PS9",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Hooking opponent's leg",
+          "description": "PS10",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Defensive kumikata",
+          "description": "PS11",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Fingers interlocked",
+          "description": "PS12",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Grip inside bottom of trouser leg in tachi-waza",
+          "description": "PS13",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Bend opponent’s fingers",
+          "description": "PS14",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Grip breaking with two hands and not keeping the grip",
+          "description": "PS15",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Break grip with knee or leg",
+          "description": "PS16",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Hide lapel",
+          "description": "PS17",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Block opponent's hand",
+          "description": "PS18",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Leg grabbing",
+          "description": "PS19",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Encircling belt or jacket",
+          "description": "PS20",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Judogi in the mouth",
+          "description": "PS21",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Foot in judogi or belt",
+          "description": "PS22",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Shime-waza with the jacket/belt",
+          "description": "PS23",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Overstretching leg in shime-waza",
+          "description": "PS24",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Bear hug with clasped hands/arms",
+          "description": "PS25",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Shime-waza using the legs to assist",
+          "description": "PS26",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Kicking",
+          "description": "PS27",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "To hit arm of opponent to break or avoid the grip",
+          "description": "PS28",
+          "sanction": "Shido"
+        }
+      ]
+    },
+    "PENALTY_CODES_TABLE_TAB-P255-01": {
+      "source_table_id": "TAB-P255-01",
+      "pdf_page_index": 255,
+      "title": "Referee Penalty Codes (Appendix G1.3) - TAB-P255-01",
+      "records": [
+        {
+          "code_or_article": "Kansetsu-waza or shime-waza without a judo throwing technique",
+          "description": "PS29",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Entangling the leg",
+          "description": "PS30",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Kata-sankaku grip in tachi-waza with a lower injury risk",
+          "description": "PS31",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Untidy attire, untidy hair or wasting time",
+          "description": "PS32",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Using the head to throw in cadet events",
+          "description": "PS33",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Using the head to defend in cadet events",
+          "description": "PS34",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Reverse seoi-nage in cadet events",
+          "description": "PS35",
+          "sanction": "Shido"
+        },
+        {
+          "code_or_article": "Head dive",
+          "description": "PH1",
+          "sanction": "Hansoku- make (H)"
+        },
+        {
+          "code_or_article": "Kawazu-gake",
+          "description": "PX1",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Kani-basami",
+          "description": "PX2",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Do-jime",
+          "description": "PX3",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Illegal kansetsu-waza",
+          "description": "PX4",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Kansetsu-waza or shime-waza with a judo throwing technique with a higher injury risk",
+          "description": "PX5",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "To apply kansetsu-waza on the shoulder as a variation of te-gatame.",
+          "description": "PX5b",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Reap opponent's supporting leg",
+          "description": "PX6",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Dangerous action",
+          "description": "PX7a",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Kata-sankaku in tachi-waza with throw with higher risk",
+          "description": "PX7b",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Kata-sankaku in ne-waza with blocking with both legs",
+          "description": "PX7c",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Ushiro-sankaku in ne-waza with a higher risk of injury",
+          "description": "PX7d",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Fall backwards",
+          "description": "PX8",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Drive into the mat",
+          "description": "PX9",
+          "sanction": "Hansoku- make (X)"
+        }
+      ]
+    },
+    "PENALTY_CODES_TABLE_TAB-P256-01": {
+      "source_table_id": "TAB-P256-01",
+      "pdf_page_index": 256,
+      "title": "Referee Penalty Codes (Appendix G1.3) - TAB-P256-01",
+      "records": [
+        {
+          "code_or_article": "Disregard instructions",
+          "description": "PX10",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Unnecessary remarks",
+          "description": "PX11",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Hard/metallic object",
+          "description": "PX12",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Action against spirit of judo",
+          "description": "PX13",
+          "sanction": "Hansoku- make (X)"
+        },
+        {
+          "code_or_article": "Undetermined",
+          "description": "P99",
+          "sanction": "Shido, Hasoku-make (H) or (X)"
+        }
+      ]
+    }
+  }
+}

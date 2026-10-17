@@ -1,0 +1,901 @@
+{
+  "WEIGHT_CATEGORIES_SENIOR_JUNIOR_INDIVIDUAL": {
+    "source_table_id": "TAB-P033-01",
+    "pdf_page_index": 33,
+    "title": "Weight Categories for Senior and Junior (Individual)",
+    "records": [
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-48 kg",
+        "classification_name": "Extra-lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-52 kg",
+        "classification_name": "Half-lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-57 kg",
+        "classification_name": "Lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-63 kg",
+        "classification_name": "Half-middleweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-70 kg",
+        "classification_name": "Middleweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-78 kg",
+        "classification_name": "Half-heavyweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "+78 kg",
+        "classification_name": "Heavyweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-40 kg",
+        "classification_name": "Featherweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-44 kg",
+        "classification_name": "Extra-lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-48 kg",
+        "classification_name": "Half-lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-52 kg",
+        "classification_name": "Lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-57 kg",
+        "classification_name": "Half-middleweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-63 kg",
+        "classification_name": "Middleweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "-70 kg",
+        "classification_name": "Half-heavyweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Women",
+        "weight_category": "+70 kg",
+        "classification_name": "Heavyweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-60 kg",
+        "classification_name": "Extra-lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-66 kg",
+        "classification_name": "Half-lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-73 kg",
+        "classification_name": "Lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-81 kg",
+        "classification_name": "Half-middleweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-90 kg",
+        "classification_name": "Middleweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-100 kg",
+        "classification_name": "Half-heavyweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "+100 kg",
+        "classification_name": "Heavyweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-50 kg",
+        "classification_name": "Featherweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-55 kg",
+        "classification_name": "Extra-lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-60 kg",
+        "classification_name": "Half-lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-66 kg",
+        "classification_name": "Lightweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-73 kg",
+        "classification_name": "Half-middleweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-81 kg",
+        "classification_name": "Middleweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "-90 kg",
+        "classification_name": "Half-heavyweight"
+      },
+      {
+        "division": "Senior and Junior",
+        "gender": "Men",
+        "weight_category": "+90 kg",
+        "classification_name": "Heavyweight"
+      }
+    ]
+  },
+  "MIXED_TEAM_WEIGHT_CATEGORIES": {
+    "source_table_id": "TAB-P034-01",
+    "pdf_page_index": 34,
+    "title": "Senior and Junior Mixed Team Weight Categories and Eligibility",
+    "records": [
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-57 kg",
+        "gender": "Women",
+        "eligible_individual_weights": "Up to and including 57.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-73 kg",
+        "gender": "Men",
+        "eligible_individual_weights": "Up to and including 73.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-70 kg",
+        "gender": "Women",
+        "eligible_individual_weights": "Over 57.0 kg up to and including 70.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-90 kg",
+        "gender": "Men",
+        "eligible_individual_weights": "Over 73.0 kg up to and including 90.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "+70 kg",
+        "gender": "Women",
+        "eligible_individual_weights": "Over 70.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "+90 kg",
+        "gender": "Men",
+        "eligible_individual_weights": "Over 90.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-57 kg",
+        "gender": "Women (48 kg, 52 kg, 57 kg*)",
+        "eligible_individual_weights": "Up to and including 57.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-73 kg",
+        "gender": "Men (60 kg, 66 kg, 73 kg*)",
+        "eligible_individual_weights": "Up to and including 73.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-70 kg",
+        "gender": "Women (57 kg, 63 kg, 70 kg*)",
+        "eligible_individual_weights": "Up to and including 70.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-90 kg",
+        "gender": "Men (73 kg, 81 kg, 90 kg*)",
+        "eligible_individual_weights": "Up to and including 90.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "+70 kg",
+        "gender": "Women (70 kg, 78 kg, +78 kg*)",
+        "eligible_individual_weights": "Over 70.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "+90 kg",
+        "gender": "Men (90 kg, 100 kg, +100 kg*)",
+        "eligible_individual_weights": "Over 90.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-48 kg",
+        "gender": "Women",
+        "eligible_individual_weights": "Up to and including 48.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-60 kg",
+        "gender": "Men",
+        "eligible_individual_weights": "Up to and including 60.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-63 kg",
+        "gender": "Women",
+        "eligible_individual_weights": "Over 48 kg up to and including 63.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "-81 kg",
+        "gender": "Men",
+        "eligible_individual_weights": "Over 60 kg up to and including 81.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "+63 kg",
+        "gender": "Women",
+        "eligible_individual_weights": "Over 63.0 kg"
+      },
+      {
+        "event_type": "Senior and Junior Mixed Team",
+        "contest_weight": "+81 kg",
+        "gender": "Men",
+        "eligible_individual_weights": "Over 81.0 kg"
+      }
+    ]
+  },
+  "WRL_POINTS_ALLOCATION_MATRIX": {
+    "source_table_id": "TAB-P052-01",
+    "pdf_page_index": 52,
+    "title": "World Ranking List (WRL) Points Allocation by Competition Level",
+    "headers": [
+      "Placing",
+      "Continental Opens",
+      "Continental Championships",
+      "Junior World Championships",
+      "Grand Prix",
+      "Grand Slam",
+      "Masters",
+      "World Championships",
+      "Olympic Games"
+    ],
+    "records": [
+      {
+        "placing": "1st place",
+        "points_by_competition": {
+          "Continental Opens": "100",
+          "Continental Championships": "800",
+          "Junior World Championships": "700",
+          "Grand Prix": "700",
+          "Grand Slam": "1000",
+          "Masters": "1800",
+          "World Championships": "2000",
+          "Olympic Games": "2200"
+        }
+      },
+      {
+        "placing": "2nd place",
+        "points_by_competition": {
+          "Continental Opens": "70",
+          "Continental Championships": "560",
+          "Junior World Championships": "490",
+          "Grand Prix": "490",
+          "Grand Slam": "700",
+          "Masters": "1260",
+          "World Championships": "1400",
+          "Olympic Games": "1540"
+        }
+      },
+      {
+        "placing": "3rd place",
+        "points_by_competition": {
+          "Continental Opens": "50",
+          "Continental Championships": "400",
+          "Junior World Championships": "350",
+          "Grand Prix": "350",
+          "Grand Slam": "500",
+          "Masters": "900",
+          "World Championships": "1000",
+          "Olympic Games": "1100"
+        }
+      },
+      {
+        "placing": "5th place",
+        "points_by_competition": {
+          "Continental Opens": "36",
+          "Continental Championships": "288",
+          "Junior World Championships": "252",
+          "Grand Prix": "252",
+          "Grand Slam": "360",
+          "Masters": "648",
+          "World Championships": "720",
+          "Olympic Games": "792"
+        }
+      },
+      {
+        "placing": "7th place",
+        "points_by_competition": {
+          "Continental Opens": "26",
+          "Continental Championships": "208",
+          "Junior World Championships": "182",
+          "Grand Prix": "182",
+          "Grand Slam": "260",
+          "Masters": "468",
+          "World Championships": "520",
+          "Olympic Games": "572"
+        }
+      },
+      {
+        "placing": "9th place (1/16)",
+        "points_by_competition": {
+          "Continental Opens": "16",
+          "Continental Championships": "128",
+          "Junior World Championships": "112",
+          "Grand Prix": "112",
+          "Grand Slam": "160",
+          "Masters": "288",
+          "World Championships": "320",
+          "Olympic Games": "352"
+        }
+      },
+      {
+        "placing": "17th place (1/32)",
+        "points_by_competition": {
+          "Continental Opens": "12",
+          "Continental Championships": "96",
+          "Junior World Championships": "84",
+          "Grand Prix": "84",
+          "Grand Slam": "120",
+          "Masters": "216",
+          "World Championships": "240",
+          "Olympic Games": "264"
+        }
+      },
+      {
+        "placing": "1 contest won",
+        "points_by_competition": {
+          "Continental Opens": "10",
+          "Continental Championships": "80",
+          "Junior World Championships": "70",
+          "Grand Prix": "70",
+          "Grand Slam": "100",
+          "Masters": "0",
+          "World Championships": "200"
+        }
+      },
+      {
+        "placing": "Participation",
+        "points_by_competition": {
+          "Continental Opens": "2",
+          "Continental Championships": "6",
+          "Junior World Championships": "6",
+          "Grand Prix": "6",
+          "Grand Slam": "10",
+          "Masters": "100",
+          "World Championships": "20"
+        }
+      }
+    ]
+  },
+  "COMPETITION_SYSTEM_BY_ATHLETE_COUNT": {
+    "source_table_id": "TAB-P041-01",
+    "pdf_page_index": 41,
+    "title": "Competition Systems and Medals Awarded Based on Athlete Count",
+    "records": [
+      {
+        "num_athletes_or_teams": "5*",
+        "system": "Individuals and mixed teams The athletes/teams will be divided as follow: Pool A – 3 athletes/teams will compete in a round robin system. The winner will go to the final, the second will compete against the loser from pool B in the bronze medal contest. Pool B – 2 athletes/teams will compete for a place in the final.",
+        "medals": "Gold, silver and one bronze"
+      },
+      {
+        "num_athletes_or_teams": "4*",
+        "system": "Elimination system with two (2) pools of two (2) single contests/ matches, then a contest/match between the two (2) losers of each pool for the single bronze medal and a contest/match between the two (2) winners of each pool for the gold and silver medals.",
+        "medals": "Gold, silver and one bronze"
+      },
+      {
+        "num_athletes_or_teams": "3*",
+        "system": "A round robin system will be held in the elimination round. The best and the second best will compete in a final for the gold and silver medal. The third athlete/team will be awarded the single bronze medal.",
+        "medals": "Gold, silver and one bronze"
+      },
+      {
+        "num_athletes_or_teams": "2*",
+        "system": "One final contest/match.",
+        "medals": "Gold and silver"
+      },
+      {
+        "num_athletes_or_teams": "1*",
+        "system": "No competition.",
+        "medals": "None"
+      }
+    ]
+  },
+  "VETERANS_REGULATIONS_TAB-P103-01": {
+    "source_table_id": "TAB-P103-01",
+    "pdf_page_index": 103,
+    "rows": [
+      [
+        "Age Division",
+        "Actual Age (in year of event)"
+      ],
+      [
+        "F1/M1",
+        "30-34"
+      ],
+      [
+        "F2/M2",
+        "35-39"
+      ],
+      [
+        "F3/M3",
+        "40-44"
+      ],
+      [
+        "F4/M4",
+        "45-49"
+      ],
+      [
+        "F5/M5",
+        "50-54"
+      ],
+      [
+        "F6/M6",
+        "55-59"
+      ],
+      [
+        "F7/M7",
+        "60 - 64 (no shime-waza)"
+      ],
+      [
+        "F8/M8",
+        "65 - 69 (no shime-waza)"
+      ],
+      [
+        "F9/M9",
+        "70+ (no shime-waza)"
+      ]
+    ]
+  },
+  "VETERANS_REGULATIONS_TAB-P103-02": {
+    "source_table_id": "TAB-P103-02",
+    "pdf_page_index": 103,
+    "rows": [
+      [
+        "Age Range",
+        "Age Division",
+        "Contest Duration",
+        "Golden Score"
+      ],
+      [
+        "30-59",
+        "M1/F1 to/including M6/F6",
+        "3 minutes",
+        "No limit"
+      ],
+      [
+        "60+",
+        "M7/F7 to/including M9/F9",
+        "2.5 minutes",
+        "1 minute"
+      ]
+    ]
+  },
+  "VETERANS_REGULATIONS_TAB-P104-01": {
+    "source_table_id": "TAB-P104-01",
+    "pdf_page_index": 104,
+    "rows": [
+      [
+        "Age Division",
+        "Higher Age Division",
+        "Lower Age Division",
+        "Age Span"
+      ],
+      [
+        "F1/M1",
+        "F2/M2, F3/M3",
+        "Not applicable",
+        "30-44"
+      ],
+      [
+        "F2/M2",
+        "F3/M3, F4/M4",
+        "F1/M1",
+        "30-49"
+      ],
+      [
+        "F3/M3",
+        "F4/M4, F5/M5",
+        "F1/M1, F2/M2",
+        "30-54"
+      ],
+      [
+        "F4/M4",
+        "F5/M5, F6/M6",
+        "F2/M2, F3/M3",
+        "35-59"
+      ],
+      [
+        "F5/M5",
+        "F6/M6",
+        "F3/M3, F4/M4",
+        "40-59"
+      ],
+      [
+        "F6/M6",
+        "F7/M7",
+        "F4/M4, F5/M5",
+        "45-64"
+      ],
+      [
+        "F7/M7",
+        "F8/M8",
+        "F6/M6",
+        "55-69"
+      ],
+      [
+        "F8/M8",
+        "F9/M9",
+        "F7/M7",
+        "60-70+"
+      ],
+      [
+        "F9/M9",
+        "Not applicable",
+        "F8/M8",
+        "65-70+"
+      ]
+    ]
+  },
+  "PENALTY_CODES_TABLE_TAB-P254-01": {
+    "source_table_id": "TAB-P254-01",
+    "pdf_page_index": 254,
+    "title": "Referee Penalty Codes (Appendix G1.3) - TAB-P254-01",
+    "records": [
+      {
+        "code_or_article": "Action",
+        "description": "Penalty code",
+        "sanction": "Penalty given"
+      },
+      {
+        "code_or_article": "Negative positions",
+        "description": "PS1",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "False attack",
+        "description": "PS2",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Pull down",
+        "description": "PS3",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Non combativity",
+        "description": "PS4",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Intentionally leave contest area",
+        "description": "PS5",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Hand, arm, foot, or leg directly on the opponent’s face",
+        "description": "PS6",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Grip avoidance",
+        "description": "PS7",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Grab below belt",
+        "description": "PS8",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Duck under arm",
+        "description": "PS9",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Hooking opponent's leg",
+        "description": "PS10",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Defensive kumikata",
+        "description": "PS11",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Fingers interlocked",
+        "description": "PS12",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Grip inside bottom of trouser leg in tachi-waza",
+        "description": "PS13",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Bend opponent’s fingers",
+        "description": "PS14",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Grip breaking with two hands and not keeping the grip",
+        "description": "PS15",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Break grip with knee or leg",
+        "description": "PS16",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Hide lapel",
+        "description": "PS17",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Block opponent's hand",
+        "description": "PS18",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Leg grabbing",
+        "description": "PS19",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Encircling belt or jacket",
+        "description": "PS20",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Judogi in the mouth",
+        "description": "PS21",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Foot in judogi or belt",
+        "description": "PS22",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Shime-waza with the jacket/belt",
+        "description": "PS23",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Overstretching leg in shime-waza",
+        "description": "PS24",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Bear hug with clasped hands/arms",
+        "description": "PS25",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Shime-waza using the legs to assist",
+        "description": "PS26",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Kicking",
+        "description": "PS27",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "To hit arm of opponent to break or avoid the grip",
+        "description": "PS28",
+        "sanction": "Shido"
+      }
+    ]
+  },
+  "PENALTY_CODES_TABLE_TAB-P255-01": {
+    "source_table_id": "TAB-P255-01",
+    "pdf_page_index": 255,
+    "title": "Referee Penalty Codes (Appendix G1.3) - TAB-P255-01",
+    "records": [
+      {
+        "code_or_article": "Kansetsu-waza or shime-waza without a judo throwing technique",
+        "description": "PS29",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Entangling the leg",
+        "description": "PS30",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Kata-sankaku grip in tachi-waza with a lower injury risk",
+        "description": "PS31",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Untidy attire, untidy hair or wasting time",
+        "description": "PS32",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Using the head to throw in cadet events",
+        "description": "PS33",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Using the head to defend in cadet events",
+        "description": "PS34",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Reverse seoi-nage in cadet events",
+        "description": "PS35",
+        "sanction": "Shido"
+      },
+      {
+        "code_or_article": "Head dive",
+        "description": "PH1",
+        "sanction": "Hansoku- make (H)"
+      },
+      {
+        "code_or_article": "Kawazu-gake",
+        "description": "PX1",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Kani-basami",
+        "description": "PX2",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Do-jime",
+        "description": "PX3",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Illegal kansetsu-waza",
+        "description": "PX4",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Kansetsu-waza or shime-waza with a judo throwing technique with a higher injury risk",
+        "description": "PX5",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "To apply kansetsu-waza on the shoulder as a variation of te-gatame.",
+        "description": "PX5b",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Reap opponent's supporting leg",
+        "description": "PX6",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Dangerous action",
+        "description": "PX7a",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Kata-sankaku in tachi-waza with throw with higher risk",
+        "description": "PX7b",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Kata-sankaku in ne-waza with blocking with both legs",
+        "description": "PX7c",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Ushiro-sankaku in ne-waza with a higher risk of injury",
+        "description": "PX7d",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Fall backwards",
+        "description": "PX8",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Drive into the mat",
+        "description": "PX9",
+        "sanction": "Hansoku- make (X)"
+      }
+    ]
+  },
+  "PENALTY_CODES_TABLE_TAB-P256-01": {
+    "source_table_id": "TAB-P256-01",
+    "pdf_page_index": 256,
+    "title": "Referee Penalty Codes (Appendix G1.3) - TAB-P256-01",
+    "records": [
+      {
+        "code_or_article": "Disregard instructions",
+        "description": "PX10",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Unnecessary remarks",
+        "description": "PX11",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Hard/metallic object",
+        "description": "PX12",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Action against spirit of judo",
+        "description": "PX13",
+        "sanction": "Hansoku- make (X)"
+      },
+      {
+        "code_or_article": "Undetermined",
+        "description": "P99",
+        "sanction": "Shido, Hasoku-make (H) or (X)"
+      }
+    ]
+  }
+}
