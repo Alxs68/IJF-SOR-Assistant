@@ -1,5 +1,6 @@
 import os
 import json
+import hashlib
 
 passages_file = os.path.join("data", "processed", "rebuild_2026_08", "passages_candidate.json")
 with open(passages_file, "r", encoding="utf-8") as f:
@@ -21,24 +22,45 @@ pages_covered = set(p["pdf_page_index"] for p in passages)
 print(f"3. Cobertura de páginas físicas con texto normativo: {len(pages_covered)} páginas.")
 assert len(pages_covered) > 250, "Fallo: cobertura insuficiente de páginas físicas"
 
-# 4. Prueba de Integridad de Hashes de Texto
-bad_hashes = sum(1 for p in passages if len(p.get("text_sha256", "")) != 64)
-print(f"4. Prueba de Integridad de SHA-256 de texto: {bad_hashes} errores. (Esperado: 0)")
-assert bad_hashes == 0, "Fallo: hashes corruptos o inválidos"
+# 4. Integridad criptográfica de los textos extraídos (no solo formato del hash)
+bad_hashes = []
+for passage in passages:
+    text_original = passage.get("text_original")
+    declared_hash = str(passage.get("text_sha256", "")).lower()
+    if not isinstance(text_original, str):
+        bad_hashes.append((passage.get("passage_id", "<sin-id>"), "text_original ausente/no textual"))
+        continue
+    computed_hash = hashlib.sha256(text_original.encode("utf-8")).hexdigest()
+    if declared_hash != computed_hash:
+        bad_hashes.append((passage.get("passage_id", "<sin-id>"), declared_hash, computed_hash))
+print(f"4. Verificación SHA-256 real de textos: {len(passages) - len(bad_hashes)}/{len(passages)} coinciden.")
+assert not bad_hashes, f"Fallo: hashes de texto no coinciden con text_original. Muestras: {bad_hashes[:3]}"
 
-# 5. Prueba de Trazabilidad de Grafo
+# 5. Trazabilidad y alineación completa del grafo con el corpus
 graph_file = os.path.join("data", "processed", "rebuild_2026_08", "knowledge_graph_candidate.json")
 with open(graph_file, "r", encoding="utf-8") as f:
     graph = json.load(f)
 
-dangling_edges = 0
-node_id_set = {n["id"] for n in graph["nodes"]}
-for edge in graph["edges"]:
-    if edge["source"] not in node_id_set or edge["target"] not in node_id_set:
-        dangling_edges += 1
+nodes = graph.get("nodes", [])
+edges = graph.get("edges", [])
+node_ids = [node.get("id") for node in nodes]
+node_id_set = set(node_ids)
+passage_id_set = set(all_ids)
+dangling_edges = [
+    (edge.get("source"), edge.get("target"))
+    for edge in edges
+    if edge.get("source") not in node_id_set or edge.get("target") not in node_id_set
+]
+missing_graph_nodes = sorted(passage_id_set - node_id_set)
+unexpected_graph_nodes = sorted(node_id_set - passage_id_set)
 
-edge_count = len(graph.get("edges", []))
-print(f"5. Integridad Referencial del Grafo: {edge_count} aristas, {dangling_edges} aristas huérfanas.")
-assert dangling_edges == 0, "Fallo: aristas del grafo apuntan a nodos inexistentes"
+print(f"5. Integridad referencial del grafo: {len(edges)} aristas, {len(dangling_edges)} aristas huérfanas.")
+assert edges, "Fallo: el grafo no contiene aristas"
+assert not dangling_edges, f"Fallo: aristas del grafo apuntan a nodos inexistentes: {dangling_edges[:3]}"
+assert len(node_ids) == len(node_id_set), "Fallo: el grafo contiene IDs de nodo duplicados"
+assert not missing_graph_nodes and not unexpected_graph_nodes, (
+    f"Fallo: nodos del grafo no coinciden con el corpus. "
+    f"Faltantes: {missing_graph_nodes[:3]}; extra: {unexpected_graph_nodes[:3]}"
+)
 
 print("=== BATERÍA DE PRUEBAS DE CALIDAD SUPERADA CON ÉXITO ===")

@@ -63,11 +63,26 @@ print("\n2. Evaluación de Consultas Normativas:")
 for t in test_queries:
     q = t["query"]
     hits = search(q, top_k=3)
-    top_pid = hits[0][1] if hits else None
-    top_p = passages_dict.get(top_pid) if top_pid else None
+    assert hits, f"Fallo: la consulta no devolvió resultados: {q!r}"
+
+    top_pid = hits[0][1]
+    top_p = passages_dict.get(top_pid)
+    assert top_p is not None, f"Fallo: el índice devolvió un passage_id inexistente: {top_pid}"
+    assert top_p["pdf_page_index"] is not None and top_p["article_id"] is not None
+
+    top_text = " ".join(
+        passages_dict[pid]["text_original"].lower()
+        for _, pid in hits
+        if pid in passages_dict
+    )
+    result_terms = set(re.findall(r"[a-zA-Z0-9_\\-]+", top_text))
+    expected_terms = set(t["expected_terms"])
+    assert result_terms.intersection(expected_terms), (
+        f"Fallo: los tres primeros resultados no contienen ningún término esperado para {q!r}. "
+        f"Esperados: {sorted(expected_terms)}; top IDs: {[pid for _, pid in hits]}"
+    )
+
     print(f"Query: '{q}'")
-    if top_p:
-        print(f"   -> Top Hit: {top_pid} (Score: {hits[0][0]:.4f})")
-        print(f"   -> Artículo: {top_p['article_id']} | Pág: {top_p['pdf_page_index']} | Heading: {top_p['heading_path'][0]}")
-        assert top_p["pdf_page_index"] is not None and top_p["article_id"] is not None
+    print(f"   -> Top Hit: {top_pid} (Score: {hits[0][0]:.4f})")
+    print(f"   -> Artículo: {top_p['article_id']} | Pág: {top_p['pdf_page_index']} | Heading: {top_p['heading_path'][0]}")
 print("\n=== AUDITORÍA D: ÍNDICE Y RECUPERACIÓN NORMATIVA EXITOSA ===")

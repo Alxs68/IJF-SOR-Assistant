@@ -51,6 +51,9 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertEqual(res["status"], "ABSTAIN")
         self.assertEqual(res["reason"], "OUT_OF_DOMAIN")
         self.assertEqual(len(res["evidence"]), 0)
+        self.assertEqual(res.get("operating_mode"), self.rre.operating_mode)
+        self.assertEqual(res.get("degradation_reason"), self.rre.degradation_reason)
+        self.assertEqual(res.get("source_sha256_verified"), self.rre.source_sha256_verified)
 
     def test_04_ada_arbitration_situation_analysis(self):
         """Verifica que ADA estructure resúmenes normativos a partir de evidencias de RRE."""
@@ -67,6 +70,8 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertEqual(res["status"], "ABSTAIN")
         self.assertIn("Abstención", res["analysis"])
         self.assertEqual(len(res["evidence"]), 0)
+        self.assertEqual(res.get("rre_operating_mode"), self.ada.rre.operating_mode)
+        self.assertEqual(res.get("source_sha256_verified"), self.ada.rre.source_sha256_verified)
 
     def test_06_llm_output_requires_retrieved_official_citations(self):
         """Reject generated analysis when it cites a passage absent from retrieved evidence."""
