@@ -39,7 +39,36 @@ def verify_and_setup(rebuild_matrix=False):
 
     with open(passages_path, "r", encoding="utf-8") as f:
         passages = json.load(f)
+    passage_ids_loaded = [p.get("passage_id") for p in passages]
+    if not passage_ids_loaded or any(not isinstance(pid, str) or not pid for pid in passage_ids_loaded):
+        print("❌ El corpus contiene identificadores de pasaje vacíos o no válidos.")
+        return False
+    if len(set(passage_ids_loaded)) != len(passage_ids_loaded):
+        print("❌ El corpus contiene passage_id duplicados.")
+        return False
     print(f"  ✓ Corpus oficial cargado: {len(passages)} pasajes normativos.")
+
+    expected_sha = "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620"
+    pdf_path = os.path.join(
+        repo_root, "data", "raw", "sor_2026_08_rebuild",
+        "IJF_Sport_and_Organisation_Rules_2026_08_14.pdf"
+    )
+    if os.path.isfile(pdf_path):
+        import hashlib
+        digest = hashlib.sha256()
+        with open(pdf_path, "rb") as source_file:
+            while True:
+                chunk = source_file.read(1024 * 1024)
+                if not chunk:
+                    break
+                digest.update(chunk)
+        actual_sha = digest.hexdigest().lower()
+        if actual_sha != expected_sha:
+            print(f"❌ SHA-256 del PDF físico incorrecto: {actual_sha}")
+            return False
+        print("  ✓ SHA-256 del PDF físico comprobado contra la fuente oficial.")
+    else:
+        print("  ℹ️ PDF físico no incluido en este entorno: no se afirma verificación de sus bytes; se comprobará el hash declarado en los artefactos.")
 
     # 1. Cargar dependencias
     print("\n[2/4] Verificando dependencias de aprendizaje profundo...")
@@ -101,6 +130,15 @@ def verify_and_setup(rebuild_matrix=False):
             elif not np.all(np.isfinite(matrix)):
                 print("  ⚠️ La matriz contiene valores no finitos (NaN/Inf).")
                 need_computation = True
+            elif meta.get("model_name") != model_name:
+                print("  ⚠️ Metadatos declaran un modelo de embeddings incompatible.")
+                need_computation = True
+            elif not np.issubdtype(matrix.dtype, np.floating):
+                print("  ⚠️ La matriz debe contener valores de tipo flotante.")
+                need_computation = True
+            elif len(set(meta.get("passage_ids", []))) != len(meta.get("passage_ids", [])):
+                print("  ⚠️ Metadatos contienen passage_ids duplicados.")
+                need_computation = True
             elif meta.get("num_passages") != len(passages) or meta.get("dimension") != 384:
                 print("  ⚠️ Metadatos inconsistentes con las dimensiones del corpus.")
                 need_computation = True
@@ -121,7 +159,8 @@ def verify_and_setup(rebuild_matrix=False):
         corpus_texts = []
         passage_ids = []
         for p in passages:
-            t = f"{p['title']}. {p.get('text_original', '')}"
+            heading = " / ".join(p.get("heading_path") or [])
+            t = f"{heading}. {p.get('text_original', '')}".strip()
             corpus_texts.append(t)
             passage_ids.append(p["passage_id"])
 
@@ -140,8 +179,25 @@ def verify_and_setup(rebuild_matrix=False):
             json.dump(meta_data, f, indent=2)
         print(f"  ✓ Metadatos actualizados y certificados en: {meta_path}")
 
+    # Verificación final con las mismas reglas del motor productivo.
+    sys.path.insert(0, os.path.join(repo_root, "src"))
+    try:
+        from rre_engine import ReasoningRetrievalEngine
+        verified_engine = ReasoningRetrievalEngine(base_dir=data_dir, allow_degraded=False)
+        if verified_engine.operating_mode != "HYBRID":
+            print(f"❌ El motor terminó en modo inesperado: {verified_engine.operating_mode}")
+            return False
+        print("  ✓ Índice léxico, grafo, matriz, metadatos y modelo validados por RRE.")
+        if verified_engine.source_sha256_verified:
+            print("  ✓ Fuente física verificada criptográficamente.")
+        else:
+            print("  ℹ️ La fuente física no está disponible en este entorno; el hash declarado sí coincide.")
+    except Exception as e:
+        print(f"❌ La validación final de RRE/ADA falló: {e}")
+        return False
+
     print("\n=====================================================================")
-    print("✅ PREPARACIÓN COMPLETA: El motor RRE está validado en MODO HÍBRIDO.")
+    print("✅ PREPARACIÓN COMPLETA: el motor RRE está validado en MODO HÍBRIDO.")
     print("=====================================================================")
     return True
 

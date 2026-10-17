@@ -26,7 +26,7 @@ class ArbitrationDecisionAssistant:
     ADA: Dedicated judicial reasoning and arbitration assistant for the IJF SOR.
     """
 
-    def __init__(self, base_dir="data/processed/rebuild_2026_08", allow_degraded: bool = True):
+    def __init__(self, base_dir="data/processed/rebuild_2026_08", allow_degraded: bool | None = None):
         self.base_dir = base_dir
         self.rre = ReasoningRetrievalEngine(base_dir, allow_degraded=allow_degraded)
         self.config = get_active_corpus_config()
@@ -86,7 +86,10 @@ class ArbitrationDecisionAssistant:
                 ),
                 "evidence": [],
                 "related_passages": [],
-                "engine": "ADA-RRE-v2"
+                "engine": "ADA-RRE-v2",
+                "rre_operating_mode": retrieval_res.get("operating_mode", "UNKNOWN"),
+                "degradation_reason": retrieval_res.get("degradation_reason"),
+                "source_sha256_verified": retrieval_res.get("source_sha256_verified", False)
             }
 
         evidence = retrieval_res["evidence"]

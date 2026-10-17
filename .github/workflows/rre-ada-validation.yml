@@ -42,10 +42,18 @@ jobs:
           python scripts/setup_model.py
 
       - name: Execute comprehensive test suite
+        env:
+          HF_HUB_OFFLINE: "1"
+          TRANSFORMERS_OFFLINE: "1"
+          RRE_ALLOW_DEGRADED_LEXICAL: "false"
         run: |
           python -m unittest discover -s tests -v
 
       - name: Execute functional smoke test
+        env:
+          HF_HUB_OFFLINE: "1"
+          TRANSFORMERS_OFFLINE: "1"
+          RRE_ALLOW_DEGRADED_LEXICAL: "false"
         run: |
           python -c "
           import sys, os

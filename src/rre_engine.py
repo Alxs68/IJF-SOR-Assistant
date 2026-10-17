@@ -31,9 +31,11 @@ class ReasoningRetrievalEngine:
     designed for arbitration and regulatory rules.
     """
 
-    def __init__(self, base_dir="data/processed/rebuild_2026_08", allow_degraded: bool = True):
+    def __init__(self, base_dir="data/processed/rebuild_2026_08", allow_degraded: bool | None = None):
         self.base_dir = base_dir
-        self.allow_degraded = allow_degraded
+        if allow_degraded is None:
+            allow_degraded = os.environ.get("RRE_ALLOW_DEGRADED_LEXICAL", "").strip().lower() in {"1", "true", "yes", "on"}
+        self.allow_degraded = bool(allow_degraded)
         self.passages_file = os.path.join(base_dir, "passages_candidate.json")
         self.graph_file = os.path.join(base_dir, "knowledge_graph_candidate.json")
         self.sparse_index_file = os.path.join(base_dir, "vector_index_candidate.json")
@@ -220,34 +222,118 @@ class ReasoningRetrievalEngine:
                 )
 
     def _init_dense_model(self):
-        """Loads cached local sentence-transformer without network dependencies."""
+        """Load only an explicitly prepared local snapshot; never download during app startup."""
+        configured_path = os.environ.get("RRE_MODEL_PATH", "").strip()
+        candidates = []
+        if configured_path:
+            candidates.append(os.path.abspath(os.path.expanduser(configured_path)))
+
+        cache_pattern = os.path.expanduser(
+            "~/.cache/huggingface/hub/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/*"
+        )
+        candidates.extend(sorted(glob.glob(cache_pattern), reverse=True))
+
         try:
-            import sentence_transformers
-            cache_pattern = os.path.expanduser('~/.cache/huggingface/hub/models--sentence-transformers--all-MiniLM-L6-v2/snapshots/*')
-            snapshots = glob.glob(cache_pattern)
-            if snapshots:
-                self.dense_model = sentence_transformers.SentenceTransformer(snapshots[0], local_files_only=True)
-            else:
-                self.dense_model = sentence_transformers.SentenceTransformer('all-MiniLM-L6-v2')
+            from sentence_transformers import SentenceTransformer
         except Exception as e:
             self.dense_model = None
-            self.degradation_reason = f"No se pudo cargar SentenceTransformer: {e}"
+            self.degradation_reason = f"No se pudo importar SentenceTransformer: {e}"
+            return
+
+        errors = []
+        seen = set()
+        for candidate in candidates:
+            if candidate in seen or not os.path.isdir(candidate):
+                continue
+            seen.add(candidate)
+            try:
+                model = SentenceTransformer(candidate, local_files_only=True)
+                dimension = model.get_sentence_embedding_dimension()
+                if dimension != 384:
+                    raise ValueError(
+                        f"El modelo local devuelve dimensión {dimension}; se requieren 384."
+                    )
+                self.dense_model = model
+                self.degradation_reason = None
+                return
+            except Exception as e:
+                errors.append(f"{candidate}: {e}")
+
+        self.dense_model = None
+        self.degradation_reason = (
+            "No se encontró un snapshot local verificado de "
+            "sentence-transformers/all-MiniLM-L6-v2. Ejecute primero "
+            "'python scripts/setup_model.py'."
+        )
+        if errors:
+            self.degradation_reason += " Errores de carga local: " + " | ".join(errors[:2])
 
     def _determine_operating_mode(self):
-        """Determina de forma rigurosa y no ambigua el modo de operación de RRE."""
-        has_matrix = self.dense_embeddings is not None and self.dense_embeddings.shape == (len(self.passages), 384)
-        has_model = self.dense_model is not None
+        """Select HYBRID only when dense, sparse and graph resources are coherent."""
+        expected_sha = "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620"
+        corpus_ids = set(self.passages_by_id)
 
-        if has_matrix and has_model:
+        # The lexical channel must always be usable; without it, neither mode can retrieve.
+        index = self.sparse_index
+        idf = index.get("idf") if isinstance(index, dict) else None
+        vectors = index.get("vectors") if isinstance(index, dict) else None
+        if not isinstance(idf, dict) or not idf or not isinstance(vectors, dict) or not vectors:
+            raise RuntimeError(
+                f"Índice léxico TF-IDF ausente o inválido: {self.sparse_index_file}. "
+                "Reconstruya el índice antes de iniciar RRE."
+            )
+        if index.get("num_docs") != len(self.passages):
+            raise ValueError(
+                f"Número de documentos del índice léxico ({index.get('num_docs')}) "
+                f"no coincide con los pasajes ({len(self.passages)})."
+            )
+        if str(index.get("source_sha256", "")).lower() != expected_sha:
+            raise ValueError("El índice léxico no declara el SHA-256 de la edición oficial SOR 2026-08.")
+        if set(vectors) != corpus_ids:
+            missing = sorted(corpus_ids - set(vectors))
+            extra = sorted(set(vectors) - corpus_ids)
+            raise ValueError(
+                f"IDs del índice léxico incompatibles con el corpus. Faltantes: {missing[:3]}; "
+                f"no reconocidos: {extra[:3]}."
+            )
+        for term, weight in idf.items():
+            if not isinstance(term, str) or not isinstance(weight, (int, float)) or not math.isfinite(weight):
+                raise ValueError("El índice léxico contiene pesos IDF no válidos.")
+        for pid, vector in vectors.items():
+            if not isinstance(vector, dict) or not vector:
+                raise ValueError(f"Vector léxico vacío o inválido para el pasaje {pid}.")
+            if any(not isinstance(w, (int, float)) or not math.isfinite(w) for w in vector.values()):
+                raise ValueError(f"El vector léxico del pasaje {pid} contiene pesos no válidos.")
+
+        # A graph can be absent only in explicitly authorized lexical-degraded mode.
+        graph_ok = bool(self.graph_edges)
+        for edge in self.graph_edges:
+            src = edge.get("source")
+            tgt = edge.get("target")
+            if src not in corpus_ids or tgt not in corpus_ids:
+                raise ValueError(
+                    f"El grafo normativo contiene una arista hacia/desde un pasaje inexistente: {src} -> {tgt}."
+                )
+
+        has_matrix = (
+            isinstance(self.dense_embeddings, np.ndarray)
+            and self.dense_embeddings.shape == (len(self.passages), 384)
+        )
+        has_model = self.dense_model is not None
+        missing = []
+        if not has_matrix:
+            missing.append("matriz densa ausente")
+        if not has_model:
+            missing.append(self.degradation_reason or "modelo neuronal no disponible")
+        if not graph_ok:
+            missing.append("grafo normativo ausente o sin aristas válidas")
+
+        if not missing:
             self.operating_mode = "HYBRID"
+            self.degradation_reason = None
         else:
             self.operating_mode = "DEGRADED_LEXICAL"
-            if not self.degradation_reason:
-                if not has_matrix:
-                    self.degradation_reason = "Matriz densa ausente o incompleta."
-                elif not has_model:
-                    self.degradation_reason = "Modelo neuronal de embeddings no disponible en entorno."
-
+            self.degradation_reason = "; ".join(missing)
     # Mapeo bilingüe de términos técnicos del judo
     SPANISH_TO_ENGLISH_SYNONYMS = {
         "cabeza": "head",
@@ -346,7 +432,10 @@ class ReasoningRetrievalEngine:
                 "reason": "EMPTY_OR_NON_SUBSTANTIVE_QUERY",
                 "message": "La consulta no contiene términos normativos o técnicos válidos.",
                 "evidence": [],
-                "related_passages": []
+                "related_passages": [],
+                "operating_mode": self.operating_mode,
+                "degradation_reason": self.degradation_reason,
+                "source_sha256_verified": self.source_sha256_verified
             }
 
         # 2. Dual-channel retrieval

@@ -23,7 +23,7 @@ from ada_assistant import ArbitrationDecisionAssistant
 class RagEngine:
     """Orchestrates RRE / ADA for SOR 2026-08 and maintains isolated legacy fallback for 2026-01."""
 
-    def __init__(self, brain_dir, allow_degraded: bool = True):
+    def __init__(self, brain_dir, allow_degraded: bool | None = None):
         self.brain_dir = brain_dir
         self.allow_degraded = allow_degraded
 

@@ -209,6 +209,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
                 # Copiar solo pasajes y grafo (sin matriz densa)
                 shutil.copy(self.rre.passages_file, os.path.join(td, "passages_candidate.json"))
                 shutil.copy(self.rre.graph_file, os.path.join(td, "knowledge_graph_candidate.json"))
+                shutil.copy(self.rre.sparse_index_file, os.path.join(td, "vector_index_candidate.json"))
                 with self.assertRaises(RuntimeError) as ctx:
                     ReasoningRetrievalEngine(base_dir=td, allow_degraded=False)
                 self.assertIn("se requiere modo hybrid", str(ctx.exception).lower())
@@ -231,6 +232,49 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertEqual(res_es["status"], "SUCCESS")
         self.assertTrue(len(res_es["evidence"]) > 0)
         self.assertEqual(res_es["operating_mode"], "HYBRID")
+
+
+    def test_13_model_startup_never_downloads_and_degradation_is_opt_in(self):
+        """A startup without a local snapshot must not call the remote model loader."""
+        from unittest.mock import patch
+        import sentence_transformers
+
+        with patch.dict(os.environ, {"RRE_MODEL_PATH": "", "RRE_ALLOW_DEGRADED_LEXICAL": ""}, clear=False):
+            with patch("rre_engine.glob.glob", return_value=[]):
+                with patch.object(sentence_transformers, "SentenceTransformer") as model_loader:
+                    with self.assertRaises(RuntimeError):
+                        ReasoningRetrievalEngine()
+                    model_loader.assert_not_called()
+
+            with patch("rre_engine.glob.glob", return_value=[]):
+                with patch.object(sentence_transformers, "SentenceTransformer") as model_loader:
+                    degraded = ReasoningRetrievalEngine(allow_degraded=True)
+                    model_loader.assert_not_called()
+                    self.assertEqual(degraded.operating_mode, "DEGRADED_LEXICAL")
+                    self.assertIn("scripts/setup_model.py", degraded.degradation_reason)
+
+    def test_14_hybrid_requires_a_valid_sparse_index_and_graph(self):
+        """HYBRID requires usable lexical vectors and graph edges; broken sparse index is never accepted."""
+        original_index = self.rre.sparse_index
+        original_edges = self.rre.graph_edges
+        original_allow = self.rre.allow_degraded
+        try:
+            self.rre.sparse_index = {}
+            with self.assertRaises(RuntimeError):
+                self.rre._determine_operating_mode()
+
+            self.rre.sparse_index = original_index
+            self.rre.graph_edges = []
+            self.rre.allow_degraded = True
+            self.rre._determine_operating_mode()
+            self.assertEqual(self.rre.operating_mode, "DEGRADED_LEXICAL")
+            self.assertIn("grafo", self.rre.degradation_reason.lower())
+        finally:
+            self.rre.sparse_index = original_index
+            self.rre.graph_edges = original_edges
+            self.rre.allow_degraded = original_allow
+            self.rre._determine_operating_mode()
+            self.assertEqual(self.rre.operating_mode, "HYBRID")
 
 if __name__ == '__main__':
     unittest.main()

@@ -432,6 +432,10 @@ if query_to_run:
 
             res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
             retrieved_kuns = res.get('retrieved_kuns_data', [])
+            if res.get("source_sha256_verified", False):
+                status.write("🔐 SHA-256 del PDF oficial físico verificado en este entorno.")
+            else:
+                status.write("ℹ️ El PDF físico no está disponible para verificar sus bytes en este entorno; solo se validó el hash declarado.")
             status.write(f"⚖️ Arbitration Decision Assistant (ADA): {len(retrieved_kuns)} evidencia(s) oficial(es) analizada(s)...")
             if is_connected:
                 status.write("✍️ Formulando síntesis analítica asistida por IA...")
@@ -462,7 +466,10 @@ if query_to_run:
             "query": query_to_run,
             "answer": res['answer'],
             "trazabilidad": retrieved_kuns,
-            "dot_code": dot_code
+            "dot_code": dot_code,
+            "rre_operating_mode": res.get("rre_operating_mode", getattr(engine.rre, "operating_mode", "UNKNOWN")) if engine.is_2026_08 else "LEGACY",
+            "degradation_reason": res.get("degradation_reason"),
+            "source_sha256_verified": res.get("source_sha256_verified", False)
         })
         st.session_state.active_index = len(st.session_state.history) - 1
         status.update(label="✅ Respuesta generada", state="complete", expanded=False)
@@ -477,6 +484,13 @@ if st.session_state.active_index >= 0:
             st.markdown(item['query'])
         with st.chat_message("assistant", avatar="⚖️"):
             st.markdown(item['answer'])
+            if engine.is_2026_08:
+                mode = item.get("rre_operating_mode", "UNKNOWN")
+                st.caption(f"Modo RRE: {mode}" + (f" — {item.get('degradation_reason')}" if item.get("degradation_reason") else ""))
+                if item.get("source_sha256_verified", False):
+                    st.caption("Fuente física PDF: SHA-256 verificado.")
+                else:
+                    st.caption("Fuente física PDF: no verificada en este entorno; no se presume comprobación de sus bytes.")
 
             is_fallback = "lo siento" in item['answer'].lower()
             if not is_fallback and item.get('trazabilidad'):
