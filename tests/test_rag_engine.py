@@ -9,6 +9,7 @@ from rag_engine import RagEngine
 class TestRagEngine(unittest.TestCase):
     
     def setUp(self):
+        os.environ['IJF_SOR_EDITION'] = '2026-01'
         self.brain_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.engine = RagEngine(self.brain_path)
 

@@ -11,6 +11,7 @@ class TestGoldenDataset(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
+        os.environ["IJF_SOR_EDITION"] = "2026-01"
         cls.brain_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         cls.engine = RagEngine(cls.brain_path)
         
