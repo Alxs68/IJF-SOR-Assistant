@@ -30,7 +30,7 @@ st.markdown("""
         padding-top: 0.8rem !important;
         padding-bottom: 1.5rem !important;
     }
-    
+
     .status-badge-connected {
         background-color: #D1FAE5;
         color: #065F46;
@@ -211,7 +211,7 @@ def load_example():
 # Sidebar
 with st.sidebar:
     st.markdown("**ℹ️ Información**")
-    
+
     with st.expander("1. Proyecto", expanded=False):
         st.markdown("""
 **IJF SOR Assistant**
@@ -220,7 +220,7 @@ El IJF SOR Assistant es un asistente especializado diseñado para facilitar la c
 
 Su propósito es ofrecer respuestas fundamentadas exclusivamente en documentación oficial, permitiendo acceder de manera rápida y organizada a la información normativa utilizada en el arbitraje y la competición internacional.
         """)
-        
+
     with st.expander("2. Propósito", expanded=False):
         st.markdown("""
 Esta aplicación fue desarrollada con el objetivo de apoyar el estudio, la preparación y la consulta del reglamento oficial de la IJF.
@@ -229,12 +229,12 @@ El asistente organiza y presenta la información oficial de forma clara, facilit
 
 Las respuestas generadas constituyen una ayuda documental y educativa. En caso de discrepancia o interpretación, siempre prevalecen los documentos oficiales publicados por la Federación Internacional de Judo y las decisiones adoptadas por sus órganos competentes.
         """)
-        
+
     with st.expander("3. Fuentes", expanded=False):
         st.markdown("""
 Este asistente utiliza exclusivamente fuentes oficiales publicadas por la Federación Internacional de Judo (IJF), incluyendo reglamentos, documentos técnicos, comunicados y otros recursos oficiales.
         """)
-        
+
     with st.expander("4. Autor", expanded=False):
         st.markdown("""
 **Alexis Oliveros**
@@ -247,27 +247,43 @@ Desarrollador del proyecto **IJF SOR Assistant**.
 
 © 2026 Alexis Oliveros. Todos los derechos reservados.
         """)
-        
+
     with st.expander("5. Versión", expanded=False):
-        st.markdown("""
+        st.markdown(f"""
 **IJF SOR Assistant**
 
-Versión **1.0.0**
+Versión **1.2.0 (Rebuild Edition)**
 
-Basado en **Sport and Organisation Rules (SOR) 2026**
+Basado en: **{engine.config['version_label']}**
 
-Última actualización: **Julio de 2026**
+Hash SHA-256 de fuente: `{engine.config['source_sha256'][:16]}...`
         """)
+
+    st.write("---")
+    st.markdown("**📚 Edición del Reglamento SOR**")
+    edition_options = ["2026-08 (Oficial Vigente — 14 Ago 2026)", "2026-01 (Histórica — Enero 2026)"]
+    current_idx = 0 if engine.is_2026_08 else 1
+    selected_edition_str = st.selectbox(
+        "Seleccionar Edición:",
+        edition_options,
+        index=current_idx,
+        help="Permite alternar entre el nuevo corpus oficial reconstruido (14 de agosto de 2026) y la base histórica anterior (enero de 2026)."
+    )
+    selected_edition_key = "2026-08" if "2026-08" in selected_edition_str else "2026-01"
+    if os.environ.get("IJF_SOR_EDITION", "2026-08") != selected_edition_key:
+        os.environ["IJF_SOR_EDITION"] = selected_edition_key
+        st.cache_resource.clear()
+        st.rerun()
 
     st.write("---")
     st.markdown("**🧭 Ajustes de Búsqueda**")
     k_param = st.slider(
-        "Cantidad de Reglas a Consultar", 
+        "Cantidad de Reglas a Consultar",
         1, 5, 3,
         help="Define cuántas reglas oficiales revisará el asistente antes de elaborar la respuesta. Un valor mayor puede ofrecer respuestas más completas, aunque también puede aumentar ligeramente el tiempo de búsqueda."
     )
     min_score_param = st.slider(
-        "Filtro Anti-Distracciones", 
+        "Filtro Anti-Distracciones",
         0.05, 0.50, 0.10, 0.05,
         help="Controla qué tan relacionadas deben estar las reglas encontradas con tu consulta. Valores bajos permiten considerar más información; valores altos muestran únicamente las coincidencias más relevantes."
     )
@@ -288,8 +304,8 @@ Basado en **Sport and Organisation Rules (SOR) 2026**
         st.markdown("**📚 Historial**")
         options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
         selected_option = st.selectbox(
-            "Revisar consulta:", 
-            options, 
+            "Revisar consulta:",
+            options,
             index=st.session_state.active_index,
             help="Te permite volver a ver cualquiera de las consultas realizadas anteriormente en esta sesión de forma instantánea."
         )
@@ -304,7 +320,7 @@ Basado en **Sport and Organisation Rules (SOR) 2026**
         st.markdown('<span class="status-badge-connected">🟢 Modo Conectado (Gemini)</span>', unsafe_allow_html=True)
     else:
         st.markdown('<span class="status-badge-offline">🟡 Modo Offline (Simulado)</span>', unsafe_allow_html=True)
-        
+
     st.markdown("**📈 Módulos de Conocimiento**")
     mcol1, mcol2 = st.columns(2)
     with mcol1:
@@ -312,7 +328,7 @@ Basado en **Sport and Organisation Rules (SOR) 2026**
     with mcol2:
         st.metric("Relaciones", kg_metrics['edges_count'])
     st.metric("Grado Promedio", f"{kg_metrics['avg_degree']:.2f}")
-    
+
     st.markdown("**🕸️ Nodos Hub**")
     for node, deg in kg_metrics['hubs'][:2]:
         st.markdown(f"- `{node}` ({deg} enlaces)", unsafe_allow_html=True)
@@ -400,7 +416,7 @@ with st.container():
             user_input = st.text_input("Haga su consulta", placeholder="Escribe tu pregunta aquí...", label_visibility="collapsed")
         with col2:
             submit_button = st.form_submit_button("Enviar 📤", use_container_width=True)
-        
+
         if submit_button and user_input:
             query_to_run = user_input.strip()
 
@@ -412,7 +428,7 @@ if query_to_run:
         retrieved_kuns = res.get('retrieved_kuns_data', [])
         status.write(f"📚 {len(retrieved_kuns)} regla(s) recuperada(s) del grafo...")
         status.write("✍️ Generando respuesta con el modelo...")
-        
+
         dot_code = "digraph {\n  rankdir=LR;\n  node [shape=box, style=filled, fontname=\"Arial\", fontsize=10];\n"
         retrieved_ids = {k['id_conocimiento'] for k in retrieved_kuns}
         for kun in retrieved_kuns:
@@ -426,7 +442,7 @@ if query_to_run:
                     if dest_id in retrieved_ids:
                         dot_code += f'  "{node_id}" -> "{dest_id}" [label="{edge["tipo_relacion"]}", fontsize=8];\n'
         dot_code += "}"
-        
+
         st.session_state.history.append({
             "query": query_to_run,
             "answer": res['answer'],
@@ -438,20 +454,20 @@ if query_to_run:
 
 if st.session_state.active_index >= 0:
     history_to_show = st.session_state.history[:st.session_state.active_index + 1]
-    
+
     st.write("---")
-    
+
     for original_i, item in reversed(list(enumerate(history_to_show))):
         with st.chat_message("user", avatar="👤"):
             st.markdown(item['query'])
         with st.chat_message("assistant", avatar="⚖️"):
             st.markdown(item['answer'])
-            
+
             is_fallback = "lo siento" in item['answer'].lower()
             if not is_fallback and item.get('trazabilidad'):
                 with st.expander("🔍 Mostrar Trazabilidad y Grafo", expanded=False):
                     tab_cite, tab_graph = st.tabs(["📚 Trazabilidad y Citas", "🕸️ Subgrafo Relacional"])
-                    
+
                     with tab_cite:
                         with st.expander("ℹ️ Sobre la disponibilidad de las fuentes oficiales", expanded=False):
                             st.markdown(
@@ -466,25 +482,25 @@ if st.session_state.active_index >= 0:
                                 '🔴 <em>No Disponible</em>'
                                 '</div>', unsafe_allow_html=True
                             )
-                        
+
                         st.caption("📱 *En celulares, el documento se abre pero no siempre dirige al detalle. En navegadores web funciona como enlace directo al contenido relevante.*")
                         for kun in item['trazabilidad']:
                             res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
                             url = res.get("url")
                             is_clickable = res.get("is_clickable", True)
                             op_status = res.get("operational_status", "AVAILABLE")
-                            
+
                             source_id = kun['fuente_origen']
                             ref_spec = kun.get('referencia_especifica', 'Reglamento')
                             name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
-                            
+
                             if is_clickable and url:
                                 source_link = f"[{name} ({ref_spec})]({url})"
                             elif op_status == "DELETED":
                                 source_link = f"~~{name} ({ref_spec})~~"
                             else:
                                 source_link = f"{name} ({ref_spec})"
-                            
+
                             badge_emoji = "🟢"
                             if op_status == "MIGRATED":
                                 badge_emoji = "🟡"
@@ -492,13 +508,13 @@ if st.session_state.active_index >= 0:
                                 badge_emoji = "🔵"
                             elif op_status == "DELETED":
                                 badge_emoji = "🔴"
-                            
+
                             st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res.get('ux_message', '')}*")
                             st.markdown(f"* **Fuente:** {source_link}")
                             st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
                             st.write(f"* Interpretación: {kun['interpretacion']}")
                             st.write("---")
-                            
+
                     with tab_graph:
                         if item.get('dot_code'):
                             st.graphviz_chart(item['dot_code'])

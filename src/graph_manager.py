@@ -4,12 +4,43 @@ import json
 
 class KnowledgeGraph:
     """Manages the nodes and semantically typed edges of the KUN Knowledge Graph."""
-    
+
     def __init__(self):
         self.nodes = {}  # id_conocimiento -> dict (KUN data)
         self.edges = {}  # id_conocimiento -> list of dict ({'id_destino': str, 'tipo_relacion': str})
         self.in_edges = {}  # id_conocimiento -> list of dict ({'id_origen': str, 'tipo_relacion': str})
-        
+
+    def load_from_passages_and_edges(self, passages_list, edges_list):
+        """Loads KnowledgeGraph from the rebuilt 2026-08 passage structures and traceable edges."""
+        self.nodes = {}
+        self.edges = {}
+        self.in_edges = {}
+
+        for p in passages_list:
+            pid = p.get('passage_id')
+            self.nodes[pid] = {
+                'id_conocimiento': pid,
+                'titulo': p.get('heading_path', [''])[0],
+                'tipo': 'REG',
+                'fuente_origen': p.get('source_id', 'SOR-2026-08-14-ENG'),
+                'referencia_especifica': f"Art. {p.get('article_id')} (Pág. {p.get('pdf_page_index')})",
+                'contenido_traduccion': p.get('text_original', ''),
+                'interpretacion': f"Capítulo: {p.get('heading_path', [''])[0]}",
+                'article_id': p.get('article_id'),
+                'pdf_page_index': p.get('pdf_page_index'),
+                'source_url': p.get('source_url')
+            }
+            self.edges[pid] = []
+            self.in_edges[pid] = []
+
+        for e in edges_list:
+            src = e.get('source')
+            dest = e.get('target')
+            rel = e.get('relation_type', 'references_article')
+            if src in self.nodes and dest in self.nodes:
+                self.add_edge(src, dest, rel)
+        print(f"[LOG] [KnowledgeGraph] Cargados {len(self.nodes)} nodos y {len(edges_list)} aristas de agosto 2026.")
+
     def add_node(self, kun_id, kun_data):
         """Adds a KUN node to the graph."""
         self.nodes[kun_id] = kun_data
@@ -17,7 +48,7 @@ class KnowledgeGraph:
             self.edges[kun_id] = []
         if kun_id not in self.in_edges:
             self.in_edges[kun_id] = []
-            
+
     def add_edge(self, src_id, dest_id, rel_type):
         """Adds a directed, semantically typed edge between two nodes."""
         if src_id not in self.edges:
@@ -28,7 +59,7 @@ class KnowledgeGraph:
                 'id_destino': dest_id,
                 'tipo_relacion': rel_type
             })
-            
+
         if dest_id not in self.in_edges:
             self.in_edges[dest_id] = []
         if not any(e['id_origen'] == src_id and e['tipo_relacion'] == rel_type for e in self.in_edges[dest_id]):
@@ -46,7 +77,7 @@ class KnowledgeGraph:
         neighbors = []
         if kun_id not in self.edges:
             return neighbors
-            
+
         for edge in self.edges[kun_id]:
             if rel_types is None or edge['tipo_relacion'] in rel_types:
                 neighbors.append({
@@ -54,7 +85,7 @@ class KnowledgeGraph:
                     'tipo_relacion': edge['tipo_relacion'],
                     'direction': 'out'
                 })
-                
+
         if kun_id in self.in_edges:
             for edge in self.in_edges[kun_id]:
                 if rel_types is None or edge['tipo_relacion'] in rel_types:
@@ -68,27 +99,27 @@ class KnowledgeGraph:
     def get_metrics(self):
         """Computes topological metrics of the graph."""
         num_nodes = len(self.nodes)
-        
+
         # Count unique undirected edges
         undirected_edges = set()
         degree_map = {node_id: 0 for node_id in self.nodes}
-        
+
         for u in self.edges:
             for edge in self.edges[u]:
                 v = edge['id_destino']
                 undirected_edges.add(tuple(sorted([u, v])))
                 degree_map[u] += 1
                 degree_map[v] += 1
-                
+
         num_edges = len(undirected_edges)
         avg_degree = sum(degree_map.values()) / num_nodes if num_nodes > 0 else 0.0
-        
+
         hubs = sorted(degree_map.items(), key=lambda x: x[1], reverse=True)[:5]
-        
+
         # Calculate connected components using BFS
         visited = set()
         components = []
-        
+
         for node in self.nodes:
             if node not in visited:
                 comp = []
@@ -103,15 +134,15 @@ class KnowledgeGraph:
                         curr_neighbors.extend([e['id_destino'] for e in self.edges[curr]])
                     if curr in self.in_edges:
                         curr_neighbors.extend([e['id_origen'] for e in self.in_edges[curr]])
-                        
+
                     for n in curr_neighbors:
                         if n not in visited and n in self.nodes:
                             visited.add(n)
                             queue.append(n)
                 components.append(comp)
-                
+
         orphans = [node for node, deg in degree_map.items() if deg == 0]
-        
+
         return {
             'nodes_count': num_nodes,
             'edges_count': num_edges,
@@ -137,10 +168,10 @@ class KnowledgeGraph:
             raise FileNotFoundError(f"Graph file not found: {filepath}")
         with open(filepath, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        
+
         self.nodes = data.get('nodes', {})
         self.edges = data.get('edges', {})
-        
+
         # Reconstruct in_edges
         self.in_edges = {kun_id: [] for kun_id in self.nodes}
         for src_id, src_edges in self.edges.items():
@@ -160,13 +191,13 @@ def compile_graph_from_markdown(brain_dir):
     source_dir = os.path.join(brain_dir, 'data', 'markdown')
     if not os.path.exists(source_dir):
         source_dir = brain_dir
-        
+
     for filename in os.listdir(source_dir):
         if filename.startswith('kuns_') and filename.endswith('.md'):
             filepath = os.path.join(source_dir, filename)
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
-            
+
             json_blocks = re.findall(r'```json\s*(.*?)\s*```', content, re.DOTALL)
             for block in json_blocks:
                 try:
@@ -175,7 +206,7 @@ def compile_graph_from_markdown(brain_dir):
                     graph.add_node(kun_id, data)
                 except Exception as e:
                     print(f"Error parsing KUN in {filename}: {e}")
-                    
+
     for kun_id, kun_data in graph.nodes.items():
         relations = kun_data.get('relaciones', [])
         for rel in relations:
@@ -183,7 +214,7 @@ def compile_graph_from_markdown(brain_dir):
             rel_type = rel['tipo_relacion']
             if dest_id in graph.nodes:
                 graph.add_edge(kun_id, dest_id, rel_type)
-                
+
     return graph
 
 if __name__ == '__main__':
@@ -194,7 +225,7 @@ if __name__ == '__main__':
     print("Graph Compiled Successfully!")
     print(f"Nodes: {metrics['nodes_count']}, Edges: {metrics['edges_count']}")
     print(f"Average Degree: {metrics['avg_degree']:.2f}")
-    
+
     out_file = os.path.join(brain_path, 'scratch', 'knowledge_graph.json')
     kg.save_to_json(out_file)
     print(f"Graph serialized to: {out_file}")

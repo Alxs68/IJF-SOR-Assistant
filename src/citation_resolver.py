@@ -5,13 +5,21 @@ from reference_manager import ReferenceManager
 # Catálogo oficial con detalles y URLs directas a los PDF/páginas de reglas de la IJF
 # Mantenido aquí para compatibilidad con código legado y pruebas unitarias
 RESOURCE_DETAILS = {
+    "SOR-2026-08-14-ENG": {
+        "name": "Reglamento Oficial IJF SOR (14 de Agosto 2026)",
+        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/08/IJF_Sport_and_Organisation_Rul-1787430903.pdf"
+    },
+    "DOC-SOR-2026-08": {
+        "name": "Reglamento Oficial IJF SOR (14 de Agosto 2026)",
+        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/08/IJF_Sport_and_Organisation_Rul-1787430903.pdf"
+    },
     "DOC-001": {
-        "name": "Reglamento SOR 2026 (Sport and Organisation Rules)",
+        "name": "Reglamento SOR 2026 (Sport and Organisation Rules - Histórico Enero)",
         "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf"
     },
     "DOC-004": {
-        "name": "Manual Médico de Judo (PDF)",
-        "url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/01/IJF_Sport_and_Organisation_Rul-1769443746.pdf"
+        "name": "Manual Médico de Judo (Desactivado por URL histórica incorrecta)",
+        "url": None
     },
     "PAG-001": {
         "name": "Portal de Reglas Interactivas de la IJF",
@@ -112,20 +120,20 @@ def format_citations(answer, retrieved_kuns):
     def replace_citation(match):
         full_match = match.group(0) # ej. [KUN-0001]
         kun_id = match.group(1)     # ej. KUN-0001
-        
+
         # Validar trazabilidad estricta
         if kun_id in retrieved_map:
             kun_data = retrieved_map[kun_id]
             res = _rrm_manager.resolve_reference(kun_id, kun_data)
-            
+
             if res.get("is_clickable") and res.get("url"):
                 return f"[{kun_id}]({res['url']})"
             elif res.get("operational_status") == "DELETED":
                 # UX para referencias inhabilitadas/borradas
                 return f"~~[{kun_id}]~~"
-        
+
         return full_match
 
-    # Reemplazar citas del tipo [KUN-xxxx]
-    formatted = re.sub(r'\[(KUN-\d{4})\]', replace_citation, answer)
+    # Reemplazar citas del tipo [KUN-xxxx] o [SOR-2026-08-Pxxx-Sxxx]
+    formatted = re.sub(r'\[(KUN-\d{4}|SOR-2026-08-P\d{3}-S\d{3})\]', replace_citation, answer)
     return formatted
