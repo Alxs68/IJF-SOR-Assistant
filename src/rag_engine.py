@@ -250,7 +250,6 @@ class RagEngine:
         # 1. Active Architecture: Arbitration Decision Assistant (ADA) + Reasoning Retrieval Engine (RRE)
         if self.is_2026_08 and self.ada is not None:
             ada_res = self.ada.analyze_situation(user_query, top_k=k)
-            print(f"[LOG] [ADA/RRE Flow] Estado: {ada_res['status']} | Evidencias RRE: {retrieved_ids}")
 
             # Adaptar a contrato compatible con UI
             retrieved_data = []
@@ -283,6 +282,7 @@ class RagEngine:
 
             # Mantener coherencia del contrato UI: IDs y registros incluyen evidencias directas y relacionadas.
             retrieved_ids = [item["id_conocimiento"] for item in retrieved_data]
+            print(f"[LOG] [ADA/RRE Flow] Estado: {ada_res['status']} | Evidencias RRE: {retrieved_ids}")
 
             print(f"[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---")
             return {
