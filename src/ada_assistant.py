@@ -158,7 +158,10 @@ class ArbitrationDecisionAssistant:
             "analysis": formatted_analysis,
             "evidence": evidence,
             "related_passages": related,
-            "engine": "ADA-RRE-v2"
+            "engine": "ADA-RRE-v2",
+            "rre_operating_mode": retrieval_res.get("operating_mode", "UNKNOWN"),
+            "degradation_reason": retrieval_res.get("degradation_reason"),
+            "source_sha256_verified": retrieval_res.get("source_sha256_verified", False)
         }
 
     def _build_deterministic_arbitration_brief(self, query: str, evidence: list, related: list) -> str:

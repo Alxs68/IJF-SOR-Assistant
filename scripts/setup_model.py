@@ -68,34 +68,56 @@ def verify_and_setup(rebuild_matrix=False):
             print(f"  ✓ Snapshot local detectado en caché: {snapshots[0]}")
             model = SentenceTransformer(snapshots[0], device=device, local_files_only=True)
         else:
+            print("  ℹ️ No se detectó snapshot local. Intentando descargar modelo desde el repositorio oficial...")
             model = SentenceTransformer(model_name, device=device)
+
         test_embed = model.encode("IJF Sport and Organisation Rules test embedding")
-        print(f"  ✓ Modelo cargado correctamente. Dimensión del vector: {test_embed.shape[0]}")
-        assert test_embed.shape[0] == 384, f"Dimensión esperada 384, obtenida {test_embed.shape[0]}"
+        print(f"  ✓ Modelo cargado y verificado. Dimensión del vector de prueba: {test_embed.shape[0]}")
+        if test_embed.shape[0] != 384:
+            print(f"❌ Error: Dimensión del modelo esperada 384, obtenida {test_embed.shape[0]}.")
+            return False
     except Exception as e:
-        print(f"  ⚠️ Advertencia al inicializar modelo denso: {e}")
-        print("  ℹ️ RRE continuará operando con la matriz densa pre-computada y motor léxico.")
+        print(f"❌ Error crítico: No se pudo preparar ni cargar el modelo {model_name}: {e}")
+        print("   Para operar en modo híbrido neuronal, se requiere SentenceTransformer operativo.")
+        return False
 
     # 3. Verificación o Reconstrucción de la Matriz Densa
-    print("\n[4/4] Verificando matriz densa pre-computada...")
-    need_computation = rebuild_matrix or not os.path.exists(matrix_path)
+    print("\n[4/4] Verificando matriz densa y metadatos de procedencia...")
+    need_computation = rebuild_matrix or not os.path.exists(matrix_path) or not os.path.exists(meta_path)
 
     if not need_computation:
         try:
             matrix = np.load(matrix_path)
-            print(f"  ✓ Archivo encontrado: {matrix_path}")
-            print(f"  ✓ Forma de la matriz: {matrix.shape}")
-            if matrix.shape != (len(passages), 384):
-                print(f"  ⚠️ Advertencia: Forma inválida {matrix.shape}, requiere regeneración.")
+            with open(meta_path, "r", encoding="utf-8") as f:
+                meta = json.load(f)
+
+            # Aplicar exactamente las mismas reglas de validación que el motor RRE
+            if not isinstance(matrix, np.ndarray) or matrix.ndim != 2:
+                print(f"  ⚠️ Matriz no tiene 2 dimensiones ({getattr(matrix, 'ndim', 'None')}).")
+                need_computation = True
+            elif matrix.shape != (len(passages), 384):
+                print(f"  ⚠️ Forma inválida {matrix.shape}, esperada ({len(passages)}, 384).")
+                need_computation = True
+            elif not np.all(np.isfinite(matrix)):
+                print("  ⚠️ La matriz contiene valores no finitos (NaN/Inf).")
+                need_computation = True
+            elif meta.get("num_passages") != len(passages) or meta.get("dimension") != 384:
+                print("  ⚠️ Metadatos inconsistentes con las dimensiones del corpus.")
+                need_computation = True
+            elif meta.get("passage_ids") != [p["passage_id"] for p in passages]:
+                print("  ⚠️ Desalineación en el orden o lista de passage_ids.")
+                need_computation = True
+            elif str(meta.get("source_sha256", "")).lower() != "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620":
+                print("  ⚠️ Discrepancia criptográfica en source_sha256 de metadatos.")
                 need_computation = True
             else:
-                print("  ✓ Matriz validada con éxito: (554 pasajes, 384 dimensiones).")
+                print("  ✓ Matriz y metadatos validados con éxito: 554 pasajes, 384 dimensiones, orden 1:1 estricto.")
         except Exception as e:
-            print(f"  ⚠️ Error leyendo matriz existente ({e}). Requiere reconstrucción.")
+            print(f"  ⚠️ Error auditando matriz existente ({e}). Se procederá a reconstruirla.")
             need_computation = True
 
     if need_computation:
-        print(f"  ⚙️ Generando embeddings densos para {len(passages)} pasajes...")
+        print(f"  ⚙️ Generando embeddings densos para {len(passages)} pasajes con {model_name}...")
         corpus_texts = []
         passage_ids = []
         for p in passages:
@@ -105,7 +127,7 @@ def verify_and_setup(rebuild_matrix=False):
 
         dense_embeddings = model.encode(corpus_texts, batch_size=32, show_progress_bar=True, normalize_embeddings=True)
         np.save(matrix_path, dense_embeddings.astype(np.float32))
-        print(f"  ✓ Matriz guardada en: {matrix_path} (Tamaño: {os.path.getsize(matrix_path)} bytes)")
+        print(f"  ✓ Matriz guardada en: {matrix_path} ({os.path.getsize(matrix_path)} bytes)")
 
         meta_data = {
             "model_name": model_name,
@@ -116,10 +138,10 @@ def verify_and_setup(rebuild_matrix=False):
         }
         with open(meta_path, "w", encoding="utf-8") as f:
             json.dump(meta_data, f, indent=2)
-        print(f"  ✓ Metadatos guardados en: {meta_path}")
+        print(f"  ✓ Metadatos actualizados y certificados en: {meta_path}")
 
     print("\n=====================================================================")
-    print("✅ PREPARACIÓN COMPLETA: El motor RRE está listo para operar.")
+    print("✅ PREPARACIÓN COMPLETA: El motor RRE está validado en MODO HÍBRIDO.")
     print("=====================================================================")
     return True
 

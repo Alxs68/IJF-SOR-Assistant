@@ -287,7 +287,10 @@ class RagEngine:
                 'answer': ada_res['analysis'],
                 'retrieved_kuns': retrieved_ids,
                 'retrieved_kuns_data': retrieved_data,
-                'context': ""
+                'context': "",
+                'rre_operating_mode': ada_res.get('rre_operating_mode', 'HYBRID'),
+                'degradation_reason': ada_res.get('degradation_reason'),
+                'source_sha256_verified': ada_res.get('source_sha256_verified', False)
             }
 
         # 2. Legacy RAG Flow for 2026-01

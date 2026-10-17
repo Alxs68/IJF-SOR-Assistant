@@ -94,6 +94,130 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertIn("query", query_res)
         self.assertTrue(len(query_res["retrieved_kuns"]) > 0)
         self.assertIn("SOR-2026-08", query_res["answer"])
+        self.assertEqual(query_res.get("rre_operating_mode"), "HYBRID")
+
+    def test_08_rre_rejects_corrupted_or_non_finite_matrix(self):
+        """Verifica que RRE lance ValueError accionable ante matrices corruptas o con valores no finitos (NaN)."""
+        import tempfile
+        import shutil
+        import numpy as np
+
+        temp_dir = tempfile.mkdtemp()
+        try:
+            # Copiar archivos base
+            shutil.copy(self.rre.passages_file, os.path.join(temp_dir, "passages_candidate.json"))
+            shutil.copy(self.rre.dense_meta_file, os.path.join(temp_dir, "dense_embeddings_meta.json"))
+
+            # 1. Matriz con NaNs
+            bad_matrix = np.ones((554, 384), dtype=np.float32)
+            bad_matrix[10, 5] = np.nan
+            np.save(os.path.join(temp_dir, "dense_embeddings_candidate.npy"), bad_matrix)
+
+            with self.assertRaises(ValueError) as ctx:
+                ReasoningRetrievalEngine(base_dir=temp_dir)
+            self.assertIn("no finitos", str(ctx.exception).lower())
+
+            # 2. Matriz con forma dimensional incorrecta (554, 128 en vez de 384)
+            bad_shape_matrix = np.ones((554, 128), dtype=np.float32)
+            np.save(os.path.join(temp_dir, "dense_embeddings_candidate.npy"), bad_shape_matrix)
+            with self.assertRaises(ValueError) as ctx:
+                ReasoningRetrievalEngine(base_dir=temp_dir)
+            self.assertIn("discrepancia dimensional", str(ctx.exception).lower())
+
+        finally:
+            shutil.rmtree(temp_dir, ignore_errors=True)
+
+    def test_09_rre_rejects_mismatched_passage_ids_order(self):
+        """Verifica que RRE detecte desalineación en el orden o duplicación de passage_ids en metadatos."""
+        import tempfile
+        import shutil
+        import json
+
+        temp_dir = tempfile.mkdtemp()
+        try:
+            shutil.copy(self.rre.passages_file, os.path.join(temp_dir, "passages_candidate.json"))
+            shutil.copy(self.rre.dense_embeddings_file, os.path.join(temp_dir, "dense_embeddings_candidate.npy"))
+
+            with open(self.rre.dense_meta_file, "r", encoding="utf-8") as f:
+                meta = json.load(f)
+
+            # Invertir el orden de los dos primeros passage_ids
+            meta["passage_ids"][0], meta["passage_ids"][1] = meta["passage_ids"][1], meta["passage_ids"][0]
+            with open(os.path.join(temp_dir, "dense_embeddings_meta.json"), "w", encoding="utf-8") as f:
+                json.dump(meta, f)
+
+            with self.assertRaises(ValueError) as ctx:
+                ReasoningRetrievalEngine(base_dir=temp_dir)
+            self.assertIn("desalineación en orden", str(ctx.exception).lower())
+
+        finally:
+            shutil.rmtree(temp_dir, ignore_errors=True)
+
+    def test_10_rre_rejects_incompatible_metadata_hash_and_model(self):
+        """Verifica que RRE rechace metadatos con SHA-256 discordante o modelo incompatible."""
+        import tempfile
+        import shutil
+        import json
+
+        temp_dir = tempfile.mkdtemp()
+        try:
+            shutil.copy(self.rre.passages_file, os.path.join(temp_dir, "passages_candidate.json"))
+            shutil.copy(self.rre.dense_embeddings_file, os.path.join(temp_dir, "dense_embeddings_candidate.npy"))
+
+            # 1. SHA-256 no oficial
+            with open(self.rre.dense_meta_file, "r", encoding="utf-8") as f:
+                meta = json.load(f)
+            meta["source_sha256"] = "1111111111111111111111111111111111111111111111111111111111111111"
+            with open(os.path.join(temp_dir, "dense_embeddings_meta.json"), "w", encoding="utf-8") as f:
+                json.dump(meta, f)
+
+            with self.assertRaises(ValueError) as ctx:
+                ReasoningRetrievalEngine(base_dir=temp_dir)
+            self.assertIn("discrepancia criptográfica", str(ctx.exception).lower())
+
+            # 2. Modelo de embeddings incompatible
+            meta["source_sha256"] = "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620"
+            meta["model_name"] = "unsupported-model-v1"
+            with open(os.path.join(temp_dir, "dense_embeddings_meta.json"), "w", encoding="utf-8") as f:
+                json.dump(meta, f)
+
+            with self.assertRaises(ValueError) as ctx:
+                ReasoningRetrievalEngine(base_dir=temp_dir)
+            self.assertIn("metadatos incompatibles", str(ctx.exception).lower())
+
+        finally:
+            shutil.rmtree(temp_dir, ignore_errors=True)
+
+    def test_11_rre_explicit_operating_mode_hybrid_vs_degraded(self):
+        """Verifica que RRE reporte explícitamente HYBRID cuando todo está íntegro y DEGRADED_LEXICAL si falta el modelo."""
+        # En el entorno actual debe ser HYBRID
+        self.assertEqual(self.rre.operating_mode, "HYBRID")
+        self.assertIsNone(self.rre.degradation_reason)
+
+        # Simular ausencia de modelo neuronal manteniendo la matriz
+        original_model = self.rre.dense_model
+        try:
+            self.rre.dense_model = None
+            self.rre._determine_operating_mode()
+            self.assertEqual(self.rre.operating_mode, "DEGRADED_LEXICAL")
+            self.assertIn("no disponible", self.rre.degradation_reason)
+        finally:
+            self.rre.dense_model = original_model
+            self.rre._determine_operating_mode()
+            self.assertEqual(self.rre.operating_mode, "HYBRID")
+
+    def test_12_rre_bilingual_and_edge_cases(self):
+        """Evalúa consultas vacías, de baja confianza y términos técnicos bilingües."""
+        # Consulta vacía
+        res_empty = self.rre.retrieve("   ")
+        self.assertEqual(res_empty["status"], "ABSTAIN")
+        self.assertEqual(res_empty["reason"], "EMPTY_OR_NON_SUBSTANTIVE_QUERY")
+
+        # Consulta técnica en español con mapeo de sinónimos judo
+        res_es = self.rre.retrieve("tiempo de combate y duracion golden score")
+        self.assertEqual(res_es["status"], "SUCCESS")
+        self.assertTrue(len(res_es["evidence"]) > 0)
+        self.assertEqual(res_es["operating_mode"], "HYBRID")
 
 if __name__ == '__main__':
     unittest.main()

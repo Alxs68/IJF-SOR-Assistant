@@ -89,24 +89,27 @@ flowchart TD
 
 ## 4. Estado Comprobado del Corpus y Artefactos RRE
 
-- **PDF Oficial 14 de Agosto de 2026:** SHA-256 `9426B10D11C21A4CB9EB23150C2C4FC95BFCD463511E66BA451D2CFF005AE620` (29.66 MB, 298 páginas físicas).
+- **PDF Oficial 14 de Agosto de 2026:** SHA-256 `9426B10D11C21A4CB9EB23150C2C4FC95BFCD463511E66BA451D2CFF005AE620` (29,664,780 bytes, 298 páginas físicas). Comprobado efectivamente sobre el archivo local en disco mediante cálculo de buffer SHA-256 en tiempo de inicialización (`source_sha256_verified=True`).
 - **Pasajes Normativos (`passages_candidate.json`):** 554 pasajes con jerarquía completa de capítulos y artículos. **0 pasajes vacíos**.
-- **Matriz de Embeddings Densos (`dense_embeddings_candidate.npy`):** 554 vectores de 384 dimensiones generados mediante `all-MiniLM-L6-v2` localmente (851,072 bytes, forma `(554, 384)`).
-- **Metadatos de Embeddings (`dense_embeddings_meta.json`):** Vinculados criptográficamente al SHA-256 de agosto de 2026 con lista indexada de los 554 `passage_ids`.
+- **Matriz de Embeddings Densos (`dense_embeddings_candidate.npy`):** 554 vectores de 384 dimensiones generados mediante `all-MiniLM-L6-v2` localmente (851,072 bytes, forma `(554, 384)`). Verificada: valores 100% finitos (0 NaNs, 0 Infs).
+- **Metadatos de Embeddings (`dense_embeddings_meta.json`):** Vinculados criptográficamente al SHA-256 de agosto de 2026 con lista indexada y ordenada 1:1 de los 554 `passage_ids`.
 - **Grafo de Conocimiento (`knowledge_graph_candidate.json`):** 554 nodos y 112 aristas de referencias cruzadas normativas.
+- **Modos de Operación Formales en RRE:**
+  - `HYBRID`: Operación combinada óptima (canal denso neuronal 384d + canal disperso TF-IDF con expansión de sinónimos + Reciprocal Rank Fusion $k=60$ + expansión en grafo).
+  - `DEGRADED_LEXICAL`: Modo degradado explícito y configurable ante ausencia del modelo neuronal o matriz densa, conservando el canal léxico y grafo sin enmascarar fallos ni fingir capacidad semántica no disponible.
 
 ---
 
-## 5. Resultados de Pruebas Automatizadas (47/47 Tests OK)
+## 5. Resultados de Pruebas Automatizadas (52/52 Tests OK)
 
 Se ejecutó la suite completa de pruebas:
 `python -m unittest discover -s tests -v`
 
-**Resultado Oficial:** **47 pruebas ejecutadas, 47 pruebas aprobadas (100% OK)** en `45.097s`.
+**Resultado Oficial:** **52 pruebas ejecutadas, 52 pruebas aprobadas (100% OK)** en `47.709s`.
 
 | Módulo de Prueba | Tests | Estado | Aspectos Verificados |
 | :--- | :---: | :---: | :--- |
-| `tests/test_rre_ada_architecture.py` | 7 | 🟢 OK | Recuperación dual RRE + RRF, expansión por grafo, abstención estricta out-of-domain, análisis arbitral ADA, honestidad en modo desconectado, integridad y alineación de matriz densa (554x384), y separación en RagEngine. |
+| `tests/test_rre_ada_architecture.py` | 12 | 🟢 OK | Recuperación dual RRE + RRF, expansión por grafo, abstención estricta out-of-domain, análisis arbitral ADA, honestidad en modo desconectado, integridad y alineación de matriz densa (554x384), separación en RagEngine, **rechazo explícito de matrices corruptas o con NaNs**, **detección de desalineación en el orden de passage_ids**, **rechazo de metadatos o hashes incompatibles**, **distinción formal entre modo HYBRID y DEGRADED_LEXICAL**, y **manejo de consultas técnicas bilingües y vacías**. |
 | `tests/test_rebuild_integration.py` | 5 | 🟢 OK | Inicialización criptográfica de 2026-08 (554 nodos/pasajes), consultas críticas de arbitraje (tatami, osaekomi, cadetes), abstención y conmutación legacy. |
 | `tests/test_technical_followup_review.py` | 4 | 🟢 OK | Reconciliación de matriz de cobertura (272 secciones), inventario de tablas (449 tablas), 32 categorías de peso y matriz WRL (9x8 con celdas nulas en JJOO). |
 | `tests/test_golden_dataset.py` | 1 | 🟢 OK | 12/12 consultas del Golden Dataset histórico superadas con 100% de éxito. |
@@ -122,10 +125,11 @@ Se ejecutó la suite completa de pruebas:
 
 | Consulta de Prueba | Módulo Activo | Evidencias RRE Recuperadas | Resultado / Resumen ADA |
 | :--- | :---: | :--- | :--- |
-| **"cadet head defence shido"** | RRE + ADA | `SOR-2026-08-P254-S268`<br>`SOR-2026-08-P254-S269`<br>`SOR-2026-08-P289-S272` | Resumen de evidencias que identifica la sanción específica de *shido* para cadetes según el Apéndice G1.3. Enlace verificado a pág. 254. |
+| **"cadet head defence shido"** | RRE + ADA | `SOR-2026-08-P254-S268`<br>`SOR-2026-08-P254-S269`<br>`SOR-2026-08-P289-S272` | Resumen de evidencias que identifica la sanción específica de *shido* para cadetes según el Apéndice G1.3. Enlace verificado a pág. 254 (`operating_mode=HYBRID`). |
 | **"osaekomi time 20 seconds"** | RRE + ADA | `SOR-2026-08-P169-S188`<br>`SOR-2026-08-P153-S180`<br>`SOR-2026-08-P153-S182` | Citas directas de Artículo 7 (Tiempo de Osaekomi) y Artículo 15 (Ippon a los 20s, Waza-ari a los 10s). Enlace verificado a pág. 153. |
 | **"World Ranking List Grand Slam points"** | RRE + ADA | `SOR-2026-08-P053-S066`<br>`SOR-2026-08-P054-S068`<br>`SOR-2026-08-P054-S067` | Evidencias de Artículo 3.2 (IJF Seniors WRL): 1000 puntos al ganador de Grand Slam. Enlace verificado a pág. 53. |
 | **"tatami contest area dimensions 8m"** | RRE + ADA | `SOR-2026-08-P096-S113`<br>`SOR-2026-08-P096-S114`<br>`SOR-2026-08-P095-S113` | Identifica Artículo 8.6 y 8.7 (Área de Competición y Tatami, 8m x 8m con área de seguridad). Enlace verificado a pág. 96. |
+| **"tiempo de combate y duracion golden score"** | RRE + ADA | `SOR-2026-08-P140-S177`<br>`SOR-2026-08-P141-S177`<br>`SOR-2026-08-P142-S177` | Recuperación bilingüe con mapeo de sinónimos: 4 minutos para Senior/Junior y tiempo sin límite en Golden Score. |
 | **"reglas de fuera de juego en baloncesto nba y formula 1"** | RRE + ADA | *Ninguna (Gated)* | **Abstención estricta confirmada (`ABSTAIN / OUT_OF_DOMAIN`).** Sin evidencias ni alucinaciones. |
 
 ---
@@ -145,16 +149,16 @@ Se ejecutó la suite completa de pruebas:
 
 ### 8.1 Archivos que componen la implementación y reproducibilidad de RRE / ADA
 - **Nuevos Módulos Core:**
-  - `src/rre_engine.py`: Motor de recuperación neuronal denso + sparse + RRF + grafo.
-  - `src/ada_assistant.py`: Asistente de decisión y análisis arbitral con honestidad en modo local.
+  - `src/rre_engine.py`: Motor de recuperación neuronal denso + sparse + RRF + grafo, con validación matemática estricta de la matriz y reporte explícito de modo (`HYBRID` vs `DEGRADED_LEXICAL`).
+  - `src/ada_assistant.py`: Asistente de decisión y análisis arbitral con honestidad en modo local y propagación de metadatos de modo de recuperación.
 - **Módulos Adaptados y Configuración:**
   - `requirements.txt`: Declaración de dependencias completas (`numpy`, `torch`, `sentence-transformers`, `pypdf`, `streamlit`, `python-dotenv`).
-  - `scripts/setup_model.py`: Script de preparación y verificación explícita del modelo y matriz densa.
+  - `scripts/setup_model.py`: Script de preparación y verificación explícita del modelo, con validación rigurosa de matriz y salida de error no cero ante fallos.
   - `src/rag_engine.py`: Integración de ADA/RRE y desacoplamiento limpio de la ruta legacy.
   - `app.py`: UI de Streamlit con visualización de fases RRE y ADA en tiempo real.
   - `tests/test_rebuild_integration.py`: Verificación de arbitraje, SHA-256 e inicialización sin componentes obsoletos.
 - **Nuevas Suites de Pruebas:**
-  - `tests/test_rre_ada_architecture.py`: 7 pruebas unitarias y de integración para RRE, ADA, matriz densa y RagEngine.
+  - `tests/test_rre_ada_architecture.py`: 12 pruebas unitarias y de integración para RRE, ADA, matriz densa, casos negativos de corrupción, desalineación de IDs y RagEngine.
 - **Artefactos Candidatos Versionados:**
   - `data/processed/rebuild_2026_08/dense_embeddings_candidate.npy`: Matriz de 554 embeddings densos (851 KB).
   - `data/processed/rebuild_2026_08/dense_embeddings_meta.json`: Metadatos del modelo y vinculación de IDs.
@@ -173,4 +177,4 @@ Se ejecutó la suite completa de pruebas:
 - **Rama:** `review/ijf-sor-2026-08-rre-ada`
 - **Estado de `main`:** Commit `afb5b11` (**Intacto, 0 modificaciones**).
 - **Seguridad:** 0 secretos expuestos en código, datos o commits.
-- **Evaluación Final:** La arquitectura RRE / ADA se encuentra plenamente operativa, reproducible, probada (47/47 tests OK) y validada contra el reglamento oficial IJF SOR de agosto de 2026.
+- **Evaluación Final:** La arquitectura RRE / ADA se encuentra plenamente operativa, reproducible, probada (52/52 tests OK) y validada contra el reglamento oficial IJF SOR de agosto de 2026.

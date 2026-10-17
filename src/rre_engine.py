@@ -47,9 +47,14 @@ class ReasoningRetrievalEngine:
         self.dense_embeddings = None
         self.dense_meta = {}
         self.dense_model = None
+        self.operating_mode = "UNINITIALIZED"
+        self.degradation_reason = None
+        self.source_sha256_verified = False
 
         self._load_resources()
+        self._validate_dense_matrix_and_meta()
         self._init_dense_model()
+        self._determine_operating_mode()
 
     def _load_resources(self):
         if not os.path.exists(self.passages_file):
@@ -76,10 +81,136 @@ class ReasoningRetrievalEngine:
             with open(self.sparse_index_file, "r", encoding="utf-8") as f:
                 self.sparse_index = json.load(f)
 
-        if os.path.exists(self.dense_embeddings_file) and os.path.exists(self.dense_meta_file):
-            self.dense_embeddings = np.load(self.dense_embeddings_file)
+        if os.path.exists(self.dense_embeddings_file):
+            try:
+                self.dense_embeddings = np.load(self.dense_embeddings_file)
+            except Exception as e:
+                raise ValueError(f"Error crítico al leer la matriz densa {self.dense_embeddings_file}: {e}")
+
+        if os.path.exists(self.dense_meta_file):
             with open(self.dense_meta_file, "r", encoding="utf-8") as f:
                 self.dense_meta = json.load(f)
+
+    def _validate_dense_matrix_and_meta(self):
+        """
+        Validación exhaustiva de integridad matemática y referencial de la matriz densa.
+        Si la matriz o sus metadatos están presentes pero presentan cualquier corrupción o desalineación,
+        se lanza un ValueError explícito y accionable.
+        """
+        if self.dense_embeddings is None and not self.dense_meta:
+            # Matriz no provista en absoluto (degradación léxica permitida únicamente si se solicita explícitamente)
+            return
+
+        if self.dense_embeddings is None and self.dense_meta:
+            raise ValueError(
+                f"Inconsistencia crítica en RRE: Existen metadatos ({self.dense_meta_file}) "
+                f"pero no se encontró el archivo de matriz densa ({self.dense_embeddings_file})."
+            )
+
+        if self.dense_embeddings is not None and not self.dense_meta:
+            raise ValueError(
+                f"Inconsistencia crítica en RRE: La matriz densa existe ({self.dense_embeddings_file}) "
+                f"pero faltan sus metadatos de procedencia ({self.dense_meta_file})."
+            )
+
+        # 1. Validación de forma y número de pasajes
+        expected_rows = len(self.passages)
+        expected_dim = 384
+        if not isinstance(self.dense_embeddings, np.ndarray):
+            raise TypeError("La matriz densa debe ser una instancia válida de numpy.ndarray.")
+
+        if len(self.dense_embeddings.shape) != 2:
+            raise ValueError(
+                f"Forma inválida en matriz densa: Se esperaban 2 dimensiones, se obtuvieron {self.dense_embeddings.ndim}."
+            )
+
+        n_rows, n_cols = self.dense_embeddings.shape
+        if n_rows != expected_rows:
+            raise ValueError(
+                f"Discrepancia en número de pasajes: El corpus contiene {expected_rows} pasajes "
+                f"pero la matriz densa contiene {n_rows} filas."
+            )
+
+        if n_cols != expected_dim:
+            raise ValueError(
+                f"Discrepancia dimensional: Dimensión del modelo esperada {expected_dim}, "
+                f"pero la matriz densa tiene dimensión {n_cols}."
+            )
+
+        # 2. Valores finitos (sin NaNs ni Infs)
+        if not np.all(np.isfinite(self.dense_embeddings)):
+            nan_count = int(np.sum(np.isnan(self.dense_embeddings)))
+            inf_count = int(np.sum(np.isinf(self.dense_embeddings)))
+            raise ValueError(
+                f"Matriz densa corrupta: Contiene valores no finitos ({nan_count} NaNs, {inf_count} Infs)."
+            )
+
+        # 3. Coherencia de Metadatos
+        meta_num = self.dense_meta.get("num_passages")
+        if meta_num != expected_rows:
+            raise ValueError(
+                f"Metadatos inconsistentes: 'num_passages'={meta_num} != pasajes del corpus={expected_rows}."
+            )
+
+        meta_dim = self.dense_meta.get("dimension")
+        if meta_dim != expected_dim:
+            raise ValueError(
+                f"Metadatos inconsistentes: 'dimension'={meta_dim} != dimensión esperada={expected_dim}."
+            )
+
+        meta_model = self.dense_meta.get("model_name")
+        if meta_model != "sentence-transformers/all-MiniLM-L6-v2":
+            raise ValueError(
+                f"Metadatos incompatibles: Modelo de origen declarado '{meta_model}', se requiere 'sentence-transformers/all-MiniLM-L6-v2'."
+            )
+
+        # 4. Verificación exhaustiva 1:1 de passage_ids (longitud, duplicados y orden)
+        meta_ids = self.dense_meta.get("passage_ids", [])
+        if len(meta_ids) != expected_rows:
+            raise ValueError(
+                f"Longitud de passage_ids en metadatos ({len(meta_ids)}) difiere del corpus ({expected_rows})."
+            )
+
+        if len(set(meta_ids)) != len(meta_ids):
+            duplicates = [item for item, count in Counter(meta_ids).items() if count > 1]
+            raise ValueError(f"Identificadores duplicados en passage_ids de metadatos: {duplicates[:5]}.")
+
+        corpus_ids = [p["passage_id"] for p in self.passages]
+        if meta_ids != corpus_ids:
+            # Buscar el primer índice discordante para mensaje de error preciso
+            for i, (m_id, c_id) in enumerate(zip(meta_ids, corpus_ids)):
+                if m_id != c_id:
+                    raise ValueError(
+                        f"Desalineación en orden de pasajes en índice {i}: "
+                        f"Metadatos='{m_id}' vs Corpus='{c_id}'."
+                    )
+            raise ValueError("La lista de passage_ids de metadatos no coincide exactamente con el orden del corpus.")
+
+        # 5. Integridad del hash del corpus declarado frente a fuente de verdad
+        expected_sha = "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620"
+        meta_sha = str(self.dense_meta.get("source_sha256", "")).lower()
+        if meta_sha != expected_sha:
+            raise ValueError(
+                f"Discrepancia criptográfica en metadatos: source_sha256 declarado '{meta_sha}' "
+                f"no coincide con la edición oficial SOR 2026-08 '{expected_sha}'."
+            )
+
+        # Comprobar si el PDF físico existe en disco para verificación efectiva
+        pdf_candidate = os.path.join(os.path.dirname(os.path.dirname(self.base_dir)), "raw", "sor_2026_08_rebuild", "IJF_Sport_and_Organisation_Rules_2026_08_14.pdf")
+        if os.path.exists(pdf_candidate):
+            import hashlib
+            h = hashlib.sha256()
+            with open(pdf_candidate, "rb") as f:
+                while chunk := f.read(65536):
+                    h.update(chunk)
+            real_sha = h.hexdigest().lower()
+            if real_sha == expected_sha:
+                self.source_sha256_verified = True
+            else:
+                raise ValueError(
+                    f"Fallo de verificación criptográfica del PDF físico: SHA-256 calculado '{real_sha}' "
+                    f"no coincide con el esperado '{expected_sha}'."
+                )
 
     def _init_dense_model(self):
         """Loads cached local sentence-transformer without network dependencies."""
@@ -92,8 +223,23 @@ class ReasoningRetrievalEngine:
             else:
                 self.dense_model = sentence_transformers.SentenceTransformer('all-MiniLM-L6-v2')
         except Exception as e:
-            print(f"[RRE] Warning: Local dense model could not be initialized ({e}). Operating in sparse/lexical fallback mode.")
             self.dense_model = None
+            self.degradation_reason = f"No se pudo cargar SentenceTransformer: {e}"
+
+    def _determine_operating_mode(self):
+        """Determina de forma rigurosa y no ambigua el modo de operación de RRE."""
+        has_matrix = self.dense_embeddings is not None and self.dense_embeddings.shape == (len(self.passages), 384)
+        has_model = self.dense_model is not None
+
+        if has_matrix and has_model:
+            self.operating_mode = "HYBRID"
+        else:
+            self.operating_mode = "DEGRADED_LEXICAL"
+            if not self.degradation_reason:
+                if not has_matrix:
+                    self.degradation_reason = "Matriz densa ausente o incompleta."
+                elif not has_model:
+                    self.degradation_reason = "Modelo neuronal de embeddings no disponible en entorno."
 
     # Mapeo bilingüe de términos técnicos del judo
     SPANISH_TO_ENGLISH_SYNONYMS = {
@@ -285,5 +431,8 @@ class ReasoningRetrievalEngine:
             "status": "SUCCESS",
             "query": query,
             "evidence": evidence_list,
-            "related_passages": related_passages[:3]
+            "related_passages": related_passages[:3],
+            "operating_mode": self.operating_mode,
+            "degradation_reason": self.degradation_reason,
+            "source_sha256_verified": self.source_sha256_verified
         }
