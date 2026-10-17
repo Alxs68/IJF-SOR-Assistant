@@ -337,8 +337,11 @@ class ReasoningRetrievalEngine:
     # Mapeo bilingüe de términos técnicos del judo
     SPANISH_TO_ENGLISH_SYNONYMS = {
         "cabeza": "head",
-        "defensa": "defence",
-        "defenderse": "defence",
+        "defensa": "defend",
+        "defenderse": "defend",
+        "defender": "defend",
+        "defence": "defend",
+        "defense": "defend",
         "sancion": "penalty",
         "sanciones": "penalties",
         "sanciona": "penalty",
@@ -420,6 +423,34 @@ class ReasoningRetrievalEngine:
                 results.append((passage_ids[idx], score))
         return results
 
+    def _query_requests_document_history(self, query: str) -> bool:
+        """Allow the version-history appendix only when the user explicitly asks about revisions."""
+        normalized = (
+            query.lower()
+            .replace("á", "a").replace("é", "e").replace("í", "i")
+            .replace("ó", "o").replace("ú", "u")
+        )
+        history_markers = (
+            "version history", "document version history", "history of changes",
+            "change log", "previous version", "version changes", "sor amendments",
+            "regulation updates", "historial de versiones", "historial de cambios",
+            "version anterior", "versiones anteriores", "cambios de version",
+            "que cambio", "que cambios hubo", "actualizaciones del reglamento",
+            "modificaciones del reglamento"
+        )
+        return any(marker in normalized for marker in history_markers)
+
+    def _is_version_history_passage(self, passage_id: str) -> bool:
+        """Identify passages indexed under document-control/version-history headings."""
+        passage = self.passages_by_id.get(passage_id, {})
+        headings = " ".join(str(item) for item in passage.get("heading_path", [])).lower()
+        article_id = str(passage.get("article_id", "")).strip().lower()
+        return (
+            article_id == "h1.1"
+            or "document version history" in headings
+            or headings.strip() == "document control"
+        )
+
     def retrieve(self, query: str, top_k: int = 4, min_confidence: float = 0.015, expand_graph: bool = True):
         """
         Executes Reasoning Retrieval with Reciprocal Rank Fusion (RRF) and Graph Expansion.
@@ -439,9 +470,17 @@ class ReasoningRetrievalEngine:
             }
 
         # 2. Dual-channel retrieval
-        # Filtrar sparse_hits con umbral de significancia técnica
-        sparse_hits = [h for h in self._sparse_search(query, top_k=25) if h[1] >= 0.05]
-        dense_hits = self._dense_search(query, top_k=25)
+        # No mezclar el apéndice de historial con reglas vigentes salvo que el usuario pregunte por revisiones.
+        requests_history = self._query_requests_document_history(query)
+        sparse_hits = [
+            hit for hit in self._sparse_search(query, top_k=25)
+            if hit[1] >= 0.05
+            and (requests_history or not self._is_version_history_passage(hit[0]))
+        ]
+        dense_hits = [
+            hit for hit in self._dense_search(query, top_k=25)
+            if requests_history or not self._is_version_history_passage(hit[0])
+        ]
 
         # 3. Dual-channel verification and Reciprocal Rank Fusion (RRF)
         # Si no hay anclaje léxico suficiente, la similitud densa debe ser claramente relevante (>0.35)
@@ -477,6 +516,16 @@ class ReasoningRetrievalEngine:
                 "degradation_reason": self.degradation_reason,
                 "source_sha256_verified": self.source_sha256_verified
             }
+
+        # Priorizar artículos normativos primarios frente a tablas auxiliares o glosarios.
+        if not requests_history:
+            for pid in list(rrf_scores):
+                passage = self.passages_by_id.get(pid, {})
+                headings = [str(h).strip().lower() for h in passage.get("heading_path", [])]
+                if any(re.match(r"^article\\s+\\d", heading) for heading in headings):
+                    rrf_scores[pid] *= 1.35
+                elif any("penalty codes" in heading or "glossary" in heading for heading in headings):
+                    rrf_scores[pid] *= 0.80
 
         ranked_pids = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
         top_seeds = [pid for pid, score in ranked_pids if score >= min_confidence][:top_k]

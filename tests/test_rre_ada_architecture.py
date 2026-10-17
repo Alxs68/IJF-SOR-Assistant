@@ -41,6 +41,12 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         res = self.rre.retrieve("cadet head defence shido", top_k=3, expand_graph=True)
         self.assertEqual(res["status"], "SUCCESS")
         self.assertTrue(len(res.get("related_passages", [])) > 0)
+        trace = res["evidence"] + res.get("related_passages", [])
+        self.assertTrue(
+            any("18.1.4" in str(item.get("article_id", "")) for item in trace),
+            f"La consulta sobre defensa con la cabeza en cadetes debe enlazar el artículo 18.1.4; "
+            f"evidencia={[(item.get('passage_id'), item.get('article_id')) for item in trace]}"
+        )
         rel = res["related_passages"][0]
         self.assertIn("relation", rel)
         self.assertIn("source_seed", rel)

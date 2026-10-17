@@ -17,8 +17,8 @@ assert source_sha256 == expected_sha256, "Fallo: Índice no vinculado a la fuent
 
 test_queries = [
     {
-        "query": "cadet head defence shido",
-        "expected_terms": ["head", "cadet", "defence"]
+        "query": "cadet head defend shido",
+        "expected_terms": ["head", "cadet", "defend", "shido"]
     },
     {
         "query": "tatami contest area dimensions 8m 10m",
