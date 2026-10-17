@@ -37,6 +37,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-hf-all-MiniLM-L6-v2-
 
+      - name: Run corpus and lexical index quality gates
+        run: |
+          python data/processed/rebuild_2026_08/test_quality_gates.py
+          python data/processed/rebuild_2026_08/test_normative_retrieval.py
+
       - name: Prepare and verify SentenceTransformer model
         run: |
           python scripts/setup_model.py
