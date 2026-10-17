@@ -522,7 +522,7 @@ class ReasoningRetrievalEngine:
             for pid in list(rrf_scores):
                 passage = self.passages_by_id.get(pid, {})
                 headings = [str(h).strip().lower() for h in passage.get("heading_path", [])]
-                if any(re.match(r"^article\\s+\\d", heading) for heading in headings):
+                if any(re.match(r"^article\s+\d", heading) for heading in headings):
                     rrf_scores[pid] *= 1.35
                 elif any("penalty codes" in heading or "glossary" in heading for heading in headings):
                     rrf_scores[pid] *= 0.80
