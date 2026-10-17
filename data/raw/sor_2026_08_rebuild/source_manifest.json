@@ -1,0 +1,26 @@
+{
+  "source_id": "DOC-SOR-2026-08",
+  "document_title": "IJF Sport and Organisation Rules",
+  "document_edition": "14 August 2026",
+  "edition_stated_in_text": "Version: 14 August 2026 (which replaces version 24 July 2026)",
+  "replaces_edition": "24 July 2026",
+  "historical_edition_in_repo": "January 2026 (DOC-001 / ijf_sor_2026.pdf)",
+  "language": "en",
+  "status": "ACQUIRED_AND_VERIFIED",
+  "acquisition_timestamp_utc": "2026-10-17T07:38:58.315826+00:00",
+  "source_portal_url": "https://www.ijf.org/ijf/documents/26",
+  "download_url": "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/08/IJF_Sport_and_Organisation_Rul-1787430903.pdf",
+  "http_etag": "2a510e3fa38032eef0d49697f4c1a5a1",
+  "http_last_modified": "Sat, 22 Aug 2026 20:35:04 GMT",
+  "local_storage_path": "data/raw/sor_2026_08_rebuild/IJF_Sport_and_Organisation_Rules_2026_08_14.pdf",
+  "file_size_bytes": 29664780,
+  "sha256": "9426B10D11C21A4CB9EB23150C2C4FC95BFCD463511E66BA451D2CFF005AE620",
+  "total_physical_pages": 298,
+  "pdf_metadata": {
+    "/CreationDate": "D:20260822152009-05'00'",
+    "/Creator": "Adobe InDesign 21.3 (Macintosh)",
+    "/ModDate": "D:20260822152053-05'00'",
+    "/Producer": "Adobe PDF Library 18.0",
+    "/Trapped": "/False"
+  }
+}
