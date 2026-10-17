@@ -517,14 +517,13 @@ class ReasoningRetrievalEngine:
                 "source_sha256_verified": self.source_sha256_verified
             }
 
-        # Priorizar artículos normativos primarios frente a tablas auxiliares o glosarios.
+        # Reducir el peso de tablas/glosarios auxiliares: no deben desplazar evidencia normativa contextual.
+        # El peso base sigue determinado por la pertinencia léxica y semántica, no por ser un encabezado "Article".
         if not requests_history:
             for pid in list(rrf_scores):
                 passage = self.passages_by_id.get(pid, {})
                 headings = [str(h).strip().lower() for h in passage.get("heading_path", [])]
-                if any(re.match(r"^article\s+\d", heading) for heading in headings):
-                    rrf_scores[pid] *= 1.35
-                elif any("penalty codes" in heading or "glossary" in heading for heading in headings):
+                if any("penalty codes" in heading or "glossary" in heading for heading in headings):
                     rrf_scores[pid] *= 0.80
 
         ranked_pids = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
