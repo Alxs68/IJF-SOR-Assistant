@@ -25,8 +25,6 @@ class RagEngine:
 
     def __init__(self, brain_dir):
         self.brain_dir = brain_dir
-        self.kg = KnowledgeGraph()
-        self.vs = VectorStore()
 
         # Load active edition config
         self.config = get_active_corpus_config()
@@ -34,6 +32,10 @@ class RagEngine:
 
         # Load API key
         self.api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+
+        # KnowledgeGraph and VectorStore instances (initialized conditionally)
+        self.kg = KnowledgeGraph()
+        self.vs = None
 
         # RRE / ADA Active Architecture initialization for 2026-08
         self.ada = None
@@ -67,24 +69,12 @@ class RagEngine:
                 graph_data = json.load(f)
 
             self.kg.load_from_passages_and_edges(passages_data, graph_data.get('edges', []))
-
-            if os.path.exists(self.vector_path):
-                with open(self.vector_path, 'r', encoding='utf-8') as f:
-                    v_data = json.load(f)
-                # Validar ligadura criptográfica al SHA-256 de agosto 2026
-                if v_data.get('source_sha256') == self.config['source_sha256']:
-                    self.vs.load_index(self.vector_path)
-                    print(f"[LOG] [RAG Engine] Índice vectorial de agosto 2026 cargado y validado criptográficamente.")
-                else:
-                    print(f"[LOG] [RAG Engine] Discrepancia en SHA-256 de vector_path. Re-indexando...")
-                    self.vs.index_passage_corpus(passages_data)
-                    self.vs.save_index(self.vector_path)
-            else:
-                self.vs.index_passage_corpus(passages_data)
-                self.vs.save_index(self.vector_path)
+            print(f"[LOG] [RAG Engine] Grafo de agosto 2026 cargado para inspección UI ({len(self.kg.nodes)} nodos).")
+            print(f"[LOG] [RAG Engine] Recuperación activa delegada íntegramente a RRE (Híbrido Denso 384d + Sparse + RRF).")
             return
 
         # Legacy 2026-01 Loading Path
+        self.vs = VectorStore()
         print(f"[LOG] [RAG Engine] Activando Corpus Histórico (Legacy): {self.config['version_label']}")
         cache_outdated = False
         if os.path.exists(self.graph_path):

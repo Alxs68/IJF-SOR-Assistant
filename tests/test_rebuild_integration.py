@@ -18,7 +18,10 @@ class TestRebuildIntegration202608(unittest.TestCase):
         os.environ['IJF_SOR_EDITION'] = EDITION_2026_08
         engine = RagEngine(self.brain_path)
         self.assertEqual(len(engine.kg.nodes), 554)
-        self.assertEqual(len(engine.vs.kun_ids), 554)
+        self.assertIsNotNone(engine.rre)
+        self.assertEqual(len(engine.rre.passages), 554)
+        self.assertEqual(engine.rre.dense_embeddings.shape, (554, 384))
+        self.assertIsNone(engine.vs)  # Legacy VectorStore desactivado para ruta 2026-08
         self.assertEqual(engine.config['source_sha256'], "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620")
 
     def test_02_normative_queries_and_evidence_retrieval(self):

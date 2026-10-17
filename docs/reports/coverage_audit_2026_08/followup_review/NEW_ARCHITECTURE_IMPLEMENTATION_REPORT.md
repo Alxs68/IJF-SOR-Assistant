@@ -26,14 +26,15 @@ Se ha implementado, conectado y certificado con éxito la nueva arquitectura ava
 2. **ADA — Arbitration Decision Assistant (`src/ada_assistant.py`):**
    - **Taxonomía de Situaciones Arbitrales:** Análisis de escenarios de puntuación, penalizaciones (*shido*, *hansoku-make*), restricciones por edad (cadetes, juniors), pesaje, uniformes y repesca.
    - **Razonamiento Multirregla:** Integración de condiciones primarias y excepciones normativas cruzadas basadas en la evidencia recuperada por RRE.
-   - **Modo Dual de Generación:**
+   - **Modo Dual y Honestidad Normativa:**
      - *Online:* Síntesis analítica vía Gemini API cuando existe cuota.
-     - *Local Determinista (Offline):* Dictamen arbitral estructurado formal que presenta los extractos textuales auténticos sin alucinación cuando se detecta límite de cuota externa (HTTP 429).
+     - *Local Desconectado (Offline):* **Resumen de Evidencias Normativas**, presentando directamente las disposiciones normativas oficiales recuperadas por el motor RRE con sus citas y enlaces anclados al PDF oficial, señalando con transparencia que no se infieren decisiones autónomas no explícitamente fundadas en el articulado cuando no hay modelo conectado.
    - **Citas Verificables Deep Link:** Hipervínculos Markdown con ancla física `#page=X` hacia la copia oficial alojada en la infraestructura de la IJF.
 
 3. **Conexión de la Ruta Activa en Streamlit (`app.py` y `src/rag_engine.py`):**
    - La interfaz de usuario ejecuta de forma directa y predeterminada el ciclo RRE + ADA para la edición `2026-08 (Oficial Vigente)`.
-   - Los indicadores de estado en tiempo real reflejan cada etapa: recuperación densa/sparse RRF, análisis de evidencia por ADA y formulación de dictamen arbitral.
+   - Se implementó separación estricta: para la edición `2026-08`, `RagEngine` no inicializa estructuras legacy de TF-IDF monolítico ni fragmentos históricos de enero.
+   - Los indicadores de estado en tiempo real reflejan cada etapa: recuperación densa/sparse RRF, análisis de evidencia por ADA y formulación del resumen normativo.
 
 ---
 
@@ -60,7 +61,7 @@ flowchart TD
         GraphExp --> ADAContext["Contexto Legal Multirregla"]
         ADAContext --> ADAGen{"Motor Dual ADA\n(Online vs Local)"}
         ADAGen -- "API Conectada" --> LLMSynth["Síntesis Analítica IA"]
-        ADAGen -- "Sin API / HTTP 429" --> LocalBrief["Dictamen Arbitral Estructurado\n(Texto Normativo Exacto)"]
+        ADAGen -- "Sin API / HTTP 429" --> LocalBrief["Resumen de Evidencias Normativas\n(Disposiciones Oficiales Exactas)"]
         
         LLMSynth --> CitationResolver["Resolvedor de Citas Oficiales\n(#page=X)"]
         LocalBrief --> CitationResolver
@@ -71,16 +72,18 @@ flowchart TD
 
 ---
 
-## 3. Retiro de Componentes Obsoletos y Saneamiento
+## 3. Retiro de Componentes Obsoletos, Separación Arquitectónica e Instalación Reproducible
 
-1. **Eliminación del Motor Único Monolítico TF-IDF:**
-   - La recuperación ya no depende de un vectorizador plano sin semántica. RRE combina representaciones vectoriales densas con similitud de coseno y fusiona con RRF.
-2. **Desacoplamiento de la Dependencia de Markdown de Enero:**
-   - Los 737 fragmentos KUN Markdown de `data/markdown/` han sido retirados de la ruta de consulta de agosto. Se conservan únicamente si se conmuta manualmente a la versión legacy `2026-01`.
-3. **Limpieza de Artefactos Duplicados:**
-   - El archivo binario duplicado `docs/reports/coverage_audit_2026_08/IJF_SOR_Coverage_Audit_Delivery.zip` fue eliminado, manteniendo únicamente la copia canónica formal en `delivery/`.
-4. **Higiene de Archivos Scratch:**
-   - Se revirtieron modificaciones accidentales en `scratch/golden_validation_report.md` para evitar comitear cambios efímeros.
+1. **Declaración Completa de Dependencias Directas (`requirements.txt`):**
+   - Se auditaron e incorporaron explícitamente todas las librerías necesarias para la ejecución y reproducción: `streamlit>=1.35.0`, `python-dotenv>=1.0.1`, `numpy>=1.26.0`, `torch>=2.0.0`, `sentence-transformers>=3.0.0`, y `pypdf>=4.0.0`.
+2. **Script de Preparación Explícita del Modelo (`scripts/setup_model.py`):**
+   - Procedimiento documentado y reproducible para verificar dependencias de aprendizaje profundo, cargar el modelo `all-MiniLM-L6-v2` (soportando snapshots locales en caché) y comprobar/regenerar la matriz densa de 554 pasajes.
+3. **Control de Versión de la Matriz Densa:**
+   - La matriz de embeddings densos `data/processed/rebuild_2026_08/dense_embeddings_candidate.npy` (851,072 bytes, forma `(554, 384)`) se incorpora al repositorio Git con sus metadatos `dense_embeddings_meta.json`, garantizando funcionamiento inmediato y reproducible offline tras clonar el repositorio.
+4. **Desacoplamiento Estricto de la Ruta de Agosto 2026:**
+   - `src/rag_engine.py` evita inicializar o cargar por inercia el `VectorStore` legacy de TF-IDF/embeddings monolíticos de enero cuando la edición activa es agosto de 2026.
+5. **Limpieza de Artefactos Duplicados e Higiene Git:**
+   - Se removió el archivo duplicado `docs/reports/coverage_audit_2026_08/IJF_SOR_Coverage_Audit_Delivery.zip`, conservando únicamente la copia formal en `delivery/`.
 
 ---
 
@@ -88,23 +91,23 @@ flowchart TD
 
 - **PDF Oficial 14 de Agosto de 2026:** SHA-256 `9426B10D11C21A4CB9EB23150C2C4FC95BFCD463511E66BA451D2CFF005AE620` (29.66 MB, 298 páginas físicas).
 - **Pasajes Normativos (`passages_candidate.json`):** 554 pasajes con jerarquía completa de capítulos y artículos. **0 pasajes vacíos**.
-- **Matriz de Embeddings Densos (`dense_embeddings_candidate.npy`):** 554 vectores de 384 dimensiones generados mediante `all-MiniLM-L6-v2` localmente (851,072 bytes).
-- **Metadatos de Embeddings (`dense_embeddings_meta.json`):** Vinculados criptográficamente al SHA-256 de agosto.
-- **Grafo de Conocimiento (`knowledge_graph_candidate.json`):** 554 nodos y 112 aristas de referencias cruzadas.
+- **Matriz de Embeddings Densos (`dense_embeddings_candidate.npy`):** 554 vectores de 384 dimensiones generados mediante `all-MiniLM-L6-v2` localmente (851,072 bytes, forma `(554, 384)`).
+- **Metadatos de Embeddings (`dense_embeddings_meta.json`):** Vinculados criptográficamente al SHA-256 de agosto de 2026 con lista indexada de los 554 `passage_ids`.
+- **Grafo de Conocimiento (`knowledge_graph_candidate.json`):** 554 nodos y 112 aristas de referencias cruzadas normativas.
 
 ---
 
-## 5. Resultados de Pruebas Automatizadas (45/45 Tests OK)
+## 5. Resultados de Pruebas Automatizadas (47/47 Tests OK)
 
 Se ejecutó la suite completa de pruebas:
 `python -m unittest discover -s tests -v`
 
-**Resultado Oficial:** **45 pruebas ejecutadas, 45 pruebas aprobadas (100% OK)** en `39.849s`.
+**Resultado Oficial:** **47 pruebas ejecutadas, 47 pruebas aprobadas (100% OK)** en `45.097s`.
 
 | Módulo de Prueba | Tests | Estado | Aspectos Verificados |
 | :--- | :---: | :---: | :--- |
-| `tests/test_rre_ada_architecture.py` | 5 | 🟢 OK | Recuperación dual RRE + RRF, expansión por grafo, abstención estricta out-of-domain, análisis arbitral ADA y formato de dictámenes. |
-| `tests/test_rebuild_integration.py` | 5 | 🟢 OK | Inicialización criptográfica de 2026-08, consultas críticas de arbitraje (tatami, osaekomi, cadetes), abstención y conmutación legacy. |
+| `tests/test_rre_ada_architecture.py` | 7 | 🟢 OK | Recuperación dual RRE + RRF, expansión por grafo, abstención estricta out-of-domain, análisis arbitral ADA, honestidad en modo desconectado, integridad y alineación de matriz densa (554x384), y separación en RagEngine. |
+| `tests/test_rebuild_integration.py` | 5 | 🟢 OK | Inicialización criptográfica de 2026-08 (554 nodos/pasajes), consultas críticas de arbitraje (tatami, osaekomi, cadetes), abstención y conmutación legacy. |
 | `tests/test_technical_followup_review.py` | 4 | 🟢 OK | Reconciliación de matriz de cobertura (272 secciones), inventario de tablas (449 tablas), 32 categorías de peso y matriz WRL (9x8 con celdas nulas en JJOO). |
 | `tests/test_golden_dataset.py` | 1 | 🟢 OK | 12/12 consultas del Golden Dataset histórico superadas con 100% de éxito. |
 | `tests/test_rag_engine.py` | 4 | 🟢 OK | Inicialización, recuperación de contexto y flujo de respuestas. |
@@ -117,11 +120,11 @@ Se ejecutó la suite completa de pruebas:
 
 ## 6. Validación de Consultas Representativas sobre Agosto 2026
 
-| Consulta de Prueba | Módulo Activo | Evidencias RRE Recuperadas | Resultado / Dictamen ADA |
+| Consulta de Prueba | Módulo Activo | Evidencias RRE Recuperadas | Resultado / Resumen ADA |
 | :--- | :---: | :--- | :--- |
-| **"cadet head defence shido"** | RRE + ADA | `SOR-2026-08-P254-S268`<br>`SOR-2026-08-P254-S269`<br>`SOR-2026-08-P289-S272` | Dictamen arbitral estructurado que identifica la sanción específica de *shido* para cadetes según el Apéndice G1.3. Enlace verificado a pág. 254. |
-| **"osaekomi time 20 seconds"** | RRE + ADA | `SOR-2026-08-P169-S188`<br>`SOR-2026-08-P153-S180`<br>`SOR-2026-08-P153-S182` | Dictamen sobre Artículo 7 (Tiempo de Osaekomi) y Artículo 15 (Ippon a los 20s, Waza-ari a los 10s). Enlace verificado a pág. 153. |
-| **"World Ranking List Grand Slam points"** | RRE + ADA | `SOR-2026-08-P053-S066`<br>`SOR-2026-08-P054-S068`<br>`SOR-2026-08-P054-S067` | Dictamen sobre Artículo 3.2 (IJF Seniors WRL): 1000 puntos al ganador de Grand Slam. Enlace verificado a pág. 53. |
+| **"cadet head defence shido"** | RRE + ADA | `SOR-2026-08-P254-S268`<br>`SOR-2026-08-P254-S269`<br>`SOR-2026-08-P289-S272` | Resumen de evidencias que identifica la sanción específica de *shido* para cadetes según el Apéndice G1.3. Enlace verificado a pág. 254. |
+| **"osaekomi time 20 seconds"** | RRE + ADA | `SOR-2026-08-P169-S188`<br>`SOR-2026-08-P153-S180`<br>`SOR-2026-08-P153-S182` | Citas directas de Artículo 7 (Tiempo de Osaekomi) y Artículo 15 (Ippon a los 20s, Waza-ari a los 10s). Enlace verificado a pág. 153. |
+| **"World Ranking List Grand Slam points"** | RRE + ADA | `SOR-2026-08-P053-S066`<br>`SOR-2026-08-P054-S068`<br>`SOR-2026-08-P054-S067` | Evidencias de Artículo 3.2 (IJF Seniors WRL): 1000 puntos al ganador de Grand Slam. Enlace verificado a pág. 53. |
 | **"tatami contest area dimensions 8m"** | RRE + ADA | `SOR-2026-08-P096-S113`<br>`SOR-2026-08-P096-S114`<br>`SOR-2026-08-P095-S113` | Identifica Artículo 8.6 y 8.7 (Área de Competición y Tatami, 8m x 8m con área de seguridad). Enlace verificado a pág. 96. |
 | **"reglas de fuera de juego en baloncesto nba y formula 1"** | RRE + ADA | *Ninguna (Gated)* | **Abstención estricta confirmada (`ABSTAIN / OUT_OF_DOMAIN`).** Sin evidencias ni alucinaciones. |
 
@@ -133,31 +136,33 @@ Se ejecutó la suite completa de pruebas:
    - 34 secciones clasificadas como `PARCIAL` en la matriz de cobertura.
    - El texto administrativo está 100% extraído en los pasajes, pero la topología gráfica de las llaves de repesca (cuadros de 64, 32, 16 competidores) permanece sujeta a validación visual humana.
 2. **Cuota Externa de Gemini API (HTTP 429):**
-   - La clave API gratuita externa se encuentra agotada temporalmente por límite diario del proveedor (`RESOURCE_EXHAUSTED`).
-   - ADA solventa esto de manera transparente y profesional mediante el modo de **Dictamen Local Estructurado Basado en Evidencia Certificada**, entregando el texto normativo exacto y citas oficiales sin interrupciones.
+   - La clave API gratuita externa puede encontrarse agotada temporalmente por límite diario del proveedor (`RESOURCE_EXHAUSTED`).
+   - ADA solventa esto de manera transparente y profesional mediante el modo de **Resumen de Evidencias Normativas (Modo Local Desconectado)**, entregando el texto normativo exacto y citas oficiales ancladas sin inferir decisiones no contenidas expresamente en el articulado.
 
 ---
 
-## 8. Inventario de Archivos y Nuevos Commits para la Rama
+## 8. Inventario de Archivos para la Rama
 
-### 8.1 Archivos que componen la implementación de RRE / ADA
+### 8.1 Archivos que componen la implementación y reproducibilidad de RRE / ADA
 - **Nuevos Módulos Core:**
   - `src/rre_engine.py`: Motor de recuperación neuronal denso + sparse + RRF + grafo.
-  - `src/ada_assistant.py`: Asistente de decisión y análisis arbitral multirregla.
-- **Módulos Adaptados:**
-  - `src/rag_engine.py`: Integración de ADA/RRE en la ruta activa de consulta.
+  - `src/ada_assistant.py`: Asistente de decisión y análisis arbitral con honestidad en modo local.
+- **Módulos Adaptados y Configuración:**
+  - `requirements.txt`: Declaración de dependencias completas (`numpy`, `torch`, `sentence-transformers`, `pypdf`, `streamlit`, `python-dotenv`).
+  - `scripts/setup_model.py`: Script de preparación y verificación explícita del modelo y matriz densa.
+  - `src/rag_engine.py`: Integración de ADA/RRE y desacoplamiento limpio de la ruta legacy.
   - `app.py`: UI de Streamlit con visualización de fases RRE y ADA en tiempo real.
-  - `tests/test_rebuild_integration.py`: Actualización de aserciones de arbitraje y abstención.
+  - `tests/test_rebuild_integration.py`: Verificación de arbitraje, SHA-256 e inicialización sin componentes obsoletos.
 - **Nuevas Suites de Pruebas:**
-  - `tests/test_rre_ada_architecture.py`: 5 pruebas unitarias y de integración para RRE y ADA.
-- **Artefactos Candidatos Nuevos:**
-  - `data/processed/rebuild_2026_08/dense_embeddings_candidate.npy`: Matriz de 554 embeddings densos.
+  - `tests/test_rre_ada_architecture.py`: 7 pruebas unitarias y de integración para RRE, ADA, matriz densa y RagEngine.
+- **Artefactos Candidatos Versionados:**
+  - `data/processed/rebuild_2026_08/dense_embeddings_candidate.npy`: Matriz de 554 embeddings densos (851 KB).
   - `data/processed/rebuild_2026_08/dense_embeddings_meta.json`: Metadatos del modelo y vinculación de IDs.
-- **Documentación:**
-  - Este informe actualizado en `docs/reports/coverage_audit_2026_08/followup_review/NEW_ARCHITECTURE_IMPLEMENTATION_REPORT.md`.
+- **Documentación Oficial:**
+  - `docs/reports/coverage_audit_2026_08/followup_review/NEW_ARCHITECTURE_IMPLEMENTATION_REPORT.md`.
 
 ### 8.2 Archivos Excluidos
-- Scripts de desarrollo en `scratch/` (12 archivos ad-hoc).
+- Scripts de desarrollo en `scratch/`.
 - Archivo binario pesado `data/raw/sor_2026_08_rebuild/IJF_Sport_and_Organisation_Rules_2026_08_14.pdf` (29.6 MB), preservado localmente y referenciado mediante su hash SHA-256 y URL en `source_manifest.json`.
 - 298 archivos `.txt` en `pages_raw/`.
 
@@ -168,4 +173,4 @@ Se ejecutó la suite completa de pruebas:
 - **Rama:** `review/ijf-sor-2026-08-rre-ada`
 - **Estado de `main`:** Commit `afb5b11` (**Intacto, 0 modificaciones**).
 - **Seguridad:** 0 secretos expuestos en código, datos o commits.
-- **Evaluación Final:** La arquitectura RRE / ADA se encuentra plenamente operativa, probada y validada contra el reglamento oficial IJF SOR de agosto de 2026.
+- **Evaluación Final:** La arquitectura RRE / ADA se encuentra plenamente operativa, reproducible, probada (47/47 tests OK) y validada contra el reglamento oficial IJF SOR de agosto de 2026.

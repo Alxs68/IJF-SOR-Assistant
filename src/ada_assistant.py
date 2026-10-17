@@ -130,7 +130,7 @@ class ArbitrationDecisionAssistant:
             mode_label = "Síntesis Analítica IA (Conectado)"
         else:
             final_text = self._build_deterministic_arbitration_brief(situation_query, evidence, related)
-            mode_label = "Dictamen Local Basado en Evidencia Certificada (Modo Offline)"
+            mode_label = "Resumen de Evidencias Normativas (Modo Local Desconectado)"
 
         # Apply citation resolution to clickable markdown links
         all_passages_data = []
@@ -162,11 +162,14 @@ class ArbitrationDecisionAssistant:
         }
 
     def _build_deterministic_arbitration_brief(self, query: str, evidence: list, related: list) -> str:
-        """Constructs an exhaustive, structured legal arbitration brief when external API is offline."""
+        """Constructs an objective normative evidence summary when external generative model is unavailable."""
         brief = (
-            f"⚖️ **Dictamen Arbitral Estructurado — Asistente ADA ({self.config['version_label']})**\n\n"
-            f"**Cuestión Arbitral:** *\"{query}\"*\n\n"
-            "### 1. Fundamentos Normativos Aplicables (Evidencia Primaria)\n"
+            f"📋 **Resumen de Evidencias Normativas — Modo Local Desconectado ({self.config['version_label']})**\n\n"
+            f"**Cuestión Consultada:** *\"{query}\"*\n\n"
+            "> ℹ️ *Aviso de Operación Local:* Al operar sin conexión al modelo generativo, se presentan directamente las disposiciones "
+            "normativas oficiales recuperadas por el motor RRE con sus enlaces anclados al PDF oficial. No se genera un dictamen interpretativo "
+            "autónomo para evitar inferencias no explícitamente fundadas.\n\n"
+            "### 1. Disposiciones Normativas Aplicables (Evidencia Primaria)\n"
         )
 
         for ev in evidence:
@@ -180,10 +183,9 @@ class ArbitrationDecisionAssistant:
             brief += "\n"
 
         brief += (
-            "### 3. Conclusión y Aplicación Reglamentaria\n"
-            "Conforme a los artículos citados del IJF SOR 2026-08, la decisión técnica debe regirse estrictamente "
-            "por las condiciones objetivas descritas en el texto oficial. Para revisar los diagramas complementarios o "
-            "la redacción exhaustiva, acceda directamente a los enlaces de página oficial provistos en cada cita.\n\n"
-            "💡 *Las citas anteriores están vinculadas de forma verificable al PDF original oficial mediante hipervínculos anclados.*"
+            "### 3. Aplicación y Consulta Documental\n"
+            "Las decisiones operativas y arbitrales en competición deben atenerse estrictamente a los artículos oficiales reproducidos arriba. "
+            "Para consultar diagramas técnicos, apéndices completos o precisiones contextuales, utilice los enlaces directos anclados a cada página del PDF oficial.\n\n"
+            "💡 *Todas las citas normativas cuentan con trazabilidad verificable al documento oficial IJF SOR 2026-08.*"
         )
         return brief
