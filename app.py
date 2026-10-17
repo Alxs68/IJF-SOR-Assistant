@@ -423,11 +423,18 @@ with st.container():
 
 if query_to_run:
     with st.status("Consultando el Reglamento SOR 2026...", expanded=True) as status:
-        status.write("🔍 Buscando en la base de conocimiento...")
-        res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
-        retrieved_kuns = res.get('retrieved_kuns_data', [])
-        status.write(f"📚 {len(retrieved_kuns)} regla(s) recuperada(s) del grafo...")
-        status.write("✍️ Generando respuesta con el modelo...")
+        if engine.is_2026_08:
+            status.write("🧠 Reasoning Retrieval Engine (RRE): Recuperación neuronal densa + sparse + RRF...")
+            res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
+            retrieved_kuns = res.get('retrieved_kuns_data', [])
+            status.write(f"⚖️ Arbitration Decision Assistant (ADA): {len(retrieved_kuns)} evidencia(s) analizada(s)...")
+            status.write("✍️ Formulando dictamen arbitral fundamentado...")
+        else:
+            status.write("🔍 Buscando en la base de conocimiento histórica (2026-01)...")
+            res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
+            retrieved_kuns = res.get('retrieved_kuns_data', [])
+            status.write(f"📚 {len(retrieved_kuns)} regla(s) recuperada(s) del grafo...")
+            status.write("✍️ Generando respuesta...")
 
         dot_code = "digraph {\n  rankdir=LR;\n  node [shape=box, style=filled, fontname=\"Arial\", fontsize=10];\n"
         retrieved_ids = {k['id_conocimiento'] for k in retrieved_kuns}

@@ -18,9 +18,10 @@ from graph_manager import KnowledgeGraph
 from vector_store import VectorStore
 from citation_resolver import format_citations
 from corpus_config import get_active_corpus_config, EDITION_2026_08
+from ada_assistant import ArbitrationDecisionAssistant
 
 class RagEngine:
-    """Orchestrates Hybrid RAG: semantic search, knowledge graph expansion, and LLM response generation."""
+    """Orchestrates RRE / ADA for SOR 2026-08 and maintains isolated legacy fallback for 2026-01."""
 
     def __init__(self, brain_dir):
         self.brain_dir = brain_dir
@@ -33,6 +34,13 @@ class RagEngine:
 
         # Load API key
         self.api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+
+        # RRE / ADA Active Architecture initialization for 2026-08
+        self.ada = None
+        if self.is_2026_08:
+            ada_base = os.path.join(brain_dir, self.config.get("data_dir", "data/processed/rebuild_2026_08"))
+            self.ada = ArbitrationDecisionAssistant(base_dir=ada_base)
+            self.rre = self.ada.rre
 
         # Paths based on active edition
         if self.is_2026_08:
@@ -244,10 +252,55 @@ class RagEngine:
             return None
 
     def query(self, user_query, k=3, min_score=None):
-        """Runs the hybrid RAG flow: retrieval, context creation, prompt assembly, and generation."""
+        """Runs the active ADA / RRE reasoning flow for 2026-08 or legacy fallback for 2026-01."""
         print(f"\n[LOG] [RAG Flow] --- INICIO DE CONSULTA ---")
         print(f"[LOG] [RAG Flow] Consulta recibida: '{user_query}'")
 
+        # 1. Active Architecture: Arbitration Decision Assistant (ADA) + Reasoning Retrieval Engine (RRE)
+        if self.is_2026_08 and self.ada is not None:
+            ada_res = self.ada.analyze_situation(user_query, top_k=k)
+            retrieved_ids = [e["passage_id"] for e in ada_res.get("evidence", [])]
+            print(f"[LOG] [ADA/RRE Flow] Estado: {ada_res['status']} | Evidencias RRE: {retrieved_ids}")
+
+            # Adaptar a contrato compatible con UI
+            retrieved_data = []
+            for ev in ada_res.get("evidence", []):
+                retrieved_data.append({
+                    "id_conocimiento": ev["passage_id"],
+                    "titulo": ev["title"],
+                    "tipo": "REG",
+                    "fuente_origen": "SOR-2026-08-14-ENG",
+                    "referencia_especifica": f"Art. {ev.get('article_id')} (Pág. {ev.get('page')})",
+                    "contenido_traduccion": ev.get("text_original", ""),
+                    "interpretacion": f"Capítulo: {ev.get('title')}",
+                    "article_id": ev.get("article_id"),
+                    "pdf_page_index": ev.get("page"),
+                    "source_url": ev.get("source_url")
+                })
+            for rel in ada_res.get("related_passages", []):
+                retrieved_data.append({
+                    "id_conocimiento": rel["passage_id"],
+                    "titulo": rel["title"],
+                    "tipo": "REG",
+                    "fuente_origen": "SOR-2026-08-14-ENG",
+                    "referencia_especifica": f"Art. {rel.get('article_id')} (Pág. {rel.get('page')})",
+                    "contenido_traduccion": rel.get("text_original", ""),
+                    "interpretacion": f"Referencia Cruzada: {rel.get('relation')}",
+                    "article_id": rel.get("article_id"),
+                    "pdf_page_index": rel.get("page"),
+                    "source_url": rel.get("source_url")
+                })
+
+            print(f"[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---")
+            return {
+                'query': user_query,
+                'answer': ada_res['analysis'],
+                'retrieved_kuns': retrieved_ids,
+                'retrieved_kuns_data': retrieved_data,
+                'context': ""
+            }
+
+        # 2. Legacy RAG Flow for 2026-01
         context_text, retrieved_kuns = self.retrieve_context(user_query, k=k, min_score=min_score)
 
         # Abstención estricta cuando no hay evidencia recuperada
