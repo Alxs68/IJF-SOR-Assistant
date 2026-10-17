@@ -68,7 +68,41 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertIn("Abstención", res["analysis"])
         self.assertEqual(len(res["evidence"]), 0)
 
-    def test_06_dense_matrix_alignment_and_integrity(self):
+    def test_06_llm_output_requires_retrieved_official_citations(self):
+        """Reject generated analysis when it cites a passage absent from retrieved evidence."""
+        from unittest.mock import patch
+
+        query = "¿Cuáles son las dimensiones del tatami?"
+        with patch.object(
+            self.ada,
+            "_call_llm",
+            return_value="La conclusión inventada es definitiva [SOR-2026-08-P999-S999]."
+        ):
+            result = self.ada.analyze_situation(query)
+        self.assertEqual(result["status"], "SUCCESS")
+        self.assertIn("Fallback: citas IA no verificables", result["mode"])
+        self.assertNotIn("P999-S999", result["analysis"])
+        self.assertIn("Resumen de Evidencias Normativas", result["analysis"])
+
+    def test_07_llm_output_accepts_citation_from_retrieved_evidence(self):
+        """Accept generated analysis when it cites a passage in the retrieved evidence set."""
+        from unittest.mock import patch
+
+        query = "¿Cuáles son las dimensiones del tatami?"
+        evidence = self.ada.rre.retrieve(query)["evidence"]
+        self.assertTrue(evidence)
+        valid_id = evidence[0]["passage_id"]
+        with patch.object(
+            self.ada,
+            "_call_llm",
+            return_value=f"Análisis fundamentado en evidencia disponible [{valid_id}]."
+        ):
+            result = self.ada.analyze_situation(query)
+        self.assertEqual(result["status"], "SUCCESS")
+        self.assertIn("citas verificadas", result["mode"])
+        self.assertIn(valid_id, result["analysis"])
+
+    def test_08_dense_matrix_alignment_and_integrity(self):
         """Verifica que la matriz densa pre-computada coincida 1:1 con los 554 pasajes normativos."""
         self.assertEqual(self.rre.dense_embeddings.shape, (554, 384))
         self.assertEqual(self.rre.dense_meta.get("num_passages"), 554)
@@ -79,7 +113,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertEqual(self.rre.dense_meta["passage_ids"][0], self.rre.passages[0]["passage_id"])
         self.assertEqual(self.rre.dense_meta["passage_ids"][-1], self.rre.passages[-1]["passage_id"])
 
-    def test_07_rag_engine_separation_for_2026_08(self):
+    def test_09_rag_engine_separation_for_2026_08(self):
         """Verifica que RagEngine delegue a RRE sin inicializar vector store legacy para 2026-08."""
         from rag_engine import RagEngine
         repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -96,7 +130,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertIn("SOR-2026-08", query_res["answer"])
         self.assertEqual(query_res.get("rre_operating_mode"), "HYBRID")
 
-    def test_08_rre_rejects_corrupted_or_non_finite_matrix(self):
+    def test_10_rre_rejects_corrupted_or_non_finite_matrix(self):
         """Verifica que RRE lance ValueError accionable ante matrices corruptas o con valores no finitos (NaN)."""
         import tempfile
         import shutil
@@ -127,7 +161,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         finally:
             shutil.rmtree(temp_dir, ignore_errors=True)
 
-    def test_09_rre_rejects_mismatched_passage_ids_order(self):
+    def test_11_rre_rejects_mismatched_passage_ids_order(self):
         """Verifica que RRE detecte desalineación en el orden o duplicación de passage_ids en metadatos."""
         import tempfile
         import shutil
@@ -153,7 +187,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         finally:
             shutil.rmtree(temp_dir, ignore_errors=True)
 
-    def test_10_rre_rejects_incompatible_metadata_hash_and_model(self):
+    def test_12_rre_rejects_incompatible_metadata_hash_and_model(self):
         """Verifica que RRE rechace metadatos con SHA-256 discordante o modelo incompatible."""
         import tempfile
         import shutil
@@ -188,7 +222,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         finally:
             shutil.rmtree(temp_dir, ignore_errors=True)
 
-    def test_11_rre_explicit_operating_mode_hybrid_vs_degraded(self):
+    def test_13_rre_explicit_operating_mode_hybrid_vs_degraded(self):
         """Verifica que RRE reporte explícitamente HYBRID cuando todo está íntegro y DEGRADED_LEXICAL si falta el modelo."""
         # En el entorno actual debe ser HYBRID
         self.assertEqual(self.rre.operating_mode, "HYBRID")
@@ -220,7 +254,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
             self.rre._determine_operating_mode()
             self.assertEqual(self.rre.operating_mode, "HYBRID")
 
-    def test_12_rre_bilingual_and_edge_cases(self):
+    def test_14_rre_bilingual_and_edge_cases(self):
         """Evalúa consultas vacías, de baja confianza y términos técnicos bilingües."""
         # Consulta vacía
         res_empty = self.rre.retrieve("   ")
@@ -234,7 +268,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertEqual(res_es["operating_mode"], "HYBRID")
 
 
-    def test_13_model_startup_never_downloads_and_degradation_is_opt_in(self):
+    def test_15_model_startup_never_downloads_and_degradation_is_opt_in(self):
         """A startup without a local snapshot must not call the remote model loader."""
         from unittest.mock import patch
         import sentence_transformers
@@ -253,7 +287,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
                     self.assertEqual(degraded.operating_mode, "DEGRADED_LEXICAL")
                     self.assertIn("scripts/setup_model.py", degraded.degradation_reason)
 
-    def test_14_hybrid_requires_a_valid_sparse_index_and_graph(self):
+    def test_16_hybrid_requires_a_valid_sparse_index_and_graph(self):
         """HYBRID requires usable lexical vectors and graph edges; broken sparse index is never accepted."""
         original_index = self.rre.sparse_index
         original_edges = self.rre.graph_edges

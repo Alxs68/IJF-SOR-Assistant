@@ -17,6 +17,7 @@ import os
 import json
 import urllib.request
 import urllib.error
+import re
 from rre_engine import ReasoningRetrievalEngine
 from citation_resolver import resolve_url, format_citations
 from corpus_config import get_active_corpus_config
@@ -127,13 +128,17 @@ class ArbitrationDecisionAssistant:
         )
 
         llm_answer = self._call_llm(prompt)
+        citations_valid = self._validate_llm_citations(llm_answer, evidence, related)
 
-        if llm_answer:
+        if llm_answer and citations_valid:
             final_text = llm_answer
-            mode_label = "Síntesis Analítica IA (Conectado)"
+            mode_label = "Síntesis Analítica IA (Conectado; citas verificadas)"
         else:
             final_text = self._build_deterministic_arbitration_brief(situation_query, evidence, related)
-            mode_label = "Resumen de Evidencias Normativas (Modo Local Desconectado)"
+            if llm_answer:
+                mode_label = "Resumen de Evidencias Normativas (Fallback: citas IA no verificables)"
+            else:
+                mode_label = "Resumen de Evidencias Normativas (Modo Local Desconectado)"
 
         # Apply citation resolution to clickable markdown links
         all_passages_data = []
@@ -166,6 +171,19 @@ class ArbitrationDecisionAssistant:
             "degradation_reason": retrieval_res.get("degradation_reason"),
             "source_sha256_verified": retrieval_res.get("source_sha256_verified", False)
         }
+
+    def _validate_llm_citations(self, answer: str | None, evidence: list, related: list) -> bool:
+        """Accept generated analysis only when it cites retrieved official passage IDs."""
+        if not isinstance(answer, str) or not answer.strip():
+            return False
+
+        allowed_ids = {
+            item.get("passage_id")
+            for item in [*evidence, *related]
+            if isinstance(item, dict) and item.get("passage_id")
+        }
+        cited_ids = re.findall(r"\[((?:SOR-[A-Za-z0-9-]+)|KUN-\d{4})\]", answer)
+        return bool(cited_ids) and all(citation in allowed_ids for citation in cited_ids)
 
     def _build_deterministic_arbitration_brief(self, query: str, evidence: list, related: list) -> str:
         """Constructs an objective normative evidence summary when external generative model is unavailable."""

@@ -451,7 +451,10 @@ class ReasoningRetrievalEngine:
                 "reason": "OUT_OF_DOMAIN",
                 "message": "Sin evidencia normativa certificada en el SOR 2026-08 para los términos consultados.",
                 "evidence": [],
-                "related_passages": []
+                "related_passages": [],
+                "operating_mode": self.operating_mode,
+                "degradation_reason": self.degradation_reason,
+                "source_sha256_verified": self.source_sha256_verified
             }
 
         k_rrf = 60
@@ -469,7 +472,10 @@ class ReasoningRetrievalEngine:
                 "reason": "OUT_OF_DOMAIN",
                 "message": "Sin evidencia normativa certificada en el SOR 2026-08.",
                 "evidence": [],
-                "related_passages": []
+                "related_passages": [],
+                "operating_mode": self.operating_mode,
+                "degradation_reason": self.degradation_reason,
+                "source_sha256_verified": self.source_sha256_verified
             }
 
         ranked_pids = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
@@ -481,7 +487,10 @@ class ReasoningRetrievalEngine:
                 "reason": "BELOW_CONFIDENCE_THRESHOLD",
                 "message": "La evidencia recuperada no alcanza el umbral de certeza requerido.",
                 "evidence": [],
-                "related_passages": []
+                "related_passages": [],
+                "operating_mode": self.operating_mode,
+                "degradation_reason": self.degradation_reason,
+                "source_sha256_verified": self.source_sha256_verified
             }
 
         # 5. Build structured evidence records
