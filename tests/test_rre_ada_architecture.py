@@ -201,6 +201,19 @@ class TestRREAndADAArchitecture(unittest.TestCase):
             self.rre._determine_operating_mode()
             self.assertEqual(self.rre.operating_mode, "DEGRADED_LEXICAL")
             self.assertIn("no disponible", self.rre.degradation_reason)
+
+            # Verificar que si allow_degraded=False, se rechaza la inicialización con RuntimeError
+            import tempfile, shutil
+            td = tempfile.mkdtemp()
+            try:
+                # Copiar solo pasajes y grafo (sin matriz densa)
+                shutil.copy(self.rre.passages_file, os.path.join(td, "passages_candidate.json"))
+                shutil.copy(self.rre.graph_file, os.path.join(td, "knowledge_graph_candidate.json"))
+                with self.assertRaises(RuntimeError) as ctx:
+                    ReasoningRetrievalEngine(base_dir=td, allow_degraded=False)
+                self.assertIn("se requiere modo hybrid", str(ctx.exception).lower())
+            finally:
+                shutil.rmtree(td, ignore_errors=True)
         finally:
             self.rre.dense_model = original_model
             self.rre._determine_operating_mode()

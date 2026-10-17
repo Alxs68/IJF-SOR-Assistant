@@ -23,8 +23,9 @@ from ada_assistant import ArbitrationDecisionAssistant
 class RagEngine:
     """Orchestrates RRE / ADA for SOR 2026-08 and maintains isolated legacy fallback for 2026-01."""
 
-    def __init__(self, brain_dir):
+    def __init__(self, brain_dir, allow_degraded: bool = True):
         self.brain_dir = brain_dir
+        self.allow_degraded = allow_degraded
 
         # Load active edition config
         self.config = get_active_corpus_config()
@@ -41,7 +42,7 @@ class RagEngine:
         self.ada = None
         if self.is_2026_08:
             ada_base = os.path.join(brain_dir, self.config.get("data_dir", "data/processed/rebuild_2026_08"))
-            self.ada = ArbitrationDecisionAssistant(base_dir=ada_base)
+            self.ada = ArbitrationDecisionAssistant(base_dir=ada_base, allow_degraded=allow_degraded)
             self.rre = self.ada.rre
 
         # Paths based on active edition

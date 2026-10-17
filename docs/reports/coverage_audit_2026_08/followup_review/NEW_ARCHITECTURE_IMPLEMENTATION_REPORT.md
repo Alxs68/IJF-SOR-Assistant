@@ -134,7 +134,21 @@ Se ejecutó la suite completa de pruebas:
 
 ---
 
-## 7. Delimitación de Limitaciones Técnicas Pendientes
+## 7. Verificación en Entorno Aislado e Integración Continua (CI)
+
+1. **Instalación Aislada Limpia (`test_venv`):**
+   - Se aprovisionó un entorno virtual aislado (`python -m venv test_venv`) independiente de los paquetes globales.
+   - Se ejecutó `pip install -r requirements.txt`, descargando e instalando `streamlit==1.66.0`, `torch==2.14.1`, `sentence-transformers==6.1.0`, `numpy==2.5.4`, `pypdf==6.21.1` y dependencias directas.
+   - Se ejecutó `scripts/setup_model.py` validando la carga del snapshot local y la alineación de la matriz en modo `HYBRID`.
+   - Se ejecutó la suite completa de 52 pruebas con **100% de éxito (Ran 52 tests in 61.371s OK)**.
+   - Se verificaron consultas funcionales y arranque de componentes sin dependencias no declaradas.
+2. **Automatización Permanente con GitHub Actions (`.github/workflows/rre-ada-validation.yml`):**
+   - Canalización formal de CI configurada para ejecutarse automáticamente en cada `push` hacia `review/ijf-sor-2026-08-rre-ada` y en `pull_request` dirigidos a `main`.
+   - Pasos: Setup Python 3.12, instalación de `requirements.txt`, caché seguro de modelos HuggingFace, preparación explícita con `scripts/setup_model.py`, ejecución de la suite de 52 tests y smoke test funcional de arranque en modo `HYBRID` con `allow_degraded=False`.
+
+---
+
+## 8. Delimitación de Limitaciones Técnicas Pendientes
 
 1. **Diagramas Gráficos del Apéndice F1.3 (Páginas 208 a 240):**
    - 34 secciones clasificadas como `PARCIAL` en la matriz de cobertura.
@@ -145,36 +159,37 @@ Se ejecutó la suite completa de pruebas:
 
 ---
 
-## 8. Inventario de Archivos para la Rama
+## 9. Inventario de Archivos para la Rama
 
-### 8.1 Archivos que componen la implementación y reproducibilidad de RRE / ADA
+### 9.1 Archivos que componen la implementación y reproducibilidad de RRE / ADA
 - **Nuevos Módulos Core:**
-  - `src/rre_engine.py`: Motor de recuperación neuronal denso + sparse + RRF + grafo, con validación matemática estricta de la matriz y reporte explícito de modo (`HYBRID` vs `DEGRADED_LEXICAL`).
-  - `src/ada_assistant.py`: Asistente de decisión y análisis arbitral con honestidad en modo local y propagación de metadatos de modo de recuperación.
+  - `src/rre_engine.py`: Motor de recuperación neuronal denso + sparse + RRF + grafo, con validación matemática estricta de la matriz, parámetro `allow_degraded` y reporte explícito de modo (`HYBRID` vs `DEGRADED_LEXICAL`).
+  - `src/ada_assistant.py`: Asistente de decisión y análisis arbitral con honestidad en modo local y propagación de metadatos de modo de recuperación y parámetro `allow_degraded`.
 - **Módulos Adaptados y Configuración:**
+  - `.github/workflows/rre-ada-validation.yml`: Canalización formal de CI para validación continua en GitHub.
   - `requirements.txt`: Declaración de dependencias completas (`numpy`, `torch`, `sentence-transformers`, `pypdf`, `streamlit`, `python-dotenv`).
   - `scripts/setup_model.py`: Script de preparación y verificación explícita del modelo, con validación rigurosa de matriz y salida de error no cero ante fallos.
-  - `src/rag_engine.py`: Integración de ADA/RRE y desacoplamiento limpio de la ruta legacy.
-  - `app.py`: UI de Streamlit con visualización de fases RRE y ADA en tiempo real.
+  - `src/rag_engine.py`: Integración de ADA/RRE, desacoplamiento limpio de la ruta legacy y soporte de `allow_degraded`.
+  - `app.py`: UI de Streamlit con visualización precisa de etapas, modo real de RRE y formulación de evidencias normativas.
   - `tests/test_rebuild_integration.py`: Verificación de arbitraje, SHA-256 e inicialización sin componentes obsoletos.
 - **Nuevas Suites de Pruebas:**
-  - `tests/test_rre_ada_architecture.py`: 12 pruebas unitarias y de integración para RRE, ADA, matriz densa, casos negativos de corrupción, desalineación de IDs y RagEngine.
+  - `tests/test_rre_ada_architecture.py`: 12 pruebas unitarias y de integración para RRE, ADA, matriz densa, casos negativos de corrupción, desalineación de IDs, control de degradación y RagEngine.
 - **Artefactos Candidatos Versionados:**
   - `data/processed/rebuild_2026_08/dense_embeddings_candidate.npy`: Matriz de 554 embeddings densos (851 KB).
   - `data/processed/rebuild_2026_08/dense_embeddings_meta.json`: Metadatos del modelo y vinculación de IDs.
 - **Documentación Oficial:**
   - `docs/reports/coverage_audit_2026_08/followup_review/NEW_ARCHITECTURE_IMPLEMENTATION_REPORT.md`.
 
-### 8.2 Archivos Excluidos
+### 9.2 Archivos Excluidos
 - Scripts de desarrollo en `scratch/`.
 - Archivo binario pesado `data/raw/sor_2026_08_rebuild/IJF_Sport_and_Organisation_Rules_2026_08_14.pdf` (29.6 MB), preservado localmente y referenciado mediante su hash SHA-256 y URL en `source_manifest.json`.
 - 298 archivos `.txt` en `pages_raw/`.
 
 ---
 
-## 9. Criterio de Terminación y Estado de Git
+## 10. Criterio de Terminación y Estado de Git
 
 - **Rama:** `review/ijf-sor-2026-08-rre-ada`
 - **Estado de `main`:** Commit `afb5b11` (**Intacto, 0 modificaciones**).
 - **Seguridad:** 0 secretos expuestos en código, datos o commits.
-- **Evaluación Final:** La arquitectura RRE / ADA se encuentra plenamente operativa, reproducible, probada (52/52 tests OK) y validada contra el reglamento oficial IJF SOR de agosto de 2026.
+- **Evaluación Final:** La arquitectura RRE / ADA se encuentra plenamente operativa, reproducible, probada (52/52 tests OK), automatizada mediante GitHub Actions y validada contra el reglamento oficial IJF SOR de agosto de 2026.

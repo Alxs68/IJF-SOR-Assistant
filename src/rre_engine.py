@@ -31,8 +31,9 @@ class ReasoningRetrievalEngine:
     designed for arbitration and regulatory rules.
     """
 
-    def __init__(self, base_dir="data/processed/rebuild_2026_08"):
+    def __init__(self, base_dir="data/processed/rebuild_2026_08", allow_degraded: bool = True):
         self.base_dir = base_dir
+        self.allow_degraded = allow_degraded
         self.passages_file = os.path.join(base_dir, "passages_candidate.json")
         self.graph_file = os.path.join(base_dir, "knowledge_graph_candidate.json")
         self.sparse_index_file = os.path.join(base_dir, "vector_index_candidate.json")
@@ -55,6 +56,12 @@ class ReasoningRetrievalEngine:
         self._validate_dense_matrix_and_meta()
         self._init_dense_model()
         self._determine_operating_mode()
+
+        if not self.allow_degraded and self.operating_mode != "HYBRID":
+            raise RuntimeError(
+                f"Inicialización de RRE rechazada: Se requiere modo HYBRID pero el motor operaría en modo "
+                f"'{self.operating_mode}' debido a: {self.degradation_reason}"
+            )
 
     def _load_resources(self):
         if not os.path.exists(self.passages_file):

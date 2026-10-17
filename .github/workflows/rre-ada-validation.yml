@@ -1,0 +1,62 @@
+name: RRE/ADA CI Architecture Validation
+
+on:
+  push:
+    branches:
+      - review/ijf-sor-2026-08-rre-ada
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-rre-ada:
+    name: Validate RRE/ADA Architecture & Reproducibility
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Cache HuggingFace sentence-transformers models
+        uses: actions/cache@v4
+        id: cache-models
+        with:
+          path: ~/.cache/huggingface/hub
+          key: ${{ runner.os }}-hf-all-MiniLM-L6-v2-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-hf-all-MiniLM-L6-v2-
+
+      - name: Prepare and verify SentenceTransformer model
+        run: |
+          python scripts/setup_model.py
+
+      - name: Execute comprehensive test suite
+        run: |
+          python -m unittest discover -s tests -v
+
+      - name: Execute functional smoke test
+        run: |
+          python -c "
+          import sys, os
+          sys.path.append(os.path.join(os.getcwd(), 'src'))
+          from rag_engine import RagEngine
+          engine = RagEngine(os.getcwd(), allow_degraded=False)
+          print('Startup Engine Mode:', engine.rre.operating_mode)
+          assert engine.rre.operating_mode == 'HYBRID'
+          res_tatami = engine.query('tatami contest area dimensions 8m')
+          assert len(res_tatami['retrieved_kuns']) > 0
+          res_abstain = engine.query('reglas de fuera de juego en baloncesto nba y formula 1')
+          assert len(res_abstain['retrieved_kuns']) == 0
+          print('CI Smoke Test Passed Successfully.')
+          "

@@ -26,9 +26,9 @@ class ArbitrationDecisionAssistant:
     ADA: Dedicated judicial reasoning and arbitration assistant for the IJF SOR.
     """
 
-    def __init__(self, base_dir="data/processed/rebuild_2026_08"):
+    def __init__(self, base_dir="data/processed/rebuild_2026_08", allow_degraded: bool = True):
         self.base_dir = base_dir
-        self.rre = ReasoningRetrievalEngine(base_dir)
+        self.rre = ReasoningRetrievalEngine(base_dir, allow_degraded=allow_degraded)
         self.config = get_active_corpus_config()
         self.api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
 

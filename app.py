@@ -424,11 +424,19 @@ with st.container():
 if query_to_run:
     with st.status("Consultando el Reglamento SOR 2026...", expanded=True) as status:
         if engine.is_2026_08:
-            status.write("🧠 Reasoning Retrieval Engine (RRE): Recuperación neuronal densa + sparse + RRF...")
+            rre_mode = getattr(engine.rre, 'operating_mode', 'HYBRID')
+            if rre_mode == "HYBRID":
+                status.write("🧠 Reasoning Retrieval Engine (RRE): Recuperación híbrida neuronal (384d) + léxica + RRF...")
+            else:
+                status.write(f"⚠️ Reasoning Retrieval Engine (RRE): Operando en modo degradado léxico ({getattr(engine.rre, 'degradation_reason', 'Modelo no disponible')})...")
+
             res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
             retrieved_kuns = res.get('retrieved_kuns_data', [])
-            status.write(f"⚖️ Arbitration Decision Assistant (ADA): {len(retrieved_kuns)} evidencia(s) analizada(s)...")
-            status.write("✍️ Formulando dictamen arbitral fundamentado...")
+            status.write(f"⚖️ Arbitration Decision Assistant (ADA): {len(retrieved_kuns)} evidencia(s) oficial(es) analizada(s)...")
+            if is_connected:
+                status.write("✍️ Formulando síntesis analítica asistida por IA...")
+            else:
+                status.write("📋 Compilando resumen de evidencias normativas con enlaces anclados...")
         else:
             status.write("🔍 Buscando en la base de conocimiento histórica (2026-01)...")
             res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
