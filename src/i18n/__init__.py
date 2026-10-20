@@ -208,7 +208,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "scope_certified_kuns": "The assistant features **{count} Certified Knowledge Units** extracted directly from official IJF sources.",
         "scope_covered_title": "#### ✅ In-Scope Certified Topics",
         "scope_covered_body": (
-            "*   **🚫 Refereeing Rules (Appendix D - 100%):** All articles (1 to 21), official gestures, scoring (Ippon, Waza-ari), Osaekomi, Mate, Kansetsu-waza, direct Hansoku-make, head diving, and concussion protocols.\n"
+            "*   **📖 Refereeing Rules (Appendix D - 100%):** All articles (1 to 21), official gestures, scoring (Ippon, Waza-ari), Osaekomi, Mate, Kansetsu-waza, direct Hansoku-make, head diving, and concussion protocols.\n"
             "*   **🥋 Judogi Control (Appendix C - 100%):** Control procedure, approved dimensions, Sokuteiki tool, label placement, certified colors (Snow white & Pantone blue), and belt requirements.\n"
             "*   **⏱️ Competition Systems & Weigh-in (Sections 2, 3, 4):** Official weigh-in and random weigh-in, weight tolerances, repechage brackets, seeding, and draw procedures.\n"
             "*   **🏥 Medical Guidelines (Section 6):** On-tatami medical assistance, bleeding limits (2 treatments), head trauma, and mandatory suspension periods.\n"
@@ -444,7 +444,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "scope_certified_kuns": "El asistente cuenta con **{count} Unidades de Conocimiento certificadas** extraídas de las fuentes oficiales de la IJF.",
         "scope_covered_title": "#### ✅ Temas Cubiertos",
         "scope_covered_body": (
-            "*   **🚫 Reglas de Arbitraje (Apéndice D - 100%):** Todos los artículos (1 al 21), gestos oficiales, puntuaciones, Osaekomi, Mate, luxaciones, descalificaciones directas (Hansoku-make) y conmoción cerebral.\n"
+            "*   **📖 Reglas de Arbitraje (Apéndice D - 100%):** Todos los artículos (1 al 21), gestos oficiales, puntuaciones, Osaekomi, Mate, luxaciones, descalificaciones directas (Hansoku-make) y conmoción cerebral.\n"
             "*   **🥋 Control de Judogi (Apéndice C - 100%):** Proceso de control, medidas permitidas, Sokuteiki, colocación de logotipos, colores (blanco/azul) e indumentaria.\n"
             "*   **⏱️ Sistemas y Pesaje (Secciones 2, 3, 4):** Pesaje oficial y sorteo aleatorio, tolerancias, llaves de competencia con repechaje, siembra de cabezas de serie y gestión de categorías.\n"
             "*   **🏥 Manual Médico (Sección 6):** Asistencia médica en tatami, límite de 2 atenciones para lesiones con sangrado, conmociones y días de inhabilitación.\n"

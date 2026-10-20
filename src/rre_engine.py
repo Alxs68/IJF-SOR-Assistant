@@ -343,11 +343,17 @@ class ReasoningRetrievalEngine:
     # Mapeo bilingüe de términos técnicos y normativos del judo
     SPANISH_TO_ENGLISH_SYNONYMS = {
         "cabeza": "head",
-        "defensa": "defend",
-        "defenderse": "defend",
-        "defender": "defend",
-        "defence": "defend",
-        "defense": "defend",
+        "defensa": "defend defence",
+        "defenderse": "defend defence",
+        "defender": "defend defence",
+        "defence": "defend defence",
+        "defense": "defend defence",
+        "clavado": "diving dive",
+        "zambullida": "diving dive",
+        "buceo": "diving dive",
+        "puente": "bridge",
+        "caer": "landing fall",
+        "caida": "landing fall",
         "sancion": "penalty",
         "sanciones": "penalties",
         "sanciona": "penalty",
@@ -738,6 +744,55 @@ class ReasoningRetrievalEngine:
                     head_p = " ".join(p.get("heading_path", [])).lower()
                     if any(h in head_p for h in ["logo", "marking", "backnumber", "advertising", "emblem", "label"]):
                         rrf_scores[pid] += 0.06
+
+        # Controlled topical alignment for head actions (Appendix D Refereeing Rules)
+        has_head_term = any(w in clean_q_lower for w in ["cabeza", "head", "craneo", "cervical", "cuello"])
+        if has_head_term:
+            is_cadet_specific = any(w in clean_q_lower for w in ["cadet", "cadete", "cadetes", "u18", "sub18", "sub-18"])
+            is_dive_specific = any(w in clean_q_lower for w in ["dive", "diving", "clavado", "clavar", "zambullida", "buceo", "somersault"])
+            is_bridge_specific = any(w in clean_q_lower for w in ["puente", "bridge", "voluntario", "voluntary"]) and any(w in clean_q_lower for w in ["caer", "caida", "landing", "fall", "ippon", "tatami"])
+            is_concussion_specific = any(w in clean_q_lower for w in ["conmocion", "conmoción", "concussion", "trauma", "inhabilitacion", "suspension", "dias", "days"])
+
+            # 1. Regla de Cadetes (Art. 18.1.4, Pág. 188): solo cuando se especifica categoría cadete
+            if is_cadet_specific:
+                for pid in rrf_scores:
+                    p = self.passages_by_id.get(pid)
+                    if p:
+                        if p.get("pdf_page_index") == 188 and "18.1.4" in str(p.get("article_id", "")):
+                            rrf_scores[pid] += 0.09
+                        elif p.get("pdf_page_index") == 189 and "18.1.4" in str(p.get("article_id", "")):
+                            rrf_scores[pid] += 0.07
+
+            # 2. Head Diving de Tori (Art. 18.2.1, Pág. 190): técnica peligrosa sancionada con Hansoku-make
+            if is_dive_specific:
+                for pid in rrf_scores:
+                    p = self.passages_by_id.get(pid)
+                    if p and p.get("pdf_page_index") == 190:
+                        text_p = p.get("text_original", "").lower()
+                        if "head diving" in text_p or "article 18 .2 .1" in text_p:
+                            rrf_scores[pid] += 0.10
+
+            # 3. Puente de Uke (Art. 14.2, Págs. 166-167): evaluado como Ippon por seguridad cervical
+            if is_bridge_specific:
+                for pid in rrf_scores:
+                    p = self.passages_by_id.get(pid)
+                    if p and p.get("pdf_page_index") in (166, 167):
+                        text_p = p.get("text_original", "").lower()
+                        if "bridge" in text_p:
+                            rrf_scores[pid] += 0.10
+
+            # 4. Atenuación de pasajes irrelevantes cuando se indaga sobre arbitraje de cabeza en combate
+            # Evita que el código de vestimenta de médicos (E1.5 P202) o gestos (P138/P149) desplacen los artículos sustantivos
+            if not is_concussion_specific:
+                for pid in rrf_scores:
+                    p = self.passages_by_id.get(pid)
+                    if p:
+                        # Si es el apéndice médico sobre higiene/vestimenta de médicos y la consulta no es médica
+                        if p.get("pdf_page_index") == 202 and not is_concussion_specific:
+                            rrf_scores[pid] *= 0.65
+                        # Si es un gesto aislado de señalización arbitral
+                        elif p.get("pdf_page_index") in (138, 149, 150) and not any(w in clean_q_lower for w in ["gesto", "gesture", "senal", "señal"]):
+                            rrf_scores[pid] *= 0.70
 
         # Controlled exact normative code and title alignment signal
         if self.enable_code_matching:
