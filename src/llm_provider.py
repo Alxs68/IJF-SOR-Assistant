@@ -227,8 +227,8 @@ class MultiProviderLLMManager:
             self.primary_provider = "Gemini"
 
         self.fallback_policy = fallback_policy.lower()  # 'automatic' or 'manual'
-        self.gemini_api_key = gemini_api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
-        self.groq_api_key = groq_api_key or os.environ.get("GROQ_API_KEY")
+        self.gemini_api_key = gemini_api_key if gemini_api_key is not None else (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY"))
+        self.groq_api_key = groq_api_key if groq_api_key is not None else os.environ.get("GROQ_API_KEY")
         
         # Configure models with automatic fallback to supported default if deprecated model string provided
         g_cand = gemini_model or os.environ.get("GEMINI_MODEL")
