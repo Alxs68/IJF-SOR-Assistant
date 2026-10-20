@@ -1,14 +1,14 @@
 """
 Internationalization (i18n) Module for IJF SOR Assistant
 =========================================================
-Provides seamless bilingual support (English and Spanish) with English as the default.
+Provides seamless bilingual support (Spanish and English) with Spanish as the default.
 Decouples visual UI labels, headers, buttons, placeholders, system status messages,
 and tooltips from core business logic while preserving official IJF judo terminology.
 """
 
 from typing import Dict, Any, List
 
-DEFAULT_LANGUAGE = "en"
+DEFAULT_LANGUAGE = "es"
 
 TRANSLATIONS: Dict[str, Dict[str, Any]] = {
     "en": {

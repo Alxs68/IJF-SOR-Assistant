@@ -196,14 +196,14 @@ class RagEngine:
         print(f"[LOG] [LLM Provider Client] Ningún proveedor LLM externo pudo completar la solicitud.")
         return None
 
-    def query(self, user_query, k=3, min_score=None):
+    def query(self, user_query, k=3, min_score=None, language: Optional[str] = None):
         """Runs the active ADA / RRE reasoning flow for 2026-08 or legacy fallback for 2026-01."""
         print(f"\n[LOG] [RAG Flow] --- INICIO DE CONSULTA ---")
         print(f"[LOG] [RAG Flow] Consulta recibida: '{user_query}'")
 
         # 1. Active Architecture: Arbitration Decision Assistant (ADA) + Reasoning Retrieval Engine (RRE)
         if self.is_2026_08 and self.ada is not None:
-            ada_res = self.ada.analyze_situation(user_query, top_k=k)
+            ada_res = self.ada.analyze_situation(user_query, top_k=k, language=language)
 
             # Adaptar a contrato compatible con UI
             retrieved_data = []

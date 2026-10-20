@@ -701,7 +701,7 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
 
 # Session state for internationalization and LLM provider configuration
 if "ui_lang" not in st.session_state:
-    st.session_state.ui_lang = "en"
+    st.session_state.ui_lang = "es"
 if "llm_provider" not in st.session_state:
     st.session_state.llm_provider = os.environ.get("LLM_PROVIDER", "Gemini").capitalize()
 if "fallback_policy" not in st.session_state:
@@ -791,15 +791,15 @@ def load_example():
 
 # Sidebar
 with st.sidebar:
-    # Language Selection Widget (English as Default)
-    lang_options = [("English", "en"), ("Español", "es")]
-    cur_lang_idx = 0 if st.session_state.ui_lang == "en" else 1
+    # Language Selection Widget (Español | English, Spanish as Default)
+    lang_options = [("Español", "es"), ("English", "en")]
+    cur_lang_idx = 0 if st.session_state.ui_lang == "es" else 1
     selected_lang_tuple = st.selectbox(
         t("lang_selector_label", st.session_state.ui_lang),
         options=lang_options,
         index=cur_lang_idx,
         format_func=lambda x: x[0],
-        help="Select user interface language / Selecciona el idioma de la interfaz."
+        help="Selecciona el idioma de la interfaz / Select user interface language."
     )
     if selected_lang_tuple[1] != st.session_state.ui_lang:
         st.session_state.ui_lang = selected_lang_tuple[1]
@@ -1043,7 +1043,7 @@ if query_to_run:
         else:
             status.write(t("status_rre_degraded", lang, reason=getattr(engine.rre, 'degradation_reason', 'Model unavailable')))
 
-        res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
+        res = engine.query(query_to_run, k=k_param, min_score=min_score_param, language=lang)
         retrieved_kuns = res.get('retrieved_kuns_data', [])
         if res.get("source_sha256_verified", False):
             status.write(t("status_sha_verified", lang))

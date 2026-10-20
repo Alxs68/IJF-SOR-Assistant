@@ -52,7 +52,7 @@ class ArbitrationDecisionAssistant:
         """Invokes active LLM provider (Gemini/Groq) with fallback according to configured policy."""
         return self.llm_manager.generate_with_fallback(prompt)
 
-    def analyze_situation(self, situation_query: str, top_k: int = 4):
+    def analyze_situation(self, situation_query: str, top_k: int = 4, language: Optional[str] = None):
         """
         Executes complete ADA arbitration reasoning cycle:
         1. Retrieval of evidence via RRE.
@@ -138,9 +138,10 @@ class ArbitrationDecisionAssistant:
             "7. Pertinencia y Enfoque Directo: La respuesta directa ('summary') debe contestar PRIMERO y con prioridad absoluta lo consultado de manera específica. Si la consulta indaga por colores de judogi, responde de inmediato qué colores se permiten (blanco y azul) y las condiciones técnicas fijadas por la norma (uniformidad entre chaqueta y pantalón, referencias de la escala Pantone textil e imprenta, y prohibición de reversible), citando el artículo y página precisos (ej. Regla C1.9, pág. 124).\n"
             "8. Segregación de Requisitos Conexos: NO mezcles en la respuesta directa requisitos conexos de otros artículos (como cruce de solapas, marcas comerciales, parches o cinturones) tratándolos como si fueran reglas de color; segrega estos requisitos conexos en 'conditions_and_exceptions' o 'extended_analysis' identificando con claridad el artículo oficial rector que los regula.\n"
             "9. Transparencia sobre Límites: Si la normativa consultada no permite confirmar alguna afirmación, o si la pregunta indaga por aspectos no regulados en los fragmentos disponibles, indícalo expresamente tanto en la respuesta como en 'limitations'.\n"
-            "10. Language Policy: Detect the language of the user query. If the query is in English, write the entire JSON response (summary, normative_basis, conditions_and_exceptions, extended_analysis, limitations) in fluent, precise ENGLISH using official IJF terminology (e.g. 'Hansoku-make', 'Osaekomi', 'Shido', 'Direct Hansoku-make', 'Contest Area', 'Safety Area'). If the query is in Spanish, write the response in SPANISH.\n\n"
-            f"Consulta del usuario / User query: {situation_query}\n"
-            "Respuesta JSON:"
+            "10. Language Policy: Detect the language of the user query and requested output language. "
+            + ("Write the entire JSON response (summary, normative_basis, conditions_and_exceptions, extended_analysis, limitations) in fluent, precise ENGLISH using official IJF terminology (e.g. 'Hansoku-make', 'Osaekomi', 'Shido', 'Direct Hansoku-make', 'Contest Area', 'Safety Area').\n\n" if language == "en" else "Write the entire JSON response in clear, rigorous SPANISH using official IJF terminology, unless the user query explicitly demands another language.\n\n" if language == "es" else "If the query is in English, write the entire JSON response in fluent, precise ENGLISH using official IJF terminology. If the query is in Spanish, write the response in SPANISH.\n\n")
+            + f"Consulta del usuario / User query: {situation_query}\n"
+            + "Respuesta JSON:"
         )
 
         llm_res = self._call_llm(prompt)
