@@ -1048,6 +1048,10 @@ if query_to_run:
 
         res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
         retrieved_kuns = res.get('retrieved_kuns_data', [])
+        if res.get("source_sha256_verified", False):
+            status.write("🔐 SHA-256 del PDF oficial físico verificado en este entorno.")
+        else:
+            status.write("ℹ️ El PDF físico no está disponible para verificar sus bytes en este entorno; solo se validó el hash declarado.")
         status.write(f"⚖️ Arbitration Decision Assistant (ADA): {len(retrieved_kuns)} evidencia(s) oficial(es) analizada(s)...")
         if is_connected:
             status.write("✍️ Formulando síntesis analítica asistida por IA...")
@@ -1074,7 +1078,10 @@ if query_to_run:
             "structured_answer": res.get('structured_answer'),
             "trazabilidad": retrieved_kuns,
             "dot_code": dot_code,
-            "llm_meta": res.get("llm_meta", {})
+            "llm_meta": res.get("llm_meta", {}),
+            "rre_operating_mode": res.get("rre_operating_mode", getattr(engine.rre, "operating_mode", "UNKNOWN")),
+            "degradation_reason": res.get("degradation_reason"),
+            "source_sha256_verified": res.get("source_sha256_verified", False)
         })
         st.session_state.active_index = len(st.session_state.history) - 1
         status.update(label="✅ Respuesta generada", state="complete", expanded=False)
@@ -1115,6 +1122,13 @@ if st.session_state.active_index >= 0:
                     st.caption(f"🔄 *Respaldo automático activado: {prim_prov} no disponible, respuesta generada con {succ_prov}.*")
                 elif item_llm_meta.get("fallback_attempted") and not succ_prov:
                     st.caption(f"ℹ️ *No se pudo conectar con los proveedores generativos externos. Mostrando evidencias normativas oficiales recuperadas.*")
+
+                mode = item.get("rre_operating_mode", "UNKNOWN")
+                st.caption(f"Modo RRE: {mode}" + (f" — {item.get('degradation_reason')}" if item.get("degradation_reason") else ""))
+                if item.get("source_sha256_verified", False):
+                    st.caption("Fuente física PDF: SHA-256 verificado.")
+                else:
+                    st.caption("Fuente física PDF: no verificada en este entorno; no se presume comprobación de sus bytes.")
 
                 # Two-tier UI presentation contract: La síntesis directa es la respuesta principal destacada
                 struct = item.get("structured_answer")

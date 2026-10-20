@@ -25,7 +25,7 @@ from llm_provider import MultiProviderLLMManager
 class RagEngine:
     """Orchestrates RRE / ADA for SOR 2026-08 and maintains isolated legacy fallback for 2026-01."""
 
-    def __init__(self, brain_dir, allow_degraded: bool = True, llm_manager: Optional[MultiProviderLLMManager] = None):
+    def __init__(self, brain_dir, allow_degraded: bool | None = None, llm_manager: Optional[MultiProviderLLMManager] = None):
         self.brain_dir = brain_dir
         self.allow_degraded = allow_degraded
         self.llm_manager = llm_manager or MultiProviderLLMManager()
@@ -204,8 +204,6 @@ class RagEngine:
         # 1. Active Architecture: Arbitration Decision Assistant (ADA) + Reasoning Retrieval Engine (RRE)
         if self.is_2026_08 and self.ada is not None:
             ada_res = self.ada.analyze_situation(user_query, top_k=k)
-            retrieved_ids = [e["passage_id"] for e in ada_res.get("evidence", [])]
-            print(f"[LOG] [ADA/RRE Flow] Estado: {ada_res['status']} | Evidencias RRE: {retrieved_ids}")
 
             # Adaptar a contrato compatible con UI
             retrieved_data = []
@@ -235,6 +233,10 @@ class RagEngine:
                     "pdf_page_index": rel.get("page"),
                     "source_url": rel.get("source_url")
                 })
+
+            # Mantener coherencia del contrato UI: IDs y registros incluyen evidencias directas y relacionadas.
+            retrieved_ids = [item["id_conocimiento"] for item in retrieved_data]
+            print(f"[LOG] [ADA/RRE Flow] Estado: {ada_res['status']} | Evidencias RRE: {retrieved_ids}")
 
             print(f"[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---")
             return {

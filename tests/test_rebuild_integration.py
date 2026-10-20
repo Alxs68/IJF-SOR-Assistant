@@ -30,7 +30,7 @@ class TestRebuildIntegration202608(unittest.TestCase):
         engine = RagEngine(self.brain_path)
         
         test_cases = [
-            ("cadet head defence shido", ["SOR-2026-08-P254"]),
+            ("cadet head defence shido", ["SOR-2026-08-P188", "SOR-2026-08-P189", "SOR-2026-08-P254"]),
             ("osaekomi time 20 seconds", ["SOR-2026-08-P152", "SOR-2026-08-P153"]),
             ("tatami contest area dimensions 8m", ["SOR-2026-08-P096", "SOR-2026-08-P095", "SOR-2026-08-P151"])
         ]

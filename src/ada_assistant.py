@@ -14,8 +14,8 @@ Key Architectural Responsibilities:
 """
 
 import os
-import re
 import json
+import re
 import urllib.request
 import urllib.error
 from typing import Optional, Dict, Any, Tuple
@@ -39,7 +39,7 @@ class ArbitrationDecisionAssistant:
     def __init__(
         self,
         base_dir="data/processed/rebuild_2026_08_corrected",
-        allow_degraded: bool = True,
+        allow_degraded: bool | None = None,
         llm_manager: Optional[MultiProviderLLMManager] = None
     ):
         self.base_dir = base_dir
@@ -85,7 +85,10 @@ class ArbitrationDecisionAssistant:
                 },
                 "evidence": [],
                 "related_passages": [],
-                "engine": "ADA-RRE-v2"
+                "engine": "ADA-RRE-v2",
+                "rre_operating_mode": retrieval_res.get("operating_mode", "UNKNOWN"),
+                "degradation_reason": retrieval_res.get("degradation_reason"),
+                "source_sha256_verified": retrieval_res.get("source_sha256_verified", False)
             }
 
         evidence = retrieval_res["evidence"]
@@ -139,7 +142,13 @@ class ArbitrationDecisionAssistant:
             "Respuesta JSON:"
         )
 
-        llm_answer, llm_meta = self._call_llm(prompt)
+        llm_res = self._call_llm(prompt)
+        if isinstance(llm_res, tuple):
+            llm_answer, llm_meta = llm_res
+        else:
+            llm_answer, llm_meta = llm_res, {}
+
+        citations_valid = self._validate_llm_citations(llm_answer, evidence, related)
 
         # Build citation passage data for resolution
         all_passages_data = []
@@ -158,15 +167,23 @@ class ArbitrationDecisionAssistant:
                 "source_url": r["source_url"].split("#")[0]
             })
 
-        if llm_answer:
+        if llm_answer and citations_valid:
             succ_prov = llm_meta.get("successful_provider", "LLM")
             succ_model = llm_meta.get("successful_model", "")
-            mode_label = f"Síntesis Analítica IA ({succ_prov} / {succ_model})"
-            header = f"⚖️ **Síntesis Analítica IA ({succ_prov} — {succ_model})**"
+            if succ_model:
+                mode_label = f"Síntesis Analítica IA ({succ_prov} / {succ_model}; citas verificadas)"
+                header = f"⚖️ **Síntesis Analítica IA ({succ_prov} — {succ_model})**"
+            else:
+                mode_label = "Síntesis Analítica IA (Conectado; citas verificadas)"
+                header = "⚖️ **Síntesis Analítica IA (Conectado; citas verificadas)**"
             structured = parse_structured_response(llm_answer, evidence)
         else:
-            mode_label = "Resumen de Evidencias Normativas (Modo Local Desconectado)"
-            header = f"📋 **Resumen de Evidencias Normativas — Modo Local Desconectado ({self.config['version_label']})**"
+            if llm_answer and not citations_valid:
+                mode_label = "Resumen de Evidencias Normativas (Fallback: citas IA no verificables)"
+                header = f"📋 **Resumen de Evidencias Normativas — Fallback: Citas IA no verificables ({self.config['version_label']})**"
+            else:
+                mode_label = "Resumen de Evidencias Normativas (Modo Local Desconectado)"
+                header = f"📋 **Resumen de Evidencias Normativas — Modo Local Desconectado ({self.config['version_label']})**"
             structured = build_deterministic_structured_answer(
                 query=situation_query,
                 evidence=evidence,
@@ -243,6 +260,19 @@ class ArbitrationDecisionAssistant:
             "source_sha256_verified": retrieval_res.get("source_sha256_verified", False),
             "llm_meta": llm_meta
         }
+
+    def _validate_llm_citations(self, answer: str | None, evidence: list, related: list) -> bool:
+        """Accept generated analysis only when it cites retrieved official passage IDs."""
+        if not isinstance(answer, str) or not answer.strip():
+            return False
+
+        allowed_ids = {
+            item.get("passage_id")
+            for item in [*evidence, *related]
+            if isinstance(item, dict) and item.get("passage_id")
+        }
+        cited_ids = re.findall(r"\[((?:SOR-[A-Za-z0-9-]+)|KUN-\d{4})\]", answer)
+        return bool(cited_ids) and all(citation in allowed_ids for citation in cited_ids)
 
     def _build_deterministic_arbitration_brief(self, query: str, evidence: list, related: list) -> str:
         """Constructs legacy string brief for compatibility if called directly."""
