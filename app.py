@@ -19,12 +19,13 @@ from rag_engine import RagEngine
 from citation_resolver import RESOURCE_DETAILS, resolve_url, _rrm_manager
 from llm_provider import MultiProviderLLMManager
 from feedback_manager import record_observation, MOTIVOS_VALIDOS
+from i18n import t
 
 logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
 logo_path = os.path.join(logo_dir, 'logo.svg')
 
 st.set_page_config(
-    page_title="Asistente SOR IJF",
+    page_title="IJF SOR Assistant",
     page_icon="🥋",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -698,11 +699,13 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
     components.html(viewer_html, height=height, scrolling=False)
 
 
-# Session state for LLM provider configuration
+# Session state for internationalization and LLM provider configuration
+if "ui_lang" not in st.session_state:
+    st.session_state.ui_lang = "en"
 if "llm_provider" not in st.session_state:
     st.session_state.llm_provider = os.environ.get("LLM_PROVIDER", "Gemini").capitalize()
 if "fallback_policy" not in st.session_state:
-    st.session_state.fallback_policy = "Automático"
+    st.session_state.fallback_policy = "Automatic"
 if "gemini_model" not in st.session_state:
     st.session_state.gemini_model = os.environ.get("GEMINI_MODEL", "gemini-flash-latest")
 if "groq_model" not in st.session_state:
@@ -710,7 +713,7 @@ if "groq_model" not in st.session_state:
 
 @st.cache_resource
 def get_llm_manager(provider, fallback, g_model, q_model):
-    fb_code = "automatic" if fallback == "Automático" else "manual"
+    fb_code = "automatic" if fallback in ("Automatic", "Automático") else "manual"
     return MultiProviderLLMManager(
         primary_provider=provider,
         fallback_policy=fb_code,
@@ -788,69 +791,61 @@ def load_example():
 
 # Sidebar
 with st.sidebar:
-    st.markdown("**ℹ️ Información**")
+    # Language Selection Widget (English as Default)
+    lang_options = [("English", "en"), ("Español", "es")]
+    cur_lang_idx = 0 if st.session_state.ui_lang == "en" else 1
+    selected_lang_tuple = st.selectbox(
+        t("lang_selector_label", st.session_state.ui_lang),
+        options=lang_options,
+        index=cur_lang_idx,
+        format_func=lambda x: x[0],
+        help="Select user interface language / Selecciona el idioma de la interfaz."
+    )
+    if selected_lang_tuple[1] != st.session_state.ui_lang:
+        st.session_state.ui_lang = selected_lang_tuple[1]
+        st.rerun()
 
-    with st.expander("1. Proyecto", expanded=False):
-        st.markdown("""
-**IJF SOR Assistant**
+    lang = st.session_state.ui_lang
 
-El IJF SOR Assistant es un asistente especializado diseñado para facilitar la consulta y comprensión del *Sport and Organisation Rules (SOR)* de la Federación Internacional de Judo (IJF).
+    st.markdown(f"**{t('sidebar_info_title', lang)}**")
 
-Su propósito es ofrecer respuestas fundamentadas exclusivamente en documentación oficial, permitiendo acceder de manera rápida y organizada a la información normativa utilizada en el arbitraje y la competición internacional.
-        """)
+    with st.expander(t("sidebar_project_title", lang), expanded=False):
+        st.markdown(t("sidebar_project_content", lang))
 
-    with st.expander("2. Propósito", expanded=False):
-        st.markdown("""
-Esta aplicación fue desarrollada con el objetivo de apoyar el estudio, la preparación y la consulta del reglamento oficial de la IJF.
+    with st.expander(t("sidebar_purpose_title", lang), expanded=False):
+        st.markdown(t("sidebar_purpose_content", lang))
 
-El asistente organiza y presenta la información oficial de forma clara, facilitando el acceso al contenido normativo para árbitros, entrenadores, deportistas y demás miembros de la comunidad del judo.
+    with st.expander(t("sidebar_sources_title", lang), expanded=False):
+        st.markdown(t("sidebar_sources_content", lang))
 
-Las respuestas generadas constituyen una ayuda documental y educativa. En caso de discrepancia o interpretación, siempre prevalecen los documentos oficiales publicados por la Federación Internacional de Judo y las decisiones adoptadas por sus órganos competentes.
-        """)
+    with st.expander(t("sidebar_author_title", lang), expanded=False):
+        st.markdown(t("sidebar_author_content", lang))
 
-    with st.expander("3. Fuentes", expanded=False):
-        st.markdown("""
-Este asistente utiliza exclusivamente fuentes oficiales publicadas por la Federación Internacional de Judo (IJF), incluyendo reglamentos, documentos técnicos, comunicados y otros recursos oficiales.
-        """)
-
-    with st.expander("4. Autor", expanded=False):
-        st.markdown("""
-**Alexis Oliveros**
-
-National Judo Referee – Colombia
-
-2nd Dan
-
-Desarrollador del proyecto **IJF SOR Assistant**.
-
-© 2026 Alexis Oliveros. Todos los derechos reservados.
-        """)
-
-    with st.expander("5. Versión", expanded=False):
+    with st.expander(t("sidebar_version_title", lang), expanded=False):
         st.markdown(f"""
 **IJF SOR Assistant**
 
-Versión **1.2.0 (Rebuild Edition)**
+{t("sidebar_version_label", lang)}
 
-Basado en: **{engine.config['version_label']}**
+{t("sidebar_based_on", lang)} **{engine.config['version_label']}**
 
-Hash SHA-256 de fuente: `{engine.config['source_sha256'][:16]}...`
+{t("sidebar_source_hash", lang)} `{engine.config['source_sha256'][:16]}...`
         """)
 
     st.write("---")
-    st.markdown("**📚 Edición del Reglamento SOR**")
-    st.info(f"**{engine.config['version_label']}**\n\nEdición oficial única y vigente autorizada para arbitraje y competición.")
+    st.markdown(f"**{t('edition_title', lang)}**")
+    st.info(t("edition_info", lang, version_label=engine.config['version_label']))
 
     st.write("---")
-    st.markdown("**🤖 Configuración del modelo**")
+    st.markdown(f"**{t('model_config_title', lang)}**")
 
     prov_options = ["Gemini", "Groq"]
     cur_prov_idx = prov_options.index(st.session_state.llm_provider) if st.session_state.llm_provider in prov_options else 0
     selected_prov = st.selectbox(
-        "Proveedor Principal:",
+        t("primary_provider_label", lang),
         prov_options,
         index=cur_prov_idx,
-        help="Selecciona el proveedor de LLM principal para generar las respuestas analíticas y síntesis arbitrales."
+        help=t("primary_provider_help", lang)
     )
     if selected_prov != st.session_state.llm_provider:
         st.session_state.llm_provider = selected_prov
@@ -860,10 +855,10 @@ Hash SHA-256 de fuente: `{engine.config['source_sha256'][:16]}...`
     cur_model = st.session_state.gemini_model if selected_prov == "Gemini" else st.session_state.groq_model
     cur_model_idx = models_available.index(cur_model) if cur_model in models_available else 0
     selected_model = st.selectbox(
-        f"Modelo ({selected_prov}):",
+        t("model_label", lang, provider=selected_prov),
         models_available,
         index=cur_model_idx,
-        help=f"Modelo de inferencia activo para el proveedor {selected_prov}."
+        help=t("model_help", lang, provider=selected_prov)
     )
     if selected_prov == "Gemini" and selected_model != st.session_state.gemini_model:
         st.session_state.gemini_model = selected_model
@@ -872,59 +867,61 @@ Hash SHA-256 de fuente: `{engine.config['source_sha256'][:16]}...`
         st.session_state.groq_model = selected_model
         st.rerun()
 
-    fb_options = ["Automático", "Manual"]
-    cur_fb_idx = 0 if st.session_state.fallback_policy == "Automático" else 1
+    fb_options = [t("fallback_opt_auto", lang), t("fallback_opt_manual", lang)]
+    cur_fb_idx = 0 if st.session_state.fallback_policy in ("Automatic", "Automático") else 1
     selected_fb = st.selectbox(
-        "Política de Respaldo:",
+        t("fallback_policy_label", lang),
         fb_options,
         index=cur_fb_idx,
-        help="Automático: conmuta al proveedor alternativo ante agotamiento de cuota (429) o fallos de conexión. Manual: informa del error sin cambio silencioso."
+        help=t("fallback_policy_help", lang)
     )
-    if selected_fb != st.session_state.fallback_policy:
-        st.session_state.fallback_policy = selected_fb
+    canonical_fb = "Automatic" if selected_fb in ("Automatic", "Automático") else "Manual"
+    if canonical_fb != st.session_state.fallback_policy:
+        st.session_state.fallback_policy = canonical_fb
         st.rerun()
 
     # Status of keys and provider availability
     p_info = provider_status["providers"].get(selected_prov, {})
     if p_info.get("available"):
-        st.caption(f"🔑 Clave {selected_prov}: `{p_info.get('masked_key')}` (Activa)")
+        st.caption(t("key_active", lang, provider=selected_prov, masked_key=p_info.get('masked_key')))
     else:
         env_var_name = MultiProviderLLMManager.SUPPORTED_PROVIDERS[selected_prov]["env_key"]
-        st.caption(f"⚠️ Clave ausente: Defina `{env_var_name}` en `.env` o en el entorno.")
+        st.caption(t("key_missing", lang, env_var=env_var_name))
 
     st.write("---")
-    st.markdown("**🧭 Ajustes de Búsqueda**")
+    st.markdown(f"**{t('search_settings_title', lang)}**")
     k_param = st.slider(
-        "Cantidad de Reglas a Consultar",
+        t("k_slider_label", lang),
         1, 5, 3,
-        help="Define cuántas reglas oficiales revisará el asistente antes de elaborar la respuesta. Un valor mayor puede ofrecer respuestas más completas, aunque también puede aumentar ligeramente el tiempo de búsqueda."
+        help=t("k_slider_help", lang)
     )
     min_score_param = st.slider(
-        "Filtro Anti-Distracciones",
+        t("min_score_label", lang),
         0.05, 0.50, 0.10, 0.05,
-        help="Controla qué tan relacionadas deben estar las reglas encontradas con tu consulta. Valores bajos permiten considerar más información; valores altos muestran únicamente las coincidencias más relevantes."
+        help=t("min_score_help", lang)
     )
 
     st.write("---")
-    st.markdown("**💡 Sugerencias Rápidas**")
+    st.markdown(f"**{t('quick_suggestions_title', lang)}**")
+    example_list = t("example_queries", lang)
     st.selectbox(
-        "Selecciona una pregunta ejemplo:",
-        preguntas_ejemplo,
+        t("example_select_placeholder", lang),
+        example_list,
         key="example_select_widget",
         on_change=load_example,
         label_visibility="collapsed",
-        help="Elige una pregunta predefinida para ver cómo responde el asistente."
+        help=t("example_select_help", lang)
     )
 
     if len(st.session_state.history) > 0:
         st.write("---")
-        st.markdown("**📚 Historial**")
+        st.markdown(f"**{t('history_title', lang)}**")
         options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
         selected_option = st.selectbox(
-            "Revisar consulta:",
+            t("history_select_label", lang),
             options,
             index=st.session_state.active_index,
-            help="Te permite volver a ver cualquiera de las consultas realizadas anteriormente en esta sesión de forma instantánea."
+            help=t("history_select_help", lang)
         )
         new_active = options.index(selected_option)
         if new_active != st.session_state.active_index:
@@ -932,23 +929,23 @@ Hash SHA-256 de fuente: `{engine.config['source_sha256'][:16]}...`
             st.rerun()
 
     st.write("---")
-    st.markdown("### 🥋 Gobernanza del Grafo")
+    st.markdown(f"### {t('kg_title', lang)}")
     if is_connected:
-        st.markdown(f'<span class="status-badge-connected">🟢 Modo Conectado ({st.session_state.llm_provider})</span>', unsafe_allow_html=True)
+        st.markdown(f'<span class="status-badge-connected">{t("badge_connected", lang, provider=st.session_state.llm_provider)}</span>', unsafe_allow_html=True)
     else:
-        st.markdown('<span class="status-badge-offline">🟡 Modo Offline (Local)</span>', unsafe_allow_html=True)
+        st.markdown(f'<span class="status-badge-offline">{t("badge_offline", lang)}</span>', unsafe_allow_html=True)
 
-    st.markdown("**📈 Módulos de Conocimiento**")
+    st.markdown(f"**{t('kg_modules_title', lang)}**")
     mcol1, mcol2 = st.columns(2)
     with mcol1:
-        st.metric("Total KUNs", kg_metrics['nodes_count'])
+        st.metric(t("kg_total_kuns", lang), kg_metrics['nodes_count'])
     with mcol2:
-        st.metric("Relaciones", kg_metrics['edges_count'])
-    st.metric("Grado Promedio", f"{kg_metrics['avg_degree']:.2f}")
+        st.metric(t("kg_relations", lang), kg_metrics['edges_count'])
+    st.metric(t("kg_avg_degree", lang), f"{kg_metrics['avg_degree']:.2f}")
 
-    st.markdown("**🕸️ Nodos Hub**")
+    st.markdown(f"**{t('kg_hubs_title', lang)}**")
     for node, deg in kg_metrics['hubs'][:2]:
-        st.markdown(f"- `{node}` ({deg} enlaces)", unsafe_allow_html=True)
+        st.markdown(f"- `{node}` ({deg} {t('kg_links_suffix', lang)})", unsafe_allow_html=True)
 
 
 
@@ -1003,18 +1000,18 @@ if base64_logo:
             <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 80px; height: 80px; object-fit: contain; display: block;" />
         </div>
         <div style="position: relative; display: inline-block;">
-            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
+            <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">{t('app_title', lang)}</h2>
             <div class="ijf-tooltip" style="position: absolute; right: -28px; top: 50%; transform: translateY(-50%);">
                 <div class="ijf-help-icon" style="margin-left: 0;">?</div>
-                <div class="ijf-tooltiptext" style="left: 50%; transform: translateX(-50%); top: 130%;">Reglamento de la Federación Internacional de Judo (SOR 2026)</div>
+                <div class="ijf-tooltiptext" style="left: 50%; transform: translateX(-50%); top: 130%;">{t('header_tooltip', lang)}</div>
             </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
 else:
-    st.markdown("""
+    st.markdown(f"""
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 1.5rem 1rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; text-align: center;">
-        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">Asistente SOR IJF</h2>
+        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">{t('app_title', lang)}</h2>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1030,33 +1027,33 @@ with st.container():
     with st.form(key="chat_form", clear_on_submit=True, border=False):
         col1, col2 = st.columns([0.85, 0.15])
         with col1:
-            user_input = st.text_input("Haga su consulta", placeholder="Escribe tu pregunta aquí...", label_visibility="collapsed")
+            user_input = st.text_input("Query input", placeholder=t("chat_input_placeholder", lang), label_visibility="collapsed")
         with col2:
-            submit_button = st.form_submit_button("Enviar 📤", use_container_width=True)
+            submit_button = st.form_submit_button(t("send_btn", lang), use_container_width=True)
 
         if submit_button and user_input:
             query_to_run = user_input.strip()
 
 
 if query_to_run:
-    with st.status("Consultando el Reglamento SOR 2026...", expanded=True) as status:
+    with st.status(t("status_querying", lang), expanded=True) as status:
         rre_mode = getattr(engine.rre, 'operating_mode', 'HYBRID')
         if rre_mode == "HYBRID":
-            status.write("🧠 Reasoning Retrieval Engine (RRE): Recuperación híbrida neuronal (384d) + léxica + RRF (SOR 2026-08)...")
+            status.write(t("status_rre_hybrid", lang))
         else:
-            status.write(f"⚠️ Reasoning Retrieval Engine (RRE): Operando en modo degradado léxico ({getattr(engine.rre, 'degradation_reason', 'Modelo no disponible')})...")
+            status.write(t("status_rre_degraded", lang, reason=getattr(engine.rre, 'degradation_reason', 'Model unavailable')))
 
         res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
         retrieved_kuns = res.get('retrieved_kuns_data', [])
         if res.get("source_sha256_verified", False):
-            status.write("🔐 SHA-256 del PDF oficial físico verificado en este entorno.")
+            status.write(t("status_sha_verified", lang))
         else:
-            status.write("ℹ️ El PDF físico no está disponible para verificar sus bytes en este entorno; solo se validó el hash declarado.")
-        status.write(f"⚖️ Arbitration Decision Assistant (ADA): {len(retrieved_kuns)} evidencia(s) oficial(es) analizada(s)...")
+            status.write(t("status_sha_unverified", lang))
+        status.write(t("status_ada_analyzing", lang, count=len(retrieved_kuns)))
         if is_connected:
-            status.write("✍️ Formulando síntesis analítica asistida por IA...")
+            status.write(t("status_llm_synthesizing", lang))
         else:
-            status.write("📋 Compilando resumen de evidencias normativas con enlaces anclados...")
+            status.write(t("status_local_compiling", lang))
 
         dot_code = "digraph {\n  rankdir=LR;\n  node [shape=box, style=filled, fontname=\"Arial\", fontsize=10];\n"
         retrieved_ids = {k['id_conocimiento'] for k in retrieved_kuns}
@@ -1084,7 +1081,7 @@ if query_to_run:
             "source_sha256_verified": res.get("source_sha256_verified", False)
         })
         st.session_state.active_index = len(st.session_state.history) - 1
-        status.update(label="✅ Respuesta generada", state="complete", expanded=False)
+        status.update(label=t("status_done", lang), state="complete", expanded=False)
 
 if st.session_state.active_index >= 0:
     history_to_show = st.session_state.history[:st.session_state.active_index + 1]
@@ -1097,7 +1094,7 @@ if st.session_state.active_index >= 0:
     # Barra de control de layout (toggle para expandir/ocultar visor)
     col_t1, col_t2 = st.columns([0.7, 0.3])
     with col_t2:
-        vis_label = "📖 Ocultar Visor PDF" if st.session_state.pdf_visible else "📖 Mostrar Visor PDF"
+        vis_label = t("btn_hide_pdf", lang) if st.session_state.pdf_visible else t("btn_show_pdf", lang)
         if st.button(vis_label, key="toggle_pdf_btn", use_container_width=True):
             st.session_state.pdf_visible = not st.session_state.pdf_visible
             st.rerun()
@@ -1119,16 +1116,16 @@ if st.session_state.active_index >= 0:
                 prim_prov = item_llm_meta.get("primary_provider", "")
 
                 if item_llm_meta.get("fallback_triggered") and succ_prov:
-                    st.caption(f"🔄 *Respaldo automático activado: {prim_prov} no disponible, respuesta generada con {succ_prov}.*")
+                    st.caption(t("fallback_badge_notice", lang, primary=prim_prov, secondary=succ_prov))
                 elif item_llm_meta.get("fallback_attempted") and not succ_prov:
-                    st.caption(f"ℹ️ *No se pudo conectar con los proveedores generativos externos. Mostrando evidencias normativas oficiales recuperadas.*")
+                    st.caption(t("fallback_all_failed_notice", lang))
 
                 mode = item.get("rre_operating_mode", "UNKNOWN")
-                st.caption(f"Modo RRE: {mode}" + (f" — {item.get('degradation_reason')}" if item.get("degradation_reason") else ""))
+                st.caption(t("rre_mode_caption", lang, mode=mode) + (f" — {item.get('degradation_reason')}" if item.get("degradation_reason") else ""))
                 if item.get("source_sha256_verified", False):
-                    st.caption("Fuente física PDF: SHA-256 verificado.")
+                    st.caption(t("pdf_source_caption", lang))
                 else:
-                    st.caption("Fuente física PDF: no verificada en este entorno; no se presume comprobación de sus bytes.")
+                    st.caption(t("pdf_source_unverified_caption", lang))
 
                 # Two-tier UI presentation contract: La síntesis directa es la respuesta principal destacada
                 struct = item.get("structured_answer")
@@ -1140,23 +1137,25 @@ if st.session_state.active_index >= 0:
                     summary_text = struct["summary"].strip()
                     # Eliminar cualquier prefijo o encabezado accidental que pueda preceder a la conclusión
                     summary_text = re.sub(
-                        r'^(?:⚖️\s*\*\*Síntesis Analítica IA.*?\*\*\s*|📋\s*\*\*Resumen de Evidencias.*?\*\*\s*)',
+                        r'^(?:⚖️\s*\*\*Síntesis Analítica IA.*?\*\*\s*|📋\s*\*\*Resumen de Evidencias.*?\*\*\s*|⚖️\s*\*\*AI Analytical Synthesis.*?\*\*\s*|📋\s*\*\*Normative Evidence Summary.*?\*\*\s*)',
                         '',
                         summary_text,
                         flags=re.IGNORECASE
                     ).strip()
 
                     # Nivel 1: Respuesta directa destacada en bloque visual visible inmediatamente
+                    box_title = t("tier1_box_header", lang)
                     st.markdown(
                         f"""<div style="background-color: rgba(59, 130, 246, 0.08); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 4px; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.5;">
-                        <strong>Respuesta Directa Oficial:</strong><br>{summary_text}
+                        <strong>{box_title}</strong><br>{summary_text}
                         </div>""",
                         unsafe_allow_html=True
                     )
 
                     # Píldoras Interactivas de Citas Normativas (en Nivel 1)
                     if citations_list:
-                        st.markdown('<div class="citation-title-label">📌 Citas Oficiales Verificadas (clic para examinar en visor PDF):</div>', unsafe_allow_html=True)
+                        cit_title = t("citations_title_label", lang)
+                        st.markdown(f'<div class="citation-title-label">{cit_title}</div>', unsafe_allow_html=True)
                         pill_cols = st.columns(min(len(citations_list), 4))
                         for c_idx, cite in enumerate(citations_list):
                             col_p = pill_cols[c_idx % len(pill_cols)]
@@ -1165,7 +1164,8 @@ if st.session_state.active_index >= 0:
                                     art_label = cite.get("article_id") or cite.get("title") or "Cita"
                                     page_num = cite.get("page_number")
                                     exact_q = cite.get("exact_quote", "")
-                                    btn_text = f"📍 {art_label} | Pág. {page_num}" if page_num else f"📍 {art_label}"
+                                    p_label = "Page" if lang == "en" else "Pág."
+                                    btn_text = f"📍 {art_label} | {p_label} {page_num}" if page_num else f"📍 {art_label}"
                                     tooltip = f"{cite.get('text_snippet', '')}"
                                     if st.button(btn_text, key=f"pill_{original_i}_{c_idx}", help=tooltip, use_container_width=True):
                                         if page_num:
@@ -1179,8 +1179,8 @@ if st.session_state.active_index >= 0:
                                     st.button(f"📍 {cite}", key=f"pill_{original_i}_{c_idx}", use_container_width=True)
 
                     # Si el validador detectó inconsistencias normativas o límites probatorios, avisar visiblemente en Nivel 1
-                    if "Control de Rigor Normativo" in str(struct.get("limitations", "")):
-                        st.warning("⚠️ **Aviso de Rigor Normativo:** Se han detectado discrepancias probatorias o limitaciones en la evidencia que afectan aspectos complementarios de esta consulta. Consulte la sección de Límites de la Evidencia.")
+                    if "Control de Rigor Normativo" in str(struct.get("limitations", "")) or "Normative Rigor Control" in str(struct.get("limitations", "")):
+                        st.warning(t("normative_rigor_warning", lang))
 
                     # Nivel 2: Fundamentación completa inicialmente contraída
                     has_details = bool(
@@ -1190,67 +1190,56 @@ if st.session_state.active_index >= 0:
                         struct.get("limitations")
                     )
                     if has_details:
-                        with st.expander("📖 Ver fundamentación normativa y análisis completo", expanded=False):
+                        with st.expander(t("view_details_expander", lang), expanded=False):
                             if struct.get("normative_basis"):
-                                st.markdown("#### 📜 Preceptos y Artículos Aplicables")
+                                st.markdown(f"#### {t('sec_normative_basis', lang)}")
                                 st.markdown(struct["normative_basis"])
                             if struct.get("conditions_and_exceptions"):
-                                st.markdown("#### ⚖️ Condiciones, Excepciones y Restricciones")
+                                st.markdown(f"#### {t('sec_conditions', lang)}")
                                 st.markdown(struct["conditions_and_exceptions"])
                             if struct.get("extended_analysis"):
-                                st.markdown("#### 🔍 Análisis Arbitral Ampliado")
+                                st.markdown(f"#### {t('sec_extended', lang)}")
                                 st.markdown(struct["extended_analysis"])
                             if struct.get("limitations"):
-                                st.markdown("#### ⚠️ Límites de la Evidencia")
+                                st.markdown(f"#### {t('sec_limitations', lang)}")
                                 st.markdown(struct["limitations"])
                 else:
                     # Backward compatibility for legacy flat text entries: extraer respuesta directa sin título redundante
                     raw_ans = item['answer']
                     clean_raw = re.sub(
-                        r'^(?:⚖️\s*\*\*Síntesis Analítica IA.*?\*\*\s*|📋\s*\*\*Resumen de Evidencias.*?\*\*\s*)',
+                        r'^(?:⚖️\s*\*\*Síntesis Analítica IA.*?\*\*\s*|📋\s*\*\*Resumen de Evidencias.*?\*\*\s*|⚖️\s*\*\*AI Analytical Synthesis.*?\*\*\s*|📋\s*\*\*Normative Evidence Summary.*?\*\*\s*)',
                         '',
                         raw_ans,
                         flags=re.IGNORECASE
                     ).strip()
+                    box_title = t("tier1_box_header", lang)
                     if "\n\n---\n\n" in clean_raw:
                         parts = clean_raw.split("\n\n---\n\n", 1)
                         st.markdown(
                             f"""<div style="background-color: rgba(59, 130, 246, 0.08); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 4px; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.5;">
-                            <strong>Respuesta Directa Oficial:</strong><br>{parts[0]}
+                            <strong>{box_title}</strong><br>{parts[0]}
                             </div>""",
                             unsafe_allow_html=True
                         )
-                        with st.expander("📖 Ver fundamentación normativa y análisis completo", expanded=False):
+                        with st.expander(t("view_details_expander", lang), expanded=False):
                             st.markdown(parts[1])
                     else:
                         st.markdown(
                             f"""<div style="background-color: rgba(59, 130, 246, 0.08); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 4px; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.5;">
-                            <strong>Respuesta Directa Oficial:</strong><br>{clean_raw}
+                            <strong>{box_title}</strong><br>{clean_raw}
                             </div>""",
                             unsafe_allow_html=True
                         )
 
-                is_fallback = "lo siento" in item['answer'].lower()
+                is_fallback = "lo siento" in item['answer'].lower() or "sorry" in item['answer'].lower()
                 if not is_fallback and item.get('trazabilidad'):
-                    with st.expander("🔍 Mostrar Trazabilidad y Grafo", expanded=False):
-                        tab_cite, tab_graph = st.tabs(["📚 Trazabilidad y Citas", "🕸️ Subgrafo Relacional"])
+                    with st.expander(t("expander_traceability", lang), expanded=False):
+                        tab_cite, tab_graph = st.tabs([t("tab_traceability", lang), t("tab_graph", lang)])
 
                         with tab_cite:
-                            with st.expander("ℹ️ Sobre la disponibilidad de las fuentes oficiales", expanded=False):
-                                st.markdown(
-                                    '<div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">'
-                                    'La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).<br><br>'
-                                    'Algunas fuentes pueden: permitir acceso directo al contenido específico; redirigir únicamente al portal oficial; haber sido migradas; o dejar de estar disponibles debido a cambios en la plataforma de origen.<br><br>'
-                                    'Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y presentará una referencia alternativa cuando exista.<br><br>'
-                                    '<strong>Leyenda:</strong> &nbsp; '
-                                    '🟢 <em>Disponible</em> &nbsp;&nbsp; '
-                                    '🟡 <em>Migrada</em> &nbsp;&nbsp; '
-                                    '🔵 <em>Portal General</em> &nbsp;&nbsp; '
-                                    '🔴 <em>No Disponible</em>'
-                                    '</div>', unsafe_allow_html=True
-                                )
+                            with st.expander(t("sidebar_sources_title", lang), expanded=False):
+                                st.markdown(t("source_availability_notice", lang), unsafe_allow_html=True)
 
-                            st.caption("📱 *En celulares, el documento se abre pero no siempre dirige al detalle. En navegadores web funciona como enlace directo al contenido relevante.*")
                             for kun in item['trazabilidad']:
                                 res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
                                 url = res.get("url")
@@ -1258,8 +1247,8 @@ if st.session_state.active_index >= 0:
                                 op_status = res.get("operational_status", "AVAILABLE")
 
                                 source_id = kun['fuente_origen']
-                                ref_spec = kun.get('referencia_especifica', 'Reglamento')
-                                name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
+                                ref_spec = kun.get('referencia_especifica', 'Rules')
+                                name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Official Source"
 
                                 if is_clickable and url:
                                     source_link = f"[{name} ({ref_spec})]({url})"
@@ -1277,37 +1266,37 @@ if st.session_state.active_index >= 0:
                                     badge_emoji = "🔴"
 
                                 st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res.get('ux_message', '')}*")
-                                st.markdown(f"* **Fuente:** {source_link}")
-                                st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
-                                st.write(f"* Interpretación: {kun['interpretacion']}")
+                                st.markdown(f"* **{t('source_label', lang)}** {source_link}")
+                                st.write(f"* {t('original_text_label', lang)} *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
+                                st.write(f"* {t('interpretation_label', lang)} {kun['interpretacion']}")
                                 st.write("---")
 
                         with tab_graph:
                             if item.get('dot_code'):
                                 st.graphviz_chart(item['dot_code'])
                             else:
-                                st.info("No hay relaciones de grafo disponibles para esta consulta.")
+                                st.info(t("no_graph_msg", lang))
                 elif not is_fallback:
-                    with st.expander("🔍 Mostrar Trazabilidad y Grafo", expanded=False):
-                        st.info("No hay trazabilidad legal disponible para esta consulta.")
+                    with st.expander(t("expander_traceability", lang), expanded=False):
+                        st.info(t("no_traceability_msg", lang))
 
-                # Canal amigable de observaciones: "Ayúdanos a mejorar"
-                with st.expander("💬 Ayúdanos a mejorar", expanded=False):
-                    st.caption("¿Has identificado algo que debamos revisar? Tu observación nos ayuda a perfeccionar el asistente.")
+                # Friendly feedback observation channel
+                with st.expander(t("feedback_expander", lang), expanded=False):
+                    st.caption(t("feedback_caption", lang))
                     with st.form(key=f"feedback_form_{original_i}", clear_on_submit=True):
                         motivo_sel = st.selectbox(
-                            "Motivo de la observación",
+                            t("feedback_reason_label", lang),
                             MOTIVOS_VALIDOS,
                             key=f"feedback_motivo_{original_i}",
                             label_visibility="collapsed"
                         )
                         comentario_user = st.text_area(
-                            "Comentario u observación (opcional)",
-                            placeholder="Comparte detalles de tu observación o sugerencia si lo deseas (opcional)...",
+                            t("feedback_comment_label", lang),
+                            placeholder=t("feedback_comment_placeholder", lang),
                             height=80,
                             key=f"feedback_comment_{original_i}"
                         )
-                        submit_obs = st.form_submit_button("Enviar observación 📨", use_container_width=True)
+                        submit_obs = st.form_submit_button(t("feedback_submit_btn", lang), use_container_width=True)
 
                         if submit_obs:
                             res_obs = record_observation(
@@ -1319,19 +1308,21 @@ if st.session_state.active_index >= 0:
                                 edition="2026-08 (Official)" if engine.is_2026_08 else "2026-01 (Historical)"
                             )
                             if res_obs.get("success"):
-                                st.success(f"✓ {res_obs.get('message')} *(Identificador: `{res_obs.get('observation_id')}`)*")
+                                st.success(t("feedback_success", lang, message=res_obs.get('message'), obs_id=res_obs.get('observation_id')))
                             else:
-                                st.error(f"⚠️ {res_obs.get('message')}")
+                                st.error(t("feedback_error", lang, message=res_obs.get('message')))
 
     # Panel Derecho: Visor interactivo PDF con PDF.js streaming
     if col_viewer is not None:
         with col_viewer:
             active_art = st.session_state.pdf_article or "SOR 2026"
             active_p = st.session_state.pdf_page
+            viewer_title = t("pdf_viewer_title", lang, article=active_art, page=active_p)
+            badge_label = t("pdf_edition_badge", lang)
             st.markdown(
                 f"""<div class="pdf-viewer-header">
-                <span>📄 Visor Oficial: {active_art} (Pág. {active_p})</span>
-                <span style="font-size: 0.78rem; opacity: 0.9;">IJF 14 Ago 2026</span>
+                <span>{viewer_title}</span>
+                <span style="font-size: 0.78rem; opacity: 0.9;">{badge_label}</span>
                 </div>""",
                 unsafe_allow_html=True
             )
@@ -1345,23 +1336,16 @@ if st.session_state.active_index >= 0:
                 page_b64=page_b64_data
             )
 else:
-    st.markdown("""
+    st.markdown(f"""
     <div style="text-align: center; margin-top: 1.6rem; margin-bottom: 1.2rem;">
-        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.05rem; font-weight: 700; line-height: 1.05; margin-bottom: 0.4rem; max-width: 28rem; margin-left: auto; margin-right: auto;">Bienvenido</h1>
-        <p style="font-size: 0.85rem; color: rgba(212, 175, 55, 0.45); max-width: 640px; margin: 0 auto; line-height: 1.45; margin-bottom: 1rem; font-weight: 400;">Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame sobre arbitraje, uniformes, pesaje o asistencia médica.</p>
+        <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.05rem; font-weight: 700; line-height: 1.05; margin-bottom: 0.4rem; max-width: 28rem; margin-left: auto; margin-right: auto;">{t('welcome_title', lang)}</h1>
+        <p style="font-size: 0.85rem; color: rgba(212, 175, 55, 0.45); max-width: 640px; margin: 0 auto; line-height: 1.45; margin-bottom: 1rem; font-weight: 400;">{t('app_subtitle', lang)}</p>
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("""<div style=\"font-size: 0.8rem; font-weight: 500; text-align: center; margin-bottom: 0.6rem; margin-top: 1.5rem; color: #94a3b8; letter-spacing: 0.04em;\">Prueba con alguna de estas consultas</div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div style=\"font-size: 0.8rem; font-weight: 500; text-align: center; margin-bottom: 0.6rem; margin-top: 1.5rem; color: #94a3b8; letter-spacing: 0.04em;\">{t('sample_queries_prompt', lang)}</div>""", unsafe_allow_html=True)
 
-    suggestion_chips = [
-        ("Defensa con la cabeza", "¿Se permite la defensa con la cabeza?"),
-        ("Dimensiones del tatami", "¿Cuáles son las dimensiones del tatami?"),
-        ("Intervenciones médicas", "¿Cuántas intervenciones médicas se permiten por combate?"),
-        ("Sokuteiki y su uso", "¿Qué es el Sokuteiki y cómo se usa?"),
-        ("Reverse seoi-nage", "¿Cómo se sanciona el reverse seoi-nage en cadetes?"),
-        ("Color de Judogi", "¿Cuáles son las reglas de color de Judogi?"),
-    ]
+    suggestion_chips = t("chips", lang)
     chip_cols = st.columns(len(suggestion_chips))
     for i, (label, full_query) in enumerate(suggestion_chips):
         with chip_cols[i]:
@@ -1370,24 +1354,10 @@ else:
                 st.rerun()
 
 st.write("---")
-with st.expander("📝 Alcance del Asistente & Cobertura de Temas"):
-    st.markdown(f"El asistente cuenta con **{kg_metrics['nodes_count']} Unidades de Conocimiento certificadas** extraídas de las fuentes oficiales de la IJF.")
+with st.expander(t("scope_expander_title", lang)):
+    st.markdown(t("scope_certified_kuns", lang, count=kg_metrics['nodes_count']))
     col_cov, col_uncov = st.columns(2)
     with col_cov:
-        st.markdown("""
-        #### ✅ Temas Cubiertos
-        *   **🚫 Reglas de Arbitraje (Apéndice D - 100%):** Todos los artículos (1 al 21), gestos oficiales, puntuaciones, Osaekomi, Mate, luxaciones, descalificaciones directas (Hansoku-make) y conmoción cerebral.
-        *   **🥋 Control de Judogi (Apéndice C - 100%):** Proceso de control, medidas permitidas, Sokuteiki, colocación de logotipos, colores (blanco/azul) e indumentaria.
-        *   **⏱️ Sistemas y Pesaje (Secciones 2, 3, 4):** Pesaje oficial y sorteo aleatorio, tolerancias, llaves de competencia con repechaje, siembra de cabezas de serie y gestión de categorías.
-        *   **🏥 Manual Médico (Sección 6):** Asistencia médica en tatami, límite de 2 atenciones para lesiones con sangrado, conmociones y días de inhabilitación.
-        *   **🎖️ Protocolos de Premiación (Sección 8):** Ceremonias de medallas, izado de banderas, himnos nacionales y código de vestimenta oficial.
-        """)
+        st.markdown(f"{t('scope_covered_title', lang)}\n{t('scope_covered_body', lang)}")
     with col_uncov:
-        st.markdown("""
-        #### ❌ Fuera de Alcance (No Cubiertos)
-        *   **🏫 Educación y Coaches (Sección 5):** Códigos de vestimenta para entrenadores en la silla, acreditaciones técnicas y penalización de tarjetas en la silla de coach.
-        *   **📢 Marketing y Difusión (Sección 10):** Contratos de patrocinadores oficiales de la IJF, derechos de transmisión de televisión y publicidad permitida en los banners.
-        *   **🏟️ Infraestructura del Recinto (Sección 11):** Disposición física del pabellón, áreas VIP, vestuarios, requisitos de iluminación y climatización de la arena.
-        *   **📋 Estatutos y Apelaciones (Apéndices A, B):** Normas internas de la IJF, elecciones directivas, el Código Disciplinario y procesos de apelación federativos.
-        *   **🧬 Transición y Categorías Especiales (Apéndices E, F, G, H):** Reglamentos de transición de género, control antidopaje de laboratorio, reglas modificadas para veteranos/masters y arbitraje de competencias de Kata.
-        """)
+        st.markdown(f"{t('scope_uncovered_title', lang)}\n{t('scope_uncovered_body', lang)}")
