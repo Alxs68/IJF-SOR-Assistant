@@ -24,3 +24,17 @@ scratch/*.csv
 .streamlit/
 *.log
 nohup.out
+
+# Legacy index compressed backup
+archive/
+
+# User feedback dynamic observations (privacy)
+data/feedback/*.jsonl
+
+# Unprocessed raw pages from historical rebuild
+data/processed/rebuild_2026_08/pages_raw/
+
+# Temporary visual captures from Playwright browser scripts
+scratch/*.png
+scratch/*.jpg
+

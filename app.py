@@ -1,7 +1,12 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import os
 import sys
 import base64
+import re
+import html
+import io
+import pypdf
 
 from dotenv import load_dotenv
 
@@ -12,6 +17,8 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
 
 from rag_engine import RagEngine
 from citation_resolver import RESOURCE_DETAILS, resolve_url, _rrm_manager
+from llm_provider import MultiProviderLLMManager
+from feedback_manager import record_observation, MOTIVOS_VALIDOS
 
 logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
 logo_path = os.path.join(logo_dir, 'logo.svg')
@@ -120,6 +127,36 @@ st.markdown("""
     div[data-testid="stButton"] button:active {
         background-color: rgba(29, 78, 216, 0.14) !important;
     }
+    /* Estilos específicos para píldoras interactivas de citas normativas */
+    .citation-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+        margin-bottom: 14px;
+        align-items: center;
+    }
+    .citation-title-label {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #1e3a8a;
+        margin-right: 6px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
+    .pdf-viewer-header {
+        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+        color: white;
+        padding: 10px 14px;
+        border-radius: 8px 8px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
     @media (max-width: 768px) {
         .block-container {
             padding-left: 0.8rem !important;
@@ -162,20 +199,551 @@ def get_base64_logo(path):
             return None
     return None
 
+LOCAL_PDF_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "data", "raw", "sor_2026_08_rebuild", "IJF_Sport_and_Organisation_Rules_2026_08_14.pdf"
+)
+
+@st.cache_data(max_entries=128)
+def get_pdf_page_base64(page_number: int) -> str:
+    """Extracts a single page from the local official SOR PDF and returns it as a base64 string."""
+    try:
+        if not os.path.exists(LOCAL_PDF_PATH):
+            return ""
+        reader = pypdf.PdfReader(LOCAL_PDF_PATH)
+        idx = max(0, min(len(reader.pages) - 1, page_number - 1))
+        writer = pypdf.PdfWriter()
+        writer.add_page(reader.pages[idx])
+        buf = io.BytesIO()
+        writer.write(buf)
+        return base64.b64encode(buf.getvalue()).decode('utf-8')
+    except Exception as e:
+        print(f"Error extracting PDF page {page_number}: {e}")
+        return ""
+
+def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "", zoom_level: float = 1.0, height: int = 820, page_b64: str = ""):
+    """
+    Renders an interactive embedded PDF viewer using PDF.js CDN with range streaming,
+    canvas rendering, text layer selection, and automated citation query highlighting.
+    Uses base64-encoded page data when available to bypass CDN CORS limitations.
+    """
+    safe_quote = html.escape(search_quote).replace("'", "\\'")
+    viewer_html = f"""
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="utf-8">
+      <title>Visor PDF SOR IJF</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.css">
+      <style>
+        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+        body {{
+          background-color: #0f172a;
+          color: #f8fafc;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+        }}
+        #toolbar {{
+          background: #1e293b;
+          border-bottom: 1px solid #334155;
+          padding: 8px 12px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+          font-size: 0.85rem;
+          user-select: none;
+        }}
+        .btn {{
+          background: #334155;
+          color: #f8fafc;
+          border: 1px solid #475569;
+          border-radius: 4px;
+          padding: 4px 10px;
+          cursor: pointer;
+          font-weight: 500;
+          font-size: 0.82rem;
+          transition: background 0.15s, border-color 0.15s;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+        }}
+        .btn:hover {{
+          background: #475569;
+          border-color: #64748b;
+        }}
+        .btn-primary {{
+          background: #2563eb;
+          border-color: #3b82f6;
+        }}
+        .btn-primary:hover {{
+          background: #1d4ed8;
+          border-color: #2563eb;
+        }}
+        .btn:disabled {{
+          opacity: 0.4;
+          cursor: not-allowed;
+        }}
+        .input-page {{
+          background: #0f172a;
+          color: #f8fafc;
+          border: 1px solid #475569;
+          border-radius: 4px;
+          padding: 3px 6px;
+          width: 52px;
+          text-align: center;
+          font-size: 0.85rem;
+        }}
+        #search-box {{
+          background: #0f172a;
+          color: #f8fafc;
+          border: 1px solid #475569;
+          border-radius: 4px;
+          padding: 3px 8px;
+          font-size: 0.82rem;
+          min-width: 140px;
+          max-width: 220px;
+        }}
+        #status-bar {{
+          font-size: 0.78rem;
+          color: #94a3b8;
+          margin-left: auto;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }}
+        #highlight-badge {{
+          background: rgba(234, 179, 8, 0.2);
+          color: #fde047;
+          border: 1px solid #ca8a04;
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-size: 0.74rem;
+          display: none;
+        }}
+        #viewer-container {{
+          flex: 1;
+          overflow: auto;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          padding: 16px;
+          background-color: #0b0f19;
+          position: relative;
+        }}
+        #canvas-wrapper {{
+          position: relative;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+          background: white;
+          border-radius: 2px;
+        }}
+        #the-canvas {{
+          display: block;
+        }}
+        .textLayer {{
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          overflow: hidden;
+          opacity: 0.8;
+          line-height: 1.0;
+          pointer-events: auto;
+        }}
+        .textLayer > span {{
+          color: transparent;
+          position: absolute;
+          white-space: pre;
+          cursor: text;
+          transform-origin: 0% 0%;
+        }}
+        .highlight {{
+          background-color: rgba(255, 230, 0, 0.45) !important;
+          border-bottom: 2px solid #ca8a04;
+          border-radius: 2px;
+          color: transparent;
+        }}
+        #loading-overlay {{
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(15, 23, 42, 0.75);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          z-index: 100;
+          font-size: 0.9rem;
+          color: #93c5fd;
+        }}
+        .spinner {{
+          width: 32px;
+          height: 32px;
+          border: 3px solid rgba(147, 197, 253, 0.2);
+          border-top-color: #3b82f6;
+          border-radius: 50%;
+          animation: spin 0.8s linear infinite;
+        }}
+        @keyframes spin {{
+          to {{ transform: rotate(360deg); }}
+        }}
+      </style>
+    </head>
+    <body>
+      <div id="toolbar">
+        <button class="btn" id="prev-btn" title="Página anterior">◀ Ant</button>
+        <span>Pág.</span>
+        <input type="number" id="page-num" class="input-page" value="{initial_page}" min="1">
+        <span id="page-count">/ ...</span>
+        <button class="btn" id="next-btn" title="Página siguiente">Sig ▶</button>
+        <div style="border-left: 1px solid #334155; height: 18px; margin: 0 4px;"></div>
+        <button class="btn" id="zoom-out-btn" title="Reducir zoom">-</button>
+        <span id="zoom-label" style="font-size: 0.78rem; min-width: 44px; text-align: center;">100%</span>
+        <button class="btn" id="zoom-in-btn" title="Aumentar zoom">+</button>
+        <button class="btn" id="zoom-fit-btn" title="Ajustar ancho">Ajustar</button>
+        <div style="border-left: 1px solid #334155; height: 18px; margin: 0 4px;"></div>
+        <input type="text" id="search-box" placeholder="Buscar texto en pág..." value="{safe_quote}">
+        <button class="btn btn-primary" id="search-btn">🔍 Resaltar</button>
+        <span id="highlight-badge">Cita resaltada</span>
+        <div id="status-bar">
+          <a class="btn" href="{pdf_url}#page={initial_page}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" title="Abrir en pestaña nueva con visor nativo">↗ Pestaña oficial</a>
+        </div>
+      </div>
+      <div id="viewer-container">
+        <div id="loading-overlay">
+          <div class="spinner"></div>
+          <div id="loading-text">Cargando PDF oficial IJF SOR (Streaming 29MB)...</div>
+        </div>
+        <div id="canvas-wrapper">
+          <canvas id="the-canvas"></canvas>
+          <div id="text-layer" class="textLayer"></div>
+        </div>
+      </div>
+
+      <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        const pdfUrl = '{pdf_url}';
+        let pdfDoc = null;
+        let pageNum = {initial_page};
+        let pageRendering = false;
+        let pageNumPending = null;
+        let scale = {zoom_level};
+        let currentSearch = '{safe_quote}'.trim();
+
+        const canvas = document.getElementById('the-canvas');
+        const ctx = canvas.getContext('2d');
+        const textLayerDiv = document.getElementById('text-layer');
+        const canvasWrapper = document.getElementById('canvas-wrapper');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const loadingText = document.getElementById('loading-text');
+        const pageNumInput = document.getElementById('page-num');
+        const pageCountSpan = document.getElementById('page-count');
+        const zoomLabel = document.getElementById('zoom-label');
+        const highlightBadge = document.getElementById('highlight-badge');
+
+        function showLoading(msg) {{
+          loadingText.textContent = msg || 'Cargando...';
+          loadingOverlay.style.display = 'flex';
+        }}
+
+        function hideLoading() {{
+          loadingOverlay.style.display = 'none';
+        }}
+
+        function updateZoomLabel() {{
+          zoomLabel.textContent = Math.round(scale * 100) + '%';
+        }}
+
+        function renderPage(num) {{
+          pageRendering = true;
+          showLoading('Renderizando página ' + pageNum + '...');
+          pageNumInput.value = pageNum;
+
+          pdfDoc.getPage(num).then(function(page) {{
+            const viewport = page.getViewport({{ scale: scale }});
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            canvasWrapper.style.width = viewport.width + 'px';
+            canvasWrapper.style.height = viewport.height + 'px';
+
+            textLayerDiv.innerHTML = '';
+            textLayerDiv.style.width = viewport.width + 'px';
+            textLayerDiv.style.height = viewport.height + 'px';
+
+            const renderContext = {{
+              canvasContext: ctx,
+              viewport: viewport
+            }};
+            const renderTask = page.render(renderContext);
+
+            renderTask.promise.then(function() {{
+              return page.getTextContent();
+            }}).then(function(textContent) {{
+              const textLayerFrag = document.createDocumentFragment();
+              pdfjsLib.renderTextLayer({{
+                textContentSource: textContent,
+                container: textLayerDiv,
+                viewport: viewport,
+                textDivs: []
+              }}).promise.then(function() {{
+                pageRendering = false;
+                hideLoading();
+                highlightText();
+                if (pageNumPending !== null) {{
+                  renderPage(pageNumPending);
+                  pageNumPending = null;
+                }}
+              }});
+            }}).catch(function(err) {{
+              console.error('Error en render:', err);
+              pageRendering = false;
+              hideLoading();
+            }});
+          }}).catch(function(err) {{
+            console.error('Error al obtener página:', err);
+            pageRendering = false;
+            hideLoading();
+          }});
+
+          document.getElementById('prev-btn').disabled = (num <= 1);
+          document.getElementById('next-btn').disabled = (num >= pdfDoc.numPages);
+        }}
+
+        function queueRenderPage(num) {{
+          if (pageRendering) {{
+            pageNumPending = num;
+          }} else {{
+            renderPage(num);
+          }}
+        }}
+
+        function goToPage(n) {{
+          if (!pdfDoc) return;
+          let target = parseInt(n, 10);
+          if (isNaN(target)) target = 1;
+          if (target < 1) target = 1;
+          if (target > pdfDoc.numPages) target = pdfDoc.numPages;
+          pageNum = target;
+          queueRenderPage(pageNum);
+        }}
+
+        function highlightText() {{
+          const query = (document.getElementById('search-box').value || '').trim();
+          if (!query) {{
+            highlightBadge.style.display = 'none';
+            return;
+          }}
+
+          // Normalizar tokens de búsqueda ignorando puntuación
+          const cleanQuery = query.toLowerCase().replace(/[-.,/#!$%^&*;:{{}}=_`~()]/g, " ").replace(/\\s+/g, " ").trim();
+          const tokens = cleanQuery.split(" ").filter(t => t.length >= 3);
+
+          if (tokens.length === 0) return;
+
+          let matchesFound = 0;
+          const spans = textLayerDiv.querySelectorAll('span');
+          spans.forEach(span => {{
+            const txt = (span.textContent || '').toLowerCase().replace(/[-.,/#!$%^&*;:{{}}=_`~()]/g, " ").replace(/\\s+/g, " ").trim();
+            if (!txt) return;
+
+            let isMatch = false;
+            // 1. Coincidencia de subcadena exacta
+            if (txt.includes(cleanQuery) || cleanQuery.includes(txt)) {{
+              // Solo considerar si la coincidencia tiene una longitud sustantiva
+              const overlap = Math.min(txt.length, cleanQuery.length);
+              if (overlap >= 8) {{
+                isMatch = true;
+              }}
+            }}
+
+            // 2. Coincidencia estricta de tokens consecutivos o conjunto mayoritario (al menos 3 tokens o el 70% si son pocos)
+            if (!isMatch) {{
+              const hits = tokens.filter(tok => txt.includes(tok));
+              const requiredHits = tokens.length <= 3 ? tokens.length : Math.max(3, Math.ceil(tokens.length * 0.6));
+              if (hits.length >= requiredHits) {{
+                isMatch = true;
+              }}
+            }}
+
+            if (isMatch) {{
+              span.classList.add('highlight');
+              matchesFound++;
+            }}
+          }});
+
+          if (matchesFound > 0) {{
+            highlightBadge.style.display = 'inline-block';
+            highlightBadge.textContent = '✓ ' + matchesFound + ' fragmento(s) resaltado(s)';
+            const firstMatch = textLayerDiv.querySelector('.highlight');
+            if (firstMatch) {{
+              firstMatch.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+            }}
+          }} else {{
+            highlightBadge.style.display = 'none';
+          }}
+        }}
+
+        // Listeners de controles
+        document.getElementById('prev-btn').addEventListener('click', function() {{
+          if (pageNum <= 1) return;
+          pageNum--;
+          queueRenderPage(pageNum);
+        }});
+
+        document.getElementById('next-btn').addEventListener('click', function() {{
+          if (!pdfDoc || pageNum >= pdfDoc.numPages) return;
+          pageNum++;
+          queueRenderPage(pageNum);
+        }});
+
+        pageNumInput.addEventListener('change', function() {{
+          goToPage(this.value);
+        }});
+
+        pageNumInput.addEventListener('keydown', function(e) {{
+          if (e.key === 'Enter') {{
+            goToPage(this.value);
+          }}
+        }});
+
+        document.getElementById('zoom-in-btn').addEventListener('click', function() {{
+          scale = Math.min(3.0, scale + 0.15);
+          updateZoomLabel();
+          queueRenderPage(pageNum);
+        }});
+
+        document.getElementById('zoom-out-btn').addEventListener('click', function() {{
+          scale = Math.max(0.5, scale - 0.15);
+          updateZoomLabel();
+          queueRenderPage(pageNum);
+        }});
+
+        document.getElementById('zoom-fit-btn').addEventListener('click', function() {{
+          const containerWidth = document.getElementById('viewer-container').clientWidth - 40;
+          if (pdfDoc && containerWidth > 200) {{
+            pdfDoc.getPage(pageNum).then(function(page) {{
+              const baseViewport = page.getViewport({{ scale: 1.0 }});
+              scale = containerWidth / baseViewport.width;
+              updateZoomLabel();
+              queueRenderPage(pageNum);
+            }});
+          }}
+        }});
+
+        document.getElementById('search-btn').addEventListener('click', function() {{
+          highlightText();
+        }});
+
+        document.getElementById('search-box').addEventListener('keydown', function(e) {{
+          if (e.key === 'Enter') {{
+            highlightText();
+          }}
+        }});
+
+        // Carga inicial del documento: usar datos base64 locales de la página o streaming de URL
+        const rawB64 = '{page_b64}';
+        let loadSource = null;
+        if (rawB64 && rawB64.length > 50) {{
+          try {{
+            const binaryString = window.atob(rawB64);
+            const bytes = new Uint8Array(binaryString.length);
+            for (let i = 0; i < binaryString.length; i++) {{
+              bytes[i] = binaryString.charCodeAt(i);
+            }}
+            loadSource = {{
+              data: bytes,
+              cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+              cMapPacked: true
+            }};
+          }} catch(e) {{
+            console.error('Error decodificando base64:', e);
+          }}
+        }}
+
+        if (!loadSource) {{
+          loadSource = {{
+            url: pdfUrl,
+            cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+            cMapPacked: true,
+            enableXfa: true,
+            disableAutoFetch: true,
+            disableStream: false
+          }};
+        }}
+
+        const loadingTask = pdfjsLib.getDocument(loadSource);
+
+        loadingTask.promise.then(function(pdf) {{
+          pdfDoc = pdf;
+          pageCountSpan.textContent = '/ 298';
+          updateZoomLabel();
+          // Si estamos usando un PDF de una sola página extraída, renderizamos página 1 internamente
+          const targetInternalPage = (pdfDoc.numPages === 1) ? 1 : pageNum;
+          renderPage(targetInternalPage);
+        }}).catch(function(error) {{
+          console.error('Error al cargar documento PDF:', error);
+          loadingText.innerHTML = '⚠️ Error al cargar PDF en el visor interactivo.<br><a href="' + pdfUrl + '#page=' + pageNum + '" target="_blank" style="color: #60a5fa; text-decoration: underline;">Haga clic aquí para abrirlo directamente en nueva pestaña</a>';
+        }});
+      </script>
+    </body>
+    </html>
+    """
+    components.html(viewer_html, height=height, scrolling=False)
+
+
+# Session state for LLM provider configuration
+if "llm_provider" not in st.session_state:
+    st.session_state.llm_provider = os.environ.get("LLM_PROVIDER", "Gemini").capitalize()
+if "fallback_policy" not in st.session_state:
+    st.session_state.fallback_policy = "Automático"
+if "gemini_model" not in st.session_state:
+    st.session_state.gemini_model = os.environ.get("GEMINI_MODEL", "gemini-flash-latest")
+if "groq_model" not in st.session_state:
+    st.session_state.groq_model = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
+
+@st.cache_resource
+def get_llm_manager(provider, fallback, g_model, q_model):
+    fb_code = "automatic" if fallback == "Automático" else "manual"
+    return MultiProviderLLMManager(
+        primary_provider=provider,
+        fallback_policy=fb_code,
+        gemini_model=g_model,
+        groq_model=q_model
+    )
+
+llm_manager = get_llm_manager(
+    st.session_state.llm_provider,
+    st.session_state.fallback_policy,
+    st.session_state.gemini_model,
+    st.session_state.groq_model
+)
+
 @st.cache_resource
 def get_rag_engine():
     brain_path = os.path.dirname(os.path.abspath(__file__))
-    return RagEngine(brain_path)
+    return RagEngine(brain_path, llm_manager=llm_manager)
 
 try:
     engine = get_rag_engine()
+    # Ensure current session LLM manager is injected
+    engine.llm_manager = llm_manager
+    if engine.is_2026_08 and engine.ada:
+        engine.ada.llm_manager = llm_manager
     kg_metrics = engine.kg.get_metrics()
 except Exception as e:
     st.error(f"Error initializing RAG Engine: {e}")
     st.stop()
 
-api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
-is_connected = api_key is not None
+provider_status = llm_manager.get_provider_status()
+active_prov_info = provider_status["providers"].get(st.session_state.llm_provider, {})
+is_connected = active_prov_info.get("available", False)
 
 if "history" not in st.session_state:
     st.session_state.history = []
@@ -183,6 +751,16 @@ if "active_index" not in st.session_state:
     st.session_state.active_index = -1
 if "query_to_run" not in st.session_state:
     st.session_state.query_to_run = None
+if "pdf_page" not in st.session_state:
+    st.session_state.pdf_page = 1
+if "pdf_quote" not in st.session_state:
+    st.session_state.pdf_quote = ""
+if "pdf_article" not in st.session_state:
+    st.session_state.pdf_article = ""
+if "pdf_visible" not in st.session_state:
+    st.session_state.pdf_visible = True
+if "pdf_zoom" not in st.session_state:
+    st.session_state.pdf_zoom = 1.0
 
 preguntas_ejemplo = [
     "Elige una pregunta para consultar...",
@@ -261,19 +839,58 @@ Hash SHA-256 de fuente: `{engine.config['source_sha256'][:16]}...`
 
     st.write("---")
     st.markdown("**📚 Edición del Reglamento SOR**")
-    edition_options = ["2026-08 (Oficial Vigente — 14 Ago 2026)", "2026-01 (Histórica — Enero 2026)"]
-    current_idx = 0 if engine.is_2026_08 else 1
-    selected_edition_str = st.selectbox(
-        "Seleccionar Edición:",
-        edition_options,
-        index=current_idx,
-        help="Permite alternar entre el nuevo corpus oficial reconstruido (14 de agosto de 2026) y la base histórica anterior (enero de 2026)."
+    st.info(f"**{engine.config['version_label']}**\n\nEdición oficial única y vigente autorizada para arbitraje y competición.")
+
+    st.write("---")
+    st.markdown("**🤖 Configuración del modelo**")
+
+    prov_options = ["Gemini", "Groq"]
+    cur_prov_idx = prov_options.index(st.session_state.llm_provider) if st.session_state.llm_provider in prov_options else 0
+    selected_prov = st.selectbox(
+        "Proveedor Principal:",
+        prov_options,
+        index=cur_prov_idx,
+        help="Selecciona el proveedor de LLM principal para generar las respuestas analíticas y síntesis arbitrales."
     )
-    selected_edition_key = "2026-08" if "2026-08" in selected_edition_str else "2026-01"
-    if os.environ.get("IJF_SOR_EDITION", "2026-08") != selected_edition_key:
-        os.environ["IJF_SOR_EDITION"] = selected_edition_key
-        st.cache_resource.clear()
+    if selected_prov != st.session_state.llm_provider:
+        st.session_state.llm_provider = selected_prov
         st.rerun()
+
+    models_available = MultiProviderLLMManager.SUPPORTED_PROVIDERS[selected_prov]["models"]
+    cur_model = st.session_state.gemini_model if selected_prov == "Gemini" else st.session_state.groq_model
+    cur_model_idx = models_available.index(cur_model) if cur_model in models_available else 0
+    selected_model = st.selectbox(
+        f"Modelo ({selected_prov}):",
+        models_available,
+        index=cur_model_idx,
+        help=f"Modelo de inferencia activo para el proveedor {selected_prov}."
+    )
+    if selected_prov == "Gemini" and selected_model != st.session_state.gemini_model:
+        st.session_state.gemini_model = selected_model
+        st.rerun()
+    elif selected_prov == "Groq" and selected_model != st.session_state.groq_model:
+        st.session_state.groq_model = selected_model
+        st.rerun()
+
+    fb_options = ["Automático", "Manual"]
+    cur_fb_idx = 0 if st.session_state.fallback_policy == "Automático" else 1
+    selected_fb = st.selectbox(
+        "Política de Respaldo:",
+        fb_options,
+        index=cur_fb_idx,
+        help="Automático: conmuta al proveedor alternativo ante agotamiento de cuota (429) o fallos de conexión. Manual: informa del error sin cambio silencioso."
+    )
+    if selected_fb != st.session_state.fallback_policy:
+        st.session_state.fallback_policy = selected_fb
+        st.rerun()
+
+    # Status of keys and provider availability
+    p_info = provider_status["providers"].get(selected_prov, {})
+    if p_info.get("available"):
+        st.caption(f"🔑 Clave {selected_prov}: `{p_info.get('masked_key')}` (Activa)")
+    else:
+        env_var_name = MultiProviderLLMManager.SUPPORTED_PROVIDERS[selected_prov]["env_key"]
+        st.caption(f"⚠️ Clave ausente: Defina `{env_var_name}` en `.env` o en el entorno.")
 
     st.write("---")
     st.markdown("**🧭 Ajustes de Búsqueda**")
@@ -317,9 +934,9 @@ Hash SHA-256 de fuente: `{engine.config['source_sha256'][:16]}...`
     st.write("---")
     st.markdown("### 🥋 Gobernanza del Grafo")
     if is_connected:
-        st.markdown('<span class="status-badge-connected">🟢 Modo Conectado (Gemini)</span>', unsafe_allow_html=True)
+        st.markdown(f'<span class="status-badge-connected">🟢 Modo Conectado ({st.session_state.llm_provider})</span>', unsafe_allow_html=True)
     else:
-        st.markdown('<span class="status-badge-offline">🟡 Modo Offline (Simulado)</span>', unsafe_allow_html=True)
+        st.markdown('<span class="status-badge-offline">🟡 Modo Offline (Local)</span>', unsafe_allow_html=True)
 
     st.markdown("**📈 Módulos de Conocimiento**")
     mcol1, mcol2 = st.columns(2)
@@ -423,26 +1040,19 @@ with st.container():
 
 if query_to_run:
     with st.status("Consultando el Reglamento SOR 2026...", expanded=True) as status:
-        if engine.is_2026_08:
-            rre_mode = getattr(engine.rre, 'operating_mode', 'HYBRID')
-            if rre_mode == "HYBRID":
-                status.write("🧠 Reasoning Retrieval Engine (RRE): Recuperación híbrida neuronal (384d) + léxica + RRF...")
-            else:
-                status.write(f"⚠️ Reasoning Retrieval Engine (RRE): Operando en modo degradado léxico ({getattr(engine.rre, 'degradation_reason', 'Modelo no disponible')})...")
-
-            res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
-            retrieved_kuns = res.get('retrieved_kuns_data', [])
-            status.write(f"⚖️ Arbitration Decision Assistant (ADA): {len(retrieved_kuns)} evidencia(s) oficial(es) analizada(s)...")
-            if is_connected:
-                status.write("✍️ Formulando síntesis analítica asistida por IA...")
-            else:
-                status.write("📋 Compilando resumen de evidencias normativas con enlaces anclados...")
+        rre_mode = getattr(engine.rre, 'operating_mode', 'HYBRID')
+        if rre_mode == "HYBRID":
+            status.write("🧠 Reasoning Retrieval Engine (RRE): Recuperación híbrida neuronal (384d) + léxica + RRF (SOR 2026-08)...")
         else:
-            status.write("🔍 Buscando en la base de conocimiento histórica (2026-01)...")
-            res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
-            retrieved_kuns = res.get('retrieved_kuns_data', [])
-            status.write(f"📚 {len(retrieved_kuns)} regla(s) recuperada(s) del grafo...")
-            status.write("✍️ Generando respuesta...")
+            status.write(f"⚠️ Reasoning Retrieval Engine (RRE): Operando en modo degradado léxico ({getattr(engine.rre, 'degradation_reason', 'Modelo no disponible')})...")
+
+        res = engine.query(query_to_run, k=k_param, min_score=min_score_param)
+        retrieved_kuns = res.get('retrieved_kuns_data', [])
+        status.write(f"⚖️ Arbitration Decision Assistant (ADA): {len(retrieved_kuns)} evidencia(s) oficial(es) analizada(s)...")
+        if is_connected:
+            status.write("✍️ Formulando síntesis analítica asistida por IA...")
+        else:
+            status.write("📋 Compilando resumen de evidencias normativas con enlaces anclados...")
 
         dot_code = "digraph {\n  rankdir=LR;\n  node [shape=box, style=filled, fontname=\"Arial\", fontsize=10];\n"
         retrieved_ids = {k['id_conocimiento'] for k in retrieved_kuns}
@@ -461,8 +1071,10 @@ if query_to_run:
         st.session_state.history.append({
             "query": query_to_run,
             "answer": res['answer'],
+            "structured_answer": res.get('structured_answer'),
             "trazabilidad": retrieved_kuns,
-            "dot_code": dot_code
+            "dot_code": dot_code,
+            "llm_meta": res.get("llm_meta", {})
         })
         st.session_state.active_index = len(st.session_state.history) - 1
         status.update(label="✅ Respuesta generada", state="complete", expanded=False)
@@ -472,72 +1084,252 @@ if st.session_state.active_index >= 0:
 
     st.write("---")
 
-    for original_i, item in reversed(list(enumerate(history_to_show))):
-        with st.chat_message("user", avatar="👤"):
-            st.markdown(item['query'])
-        with st.chat_message("assistant", avatar="⚖️"):
-            st.markdown(item['answer'])
+    # Layout Dividido: Chat interactivo (izquierda) + Visor PDF Oficial (derecha)
+    official_pdf_url = "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/08/IJF_Sport_and_Organisation_Rul-1787430903.pdf"
 
-            is_fallback = "lo siento" in item['answer'].lower()
-            if not is_fallback and item.get('trazabilidad'):
-                with st.expander("🔍 Mostrar Trazabilidad y Grafo", expanded=False):
-                    tab_cite, tab_graph = st.tabs(["📚 Trazabilidad y Citas", "🕸️ Subgrafo Relacional"])
+    # Barra de control de layout (toggle para expandir/ocultar visor)
+    col_t1, col_t2 = st.columns([0.7, 0.3])
+    with col_t2:
+        vis_label = "📖 Ocultar Visor PDF" if st.session_state.pdf_visible else "📖 Mostrar Visor PDF"
+        if st.button(vis_label, key="toggle_pdf_btn", use_container_width=True):
+            st.session_state.pdf_visible = not st.session_state.pdf_visible
+            st.rerun()
 
-                    with tab_cite:
-                        with st.expander("ℹ️ Sobre la disponibilidad de las fuentes oficiales", expanded=False):
-                            st.markdown(
-                                '<div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">'
-                                'La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).<br><br>'
-                                'Algunas fuentes pueden: permitir acceso directo al contenido específico; redirigir únicamente al portal oficial; haber sido migradas; o dejar de estar disponibles debido a cambios en la plataforma de origen.<br><br>'
-                                'Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y presentará una referencia alternativa cuando exista.<br><br>'
-                                '<strong>Leyenda:</strong> &nbsp; '
-                                '🟢 <em>Disponible</em> &nbsp;&nbsp; '
-                                '🟡 <em>Migrada</em> &nbsp;&nbsp; '
-                                '🔵 <em>Portal General</em> &nbsp;&nbsp; '
-                                '🔴 <em>No Disponible</em>'
-                                '</div>', unsafe_allow_html=True
-                            )
+    if st.session_state.pdf_visible:
+        col_chat, col_viewer = st.columns([0.52, 0.48], gap="medium")
+    else:
+        col_chat = st.container()
+        col_viewer = None
 
-                        st.caption("📱 *En celulares, el documento se abre pero no siempre dirige al detalle. En navegadores web funciona como enlace directo al contenido relevante.*")
-                        for kun in item['trazabilidad']:
-                            res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
-                            url = res.get("url")
-                            is_clickable = res.get("is_clickable", True)
-                            op_status = res.get("operational_status", "AVAILABLE")
+    with col_chat:
+        for original_i, item in reversed(list(enumerate(history_to_show))):
+            with st.chat_message("user", avatar="👤"):
+                st.markdown(item['query'])
+            with st.chat_message("assistant", avatar="⚖️"):
+                # Inform user if automatic fallback was triggered and succeeded
+                item_llm_meta = item.get("llm_meta", {})
+                succ_prov = item_llm_meta.get("successful_provider")
+                prim_prov = item_llm_meta.get("primary_provider", "")
 
-                            source_id = kun['fuente_origen']
-                            ref_spec = kun.get('referencia_especifica', 'Reglamento')
-                            name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
+                if item_llm_meta.get("fallback_triggered") and succ_prov:
+                    st.caption(f"🔄 *Respaldo automático activado: {prim_prov} no disponible, respuesta generada con {succ_prov}.*")
+                elif item_llm_meta.get("fallback_attempted") and not succ_prov:
+                    st.caption(f"ℹ️ *No se pudo conectar con los proveedores generativos externos. Mostrando evidencias normativas oficiales recuperadas.*")
 
-                            if is_clickable and url:
-                                source_link = f"[{name} ({ref_spec})]({url})"
-                            elif op_status == "DELETED":
-                                source_link = f"~~{name} ({ref_spec})~~"
+                # Two-tier UI presentation contract: La síntesis directa es la respuesta principal destacada
+                struct = item.get("structured_answer")
+                citations_list = []
+                if struct and isinstance(struct, dict):
+                    citations_list = struct.get("citations", [])
+
+                if struct and isinstance(struct, dict) and struct.get("summary"):
+                    summary_text = struct["summary"].strip()
+                    # Eliminar cualquier prefijo o encabezado accidental que pueda preceder a la conclusión
+                    summary_text = re.sub(
+                        r'^(?:⚖️\s*\*\*Síntesis Analítica IA.*?\*\*\s*|📋\s*\*\*Resumen de Evidencias.*?\*\*\s*)',
+                        '',
+                        summary_text,
+                        flags=re.IGNORECASE
+                    ).strip()
+
+                    # Nivel 1: Respuesta directa destacada en bloque visual visible inmediatamente
+                    st.markdown(
+                        f"""<div style="background-color: rgba(59, 130, 246, 0.08); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 4px; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.5;">
+                        <strong>Respuesta Directa Oficial:</strong><br>{summary_text}
+                        </div>""",
+                        unsafe_allow_html=True
+                    )
+
+                    # Píldoras Interactivas de Citas Normativas (en Nivel 1)
+                    if citations_list:
+                        st.markdown('<div class="citation-title-label">📌 Citas Oficiales Verificadas (clic para examinar en visor PDF):</div>', unsafe_allow_html=True)
+                        pill_cols = st.columns(min(len(citations_list), 4))
+                        for c_idx, cite in enumerate(citations_list):
+                            col_p = pill_cols[c_idx % len(pill_cols)]
+                            with col_p:
+                                if isinstance(cite, dict):
+                                    art_label = cite.get("article_id") or cite.get("title") or "Cita"
+                                    page_num = cite.get("page_number")
+                                    exact_q = cite.get("exact_quote", "")
+                                    btn_text = f"📍 {art_label} | Pág. {page_num}" if page_num else f"📍 {art_label}"
+                                    tooltip = f"{cite.get('text_snippet', '')}"
+                                    if st.button(btn_text, key=f"pill_{original_i}_{c_idx}", help=tooltip, use_container_width=True):
+                                        if page_num:
+                                            st.session_state.pdf_page = int(page_num)
+                                        if exact_q:
+                                            st.session_state.pdf_quote = exact_q
+                                        st.session_state.pdf_article = str(art_label)
+                                        st.session_state.pdf_visible = True
+                                        st.rerun()
+                                else:
+                                    st.button(f"📍 {cite}", key=f"pill_{original_i}_{c_idx}", use_container_width=True)
+
+                    # Si el validador detectó inconsistencias normativas o límites probatorios, avisar visiblemente en Nivel 1
+                    if "Control de Rigor Normativo" in str(struct.get("limitations", "")):
+                        st.warning("⚠️ **Aviso de Rigor Normativo:** Se han detectado discrepancias probatorias o limitaciones en la evidencia que afectan aspectos complementarios de esta consulta. Consulte la sección de Límites de la Evidencia.")
+
+                    # Nivel 2: Fundamentación completa inicialmente contraída
+                    has_details = bool(
+                        struct.get("normative_basis") or
+                        struct.get("conditions_and_exceptions") or
+                        struct.get("extended_analysis") or
+                        struct.get("limitations")
+                    )
+                    if has_details:
+                        with st.expander("📖 Ver fundamentación normativa y análisis completo", expanded=False):
+                            if struct.get("normative_basis"):
+                                st.markdown("#### 📜 Preceptos y Artículos Aplicables")
+                                st.markdown(struct["normative_basis"])
+                            if struct.get("conditions_and_exceptions"):
+                                st.markdown("#### ⚖️ Condiciones, Excepciones y Restricciones")
+                                st.markdown(struct["conditions_and_exceptions"])
+                            if struct.get("extended_analysis"):
+                                st.markdown("#### 🔍 Análisis Arbitral Ampliado")
+                                st.markdown(struct["extended_analysis"])
+                            if struct.get("limitations"):
+                                st.markdown("#### ⚠️ Límites de la Evidencia")
+                                st.markdown(struct["limitations"])
+                else:
+                    # Backward compatibility for legacy flat text entries: extraer respuesta directa sin título redundante
+                    raw_ans = item['answer']
+                    clean_raw = re.sub(
+                        r'^(?:⚖️\s*\*\*Síntesis Analítica IA.*?\*\*\s*|📋\s*\*\*Resumen de Evidencias.*?\*\*\s*)',
+                        '',
+                        raw_ans,
+                        flags=re.IGNORECASE
+                    ).strip()
+                    if "\n\n---\n\n" in clean_raw:
+                        parts = clean_raw.split("\n\n---\n\n", 1)
+                        st.markdown(
+                            f"""<div style="background-color: rgba(59, 130, 246, 0.08); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 4px; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.5;">
+                            <strong>Respuesta Directa Oficial:</strong><br>{parts[0]}
+                            </div>""",
+                            unsafe_allow_html=True
+                        )
+                        with st.expander("📖 Ver fundamentación normativa y análisis completo", expanded=False):
+                            st.markdown(parts[1])
+                    else:
+                        st.markdown(
+                            f"""<div style="background-color: rgba(59, 130, 246, 0.08); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 4px; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.5;">
+                            <strong>Respuesta Directa Oficial:</strong><br>{clean_raw}
+                            </div>""",
+                            unsafe_allow_html=True
+                        )
+
+                is_fallback = "lo siento" in item['answer'].lower()
+                if not is_fallback and item.get('trazabilidad'):
+                    with st.expander("🔍 Mostrar Trazabilidad y Grafo", expanded=False):
+                        tab_cite, tab_graph = st.tabs(["📚 Trazabilidad y Citas", "🕸️ Subgrafo Relacional"])
+
+                        with tab_cite:
+                            with st.expander("ℹ️ Sobre la disponibilidad de las fuentes oficiales", expanded=False):
+                                st.markdown(
+                                    '<div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.5;">'
+                                    'La visualización y navegación hacia videos, documentos y otros recursos oficiales depende de las características técnicas y de la disponibilidad de las plataformas de origen (por ejemplo, YouTube o los portales oficiales de la IJF).<br><br>'
+                                    'Algunas fuentes pueden: permitir acceso directo al contenido específico; redirigir únicamente al portal oficial; haber sido migradas; o dejar de estar disponibles debido a cambios en la plataforma de origen.<br><br>'
+                                    'Cuando esto ocurra, el Reference Resolution Manager (RRM) informará el estado de la referencia y presentará una referencia alternativa cuando exista.<br><br>'
+                                    '<strong>Leyenda:</strong> &nbsp; '
+                                    '🟢 <em>Disponible</em> &nbsp;&nbsp; '
+                                    '🟡 <em>Migrada</em> &nbsp;&nbsp; '
+                                    '🔵 <em>Portal General</em> &nbsp;&nbsp; '
+                                    '🔴 <em>No Disponible</em>'
+                                    '</div>', unsafe_allow_html=True
+                                )
+
+                            st.caption("📱 *En celulares, el documento se abre pero no siempre dirige al detalle. En navegadores web funciona como enlace directo al contenido relevante.*")
+                            for kun in item['trazabilidad']:
+                                res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
+                                url = res.get("url")
+                                is_clickable = res.get("is_clickable", True)
+                                op_status = res.get("operational_status", "AVAILABLE")
+
+                                source_id = kun['fuente_origen']
+                                ref_spec = kun.get('referencia_especifica', 'Reglamento')
+                                name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Fuente Oficial"
+
+                                if is_clickable and url:
+                                    source_link = f"[{name} ({ref_spec})]({url})"
+                                elif op_status == "DELETED":
+                                    source_link = f"~~{name} ({ref_spec})~~"
+                                else:
+                                    source_link = f"{name} ({ref_spec})"
+
+                                badge_emoji = "🟢"
+                                if op_status == "MIGRATED":
+                                    badge_emoji = "🟡"
+                                elif op_status == "FALLBACK_GENERAL":
+                                    badge_emoji = "🔵"
+                                elif op_status == "DELETED":
+                                    badge_emoji = "🔴"
+
+                                st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res.get('ux_message', '')}*")
+                                st.markdown(f"* **Fuente:** {source_link}")
+                                st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
+                                st.write(f"* Interpretación: {kun['interpretacion']}")
+                                st.write("---")
+
+                        with tab_graph:
+                            if item.get('dot_code'):
+                                st.graphviz_chart(item['dot_code'])
                             else:
-                                source_link = f"{name} ({ref_spec})"
+                                st.info("No hay relaciones de grafo disponibles para esta consulta.")
+                elif not is_fallback:
+                    with st.expander("🔍 Mostrar Trazabilidad y Grafo", expanded=False):
+                        st.info("No hay trazabilidad legal disponible para esta consulta.")
 
-                            badge_emoji = "🟢"
-                            if op_status == "MIGRATED":
-                                badge_emoji = "🟡"
-                            elif op_status == "FALLBACK_GENERAL":
-                                badge_emoji = "🔵"
-                            elif op_status == "DELETED":
-                                badge_emoji = "🔴"
+                # Canal amigable de observaciones: "Ayúdanos a mejorar"
+                with st.expander("💬 Ayúdanos a mejorar", expanded=False):
+                    st.caption("¿Has identificado algo que debamos revisar? Tu observación nos ayuda a perfeccionar el asistente.")
+                    with st.form(key=f"feedback_form_{original_i}", clear_on_submit=True):
+                        motivo_sel = st.selectbox(
+                            "Motivo de la observación",
+                            MOTIVOS_VALIDOS,
+                            key=f"feedback_motivo_{original_i}",
+                            label_visibility="collapsed"
+                        )
+                        comentario_user = st.text_area(
+                            "Comentario u observación (opcional)",
+                            placeholder="Comparte detalles de tu observación o sugerencia si lo deseas (opcional)...",
+                            height=80,
+                            key=f"feedback_comment_{original_i}"
+                        )
+                        submit_obs = st.form_submit_button("Enviar observación 📨", use_container_width=True)
 
-                            st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res.get('ux_message', '')}*")
-                            st.markdown(f"* **Fuente:** {source_link}")
-                            st.write(f"* Original: *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
-                            st.write(f"* Interpretación: {kun['interpretacion']}")
-                            st.write("---")
+                        if submit_obs:
+                            res_obs = record_observation(
+                                motivo=motivo_sel,
+                                comentario=comentario_user,
+                                query=item.get("query"),
+                                response_summary=summary_text if (struct and isinstance(struct, dict) and struct.get("summary")) else item.get("answer"),
+                                citations=citations_list,
+                                edition="2026-08 (Official)" if engine.is_2026_08 else "2026-01 (Historical)"
+                            )
+                            if res_obs.get("success"):
+                                st.success(f"✓ {res_obs.get('message')} *(Identificador: `{res_obs.get('observation_id')}`)*")
+                            else:
+                                st.error(f"⚠️ {res_obs.get('message')}")
 
-                    with tab_graph:
-                        if item.get('dot_code'):
-                            st.graphviz_chart(item['dot_code'])
-                        else:
-                            st.info("No hay relaciones de grafo disponibles para esta consulta.")
-            elif not is_fallback:
-                with st.expander("🔍 Mostrar Trazabilidad y Grafo", expanded=False):
-                    st.info("No hay trazabilidad legal disponible para esta consulta.")
+    # Panel Derecho: Visor interactivo PDF con PDF.js streaming
+    if col_viewer is not None:
+        with col_viewer:
+            active_art = st.session_state.pdf_article or "SOR 2026"
+            active_p = st.session_state.pdf_page
+            st.markdown(
+                f"""<div class="pdf-viewer-header">
+                <span>📄 Visor Oficial: {active_art} (Pág. {active_p})</span>
+                <span style="font-size: 0.78rem; opacity: 0.9;">IJF 14 Ago 2026</span>
+                </div>""",
+                unsafe_allow_html=True
+            )
+            page_b64_data = get_pdf_page_base64(st.session_state.pdf_page)
+            render_pdf_viewer(
+                pdf_url=official_pdf_url,
+                initial_page=st.session_state.pdf_page,
+                search_quote=st.session_state.pdf_quote,
+                zoom_level=st.session_state.pdf_zoom,
+                height=840,
+                page_b64=page_b64_data
+            )
 else:
     st.markdown("""
     <div style="text-align: center; margin-top: 1.6rem; margin-bottom: 1.2rem;">

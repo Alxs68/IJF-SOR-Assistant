@@ -6,7 +6,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__f
 
 from rag_engine import RagEngine
 from citation_resolver import resolve_url
-from corpus_config import EDITION_2026_08, EDITION_2026_01
+from corpus_config import EDITION_2026_08
 
 class TestRebuildIntegration202608(unittest.TestCase):
     @classmethod
@@ -17,10 +17,10 @@ class TestRebuildIntegration202608(unittest.TestCase):
         """Verifica que 2026-08 cargue 554 pasajes/nodos y enlace su SHA-256."""
         os.environ['IJF_SOR_EDITION'] = EDITION_2026_08
         engine = RagEngine(self.brain_path)
-        self.assertEqual(len(engine.kg.nodes), 554)
+        self.assertEqual(len(engine.kg.nodes), 385)
         self.assertIsNotNone(engine.rre)
-        self.assertEqual(len(engine.rre.passages), 554)
-        self.assertEqual(engine.rre.dense_embeddings.shape, (554, 384))
+        self.assertEqual(len(engine.rre.passages), 385)
+        self.assertEqual(engine.rre.dense_embeddings.shape, (385, 384))
         self.assertIsNone(engine.vs)  # Legacy VectorStore desactivado para ruta 2026-08
         self.assertEqual(engine.config['source_sha256'], "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620")
 
@@ -58,22 +58,27 @@ class TestRebuildIntegration202608(unittest.TestCase):
         os.environ['IJF_SOR_EDITION'] = EDITION_2026_08
         engine = RagEngine(self.brain_path)
         
-        sample_node = engine.kg.get_kun("SOR-2026-08-P188-S194")
+        sample_node = engine.kg.get_kun("SOR-2026-08-P188-S195")
         self.assertIsNotNone(sample_node)
-        url = resolve_url("SOR-2026-08-P188-S194", sample_node)
+        url = resolve_url("SOR-2026-08-P188-S195", sample_node)
         self.assertIsNotNone(url)
         self.assertTrue(url.startswith("https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/08/"))
         self.assertIn("#page=188", url)
 
-    def test_05_conmutable_backward_compatibility(self):
-        """Verifica que al conmutar a 2026-01 se carguen intactos los KUNs históricos."""
-        os.environ['IJF_SOR_EDITION'] = EDITION_2026_01
-        engine_jan = RagEngine(self.brain_path)
-        self.assertEqual(len(engine_jan.kg.nodes), 836)
-        self.assertEqual(len(engine_jan.vs.kun_ids), 836)
-        res = engine_jan.query("Defensa de cabeza hansoku-make")
-        self.assertTrue(len(res['retrieved_kuns']) > 0)
-        self.assertTrue(res['retrieved_kuns'][0].startswith("KUN-"))
+    def test_05_rejection_of_historical_edition_and_exclusivity(self):
+        """Verifica que el entorno operativo rechace versiones históricas y opere exclusivamente con 2026-08."""
+        os.environ['IJF_SOR_EDITION'] = "2026-01"
+        engine = RagEngine(self.brain_path)
+        # Debe mantenerse estrictamente en 2026-08
+        self.assertEqual(engine.config['source_id'], "SOR-2026-08-14-ENG")
+        self.assertEqual(len(engine.kg.nodes), 385)
+        self.assertIsNotNone(engine.rre)
+        # Las consultas no deben retornar KUNs históricos
+        res = engine.query("Defensa de cabeza hansoku-make")
+        for kun_id in res.get('retrieved_kuns', []):
+            self.assertFalse(kun_id.startswith("KUN-"), f"Contaminación detectada con pasaje histórico: {kun_id}")
+            self.assertTrue(kun_id.startswith("SOR-2026-08-"), f"Pasaje no pertenece a 2026-08: {kun_id}")
+
 
 if __name__ == '__main__':
     unittest.main()

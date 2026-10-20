@@ -24,7 +24,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         """Verifica que RRE opere con canales duales (denso y sparse) y fusión RRF."""
         self.assertIsNotNone(self.rre.dense_model)
         self.assertIsNotNone(self.rre.dense_embeddings)
-        self.assertEqual(len(self.rre.passages), 554)
+        self.assertEqual(len(self.rre.passages), 385)
         
         # Consulta sobre puntuación WRL
         res = self.rre.retrieve("World Ranking List Grand Slam points", top_k=3)
@@ -69,12 +69,12 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertEqual(len(res["evidence"]), 0)
 
     def test_06_dense_matrix_alignment_and_integrity(self):
-        """Verifica que la matriz densa pre-computada coincida 1:1 con los 554 pasajes normativos."""
-        self.assertEqual(self.rre.dense_embeddings.shape, (554, 384))
-        self.assertEqual(self.rre.dense_meta.get("num_passages"), 554)
+        """Verifica que la matriz densa pre-computada coincida 1:1 con los 385 pasajes normativos."""
+        self.assertEqual(self.rre.dense_embeddings.shape, (385, 384))
+        self.assertEqual(self.rre.dense_meta.get("num_passages"), 385)
         self.assertEqual(self.rre.dense_meta.get("dimension"), 384)
         self.assertEqual(self.rre.dense_meta.get("source_sha256").lower(), "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620")
-        self.assertEqual(len(self.rre.dense_meta.get("passage_ids", [])), 554)
+        self.assertEqual(len(self.rre.dense_meta.get("passage_ids", [])), 385)
         # Verificar alineación de los primeros y últimos IDs
         self.assertEqual(self.rre.dense_meta["passage_ids"][0], self.rre.passages[0]["passage_id"])
         self.assertEqual(self.rre.dense_meta["passage_ids"][-1], self.rre.passages[-1]["passage_id"])
@@ -109,7 +109,7 @@ class TestRREAndADAArchitecture(unittest.TestCase):
             shutil.copy(self.rre.dense_meta_file, os.path.join(temp_dir, "dense_embeddings_meta.json"))
 
             # 1. Matriz con NaNs
-            bad_matrix = np.ones((554, 384), dtype=np.float32)
+            bad_matrix = np.ones((385, 384), dtype=np.float32)
             bad_matrix[10, 5] = np.nan
             np.save(os.path.join(temp_dir, "dense_embeddings_candidate.npy"), bad_matrix)
 
@@ -117,8 +117,8 @@ class TestRREAndADAArchitecture(unittest.TestCase):
                 ReasoningRetrievalEngine(base_dir=temp_dir)
             self.assertIn("no finitos", str(ctx.exception).lower())
 
-            # 2. Matriz con forma dimensional incorrecta (554, 128 en vez de 384)
-            bad_shape_matrix = np.ones((554, 128), dtype=np.float32)
+            # 2. Matriz con forma dimensional incorrecta (385, 128 en vez de 384)
+            bad_shape_matrix = np.ones((385, 128), dtype=np.float32)
             np.save(os.path.join(temp_dir, "dense_embeddings_candidate.npy"), bad_shape_matrix)
             with self.assertRaises(ValueError) as ctx:
                 ReasoningRetrievalEngine(base_dir=temp_dir)

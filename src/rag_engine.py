@@ -3,6 +3,7 @@ import sys
 import json
 import urllib.request
 import urllib.error
+from typing import Optional, Dict, Any, Tuple
 
 # Fix Windows cp1252 encoding for print statements with Unicode
 if sys.stdout.encoding != 'utf-8':
@@ -19,20 +20,22 @@ from vector_store import VectorStore
 from citation_resolver import format_citations
 from corpus_config import get_active_corpus_config, EDITION_2026_08
 from ada_assistant import ArbitrationDecisionAssistant
+from llm_provider import MultiProviderLLMManager
 
 class RagEngine:
     """Orchestrates RRE / ADA for SOR 2026-08 and maintains isolated legacy fallback for 2026-01."""
 
-    def __init__(self, brain_dir, allow_degraded: bool = True):
+    def __init__(self, brain_dir, allow_degraded: bool = True, llm_manager: Optional[MultiProviderLLMManager] = None):
         self.brain_dir = brain_dir
         self.allow_degraded = allow_degraded
+        self.llm_manager = llm_manager or MultiProviderLLMManager()
 
         # Load active edition config
         self.config = get_active_corpus_config()
         self.is_2026_08 = (self.config.get("source_id") == "SOR-2026-08-14-ENG")
 
-        # Load API key
-        self.api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+        # Load API key (for legacy backwards-compatibility)
+        self.api_key = self.llm_manager.gemini_api_key
 
         # KnowledgeGraph and VectorStore instances (initialized conditionally)
         self.kg = KnowledgeGraph()
@@ -42,7 +45,7 @@ class RagEngine:
         self.ada = None
         if self.is_2026_08:
             ada_base = os.path.join(brain_dir, self.config.get("data_dir", "data/processed/rebuild_2026_08"))
-            self.ada = ArbitrationDecisionAssistant(base_dir=ada_base, allow_degraded=allow_degraded)
+            self.ada = ArbitrationDecisionAssistant(base_dir=ada_base, allow_degraded=allow_degraded, llm_manager=self.llm_manager)
             self.rre = self.ada.rre
 
         # Paths based on active edition
@@ -58,21 +61,21 @@ class RagEngine:
         self.load_resources()
 
     def load_resources(self):
-        """Loads KnowledgeGraph and VectorStore from candidate 2026-08 or legacy serialized files."""
-        if self.is_2026_08:
-            print(f"[LOG] [RAG Engine] Activando Corpus Oficial: {self.config['version_label']}")
-            if not os.path.exists(self.passages_path) or not os.path.exists(self.graph_path):
-                raise FileNotFoundError(f"Artefactos de agosto 2026 no encontrados en {self.config['data_dir']}")
+        """Loads KnowledgeGraph from official candidate 2026-08 and verifies exclusivity."""
+        print(f"[LOG] [RAG Engine] Activando Corpus Oficial Único Vigente: {self.config['version_label']}")
+        if not os.path.exists(self.passages_path) or not os.path.exists(self.graph_path):
+            raise FileNotFoundError(f"Artefactos oficiales de agosto 2026 no encontrados en {self.config['data_dir']}")
 
-            with open(self.passages_path, 'r', encoding='utf-8') as f:
-                passages_data = json.load(f)
-            with open(self.graph_path, 'r', encoding='utf-8') as f:
-                graph_data = json.load(f)
+        with open(self.passages_path, 'r', encoding='utf-8') as f:
+            passages_data = json.load(f)
+        with open(self.graph_path, 'r', encoding='utf-8') as f:
+            graph_data = json.load(f)
 
-            self.kg.load_from_passages_and_edges(passages_data, graph_data.get('edges', []))
-            print(f"[LOG] [RAG Engine] Grafo de agosto 2026 cargado para inspección UI ({len(self.kg.nodes)} nodos).")
-            print(f"[LOG] [RAG Engine] Recuperación activa delegada íntegramente a RRE (Híbrido Denso 384d + Sparse + RRF).")
-            return
+        self.kg.load_from_passages_and_edges(passages_data, graph_data.get('edges', []))
+        print(f"[LOG] [RAG Engine] Grafo oficial cargado para inspección UI ({len(self.kg.nodes)} nodos).")
+        print(f"[LOG] [RAG Engine] Recuperación activa delegada íntegramente a RRE (Híbrido Denso 384d + Sparse + RRF).")
+        return
+
 
         # Legacy 2026-01 Loading Path
         self.vs = VectorStore()
@@ -182,65 +185,16 @@ class RagEngine:
         return context_text, retrieved_kuns
 
     def call_gemini_api(self, prompt):
-        """Calls Gemini API via native HTTP request to generate response (zero-dependency)."""
-        api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
-        print(f"[LOG] [Gemini API Client] Inicializando cliente...")
-        if not api_key:
-            print(f"[LOG] [Gemini API Client] Error: GEMINI_API_KEY no encontrada en las variables de entorno.")
-            return None
-
-        masked_key = api_key[:6] + "..." if len(api_key) > 6 else "Invalida"
-        print(f"[LOG] [Gemini API Client] Clave API cargada: {masked_key}")
-
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
-
-        # Format payload
-        payload = {
-            "contents": [{
-                "parts": [{
-                    "text": prompt
-                }]
-            }],
-            "generationConfig": {
-                "temperature": 0.1,
-                "topP": 0.95
-            }
-        }
-
-        headers = {
-            "Content-Type": "application/json"
-        }
-
-        print(f"[LOG] [Gemini API Client] Enviando petición HTTP POST a Gemini...")
-        try:
-            req = urllib.request.Request(
-                url,
-                data=json.dumps(payload).encode('utf-8'),
-                headers=headers,
-                method='POST'
-            )
-            with urllib.request.urlopen(req) as response:
-                res_data = json.loads(response.read().decode('utf-8'))
-                print(f"[LOG] [Gemini API Client] Petición HTTP exitosa. Analizando respuesta...")
-                # Extract text response
-                candidates = res_data.get('candidates', [])
-                if candidates:
-                    parts = candidates[0].get('content', {}).get('parts', [])
-                    if parts:
-                        answer = parts[0].get('text', '')
-                        print(f"[LOG] [Gemini API Client] Respuesta generada por el modelo ({len(answer)} caracteres).")
-                        return answer
-                print(f"[LOG] [Gemini API Client] Error: Formato de respuesta JSON inesperado. candidates no encontrados.")
-                return None
-        except urllib.error.HTTPError as e:
-            error_body = e.read().decode('utf-8')
-            print(f"[LOG] [Gemini API Client] Excepción de HTTP Error: Código {e.code} - Detalle: {error_body}")
-            return None
-        except Exception as e:
-            print(f"[LOG] [Gemini API Client] Excepción General en llamada API: {e}")
-            import traceback
-            traceback.print_exc()
-            return None
+        """Calls active LLM provider via multi-provider manager with fallback (zero-dependency)."""
+        print(f"[LOG] [LLM Provider Client] Delegando llamada al MultiProviderLLMManager...")
+        answer, meta = self.llm_manager.generate_with_fallback(prompt)
+        if meta.get("fallback_triggered"):
+            print(f"[LOG] [LLM Provider Client] Fallback activado: {meta.get('fallback_reason')}")
+        if answer:
+            print(f"[LOG] [LLM Provider Client] Respuesta generada exitosamente con {meta.get('successful_provider')} ({meta.get('successful_model')}).")
+            return answer
+        print(f"[LOG] [LLM Provider Client] Ningún proveedor LLM externo pudo completar la solicitud.")
+        return None
 
     def query(self, user_query, k=3, min_score=None):
         """Runs the active ADA / RRE reasoning flow for 2026-08 or legacy fallback for 2026-01."""
@@ -286,12 +240,14 @@ class RagEngine:
             return {
                 'query': user_query,
                 'answer': ada_res['analysis'],
+                'structured_answer': ada_res.get('structured_answer'),
                 'retrieved_kuns': retrieved_ids,
                 'retrieved_kuns_data': retrieved_data,
                 'context': "",
                 'rre_operating_mode': ada_res.get('rre_operating_mode', 'HYBRID'),
                 'degradation_reason': ada_res.get('degradation_reason'),
-                'source_sha256_verified': ada_res.get('source_sha256_verified', False)
+                'source_sha256_verified': ada_res.get('source_sha256_verified', False),
+                'llm_meta': ada_res.get('llm_meta', {})
             }
 
         # 2. Legacy RAG Flow for 2026-01

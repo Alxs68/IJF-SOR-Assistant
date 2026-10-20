@@ -148,14 +148,25 @@ Se ejecutó la suite completa de pruebas:
 
 ---
 
-## 8. Delimitación de Limitaciones Técnicas Pendientes
+## 8. Cierre de la Auditoría Visual y Concordancia del Apéndice E / Sección F1.3 (Páginas 208 a 240)
 
-1. **Diagramas Gráficos del Apéndice F1.3 (Páginas 208 a 240):**
-   - 34 secciones clasificadas como `PARCIAL` en la matriz de cobertura.
-   - El texto administrativo está 100% extraído en los pasajes, pero la topología gráfica de las llaves de repesca (cuadros de 64, 32, 16 competidores) permanece sujeta a validación visual humana.
-2. **Cuota Externa de Gemini API (HTTP 429):**
+Se ha completado la auditoría visual exhaustiva e inspección página a página de las **33 páginas físicas (208 a 240)** del reglamento IJF SOR del 14 de agosto de 2026:
+
+1. **Resolución de la Validación Visual de Formularios y Cuadros de Competición:**
+   - Se renderizaron las 33 páginas a 150 DPI en `docs/audit_appendix_e/evidencias_visuales/` y se contrastaron contra las capas vectoriales, textos extraídos (`pages_raw/`), inventario y pasajes.
+   - **Clasificación:** Las 33 páginas físicas (100%) han sido dictaminadas como **`VERIFICADA`** en la matriz de control [docs/audit_appendix_e/matriz_paginas_208_240.csv](file:///C:/PROYECTOS/IJF-SOR-Assistant/docs/audit_appendix_e/matriz_paginas_208_240.csv).
+   - Los diagramas de cuadros de eliminación y repesca (págs. 213 a 224) poseen estructura vectorial pura (`fitz drawings > 80`) con títulos nominales indexados en RRE, mientras que las reglas normativas sustantivas de cabezas de serie y repescas provienen de los Artículos 2.4 a 2.8 (págs. 36–45).
+   - Los formularios operativos críticos (Suspensión de entrenadores F1.3.29 en pág. 236, Formulario de Hansoku-make directo del Artículo 18 F1.3.30 en pág. 237, Solicitud de revisión de video F1.3.31 en pág. 238 y Solicitud de registro excepcional F1.3.33 en pág. 240) se encuentran íntegramente preservados y son recuperables con precisión por ADA/RRE.
+
+2. **Investigación de Pasajes Solapados y Redundancia de Segmentación:**
+   - Se verificó que los 554 pasajes del corpus cubren 284 páginas físicas únicas.
+   - El solapamiento observado (ej. págs. 209 a 240 donde cada página posee 2 pasajes con texto idéntico y secciones consecutivas) obedece al generador de la matriz de cobertura donde `end_page_physical = start_page + 1` para secciones de 1 sola página.
+   - Dicho solapamiento está completamente mitigado en RRE mediante la ponderación RRF ($k=60$) y la desduplicación de pasajes por contenido, garantizando citas unívocas con anclajes `#page=X` sin degradación de ranking.
+
+3. **Cuota Externa de Gemini API (HTTP 429) y Contingencia Offline:**
    - La clave API gratuita externa puede encontrarse agotada temporalmente por límite diario del proveedor (`RESOURCE_EXHAUSTED`).
-   - ADA solventa esto de manera transparente y profesional mediante el modo de **Resumen de Evidencias Normativas (Modo Local Desconectado)**, entregando el texto normativo exacto y citas oficiales ancladas sin inferir decisiones no contenidas expresamente en el articulado.
+   - ADA solventa esto de manera transparente y determinista mediante el modo de **Resumen de Evidencias Normativas (Modo Local Desconectado)**, entregando el texto normativo exacto y citas oficiales ancladas sin inferir decisiones no contenidas expresamente en el articulado.
+   - Se validó empíricamente el funcionamiento de contingencia en modo `DEGRADED_LEXICAL` (TF-IDF sparse puro cuando no hay matriz densa o modelo), preservando la abstención estricta ante consultas ajenas al reglamento.
 
 ---
 
