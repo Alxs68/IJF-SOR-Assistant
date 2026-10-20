@@ -222,19 +222,38 @@ def get_pdf_page_base64(page_number: int) -> str:
         print(f"Error extracting PDF page {page_number}: {e}")
         return ""
 
-def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "", zoom_level: float = 1.0, height: int = 820, page_b64: str = ""):
+def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "", zoom_level: float = 1.0, height: int = 820, page_b64: str = "", lang: str = "es"):
     """
     Renders an interactive embedded PDF viewer using PDF.js CDN with range streaming,
     canvas rendering, text layer selection, and automated citation query highlighting.
     Uses base64-encoded page data when available to bypass CDN CORS limitations.
+    Fully localized according to active UI language.
     """
     safe_quote = html.escape(search_quote).replace("'", "\\'")
+    viewer_title = "IJF SOR PDF Viewer" if lang == "en" else "Visor PDF SOR IJF"
+    prev_btn_label = t("pdf_prev_btn", lang)
+    prev_btn_title = t("pdf_prev_title", lang)
+    page_prefix = t("pdf_page_prefix", lang)
+    next_btn_label = t("pdf_next_btn", lang)
+    next_btn_title = t("pdf_next_title", lang)
+    zoom_out_title = t("pdf_zoom_out_title", lang)
+    zoom_in_title = t("pdf_zoom_in_title", lang)
+    zoom_fit_btn = t("pdf_zoom_fit_btn", lang)
+    zoom_fit_title = t("pdf_zoom_fit_title", lang)
+    search_placeholder = t("pdf_search_placeholder", lang)
+    highlight_btn = t("pdf_highlight_btn", lang)
+    badge_highlighted = t("pdf_badge_highlighted", lang)
+    open_tab_btn = t("pdf_open_tab_btn", lang)
+    open_tab_title = t("pdf_open_tab_title", lang)
+    loading_text = t("pdf_loading_text", lang)
+    load_error_template = t("pdf_load_error", lang, url=pdf_url, num="'+pageNum+'").replace("'", "\\'")
+
     viewer_html = f"""
     <!DOCTYPE html>
-    <html lang="es">
+    <html lang="{lang}">
     <head>
       <meta charset="utf-8">
-      <title>Visor PDF SOR IJF</title>
+      <title>{viewer_title}</title>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.css">
       <style>
@@ -398,28 +417,28 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
     </head>
     <body>
       <div id="toolbar">
-        <button class="btn" id="prev-btn" title="Página anterior">◀ Ant</button>
-        <span>Pág.</span>
+        <button class="btn" id="prev-btn" title="{prev_btn_title}">{prev_btn_label}</button>
+        <span>{page_prefix}</span>
         <input type="number" id="page-num" class="input-page" value="{initial_page}" min="1">
         <span id="page-count">/ ...</span>
-        <button class="btn" id="next-btn" title="Página siguiente">Sig ▶</button>
+        <button class="btn" id="next-btn" title="{next_btn_title}">{next_btn_label}</button>
         <div style="border-left: 1px solid #334155; height: 18px; margin: 0 4px;"></div>
-        <button class="btn" id="zoom-out-btn" title="Reducir zoom">-</button>
+        <button class="btn" id="zoom-out-btn" title="{zoom_out_title}">-</button>
         <span id="zoom-label" style="font-size: 0.78rem; min-width: 44px; text-align: center;">100%</span>
-        <button class="btn" id="zoom-in-btn" title="Aumentar zoom">+</button>
-        <button class="btn" id="zoom-fit-btn" title="Ajustar ancho">Ajustar</button>
+        <button class="btn" id="zoom-in-btn" title="{zoom_in_title}">+</button>
+        <button class="btn" id="zoom-fit-btn" title="{zoom_fit_title}">{zoom_fit_btn}</button>
         <div style="border-left: 1px solid #334155; height: 18px; margin: 0 4px;"></div>
-        <input type="text" id="search-box" placeholder="Buscar texto en pág..." value="{safe_quote}">
-        <button class="btn btn-primary" id="search-btn">🔍 Resaltar</button>
-        <span id="highlight-badge">Cita resaltada</span>
+        <input type="text" id="search-box" placeholder="{search_placeholder}" value="{safe_quote}">
+        <button class="btn btn-primary" id="search-btn">{highlight_btn}</button>
+        <span id="highlight-badge">{badge_highlighted}</span>
         <div id="status-bar">
-          <a class="btn" href="{pdf_url}#page={initial_page}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" title="Abrir en pestaña nueva con visor nativo">↗ Pestaña oficial</a>
+          <a class="btn" href="{pdf_url}#page={initial_page}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" title="{open_tab_title}">{open_tab_btn}</a>
         </div>
       </div>
       <div id="viewer-container">
         <div id="loading-overlay">
           <div class="spinner"></div>
-          <div id="loading-text">Cargando PDF oficial IJF SOR (Streaming 29MB)...</div>
+          <div id="loading-text">{loading_text}</div>
         </div>
         <div id="canvas-wrapper">
           <canvas id="the-canvas"></canvas>
@@ -581,7 +600,7 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
 
           if (matchesFound > 0) {{
             highlightBadge.style.display = 'inline-block';
-            highlightBadge.textContent = '✓ ' + matchesFound + ' fragmento(s) resaltado(s)';
+            highlightBadge.textContent = '{t("pdf_badge_matches", lang, matches="").strip()}' + ' ' + matchesFound;
             const firstMatch = textLayerDiv.querySelector('.highlight');
             if (firstMatch) {{
               firstMatch.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
@@ -690,7 +709,7 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           renderPage(targetInternalPage);
         }}).catch(function(error) {{
           console.error('Error al cargar documento PDF:', error);
-          loadingText.innerHTML = '⚠️ Error al cargar PDF en el visor interactivo.<br><a href="' + pdfUrl + '#page=' + pageNum + '" target="_blank" style="color: #60a5fa; text-decoration: underline;">Haga clic aquí para abrirlo directamente en nueva pestaña</a>';
+          loadingText.innerHTML = '{load_error_template}';
         }});
       </script>
     </body>
@@ -765,28 +784,9 @@ if "pdf_visible" not in st.session_state:
 if "pdf_zoom" not in st.session_state:
     st.session_state.pdf_zoom = 1.0
 
-preguntas_ejemplo = [
-    "Elige una pregunta para consultar...",
-    "¿Se permite la defensa con la cabeza?",
-    "¿Cuáles son las dimensiones del tatami?",
-    "¿Cuántas intervenciones médicas se permiten por combate?",
-    "¿Qué es la tecnología Smart Judogi con chip NFC?",
-    "¿Cómo se sanciona el abrazo de oso (bear hug)?",
-    "¿Cómo se sanciona el reverse seoi-nage en cadetes?",
-    "¿Qué sucede si un competidor se desmaya por estrangulación (shime-waza)?",
-    "¿Qué es el Sokuteiki y cómo se usa?",
-    "¿Cuáles son las reglas de color de Judogi (blanco y azul)?",
-    "¿Cómo funciona el protocolo de conmoción cerebral (head trauma) y cuántos días de inhabilitación genera?",
-    "¿Cuál es el tiempo de tolerancia para presentarse en el tatami antes de la descalificación?",
-    "¿Cuáles son las diferencias de tolerancia de peso entre el pesaje oficial y el pesaje aleatorio?",
-    "¿Cómo se dividen las llaves de competencia con repechaje en el sistema oficial?",
-    "¿Cuál es el código de vestimenta oficial para los médicos de los equipos?",
-    "¿Está permitido el uso de vendajes (taping) en los dedos y cómo debe ser aprobado?"
-]
-
 def load_example():
     sel = st.session_state.get("example_select_widget")
-    if sel and sel != "Elige una pregunta para consultar...":
+    if sel and sel not in ("Elige una pregunta para consultar...", "Choose an example query..."):
         st.session_state.query_to_run = sel
 
 # Sidebar
@@ -1333,7 +1333,8 @@ if st.session_state.active_index >= 0:
                 search_quote=st.session_state.pdf_quote,
                 zoom_level=st.session_state.pdf_zoom,
                 height=840,
-                page_b64=page_b64_data
+                page_b64=page_b64_data,
+                lang=lang
             )
 else:
     st.markdown(f"""
