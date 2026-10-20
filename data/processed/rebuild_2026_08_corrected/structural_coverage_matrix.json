@@ -1,0 +1,2178 @@
+[
+  {
+    "section_index": 1,
+    "title": "GENERAL INFORMATION",
+    "start_page_physical": 12,
+    "start_page_printed": 12,
+    "end_page_physical": 12,
+    "verified_raw_file": "pages_raw/page_012.txt"
+  },
+  {
+    "section_index": 2,
+    "title": "1.1 Preamble and Fundamental Principles",
+    "start_page_physical": 13,
+    "start_page_printed": 13,
+    "end_page_physical": 13,
+    "verified_raw_file": "pages_raw/page_013.txt"
+  },
+  {
+    "section_index": 3,
+    "title": "1.1.1 Behaviour at IJF Events",
+    "start_page_physical": 14,
+    "start_page_printed": 14,
+    "end_page_physical": 14,
+    "verified_raw_file": "pages_raw/page_014.txt"
+  },
+  {
+    "section_index": 4,
+    "title": "1.1.2 Athletes Returning to Competition After Pregnancy",
+    "start_page_physical": 14,
+    "start_page_printed": 14,
+    "end_page_physical": 14,
+    "verified_raw_file": "pages_raw/page_014.txt"
+  },
+  {
+    "section_index": 5,
+    "title": "1.2 Clean Judo",
+    "start_page_physical": 14,
+    "start_page_printed": 14,
+    "end_page_physical": 14,
+    "verified_raw_file": "pages_raw/page_014.txt"
+  },
+  {
+    "section_index": 6,
+    "title": "1.2.1 Disciplinary Committee",
+    "start_page_physical": 14,
+    "start_page_printed": 14,
+    "end_page_physical": 14,
+    "verified_raw_file": "pages_raw/page_014.txt"
+  },
+  {
+    "section_index": 7,
+    "title": "1.2.2 Match Fixing and Competition Manipulation",
+    "start_page_physical": 15,
+    "start_page_printed": 15,
+    "end_page_physical": 15,
+    "verified_raw_file": "pages_raw/page_015.txt"
+  },
+  {
+    "section_index": 8,
+    "title": "1.2.3 Safeguarding",
+    "start_page_physical": 16,
+    "start_page_printed": 16,
+    "end_page_physical": 16,
+    "verified_raw_file": "pages_raw/page_016.txt"
+  },
+  {
+    "section_index": 9,
+    "title": "1.3 Insurance and Civil Liability",
+    "start_page_physical": 17,
+    "start_page_printed": 17,
+    "end_page_physical": 17,
+    "verified_raw_file": "pages_raw/page_017.txt"
+  },
+  {
+    "section_index": 10,
+    "title": "1.4 Biological Sex Control",
+    "start_page_physical": 17,
+    "start_page_printed": 17,
+    "end_page_physical": 17,
+    "verified_raw_file": "pages_raw/page_017.txt"
+  },
+  {
+    "section_index": 11,
+    "title": "1.5 Minor Athletes",
+    "start_page_physical": 18,
+    "start_page_printed": 18,
+    "end_page_physical": 18,
+    "verified_raw_file": "pages_raw/page_018.txt"
+  },
+  {
+    "section_index": 12,
+    "title": "1.6 IJF Calendar",
+    "start_page_physical": 18,
+    "start_page_printed": 18,
+    "end_page_physical": 18,
+    "verified_raw_file": "pages_raw/page_018.txt"
+  },
+  {
+    "section_index": 13,
+    "title": "1.7 Athlete Nationality",
+    "start_page_physical": 18,
+    "start_page_printed": 18,
+    "end_page_physical": 18,
+    "verified_raw_file": "pages_raw/page_018.txt"
+  },
+  {
+    "section_index": 14,
+    "title": "1.7.1 Change of Athlete Nationality",
+    "start_page_physical": 19,
+    "start_page_printed": 19,
+    "end_page_physical": 19,
+    "verified_raw_file": "pages_raw/page_019.txt"
+  },
+  {
+    "section_index": 15,
+    "title": "1.7.1.1 Change of Athlete Nationality for a Period of Less than Three Years",
+    "start_page_physical": 20,
+    "start_page_printed": 20,
+    "end_page_physical": 20,
+    "verified_raw_file": "pages_raw/page_020.txt"
+  },
+  {
+    "section_index": 16,
+    "title": "1.7.1.2 Change of Athlete Nationality after a Period of Three Years or Longer",
+    "start_page_physical": 20,
+    "start_page_printed": 20,
+    "end_page_physical": 20,
+    "verified_raw_file": "pages_raw/page_020.txt"
+  },
+  {
+    "section_index": 17,
+    "title": "1.7.2 Special Circumstances",
+    "start_page_physical": 21,
+    "start_page_printed": 21,
+    "end_page_physical": 21,
+    "verified_raw_file": "pages_raw/page_021.txt"
+  },
+  {
+    "section_index": 18,
+    "title": "1.7.2.1 Athletes with an Official Refugee Status under Host Country",
+    "start_page_physical": 21,
+    "start_page_printed": 21,
+    "end_page_physical": 21,
+    "verified_raw_file": "pages_raw/page_021.txt"
+  },
+  {
+    "section_index": 19,
+    "title": "1.7.2.2 IJF Refugee Team",
+    "start_page_physical": 22,
+    "start_page_printed": 22,
+    "end_page_physical": 22,
+    "verified_raw_file": "pages_raw/page_022.txt"
+  },
+  {
+    "section_index": 20,
+    "title": "1.7.2.3 Junior and Younger Immigrants",
+    "start_page_physical": 23,
+    "start_page_printed": 23,
+    "end_page_physical": 23,
+    "verified_raw_file": "pages_raw/page_023.txt"
+  },
+  {
+    "section_index": 21,
+    "title": "1.7.2.4 Veterans Immigrants",
+    "start_page_physical": 24,
+    "start_page_printed": 24,
+    "end_page_physical": 24,
+    "verified_raw_file": "pages_raw/page_024.txt"
+  },
+  {
+    "section_index": 22,
+    "title": "1.7.2.5 Kata Immigrants",
+    "start_page_physical": 25,
+    "start_page_printed": 25,
+    "end_page_physical": 25,
+    "verified_raw_file": "pages_raw/page_025.txt"
+  },
+  {
+    "section_index": 23,
+    "title": "1.8 Referee Nationality",
+    "start_page_physical": 25,
+    "start_page_printed": 25,
+    "end_page_physical": 25,
+    "verified_raw_file": "pages_raw/page_025.txt"
+  },
+  {
+    "section_index": 24,
+    "title": "1.8.1 Change of Referee Nationality",
+    "start_page_physical": 26,
+    "start_page_printed": 26,
+    "end_page_physical": 26,
+    "verified_raw_file": "pages_raw/page_026.txt"
+  },
+  {
+    "section_index": 25,
+    "title": "1.8.2 Special Circumstances",
+    "start_page_physical": 27,
+    "start_page_printed": 27,
+    "end_page_physical": 27,
+    "verified_raw_file": "pages_raw/page_027.txt"
+  },
+  {
+    "section_index": 26,
+    "title": "1.8.2.1 Referee Immigrants",
+    "start_page_physical": 27,
+    "start_page_printed": 27,
+    "end_page_physical": 27,
+    "verified_raw_file": "pages_raw/page_027.txt"
+  },
+  {
+    "section_index": 27,
+    "title": "1.8.2.2 Referees with an Official Refugee Status under Host Country",
+    "start_page_physical": 28,
+    "start_page_printed": 28,
+    "end_page_physical": 28,
+    "verified_raw_file": "pages_raw/page_028.txt"
+  },
+  {
+    "section_index": 28,
+    "title": "1.8.2.3 IJF Refugee Team for Referees",
+    "start_page_physical": 29,
+    "start_page_printed": 29,
+    "end_page_physical": 29,
+    "verified_raw_file": "pages_raw/page_029.txt"
+  },
+  {
+    "section_index": 29,
+    "title": "COMPETITION RULES",
+    "start_page_physical": 30,
+    "start_page_printed": 30,
+    "end_page_physical": 30,
+    "verified_raw_file": "pages_raw/page_030.txt"
+  },
+  {
+    "section_index": 30,
+    "title": "2.1 Competition Format and Schedules",
+    "start_page_physical": 31,
+    "start_page_printed": 31,
+    "end_page_physical": 31,
+    "verified_raw_file": "pages_raw/page_031.txt"
+  },
+  {
+    "section_index": 31,
+    "title": "2.1.1 Competition Format and Schedules for the IJF World Judo Tour",
+    "start_page_physical": 31,
+    "start_page_printed": 31,
+    "end_page_physical": 31,
+    "verified_raw_file": "pages_raw/page_031.txt"
+  },
+  {
+    "section_index": 32,
+    "title": "2.1.2 Competition Format and Schedules for Other Events",
+    "start_page_physical": 32,
+    "start_page_printed": 32,
+    "end_page_physical": 32,
+    "verified_raw_file": "pages_raw/page_032.txt"
+  },
+  {
+    "section_index": 33,
+    "title": "2.1.3 Responsibility for Anti-Doping Result Management",
+    "start_page_physical": 32,
+    "start_page_printed": 32,
+    "end_page_physical": 32,
+    "verified_raw_file": "pages_raw/page_032.txt"
+  },
+  {
+    "section_index": 34,
+    "title": "2.2 Weight Categories for IJF Events",
+    "start_page_physical": 33,
+    "start_page_printed": 33,
+    "end_page_physical": 33,
+    "verified_raw_file": "pages_raw/page_033.txt"
+  },
+  {
+    "section_index": 35,
+    "title": "2.2.1 Weight Categories for Individual Competitions",
+    "start_page_physical": 33,
+    "start_page_printed": 33,
+    "end_page_physical": 33,
+    "verified_raw_file": "pages_raw/page_033.txt"
+  },
+  {
+    "section_index": 36,
+    "title": "2.2.2 Weight Categories for Mixed Team Competitions",
+    "start_page_physical": 34,
+    "start_page_printed": 34,
+    "end_page_physical": 34,
+    "verified_raw_file": "pages_raw/page_034.txt"
+  },
+  {
+    "section_index": 37,
+    "title": "2.2.3 Weight Categories Mixed Team Competitions Olympic Games",
+    "start_page_physical": 34,
+    "start_page_printed": 34,
+    "end_page_physical": 34,
+    "verified_raw_file": "pages_raw/page_034.txt"
+  },
+  {
+    "section_index": 38,
+    "title": "2.2.4 Weight Categories for Team Competitions",
+    "start_page_physical": 35,
+    "start_page_printed": 35,
+    "end_page_physical": 35,
+    "verified_raw_file": "pages_raw/page_035.txt"
+  },
+  {
+    "section_index": 39,
+    "title": "2.3 Age Groups",
+    "start_page_physical": 35,
+    "start_page_printed": 35,
+    "end_page_physical": 35,
+    "verified_raw_file": "pages_raw/page_035.txt"
+  },
+  {
+    "section_index": 40,
+    "title": "2.4 Time Duration of Contests",
+    "start_page_physical": 36,
+    "start_page_printed": 36,
+    "end_page_physical": 36,
+    "verified_raw_file": "pages_raw/page_036.txt"
+  },
+  {
+    "section_index": 41,
+    "title": "2.5 Competition Systems",
+    "start_page_physical": 37,
+    "start_page_printed": 37,
+    "end_page_physical": 37,
+    "verified_raw_file": "pages_raw/page_037.txt"
+  },
+  {
+    "section_index": 42,
+    "title": "2.5.1 Direct Knockout",
+    "start_page_physical": 38,
+    "start_page_printed": 38,
+    "end_page_physical": 38,
+    "verified_raw_file": "pages_raw/page_038.txt"
+  },
+  {
+    "section_index": 43,
+    "title": "2.5.2 Quarter-final Repechage",
+    "start_page_physical": 38,
+    "start_page_printed": 38,
+    "end_page_physical": 38,
+    "verified_raw_file": "pages_raw/page_038.txt"
+  },
+  {
+    "section_index": 44,
+    "title": "2.5.3 Double Repechage",
+    "start_page_physical": 38,
+    "start_page_printed": 38,
+    "end_page_physical": 38,
+    "verified_raw_file": "pages_raw/page_038.txt"
+  },
+  {
+    "section_index": 45,
+    "title": "2.5.4 Full Repechage",
+    "start_page_physical": 38,
+    "start_page_printed": 38,
+    "end_page_physical": 38,
+    "verified_raw_file": "pages_raw/page_038.txt"
+  },
+  {
+    "section_index": 46,
+    "title": "2.5.5 Round Robin",
+    "start_page_physical": 39,
+    "start_page_printed": 39,
+    "end_page_physical": 39,
+    "verified_raw_file": "pages_raw/page_039.txt"
+  },
+  {
+    "section_index": 47,
+    "title": "2.5.5.1 Round Robin Rules for Individual Events",
+    "start_page_physical": 39,
+    "start_page_printed": 39,
+    "end_page_physical": 39,
+    "verified_raw_file": "pages_raw/page_039.txt"
+  },
+  {
+    "section_index": 48,
+    "title": "2.5.5.2 Round Robin Rules for Team Events",
+    "start_page_physical": 40,
+    "start_page_printed": 40,
+    "end_page_physical": 40,
+    "verified_raw_file": "pages_raw/page_040.txt"
+  },
+  {
+    "section_index": 49,
+    "title": "2.5.6 Best of Three",
+    "start_page_physical": 40,
+    "start_page_printed": 40,
+    "end_page_physical": 40,
+    "verified_raw_file": "pages_raw/page_040.txt"
+  },
+  {
+    "section_index": 50,
+    "title": "2.6 Regulations for Low Numbers of Athletes or Teams",
+    "start_page_physical": 41,
+    "start_page_printed": 41,
+    "end_page_physical": 41,
+    "verified_raw_file": "pages_raw/page_041.txt"
+  },
+  {
+    "section_index": 51,
+    "title": "2.6.1 Low Numbers System for IJF WJT Events",
+    "start_page_physical": 41,
+    "start_page_printed": 41,
+    "end_page_physical": 41,
+    "verified_raw_file": "pages_raw/page_041.txt"
+  },
+  {
+    "section_index": 52,
+    "title": "2.6.2 Low Numbers System for Other Events",
+    "start_page_physical": 42,
+    "start_page_printed": 42,
+    "end_page_physical": 42,
+    "verified_raw_file": "pages_raw/page_042.txt"
+  },
+  {
+    "section_index": 53,
+    "title": "2.7 Competition System for Mixed Team and Team Events",
+    "start_page_physical": 42,
+    "start_page_printed": 42,
+    "end_page_physical": 42,
+    "verified_raw_file": "pages_raw/page_042.txt"
+  },
+  {
+    "section_index": 54,
+    "title": "2.7.1 Regulations for Mixed Team Events",
+    "start_page_physical": 42,
+    "start_page_printed": 42,
+    "end_page_physical": 44,
+    "verified_raw_file": "pages_raw/page_042.txt"
+  },
+  {
+    "section_index": 55,
+    "title": "2.7.2 Regulations for Female and Male Team Events",
+    "start_page_physical": 45,
+    "start_page_printed": 45,
+    "end_page_physical": 46,
+    "verified_raw_file": "pages_raw/page_045.txt"
+  },
+  {
+    "section_index": 56,
+    "title": "2.8 Event Outlines",
+    "start_page_physical": 47,
+    "start_page_printed": 47,
+    "end_page_physical": 47,
+    "verified_raw_file": "pages_raw/page_047.txt"
+  },
+  {
+    "section_index": 57,
+    "title": "2.8.1 Visas",
+    "start_page_physical": 47,
+    "start_page_printed": 47,
+    "end_page_physical": 47,
+    "verified_raw_file": "pages_raw/page_047.txt"
+  },
+  {
+    "section_index": 58,
+    "title": "2.8.2 Transportation",
+    "start_page_physical": 47,
+    "start_page_printed": 47,
+    "end_page_physical": 47,
+    "verified_raw_file": "pages_raw/page_047.txt"
+  },
+  {
+    "section_index": 59,
+    "title": "2.8.3 Accommodation",
+    "start_page_physical": 48,
+    "start_page_printed": 48,
+    "end_page_physical": 48,
+    "verified_raw_file": "pages_raw/page_048.txt"
+  },
+  {
+    "section_index": 60,
+    "title": "2.8.4 Training",
+    "start_page_physical": 49,
+    "start_page_printed": 49,
+    "end_page_physical": 49,
+    "verified_raw_file": "pages_raw/page_049.txt"
+  },
+  {
+    "section_index": 61,
+    "title": "2.8.5 Consent for use of data/photography/videos/filming",
+    "start_page_physical": 49,
+    "start_page_printed": 49,
+    "end_page_physical": 49,
+    "verified_raw_file": "pages_raw/page_049.txt"
+  },
+  {
+    "section_index": 62,
+    "title": "2.9 Official Notice Boards",
+    "start_page_physical": 49,
+    "start_page_printed": 49,
+    "end_page_physical": 49,
+    "verified_raw_file": "pages_raw/page_049.txt"
+  },
+  {
+    "section_index": 63,
+    "title": "IJF WORLD RANKING LISTS",
+    "start_page_physical": 50,
+    "start_page_printed": 50,
+    "end_page_physical": 50,
+    "verified_raw_file": "pages_raw/page_050.txt"
+  },
+  {
+    "section_index": 64,
+    "title": "3.1 IJF World Ranking Lists",
+    "start_page_physical": 51,
+    "start_page_printed": 51,
+    "end_page_physical": 51,
+    "verified_raw_file": "pages_raw/page_051.txt"
+  },
+  {
+    "section_index": 65,
+    "title": "3.2 IJF World Ranking Lists for Individuals",
+    "start_page_physical": 52,
+    "start_page_printed": 52,
+    "end_page_physical": 52,
+    "verified_raw_file": "pages_raw/page_052.txt"
+  },
+  {
+    "section_index": 66,
+    "title": "3.2.1 IJF Seniors World Ranking List",
+    "start_page_physical": 52,
+    "start_page_printed": 52,
+    "end_page_physical": 52,
+    "verified_raw_file": "pages_raw/page_052.txt"
+  },
+  {
+    "section_index": 67,
+    "title": "3.2.2 IJF Juniors World Ranking List",
+    "start_page_physical": 53,
+    "start_page_printed": 53,
+    "end_page_physical": 53,
+    "verified_raw_file": "pages_raw/page_053.txt"
+  },
+  {
+    "section_index": 68,
+    "title": "3.2.3 IJF Cadets World Ranking List",
+    "start_page_physical": 54,
+    "start_page_printed": 54,
+    "end_page_physical": 54,
+    "verified_raw_file": "pages_raw/page_054.txt"
+  },
+  {
+    "section_index": 69,
+    "title": "3.3 IJF World Ranking Lists for Mixed Teams",
+    "start_page_physical": 55,
+    "start_page_printed": 55,
+    "end_page_physical": 55,
+    "verified_raw_file": "pages_raw/page_055.txt"
+  },
+  {
+    "section_index": 70,
+    "title": "3.3.1 IJF Seniors Mixed Teams World Ranking List",
+    "start_page_physical": 55,
+    "start_page_printed": 55,
+    "end_page_physical": 55,
+    "verified_raw_file": "pages_raw/page_055.txt"
+  },
+  {
+    "section_index": 71,
+    "title": "3.3.2 IJF Juniors Mixed Teams World Ranking List",
+    "start_page_physical": 56,
+    "start_page_printed": 56,
+    "end_page_physical": 56,
+    "verified_raw_file": "pages_raw/page_056.txt"
+  },
+  {
+    "section_index": 72,
+    "title": "3.3.3 IJF Cadets Mixed Teams World Ranking List",
+    "start_page_physical": 57,
+    "start_page_printed": 57,
+    "end_page_physical": 57,
+    "verified_raw_file": "pages_raw/page_057.txt"
+  },
+  {
+    "section_index": 73,
+    "title": "3.4 IJF Nations World Ranking List",
+    "start_page_physical": 57,
+    "start_page_printed": 57,
+    "end_page_physical": 57,
+    "verified_raw_file": "pages_raw/page_057.txt"
+  },
+  {
+    "section_index": 74,
+    "title": "3.5 Additional Rules",
+    "start_page_physical": 57,
+    "start_page_printed": 57,
+    "end_page_physical": 59,
+    "verified_raw_file": "pages_raw/page_057.txt"
+  },
+  {
+    "section_index": 75,
+    "title": "ENTRIES AND ACCREDITATION",
+    "start_page_physical": 60,
+    "start_page_printed": 60,
+    "end_page_physical": 60,
+    "verified_raw_file": "pages_raw/page_060.txt"
+  },
+  {
+    "section_index": 76,
+    "title": "4.1 Participation Rules for IJF WJT Events",
+    "start_page_physical": 61,
+    "start_page_printed": 61,
+    "end_page_physical": 61,
+    "verified_raw_file": "pages_raw/page_061.txt"
+  },
+  {
+    "section_index": 77,
+    "title": "4.2 Entries",
+    "start_page_physical": 61,
+    "start_page_printed": 61,
+    "end_page_physical": 62,
+    "verified_raw_file": "pages_raw/page_061.txt"
+  },
+  {
+    "section_index": 78,
+    "title": "4.3 Cancellation of Athletes",
+    "start_page_physical": 63,
+    "start_page_printed": 63,
+    "end_page_physical": 63,
+    "verified_raw_file": "pages_raw/page_063.txt"
+  },
+  {
+    "section_index": 79,
+    "title": "4.4 Number of Entries",
+    "start_page_physical": 64,
+    "start_page_printed": 64,
+    "end_page_physical": 66,
+    "verified_raw_file": "pages_raw/page_064.txt"
+  },
+  {
+    "section_index": 80,
+    "title": "4.5 Accreditation",
+    "start_page_physical": 67,
+    "start_page_printed": 67,
+    "end_page_physical": 69,
+    "verified_raw_file": "pages_raw/page_067.txt"
+  },
+  {
+    "section_index": 81,
+    "title": "DRAW",
+    "start_page_physical": 70,
+    "start_page_printed": 70,
+    "end_page_physical": 70,
+    "verified_raw_file": "pages_raw/page_070.txt"
+  },
+  {
+    "section_index": 82,
+    "title": "5.1 Draw Regulations",
+    "start_page_physical": 71,
+    "start_page_printed": 71,
+    "end_page_physical": 71,
+    "verified_raw_file": "pages_raw/page_071.txt"
+  },
+  {
+    "section_index": 83,
+    "title": "5.2 Seeding for IJF WJT Events",
+    "start_page_physical": 71,
+    "start_page_printed": 71,
+    "end_page_physical": 71,
+    "verified_raw_file": "pages_raw/page_071.txt"
+  },
+  {
+    "section_index": 84,
+    "title": "5.3 Seeding for Olympic Games",
+    "start_page_physical": 72,
+    "start_page_printed": 72,
+    "end_page_physical": 73,
+    "verified_raw_file": "pages_raw/page_072.txt"
+  },
+  {
+    "section_index": 85,
+    "title": "WEIGH-IN",
+    "start_page_physical": 74,
+    "start_page_printed": 74,
+    "end_page_physical": 74,
+    "verified_raw_file": "pages_raw/page_074.txt"
+  },
+  {
+    "section_index": 86,
+    "title": "6.1 Weight Categories and Limits for Individual Events",
+    "start_page_physical": 75,
+    "start_page_printed": 75,
+    "end_page_physical": 75,
+    "verified_raw_file": "pages_raw/page_075.txt"
+  },
+  {
+    "section_index": 87,
+    "title": "6.2 Weigh-in Overview",
+    "start_page_physical": 76,
+    "start_page_printed": 76,
+    "end_page_physical": 76,
+    "verified_raw_file": "pages_raw/page_076.txt"
+  },
+  {
+    "section_index": 88,
+    "title": "6.2.1 Pre-Weight Check Rooms (Test Scales)",
+    "start_page_physical": 76,
+    "start_page_printed": 76,
+    "end_page_physical": 76,
+    "verified_raw_file": "pages_raw/page_076.txt"
+  },
+  {
+    "section_index": 89,
+    "title": "6.2.2 Unofficial Weigh-in",
+    "start_page_physical": 76,
+    "start_page_printed": 76,
+    "end_page_physical": 76,
+    "verified_raw_file": "pages_raw/page_076.txt"
+  },
+  {
+    "section_index": 90,
+    "title": "6.2.3 Official Weigh-in",
+    "start_page_physical": 77,
+    "start_page_printed": 77,
+    "end_page_physical": 77,
+    "verified_raw_file": "pages_raw/page_077.txt"
+  },
+  {
+    "section_index": 91,
+    "title": "6.2.4 Official Weigh-in Procedure",
+    "start_page_physical": 77,
+    "start_page_printed": 77,
+    "end_page_physical": 77,
+    "verified_raw_file": "pages_raw/page_077.txt"
+  },
+  {
+    "section_index": 92,
+    "title": "6.2.5 Compliance Rules",
+    "start_page_physical": 78,
+    "start_page_printed": 78,
+    "end_page_physical": 78,
+    "verified_raw_file": "pages_raw/page_078.txt"
+  },
+  {
+    "section_index": 93,
+    "title": "6.3 Random Weigh-in",
+    "start_page_physical": 79,
+    "start_page_printed": 79,
+    "end_page_physical": 79,
+    "verified_raw_file": "pages_raw/page_079.txt"
+  },
+  {
+    "section_index": 94,
+    "title": "6.3.1 Draw of the Athletes",
+    "start_page_physical": 79,
+    "start_page_printed": 79,
+    "end_page_physical": 79,
+    "verified_raw_file": "pages_raw/page_079.txt"
+  },
+  {
+    "section_index": 95,
+    "title": "6.3.2 Collecting the Athletes",
+    "start_page_physical": 79,
+    "start_page_printed": 79,
+    "end_page_physical": 79,
+    "verified_raw_file": "pages_raw/page_079.txt"
+  },
+  {
+    "section_index": 96,
+    "title": "6.3.3 Random Weigh-in Procedure",
+    "start_page_physical": 79,
+    "start_page_printed": 79,
+    "end_page_physical": 79,
+    "verified_raw_file": "pages_raw/page_079.txt"
+  },
+  {
+    "section_index": 97,
+    "title": "6.3.4 After Random Weigh-in Procedure",
+    "start_page_physical": 79,
+    "start_page_printed": 79,
+    "end_page_physical": 79,
+    "verified_raw_file": "pages_raw/page_079.txt"
+  },
+  {
+    "section_index": 98,
+    "title": "6.4 Mixed Teams Events Weigh-in",
+    "start_page_physical": 80,
+    "start_page_printed": 80,
+    "end_page_physical": 80,
+    "verified_raw_file": "pages_raw/page_080.txt"
+  },
+  {
+    "section_index": 99,
+    "title": "6.4.1. Standalone Mixed Team Weigh-in",
+    "start_page_physical": 81,
+    "start_page_printed": 81,
+    "end_page_physical": 81,
+    "verified_raw_file": "pages_raw/page_081.txt"
+  },
+  {
+    "section_index": 100,
+    "title": "6.4.2. Mixed Team Following an Individual Competition Weigh-in",
+    "start_page_physical": 81,
+    "start_page_printed": 81,
+    "end_page_physical": 82,
+    "verified_raw_file": "pages_raw/page_081.txt"
+  },
+  {
+    "section_index": 101,
+    "title": "6.4.3 Olympic Games Mixed Team Weigh-in",
+    "start_page_physical": 83,
+    "start_page_printed": 83,
+    "end_page_physical": 83,
+    "verified_raw_file": "pages_raw/page_083.txt"
+  },
+  {
+    "section_index": 102,
+    "title": "6.5 Female and Male Teams Events Weigh-in",
+    "start_page_physical": 84,
+    "start_page_printed": 84,
+    "end_page_physical": 87,
+    "verified_raw_file": "pages_raw/page_084.txt"
+  },
+  {
+    "section_index": 103,
+    "title": "EDUCATION AND COACHING",
+    "start_page_physical": 88,
+    "start_page_printed": 88,
+    "end_page_physical": 88,
+    "verified_raw_file": "pages_raw/page_088.txt"
+  },
+  {
+    "section_index": 104,
+    "title": "7.1 Coaches’ Code of Conduct",
+    "start_page_physical": 89,
+    "start_page_printed": 89,
+    "end_page_physical": 89,
+    "verified_raw_file": "pages_raw/page_089.txt"
+  },
+  {
+    "section_index": 105,
+    "title": "7.2 Coaches’ Dress Code",
+    "start_page_physical": 89,
+    "start_page_printed": 89,
+    "end_page_physical": 89,
+    "verified_raw_file": "pages_raw/page_089.txt"
+  },
+  {
+    "section_index": 106,
+    "title": "7.3 Contest Review Process",
+    "start_page_physical": 90,
+    "start_page_printed": 90,
+    "end_page_physical": 91,
+    "verified_raw_file": "pages_raw/page_090.txt"
+  },
+  {
+    "section_index": 107,
+    "title": "COMPETITION VENUE",
+    "start_page_physical": 92,
+    "start_page_printed": 92,
+    "end_page_physical": 92,
+    "verified_raw_file": "pages_raw/page_092.txt"
+  },
+  {
+    "section_index": 108,
+    "title": "8.1 Venue",
+    "start_page_physical": 93,
+    "start_page_printed": 93,
+    "end_page_physical": 93,
+    "verified_raw_file": "pages_raw/page_093.txt"
+  },
+  {
+    "section_index": 109,
+    "title": "8.2 Training Venue",
+    "start_page_physical": 93,
+    "start_page_printed": 93,
+    "end_page_physical": 93,
+    "verified_raw_file": "pages_raw/page_093.txt"
+  },
+  {
+    "section_index": 110,
+    "title": "8.3 Judogi Control",
+    "start_page_physical": 94,
+    "start_page_printed": 94,
+    "end_page_physical": 94,
+    "verified_raw_file": "pages_raw/page_094.txt"
+  },
+  {
+    "section_index": 111,
+    "title": "8.4 Warm-Up Area",
+    "start_page_physical": 94,
+    "start_page_printed": 94,
+    "end_page_physical": 94,
+    "verified_raw_file": "pages_raw/page_094.txt"
+  },
+  {
+    "section_index": 112,
+    "title": "8.5 Athlete Seating and Facilities",
+    "start_page_physical": 95,
+    "start_page_printed": 95,
+    "end_page_physical": 95,
+    "verified_raw_file": "pages_raw/page_095.txt"
+  },
+  {
+    "section_index": 113,
+    "title": "8.6 Entry to and Exit from Field of Play",
+    "start_page_physical": 95,
+    "start_page_printed": 95,
+    "end_page_physical": 95,
+    "verified_raw_file": "pages_raw/page_095.txt"
+  },
+  {
+    "section_index": 114,
+    "title": "8.7 Field of Play and Competition Area",
+    "start_page_physical": 96,
+    "start_page_printed": 96,
+    "end_page_physical": 96,
+    "verified_raw_file": "pages_raw/page_096.txt"
+  },
+  {
+    "section_index": 115,
+    "title": "8.8 Medical",
+    "start_page_physical": 97,
+    "start_page_printed": 97,
+    "end_page_physical": 97,
+    "verified_raw_file": "pages_raw/page_097.txt"
+  },
+  {
+    "section_index": 116,
+    "title": "8.9 Media",
+    "start_page_physical": 97,
+    "start_page_printed": 97,
+    "end_page_physical": 97,
+    "verified_raw_file": "pages_raw/page_097.txt"
+  },
+  {
+    "section_index": 117,
+    "title": "8.10 Awarding Ceremonies",
+    "start_page_physical": 98,
+    "start_page_printed": 98,
+    "end_page_physical": 98,
+    "verified_raw_file": "pages_raw/page_098.txt"
+  },
+  {
+    "section_index": 118,
+    "title": "8.11 Delay, Postponement or Cancellation of a Competition",
+    "start_page_physical": 99,
+    "start_page_printed": 99,
+    "end_page_physical": 99,
+    "verified_raw_file": "pages_raw/page_099.txt"
+  },
+  {
+    "section_index": 119,
+    "title": "REGULATIONS FOR VETERANS",
+    "start_page_physical": 100,
+    "start_page_printed": 100,
+    "end_page_physical": 100,
+    "verified_raw_file": "pages_raw/page_100.txt"
+  },
+  {
+    "section_index": 120,
+    "title": "A1.1 Organisation",
+    "start_page_physical": 101,
+    "start_page_printed": 101,
+    "end_page_physical": 101,
+    "verified_raw_file": "pages_raw/page_101.txt"
+  },
+  {
+    "section_index": 121,
+    "title": "A1.2 Competition Rules for Veterans",
+    "start_page_physical": 101,
+    "start_page_printed": 101,
+    "end_page_physical": 101,
+    "verified_raw_file": "pages_raw/page_101.txt"
+  },
+  {
+    "section_index": 122,
+    "title": "A1.3 Eligibility to Participate",
+    "start_page_physical": 101,
+    "start_page_printed": 101,
+    "end_page_physical": 101,
+    "verified_raw_file": "pages_raw/page_101.txt"
+  },
+  {
+    "section_index": 123,
+    "title": "A1.3.1 Event Inscription",
+    "start_page_physical": 102,
+    "start_page_printed": 102,
+    "end_page_physical": 102,
+    "verified_raw_file": "pages_raw/page_102.txt"
+  },
+  {
+    "section_index": 124,
+    "title": "A1.4 Age Divisions for Veterans",
+    "start_page_physical": 103,
+    "start_page_printed": 103,
+    "end_page_physical": 103,
+    "verified_raw_file": "pages_raw/page_103.txt"
+  },
+  {
+    "section_index": 125,
+    "title": "A1.5 Weight Categories for Veterans",
+    "start_page_physical": 103,
+    "start_page_printed": 103,
+    "end_page_physical": 103,
+    "verified_raw_file": "pages_raw/page_103.txt"
+  },
+  {
+    "section_index": 126,
+    "title": "A1.6 Time Duration of Contests for Veterans",
+    "start_page_physical": 103,
+    "start_page_printed": 103,
+    "end_page_physical": 103,
+    "verified_raw_file": "pages_raw/page_103.txt"
+  },
+  {
+    "section_index": 127,
+    "title": "A1.7 Category Combining for Veterans",
+    "start_page_physical": 103,
+    "start_page_printed": 103,
+    "end_page_physical": 104,
+    "verified_raw_file": "pages_raw/page_103.txt"
+  },
+  {
+    "section_index": 128,
+    "title": "A1.8 Draw for Veterans",
+    "start_page_physical": 105,
+    "start_page_printed": 105,
+    "end_page_physical": 105,
+    "verified_raw_file": "pages_raw/page_105.txt"
+  },
+  {
+    "section_index": 129,
+    "title": "A1.9 Seeding for Veterans",
+    "start_page_physical": 105,
+    "start_page_printed": 105,
+    "end_page_physical": 105,
+    "verified_raw_file": "pages_raw/page_105.txt"
+  },
+  {
+    "section_index": 130,
+    "title": "A1.10 Weigh-in for Veterans",
+    "start_page_physical": 105,
+    "start_page_printed": 105,
+    "end_page_physical": 105,
+    "verified_raw_file": "pages_raw/page_105.txt"
+  },
+  {
+    "section_index": 131,
+    "title": "A1.11 Judogi Rules for Veterans",
+    "start_page_physical": 105,
+    "start_page_printed": 105,
+    "end_page_physical": 105,
+    "verified_raw_file": "pages_raw/page_105.txt"
+  },
+  {
+    "section_index": 132,
+    "title": "A1.12 Backnumbers for Veterans",
+    "start_page_physical": 105,
+    "start_page_printed": 105,
+    "end_page_physical": 105,
+    "verified_raw_file": "pages_raw/page_105.txt"
+  },
+  {
+    "section_index": 133,
+    "title": "A1.13 Competition System for Veterans",
+    "start_page_physical": 105,
+    "start_page_printed": 105,
+    "end_page_physical": 105,
+    "verified_raw_file": "pages_raw/page_105.txt"
+  },
+  {
+    "section_index": 134,
+    "title": "A1.14 Round Robin Golden Score",
+    "start_page_physical": 105,
+    "start_page_printed": 105,
+    "end_page_physical": 105,
+    "verified_raw_file": "pages_raw/page_105.txt"
+  },
+  {
+    "section_index": 135,
+    "title": "A1.15 Awarding of Medals for Veterans",
+    "start_page_physical": 106,
+    "start_page_printed": 106,
+    "end_page_physical": 107,
+    "verified_raw_file": "pages_raw/page_106.txt"
+  },
+  {
+    "section_index": 136,
+    "title": "REGULATIONS FOR KATA",
+    "start_page_physical": 108,
+    "start_page_printed": 108,
+    "end_page_physical": 108,
+    "verified_raw_file": "pages_raw/page_108.txt"
+  },
+  {
+    "section_index": 137,
+    "title": "B1.1 Eligibility to Participate",
+    "start_page_physical": 109,
+    "start_page_printed": 109,
+    "end_page_physical": 109,
+    "verified_raw_file": "pages_raw/page_109.txt"
+  },
+  {
+    "section_index": 138,
+    "title": "B1.2 Kata",
+    "start_page_physical": 109,
+    "start_page_printed": 109,
+    "end_page_physical": 109,
+    "verified_raw_file": "pages_raw/page_109.txt"
+  },
+  {
+    "section_index": 139,
+    "title": "B1.3 Accreditation",
+    "start_page_physical": 109,
+    "start_page_printed": 109,
+    "end_page_physical": 109,
+    "verified_raw_file": "pages_raw/page_109.txt"
+  },
+  {
+    "section_index": 140,
+    "title": "B1.4 Draw",
+    "start_page_physical": 110,
+    "start_page_printed": 110,
+    "end_page_physical": 110,
+    "verified_raw_file": "pages_raw/page_110.txt"
+  },
+  {
+    "section_index": 141,
+    "title": "B1.5 Ranking Points",
+    "start_page_physical": 110,
+    "start_page_printed": 110,
+    "end_page_physical": 110,
+    "verified_raw_file": "pages_raw/page_110.txt"
+  },
+  {
+    "section_index": 142,
+    "title": "B1.6 Competition Formula",
+    "start_page_physical": 111,
+    "start_page_printed": 111,
+    "end_page_physical": 111,
+    "verified_raw_file": "pages_raw/page_111.txt"
+  },
+  {
+    "section_index": 143,
+    "title": "B1.8 Competition Area",
+    "start_page_physical": 112,
+    "start_page_printed": 112,
+    "end_page_physical": 112,
+    "verified_raw_file": "pages_raw/page_112.txt"
+  },
+  {
+    "section_index": 144,
+    "title": "B1.9 Awarding Ceremony",
+    "start_page_physical": 113,
+    "start_page_printed": 113,
+    "end_page_physical": 113,
+    "verified_raw_file": "pages_raw/page_113.txt"
+  },
+  {
+    "section_index": 145,
+    "title": "B1.10 Coaches",
+    "start_page_physical": 113,
+    "start_page_printed": 113,
+    "end_page_physical": 113,
+    "verified_raw_file": "pages_raw/page_113.txt"
+  },
+  {
+    "section_index": 146,
+    "title": "B1.11 Medical Situation",
+    "start_page_physical": 113,
+    "start_page_printed": 113,
+    "end_page_physical": 113,
+    "verified_raw_file": "pages_raw/page_113.txt"
+  },
+  {
+    "section_index": 147,
+    "title": "B1.12 Judogi Control",
+    "start_page_physical": 113,
+    "start_page_printed": 113,
+    "end_page_physical": 113,
+    "verified_raw_file": "pages_raw/page_113.txt"
+  },
+  {
+    "section_index": 148,
+    "title": "IJF JUDOGI RULES",
+    "start_page_physical": 114,
+    "start_page_printed": 114,
+    "end_page_physical": 114,
+    "verified_raw_file": "pages_raw/page_114.txt"
+  },
+  {
+    "section_index": 149,
+    "title": "C1.1 IJF Approved Judogi",
+    "start_page_physical": 115,
+    "start_page_printed": 115,
+    "end_page_physical": 115,
+    "verified_raw_file": "pages_raw/page_115.txt"
+  },
+  {
+    "section_index": 150,
+    "title": "C1.1.1 Location of the Judogi and Backnumber Pre-Control",
+    "start_page_physical": 115,
+    "start_page_printed": 115,
+    "end_page_physical": 115,
+    "verified_raw_file": "pages_raw/page_115.txt"
+  },
+  {
+    "section_index": 151,
+    "title": "C1.1.2 Judogi and Backnumber Pre-Control",
+    "start_page_physical": 115,
+    "start_page_printed": 115,
+    "end_page_physical": 115,
+    "verified_raw_file": "pages_raw/page_115.txt"
+  },
+  {
+    "section_index": 152,
+    "title": "C1.1.2.1 Judogi Pre-Control",
+    "start_page_physical": 115,
+    "start_page_printed": 115,
+    "end_page_physical": 115,
+    "verified_raw_file": "pages_raw/page_115.txt"
+  },
+  {
+    "section_index": 153,
+    "title": "C1.1.2.2 Backnumber Pre-Control",
+    "start_page_physical": 115,
+    "start_page_printed": 115,
+    "end_page_physical": 115,
+    "verified_raw_file": "pages_raw/page_115.txt"
+  },
+  {
+    "section_index": 154,
+    "title": "C1.1.3 Consequences of Failing Judogi Control",
+    "start_page_physical": 116,
+    "start_page_printed": 116,
+    "end_page_physical": 116,
+    "verified_raw_file": "pages_raw/page_116.txt"
+  },
+  {
+    "section_index": 155,
+    "title": "C1.1.4 Judogi Control Verification Positions",
+    "start_page_physical": 116,
+    "start_page_printed": 116,
+    "end_page_physical": 116,
+    "verified_raw_file": "pages_raw/page_116.txt"
+  },
+  {
+    "section_index": 156,
+    "title": "C1.1.5 Judogi Control Procedure",
+    "start_page_physical": 117,
+    "start_page_printed": 117,
+    "end_page_physical": 117,
+    "verified_raw_file": "pages_raw/page_117.txt"
+  },
+  {
+    "section_index": 157,
+    "title": "C1.2 IJF Label",
+    "start_page_physical": 118,
+    "start_page_printed": 118,
+    "end_page_physical": 118,
+    "verified_raw_file": "pages_raw/page_118.txt"
+  },
+  {
+    "section_index": 158,
+    "title": "C1.3 Location of the Manufacturer’s Logo",
+    "start_page_physical": 119,
+    "start_page_printed": 119,
+    "end_page_physical": 119,
+    "verified_raw_file": "pages_raw/page_119.txt"
+  },
+  {
+    "section_index": 159,
+    "title": "C1.4 National Emblem",
+    "start_page_physical": 120,
+    "start_page_printed": 120,
+    "end_page_physical": 120,
+    "verified_raw_file": "pages_raw/page_120.txt"
+  },
+  {
+    "section_index": 160,
+    "title": "C1.5 Advertising",
+    "start_page_physical": 121,
+    "start_page_printed": 121,
+    "end_page_physical": 121,
+    "verified_raw_file": "pages_raw/page_121.txt"
+  },
+  {
+    "section_index": 161,
+    "title": "C1.6 Additional Advertising Reserved for the Athlete",
+    "start_page_physical": 121,
+    "start_page_printed": 121,
+    "end_page_physical": 121,
+    "verified_raw_file": "pages_raw/page_121.txt"
+  },
+  {
+    "section_index": 162,
+    "title": "C1.7 Marking",
+    "start_page_physical": 122,
+    "start_page_printed": 122,
+    "end_page_physical": 122,
+    "verified_raw_file": "pages_raw/page_122.txt"
+  },
+  {
+    "section_index": 163,
+    "title": "C1.8 Backnumber",
+    "start_page_physical": 122,
+    "start_page_printed": 122,
+    "end_page_physical": 123,
+    "verified_raw_file": "pages_raw/page_122.txt"
+  },
+  {
+    "section_index": 164,
+    "title": "C1.9 Judogi Colour",
+    "start_page_physical": 124,
+    "start_page_printed": 124,
+    "end_page_physical": 124,
+    "verified_raw_file": "pages_raw/page_124.txt"
+  },
+  {
+    "section_index": 165,
+    "title": "C1.10 Judogi Size",
+    "start_page_physical": 124,
+    "start_page_printed": 124,
+    "end_page_physical": 125,
+    "verified_raw_file": "pages_raw/page_124.txt"
+  },
+  {
+    "section_index": 166,
+    "title": "C1.11 T-shirt",
+    "start_page_physical": 126,
+    "start_page_printed": 126,
+    "end_page_physical": 126,
+    "verified_raw_file": "pages_raw/page_126.txt"
+  },
+  {
+    "section_index": 167,
+    "title": "C1.12 Reserve Judogi Supply",
+    "start_page_physical": 126,
+    "start_page_printed": 126,
+    "end_page_physical": 126,
+    "verified_raw_file": "pages_raw/page_126.txt"
+  },
+  {
+    "section_index": 168,
+    "title": "C1.13 National Technical Officials’ Duties",
+    "start_page_physical": 127,
+    "start_page_printed": 127,
+    "end_page_physical": 128,
+    "verified_raw_file": "pages_raw/page_127.txt"
+  },
+  {
+    "section_index": 169,
+    "title": "C1.14 World Champion and/or Olympic Champion Titles Enhancement",
+    "start_page_physical": 129,
+    "start_page_printed": 129,
+    "end_page_physical": 129,
+    "verified_raw_file": "pages_raw/page_129.txt"
+  },
+  {
+    "section_index": 170,
+    "title": "C1.14.1 Procedure Regarding World Champion Title(s)",
+    "start_page_physical": 129,
+    "start_page_printed": 129,
+    "end_page_physical": 129,
+    "verified_raw_file": "pages_raw/page_129.txt"
+  },
+  {
+    "section_index": 171,
+    "title": "C1.14.2 Procedure Regarding Olympic Champion Title(s)",
+    "start_page_physical": 130,
+    "start_page_printed": 130,
+    "end_page_physical": 131,
+    "verified_raw_file": "pages_raw/page_130.txt"
+  },
+  {
+    "section_index": 172,
+    "title": "IJF REFEREEING RULES",
+    "start_page_physical": 132,
+    "start_page_printed": 132,
+    "end_page_physical": 132,
+    "verified_raw_file": "pages_raw/page_132.txt"
+  },
+  {
+    "section_index": 173,
+    "title": "D1.1 Refereeing - Culture, History and Principles",
+    "start_page_physical": 133,
+    "start_page_printed": 133,
+    "end_page_physical": 134,
+    "verified_raw_file": "pages_raw/page_133.txt"
+  },
+  {
+    "section_index": 174,
+    "title": "Article 1 Referees and Officials",
+    "start_page_physical": 135,
+    "start_page_printed": 135,
+    "end_page_physical": 135,
+    "verified_raw_file": "pages_raw/page_135.txt"
+  },
+  {
+    "section_index": 175,
+    "title": "Article 2 Position and Function of the Referee",
+    "start_page_physical": 136,
+    "start_page_printed": 136,
+    "end_page_physical": 136,
+    "verified_raw_file": "pages_raw/page_136.txt"
+  },
+  {
+    "section_index": 176,
+    "title": "Article 3 Role of Non-Officiating Referees",
+    "start_page_physical": 137,
+    "start_page_printed": 137,
+    "end_page_physical": 137,
+    "verified_raw_file": "pages_raw/page_137.txt"
+  },
+  {
+    "section_index": 177,
+    "title": "Article 4 Gestures",
+    "start_page_physical": 137,
+    "start_page_printed": 137,
+    "end_page_physical": 150,
+    "verified_raw_file": "pages_raw/page_137.txt"
+  },
+  {
+    "section_index": 178,
+    "title": "Article 5 Location (Valid Areas)",
+    "start_page_physical": 151,
+    "start_page_printed": 151,
+    "end_page_physical": 151,
+    "verified_raw_file": "pages_raw/page_151.txt"
+  },
+  {
+    "section_index": 179,
+    "title": "Article 6 Duration of the Contest",
+    "start_page_physical": 152,
+    "start_page_printed": 152,
+    "end_page_physical": 152,
+    "verified_raw_file": "pages_raw/page_152.txt"
+  },
+  {
+    "section_index": 180,
+    "title": "Article 7 Osaekomi Time",
+    "start_page_physical": 152,
+    "start_page_printed": 152,
+    "end_page_physical": 152,
+    "verified_raw_file": "pages_raw/page_152.txt"
+  },
+  {
+    "section_index": 181,
+    "title": "Article 8 Technique Coinciding with the Time Signal",
+    "start_page_physical": 153,
+    "start_page_printed": 153,
+    "end_page_physical": 153,
+    "verified_raw_file": "pages_raw/page_153.txt"
+  },
+  {
+    "section_index": 182,
+    "title": "Article 9 Start of the Contest",
+    "start_page_physical": 153,
+    "start_page_printed": 153,
+    "end_page_physical": 154,
+    "verified_raw_file": "pages_raw/page_153.txt"
+  },
+  {
+    "section_index": 183,
+    "title": "waza (B)",
+    "start_page_physical": 155,
+    "start_page_printed": 155,
+    "end_page_physical": 159,
+    "verified_raw_file": "pages_raw/page_155.txt"
+  },
+  {
+    "section_index": 184,
+    "title": "Article 11 Application of Mate",
+    "start_page_physical": 160,
+    "start_page_printed": 160,
+    "end_page_physical": 161,
+    "verified_raw_file": "pages_raw/page_160.txt"
+  },
+  {
+    "section_index": 185,
+    "title": "Article 12 Sono-mama",
+    "start_page_physical": 162,
+    "start_page_printed": 162,
+    "end_page_physical": 162,
+    "verified_raw_file": "pages_raw/page_162.txt"
+  },
+  {
+    "section_index": 186,
+    "title": "Article 13 End of the Contest",
+    "start_page_physical": 163,
+    "start_page_printed": 163,
+    "end_page_physical": 165,
+    "verified_raw_file": "pages_raw/page_163.txt"
+  },
+  {
+    "section_index": 187,
+    "title": "Article 14 Ippon",
+    "start_page_physical": 166,
+    "start_page_printed": 166,
+    "end_page_physical": 167,
+    "verified_raw_file": "pages_raw/page_166.txt"
+  },
+  {
+    "section_index": 188,
+    "title": "Article 15 Waza-ari and Yuko",
+    "start_page_physical": 168,
+    "start_page_printed": 168,
+    "end_page_physical": 171,
+    "verified_raw_file": "pages_raw/page_168.txt"
+  },
+  {
+    "section_index": 189,
+    "title": "Article 16 Waza-ari-awasete-ippon",
+    "start_page_physical": 172,
+    "start_page_printed": 172,
+    "end_page_physical": 172,
+    "verified_raw_file": "pages_raw/page_172.txt"
+  },
+  {
+    "section_index": 190,
+    "title": "Article 17 Osaekomi-waza",
+    "start_page_physical": 173,
+    "start_page_printed": 173,
+    "end_page_physical": 174,
+    "verified_raw_file": "pages_raw/page_173.txt"
+  },
+  {
+    "section_index": 191,
+    "title": "Article 18 Prohibited Acts and Penalties",
+    "start_page_physical": 175,
+    "start_page_printed": 175,
+    "end_page_physical": 175,
+    "verified_raw_file": "pages_raw/page_175.txt"
+  },
+  {
+    "section_index": 192,
+    "title": "Article 18.1 Shido (Slight Infringements Group)",
+    "start_page_physical": 176,
+    "start_page_printed": 176,
+    "end_page_physical": 176,
+    "verified_raw_file": "pages_raw/page_176.txt"
+  },
+  {
+    "section_index": 193,
+    "title": "Article 18.1.1 Shido for a Lack of Combativity",
+    "start_page_physical": 177,
+    "start_page_printed": 177,
+    "end_page_physical": 177,
+    "verified_raw_file": "pages_raw/page_177.txt"
+  },
+  {
+    "section_index": 194,
+    "title": "Article 18.1.2 Shido for an Illegal Move",
+    "start_page_physical": 178,
+    "start_page_printed": 178,
+    "end_page_physical": 187,
+    "verified_raw_file": "pages_raw/page_178.txt"
+  },
+  {
+    "section_index": 195,
+    "title": "Article 18.1.3 Untidy Attire or Hair and Wasting Time",
+    "start_page_physical": 188,
+    "start_page_printed": 188,
+    "end_page_physical": 188,
+    "verified_raw_file": "pages_raw/page_188.txt"
+  },
+  {
+    "section_index": 196,
+    "title": "Article 18.1.4 Penalties (Shido) in Cadet Competitions",
+    "start_page_physical": 188,
+    "start_page_printed": 188,
+    "end_page_physical": 189,
+    "verified_raw_file": "pages_raw/page_188.txt"
+  },
+  {
+    "section_index": 197,
+    "title": "Article 18.2.1 Hansoku-make for Dangerous Techniques",
+    "start_page_physical": 190,
+    "start_page_printed": 190,
+    "end_page_physical": 190,
+    "verified_raw_file": "pages_raw/page_190.txt"
+  },
+  {
+    "section_index": 198,
+    "title": "Article 18.2.2 Hansoku-make for Acts against the Spirit of Judo",
+    "start_page_physical": 190,
+    "start_page_printed": 190,
+    "end_page_physical": 193,
+    "verified_raw_file": "pages_raw/page_190.txt"
+  },
+  {
+    "section_index": 199,
+    "title": "Article 18.3 Double Hansoku-make",
+    "start_page_physical": 194,
+    "start_page_printed": 194,
+    "end_page_physical": 194,
+    "verified_raw_file": "pages_raw/page_194.txt"
+  },
+  {
+    "section_index": 200,
+    "title": "Article 18.3.1 Double hansoku-make (Indirect)",
+    "start_page_physical": 194,
+    "start_page_printed": 194,
+    "end_page_physical": 194,
+    "verified_raw_file": "pages_raw/page_194.txt"
+  },
+  {
+    "section_index": 201,
+    "title": "Article 18.3.2 Double hansoku-make (Direct)",
+    "start_page_physical": 194,
+    "start_page_printed": 194,
+    "end_page_physical": 194,
+    "verified_raw_file": "pages_raw/page_194.txt"
+  },
+  {
+    "section_index": 202,
+    "title": "Article 19 Default and Withdrawal",
+    "start_page_physical": 195,
+    "start_page_printed": 195,
+    "end_page_physical": 195,
+    "verified_raw_file": "pages_raw/page_195.txt"
+  },
+  {
+    "section_index": 203,
+    "title": "Article 19.1 Default",
+    "start_page_physical": 195,
+    "start_page_printed": 195,
+    "end_page_physical": 195,
+    "verified_raw_file": "pages_raw/page_195.txt"
+  },
+  {
+    "section_index": 204,
+    "title": "Article 19.2 Withdrawal",
+    "start_page_physical": 195,
+    "start_page_printed": 195,
+    "end_page_physical": 195,
+    "verified_raw_file": "pages_raw/page_195.txt"
+  },
+  {
+    "section_index": 205,
+    "title": "Article 20 Injury, Illness or Accident",
+    "start_page_physical": 196,
+    "start_page_printed": 196,
+    "end_page_physical": 196,
+    "verified_raw_file": "pages_raw/page_196.txt"
+  },
+  {
+    "section_index": 206,
+    "title": "Article 20.1 Continuation of a Contest",
+    "start_page_physical": 196,
+    "start_page_printed": 196,
+    "end_page_physical": 196,
+    "verified_raw_file": "pages_raw/page_196.txt"
+  },
+  {
+    "section_index": 207,
+    "title": "Article 20.2 Medical Examinations and Treatment Inside the Contest Area",
+    "start_page_physical": 197,
+    "start_page_printed": 197,
+    "end_page_physical": 197,
+    "verified_raw_file": "pages_raw/page_197.txt"
+  },
+  {
+    "section_index": 208,
+    "title": "Article 20.3 Medical Examination and Treatment Outside the Contest Area",
+    "start_page_physical": 198,
+    "start_page_printed": 198,
+    "end_page_physical": 198,
+    "verified_raw_file": "pages_raw/page_198.txt"
+  },
+  {
+    "section_index": 209,
+    "title": "Article 20.3.1 Treatment of Bleeding",
+    "start_page_physical": 198,
+    "start_page_printed": 198,
+    "end_page_physical": 198,
+    "verified_raw_file": "pages_raw/page_198.txt"
+  },
+  {
+    "section_index": 210,
+    "title": "Article 20.3.2 Treatment of Minor Injuries",
+    "start_page_physical": 198,
+    "start_page_printed": 198,
+    "end_page_physical": 198,
+    "verified_raw_file": "pages_raw/page_198.txt"
+  },
+  {
+    "section_index": 211,
+    "title": "Article 21 Situations not Covered by the Refereeing Rules",
+    "start_page_physical": 199,
+    "start_page_printed": 199,
+    "end_page_physical": 199,
+    "verified_raw_file": "pages_raw/page_199.txt"
+  },
+  {
+    "section_index": 212,
+    "title": "IJF MEDICAL AND ANTI-DOPING HANDBOOK",
+    "start_page_physical": 200,
+    "start_page_printed": 200,
+    "end_page_physical": 200,
+    "verified_raw_file": "pages_raw/page_200.txt"
+  },
+  {
+    "section_index": 213,
+    "title": "E1.1 Medical Requirements",
+    "start_page_physical": 201,
+    "start_page_printed": 201,
+    "end_page_physical": 201,
+    "verified_raw_file": "pages_raw/page_201.txt"
+  },
+  {
+    "section_index": 214,
+    "title": "E1.1.1 Decision Making on the Field of Play",
+    "start_page_physical": 201,
+    "start_page_printed": 201,
+    "end_page_physical": 201,
+    "verified_raw_file": "pages_raw/page_201.txt"
+  },
+  {
+    "section_index": 215,
+    "title": "E1.1.2 Decision Making off the Field of Play",
+    "start_page_physical": 201,
+    "start_page_printed": 201,
+    "end_page_physical": 201,
+    "verified_raw_file": "pages_raw/page_201.txt"
+  },
+  {
+    "section_index": 216,
+    "title": "E1.1.3 Rights and Responsibilities",
+    "start_page_physical": 201,
+    "start_page_printed": 201,
+    "end_page_physical": 201,
+    "verified_raw_file": "pages_raw/page_201.txt"
+  },
+  {
+    "section_index": 217,
+    "title": "E1.2 Medical Suspension Following Concussion",
+    "start_page_physical": 202,
+    "start_page_printed": 202,
+    "end_page_physical": 202,
+    "verified_raw_file": "pages_raw/page_202.txt"
+  },
+  {
+    "section_index": 218,
+    "title": "E1.3 Hygiene",
+    "start_page_physical": 202,
+    "start_page_printed": 202,
+    "end_page_physical": 202,
+    "verified_raw_file": "pages_raw/page_202.txt"
+  },
+  {
+    "section_index": 219,
+    "title": "E1.4 Wearable Medical Devices",
+    "start_page_physical": 202,
+    "start_page_printed": 202,
+    "end_page_physical": 202,
+    "verified_raw_file": "pages_raw/page_202.txt"
+  },
+  {
+    "section_index": 220,
+    "title": "E1.5 Doctors’ Code of Conduct",
+    "start_page_physical": 202,
+    "start_page_printed": 202,
+    "end_page_physical": 202,
+    "verified_raw_file": "pages_raw/page_202.txt"
+  },
+  {
+    "section_index": 221,
+    "title": "E1.6 Doping Control Requirements",
+    "start_page_physical": 203,
+    "start_page_printed": 203,
+    "end_page_physical": 203,
+    "verified_raw_file": "pages_raw/page_203.txt"
+  },
+  {
+    "section_index": 222,
+    "title": "E1.6.1 Event Testing",
+    "start_page_physical": 203,
+    "start_page_printed": 203,
+    "end_page_physical": 203,
+    "verified_raw_file": "pages_raw/page_203.txt"
+  },
+  {
+    "section_index": 223,
+    "title": "E1.6.2 Selection Procedure for Doping Control",
+    "start_page_physical": 203,
+    "start_page_printed": 203,
+    "end_page_physical": 203,
+    "verified_raw_file": "pages_raw/page_203.txt"
+  },
+  {
+    "section_index": 224,
+    "title": "E1.6.3 Athlete Notification",
+    "start_page_physical": 203,
+    "start_page_printed": 203,
+    "end_page_physical": 203,
+    "verified_raw_file": "pages_raw/page_203.txt"
+  },
+  {
+    "section_index": 225,
+    "title": "E1.6.3.1 Modification of Notification for Minor Athletes",
+    "start_page_physical": 203,
+    "start_page_printed": 203,
+    "end_page_physical": 203,
+    "verified_raw_file": "pages_raw/page_203.txt"
+  },
+  {
+    "section_index": 226,
+    "title": "E1.6.4 Laboratory",
+    "start_page_physical": 203,
+    "start_page_printed": 203,
+    "end_page_physical": 203,
+    "verified_raw_file": "pages_raw/page_203.txt"
+  },
+  {
+    "section_index": 227,
+    "title": "SPORT COMPETITION",
+    "start_page_physical": 204,
+    "start_page_printed": 204,
+    "end_page_physical": 204,
+    "verified_raw_file": "pages_raw/page_204.txt"
+  },
+  {
+    "section_index": 228,
+    "title": "F1.1 IJF Event Phases",
+    "start_page_physical": 205,
+    "start_page_printed": 205,
+    "end_page_physical": 206,
+    "verified_raw_file": "pages_raw/page_205.txt"
+  },
+  {
+    "section_index": 229,
+    "title": "F1.2 Athlete Scoreboards",
+    "start_page_physical": 207,
+    "start_page_printed": 207,
+    "end_page_physical": 207,
+    "verified_raw_file": "pages_raw/page_207.txt"
+  },
+  {
+    "section_index": 230,
+    "title": "F1.3 Standard Forms for IJF Events",
+    "start_page_physical": 208,
+    "start_page_printed": 208,
+    "end_page_physical": 208,
+    "verified_raw_file": "pages_raw/page_208.txt"
+  },
+  {
+    "section_index": 231,
+    "title": "F1.3.1 Delegation Control List",
+    "start_page_physical": 208,
+    "start_page_printed": 208,
+    "end_page_physical": 208,
+    "verified_raw_file": "pages_raw/page_208.txt"
+  },
+  {
+    "section_index": 232,
+    "title": "F1.3.2 Weigh-in List",
+    "start_page_physical": 209,
+    "start_page_printed": 209,
+    "end_page_physical": 209,
+    "verified_raw_file": "pages_raw/page_209.txt"
+  },
+  {
+    "section_index": 233,
+    "title": "F1.3.3 Contest Order",
+    "start_page_physical": 210,
+    "start_page_printed": 210,
+    "end_page_physical": 210,
+    "verified_raw_file": "pages_raw/page_210.txt"
+  },
+  {
+    "section_index": 234,
+    "title": "F1.3.4 Referees’ List",
+    "start_page_physical": 211,
+    "start_page_printed": 211,
+    "end_page_physical": 211,
+    "verified_raw_file": "pages_raw/page_211.txt"
+  },
+  {
+    "section_index": 235,
+    "title": "F1.3.5 Contest Sheet",
+    "start_page_physical": 212,
+    "start_page_printed": 212,
+    "end_page_physical": 212,
+    "verified_raw_file": "pages_raw/page_212.txt"
+  },
+  {
+    "section_index": 236,
+    "title": "F1.3.6 Direct Knockout",
+    "start_page_physical": 213,
+    "start_page_printed": 213,
+    "end_page_physical": 213,
+    "verified_raw_file": "pages_raw/page_213.txt"
+  },
+  {
+    "section_index": 237,
+    "title": "F1.3.7 Quarter-Final Repechage",
+    "start_page_physical": 214,
+    "start_page_printed": 214,
+    "end_page_physical": 214,
+    "verified_raw_file": "pages_raw/page_214.txt"
+  },
+  {
+    "section_index": 238,
+    "title": "F1.3.8 Quarter-Final Repechage up to 64 Athletes or Teams",
+    "start_page_physical": 215,
+    "start_page_printed": 215,
+    "end_page_physical": 215,
+    "verified_raw_file": "pages_raw/page_215.txt"
+  },
+  {
+    "section_index": 239,
+    "title": "F1.3.9 Quarter-Final Repechage up to 32 Athletes or Teams",
+    "start_page_physical": 216,
+    "start_page_printed": 216,
+    "end_page_physical": 216,
+    "verified_raw_file": "pages_raw/page_216.txt"
+  },
+  {
+    "section_index": 240,
+    "title": "F1.3.10 Quarter-Final Repechage up to 16 Athletes or Teams",
+    "start_page_physical": 217,
+    "start_page_printed": 217,
+    "end_page_physical": 217,
+    "verified_raw_file": "pages_raw/page_217.txt"
+  },
+  {
+    "section_index": 241,
+    "title": "F1.3.11 Quarter-Final Repechage up to 8 Athletes or Teams",
+    "start_page_physical": 218,
+    "start_page_printed": 218,
+    "end_page_physical": 218,
+    "verified_raw_file": "pages_raw/page_218.txt"
+  },
+  {
+    "section_index": 242,
+    "title": "F1.3.12 Double Repechage up to 64 Athletes or Teams",
+    "start_page_physical": 219,
+    "start_page_printed": 219,
+    "end_page_physical": 219,
+    "verified_raw_file": "pages_raw/page_219.txt"
+  },
+  {
+    "section_index": 243,
+    "title": "F1.3.13 Double Repechage up to 32 Athletes or Teams",
+    "start_page_physical": 220,
+    "start_page_printed": 220,
+    "end_page_physical": 220,
+    "verified_raw_file": "pages_raw/page_220.txt"
+  },
+  {
+    "section_index": 244,
+    "title": "F1.3.14 Double Repechage up to 16 Athletes or Teams",
+    "start_page_physical": 221,
+    "start_page_printed": 221,
+    "end_page_physical": 221,
+    "verified_raw_file": "pages_raw/page_221.txt"
+  },
+  {
+    "section_index": 245,
+    "title": "F1.3.15 Double Repechage up to 8 Athletes or Teams",
+    "start_page_physical": 222,
+    "start_page_printed": 222,
+    "end_page_physical": 222,
+    "verified_raw_file": "pages_raw/page_222.txt"
+  },
+  {
+    "section_index": 246,
+    "title": "F1.3.16 Full Repechage up to 32 Athletes or Teams",
+    "start_page_physical": 223,
+    "start_page_printed": 223,
+    "end_page_physical": 223,
+    "verified_raw_file": "pages_raw/page_223.txt"
+  },
+  {
+    "section_index": 247,
+    "title": "F1.3.17 Full Repechage up to 16 Athletes or Teams",
+    "start_page_physical": 224,
+    "start_page_printed": 224,
+    "end_page_physical": 224,
+    "verified_raw_file": "pages_raw/page_224.txt"
+  },
+  {
+    "section_index": 248,
+    "title": "F1.3.18 Five (5) Athletes or Teams - Option 1",
+    "start_page_physical": 225,
+    "start_page_printed": 225,
+    "end_page_physical": 225,
+    "verified_raw_file": "pages_raw/page_225.txt"
+  },
+  {
+    "section_index": 249,
+    "title": "F1.3.19 Five (5) Athletes or Teams - Option 2",
+    "start_page_physical": 226,
+    "start_page_printed": 226,
+    "end_page_physical": 226,
+    "verified_raw_file": "pages_raw/page_226.txt"
+  },
+  {
+    "section_index": 250,
+    "title": "F1.3.20 Four (4) Athletes or Teams - Option 1",
+    "start_page_physical": 227,
+    "start_page_printed": 227,
+    "end_page_physical": 227,
+    "verified_raw_file": "pages_raw/page_227.txt"
+  },
+  {
+    "section_index": 251,
+    "title": "F1.3.21 Four (4) Athletes or Teams - Option 2",
+    "start_page_physical": 228,
+    "start_page_printed": 228,
+    "end_page_physical": 228,
+    "verified_raw_file": "pages_raw/page_228.txt"
+  },
+  {
+    "section_index": 252,
+    "title": "F1.3.22 Three (3) Athletes or Teams - Option 1",
+    "start_page_physical": 229,
+    "start_page_printed": 229,
+    "end_page_physical": 229,
+    "verified_raw_file": "pages_raw/page_229.txt"
+  },
+  {
+    "section_index": 253,
+    "title": "F1.3.23 Three (3) Athletes or Teams - Option 2",
+    "start_page_physical": 230,
+    "start_page_printed": 230,
+    "end_page_physical": 230,
+    "verified_raw_file": "pages_raw/page_230.txt"
+  },
+  {
+    "section_index": 254,
+    "title": "F1.3.24 Example of Winners’ List",
+    "start_page_physical": 231,
+    "start_page_printed": 231,
+    "end_page_physical": 231,
+    "verified_raw_file": "pages_raw/page_231.txt"
+  },
+  {
+    "section_index": 255,
+    "title": "F1.3.25 Example of Teams Line Up Confirmation",
+    "start_page_physical": 232,
+    "start_page_printed": 232,
+    "end_page_physical": 232,
+    "verified_raw_file": "pages_raw/page_232.txt"
+  },
+  {
+    "section_index": 256,
+    "title": "F1.3.26 Example of Mixed Teams Line Up Confirmation",
+    "start_page_physical": 233,
+    "start_page_printed": 233,
+    "end_page_physical": 233,
+    "verified_raw_file": "pages_raw/page_233.txt"
+  },
+  {
+    "section_index": 257,
+    "title": "F1.3.27 Example of Team Sheet",
+    "start_page_physical": 234,
+    "start_page_printed": 234,
+    "end_page_physical": 234,
+    "verified_raw_file": "pages_raw/page_234.txt"
+  },
+  {
+    "section_index": 258,
+    "title": "F1.3.28 Example of Mixed Teams Match Sheet - with Results",
+    "start_page_physical": 235,
+    "start_page_printed": 235,
+    "end_page_physical": 235,
+    "verified_raw_file": "pages_raw/page_235.txt"
+  },
+  {
+    "section_index": 259,
+    "title": "F1.3.29 Coach Suspension Form",
+    "start_page_physical": 236,
+    "start_page_printed": 236,
+    "end_page_physical": 236,
+    "verified_raw_file": "pages_raw/page_236.txt"
+  },
+  {
+    "section_index": 260,
+    "title": "F1.3.30 Article 18 Direct Hansoku-make Form",
+    "start_page_physical": 237,
+    "start_page_printed": 237,
+    "end_page_physical": 237,
+    "verified_raw_file": "pages_raw/page_237.txt"
+  },
+  {
+    "section_index": 261,
+    "title": "F1.3.31 Coaches Request to Review Action",
+    "start_page_physical": 238,
+    "start_page_printed": 238,
+    "end_page_physical": 238,
+    "verified_raw_file": "pages_raw/page_238.txt"
+  },
+  {
+    "section_index": 262,
+    "title": "F1.3.32 Record Sheet - Judogi Breaches",
+    "start_page_physical": 239,
+    "start_page_printed": 239,
+    "end_page_physical": 239,
+    "verified_raw_file": "pages_raw/page_239.txt"
+  },
+  {
+    "section_index": 263,
+    "title": "F1.3.33 Exceptional Registration Request Form",
+    "start_page_physical": 240,
+    "start_page_printed": 240,
+    "end_page_physical": 241,
+    "verified_raw_file": "pages_raw/page_240.txt"
+  },
+  {
+    "section_index": 264,
+    "title": "GLOSSARY",
+    "start_page_physical": 242,
+    "start_page_printed": 242,
+    "end_page_physical": 242,
+    "verified_raw_file": "pages_raw/page_242.txt"
+  },
+  {
+    "section_index": 265,
+    "title": "G1.1 Glossary of Japanese Terms",
+    "start_page_physical": 243,
+    "start_page_printed": 243,
+    "end_page_physical": 249,
+    "verified_raw_file": "pages_raw/page_243.txt"
+  },
+  {
+    "section_index": 266,
+    "title": "G1.2 Names of Judo Techniques",
+    "start_page_physical": 250,
+    "start_page_printed": 250,
+    "end_page_physical": 250,
+    "verified_raw_file": "pages_raw/page_250.txt"
+  },
+  {
+    "section_index": 267,
+    "title": "G1.2.1 Nage-waza (68)",
+    "start_page_physical": 250,
+    "start_page_printed": 250,
+    "end_page_physical": 251,
+    "verified_raw_file": "pages_raw/page_250.txt"
+  },
+  {
+    "section_index": 268,
+    "title": "G1.2.2 Katame-waza (32)",
+    "start_page_physical": 252,
+    "start_page_printed": 252,
+    "end_page_physical": 253,
+    "verified_raw_file": "pages_raw/page_252.txt"
+  },
+  {
+    "section_index": 269,
+    "title": "G1.3 Penalty Codes",
+    "start_page_physical": 254,
+    "start_page_printed": 254,
+    "end_page_physical": 256,
+    "verified_raw_file": "pages_raw/page_254.txt"
+  },
+  {
+    "section_index": 270,
+    "title": "G1.4 Terminology",
+    "start_page_physical": 257,
+    "start_page_printed": 257,
+    "end_page_physical": 257,
+    "verified_raw_file": "pages_raw/page_257.txt"
+  },
+  {
+    "section_index": 271,
+    "title": "DOCUMENT CONTROL",
+    "start_page_physical": 258,
+    "start_page_printed": 258,
+    "end_page_physical": 258,
+    "verified_raw_file": "pages_raw/page_258.txt"
+  },
+  {
+    "section_index": 272,
+    "title": "H1.1 Document Version History",
+    "start_page_physical": 259,
+    "start_page_printed": 259,
+    "end_page_physical": 298,
+    "verified_raw_file": "pages_raw/page_259.txt"
+  }
+]

@@ -1,0 +1,3179 @@
+{
+  "version": "2026-08-corrected",
+  "source_id": "IJF_SOR_2026_08",
+  "nodes": [
+    {
+      "id": "SOR-2026-08-P012-S001",
+      "label": "GENERAL (Pag 12)",
+      "article_id": "GENERAL",
+      "page": 12,
+      "title": "GENERAL INFORMATION"
+    },
+    {
+      "id": "SOR-2026-08-P013-S002",
+      "label": "1.1 (Pag 13)",
+      "article_id": "1.1",
+      "page": 13,
+      "title": "1.1 Preamble and Fundamental Principles"
+    },
+    {
+      "id": "SOR-2026-08-P014-S003",
+      "label": "1.1.1 (Pag 14)",
+      "article_id": "1.1.1",
+      "page": 14,
+      "title": "1.1.1 Behaviour at IJF Events"
+    },
+    {
+      "id": "SOR-2026-08-P014-S004",
+      "label": "1.1.2 (Pag 14)",
+      "article_id": "1.1.2",
+      "page": 14,
+      "title": "1.1.2 Athletes Returning to Competition After Pregnancy"
+    },
+    {
+      "id": "SOR-2026-08-P014-S005",
+      "label": "1.2 (Pag 14)",
+      "article_id": "1.2",
+      "page": 14,
+      "title": "1.2 Clean Judo"
+    },
+    {
+      "id": "SOR-2026-08-P014-S006",
+      "label": "1.2.1 (Pag 14)",
+      "article_id": "1.2.1",
+      "page": 14,
+      "title": "1.2.1 Disciplinary Committee"
+    },
+    {
+      "id": "SOR-2026-08-P015-S007",
+      "label": "1.2.2 (Pag 15)",
+      "article_id": "1.2.2",
+      "page": 15,
+      "title": "1.2.2 Match Fixing and Competition Manipulation"
+    },
+    {
+      "id": "SOR-2026-08-P016-S008",
+      "label": "1.2.3 (Pag 16)",
+      "article_id": "1.2.3",
+      "page": 16,
+      "title": "1.2.3 Safeguarding"
+    },
+    {
+      "id": "SOR-2026-08-P017-S009",
+      "label": "1.3 (Pag 17)",
+      "article_id": "1.3",
+      "page": 17,
+      "title": "1.3 Insurance and Civil Liability"
+    },
+    {
+      "id": "SOR-2026-08-P017-S010",
+      "label": "1.4 (Pag 17)",
+      "article_id": "1.4",
+      "page": 17,
+      "title": "1.4 Biological Sex Control"
+    },
+    {
+      "id": "SOR-2026-08-P018-S011",
+      "label": "1.5 (Pag 18)",
+      "article_id": "1.5",
+      "page": 18,
+      "title": "1.5 Minor Athletes"
+    },
+    {
+      "id": "SOR-2026-08-P018-S012",
+      "label": "1.6 (Pag 18)",
+      "article_id": "1.6",
+      "page": 18,
+      "title": "1.6 IJF Calendar"
+    },
+    {
+      "id": "SOR-2026-08-P018-S013",
+      "label": "1.7 (Pag 18)",
+      "article_id": "1.7",
+      "page": 18,
+      "title": "1.7 Athlete Nationality"
+    },
+    {
+      "id": "SOR-2026-08-P019-S014",
+      "label": "1.7.1 (Pag 19)",
+      "article_id": "1.7.1",
+      "page": 19,
+      "title": "1.7.1 Change of Athlete Nationality"
+    },
+    {
+      "id": "SOR-2026-08-P020-S015",
+      "label": "1.7.1.1 (Pag 20)",
+      "article_id": "1.7.1.1",
+      "page": 20,
+      "title": "1.7.1.1 Change of Athlete Nationality for a Period of Less than Three Years"
+    },
+    {
+      "id": "SOR-2026-08-P020-S016",
+      "label": "1.7.1.2 (Pag 20)",
+      "article_id": "1.7.1.2",
+      "page": 20,
+      "title": "1.7.1.2 Change of Athlete Nationality after a Period of Three Years or Longer"
+    },
+    {
+      "id": "SOR-2026-08-P021-S017",
+      "label": "1.7.2 (Pag 21)",
+      "article_id": "1.7.2",
+      "page": 21,
+      "title": "1.7.2 Special Circumstances"
+    },
+    {
+      "id": "SOR-2026-08-P021-S018",
+      "label": "1.7.2.1 (Pag 21)",
+      "article_id": "1.7.2.1",
+      "page": 21,
+      "title": "1.7.2.1 Athletes with an Official Refugee Status under Host Country"
+    },
+    {
+      "id": "SOR-2026-08-P022-S019",
+      "label": "1.7.2.2 (Pag 22)",
+      "article_id": "1.7.2.2",
+      "page": 22,
+      "title": "1.7.2.2 IJF Refugee Team"
+    },
+    {
+      "id": "SOR-2026-08-P023-S020",
+      "label": "1.7.2.3 (Pag 23)",
+      "article_id": "1.7.2.3",
+      "page": 23,
+      "title": "1.7.2.3 Junior and Younger Immigrants"
+    },
+    {
+      "id": "SOR-2026-08-P024-S021",
+      "label": "1.7.2.4 (Pag 24)",
+      "article_id": "1.7.2.4",
+      "page": 24,
+      "title": "1.7.2.4 Veterans Immigrants"
+    },
+    {
+      "id": "SOR-2026-08-P025-S022",
+      "label": "1.7.2.5 (Pag 25)",
+      "article_id": "1.7.2.5",
+      "page": 25,
+      "title": "1.7.2.5 Kata Immigrants"
+    },
+    {
+      "id": "SOR-2026-08-P025-S023",
+      "label": "1.8 (Pag 25)",
+      "article_id": "1.8",
+      "page": 25,
+      "title": "1.8 Referee Nationality"
+    },
+    {
+      "id": "SOR-2026-08-P026-S024",
+      "label": "1.8.1 (Pag 26)",
+      "article_id": "1.8.1",
+      "page": 26,
+      "title": "1.8.1 Change of Referee Nationality"
+    },
+    {
+      "id": "SOR-2026-08-P027-S025",
+      "label": "1.8.2 (Pag 27)",
+      "article_id": "1.8.2",
+      "page": 27,
+      "title": "1.8.2 Special Circumstances"
+    },
+    {
+      "id": "SOR-2026-08-P027-S026",
+      "label": "1.8.2.1 (Pag 27)",
+      "article_id": "1.8.2.1",
+      "page": 27,
+      "title": "1.8.2.1 Referee Immigrants"
+    },
+    {
+      "id": "SOR-2026-08-P028-S027",
+      "label": "1.8.2.2 (Pag 28)",
+      "article_id": "1.8.2.2",
+      "page": 28,
+      "title": "1.8.2.2 Referees with an Official Refugee Status under Host Country"
+    },
+    {
+      "id": "SOR-2026-08-P029-S028",
+      "label": "1.8.2.3 (Pag 29)",
+      "article_id": "1.8.2.3",
+      "page": 29,
+      "title": "1.8.2.3 IJF Refugee Team for Referees"
+    },
+    {
+      "id": "SOR-2026-08-P030-S029",
+      "label": "GENERAL (Pag 30)",
+      "article_id": "GENERAL",
+      "page": 30,
+      "title": "COMPETITION RULES"
+    },
+    {
+      "id": "SOR-2026-08-P031-S030",
+      "label": "2.1 (Pag 31)",
+      "article_id": "2.1",
+      "page": 31,
+      "title": "2.1 Competition Format and Schedules"
+    },
+    {
+      "id": "SOR-2026-08-P031-S031",
+      "label": "2.1.1 (Pag 31)",
+      "article_id": "2.1.1",
+      "page": 31,
+      "title": "2.1.1 Competition Format and Schedules for the IJF World Judo Tour"
+    },
+    {
+      "id": "SOR-2026-08-P032-S032",
+      "label": "2.1.2 (Pag 32)",
+      "article_id": "2.1.2",
+      "page": 32,
+      "title": "2.1.2 Competition Format and Schedules for Other Events"
+    },
+    {
+      "id": "SOR-2026-08-P032-S033",
+      "label": "2.1.3 (Pag 32)",
+      "article_id": "2.1.3",
+      "page": 32,
+      "title": "2.1.3 Responsibility for Anti-Doping Result Management"
+    },
+    {
+      "id": "SOR-2026-08-P033-S034",
+      "label": "2.2 (Pag 33)",
+      "article_id": "2.2",
+      "page": 33,
+      "title": "2.2 Weight Categories for IJF Events"
+    },
+    {
+      "id": "SOR-2026-08-P033-S035",
+      "label": "2.2.1 (Pag 33)",
+      "article_id": "2.2.1",
+      "page": 33,
+      "title": "2.2.1 Weight Categories for Individual Competitions"
+    },
+    {
+      "id": "SOR-2026-08-P034-S036",
+      "label": "2.2.2 (Pag 34)",
+      "article_id": "2.2.2",
+      "page": 34,
+      "title": "2.2.2 Weight Categories for Mixed Team Competitions"
+    },
+    {
+      "id": "SOR-2026-08-P034-S037",
+      "label": "2.2.3 (Pag 34)",
+      "article_id": "2.2.3",
+      "page": 34,
+      "title": "2.2.3 Weight Categories Mixed Team Competitions Olympic Games"
+    },
+    {
+      "id": "SOR-2026-08-P035-S038",
+      "label": "2.2.4 (Pag 35)",
+      "article_id": "2.2.4",
+      "page": 35,
+      "title": "2.2.4 Weight Categories for Team Competitions"
+    },
+    {
+      "id": "SOR-2026-08-P035-S039",
+      "label": "2.3 (Pag 35)",
+      "article_id": "2.3",
+      "page": 35,
+      "title": "2.3 Age Groups"
+    },
+    {
+      "id": "SOR-2026-08-P036-S040",
+      "label": "2.4 (Pag 36)",
+      "article_id": "2.4",
+      "page": 36,
+      "title": "2.4 Time Duration of Contests"
+    },
+    {
+      "id": "SOR-2026-08-P037-S041",
+      "label": "2.5 (Pag 37)",
+      "article_id": "2.5",
+      "page": 37,
+      "title": "2.5 Competition Systems"
+    },
+    {
+      "id": "SOR-2026-08-P038-S042",
+      "label": "2.5.1 (Pag 38)",
+      "article_id": "2.5.1",
+      "page": 38,
+      "title": "2.5.1 Direct Knockout"
+    },
+    {
+      "id": "SOR-2026-08-P038-S043",
+      "label": "2.5.2 (Pag 38)",
+      "article_id": "2.5.2",
+      "page": 38,
+      "title": "2.5.2 Quarter-final Repechage"
+    },
+    {
+      "id": "SOR-2026-08-P038-S044",
+      "label": "2.5.3 (Pag 38)",
+      "article_id": "2.5.3",
+      "page": 38,
+      "title": "2.5.3 Double Repechage"
+    },
+    {
+      "id": "SOR-2026-08-P038-S045",
+      "label": "2.5.4 (Pag 38)",
+      "article_id": "2.5.4",
+      "page": 38,
+      "title": "2.5.4 Full Repechage"
+    },
+    {
+      "id": "SOR-2026-08-P039-S046",
+      "label": "2.5.5 (Pag 39)",
+      "article_id": "2.5.5",
+      "page": 39,
+      "title": "2.5.5 Round Robin"
+    },
+    {
+      "id": "SOR-2026-08-P039-S047",
+      "label": "2.5.5.1 (Pag 39)",
+      "article_id": "2.5.5.1",
+      "page": 39,
+      "title": "2.5.5.1 Round Robin Rules for Individual Events"
+    },
+    {
+      "id": "SOR-2026-08-P040-S048",
+      "label": "2.5.5.2 (Pag 40)",
+      "article_id": "2.5.5.2",
+      "page": 40,
+      "title": "2.5.5.2 Round Robin Rules for Team Events"
+    },
+    {
+      "id": "SOR-2026-08-P040-S049",
+      "label": "2.5.6 (Pag 40)",
+      "article_id": "2.5.6",
+      "page": 40,
+      "title": "2.5.6 Best of Three"
+    },
+    {
+      "id": "SOR-2026-08-P041-S050",
+      "label": "2.6 (Pag 41)",
+      "article_id": "2.6",
+      "page": 41,
+      "title": "2.6 Regulations for Low Numbers of Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P041-S051",
+      "label": "2.6.1 (Pag 41)",
+      "article_id": "2.6.1",
+      "page": 41,
+      "title": "2.6.1 Low Numbers System for IJF WJT Events"
+    },
+    {
+      "id": "SOR-2026-08-P042-S052",
+      "label": "2.6.2 (Pag 42)",
+      "article_id": "2.6.2",
+      "page": 42,
+      "title": "2.6.2 Low Numbers System for Other Events"
+    },
+    {
+      "id": "SOR-2026-08-P042-S053",
+      "label": "2.7 (Pag 42)",
+      "article_id": "2.7",
+      "page": 42,
+      "title": "2.7 Competition System for Mixed Team and Team Events"
+    },
+    {
+      "id": "SOR-2026-08-P042-S054",
+      "label": "2.7.1 (Pag 42)",
+      "article_id": "2.7.1",
+      "page": 42,
+      "title": "2.7.1 Regulations for Mixed Team Events"
+    },
+    {
+      "id": "SOR-2026-08-P043-S054",
+      "label": "2.7.1 (Pag 43)",
+      "article_id": "2.7.1",
+      "page": 43,
+      "title": "2.7.1 Regulations for Mixed Team Events"
+    },
+    {
+      "id": "SOR-2026-08-P044-S054",
+      "label": "2.7.1 (Pag 44)",
+      "article_id": "2.7.1",
+      "page": 44,
+      "title": "2.7.1 Regulations for Mixed Team Events"
+    },
+    {
+      "id": "SOR-2026-08-P045-S055",
+      "label": "2.7.2 (Pag 45)",
+      "article_id": "2.7.2",
+      "page": 45,
+      "title": "2.7.2 Regulations for Female and Male Team Events"
+    },
+    {
+      "id": "SOR-2026-08-P046-S055",
+      "label": "2.7.2 (Pag 46)",
+      "article_id": "2.7.2",
+      "page": 46,
+      "title": "2.7.2 Regulations for Female and Male Team Events"
+    },
+    {
+      "id": "SOR-2026-08-P047-S056",
+      "label": "2.8 (Pag 47)",
+      "article_id": "2.8",
+      "page": 47,
+      "title": "2.8 Event Outlines"
+    },
+    {
+      "id": "SOR-2026-08-P047-S057",
+      "label": "2.8.1 (Pag 47)",
+      "article_id": "2.8.1",
+      "page": 47,
+      "title": "2.8.1 Visas"
+    },
+    {
+      "id": "SOR-2026-08-P047-S058",
+      "label": "2.8.2 (Pag 47)",
+      "article_id": "2.8.2",
+      "page": 47,
+      "title": "2.8.2 Transportation"
+    },
+    {
+      "id": "SOR-2026-08-P048-S059",
+      "label": "2.8.3 (Pag 48)",
+      "article_id": "2.8.3",
+      "page": 48,
+      "title": "2.8.3 Accommodation"
+    },
+    {
+      "id": "SOR-2026-08-P049-S060",
+      "label": "2.8.4 (Pag 49)",
+      "article_id": "2.8.4",
+      "page": 49,
+      "title": "2.8.4 Training"
+    },
+    {
+      "id": "SOR-2026-08-P049-S061",
+      "label": "2.8.5 (Pag 49)",
+      "article_id": "2.8.5",
+      "page": 49,
+      "title": "2.8.5 Consent for use of data/photography/videos/filming"
+    },
+    {
+      "id": "SOR-2026-08-P049-S062",
+      "label": "2.9 (Pag 49)",
+      "article_id": "2.9",
+      "page": 49,
+      "title": "2.9 Official Notice Boards"
+    },
+    {
+      "id": "SOR-2026-08-P050-S063",
+      "label": "GENERAL (Pag 50)",
+      "article_id": "GENERAL",
+      "page": 50,
+      "title": "IJF WORLD RANKING LISTS"
+    },
+    {
+      "id": "SOR-2026-08-P051-S064",
+      "label": "3.1 (Pag 51)",
+      "article_id": "3.1",
+      "page": 51,
+      "title": "3.1 IJF World Ranking Lists"
+    },
+    {
+      "id": "SOR-2026-08-P052-S065",
+      "label": "3.2 (Pag 52)",
+      "article_id": "3.2",
+      "page": 52,
+      "title": "3.2 IJF World Ranking Lists for Individuals"
+    },
+    {
+      "id": "SOR-2026-08-P052-S066",
+      "label": "3.2.1 (Pag 52)",
+      "article_id": "3.2.1",
+      "page": 52,
+      "title": "3.2.1 IJF Seniors World Ranking List"
+    },
+    {
+      "id": "SOR-2026-08-P053-S067",
+      "label": "3.2.2 (Pag 53)",
+      "article_id": "3.2.2",
+      "page": 53,
+      "title": "3.2.2 IJF Juniors World Ranking List"
+    },
+    {
+      "id": "SOR-2026-08-P054-S068",
+      "label": "3.2.3 (Pag 54)",
+      "article_id": "3.2.3",
+      "page": 54,
+      "title": "3.2.3 IJF Cadets World Ranking List"
+    },
+    {
+      "id": "SOR-2026-08-P055-S069",
+      "label": "3.3 (Pag 55)",
+      "article_id": "3.3",
+      "page": 55,
+      "title": "3.3 IJF World Ranking Lists for Mixed Teams"
+    },
+    {
+      "id": "SOR-2026-08-P055-S070",
+      "label": "3.3.1 (Pag 55)",
+      "article_id": "3.3.1",
+      "page": 55,
+      "title": "3.3.1 IJF Seniors Mixed Teams World Ranking List"
+    },
+    {
+      "id": "SOR-2026-08-P056-S071",
+      "label": "3.3.2 (Pag 56)",
+      "article_id": "3.3.2",
+      "page": 56,
+      "title": "3.3.2 IJF Juniors Mixed Teams World Ranking List"
+    },
+    {
+      "id": "SOR-2026-08-P057-S072",
+      "label": "3.3.3 (Pag 57)",
+      "article_id": "3.3.3",
+      "page": 57,
+      "title": "3.3.3 IJF Cadets Mixed Teams World Ranking List"
+    },
+    {
+      "id": "SOR-2026-08-P057-S073",
+      "label": "3.4 (Pag 57)",
+      "article_id": "3.4",
+      "page": 57,
+      "title": "3.4 IJF Nations World Ranking List"
+    },
+    {
+      "id": "SOR-2026-08-P057-S074",
+      "label": "3.5 (Pag 57)",
+      "article_id": "3.5",
+      "page": 57,
+      "title": "3.5 Additional Rules"
+    },
+    {
+      "id": "SOR-2026-08-P058-S074",
+      "label": "3.5 (Pag 58)",
+      "article_id": "3.5",
+      "page": 58,
+      "title": "3.5 Additional Rules"
+    },
+    {
+      "id": "SOR-2026-08-P059-S074",
+      "label": "3.5 (Pag 59)",
+      "article_id": "3.5",
+      "page": 59,
+      "title": "3.5 Additional Rules"
+    },
+    {
+      "id": "SOR-2026-08-P060-S075",
+      "label": "GENERAL (Pag 60)",
+      "article_id": "GENERAL",
+      "page": 60,
+      "title": "ENTRIES AND ACCREDITATION"
+    },
+    {
+      "id": "SOR-2026-08-P061-S076",
+      "label": "4.1 (Pag 61)",
+      "article_id": "4.1",
+      "page": 61,
+      "title": "4.1 Participation Rules for IJF WJT Events"
+    },
+    {
+      "id": "SOR-2026-08-P061-S077",
+      "label": "4.2 (Pag 61)",
+      "article_id": "4.2",
+      "page": 61,
+      "title": "4.2 Entries"
+    },
+    {
+      "id": "SOR-2026-08-P062-S077",
+      "label": "4.2 (Pag 62)",
+      "article_id": "4.2",
+      "page": 62,
+      "title": "4.2 Entries"
+    },
+    {
+      "id": "SOR-2026-08-P063-S078",
+      "label": "4.3 (Pag 63)",
+      "article_id": "4.3",
+      "page": 63,
+      "title": "4.3 Cancellation of Athletes"
+    },
+    {
+      "id": "SOR-2026-08-P064-S079",
+      "label": "4.4 (Pag 64)",
+      "article_id": "4.4",
+      "page": 64,
+      "title": "4.4 Number of Entries"
+    },
+    {
+      "id": "SOR-2026-08-P065-S079",
+      "label": "4.4 (Pag 65)",
+      "article_id": "4.4",
+      "page": 65,
+      "title": "4.4 Number of Entries"
+    },
+    {
+      "id": "SOR-2026-08-P066-S079",
+      "label": "4.4 (Pag 66)",
+      "article_id": "4.4",
+      "page": 66,
+      "title": "4.4 Number of Entries"
+    },
+    {
+      "id": "SOR-2026-08-P067-S080",
+      "label": "4.5 (Pag 67)",
+      "article_id": "4.5",
+      "page": 67,
+      "title": "4.5 Accreditation"
+    },
+    {
+      "id": "SOR-2026-08-P068-S080",
+      "label": "4.5 (Pag 68)",
+      "article_id": "4.5",
+      "page": 68,
+      "title": "4.5 Accreditation"
+    },
+    {
+      "id": "SOR-2026-08-P069-S080",
+      "label": "4.5 (Pag 69)",
+      "article_id": "4.5",
+      "page": 69,
+      "title": "4.5 Accreditation"
+    },
+    {
+      "id": "SOR-2026-08-P070-S081",
+      "label": "GENERAL (Pag 70)",
+      "article_id": "GENERAL",
+      "page": 70,
+      "title": "DRAW"
+    },
+    {
+      "id": "SOR-2026-08-P071-S082",
+      "label": "5.1 (Pag 71)",
+      "article_id": "5.1",
+      "page": 71,
+      "title": "5.1 Draw Regulations"
+    },
+    {
+      "id": "SOR-2026-08-P071-S083",
+      "label": "5.2 (Pag 71)",
+      "article_id": "5.2",
+      "page": 71,
+      "title": "5.2 Seeding for IJF WJT Events"
+    },
+    {
+      "id": "SOR-2026-08-P072-S084",
+      "label": "5.3 (Pag 72)",
+      "article_id": "5.3",
+      "page": 72,
+      "title": "5.3 Seeding for Olympic Games"
+    },
+    {
+      "id": "SOR-2026-08-P073-S084",
+      "label": "5.3 (Pag 73)",
+      "article_id": "5.3",
+      "page": 73,
+      "title": "5.3 Seeding for Olympic Games"
+    },
+    {
+      "id": "SOR-2026-08-P074-S085",
+      "label": "GENERAL (Pag 74)",
+      "article_id": "GENERAL",
+      "page": 74,
+      "title": "WEIGH-IN"
+    },
+    {
+      "id": "SOR-2026-08-P075-S086",
+      "label": "6.1 (Pag 75)",
+      "article_id": "6.1",
+      "page": 75,
+      "title": "6.1 Weight Categories and Limits for Individual Events"
+    },
+    {
+      "id": "SOR-2026-08-P076-S087",
+      "label": "6.2 (Pag 76)",
+      "article_id": "6.2",
+      "page": 76,
+      "title": "6.2 Weigh-in Overview"
+    },
+    {
+      "id": "SOR-2026-08-P076-S088",
+      "label": "6.2.1 (Pag 76)",
+      "article_id": "6.2.1",
+      "page": 76,
+      "title": "6.2.1 Pre-Weight Check Rooms (Test Scales)"
+    },
+    {
+      "id": "SOR-2026-08-P076-S089",
+      "label": "6.2.2 (Pag 76)",
+      "article_id": "6.2.2",
+      "page": 76,
+      "title": "6.2.2 Unofficial Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P077-S090",
+      "label": "6.2.3 (Pag 77)",
+      "article_id": "6.2.3",
+      "page": 77,
+      "title": "6.2.3 Official Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P077-S091",
+      "label": "6.2.4 (Pag 77)",
+      "article_id": "6.2.4",
+      "page": 77,
+      "title": "6.2.4 Official Weigh-in Procedure"
+    },
+    {
+      "id": "SOR-2026-08-P078-S092",
+      "label": "6.2.5 (Pag 78)",
+      "article_id": "6.2.5",
+      "page": 78,
+      "title": "6.2.5 Compliance Rules"
+    },
+    {
+      "id": "SOR-2026-08-P079-S093",
+      "label": "6.3 (Pag 79)",
+      "article_id": "6.3",
+      "page": 79,
+      "title": "6.3 Random Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P079-S094",
+      "label": "6.3.1 (Pag 79)",
+      "article_id": "6.3.1",
+      "page": 79,
+      "title": "6.3.1 Draw of the Athletes"
+    },
+    {
+      "id": "SOR-2026-08-P079-S095",
+      "label": "6.3.2 (Pag 79)",
+      "article_id": "6.3.2",
+      "page": 79,
+      "title": "6.3.2 Collecting the Athletes"
+    },
+    {
+      "id": "SOR-2026-08-P079-S096",
+      "label": "6.3.3 (Pag 79)",
+      "article_id": "6.3.3",
+      "page": 79,
+      "title": "6.3.3 Random Weigh-in Procedure"
+    },
+    {
+      "id": "SOR-2026-08-P079-S097",
+      "label": "6.3.4 (Pag 79)",
+      "article_id": "6.3.4",
+      "page": 79,
+      "title": "6.3.4 After Random Weigh-in Procedure"
+    },
+    {
+      "id": "SOR-2026-08-P080-S098",
+      "label": "6.4 (Pag 80)",
+      "article_id": "6.4",
+      "page": 80,
+      "title": "6.4 Mixed Teams Events Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P081-S099",
+      "label": "6.4.1. (Pag 81)",
+      "article_id": "6.4.1.",
+      "page": 81,
+      "title": "6.4.1. Standalone Mixed Team Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P081-S100",
+      "label": "6.4.2. (Pag 81)",
+      "article_id": "6.4.2.",
+      "page": 81,
+      "title": "6.4.2. Mixed Team Following an Individual Competition Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P082-S100",
+      "label": "6.4.2. (Pag 82)",
+      "article_id": "6.4.2.",
+      "page": 82,
+      "title": "6.4.2. Mixed Team Following an Individual Competition Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P083-S101",
+      "label": "6.4.3 (Pag 83)",
+      "article_id": "6.4.3",
+      "page": 83,
+      "title": "6.4.3 Olympic Games Mixed Team Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P084-S102",
+      "label": "6.5 (Pag 84)",
+      "article_id": "6.5",
+      "page": 84,
+      "title": "6.5 Female and Male Teams Events Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P085-S102",
+      "label": "6.5 (Pag 85)",
+      "article_id": "6.5",
+      "page": 85,
+      "title": "6.5 Female and Male Teams Events Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P086-S102",
+      "label": "6.5 (Pag 86)",
+      "article_id": "6.5",
+      "page": 86,
+      "title": "6.5 Female and Male Teams Events Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P087-S102",
+      "label": "6.5 (Pag 87)",
+      "article_id": "6.5",
+      "page": 87,
+      "title": "6.5 Female and Male Teams Events Weigh-in"
+    },
+    {
+      "id": "SOR-2026-08-P088-S103",
+      "label": "GENERAL (Pag 88)",
+      "article_id": "GENERAL",
+      "page": 88,
+      "title": "EDUCATION AND COACHING"
+    },
+    {
+      "id": "SOR-2026-08-P089-S104",
+      "label": "7.1 (Pag 89)",
+      "article_id": "7.1",
+      "page": 89,
+      "title": "7.1 Coaches’ Code of Conduct"
+    },
+    {
+      "id": "SOR-2026-08-P089-S105",
+      "label": "7.2 (Pag 89)",
+      "article_id": "7.2",
+      "page": 89,
+      "title": "7.2 Coaches’ Dress Code"
+    },
+    {
+      "id": "SOR-2026-08-P090-S106",
+      "label": "7.3 (Pag 90)",
+      "article_id": "7.3",
+      "page": 90,
+      "title": "7.3 Contest Review Process"
+    },
+    {
+      "id": "SOR-2026-08-P091-S106",
+      "label": "7.3 (Pag 91)",
+      "article_id": "7.3",
+      "page": 91,
+      "title": "7.3 Contest Review Process"
+    },
+    {
+      "id": "SOR-2026-08-P092-S107",
+      "label": "GENERAL (Pag 92)",
+      "article_id": "GENERAL",
+      "page": 92,
+      "title": "COMPETITION VENUE"
+    },
+    {
+      "id": "SOR-2026-08-P093-S108",
+      "label": "8.1 (Pag 93)",
+      "article_id": "8.1",
+      "page": 93,
+      "title": "8.1 Venue"
+    },
+    {
+      "id": "SOR-2026-08-P093-S109",
+      "label": "8.2 (Pag 93)",
+      "article_id": "8.2",
+      "page": 93,
+      "title": "8.2 Training Venue"
+    },
+    {
+      "id": "SOR-2026-08-P094-S110",
+      "label": "8.3 (Pag 94)",
+      "article_id": "8.3",
+      "page": 94,
+      "title": "8.3 Judogi Control"
+    },
+    {
+      "id": "SOR-2026-08-P094-S111",
+      "label": "8.4 (Pag 94)",
+      "article_id": "8.4",
+      "page": 94,
+      "title": "8.4 Warm-Up Area"
+    },
+    {
+      "id": "SOR-2026-08-P095-S112",
+      "label": "8.5 (Pag 95)",
+      "article_id": "8.5",
+      "page": 95,
+      "title": "8.5 Athlete Seating and Facilities"
+    },
+    {
+      "id": "SOR-2026-08-P095-S113",
+      "label": "8.6 (Pag 95)",
+      "article_id": "8.6",
+      "page": 95,
+      "title": "8.6 Entry to and Exit from Field of Play"
+    },
+    {
+      "id": "SOR-2026-08-P096-S114",
+      "label": "8.7 (Pag 96)",
+      "article_id": "8.7",
+      "page": 96,
+      "title": "8.7 Field of Play and Competition Area"
+    },
+    {
+      "id": "SOR-2026-08-P097-S115",
+      "label": "8.8 (Pag 97)",
+      "article_id": "8.8",
+      "page": 97,
+      "title": "8.8 Medical"
+    },
+    {
+      "id": "SOR-2026-08-P097-S116",
+      "label": "8.9 (Pag 97)",
+      "article_id": "8.9",
+      "page": 97,
+      "title": "8.9 Media"
+    },
+    {
+      "id": "SOR-2026-08-P098-S117",
+      "label": "8.10 (Pag 98)",
+      "article_id": "8.10",
+      "page": 98,
+      "title": "8.10 Awarding Ceremonies"
+    },
+    {
+      "id": "SOR-2026-08-P099-S118",
+      "label": "8.11 (Pag 99)",
+      "article_id": "8.11",
+      "page": 99,
+      "title": "8.11 Delay, Postponement or Cancellation of a Competition"
+    },
+    {
+      "id": "SOR-2026-08-P100-S119",
+      "label": "GENERAL (Pag 100)",
+      "article_id": "GENERAL",
+      "page": 100,
+      "title": "REGULATIONS FOR VETERANS"
+    },
+    {
+      "id": "SOR-2026-08-P101-S120",
+      "label": "A1.1 (Pag 101)",
+      "article_id": "A1.1",
+      "page": 101,
+      "title": "A1.1 Organisation"
+    },
+    {
+      "id": "SOR-2026-08-P101-S121",
+      "label": "A1.2 (Pag 101)",
+      "article_id": "A1.2",
+      "page": 101,
+      "title": "A1.2 Competition Rules for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P101-S122",
+      "label": "A1.3 (Pag 101)",
+      "article_id": "A1.3",
+      "page": 101,
+      "title": "A1.3 Eligibility to Participate"
+    },
+    {
+      "id": "SOR-2026-08-P102-S123",
+      "label": "A1.3.1 (Pag 102)",
+      "article_id": "A1.3.1",
+      "page": 102,
+      "title": "A1.3.1 Event Inscription"
+    },
+    {
+      "id": "SOR-2026-08-P103-S124",
+      "label": "A1.4 (Pag 103)",
+      "article_id": "A1.4",
+      "page": 103,
+      "title": "A1.4 Age Divisions for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P103-S125",
+      "label": "A1.5 (Pag 103)",
+      "article_id": "A1.5",
+      "page": 103,
+      "title": "A1.5 Weight Categories for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P103-S126",
+      "label": "A1.6 (Pag 103)",
+      "article_id": "A1.6",
+      "page": 103,
+      "title": "A1.6 Time Duration of Contests for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P103-S127",
+      "label": "A1.7 (Pag 103)",
+      "article_id": "A1.7",
+      "page": 103,
+      "title": "A1.7 Category Combining for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P104-S127",
+      "label": "A1.7 (Pag 104)",
+      "article_id": "A1.7",
+      "page": 104,
+      "title": "A1.7 Category Combining for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P105-S128",
+      "label": "A1.8 (Pag 105)",
+      "article_id": "A1.8",
+      "page": 105,
+      "title": "A1.8 Draw for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P105-S129",
+      "label": "A1.9 (Pag 105)",
+      "article_id": "A1.9",
+      "page": 105,
+      "title": "A1.9 Seeding for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P105-S130",
+      "label": "A1.10 (Pag 105)",
+      "article_id": "A1.10",
+      "page": 105,
+      "title": "A1.10 Weigh-in for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P105-S131",
+      "label": "A1.11 (Pag 105)",
+      "article_id": "A1.11",
+      "page": 105,
+      "title": "A1.11 Judogi Rules for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P105-S132",
+      "label": "A1.12 (Pag 105)",
+      "article_id": "A1.12",
+      "page": 105,
+      "title": "A1.12 Backnumbers for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P105-S133",
+      "label": "A1.13 (Pag 105)",
+      "article_id": "A1.13",
+      "page": 105,
+      "title": "A1.13 Competition System for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P105-S134",
+      "label": "A1.14 (Pag 105)",
+      "article_id": "A1.14",
+      "page": 105,
+      "title": "A1.14 Round Robin Golden Score"
+    },
+    {
+      "id": "SOR-2026-08-P106-S135",
+      "label": "A1.15 (Pag 106)",
+      "article_id": "A1.15",
+      "page": 106,
+      "title": "A1.15 Awarding of Medals for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P107-S135",
+      "label": "A1.15 (Pag 107)",
+      "article_id": "A1.15",
+      "page": 107,
+      "title": "A1.15 Awarding of Medals for Veterans"
+    },
+    {
+      "id": "SOR-2026-08-P108-S136",
+      "label": "GENERAL (Pag 108)",
+      "article_id": "GENERAL",
+      "page": 108,
+      "title": "REGULATIONS FOR KATA"
+    },
+    {
+      "id": "SOR-2026-08-P109-S137",
+      "label": "B1.1 (Pag 109)",
+      "article_id": "B1.1",
+      "page": 109,
+      "title": "B1.1 Eligibility to Participate"
+    },
+    {
+      "id": "SOR-2026-08-P109-S138",
+      "label": "B1.2 (Pag 109)",
+      "article_id": "B1.2",
+      "page": 109,
+      "title": "B1.2 Kata"
+    },
+    {
+      "id": "SOR-2026-08-P109-S139",
+      "label": "B1.3 (Pag 109)",
+      "article_id": "B1.3",
+      "page": 109,
+      "title": "B1.3 Accreditation"
+    },
+    {
+      "id": "SOR-2026-08-P110-S140",
+      "label": "B1.4 (Pag 110)",
+      "article_id": "B1.4",
+      "page": 110,
+      "title": "B1.4 Draw"
+    },
+    {
+      "id": "SOR-2026-08-P110-S141",
+      "label": "B1.5 (Pag 110)",
+      "article_id": "B1.5",
+      "page": 110,
+      "title": "B1.5 Ranking Points"
+    },
+    {
+      "id": "SOR-2026-08-P111-S142",
+      "label": "B1.6 (Pag 111)",
+      "article_id": "B1.6",
+      "page": 111,
+      "title": "B1.6 Competition Formula"
+    },
+    {
+      "id": "SOR-2026-08-P112-S143",
+      "label": "B1.8 (Pag 112)",
+      "article_id": "B1.8",
+      "page": 112,
+      "title": "B1.8 Competition Area"
+    },
+    {
+      "id": "SOR-2026-08-P113-S144",
+      "label": "B1.9 (Pag 113)",
+      "article_id": "B1.9",
+      "page": 113,
+      "title": "B1.9 Awarding Ceremony"
+    },
+    {
+      "id": "SOR-2026-08-P113-S145",
+      "label": "B1.10 (Pag 113)",
+      "article_id": "B1.10",
+      "page": 113,
+      "title": "B1.10 Coaches"
+    },
+    {
+      "id": "SOR-2026-08-P113-S146",
+      "label": "B1.11 (Pag 113)",
+      "article_id": "B1.11",
+      "page": 113,
+      "title": "B1.11 Medical Situation"
+    },
+    {
+      "id": "SOR-2026-08-P113-S147",
+      "label": "B1.12 (Pag 113)",
+      "article_id": "B1.12",
+      "page": 113,
+      "title": "B1.12 Judogi Control"
+    },
+    {
+      "id": "SOR-2026-08-P114-S148",
+      "label": "GENERAL (Pag 114)",
+      "article_id": "GENERAL",
+      "page": 114,
+      "title": "IJF JUDOGI RULES"
+    },
+    {
+      "id": "SOR-2026-08-P115-S149",
+      "label": "C1.1 (Pag 115)",
+      "article_id": "C1.1",
+      "page": 115,
+      "title": "C1.1 IJF Approved Judogi"
+    },
+    {
+      "id": "SOR-2026-08-P115-S150",
+      "label": "C1.1.1 (Pag 115)",
+      "article_id": "C1.1.1",
+      "page": 115,
+      "title": "C1.1.1 Location of the Judogi and Backnumber Pre-Control"
+    },
+    {
+      "id": "SOR-2026-08-P115-S151",
+      "label": "C1.1.2 (Pag 115)",
+      "article_id": "C1.1.2",
+      "page": 115,
+      "title": "C1.1.2 Judogi and Backnumber Pre-Control"
+    },
+    {
+      "id": "SOR-2026-08-P115-S152",
+      "label": "C1.1.2.1 (Pag 115)",
+      "article_id": "C1.1.2.1",
+      "page": 115,
+      "title": "C1.1.2.1 Judogi Pre-Control"
+    },
+    {
+      "id": "SOR-2026-08-P115-S153",
+      "label": "C1.1.2.2 (Pag 115)",
+      "article_id": "C1.1.2.2",
+      "page": 115,
+      "title": "C1.1.2.2 Backnumber Pre-Control"
+    },
+    {
+      "id": "SOR-2026-08-P116-S154",
+      "label": "C1.1.3 (Pag 116)",
+      "article_id": "C1.1.3",
+      "page": 116,
+      "title": "C1.1.3 Consequences of Failing Judogi Control"
+    },
+    {
+      "id": "SOR-2026-08-P116-S155",
+      "label": "C1.1.4 (Pag 116)",
+      "article_id": "C1.1.4",
+      "page": 116,
+      "title": "C1.1.4 Judogi Control Verification Positions"
+    },
+    {
+      "id": "SOR-2026-08-P117-S156",
+      "label": "C1.1.5 (Pag 117)",
+      "article_id": "C1.1.5",
+      "page": 117,
+      "title": "C1.1.5 Judogi Control Procedure"
+    },
+    {
+      "id": "SOR-2026-08-P118-S157",
+      "label": "C1.2 (Pag 118)",
+      "article_id": "C1.2",
+      "page": 118,
+      "title": "C1.2 IJF Label"
+    },
+    {
+      "id": "SOR-2026-08-P119-S158",
+      "label": "C1.3 (Pag 119)",
+      "article_id": "C1.3",
+      "page": 119,
+      "title": "C1.3 Location of the Manufacturer’s Logo"
+    },
+    {
+      "id": "SOR-2026-08-P120-S159",
+      "label": "C1.4 (Pag 120)",
+      "article_id": "C1.4",
+      "page": 120,
+      "title": "C1.4 National Emblem"
+    },
+    {
+      "id": "SOR-2026-08-P121-S160",
+      "label": "C1.5 (Pag 121)",
+      "article_id": "C1.5",
+      "page": 121,
+      "title": "C1.5 Advertising"
+    },
+    {
+      "id": "SOR-2026-08-P121-S161",
+      "label": "C1.6 (Pag 121)",
+      "article_id": "C1.6",
+      "page": 121,
+      "title": "C1.6 Additional Advertising Reserved for the Athlete"
+    },
+    {
+      "id": "SOR-2026-08-P122-S162",
+      "label": "C1.7 (Pag 122)",
+      "article_id": "C1.7",
+      "page": 122,
+      "title": "C1.7 Marking"
+    },
+    {
+      "id": "SOR-2026-08-P122-S163",
+      "label": "C1.8 (Pag 122)",
+      "article_id": "C1.8",
+      "page": 122,
+      "title": "C1.8 Backnumber"
+    },
+    {
+      "id": "SOR-2026-08-P123-S163",
+      "label": "C1.8 (Pag 123)",
+      "article_id": "C1.8",
+      "page": 123,
+      "title": "C1.8 Backnumber"
+    },
+    {
+      "id": "SOR-2026-08-P124-S164",
+      "label": "C1.9 (Pag 124)",
+      "article_id": "C1.9",
+      "page": 124,
+      "title": "C1.9 Judogi Colour"
+    },
+    {
+      "id": "SOR-2026-08-P124-S165",
+      "label": "C1.10 (Pag 124)",
+      "article_id": "C1.10",
+      "page": 124,
+      "title": "C1.10 Judogi Size"
+    },
+    {
+      "id": "SOR-2026-08-P125-S165",
+      "label": "C1.10 (Pag 125)",
+      "article_id": "C1.10",
+      "page": 125,
+      "title": "C1.10 Judogi Size"
+    },
+    {
+      "id": "SOR-2026-08-P126-S166",
+      "label": "C1.11 (Pag 126)",
+      "article_id": "C1.11",
+      "page": 126,
+      "title": "C1.11 T-shirt"
+    },
+    {
+      "id": "SOR-2026-08-P126-S167",
+      "label": "C1.12 (Pag 126)",
+      "article_id": "C1.12",
+      "page": 126,
+      "title": "C1.12 Reserve Judogi Supply"
+    },
+    {
+      "id": "SOR-2026-08-P127-S168",
+      "label": "C1.13 (Pag 127)",
+      "article_id": "C1.13",
+      "page": 127,
+      "title": "C1.13 National Technical Officials’ Duties"
+    },
+    {
+      "id": "SOR-2026-08-P128-S168",
+      "label": "C1.13 (Pag 128)",
+      "article_id": "C1.13",
+      "page": 128,
+      "title": "C1.13 National Technical Officials’ Duties"
+    },
+    {
+      "id": "SOR-2026-08-P129-S169",
+      "label": "C1.14 (Pag 129)",
+      "article_id": "C1.14",
+      "page": 129,
+      "title": "C1.14 World Champion and/or Olympic Champion Titles Enhancement"
+    },
+    {
+      "id": "SOR-2026-08-P129-S170",
+      "label": "C1.14.1 (Pag 129)",
+      "article_id": "C1.14.1",
+      "page": 129,
+      "title": "C1.14.1 Procedure Regarding World Champion Title(s)"
+    },
+    {
+      "id": "SOR-2026-08-P130-S171",
+      "label": "C1.14.2 (Pag 130)",
+      "article_id": "C1.14.2",
+      "page": 130,
+      "title": "C1.14.2 Procedure Regarding Olympic Champion Title(s)"
+    },
+    {
+      "id": "SOR-2026-08-P131-S171",
+      "label": "C1.14.2 (Pag 131)",
+      "article_id": "C1.14.2",
+      "page": 131,
+      "title": "C1.14.2 Procedure Regarding Olympic Champion Title(s)"
+    },
+    {
+      "id": "SOR-2026-08-P132-S172",
+      "label": "GENERAL (Pag 132)",
+      "article_id": "GENERAL",
+      "page": 132,
+      "title": "IJF REFEREEING RULES"
+    },
+    {
+      "id": "SOR-2026-08-P133-S173",
+      "label": "D1.1 (Pag 133)",
+      "article_id": "D1.1",
+      "page": 133,
+      "title": "D1.1 Refereeing - Culture, History and Principles"
+    },
+    {
+      "id": "SOR-2026-08-P134-S173",
+      "label": "D1.1 (Pag 134)",
+      "article_id": "D1.1",
+      "page": 134,
+      "title": "D1.1 Refereeing - Culture, History and Principles"
+    },
+    {
+      "id": "SOR-2026-08-P135-S174",
+      "label": "Article 1 (Pag 135)",
+      "article_id": "Article 1",
+      "page": 135,
+      "title": "Article 1 Referees and Officials"
+    },
+    {
+      "id": "SOR-2026-08-P136-S175",
+      "label": "Article 2 (Pag 136)",
+      "article_id": "Article 2",
+      "page": 136,
+      "title": "Article 2 Position and Function of the Referee"
+    },
+    {
+      "id": "SOR-2026-08-P137-S176",
+      "label": "Article 3 (Pag 137)",
+      "article_id": "Article 3",
+      "page": 137,
+      "title": "Article 3 Role of Non-Officiating Referees"
+    },
+    {
+      "id": "SOR-2026-08-P137-S177",
+      "label": "Article 4 (Pag 137)",
+      "article_id": "Article 4",
+      "page": 137,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P138-S177",
+      "label": "Article 4 (Pag 138)",
+      "article_id": "Article 4",
+      "page": 138,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P139-S177",
+      "label": "Article 4 (Pag 139)",
+      "article_id": "Article 4",
+      "page": 139,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P140-S177",
+      "label": "Article 4 (Pag 140)",
+      "article_id": "Article 4",
+      "page": 140,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P141-S177",
+      "label": "Article 4 (Pag 141)",
+      "article_id": "Article 4",
+      "page": 141,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P142-S177",
+      "label": "Article 4 (Pag 142)",
+      "article_id": "Article 4",
+      "page": 142,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P143-S177",
+      "label": "Article 4 (Pag 143)",
+      "article_id": "Article 4",
+      "page": 143,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P144-S177",
+      "label": "Article 4 (Pag 144)",
+      "article_id": "Article 4",
+      "page": 144,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P145-S177",
+      "label": "Article 4 (Pag 145)",
+      "article_id": "Article 4",
+      "page": 145,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P146-S177",
+      "label": "Article 4 (Pag 146)",
+      "article_id": "Article 4",
+      "page": 146,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P147-S177",
+      "label": "Article 4 (Pag 147)",
+      "article_id": "Article 4",
+      "page": 147,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P148-S177",
+      "label": "Article 4 (Pag 148)",
+      "article_id": "Article 4",
+      "page": 148,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P149-S177",
+      "label": "Article 4 (Pag 149)",
+      "article_id": "Article 4",
+      "page": 149,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P150-S177",
+      "label": "Article 4 (Pag 150)",
+      "article_id": "Article 4",
+      "page": 150,
+      "title": "Article 4 Gestures"
+    },
+    {
+      "id": "SOR-2026-08-P151-S178",
+      "label": "Article 5 (Pag 151)",
+      "article_id": "Article 5",
+      "page": 151,
+      "title": "Article 5 Location (Valid Areas)"
+    },
+    {
+      "id": "SOR-2026-08-P152-S179",
+      "label": "Article 6 (Pag 152)",
+      "article_id": "Article 6",
+      "page": 152,
+      "title": "Article 6 Duration of the Contest"
+    },
+    {
+      "id": "SOR-2026-08-P152-S180",
+      "label": "Article 7 (Pag 152)",
+      "article_id": "Article 7",
+      "page": 152,
+      "title": "Article 7 Osaekomi Time"
+    },
+    {
+      "id": "SOR-2026-08-P153-S181",
+      "label": "Article 8 (Pag 153)",
+      "article_id": "Article 8",
+      "page": 153,
+      "title": "Article 8 Technique Coinciding with the Time Signal"
+    },
+    {
+      "id": "SOR-2026-08-P153-S182",
+      "label": "Article 9 (Pag 153)",
+      "article_id": "Article 9",
+      "page": 153,
+      "title": "Article 9 Start of the Contest"
+    },
+    {
+      "id": "SOR-2026-08-P154-S182",
+      "label": "Article 9 (Pag 154)",
+      "article_id": "Article 9",
+      "page": 154,
+      "title": "Article 9 Start of the Contest"
+    },
+    {
+      "id": "SOR-2026-08-P155-S183",
+      "label": "GENERAL (Pag 155)",
+      "article_id": "GENERAL",
+      "page": 155,
+      "title": "waza (B)"
+    },
+    {
+      "id": "SOR-2026-08-P156-S183",
+      "label": "GENERAL (Pag 156)",
+      "article_id": "GENERAL",
+      "page": 156,
+      "title": "waza (B)"
+    },
+    {
+      "id": "SOR-2026-08-P157-S183",
+      "label": "GENERAL (Pag 157)",
+      "article_id": "GENERAL",
+      "page": 157,
+      "title": "waza (B)"
+    },
+    {
+      "id": "SOR-2026-08-P158-S183",
+      "label": "GENERAL (Pag 158)",
+      "article_id": "GENERAL",
+      "page": 158,
+      "title": "waza (B)"
+    },
+    {
+      "id": "SOR-2026-08-P159-S183",
+      "label": "GENERAL (Pag 159)",
+      "article_id": "GENERAL",
+      "page": 159,
+      "title": "waza (B)"
+    },
+    {
+      "id": "SOR-2026-08-P160-S184",
+      "label": "Article 11 (Pag 160)",
+      "article_id": "Article 11",
+      "page": 160,
+      "title": "Article 11 Application of Mate"
+    },
+    {
+      "id": "SOR-2026-08-P161-S184",
+      "label": "Article 11 (Pag 161)",
+      "article_id": "Article 11",
+      "page": 161,
+      "title": "Article 11 Application of Mate"
+    },
+    {
+      "id": "SOR-2026-08-P162-S185",
+      "label": "Article 12 (Pag 162)",
+      "article_id": "Article 12",
+      "page": 162,
+      "title": "Article 12 Sono-mama"
+    },
+    {
+      "id": "SOR-2026-08-P163-S186",
+      "label": "Article 13 (Pag 163)",
+      "article_id": "Article 13",
+      "page": 163,
+      "title": "Article 13 End of the Contest"
+    },
+    {
+      "id": "SOR-2026-08-P164-S186",
+      "label": "Article 13 (Pag 164)",
+      "article_id": "Article 13",
+      "page": 164,
+      "title": "Article 13 End of the Contest"
+    },
+    {
+      "id": "SOR-2026-08-P165-S186",
+      "label": "Article 13 (Pag 165)",
+      "article_id": "Article 13",
+      "page": 165,
+      "title": "Article 13 End of the Contest"
+    },
+    {
+      "id": "SOR-2026-08-P166-S187",
+      "label": "Article 14 (Pag 166)",
+      "article_id": "Article 14",
+      "page": 166,
+      "title": "Article 14 Ippon"
+    },
+    {
+      "id": "SOR-2026-08-P167-S187",
+      "label": "Article 14 (Pag 167)",
+      "article_id": "Article 14",
+      "page": 167,
+      "title": "Article 14 Ippon"
+    },
+    {
+      "id": "SOR-2026-08-P168-S188",
+      "label": "Article 15 (Pag 168)",
+      "article_id": "Article 15",
+      "page": 168,
+      "title": "Article 15 Waza-ari and Yuko"
+    },
+    {
+      "id": "SOR-2026-08-P169-S188",
+      "label": "Article 15 (Pag 169)",
+      "article_id": "Article 15",
+      "page": 169,
+      "title": "Article 15 Waza-ari and Yuko"
+    },
+    {
+      "id": "SOR-2026-08-P170-S188",
+      "label": "Article 15 (Pag 170)",
+      "article_id": "Article 15",
+      "page": 170,
+      "title": "Article 15 Waza-ari and Yuko"
+    },
+    {
+      "id": "SOR-2026-08-P171-S188",
+      "label": "Article 15 (Pag 171)",
+      "article_id": "Article 15",
+      "page": 171,
+      "title": "Article 15 Waza-ari and Yuko"
+    },
+    {
+      "id": "SOR-2026-08-P172-S189",
+      "label": "Article 16 (Pag 172)",
+      "article_id": "Article 16",
+      "page": 172,
+      "title": "Article 16 Waza-ari-awasete-ippon"
+    },
+    {
+      "id": "SOR-2026-08-P173-S190",
+      "label": "Article 17 (Pag 173)",
+      "article_id": "Article 17",
+      "page": 173,
+      "title": "Article 17 Osaekomi-waza"
+    },
+    {
+      "id": "SOR-2026-08-P174-S190",
+      "label": "Article 17 (Pag 174)",
+      "article_id": "Article 17",
+      "page": 174,
+      "title": "Article 17 Osaekomi-waza"
+    },
+    {
+      "id": "SOR-2026-08-P175-S191",
+      "label": "Article 18 (Pag 175)",
+      "article_id": "Article 18",
+      "page": 175,
+      "title": "Article 18 Prohibited Acts and Penalties"
+    },
+    {
+      "id": "SOR-2026-08-P176-S192",
+      "label": "Article 18.1 (Pag 176)",
+      "article_id": "Article 18.1",
+      "page": 176,
+      "title": "Article 18.1 Shido (Slight Infringements Group)"
+    },
+    {
+      "id": "SOR-2026-08-P177-S193",
+      "label": "Article 18.1.1 (Pag 177)",
+      "article_id": "Article 18.1.1",
+      "page": 177,
+      "title": "Article 18.1.1 Shido for a Lack of Combativity"
+    },
+    {
+      "id": "SOR-2026-08-P178-S194",
+      "label": "Article 18.1.2 (Pag 178)",
+      "article_id": "Article 18.1.2",
+      "page": 178,
+      "title": "Article 18.1.2 Shido for an Illegal Move"
+    },
+    {
+      "id": "SOR-2026-08-P179-S194",
+      "label": "Article 18.1.2 (Pag 179)",
+      "article_id": "Article 18.1.2",
+      "page": 179,
+      "title": "Article 18.1.2 Shido for an Illegal Move"
+    },
+    {
+      "id": "SOR-2026-08-P180-S194",
+      "label": "Article 18.1.2 (Pag 180)",
+      "article_id": "Article 18.1.2",
+      "page": 180,
+      "title": "Article 18.1.2 Shido for an Illegal Move"
+    },
+    {
+      "id": "SOR-2026-08-P181-S194",
+      "label": "Article 18.1.2 (Pag 181)",
+      "article_id": "Article 18.1.2",
+      "page": 181,
+      "title": "Article 18.1.2 Shido for an Illegal Move"
+    },
+    {
+      "id": "SOR-2026-08-P182-S194",
+      "label": "Article 18.1.2 (Pag 182)",
+      "article_id": "Article 18.1.2",
+      "page": 182,
+      "title": "Article 18.1.2 Shido for an Illegal Move"
+    },
+    {
+      "id": "SOR-2026-08-P183-S194",
+      "label": "Article 18.1.2 (Pag 183)",
+      "article_id": "Article 18.1.2",
+      "page": 183,
+      "title": "Article 18.1.2 Shido for an Illegal Move"
+    },
+    {
+      "id": "SOR-2026-08-P184-S194",
+      "label": "Article 18.1.2 (Pag 184)",
+      "article_id": "Article 18.1.2",
+      "page": 184,
+      "title": "Article 18.1.2 Shido for an Illegal Move"
+    },
+    {
+      "id": "SOR-2026-08-P185-S194",
+      "label": "Article 18.1.2 (Pag 185)",
+      "article_id": "Article 18.1.2",
+      "page": 185,
+      "title": "Article 18.1.2 Shido for an Illegal Move"
+    },
+    {
+      "id": "SOR-2026-08-P186-S194",
+      "label": "Article 18.1.2 (Pag 186)",
+      "article_id": "Article 18.1.2",
+      "page": 186,
+      "title": "Article 18.1.2 Shido for an Illegal Move"
+    },
+    {
+      "id": "SOR-2026-08-P187-S194",
+      "label": "Article 18.1.2 (Pag 187)",
+      "article_id": "Article 18.1.2",
+      "page": 187,
+      "title": "Article 18.1.2 Shido for an Illegal Move"
+    },
+    {
+      "id": "SOR-2026-08-P188-S195",
+      "label": "Article 18.1.3 (Pag 188)",
+      "article_id": "Article 18.1.3",
+      "page": 188,
+      "title": "Article 18.1.3 Untidy Attire or Hair and Wasting Time"
+    },
+    {
+      "id": "SOR-2026-08-P188-S196",
+      "label": "Article 18.1.4 (Pag 188)",
+      "article_id": "Article 18.1.4",
+      "page": 188,
+      "title": "Article 18.1.4 Penalties (Shido) in Cadet Competitions"
+    },
+    {
+      "id": "SOR-2026-08-P189-S196",
+      "label": "Article 18.1.4 (Pag 189)",
+      "article_id": "Article 18.1.4",
+      "page": 189,
+      "title": "Article 18.1.4 Penalties (Shido) in Cadet Competitions"
+    },
+    {
+      "id": "SOR-2026-08-P190-S197",
+      "label": "Article 18.2.1 (Pag 190)",
+      "article_id": "Article 18.2.1",
+      "page": 190,
+      "title": "Article 18.2.1 Hansoku-make for Dangerous Techniques"
+    },
+    {
+      "id": "SOR-2026-08-P190-S198",
+      "label": "Article 18.2.2 (Pag 190)",
+      "article_id": "Article 18.2.2",
+      "page": 190,
+      "title": "Article 18.2.2 Hansoku-make for Acts against the Spirit of Judo"
+    },
+    {
+      "id": "SOR-2026-08-P191-S198",
+      "label": "Article 18.2.2 (Pag 191)",
+      "article_id": "Article 18.2.2",
+      "page": 191,
+      "title": "Article 18.2.2 Hansoku-make for Acts against the Spirit of Judo"
+    },
+    {
+      "id": "SOR-2026-08-P192-S198",
+      "label": "Article 18.2.2 (Pag 192)",
+      "article_id": "Article 18.2.2",
+      "page": 192,
+      "title": "Article 18.2.2 Hansoku-make for Acts against the Spirit of Judo"
+    },
+    {
+      "id": "SOR-2026-08-P193-S198",
+      "label": "Article 18.2.2 (Pag 193)",
+      "article_id": "Article 18.2.2",
+      "page": 193,
+      "title": "Article 18.2.2 Hansoku-make for Acts against the Spirit of Judo"
+    },
+    {
+      "id": "SOR-2026-08-P194-S199",
+      "label": "Article 18.3 (Pag 194)",
+      "article_id": "Article 18.3",
+      "page": 194,
+      "title": "Article 18.3 Double Hansoku-make"
+    },
+    {
+      "id": "SOR-2026-08-P194-S200",
+      "label": "Article 18.3.1 (Pag 194)",
+      "article_id": "Article 18.3.1",
+      "page": 194,
+      "title": "Article 18.3.1 Double hansoku-make (Indirect)"
+    },
+    {
+      "id": "SOR-2026-08-P194-S201",
+      "label": "Article 18.3.2 (Pag 194)",
+      "article_id": "Article 18.3.2",
+      "page": 194,
+      "title": "Article 18.3.2 Double hansoku-make (Direct)"
+    },
+    {
+      "id": "SOR-2026-08-P195-S202",
+      "label": "Article 19 (Pag 195)",
+      "article_id": "Article 19",
+      "page": 195,
+      "title": "Article 19 Default and Withdrawal"
+    },
+    {
+      "id": "SOR-2026-08-P195-S203",
+      "label": "Article 19.1 (Pag 195)",
+      "article_id": "Article 19.1",
+      "page": 195,
+      "title": "Article 19.1 Default"
+    },
+    {
+      "id": "SOR-2026-08-P195-S204",
+      "label": "Article 19.2 (Pag 195)",
+      "article_id": "Article 19.2",
+      "page": 195,
+      "title": "Article 19.2 Withdrawal"
+    },
+    {
+      "id": "SOR-2026-08-P196-S205",
+      "label": "Article 20 (Pag 196)",
+      "article_id": "Article 20",
+      "page": 196,
+      "title": "Article 20 Injury, Illness or Accident"
+    },
+    {
+      "id": "SOR-2026-08-P196-S206",
+      "label": "Article 20.1 (Pag 196)",
+      "article_id": "Article 20.1",
+      "page": 196,
+      "title": "Article 20.1 Continuation of a Contest"
+    },
+    {
+      "id": "SOR-2026-08-P197-S207",
+      "label": "Article 20.2 (Pag 197)",
+      "article_id": "Article 20.2",
+      "page": 197,
+      "title": "Article 20.2 Medical Examinations and Treatment Inside the Contest Area"
+    },
+    {
+      "id": "SOR-2026-08-P198-S208",
+      "label": "Article 20.3 (Pag 198)",
+      "article_id": "Article 20.3",
+      "page": 198,
+      "title": "Article 20.3 Medical Examination and Treatment Outside the Contest Area"
+    },
+    {
+      "id": "SOR-2026-08-P198-S209",
+      "label": "Article 20.3.1 (Pag 198)",
+      "article_id": "Article 20.3.1",
+      "page": 198,
+      "title": "Article 20.3.1 Treatment of Bleeding"
+    },
+    {
+      "id": "SOR-2026-08-P198-S210",
+      "label": "Article 20.3.2 (Pag 198)",
+      "article_id": "Article 20.3.2",
+      "page": 198,
+      "title": "Article 20.3.2 Treatment of Minor Injuries"
+    },
+    {
+      "id": "SOR-2026-08-P199-S211",
+      "label": "Article 21 (Pag 199)",
+      "article_id": "Article 21",
+      "page": 199,
+      "title": "Article 21 Situations not Covered by the Refereeing Rules"
+    },
+    {
+      "id": "SOR-2026-08-P200-S212",
+      "label": "GENERAL (Pag 200)",
+      "article_id": "GENERAL",
+      "page": 200,
+      "title": "IJF MEDICAL AND ANTI-DOPING HANDBOOK"
+    },
+    {
+      "id": "SOR-2026-08-P201-S213",
+      "label": "E1.1 (Pag 201)",
+      "article_id": "E1.1",
+      "page": 201,
+      "title": "E1.1 Medical Requirements"
+    },
+    {
+      "id": "SOR-2026-08-P201-S214",
+      "label": "E1.1.1 (Pag 201)",
+      "article_id": "E1.1.1",
+      "page": 201,
+      "title": "E1.1.1 Decision Making on the Field of Play"
+    },
+    {
+      "id": "SOR-2026-08-P201-S215",
+      "label": "E1.1.2 (Pag 201)",
+      "article_id": "E1.1.2",
+      "page": 201,
+      "title": "E1.1.2 Decision Making off the Field of Play"
+    },
+    {
+      "id": "SOR-2026-08-P201-S216",
+      "label": "E1.1.3 (Pag 201)",
+      "article_id": "E1.1.3",
+      "page": 201,
+      "title": "E1.1.3 Rights and Responsibilities"
+    },
+    {
+      "id": "SOR-2026-08-P202-S217",
+      "label": "E1.2 (Pag 202)",
+      "article_id": "E1.2",
+      "page": 202,
+      "title": "E1.2 Medical Suspension Following Concussion"
+    },
+    {
+      "id": "SOR-2026-08-P202-S218",
+      "label": "E1.3 (Pag 202)",
+      "article_id": "E1.3",
+      "page": 202,
+      "title": "E1.3 Hygiene"
+    },
+    {
+      "id": "SOR-2026-08-P202-S219",
+      "label": "E1.4 (Pag 202)",
+      "article_id": "E1.4",
+      "page": 202,
+      "title": "E1.4 Wearable Medical Devices"
+    },
+    {
+      "id": "SOR-2026-08-P202-S220",
+      "label": "E1.5 (Pag 202)",
+      "article_id": "E1.5",
+      "page": 202,
+      "title": "E1.5 Doctors’ Code of Conduct"
+    },
+    {
+      "id": "SOR-2026-08-P203-S221",
+      "label": "E1.6 (Pag 203)",
+      "article_id": "E1.6",
+      "page": 203,
+      "title": "E1.6 Doping Control Requirements"
+    },
+    {
+      "id": "SOR-2026-08-P203-S222",
+      "label": "E1.6.1 (Pag 203)",
+      "article_id": "E1.6.1",
+      "page": 203,
+      "title": "E1.6.1 Event Testing"
+    },
+    {
+      "id": "SOR-2026-08-P203-S223",
+      "label": "E1.6.2 (Pag 203)",
+      "article_id": "E1.6.2",
+      "page": 203,
+      "title": "E1.6.2 Selection Procedure for Doping Control"
+    },
+    {
+      "id": "SOR-2026-08-P203-S224",
+      "label": "E1.6.3 (Pag 203)",
+      "article_id": "E1.6.3",
+      "page": 203,
+      "title": "E1.6.3 Athlete Notification"
+    },
+    {
+      "id": "SOR-2026-08-P203-S225",
+      "label": "E1.6.3.1 (Pag 203)",
+      "article_id": "E1.6.3.1",
+      "page": 203,
+      "title": "E1.6.3.1 Modification of Notification for Minor Athletes"
+    },
+    {
+      "id": "SOR-2026-08-P203-S226",
+      "label": "E1.6.4 (Pag 203)",
+      "article_id": "E1.6.4",
+      "page": 203,
+      "title": "E1.6.4 Laboratory"
+    },
+    {
+      "id": "SOR-2026-08-P204-S227",
+      "label": "GENERAL (Pag 204)",
+      "article_id": "GENERAL",
+      "page": 204,
+      "title": "SPORT COMPETITION"
+    },
+    {
+      "id": "SOR-2026-08-P205-S228",
+      "label": "F1.1 (Pag 205)",
+      "article_id": "F1.1",
+      "page": 205,
+      "title": "F1.1 IJF Event Phases"
+    },
+    {
+      "id": "SOR-2026-08-P206-S228",
+      "label": "F1.1 (Pag 206)",
+      "article_id": "F1.1",
+      "page": 206,
+      "title": "F1.1 IJF Event Phases"
+    },
+    {
+      "id": "SOR-2026-08-P207-S229",
+      "label": "F1.2 (Pag 207)",
+      "article_id": "F1.2",
+      "page": 207,
+      "title": "F1.2 Athlete Scoreboards"
+    },
+    {
+      "id": "SOR-2026-08-P208-S230",
+      "label": "F1.3 (Pag 208)",
+      "article_id": "F1.3",
+      "page": 208,
+      "title": "F1.3 Standard Forms for IJF Events"
+    },
+    {
+      "id": "SOR-2026-08-P208-S231",
+      "label": "F1.3.1 (Pag 208)",
+      "article_id": "F1.3.1",
+      "page": 208,
+      "title": "F1.3.1 Delegation Control List"
+    },
+    {
+      "id": "SOR-2026-08-P209-S232",
+      "label": "F1.3.2 (Pag 209)",
+      "article_id": "F1.3.2",
+      "page": 209,
+      "title": "F1.3.2 Weigh-in List"
+    },
+    {
+      "id": "SOR-2026-08-P210-S233",
+      "label": "F1.3.3 (Pag 210)",
+      "article_id": "F1.3.3",
+      "page": 210,
+      "title": "F1.3.3 Contest Order"
+    },
+    {
+      "id": "SOR-2026-08-P211-S234",
+      "label": "F1.3.4 (Pag 211)",
+      "article_id": "F1.3.4",
+      "page": 211,
+      "title": "F1.3.4 Referees’ List"
+    },
+    {
+      "id": "SOR-2026-08-P212-S235",
+      "label": "F1.3.5 (Pag 212)",
+      "article_id": "F1.3.5",
+      "page": 212,
+      "title": "F1.3.5 Contest Sheet"
+    },
+    {
+      "id": "SOR-2026-08-P213-S236",
+      "label": "F1.3.6 (Pag 213)",
+      "article_id": "F1.3.6",
+      "page": 213,
+      "title": "F1.3.6 Direct Knockout"
+    },
+    {
+      "id": "SOR-2026-08-P214-S237",
+      "label": "F1.3.7 (Pag 214)",
+      "article_id": "F1.3.7",
+      "page": 214,
+      "title": "F1.3.7 Quarter-Final Repechage"
+    },
+    {
+      "id": "SOR-2026-08-P215-S238",
+      "label": "F1.3.8 (Pag 215)",
+      "article_id": "F1.3.8",
+      "page": 215,
+      "title": "F1.3.8 Quarter-Final Repechage up to 64 Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P216-S239",
+      "label": "F1.3.9 (Pag 216)",
+      "article_id": "F1.3.9",
+      "page": 216,
+      "title": "F1.3.9 Quarter-Final Repechage up to 32 Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P217-S240",
+      "label": "F1.3.10 (Pag 217)",
+      "article_id": "F1.3.10",
+      "page": 217,
+      "title": "F1.3.10 Quarter-Final Repechage up to 16 Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P218-S241",
+      "label": "F1.3.11 (Pag 218)",
+      "article_id": "F1.3.11",
+      "page": 218,
+      "title": "F1.3.11 Quarter-Final Repechage up to 8 Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P219-S242",
+      "label": "F1.3.12 (Pag 219)",
+      "article_id": "F1.3.12",
+      "page": 219,
+      "title": "F1.3.12 Double Repechage up to 64 Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P220-S243",
+      "label": "F1.3.13 (Pag 220)",
+      "article_id": "F1.3.13",
+      "page": 220,
+      "title": "F1.3.13 Double Repechage up to 32 Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P221-S244",
+      "label": "F1.3.14 (Pag 221)",
+      "article_id": "F1.3.14",
+      "page": 221,
+      "title": "F1.3.14 Double Repechage up to 16 Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P222-S245",
+      "label": "F1.3.15 (Pag 222)",
+      "article_id": "F1.3.15",
+      "page": 222,
+      "title": "F1.3.15 Double Repechage up to 8 Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P223-S246",
+      "label": "F1.3.16 (Pag 223)",
+      "article_id": "F1.3.16",
+      "page": 223,
+      "title": "F1.3.16 Full Repechage up to 32 Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P224-S247",
+      "label": "F1.3.17 (Pag 224)",
+      "article_id": "F1.3.17",
+      "page": 224,
+      "title": "F1.3.17 Full Repechage up to 16 Athletes or Teams"
+    },
+    {
+      "id": "SOR-2026-08-P225-S248",
+      "label": "F1.3.18 (Pag 225)",
+      "article_id": "F1.3.18",
+      "page": 225,
+      "title": "F1.3.18 Five (5) Athletes or Teams - Option 1"
+    },
+    {
+      "id": "SOR-2026-08-P226-S249",
+      "label": "F1.3.19 (Pag 226)",
+      "article_id": "F1.3.19",
+      "page": 226,
+      "title": "F1.3.19 Five (5) Athletes or Teams - Option 2"
+    },
+    {
+      "id": "SOR-2026-08-P227-S250",
+      "label": "F1.3.20 (Pag 227)",
+      "article_id": "F1.3.20",
+      "page": 227,
+      "title": "F1.3.20 Four (4) Athletes or Teams - Option 1"
+    },
+    {
+      "id": "SOR-2026-08-P228-S251",
+      "label": "F1.3.21 (Pag 228)",
+      "article_id": "F1.3.21",
+      "page": 228,
+      "title": "F1.3.21 Four (4) Athletes or Teams - Option 2"
+    },
+    {
+      "id": "SOR-2026-08-P229-S252",
+      "label": "F1.3.22 (Pag 229)",
+      "article_id": "F1.3.22",
+      "page": 229,
+      "title": "F1.3.22 Three (3) Athletes or Teams - Option 1"
+    },
+    {
+      "id": "SOR-2026-08-P230-S253",
+      "label": "F1.3.23 (Pag 230)",
+      "article_id": "F1.3.23",
+      "page": 230,
+      "title": "F1.3.23 Three (3) Athletes or Teams - Option 2"
+    },
+    {
+      "id": "SOR-2026-08-P231-S254",
+      "label": "F1.3.24 (Pag 231)",
+      "article_id": "F1.3.24",
+      "page": 231,
+      "title": "F1.3.24 Example of Winners’ List"
+    },
+    {
+      "id": "SOR-2026-08-P232-S255",
+      "label": "F1.3.25 (Pag 232)",
+      "article_id": "F1.3.25",
+      "page": 232,
+      "title": "F1.3.25 Example of Teams Line Up Confirmation"
+    },
+    {
+      "id": "SOR-2026-08-P233-S256",
+      "label": "F1.3.26 (Pag 233)",
+      "article_id": "F1.3.26",
+      "page": 233,
+      "title": "F1.3.26 Example of Mixed Teams Line Up Confirmation"
+    },
+    {
+      "id": "SOR-2026-08-P234-S257",
+      "label": "F1.3.27 (Pag 234)",
+      "article_id": "F1.3.27",
+      "page": 234,
+      "title": "F1.3.27 Example of Team Sheet"
+    },
+    {
+      "id": "SOR-2026-08-P235-S258",
+      "label": "F1.3.28 (Pag 235)",
+      "article_id": "F1.3.28",
+      "page": 235,
+      "title": "F1.3.28 Example of Mixed Teams Match Sheet - with Results"
+    },
+    {
+      "id": "SOR-2026-08-P236-S259",
+      "label": "F1.3.29 (Pag 236)",
+      "article_id": "F1.3.29",
+      "page": 236,
+      "title": "F1.3.29 Coach Suspension Form"
+    },
+    {
+      "id": "SOR-2026-08-P237-S260",
+      "label": "F1.3.30 (Pag 237)",
+      "article_id": "F1.3.30",
+      "page": 237,
+      "title": "F1.3.30 Article 18 Direct Hansoku-make Form"
+    },
+    {
+      "id": "SOR-2026-08-P238-S261",
+      "label": "F1.3.31 (Pag 238)",
+      "article_id": "F1.3.31",
+      "page": 238,
+      "title": "F1.3.31 Coaches Request to Review Action"
+    },
+    {
+      "id": "SOR-2026-08-P239-S262",
+      "label": "F1.3.32 (Pag 239)",
+      "article_id": "F1.3.32",
+      "page": 239,
+      "title": "F1.3.32 Record Sheet - Judogi Breaches"
+    },
+    {
+      "id": "SOR-2026-08-P240-S263",
+      "label": "F1.3.33 (Pag 240)",
+      "article_id": "F1.3.33",
+      "page": 240,
+      "title": "F1.3.33 Exceptional Registration Request Form"
+    },
+    {
+      "id": "SOR-2026-08-P241-S263",
+      "label": "F1.3.33 (Pag 241)",
+      "article_id": "F1.3.33",
+      "page": 241,
+      "title": "F1.3.33 Exceptional Registration Request Form"
+    },
+    {
+      "id": "SOR-2026-08-P242-S264",
+      "label": "GLOSSARY (Pag 242)",
+      "article_id": "GLOSSARY",
+      "page": 242,
+      "title": "GLOSSARY"
+    },
+    {
+      "id": "SOR-2026-08-P243-S265",
+      "label": "G1.1 (Pag 243)",
+      "article_id": "G1.1",
+      "page": 243,
+      "title": "G1.1 Glossary of Japanese Terms"
+    },
+    {
+      "id": "SOR-2026-08-P244-S265",
+      "label": "G1.1 (Pag 244)",
+      "article_id": "G1.1",
+      "page": 244,
+      "title": "G1.1 Glossary of Japanese Terms"
+    },
+    {
+      "id": "SOR-2026-08-P245-S265",
+      "label": "G1.1 (Pag 245)",
+      "article_id": "G1.1",
+      "page": 245,
+      "title": "G1.1 Glossary of Japanese Terms"
+    },
+    {
+      "id": "SOR-2026-08-P246-S265",
+      "label": "G1.1 (Pag 246)",
+      "article_id": "G1.1",
+      "page": 246,
+      "title": "G1.1 Glossary of Japanese Terms"
+    },
+    {
+      "id": "SOR-2026-08-P247-S265",
+      "label": "G1.1 (Pag 247)",
+      "article_id": "G1.1",
+      "page": 247,
+      "title": "G1.1 Glossary of Japanese Terms"
+    },
+    {
+      "id": "SOR-2026-08-P248-S265",
+      "label": "G1.1 (Pag 248)",
+      "article_id": "G1.1",
+      "page": 248,
+      "title": "G1.1 Glossary of Japanese Terms"
+    },
+    {
+      "id": "SOR-2026-08-P249-S265",
+      "label": "G1.1 (Pag 249)",
+      "article_id": "G1.1",
+      "page": 249,
+      "title": "G1.1 Glossary of Japanese Terms"
+    },
+    {
+      "id": "SOR-2026-08-P250-S266",
+      "label": "G1.2 (Pag 250)",
+      "article_id": "G1.2",
+      "page": 250,
+      "title": "G1.2 Names of Judo Techniques"
+    },
+    {
+      "id": "SOR-2026-08-P250-S267",
+      "label": "G1.2.1 (Pag 250)",
+      "article_id": "G1.2.1",
+      "page": 250,
+      "title": "G1.2.1 Nage-waza (68)"
+    },
+    {
+      "id": "SOR-2026-08-P251-S267",
+      "label": "G1.2.1 (Pag 251)",
+      "article_id": "G1.2.1",
+      "page": 251,
+      "title": "G1.2.1 Nage-waza (68)"
+    },
+    {
+      "id": "SOR-2026-08-P252-S268",
+      "label": "G1.2.2 (Pag 252)",
+      "article_id": "G1.2.2",
+      "page": 252,
+      "title": "G1.2.2 Katame-waza (32)"
+    },
+    {
+      "id": "SOR-2026-08-P253-S268",
+      "label": "G1.2.2 (Pag 253)",
+      "article_id": "G1.2.2",
+      "page": 253,
+      "title": "G1.2.2 Katame-waza (32)"
+    },
+    {
+      "id": "SOR-2026-08-P254-S269",
+      "label": "G1.3 (Pag 254)",
+      "article_id": "G1.3",
+      "page": 254,
+      "title": "G1.3 Penalty Codes"
+    },
+    {
+      "id": "SOR-2026-08-P255-S269",
+      "label": "G1.3 (Pag 255)",
+      "article_id": "G1.3",
+      "page": 255,
+      "title": "G1.3 Penalty Codes"
+    },
+    {
+      "id": "SOR-2026-08-P256-S269",
+      "label": "G1.3 (Pag 256)",
+      "article_id": "G1.3",
+      "page": 256,
+      "title": "G1.3 Penalty Codes"
+    },
+    {
+      "id": "SOR-2026-08-P257-S270",
+      "label": "G1.4 (Pag 257)",
+      "article_id": "G1.4",
+      "page": 257,
+      "title": "G1.4 Terminology"
+    },
+    {
+      "id": "SOR-2026-08-P258-S271",
+      "label": "GENERAL (Pag 258)",
+      "article_id": "GENERAL",
+      "page": 258,
+      "title": "DOCUMENT CONTROL"
+    },
+    {
+      "id": "SOR-2026-08-P259-S272",
+      "label": "H1.1 (Pag 259)",
+      "article_id": "H1.1",
+      "page": 259,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P260-S272",
+      "label": "H1.1 (Pag 260)",
+      "article_id": "H1.1",
+      "page": 260,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P261-S272",
+      "label": "H1.1 (Pag 261)",
+      "article_id": "H1.1",
+      "page": 261,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P262-S272",
+      "label": "H1.1 (Pag 262)",
+      "article_id": "H1.1",
+      "page": 262,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P263-S272",
+      "label": "H1.1 (Pag 263)",
+      "article_id": "H1.1",
+      "page": 263,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P264-S272",
+      "label": "H1.1 (Pag 264)",
+      "article_id": "H1.1",
+      "page": 264,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P265-S272",
+      "label": "H1.1 (Pag 265)",
+      "article_id": "H1.1",
+      "page": 265,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P266-S272",
+      "label": "H1.1 (Pag 266)",
+      "article_id": "H1.1",
+      "page": 266,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P267-S272",
+      "label": "H1.1 (Pag 267)",
+      "article_id": "H1.1",
+      "page": 267,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P268-S272",
+      "label": "H1.1 (Pag 268)",
+      "article_id": "H1.1",
+      "page": 268,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P269-S272",
+      "label": "H1.1 (Pag 269)",
+      "article_id": "H1.1",
+      "page": 269,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P270-S272",
+      "label": "H1.1 (Pag 270)",
+      "article_id": "H1.1",
+      "page": 270,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P271-S272",
+      "label": "H1.1 (Pag 271)",
+      "article_id": "H1.1",
+      "page": 271,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P272-S272",
+      "label": "H1.1 (Pag 272)",
+      "article_id": "H1.1",
+      "page": 272,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P273-S272",
+      "label": "H1.1 (Pag 273)",
+      "article_id": "H1.1",
+      "page": 273,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P274-S272",
+      "label": "H1.1 (Pag 274)",
+      "article_id": "H1.1",
+      "page": 274,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P275-S272",
+      "label": "H1.1 (Pag 275)",
+      "article_id": "H1.1",
+      "page": 275,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P276-S272",
+      "label": "H1.1 (Pag 276)",
+      "article_id": "H1.1",
+      "page": 276,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P277-S272",
+      "label": "H1.1 (Pag 277)",
+      "article_id": "H1.1",
+      "page": 277,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P278-S272",
+      "label": "H1.1 (Pag 278)",
+      "article_id": "H1.1",
+      "page": 278,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P279-S272",
+      "label": "H1.1 (Pag 279)",
+      "article_id": "H1.1",
+      "page": 279,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P280-S272",
+      "label": "H1.1 (Pag 280)",
+      "article_id": "H1.1",
+      "page": 280,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P281-S272",
+      "label": "H1.1 (Pag 281)",
+      "article_id": "H1.1",
+      "page": 281,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P282-S272",
+      "label": "H1.1 (Pag 282)",
+      "article_id": "H1.1",
+      "page": 282,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P283-S272",
+      "label": "H1.1 (Pag 283)",
+      "article_id": "H1.1",
+      "page": 283,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P284-S272",
+      "label": "H1.1 (Pag 284)",
+      "article_id": "H1.1",
+      "page": 284,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P285-S272",
+      "label": "H1.1 (Pag 285)",
+      "article_id": "H1.1",
+      "page": 285,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P286-S272",
+      "label": "H1.1 (Pag 286)",
+      "article_id": "H1.1",
+      "page": 286,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P287-S272",
+      "label": "H1.1 (Pag 287)",
+      "article_id": "H1.1",
+      "page": 287,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P288-S272",
+      "label": "H1.1 (Pag 288)",
+      "article_id": "H1.1",
+      "page": 288,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P289-S272",
+      "label": "H1.1 (Pag 289)",
+      "article_id": "H1.1",
+      "page": 289,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P290-S272",
+      "label": "H1.1 (Pag 290)",
+      "article_id": "H1.1",
+      "page": 290,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P291-S272",
+      "label": "H1.1 (Pag 291)",
+      "article_id": "H1.1",
+      "page": 291,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P292-S272",
+      "label": "H1.1 (Pag 292)",
+      "article_id": "H1.1",
+      "page": 292,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P293-S272",
+      "label": "H1.1 (Pag 293)",
+      "article_id": "H1.1",
+      "page": 293,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P294-S272",
+      "label": "H1.1 (Pag 294)",
+      "article_id": "H1.1",
+      "page": 294,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P295-S272",
+      "label": "H1.1 (Pag 295)",
+      "article_id": "H1.1",
+      "page": 295,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P296-S272",
+      "label": "H1.1 (Pag 296)",
+      "article_id": "H1.1",
+      "page": 296,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P297-S272",
+      "label": "H1.1 (Pag 297)",
+      "article_id": "H1.1",
+      "page": 297,
+      "title": "H1.1 Document Version History"
+    },
+    {
+      "id": "SOR-2026-08-P298-S272",
+      "label": "H1.1 (Pag 298)",
+      "article_id": "H1.1",
+      "page": 298,
+      "title": "H1.1 Document Version History"
+    }
+  ],
+  "edges": [
+    {
+      "source": "SOR-2026-08-P013-S002",
+      "target": "SOR-2026-08-P195-S202",
+      "relation_type": "references_article",
+      "target_article": "Article 19",
+      "provenance": "Explicit citation in text of SOR-2026-08-P013-S002"
+    },
+    {
+      "source": "SOR-2026-08-P095-S112",
+      "target": "SOR-2026-08-P195-S202",
+      "relation_type": "references_article",
+      "target_article": "Article 19",
+      "provenance": "Explicit citation in text of SOR-2026-08-P095-S112"
+    },
+    {
+      "source": "SOR-2026-08-P095-S113",
+      "target": "SOR-2026-08-P195-S202",
+      "relation_type": "references_article",
+      "target_article": "Article 19",
+      "provenance": "Explicit citation in text of SOR-2026-08-P095-S113"
+    },
+    {
+      "source": "SOR-2026-08-P136-S175",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P136-S175"
+    },
+    {
+      "source": "SOR-2026-08-P137-S176",
+      "target": "SOR-2026-08-P137-S177",
+      "relation_type": "references_article",
+      "target_article": "Article 4",
+      "provenance": "Explicit citation in text of SOR-2026-08-P137-S176"
+    },
+    {
+      "source": "SOR-2026-08-P137-S177",
+      "target": "SOR-2026-08-P137-S176",
+      "relation_type": "references_article",
+      "target_article": "Article 3",
+      "provenance": "Explicit citation in text of SOR-2026-08-P137-S177"
+    },
+    {
+      "source": "SOR-2026-08-P145-S177",
+      "target": "SOR-2026-08-P173-S190",
+      "relation_type": "references_article",
+      "target_article": "Article 17",
+      "provenance": "Explicit citation in text of SOR-2026-08-P145-S177"
+    },
+    {
+      "source": "SOR-2026-08-P145-S177",
+      "target": "SOR-2026-08-P160-S184",
+      "relation_type": "references_article",
+      "target_article": "Article 11",
+      "provenance": "Explicit citation in text of SOR-2026-08-P145-S177"
+    },
+    {
+      "source": "SOR-2026-08-P150-S177",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P150-S177"
+    },
+    {
+      "source": "SOR-2026-08-P152-S179",
+      "target": "SOR-2026-08-P152-S180",
+      "relation_type": "references_article",
+      "target_article": "Article 7",
+      "provenance": "Explicit citation in text of SOR-2026-08-P152-S179"
+    },
+    {
+      "source": "SOR-2026-08-P152-S179",
+      "target": "SOR-2026-08-P137-S176",
+      "relation_type": "references_article",
+      "target_article": "Article 3",
+      "provenance": "Explicit citation in text of SOR-2026-08-P152-S179"
+    },
+    {
+      "source": "SOR-2026-08-P152-S180",
+      "target": "SOR-2026-08-P152-S179",
+      "relation_type": "references_article",
+      "target_article": "Article 6",
+      "provenance": "Explicit citation in text of SOR-2026-08-P152-S180"
+    },
+    {
+      "source": "SOR-2026-08-P152-S180",
+      "target": "SOR-2026-08-P137-S176",
+      "relation_type": "references_article",
+      "target_article": "Article 3",
+      "provenance": "Explicit citation in text of SOR-2026-08-P152-S180"
+    },
+    {
+      "source": "SOR-2026-08-P153-S181",
+      "target": "SOR-2026-08-P153-S182",
+      "relation_type": "references_article",
+      "target_article": "Article 9",
+      "provenance": "Explicit citation in text of SOR-2026-08-P153-S181"
+    },
+    {
+      "source": "SOR-2026-08-P153-S182",
+      "target": "SOR-2026-08-P153-S181",
+      "relation_type": "references_article",
+      "target_article": "Article 8",
+      "provenance": "Explicit citation in text of SOR-2026-08-P153-S182"
+    },
+    {
+      "source": "SOR-2026-08-P154-S182",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P154-S182"
+    },
+    {
+      "source": "SOR-2026-08-P155-S183",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P155-S183"
+    },
+    {
+      "source": "SOR-2026-08-P159-S183",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P159-S183"
+    },
+    {
+      "source": "SOR-2026-08-P160-S184",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P160-S184"
+    },
+    {
+      "source": "SOR-2026-08-P161-S184",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P161-S184"
+    },
+    {
+      "source": "SOR-2026-08-P162-S185",
+      "target": "SOR-2026-08-P137-S177",
+      "relation_type": "references_article",
+      "target_article": "Article 4",
+      "provenance": "Explicit citation in text of SOR-2026-08-P162-S185"
+    },
+    {
+      "source": "SOR-2026-08-P163-S186",
+      "target": "SOR-2026-08-P137-S177",
+      "relation_type": "references_article",
+      "target_article": "Article 4",
+      "provenance": "Explicit citation in text of SOR-2026-08-P163-S186"
+    },
+    {
+      "source": "SOR-2026-08-P163-S186",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P163-S186"
+    },
+    {
+      "source": "SOR-2026-08-P167-S187",
+      "target": "SOR-2026-08-P163-S186",
+      "relation_type": "references_article",
+      "target_article": "Article 13",
+      "provenance": "Explicit citation in text of SOR-2026-08-P167-S187"
+    },
+    {
+      "source": "SOR-2026-08-P175-S191",
+      "target": "SOR-2026-08-P160-S184",
+      "relation_type": "references_article",
+      "target_article": "Article 11",
+      "provenance": "Explicit citation in text of SOR-2026-08-P175-S191"
+    },
+    {
+      "source": "SOR-2026-08-P176-S192",
+      "target": "SOR-2026-08-P173-S190",
+      "relation_type": "references_article",
+      "target_article": "Article 17",
+      "provenance": "Explicit citation in text of SOR-2026-08-P176-S192"
+    },
+    {
+      "source": "SOR-2026-08-P176-S192",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P176-S192"
+    },
+    {
+      "source": "SOR-2026-08-P177-S193",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P177-S193"
+    },
+    {
+      "source": "SOR-2026-08-P177-S193",
+      "target": "SOR-2026-08-P151-S178",
+      "relation_type": "references_article",
+      "target_article": "Article 5",
+      "provenance": "Explicit citation in text of SOR-2026-08-P177-S193"
+    },
+    {
+      "source": "SOR-2026-08-P178-S194",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P178-S194"
+    },
+    {
+      "source": "SOR-2026-08-P187-S194",
+      "target": "SOR-2026-08-P190-S198",
+      "relation_type": "references_article",
+      "target_article": "Article 18.2.2",
+      "provenance": "Explicit citation in text of SOR-2026-08-P187-S194"
+    },
+    {
+      "source": "SOR-2026-08-P188-S195",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P188-S195"
+    },
+    {
+      "source": "SOR-2026-08-P188-S196",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P188-S196"
+    },
+    {
+      "source": "SOR-2026-08-P189-S196",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P189-S196"
+    },
+    {
+      "source": "SOR-2026-08-P190-S197",
+      "target": "SOR-2026-08-P176-S192",
+      "relation_type": "references_article",
+      "target_article": "Article 18.1",
+      "provenance": "Explicit citation in text of SOR-2026-08-P190-S197"
+    },
+    {
+      "source": "SOR-2026-08-P190-S197",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P190-S197"
+    },
+    {
+      "source": "SOR-2026-08-P190-S197",
+      "target": "SOR-2026-08-P188-S196",
+      "relation_type": "references_article",
+      "target_article": "Article 18.1.4",
+      "provenance": "Explicit citation in text of SOR-2026-08-P190-S197"
+    },
+    {
+      "source": "SOR-2026-08-P190-S198",
+      "target": "SOR-2026-08-P176-S192",
+      "relation_type": "references_article",
+      "target_article": "Article 18.1",
+      "provenance": "Explicit citation in text of SOR-2026-08-P190-S198"
+    },
+    {
+      "source": "SOR-2026-08-P190-S198",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P190-S198"
+    },
+    {
+      "source": "SOR-2026-08-P190-S198",
+      "target": "SOR-2026-08-P188-S196",
+      "relation_type": "references_article",
+      "target_article": "Article 18.1.4",
+      "provenance": "Explicit citation in text of SOR-2026-08-P190-S198"
+    },
+    {
+      "source": "SOR-2026-08-P191-S198",
+      "target": "SOR-2026-08-P178-S194",
+      "relation_type": "references_article",
+      "target_article": "Article 18.1.2",
+      "provenance": "Explicit citation in text of SOR-2026-08-P191-S198"
+    },
+    {
+      "source": "SOR-2026-08-P193-S198",
+      "target": "SOR-2026-08-P173-S190",
+      "relation_type": "references_article",
+      "target_article": "Article 17",
+      "provenance": "Explicit citation in text of SOR-2026-08-P193-S198"
+    },
+    {
+      "source": "SOR-2026-08-P194-S199",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P194-S199"
+    },
+    {
+      "source": "SOR-2026-08-P194-S200",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P194-S200"
+    },
+    {
+      "source": "SOR-2026-08-P194-S201",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P194-S201"
+    },
+    {
+      "source": "SOR-2026-08-P195-S203",
+      "target": "SOR-2026-08-P195-S202",
+      "relation_type": "references_article",
+      "target_article": "Article 19",
+      "provenance": "Explicit citation in text of SOR-2026-08-P195-S203"
+    },
+    {
+      "source": "SOR-2026-08-P195-S204",
+      "target": "SOR-2026-08-P195-S202",
+      "relation_type": "references_article",
+      "target_article": "Article 19",
+      "provenance": "Explicit citation in text of SOR-2026-08-P195-S204"
+    },
+    {
+      "source": "SOR-2026-08-P196-S206",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P196-S206"
+    },
+    {
+      "source": "SOR-2026-08-P197-S207",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P197-S207"
+    },
+    {
+      "source": "SOR-2026-08-P198-S208",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P198-S208"
+    },
+    {
+      "source": "SOR-2026-08-P198-S209",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P198-S209"
+    },
+    {
+      "source": "SOR-2026-08-P198-S210",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P198-S210"
+    },
+    {
+      "source": "SOR-2026-08-P237-S260",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P237-S260"
+    },
+    {
+      "source": "SOR-2026-08-P259-S272",
+      "target": "SOR-2026-08-P160-S184",
+      "relation_type": "references_article",
+      "target_article": "Article 11",
+      "provenance": "Explicit citation in text of SOR-2026-08-P259-S272"
+    },
+    {
+      "source": "SOR-2026-08-P259-S272",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P259-S272"
+    },
+    {
+      "source": "SOR-2026-08-P259-S272",
+      "target": "SOR-2026-08-P168-S188",
+      "relation_type": "references_article",
+      "target_article": "Article 15",
+      "provenance": "Explicit citation in text of SOR-2026-08-P259-S272"
+    },
+    {
+      "source": "SOR-2026-08-P261-S272",
+      "target": "SOR-2026-08-P195-S202",
+      "relation_type": "references_article",
+      "target_article": "Article 19",
+      "provenance": "Explicit citation in text of SOR-2026-08-P261-S272"
+    },
+    {
+      "source": "SOR-2026-08-P284-S272",
+      "target": "SOR-2026-08-P137-S177",
+      "relation_type": "references_article",
+      "target_article": "Article 4",
+      "provenance": "Explicit citation in text of SOR-2026-08-P284-S272"
+    },
+    {
+      "source": "SOR-2026-08-P288-S272",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P288-S272"
+    },
+    {
+      "source": "SOR-2026-08-P289-S272",
+      "target": "SOR-2026-08-P173-S190",
+      "relation_type": "references_article",
+      "target_article": "Article 17",
+      "provenance": "Explicit citation in text of SOR-2026-08-P289-S272"
+    },
+    {
+      "source": "SOR-2026-08-P289-S272",
+      "target": "SOR-2026-08-P178-S194",
+      "relation_type": "references_article",
+      "target_article": "Article 18.1.2",
+      "provenance": "Explicit citation in text of SOR-2026-08-P289-S272"
+    },
+    {
+      "source": "SOR-2026-08-P289-S272",
+      "target": "SOR-2026-08-P175-S191",
+      "relation_type": "references_article",
+      "target_article": "Article 18",
+      "provenance": "Explicit citation in text of SOR-2026-08-P289-S272"
+    },
+    {
+      "source": "SOR-2026-08-P289-S272",
+      "target": "SOR-2026-08-P195-S202",
+      "relation_type": "references_article",
+      "target_article": "Article 19",
+      "provenance": "Explicit citation in text of SOR-2026-08-P289-S272"
+    },
+    {
+      "source": "SOR-2026-08-P290-S272",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P290-S272"
+    },
+    {
+      "source": "SOR-2026-08-P290-S272",
+      "target": "SOR-2026-08-P195-S202",
+      "relation_type": "references_article",
+      "target_article": "Article 19",
+      "provenance": "Explicit citation in text of SOR-2026-08-P290-S272"
+    },
+    {
+      "source": "SOR-2026-08-P291-S272",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P291-S272"
+    },
+    {
+      "source": "SOR-2026-08-P292-S272",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P292-S272"
+    },
+    {
+      "source": "SOR-2026-08-P293-S272",
+      "target": "SOR-2026-08-P196-S205",
+      "relation_type": "references_article",
+      "target_article": "Article 20",
+      "provenance": "Explicit citation in text of SOR-2026-08-P293-S272"
+    }
+  ]
+}
