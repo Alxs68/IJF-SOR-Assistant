@@ -34,7 +34,7 @@ class TestGoldenDataset(unittest.TestCase):
         # Active Golden QA Dataset (Edición oficial vigente SOR 2026-08)
         cls.golden_pairs = [
             ("Defensa de cabeza hansoku-make", "SOR-2026-08-P190-S198"),
-            ("Acción involuntaria de cabeza en proyección", "SOR-2026-08-P202-S218"),
+            ("Defensa de cabeza en categoría cadete penalizada con shido", "SOR-2026-08-P188-S196"),
             ("Video de defensa de cabeza durante seoi-nage", "SOR-2026-08-P189-S196"),
             ("Dimensiones oficiales del tatami y área de seguridad", "SOR-2026-08-P096-S114"),
             ("Tolerancia de peso en sorteo de pesaje aleatorio matutino", "SOR-2026-08-P077-S090"),
