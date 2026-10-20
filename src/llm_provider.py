@@ -36,7 +36,7 @@ class GeminiClient(BaseLLMClient):
     DEFAULT_MODEL = "gemini-flash-latest"
 
     def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
-        key = api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+        key = api_key if api_key is not None else (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY"))
         mod = model or os.environ.get("GEMINI_MODEL") or self.DEFAULT_MODEL
         super().__init__(api_key=key, model=mod)
 
@@ -116,7 +116,7 @@ class GroqClient(BaseLLMClient):
     DEFAULT_USER_AGENT = "IJF-SOR-Assistant/2.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36"
 
     def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
-        key = api_key or os.environ.get("GROQ_API_KEY")
+        key = api_key if api_key is not None else os.environ.get("GROQ_API_KEY")
         mod = model or os.environ.get("GROQ_MODEL") or self.DEFAULT_MODEL
         super().__init__(api_key=key, model=mod)
 
