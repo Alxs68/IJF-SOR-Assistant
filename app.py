@@ -18,7 +18,15 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
 from rag_engine import RagEngine
 from citation_resolver import RESOURCE_DETAILS, resolve_url, _rrm_manager
 from llm_provider import MultiProviderLLMManager
-from feedback_manager import record_observation, MOTIVOS_VALIDOS
+from feedback_manager import (
+    record_observation,
+    is_admin_configured,
+    verify_admin_token,
+    list_observations_protected,
+    get_observation_attachment_bytes,
+    update_observation_status_protected,
+    VALID_STATUSES
+)
 from i18n import t
 
 logo_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
@@ -854,6 +862,129 @@ with st.sidebar:
         st.markdown(f"**{t('sidebar_guide_quick_title', lang)}**")
         st.info(t("sidebar_guide_quick_content", lang))
 
+    with st.expander(t("sidebar_admin_title", lang), expanded=False):
+        if not is_admin_configured():
+            st.warning(t("admin_not_configured", lang))
+        else:
+            if "admin_authenticated" not in st.session_state:
+                st.session_state.admin_authenticated = False
+            if "admin_token" not in st.session_state:
+                st.session_state.admin_token = ""
+
+            if not st.session_state.admin_authenticated:
+                st.caption(t("admin_auth_caption", lang))
+                with st.form(key="admin_login_form", clear_on_submit=False):
+                    input_tok = st.text_input(
+                        t("admin_token_label", lang),
+                        type="password",
+                        key="admin_token_input"
+                    )
+                    submit_tok = st.form_submit_button(t("admin_login_btn", lang), use_container_width=True)
+                    if submit_tok:
+                        if verify_admin_token(input_tok):
+                            st.session_state.admin_authenticated = True
+                            st.session_state.admin_token = input_tok.strip()
+                            st.rerun()
+                        else:
+                            st.error(t("admin_auth_failed", lang))
+            else:
+                st.success("✓ Administrador autenticado")
+                if st.button(t("admin_logout_btn", lang), key="admin_logout_btn_sidebar", use_container_width=True):
+                    st.session_state.admin_authenticated = False
+                    st.session_state.admin_token = ""
+                    st.rerun()
+
+                st.write("---")
+                # Filter by status
+                status_choices = ["TODOS"] + VALID_STATUSES
+                filter_st = st.selectbox(
+                    t("admin_filter_status", lang),
+                    status_choices,
+                    key="admin_filter_status_select"
+                )
+                search_kw = st.text_input(
+                    t("admin_search_label", lang),
+                    key="admin_search_input"
+                )
+
+                obs_resp = list_observations_protected(
+                    admin_token=st.session_state.admin_token,
+                    status_filter=filter_st if filter_st != "TODOS" else None,
+                    search_term=search_kw.strip() if search_kw else None
+                )
+
+                if not obs_resp.get("success"):
+                    st.error(obs_resp.get("message", "Error de acceso"))
+                else:
+                    items = obs_resp.get("data", [])
+                    st.caption(f"Total novedades: {len(items)}")
+                    if not items:
+                        st.info(t("admin_no_records", lang))
+                    else:
+                        for rec in items:
+                            r_id = rec.get("observation_id", "")
+                            r_st = rec.get("status", "Recibida")
+                            r_ts = rec.get("timestamp", "")[:10]
+                            with st.expander(f"📌 {r_id} — [{r_st}] ({r_ts})", expanded=False):
+                                st.markdown(f"**{t('admin_table_date', lang)}:** {rec.get('timestamp')}")
+                                st.markdown(f"**{t('admin_table_status', lang)}:** `{r_st}`")
+                                st.markdown(f"**{t('admin_table_query', lang)}:** {rec.get('context', {}).get('query', 'N/A')}")
+                                st.markdown(f"**{t('admin_table_comment', lang)}:**\n> {rec.get('user_comment', 'N/A')}")
+
+                                # Show attachment if available with secure download
+                                att = rec.get("attachment")
+                                if att and isinstance(att, dict) and att.get("relative_path"):
+                                    fn = att.get("original_filename", "adjunto")
+                                    sz_kb = round(att.get("size_bytes", 0) / 1024, 1)
+                                    st.markdown(t("admin_attachment_available", lang, filename=fn, size_kb=sz_kb))
+                                    ok_att, att_data, err_att = get_observation_attachment_bytes(
+                                        admin_token=st.session_state.admin_token,
+                                        relative_path=att["relative_path"]
+                                    )
+                                    if ok_att and att_data:
+                                        st.download_button(
+                                            label=t("admin_download_attachment_btn", lang),
+                                            data=att_data,
+                                            file_name=fn,
+                                            key=f"dl_att_{r_id}",
+                                            use_container_width=True
+                                        )
+                                    elif err_att:
+                                        st.caption(f"⚠️ {err_att}")
+
+                                # Show internal review notes and status history
+                                irev = rec.get("internal_review", {})
+                                if irev.get("notes"):
+                                    st.markdown(f"**Notas internas:**\n```\n{irev.get('notes')}\n```")
+
+                                with st.form(key=f"update_form_{r_id}"):
+                                    cur_idx = VALID_STATUSES.index(r_st) if r_st in VALID_STATUSES else 0
+                                    new_st_choice = st.selectbox(
+                                        t("admin_status_update_label", lang),
+                                        VALID_STATUSES,
+                                        index=cur_idx,
+                                        key=f"st_choice_{r_id}"
+                                    )
+                                    new_note = st.text_area(
+                                        t("admin_note_label", lang),
+                                        key=f"note_input_{r_id}",
+                                        height=70
+                                    )
+                                    update_btn = st.form_submit_button(t("admin_save_btn", lang), use_container_width=True)
+                                    if update_btn:
+                                        up_res = update_observation_status_protected(
+                                            admin_token=st.session_state.admin_token,
+                                            observation_id=r_id,
+                                            new_status=new_st_choice,
+                                            admin_note=new_note,
+                                            author="Admin"
+                                        )
+                                        if up_res.get("success"):
+                                            st.success(t("admin_update_success", lang, obs_id=r_id))
+                                            st.rerun()
+                                        else:
+                                            st.error(up_res.get("message", "Error al actualizar"))
+
     st.write("---")
     st.markdown(f"**{t('edition_title', lang)}**")
     st.info(t("edition_info", lang, version_label=engine.config['version_label']))
@@ -1306,28 +1437,43 @@ if st.session_state.active_index >= 0:
                 with st.expander(t("feedback_expander", lang), expanded=False):
                     st.caption(t("feedback_caption", lang))
                     with st.form(key=f"feedback_form_{original_i}", clear_on_submit=True):
-                        motivo_sel = st.selectbox(
-                            t("feedback_reason_label", lang),
-                            MOTIVOS_VALIDOS,
-                            key=f"feedback_motivo_{original_i}",
-                            label_visibility="collapsed"
-                        )
                         comentario_user = st.text_area(
                             t("feedback_comment_label", lang),
                             placeholder=t("feedback_comment_placeholder", lang),
-                            height=80,
+                            height=90,
                             key=f"feedback_comment_{original_i}"
+                        )
+                        uploaded_evidence = st.file_uploader(
+                            t("feedback_attachment_label", lang),
+                            type=["png", "jpg", "jpeg", "pdf"],
+                            key=f"feedback_file_{original_i}"
                         )
                         submit_obs = st.form_submit_button(t("feedback_submit_btn", lang), use_container_width=True)
 
                         if submit_obs:
+                            att_bytes = None
+                            att_name = None
+                            att_mime = None
+                            if uploaded_evidence is not None:
+                                att_bytes = uploaded_evidence.getvalue()
+                                att_name = uploaded_evidence.name
+                                att_mime = uploaded_evidence.type
+
                             res_obs = record_observation(
-                                motivo=motivo_sel,
+                                motivo="General",
                                 comentario=comentario_user,
                                 query=item.get("query"),
                                 response_summary=summary_text if (struct and isinstance(struct, dict) and struct.get("summary")) else item.get("answer"),
                                 citations=citations_list,
-                                edition="2026-08 (Official)" if engine.is_2026_08 else "2026-01 (Historical)"
+                                edition="2026-08 (Official)" if engine.is_2026_08 else "2026-01 (Historical)",
+                                extra_metadata={
+                                    "lang": lang,
+                                    "ui_section": "response_card",
+                                    "app_version": "1.2.0"
+                                },
+                                attachment_bytes=att_bytes,
+                                attachment_filename=att_name,
+                                attachment_mime=att_mime
                             )
                             if res_obs.get("success"):
                                 st.success(t("feedback_success", lang, message=res_obs.get('message'), obs_id=res_obs.get('observation_id')))
