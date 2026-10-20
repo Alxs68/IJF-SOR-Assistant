@@ -183,7 +183,7 @@ class TestMultiProviderLLM(unittest.TestCase):
         groq_resp = MagicMock()
         groq_resp.read.return_value = json.dumps({
             "choices": [{
-                "message": {"content": "En cadetes la defensa con cabeza se penaliza con shido [SOR-2026-08-P255-S269]."}
+                "message": {"content": "En cadetes la defensa con cabeza se penaliza con shido [SOR-2026-08-P189-S196]."}
             }]
         }).encode('utf-8')
         cm_groq = MagicMock()
@@ -202,7 +202,7 @@ class TestMultiProviderLLM(unittest.TestCase):
         res = ada.analyze_situation("cadet head defence shido")
 
         self.assertEqual(res["status"], "SUCCESS")
-        self.assertIn("SOR-2026-08-P255-S269", [e["passage_id"] for e in res["evidence"]])
+        self.assertIn("SOR-2026-08-P189-S196", [e["passage_id"] for e in res["evidence"]])
         self.assertIn("Groq", res["mode"])
         self.assertTrue(res["llm_meta"]["fallback_triggered"])
         self.assertEqual(res["llm_meta"]["successful_provider"], "Groq")
