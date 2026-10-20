@@ -55,6 +55,22 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_based_on": "Based on:",
         "sidebar_source_hash": "Source SHA-256 hash:",
         
+        # User Guide
+        "sidebar_guide_title": "6. User Guide",
+        "sidebar_guide_summary": (
+            "**Official User Guide (SOR 2026 Edition)**\n\n"
+            "Comprehensive manual covering interface navigation, query formulation, citation interpretation, "
+            "PDF viewer interaction, and regulatory compliance guidelines for referees, coaches, and athletes."
+        ),
+        "sidebar_guide_download_btn": "📥 Download User Guide (PDF)",
+        "sidebar_guide_quick_title": "📋 Quick Reference Guide",
+        "sidebar_guide_quick_content": (
+            "1. **Language:** Select *Español* or *English* at the top of the sidebar.\n"
+            "2. **Querying:** Type your question or click one of the quick suggestions.\n"
+            "3. **Citations:** Click blue citation badges to open the official PDF on the exact certified page.\n"
+            "4. **Disclaimer:** The assistant provides technical guidance. Always contrast critical rulings with the official IJF SOR."
+        ),
+        
         # Regulatory Edition
         "edition_title": "📚 SOR Rule Edition",
         "edition_info": "**{version_label}**\n\nSole active and certified official edition authorized for international refereeing and competition.",
@@ -274,6 +290,22 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_version_label": "Versión **1.2.0 (Rebuild Edition)**",
         "sidebar_based_on": "Basado en:",
         "sidebar_source_hash": "Hash SHA-256 de fuente:",
+        
+        # User Guide
+        "sidebar_guide_title": "6. Guía de Usuario",
+        "sidebar_guide_summary": (
+            "**Guía Oficial de Usuario (Edición SOR 2026)**\n\n"
+            "Manual técnico integral sobre navegación de la interfaz, formulación de consultas normativas, "
+            "interpretación de citas y trazabilidad, interacción con el visor PDF y pautas de cotejo reglamentario para árbitros, entrenadores y competidores."
+        ),
+        "sidebar_guide_download_btn": "📥 Descargar Guía de Usuario (PDF)",
+        "sidebar_guide_quick_title": "📋 Guía Rápida de Referencia",
+        "sidebar_guide_quick_content": (
+            "1. **Idioma:** Seleccione *Español* o *English* en la parte superior de la barra lateral.\n"
+            "2. **Consulta:** Escriba su consulta técnica o seleccione una de las sugerencias predefinidas.\n"
+            "3. **Citas y Visor:** Haga clic en las píldoras de cita para abrir el visor interactivo en la página exacta oficial.\n"
+            "4. **Cotejo Obligatorio:** El asistente ofrece orientación técnica. Ante fallos arbitrales o controversias, contraste siempre la decisión con el texto oficial del IJF SOR."
+        ),
         
         # Regulatory Edition
         "edition_title": "📚 Edición del Reglamento SOR",

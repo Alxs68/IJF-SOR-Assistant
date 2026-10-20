@@ -832,6 +832,28 @@ with st.sidebar:
 {t("sidebar_source_hash", lang)} `{engine.config['source_sha256'][:16]}...`
         """)
 
+    with st.expander(t("sidebar_guide_title", lang), expanded=False):
+        st.markdown(t("sidebar_guide_summary", lang))
+        guide_pdf_path = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            "docs", "guides", "IJF_SOR_Assistant_Guia_Usuario.pdf"
+        )
+        if os.path.exists(guide_pdf_path):
+            try:
+                with open(guide_pdf_path, "rb") as f_guide:
+                    guide_bytes = f_guide.read()
+                st.download_button(
+                    label=t("sidebar_guide_download_btn", lang),
+                    data=guide_bytes,
+                    file_name="IJF_SOR_Assistant_Guia_Usuario.pdf",
+                    mime="application/pdf",
+                    use_container_width=True
+                )
+            except Exception as e_guide:
+                st.caption(f"Error cargando guía PDF: {e_guide}")
+        st.markdown(f"**{t('sidebar_guide_quick_title', lang)}**")
+        st.info(t("sidebar_guide_quick_content", lang))
+
     st.write("---")
     st.markdown(f"**{t('edition_title', lang)}**")
     st.info(t("edition_info", lang, version_label=engine.config['version_label']))
