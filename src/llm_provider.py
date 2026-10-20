@@ -34,9 +34,10 @@ class BaseLLMClient:
 class GeminiClient(BaseLLMClient):
     """Native zero-dependency HTTP client for Google Gemini API."""
     DEFAULT_MODEL = "gemini-flash-latest"
+    _UNSET = object()
 
-    def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
-        key = api_key if api_key is not None else (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY"))
+    def __init__(self, api_key: Any = _UNSET, model: Optional[str] = None):
+        key = (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")) if api_key is self._UNSET else api_key
         mod = model or os.environ.get("GEMINI_MODEL") or self.DEFAULT_MODEL
         super().__init__(api_key=key, model=mod)
 
@@ -114,9 +115,10 @@ class GroqClient(BaseLLMClient):
     """Native zero-dependency HTTP client for Groq Cloud API (OpenAI Chat Completion compatible)."""
     DEFAULT_MODEL = "openai/gpt-oss-120b"
     DEFAULT_USER_AGENT = "IJF-SOR-Assistant/2.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36"
+    _UNSET = object()
 
-    def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
-        key = api_key if api_key is not None else os.environ.get("GROQ_API_KEY")
+    def __init__(self, api_key: Any = _UNSET, model: Optional[str] = None):
+        key = os.environ.get("GROQ_API_KEY") if api_key is self._UNSET else api_key
         mod = model or os.environ.get("GROQ_MODEL") or self.DEFAULT_MODEL
         super().__init__(api_key=key, model=mod)
 
