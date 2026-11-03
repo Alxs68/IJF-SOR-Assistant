@@ -3,7 +3,7 @@ import json
 import re
 import urllib.request
 import urllib.error
-from datetime import datetime
+from datetime import datetime, timezone
 
 class ReferenceChecker:
     def __init__(self, registry_path=None):
@@ -76,7 +76,7 @@ class ReferenceChecker:
     def run_audit(self):
         """Recorre todas las referencias registradas, audita su estado y actualiza el JSON."""
         print(f"[Checker] Iniciando auditoría de referencias en {self.registry_path}...")
-        now_str = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        now_str = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         changes_detected = 0
 
         for key, ref in self.registry.items():

@@ -11,11 +11,12 @@ class TestGoldenDataset(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
+        os.environ["IJF_SOR_EDITION"] = "2026-08"
         cls.brain_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         cls.engine = RagEngine(cls.brain_path)
-        
-        # Define Golden QA Dataset (Query -> Expected KUN ID)
-        cls.golden_pairs = [
+
+        # Historical Golden QA Dataset (Edición previa 2026-01 para trazabilidad)
+        cls.historical_golden_pairs_2026_01 = [
             ("Defensa de cabeza hansoku-make", "KUN-0001"),
             ("Acción involuntaria de cabeza en proyección", "KUN-0003"),
             ("Video de defensa de cabeza durante seoi-nage", "KUN-0004"),
@@ -28,6 +29,22 @@ class TestGoldenDataset(unittest.TestCase):
             ("Proyección de seoi-nage inverso permitida en seniors", "KUN-0073"),
             ("Incorporación de uniformes inteligentes Smart Judogi NFC", "KUN-0076"),
             ("Uso de Inteligencia Artificial para arbitraje por la IJF", "KUN-0077")
+        ]
+
+        # Active Golden QA Dataset (Edición oficial vigente SOR 2026-08)
+        cls.golden_pairs = [
+            ("Defensa de cabeza hansoku-make", "SOR-2026-08-P190-S198"),
+            ("Defensa de cabeza en categoría cadete penalizada con shido", "SOR-2026-08-P188-S196"),
+            ("Video de defensa de cabeza durante seoi-nage", "SOR-2026-08-P189-S196"),
+            ("Dimensiones oficiales del tatami y área de seguridad", "SOR-2026-08-P096-S114"),
+            ("Tolerancia de peso en sorteo de pesaje aleatorio matutino", "SOR-2026-08-P077-S090"),
+            ("Duración del combate en categorías senior y cadet", "SOR-2026-08-P152-S179"),
+            ("Medidas del judogi con el calibrador Sokuteiki", "SOR-2026-08-P124-S165"),
+            ("Agarre Ushiro-sangaku con riesgo cervical en suelo", "SOR-2026-08-P180-S194"),
+            ("Límite máximo de intervenciones médicas por combate", "SOR-2026-08-P196-S206"),
+            ("Proyección de seoi-nage inverso permitida en seniors", "SOR-2026-08-P189-S196"),
+            ("Incorporación de uniformes inteligentes Smart Judogi NFC", "SOR-2026-08-P115-S149"),
+            ("Uso de Inteligencia Artificial para arbitraje por la IJF", "SOR-2026-08-P132-S172")
         ]
 
     def test_golden_dataset_retrieval(self):

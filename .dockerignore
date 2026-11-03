@@ -1,17 +1,60 @@
+# ==============================================================================
+# .dockerignore — Producción Oficial IJF SOR Assistant
+# ==============================================================================
+
+# Entornos virtuales y dependencias locales
+.venv/
+env/
+venv/
+ENV/
+
+# Control de versiones y metadatos Git
+.git/
+.gitignore
+
+# Secretos y variables de entorno sensibles
 .env
 .env.*
-.git
-.gitignore
-.venv
+*.key
+*.pem
+
+# Caché de Python y compilados
 __pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Suites de pruebas y configuraciones de testing
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs del sistema y servicios
 *.log
 streamlit.log
-scratch/*.json
-scratch/*.md
-scratch/*.csv
-tests/
-Dockerfile
-docker-compose.yml
+
+# Scripts scratch, diagnósticos temporales y datos de prueba
+scratch/
+
+# Documentación interna de auditorías, reportes de cobertura y entregables zip
+docs/reports/
+docs/auditoria_*
+docs/cierre_*
+docs/correccion_*
+docs/informe_*
+docs/propuesta_*
+docs/registro_*
+docs/reservas_*
+docs/revision_*
+docs/validacion_*
+docs/audit_*
+
+# Archivos de bitácora y guías de desarrollo
 walkthrough.md
 task.md
 technical_defense_guide.md
+
+# Archivos de definición Docker
+Dockerfile
+docker-compose.yml

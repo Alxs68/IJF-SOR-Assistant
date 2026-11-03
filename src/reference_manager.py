@@ -22,7 +22,7 @@ class ReferenceManager:
             # Ruta permanente por defecto
             base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             registry_path = os.path.join(base_dir, "data", "references", "reference_registry.json")
-        
+
         self.registry_path = registry_path
         self.registry = {}
         self.load_registry()
@@ -78,16 +78,28 @@ class ReferenceManager:
                 "is_clickable": False,
                 "ux_message": "Referencia no encontrada o sin datos."
             }
+        # 0. Interceptar pasajes reconstruidos del SOR 2026-08
+        if kun_id.startswith("SOR-2026-08-") or kun_data.get("source_id") == "SOR-2026-08-14-ENG" or kun_data.get("fuente_origen") == "SOR-2026-08-14-ENG":
+            pdf_page = kun_data.get("pdf_page_index")
+            base_url = kun_data.get("source_url") or "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/08/IJF_Sport_and_Organisation_Rul-1787430903.pdf"
+            final_url = f"{base_url}#page={pdf_page}" if pdf_page else base_url
+            return {
+                "url": final_url,
+                "operational_status": "AVAILABLE",
+                "verification_status": "VERIFIED",
+                "is_clickable": True,
+                "ux_message": f"🥋 Cita Oficial IJF SOR 14-08-2026 (Página física {pdf_page})" if pdf_page else "🥋 Cita Oficial IJF SOR 14-08-2026"
+            }
 
         ref_spec = kun_data.get("referencia_especifica", "").strip()
         norm_ref = re.sub(r'^https?://', '', ref_spec).rstrip('/')
-        
+
         # 1. Interceptar SPA deep links de rules.ijf.org
         source_url = ""
         if "fuente" in kun_data and isinstance(kun_data["fuente"], dict):
             source_url = kun_data["fuente"].get("url") or ""
         norm_url = re.sub(r'^https?://', '', source_url).strip().rstrip('/')
-        
+
         for link_key, deep_url in RULES_DEEP_LINKS.items():
             if (norm_ref and norm_ref.startswith(link_key)) or (norm_url and norm_url.startswith(link_key)):
                 return {
@@ -103,14 +115,14 @@ class ReferenceManager:
         lookup_key = None
         if "fuente" in kun_data and isinstance(kun_data["fuente"], dict):
             lookup_key = self.clean_url(kun_data["fuente"].get("url"))
-            
+
         # Caso B: Fallback a fuente_origen (ej: VID-004)
         if not lookup_key or lookup_key not in self.registry:
             lookup_key = kun_data.get("fuente_origen")
 
         # 3. Consultar en el catálogo RRM
         ref_record = self.registry.get(lookup_key)
-        
+
         if not ref_record:
             # Fallback seguro a resolvedor clásico si no está registrado
             fallback_url = self._resolve_fallback_url(kun_data)
@@ -124,7 +136,7 @@ class ReferenceManager:
 
         op_status = ref_record.get("operational_status", "AVAILABLE")
         ver_status = ref_record.get("verification_status", "NOT_VERIFIED")
-        
+
         # 4. Aplicar políticas RRM según el estado operativo
         if op_status == "DELETED":
             return {

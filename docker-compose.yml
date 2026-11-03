@@ -13,3 +13,7 @@ services:
       - .:/app
       - /app/.venv
       - /app/__pycache__
+      - hf_cache:/root/.cache/huggingface
+
+volumes:
+  hf_cache:
