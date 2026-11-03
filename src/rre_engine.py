@@ -377,6 +377,12 @@ class ReasoningRetrievalEngine:
         "cadete": "cadet",
         "juniors": "junior",
         "seniors": "senior",
+        "proyeccion": "throw",
+        "proyecciones": "throw",
+        "lanzamiento": "throw",
+        "apoya": "head",
+        "apoyar": "head",
+        "apoyo": "head",
         "oro": "gold",
         "puntos": "points",
         "puntuacion": "scoring",
@@ -455,6 +461,7 @@ class ReasoningRetrievalEngine:
         "agarre": "grip holding",
         "color": "colour color",
         "colores": "colour colours color colors",
+        "colours": "colour",
         "cinturon": "belt",
         "cinturones": "belt belts",
         "permitido": "allowed permitted",
@@ -483,7 +490,7 @@ class ReasoningRetrievalEngine:
     }
 
     def _tokenize(self, text):
-        clean = text.lower().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u")
+        clean = text.lower().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u").replace("ñ", "n")
         raw_tokens = re.findall(r"\b[a-zA-Z0-9_\-]{2,}\b", clean)
         tokens = []
         for t in raw_tokens:
@@ -530,7 +537,7 @@ class ReasoningRetrievalEngine:
         sims = np.dot(self.dense_embeddings, q_emb)
 
         # Cross-lingual dense projection for non-English queries containing mapped technical terms
-        clean = query.lower().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u")
+        clean = query.lower().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u").replace("ñ", "n")
         raw_tokens = re.findall(r"\b[a-zA-Z0-9_\-]{2,}\b", clean)
         eng_parts = []
         for t in raw_tokens:
@@ -560,7 +567,7 @@ class ReasoningRetrievalEngine:
         normalized = (
             query.lower()
             .replace("á", "a").replace("é", "e").replace("í", "i")
-            .replace("ó", "o").replace("ú", "u")
+            .replace("ó", "o").replace("ú", "u").replace("ñ", "n")
         )
         history_markers = (
             "version history", "document version history", "history of changes",
@@ -674,7 +681,7 @@ class ReasoningRetrievalEngine:
             for pid in rrf_scores:
                 p = self.passages_by_id.get(pid)
                 if p and 259 <= p.get("pdf_page_index", 0) <= 298:
-                    rrf_scores[pid] *= 0.85
+                    rrf_scores[pid] *= 0.40
 
         # Recompensa específica de frontera normativa (osaekomi / ne-waza sobrepasando área de seguridad o fuera del área de combate)
         clean_q_lower = query.lower()
@@ -701,7 +708,7 @@ class ReasoningRetrievalEngine:
         # Controlled topical alignment for equipment regulations (Appendix C)
         clean_q_lower = query.lower()
         is_belt_query = any(w in clean_q_lower for w in ["cinturon", "cinturón", "belt"])
-        is_judogi_color_query = any(w in clean_q_lower for w in ["color", "colores", "colour"]) and any(w in clean_q_lower for w in ["judogi", "traje", "uniforme"]) and not is_belt_query
+        is_judogi_color_query = any(w in clean_q_lower for w in ["color", "colores", "colour", "colours"]) and any(w in clean_q_lower for w in ["judogi", "traje", "uniforme"]) and not is_belt_query
         is_sleeve_query = any(w in clean_q_lower for w in ["manga", "mangas", "sleeve", "sleeves", "sokuteiki"])
         is_mark_query = any(w in clean_q_lower for w in ["marca", "marcas", "parche", "parches", "dorsal", "dorsales", "patch", "logo", "advertising", "publicidad", "emblema"])
 
@@ -755,13 +762,16 @@ class ReasoningRetrievalEngine:
 
             # 1. Regla de Cadetes (Art. 18.1.4, Pág. 188): solo cuando se especifica categoría cadete
             if is_cadet_specific:
+                is_reverse_seoi = any(w in clean_q_lower for w in ["reverse", "seoi-nage", "seoi", "inversa"])
                 for pid in rrf_scores:
                     p = self.passages_by_id.get(pid)
                     if p:
                         if p.get("pdf_page_index") == 188 and "18.1.4" in str(p.get("article_id", "")):
-                            rrf_scores[pid] += 0.09
+                            # Pág. 188 regula taxativamente puntos 33 (Tori cabeza) y 34 (Uke cabeza)
+                            rrf_scores[pid] += 0.16 if not is_reverse_seoi else 0.08
                         elif p.get("pdf_page_index") == 189 and "18.1.4" in str(p.get("article_id", "")):
-                            rrf_scores[pid] += 0.07
+                            # Pág. 189 regula punto 35 (reverse seoi-nage)
+                            rrf_scores[pid] += 0.16 if is_reverse_seoi else 0.06
 
             # 2. Head Diving de Tori (Art. 18.2.1, Pág. 190): técnica peligrosa sancionada con Hansoku-make
             if is_dive_specific:

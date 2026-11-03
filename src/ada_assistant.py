@@ -364,6 +364,7 @@ class ArbitrationDecisionAssistant:
         content_text = " ".join(target_slice)
         content_text = re.sub(r"^[•·\-\*\s]+", "", content_text).strip()
         content_text = re.sub(r"\s+", " ", content_text).strip()
+        content_text = re.sub(r"^[0-9]{1,3}\.\s*", "", content_text).strip()
 
         # Extraer la primera oración sustantiva preservando frases exclamativas reglamentarias
         sentence_match = re.search(r"^(.*?(?:\.|\![\"\”\»\']|\! Sore-Made[\"\”\»\']?))(?:\s+[A-Z0-9]|$)", content_text)

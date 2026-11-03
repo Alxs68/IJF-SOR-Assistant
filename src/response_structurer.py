@@ -263,10 +263,16 @@ def build_deterministic_structured_answer(
             if any(term in line.lower() for term in ["uniform colour", "colour references", "white:", "pantone"]):
                 selected_idx = idx
                 break
+    elif any(w in clean_q for w in ["cadet", "cadete", "cadetes"]) and any(w in clean_q for w in ["cabeza", "head"]):
+        for idx, line in enumerate(substantive_lines):
+            if any(term in line.lower() for term in ["use the head to throw as tori", "not allowed to use the head"]):
+                selected_idx = idx
+                break
 
     target_slice = substantive_lines[selected_idx:]
     raw_snippet = " ".join(target_slice)
     raw_snippet = re.sub(r"^[•·\-\*\s]+", "", raw_snippet).strip()
+    raw_snippet = re.sub(r"^[0-9]{1,3}\.\s*", "", raw_snippet).strip()
     raw_snippet = re.sub(r"\s+", " ", raw_snippet).strip()
     # If text is a bulleted specification (e.g. C1.9 Judogi Colour)
     if "•" in raw_snippet and ":" in raw_snippet:
