@@ -220,6 +220,67 @@ class TestNormativeHallucinationPrevention(unittest.TestCase):
         verif_good = self.validator.validate_text(correct_text)
         self.assertTrue(verif_good.is_valid)
 
+    def test_case_15_bridge_faithful_reproduction_without_invented_conditions(self):
+        """15. Reproducción fiel de Art. 14.2 (puente) sin invención de condiciones o esperas."""
+        bridge_evidence = [
+            {
+                "passage_id": "SOR-2026-08-P166-S187",
+                "article_id": "Article 14",
+                "text_original": (
+                    "Article 14 Ippon\n"
+                    "2. All situations in which one of the athletes voluntarily makes a bridge "
+                    "(head and one foot or both feet in contact with the tatami) after having been thrown will be ippon."
+                )
+            },
+            {
+                "passage_id": "SOR-2026-08-P167-S187",
+                "article_id": "Article 14",
+                "text_original": (
+                    "This decision is taken for the safety of the athletes, so they do not try to escape from the "
+                    "technique and endanger their cervical spine. Exception: No score or penalty will be given if the "
+                    "landing of uke occurs on the body of tori, in such a way that not all parts of uke's body involving "
+                    "the bridge situation (head, foot or feet) touch the tatami."
+                )
+            }
+        ]
+        bridge_validator = NormativeValidator(evidence_passages=bridge_evidence)
+
+        # Afirmación con invención de condición temporal o geométrica no reglamentaria
+        bad_bridge_text = (
+            "En el puente voluntario tras proyección, el árbitro debe esperar que ruede o evolucione la caída "
+            "durante al menos 3 segundos para confirmar Ippon."
+        )
+        verif_bad = bridge_validator.validate_text(bad_bridge_text)
+        self.assertFalse(verif_bad.is_valid)
+        self.assertTrue(any("Invención de condición no reglamentaria en puente" in m for m in verif_bad.semantic_mismatches))
+
+        # Afirmación fiel textual conforme a Art. 14 (Págs. 166-167)
+        good_bridge_text = (
+            "Conforme al Art. 14 (Págs. 166-167), toda situación donde un atleta realiza voluntariamente "
+            "un puente (cabeza y uno o ambos pies en contacto con el tatami) tras ser proyectado es Ippon para el rival "
+            "por protección de la columna cervical. Excepción textual: no se otorgará puntuación ni penalización si la caída "
+            "ocurre sobre el cuerpo de tori sin que la cabeza ni los pies toquen el tatami."
+        )
+        verif_good = bridge_validator.validate_text(good_bridge_text)
+        self.assertTrue(verif_good.is_valid)
+
+    def test_case_16_three_level_distinction_interpretation_vs_express_rule(self):
+        """16. Distinción explícita entre regla expresa, interpretación normativa y criterio arbitral."""
+        # Texto estructurado que explicita la interpretación y las limitaciones sin resolver con suposiciones
+        structured_resp = StructuredAnswer(
+            summary="Ippon para Tori si Uke realiza puente voluntario al caer (Art. 14.2, Pág. 166).",
+            normative_basis="- [SOR-2026-08-P166-S187] Article 14 (Pág. 166)\n- [SOR-2026-08-P167-S187] Article 14 (Pág. 167)",
+            citations=["SOR-2026-08-P166-S187", "SOR-2026-08-P167-S187"],
+            conditions_and_exceptions="Excepción textual: Si uke cae sobre el cuerpo de tori sin que cabeza o pies toquen el tatami, no hay puntuación.",
+            extended_analysis="Regla Expresa: Art. 14.2 establece Ippon para proteger la columna cervical. Interpretación normativa: el criterio busca desincentivar el giro sobre la cabeza. Criterio arbitral: la apreciación del contacto voluntario recae en los jueces del tatami.",
+            limitations="El texto oficial del SOR no detalla secuencias de observación temporal adicionales.",
+            is_structured=True
+        )
+        sanitized = self.validator.sanitize_structured_answer(structured_resp)
+        self.assertEqual(sanitized.summary, structured_resp.summary)
+        self.assertIn("Interpretación normativa:", sanitized.extended_analysis)
+        self.assertIn("Regla Expresa:", sanitized.extended_analysis)
+
 
 if __name__ == "__main__":
     unittest.main()

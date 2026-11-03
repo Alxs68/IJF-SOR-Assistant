@@ -238,6 +238,23 @@ class NormativeValidator:
                         "Infracción procedimental: Conforme al Art. 18.1.3 y Art. 18.1.5, la primera ocurrencia de pérdida de tiempo no conlleva sanción inmediata de Shido sino advertencia del árbitro."
                     )
 
+        # 9. Rigorous Bridge & Inventions Check (Art. 14.2):
+        # The text specifies Ippon for voluntary bridge to protect the cervical spine,
+        # with the landing on Tori's body without mat contact exception.
+        # It forbids adding unverified conditions like geometric angles or waiting times.
+        if "puente" in text_lower or "bridge" in text_lower:
+            invented_bridge_patterns = [
+                r'\b(?:esperar|debe esperar|el árbitro espera|wait for)\s+(?:que ruede|que caiga completamente|la evolución|a ver si toca)\b',
+                r'\b(?:ángulo de|en un ángulo|inclinación de)\s+\d+\s*(?:grados|degrees|°)\b',
+                r'\b(?:durante al menos|por más de|durante)\s+\d+\s+(?:segundos?|seconds?)\b'
+            ]
+            for b_pat in invented_bridge_patterns:
+                if re.search(b_pat, text_lower):
+                    semantic_mismatches.append(
+                        "Invención de condición no reglamentaria en puente (Art. 14.2): El SOR no impone esperas de evolución, ángulos geométricos ni tiempos de duración al juzgar el puente voluntario."
+                    )
+                    break
+
         is_valid = not (
             hallucinated_codes or
             hallucinated_articles or
