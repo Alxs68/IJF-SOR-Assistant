@@ -795,7 +795,7 @@ if "pdf_zoom" not in st.session_state:
 def load_example():
     sel = st.session_state.get("example_select_widget")
     if sel and sel not in ("Elige una pregunta para consultar...", "Choose an example query..."):
-        st.session_state.query_to_run = sel
+        st.session_state.prefill_query = sel
 
 # Sidebar
 with st.sidebar:
@@ -1171,16 +1171,22 @@ else:
 # Handle user input
 query_to_run = None
 
-# Check if a suggestion card was clicked
-if st.session_state.get("query_to_run"):
-    query_to_run = st.session_state.pop("query_to_run")
+# Check if a suggestion was selected to prefill or run
+default_input_val = ""
+if st.session_state.get("prefill_query"):
+    default_input_val = st.session_state.pop("prefill_query")
 
-# Chat input for manual queries
+# Chat input for manual queries (any free inquiry permitted)
 with st.container():
     with st.form(key="chat_form", clear_on_submit=True, border=False):
         col1, col2 = st.columns([0.85, 0.15])
         with col1:
-            user_input = st.text_input("Query input", placeholder=t("chat_input_placeholder", lang), label_visibility="collapsed")
+            user_input = st.text_input(
+                "Query input",
+                value=default_input_val,
+                placeholder=t("chat_input_placeholder", lang),
+                label_visibility="collapsed"
+            )
         with col2:
             submit_button = st.form_submit_button(t("send_btn", lang), use_container_width=True)
 
@@ -1518,8 +1524,8 @@ else:
     chip_cols = st.columns(len(suggestion_chips))
     for i, (label, full_query) in enumerate(suggestion_chips):
         with chip_cols[i]:
-            if st.button(label, key=f"chip_{i}", help=full_query):
-                st.session_state.query_to_run = full_query
+            if st.button(label, key=f"chip_{i}", help=full_query, use_container_width=True):
+                st.session_state.prefill_query = full_query
                 st.rerun()
 
 st.write("---")
