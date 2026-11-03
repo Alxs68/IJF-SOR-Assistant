@@ -235,65 +235,137 @@ def build_deterministic_structured_answer(
     content_lines = [l for l in raw_lines if not l.startswith("Sport and Organisation") and not l.startswith("page -")]
     if not content_lines:
         content_lines = raw_lines
-    # If the first line is the section or article title, take subsequent substantive text
-    if len(content_lines) > 1 and (
-        re.match(r"^[A-Z0-9]+(?:\.[0-9]+)*", content_lines[0]) or
-        content_lines[0].lower().startswith("article") or
-        content_lines[0].lower().startswith("section")
+
+    # Localizar el bloque específico del artículo dentro de la página física si hay múltiples apartados
+    art_id = str(top_ev.get("article_id") or "").strip()
+    start_idx = 0
+    if art_id and art_id != "GENERAL":
+        clean_art = re.sub(r"[^a-zA-Z0-9]", "", art_id).lower()
+        for i, line in enumerate(content_lines):
+            clean_line = re.sub(r"[^a-zA-Z0-9]", "", line).lower()
+            if clean_art in clean_line:
+                start_idx = i
+                break
+
+    target_lines = content_lines[start_idx:]
+    if len(target_lines) > 1 and (
+        re.match(r"^[A-Z0-9]+(?:\.[0-9]+)*", target_lines[0]) or
+        target_lines[0].lower().startswith("article") or
+        target_lines[0].lower().startswith("section")
     ):
-        substantive_lines = content_lines[1:]
+        substantive_lines = target_lines[1:]
     else:
-        substantive_lines = content_lines
+        substantive_lines = target_lines
 
-    # Query-aware selection of substantive paragraph
+    full_text = "\n".join(substantive_lines)
+    prot = re.sub(r"[\r\n]+[•·\-\*]\s*", r"\n___BULLET___ ", full_text)
+    blocks = prot.split("\n___BULLET___ ")
+
+    sentences = []
+    for b in blocks:
+        b_clean = re.sub(r"\s+", " ", b).strip()
+        if not b_clean:
+            continue
+        s = re.sub(r"(\b\d{1,3})\.\s+", r"\1___DOT___ ", b_clean)
+        s = re.sub(r"\b(e\.g|i\.e|eg|vs|art|sec|p|pag)\.\s+", r"\1___DOT___ ", s, flags=re.IGNORECASE)
+        s = re.sub(r"Ippon!\s+Sore-Made!", "Ippon___EXCL___ Sore-Made!", s)
+        s = re.sub(r"(![\"”»\']|\! Sore-Made[\"”»\']?|\.[\"”»\'])\s+(?=[A-Z0-9])", r"\1___SENT_END___ ", s)
+        s = re.sub(r"([.!?])\s+(?=[A-Z0-9])", r"\1___SENT_END___ ", s)
+        parts = [re.sub(r"___EXCL___", "!", re.sub(r"___DOT___", ".", p)).strip() for p in s.split("___SENT_END___ ") if p.strip()]
+        sentences.extend(parts)
+
+    if not sentences:
+        sentences = [full_text]
+
+    SYNONYM_EXPANSIONS = {
+        "dimension": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
+        "dimensiones": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
+        "medida": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
+        "medidas": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
+        "color": ["colour", "color", "white", "blue", "pantone", "uniform"],
+        "colores": ["colour", "color", "white", "blue", "pantone", "uniform"],
+        "blanco": ["white", "snow white"],
+        "azul": ["blue", "pantone"],
+        "puente": ["bridge", "cervical", "spine"],
+        "cabeza": ["head", "cervical", "neck"],
+        "lanzar": ["throw", "nage"],
+        "lanzamiento": ["throw", "nage"],
+        "proyeccion": ["throw", "nage", "projection"],
+        "proyección": ["throw", "nage", "projection"],
+        "defiende": ["defend", "defense"],
+        "defensa": ["defend", "defense"],
+        "inmovilizacion": ["osaekomi", "hold"],
+        "inmovilización": ["osaekomi", "hold"],
+        "seguridad": ["safety", "area"],
+        "limite": ["limit", "beyond"],
+        "sobrepasa": ["beyond", "outside"],
+        "alcanza": ["beyond", "limit"],
+        "agarre": ["grip", "kumi-kata", "kumikata", "collar", "lapel", "sleeve"],
+        "falta": ["penalty", "shido", "infringement", "illegal"],
+        "tiempo": ["time", "wasting", "delay", "stand", "promptly", "return"],
+        "demora": ["time", "wasting", "delay", "stand", "promptly", "return"],
+        "perdiendo": ["wasting", "time-wasting", "delay"],
+        "regresa": ["return", "starting", "position"],
+        "posicion": ["position", "starting"],
+        "inicio": ["starting", "position"],
+        "suelo": ["ground", "stand", "promptly"],
+        "manga": ["sleeve", "sokuteiki"],
+        "traje": ["judogi", "jacket", "trousers", "suit"]
+    }
+
+    chosen_sentence = sentences[0]
     clean_q = query.lower()
-    selected_idx = 0
-    if any(w in clean_q for w in ["tiempo", "wasting", "suelo", "ground", "regresa", "inicio", "stand"]) and not any(w in clean_q for w in ["osaekomi", "seguridad", "safety"]):
-        for idx, line in enumerate(substantive_lines):
-            if any(term in line.lower() for term in ["deliberate time-wasting", "time-wasting includes", "failing to return", "failing to stand"]):
-                selected_idx = idx
-                break
-    elif any(w in clean_q for w in ["osaekomi", "inmovilizacion", "inmovilización"]) and any(w in clean_q for w in ["seguridad", "safety", "limite", "limit", "sobrepasa", "beyond", "exterior"]):
-        for idx, line in enumerate(substantive_lines):
-            if "beyond the limit of the safety area" in line.lower() or "osaekomi-waza action outside" in line.lower():
-                selected_idx = idx
-                break
-    elif any(w in clean_q for w in ["color", "colores", "colour"]) and any(w in clean_q for w in ["judogi", "traje", "uniforme"]):
-        for idx, line in enumerate(substantive_lines):
-            if any(term in line.lower() for term in ["uniform colour", "colour references", "white:", "pantone"]):
-                selected_idx = idx
-                break
-    elif any(w in clean_q for w in ["cadet", "cadete", "cadetes"]) and any(w in clean_q for w in ["cabeza", "head"]):
-        for idx, line in enumerate(substantive_lines):
-            if any(term in line.lower() for term in ["use the head to throw as tori", "not allowed to use the head"]):
-                selected_idx = idx
-                break
+    clean_q = clean_q.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u").replace("ñ", "n")
+    q_words = set(re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", clean_q))
 
-    target_slice = substantive_lines[selected_idx:]
-    raw_snippet = " ".join(target_slice)
-    raw_snippet = re.sub(r"^[•·\-\*\s]+", "", raw_snippet).strip()
-    raw_snippet = re.sub(r"^[0-9]{1,3}\.\s*", "", raw_snippet).strip()
-    raw_snippet = re.sub(r"\s+", " ", raw_snippet).strip()
-    # If text is a bulleted specification (e.g. C1.9 Judogi Colour)
-    if "•" in raw_snippet and ":" in raw_snippet:
-        bullet_match = re.search(r"^(.*?)(?:\s+C1\s*\.\s*\d+|\bArticle\s+\d+|$)", raw_snippet)
+    expanded = set(q_words)
+    for w in q_words:
+        if w in SYNONYM_EXPANSIONS:
+            expanded.update(SYNONYM_EXPANSIONS[w])
+
+    requires_tori = "tori" in q_words or "lanzar" in q_words or "lanzamiento" in q_words
+    requires_uke = "uke" in q_words or "defiende" in q_words or "defensa" in q_words
+
+    best_score = -1
+    for s in sentences:
+        s_clean = s.lower()
+        s_clean = re.sub(r"^[0-9]{1,3}\.\s*", "", s_clean)
+        s_words = set(re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", s_clean))
+        hits = len(s_words.intersection(expanded))
+
+        for p in [
+            "8 m x 8 m", "10 m x 10 m", "white: snow white", "pantone", "uniform colour",
+            "no score or penalty", "beyond the limit of the safety area", "ippon! sore-made!",
+            "controlled by sokuteiki"
+        ]:
+            if p in s_clean:
+                hits += 3
+
+        if requires_tori and ("throw as tori" in s_clean or "tori" in s_words):
+            hits += 4
+        if requires_uke and ("defend as uke" in s_clean or "uke" in s_words):
+            hits += 4
+
+        if hits > best_score:
+            best_score = hits
+            chosen_sentence = s
+
+    clean_sent = re.sub(r"^[•·\-\*\s]+", "", chosen_sentence).strip()
+    clean_sent = re.sub(r"^[0-9]{1,3}\.\s*", "", clean_sent).strip()
+
+    # Si el pasaje contiene especificación de colores (C1.9) con viñetas de White y Blue, preservar ambas
+    if "white:" in full_text.lower() and "blue:" in full_text.lower() and any(w in clean_q for w in ["color", "colores", "colour"]):
+        bullet_match = re.search(r"(The jacket and the trousers.*?print Pantone\s*scale\.)", full_text, re.DOTALL | re.IGNORECASE)
         if bullet_match:
-            first_sentence = bullet_match.group(1).strip()
-        else:
-            first_sentence = raw_snippet[:220].rstrip() + '...'
-        if not any(first_sentence.endswith(p) for p in ['.', '!', '?', '"', '”', '»', "'"]):
-            first_sentence += '.'
-    else:
-        # Split on sentence end (. or end of quoted exclamation)
-        sentence_match = re.search(r"^(.*?(?:\.|\![\"\”\»\']|\! Sore-Made[\"\”\»\']?))(?:\s+[A-Z0-9]|$)", raw_snippet)
-        if sentence_match:
-            first_sentence = sentence_match.group(1).strip()
-        else:
-            first_sentence = raw_snippet.split('. ')[0].strip()
-        if len(first_sentence) > 180:
-            first_sentence = first_sentence[:180].rstrip() + '...'
-        elif first_sentence and not any(first_sentence.endswith(p) for p in ['.', '!', '?', '"', '”', '»', "'"]):
-            first_sentence += '.'
+            clean_sent = re.sub(r"\s+", " ", bullet_match.group(1)).strip()
+
+    first_sentence = clean_sent
+    if len(first_sentence) > 380 and "." in first_sentence[:380]:
+        first_sentence = first_sentence[:first_sentence[:380].rfind(".") + 1].strip()
+    elif len(first_sentence) > 380:
+        first_sentence = first_sentence[:380].rstrip() + "..."
+    if first_sentence and not any(first_sentence.endswith(p) for p in [".", "!", "?", '"', "'", "”"]):
+        first_sentence += "."
 
     summary = (
         f"**{top_ev['title']} (Art. {top_ev['article_id']}, Pág. {top_ev['page']}) [{top_ev['passage_id']}]:** "

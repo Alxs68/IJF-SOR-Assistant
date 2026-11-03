@@ -295,8 +295,9 @@ class ArbitrationDecisionAssistant:
     @staticmethod
     def extract_exact_quote(passage: dict, query: Optional[str] = None) -> tuple[str, str]:
         """Extrae una frase representativa (exact_quote) y un fragmento de texto (text_snippet)
-
         adaptado al subartículo específico y a las reglas relevantes dentro de pasajes densos o multisección.
+        Elimina la dependencia de repetición accidental de palabras y aplica correspondencias léxicas
+        multilingües robustas (español/inglés, ej. color/colour, dimensiones/tatami, roles tori/uke).
         """
         text_orig = passage.get("text_original", "").strip()
         lines = [l.strip() for l in text_orig.splitlines() if l.strip()]
@@ -316,7 +317,7 @@ class ArbitrationDecisionAssistant:
                     break
 
         target_lines = content_lines[start_idx:]
-        
+
         # Si la primera línea es el título/código del artículo, omitirla para trabajar con el contenido
         if len(target_lines) > 1 and (
             re.match(r"^[A-Z0-9]+(?:\.[0-9]+)*", target_lines[0]) or
@@ -327,54 +328,106 @@ class ArbitrationDecisionAssistant:
         else:
             substantive_lines = target_lines
 
-        # Si se proporciona query, seleccionar la línea de mayor relevancia temática
-        chosen_line_idx = 0
-        if query and substantive_lines:
-            clean_q = query.lower().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u")
+        full_text = "\n".join(substantive_lines)
+        prot = re.sub(r"[\r\n]+[•·\-\*]\s*", r"\n___BULLET___ ", full_text)
+        blocks = prot.split("\n___BULLET___ ")
+
+        sentences = []
+        for b in blocks:
+            b_clean = re.sub(r"\s+", " ", b).strip()
+            if not b_clean:
+                continue
+            s = re.sub(r"(\b\d{1,3})\.\s+", r"\1___DOT___ ", b_clean)
+            s = re.sub(r"\b(e\.g|i\.e|eg|vs|art|sec|p|pag)\.\s+", r"\1___DOT___ ", s, flags=re.IGNORECASE)
+            s = re.sub(r"Ippon!\s+Sore-Made!", "Ippon___EXCL___ Sore-Made!", s)
+            s = re.sub(r"(![\"”»\']|\! Sore-Made[\"”»\']?|\.[\"”»\'])\s+(?=[A-Z0-9])", r"\1___SENT_END___ ", s)
+            s = re.sub(r"([.!?])\s+(?=[A-Z0-9])", r"\1___SENT_END___ ", s)
+            parts = [re.sub(r"___EXCL___", "!", re.sub(r"___DOT___", ".", p)).strip() for p in s.split("___SENT_END___ ") if p.strip()]
+            sentences.extend(parts)
+
+        if not sentences:
+            sentences = [full_text]
+
+        chosen_sentence = sentences[0]
+        if query:
+            clean_q = query.lower()
+            clean_q = clean_q.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u").replace("ñ", "n")
             q_words = set(re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", clean_q))
-            # Añadir términos canónicos clave según intención
-            KEY_CONCEPTS = {
-                "wasting": 3, "time-wasting": 3, "starting": 3, "ground": 3, "stand": 3,
-                "delay": 3, "return": 2, "position": 2, "warning": 2, "shido": 2,
-                "taping": 3, "bandage": 3, "finger": 3, "sokuteiki": 3, "size": 2,
-                "beyond": 4, "limit": 4, "safety": 4, "outside": 3, "sore-made": 4, "toketa": 3
+
+            SYNONYM_EXPANSIONS = {
+                "dimension": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
+                "dimensiones": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
+                "medida": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
+                "medidas": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
+                "color": ["colour", "color", "white", "blue", "pantone", "uniform"],
+                "colores": ["colour", "color", "white", "blue", "pantone", "uniform"],
+                "blanco": ["white", "snow white"],
+                "azul": ["blue", "pantone"],
+                "puente": ["bridge", "cervical", "spine"],
+                "cabeza": ["head", "cervical", "neck"],
+                "lanzar": ["throw", "nage"],
+                "lanzamiento": ["throw", "nage"],
+                "proyeccion": ["throw", "nage", "projection"],
+                "proyección": ["throw", "nage", "projection"],
+                "defiende": ["defend", "defense"],
+                "defensa": ["defend", "defense"],
+                "inmovilizacion": ["osaekomi", "hold"],
+                "inmovilización": ["osaekomi", "hold"],
+                "seguridad": ["safety", "area"],
+                "limite": ["limit", "beyond"],
+                "sobrepasa": ["beyond", "outside"],
+                "alcanza": ["beyond", "limit"],
+                "agarre": ["grip", "kumi-kata", "kumikata", "collar", "lapel", "sleeve"],
+                "falta": ["penalty", "shido", "infringement", "illegal"],
+                "tiempo": ["time", "wasting", "delay", "stand", "promptly", "return"],
+                "demora": ["time", "wasting", "delay", "stand", "promptly", "return"],
+                "perdiendo": ["wasting", "time-wasting", "delay"],
+                "regresa": ["return", "starting", "position"],
+                "posicion": ["position", "starting"],
+                "inicio": ["starting", "position"],
+                "suelo": ["ground", "stand", "promptly"],
+                "manga": ["sleeve", "sokuteiki"],
+                "traje": ["judogi", "jacket", "trousers", "suit"]
             }
-            # Mapeo bilingüe rápido
-            if "perdiendo" in q_words or "perder" in q_words or "tiempo" in q_words:
-                q_words.update(["wasting", "time-wasting", "time", "delay"])
-            if "regresa" in q_words or "regresar" in q_words or "posicion" in q_words:
-                q_words.update(["return", "position", "starting"])
-            if "suelo" in q_words or "quedandose" in q_words:
-                q_words.update(["ground", "stand"])
-            if "seguridad" in q_words or "limite" in q_words or "sobrepasa" in q_words or "alcanza" in q_words:
-                q_words.update(["safety", "limit", "beyond", "outside"])
 
-            best_line_score = -1
-            for idx, line in enumerate(substantive_lines):
-                line_words = re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", line.lower())
-                score = 0
-                for w in line_words:
-                    if w in q_words:
-                        score += KEY_CONCEPTS.get(w, 1)
-                if score > best_line_score:
-                    best_line_score = score
-                    chosen_line_idx = idx
+            expanded = set(q_words)
+            for w in q_words:
+                if w in SYNONYM_EXPANSIONS:
+                    expanded.update(SYNONYM_EXPANSIONS[w])
 
-        target_slice = substantive_lines[chosen_line_idx:] if chosen_line_idx > 0 else substantive_lines
-        content_text = " ".join(target_slice)
-        content_text = re.sub(r"^[•·\-\*\s]+", "", content_text).strip()
-        content_text = re.sub(r"\s+", " ", content_text).strip()
-        content_text = re.sub(r"^[0-9]{1,3}\.\s*", "", content_text).strip()
+            requires_tori = "tori" in q_words or "lanzar" in q_words or "lanzamiento" in q_words
+            requires_uke = "uke" in q_words or "defiende" in q_words or "defensa" in q_words
 
-        # Extraer la primera oración sustantiva preservando frases exclamativas reglamentarias
-        sentence_match = re.search(r"^(.*?(?:\.|\![\"\”\»\']|\! Sore-Made[\"\”\»\']?))(?:\s+[A-Z0-9]|$)", content_text)
-        if sentence_match:
-            first_sentence = sentence_match.group(1).strip()
-        else:
-            sentences = re.split(r"(?<=[.!?])\s+", content_text)
-            first_sentence = sentences[0] if sentences and sentences[0].strip() else content_text
-        words = first_sentence.split()
+            best_score = -1
+            for s in sentences:
+                s_clean = s.lower()
+                s_clean = re.sub(r"^[0-9]{1,3}\.\s*", "", s_clean)
+                s_words = set(re.findall(r"\b[a-zA-Z0-9_\-]{3,}\b", s_clean))
+                # Intersección única de conceptos (evita inflación por palabras repetidas accidentalmente)
+                hits = len(s_words.intersection(expanded))
 
+                # Bonificaciones por sintagmas exactos normativos
+                for p in [
+                    "8 m x 8 m", "10 m x 10 m", "white: snow white", "pantone", "uniform colour",
+                    "no score or penalty", "beyond the limit of the safety area", "ippon! sore-made!",
+                    "failing to return immediately to the starting position", "controlled by sokuteiki"
+                ]:
+                    if p in s_clean:
+                        hits += 3
+
+                if requires_tori and ("throw as tori" in s_clean or "tori" in s_words):
+                    hits += 4
+                if requires_uke and ("defend as uke" in s_clean or "uke" in s_words):
+                    hits += 4
+
+                if hits > best_score:
+                    best_score = hits
+                    chosen_sentence = s
+
+        clean_sent = re.sub(r"^[•·\-\*\s]+", "", chosen_sentence).strip()
+        clean_sent = re.sub(r"^[0-9]{1,3}\.\s*", "", clean_sent).strip()
+
+        words = clean_sent.split()
         exact_quote = " ".join(words[:9]) if words else (passage.get("title") or "")
-        text_snippet = first_sentence[:180] + ("..." if len(first_sentence) > 180 else "")
+        text_snippet = clean_sent[:180] + ("..." if len(clean_sent) > 180 else "")
         return exact_quote, text_snippet
