@@ -1518,16 +1518,6 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown(f"""<div style=\"font-size: 0.8rem; font-weight: 500; text-align: center; margin-bottom: 0.6rem; margin-top: 1.5rem; color: #94a3b8; letter-spacing: 0.04em;\">{t('sample_queries_prompt', lang)}</div>""", unsafe_allow_html=True)
-
-    suggestion_chips = t("chips", lang)
-    chip_cols = st.columns(len(suggestion_chips))
-    for i, (label, full_query) in enumerate(suggestion_chips):
-        with chip_cols[i]:
-            if st.button(label, key=f"chip_{i}", help=full_query, use_container_width=True):
-                st.session_state.prefill_query = full_query
-                st.rerun()
-
 st.write("---")
 with st.expander(t("scope_expander_title", lang)):
     st.markdown(t("scope_certified_kuns", lang, count=kg_metrics['nodes_count']))
