@@ -795,7 +795,7 @@ if "pdf_zoom" not in st.session_state:
 def load_example():
     sel = st.session_state.get("example_select_widget")
     if sel and sel not in ("Elige una pregunta para consultar...", "Choose an example query..."):
-        st.session_state.prefill_query = sel
+        st.session_state.auto_run_query = sel
 
 # Sidebar
 with st.sidebar:
@@ -1100,6 +1100,33 @@ with st.sidebar:
     for node, deg in kg_metrics['hubs'][:2]:
         st.markdown(f"- `{node}` ({deg} {t('kg_links_suffix', lang)})", unsafe_allow_html=True)
 
+    # Client-side Exclusive Accordion for Sidebar Expanders
+    components.html("""
+    <script>
+    const doc = window.parent.document;
+    function setupSidebarAccordion() {
+        const sidebar = doc.querySelector('section[data-testid="stSidebar"]');
+        if (!sidebar) return;
+        const expanders = sidebar.querySelectorAll('details');
+        expanders.forEach((targetExp) => {
+            if (targetExp.dataset.hasAccordionListener) return;
+            targetExp.dataset.hasAccordionListener = "true";
+            targetExp.addEventListener('toggle', () => {
+                if (targetExp.open) {
+                    expanders.forEach((otherExp) => {
+                        if (otherExp !== targetExp && otherExp.open) {
+                            otherExp.removeAttribute('open');
+                        }
+                    });
+                }
+            });
+        });
+    }
+    setupSidebarAccordion();
+    setInterval(setupSidebarAccordion, 300);
+    </script>
+    """, height=0, width=0)
+
 
 
 # Header
@@ -1171,6 +1198,10 @@ else:
 # Handle user input
 query_to_run = None
 
+# Automatic execution from suggested query selection
+if st.session_state.get("auto_run_query"):
+    query_to_run = st.session_state.pop("auto_run_query").strip()
+
 # Check if a suggestion was selected to prefill or run
 default_input_val = ""
 if st.session_state.get("prefill_query"):
@@ -1190,7 +1221,7 @@ with st.container():
         with col2:
             submit_button = st.form_submit_button(t("send_btn", lang), use_container_width=True)
 
-        if submit_button and user_input:
+        if submit_button and user_input and not query_to_run:
             query_to_run = user_input.strip()
 
 
