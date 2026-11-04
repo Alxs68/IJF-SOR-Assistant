@@ -323,8 +323,8 @@ def build_deterministic_structured_answer(
         if w in SYNONYM_EXPANSIONS:
             expanded.update(SYNONYM_EXPANSIONS[w])
 
-    requires_tori = "tori" in q_words or "lanzar" in q_words or "lanzamiento" in q_words
-    requires_uke = "uke" in q_words or "defiende" in q_words or "defensa" in q_words
+    requires_tori = "tori" in q_words or "lanzar" in q_words or "lanzamiento" in q_words or "proyectar" in q_words
+    requires_uke = "uke" in q_words or "defiende" in q_words or "defensa" in q_words or "puente" in q_words or "bridge" in q_words
 
     best_score = -1
     for s in sentences:
@@ -336,14 +336,14 @@ def build_deterministic_structured_answer(
         for p in [
             "8 m x 8 m", "10 m x 10 m", "white: snow white", "pantone", "uniform colour",
             "no score or penalty", "beyond the limit of the safety area", "ippon! sore-made!",
-            "controlled by sokuteiki"
+            "controlled by sokuteiki", "voluntarily makes a bridge", "bridge (head and one foot or both feet"
         ]:
             if p in s_clean:
                 hits += 3
 
-        if requires_tori and ("throw as tori" in s_clean or "tori" in s_words):
+        if requires_tori and ("throw as tori" in s_clean or "tori" in s_words or "head diving" in s_clean):
             hits += 4
-        if requires_uke and ("defend as uke" in s_clean or "uke" in s_words):
+        if requires_uke and ("defend as uke" in s_clean or "uke" in s_words or "voluntarily makes a bridge" in s_clean or "bridge" in s_clean):
             hits += 4
 
         if hits > best_score:

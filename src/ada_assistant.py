@@ -140,8 +140,11 @@ class ArbitrationDecisionAssistant:
             "9. Transparencia sobre Evidencia Insuficiente: Si los pasajes certificados no contienen la respuesta o resultan insuficientes para confirmar una regla, declara con total franqueza la limitación en 'summary' y 'limitations', sin formular dictámenes categóricos infundados.\n"
             "10. Criterios Especiales Prevalentes:\n"
             "   - Equipamiento y Judogi: Contesta de inmediato la especificación técnica consultada (ej. colores permitidos blanco y azul según Regla C1.9, pág. 124). Segrega requisitos conexos (marcas, parches, solapas) en 'conditions_and_exceptions' o 'extended_analysis' sin mezclarlos como si fueran reglas de color.\n"
-            "   - Puente y Criterio de Ippon (Art. 14.2, págs. 166-167): Reproduce con total fidelidad el texto oficial: (1) toda situación donde un atleta thrown haga voluntariamente un 'puente' (cabeza y uno o ambos pies en contacto con el tatami) tras ser proyectado es Ippon para el rival por seguridad cervical; (2) Excepción textual: no se otorgará puntuación ni penalización si la caída de Uke ocurre sobre el cuerpo de Tori, de modo que no todas las partes del cuerpo involucradas en el puente (cabeza, pie o pies) toquen el tatami. PROHIBIDO agregar condiciones geométricas, temporales o de observación que el texto no establezca, y prohibido afirmar que el árbitro debe esperar una evolución determinada de la caída salvo que exista respaldo reglamentario específico.\n"
-            "   - Acciones con la Cabeza: Distingue rigurosamente rol, categoría y consecuencia: (a) Head Diving de Tori al intentar o ejecutar proyección es Hansoku-make directo por técnica peligrosa (Art. 18.2.1, pág. 190), aclarando que en este tipo de Hansoku-make el atleta SÍ puede continuar en la competición si clasifica; (b) en Cadetes, el uso intencional de la cabeza para proyectar es Shido para Tori (Art. 18.1.4, punto 33, pág. 188), y el uso de la cabeza para defender es Shido para Uke y se concede la puntuación correspondiente a Tori (Art. 18.1.4, punto 34, pág. 188); en eventos de cadetes el reverse seoi-nage no puntúa y es Shido para Tori (Art. 18.1.4, punto 35, pág. 189); (c) en Juniors y Séniors no traslades automáticamente el Shido de cadetes ni interpretes la falta de mención como autorización indiscriminada: evalúa la acción bajo el régimen general de técnicas prohibidas y peligrosas (Art. 18.2); (d) Caída accidental vs. Evaluación médica: distingue la evaluación arbitral de la acción (si fue lance legítimo o infracción) del protocolo médico; ante traumatismo o conmoción se detiene el combate y la decisión sobre aptitud médica corresponde exclusivamente a las autoridades sanitarias oficiales (Art. 20 / Apéndice E).\n"
+            "   - Puente y Criterio de Ippon (Art. 14.2, págs. 166-167): Reproduce con total fidelidad el texto oficial: (1) toda situación donde un atleta proyectado haga voluntariamente un 'puente' (cabeza y uno o ambos pies en contacto con el tatami) tras ser proyectado es Ippon para el rival por seguridad cervical; (2) Excepción textual: no se otorgará puntuación ni penalización si la caída de Uke ocurre sobre el cuerpo de Tori, de modo que no todas las partes del cuerpo involucradas en el puente (cabeza, pie o pies) toquen el tatami. PROHIBIDO agregar condiciones geométricas, temporales o de observación que el texto no establezca, y prohibido afirmar que el árbitro debe esperar una evolución determinada de la caída salvo que exista respaldo reglamentario específico.\n"
+            "   - Acciones con la Cabeza (Integración Sistemática de Reglas Generales y Especiales):\n"
+            "     * Rol Atacante (Tori): (1) Head Diving al intentar o ejecutar cualquier técnica de proyección es Hansoku-make directo por técnica peligrosa para CUALQUIER categoría (Art. 18.2.1, pág. 190); Tori SÍ puede continuar en la competición si clasifica; (2) en eventos de Cadetes, el uso intencional de la cabeza por Tori para proyectar que no constituya la zambullida peligrosa de head diving se sanciona con Shido (Art. 18.1.4, punto 33, pág. 188 / concordancia con pág. 190); (3) en Cadetes el reverse seoi-nage no puntúa y es Shido para Tori (Art. 18.1.4, punto 35, pág. 189).\n"
+            "     * Rol Defensor (Uke): (1) En CUALQUIER categoría (Seniors, Juniors, Cadetes), si Uke hace voluntariamente un puente (cabeza y uno o ambos pies en contacto con el tatami) tras ser proyectado para evitar caer de espaldas, la consecuencia reglamentaria es IPPON a favor de Tori por seguridad de la columna cervical (Art. 14.2, pág. 166), con la excepción textual de aterrizaje sobre el cuerpo de Tori (pág. 167); (2) Específicamente en la categoría Cadetes, se prohíbe taxativamente a Uke usar la cabeza para defenderse del lance; uke es penalizado con Shido y se concede a Tori la puntuación técnica generada (Art. 18.1.4, punto 34, pág. 188); (3) No equipares automáticamente todo puente con cualquier defensa ni viceversa: el puente voluntario en vuelo/caída produce Ippon en todas las categorías, mientras que la infracción explícita de Shido a Uke por defenderse con la cabeza es una regla específica de Cadetes.\n"
+            "     * Prohibición de Lagunas Infundadas: PROHIBIDO afirmar que 'no existe regulación o disposición explícita para seniors/juniors' ante preguntas sobre defensa o uso de la cabeza. Expón con claridad las consecuencias aplicables según el rol (Tori -> Head Diving / Uke -> Puente e Ippon) y la regla particular de Cadetes.\n"
             "   - Diagramas y Cuadros: Si la consulta refiere a una plantilla de diagrama/cuadro (págs. 213-230), explica las reglas sustantivas de sorteo aplicables e indica que la geometría espacial debe consultarse en el PDF oficial.\n"
             "10. Language Policy: Detect the language of the user query and requested output language. "
             + ("Write the entire JSON response (summary, normative_basis, conditions_and_exceptions, extended_analysis, limitations) in fluent, precise ENGLISH using official IJF terminology (e.g. 'Hansoku-make', 'Osaekomi', 'Shido', 'Direct Hansoku-make', 'Contest Area', 'Safety Area').\n\n" if language == "en" else "Write the entire JSON response in clear, rigorous SPANISH using official IJF terminology, unless the user query explicitly demands another language.\n\n" if language == "es" else "If the query is in English, write the entire JSON response in fluent, precise ENGLISH using official IJF terminology. If the query is in Spanish, write the response in SPANISH.\n\n")
@@ -395,8 +398,8 @@ class ArbitrationDecisionAssistant:
                 if w in SYNONYM_EXPANSIONS:
                     expanded.update(SYNONYM_EXPANSIONS[w])
 
-            requires_tori = "tori" in q_words or "lanzar" in q_words or "lanzamiento" in q_words
-            requires_uke = "uke" in q_words or "defiende" in q_words or "defensa" in q_words
+            requires_tori = "tori" in q_words or "lanzar" in q_words or "lanzamiento" in q_words or "proyectar" in q_words
+            requires_uke = "uke" in q_words or "defiende" in q_words or "defensa" in q_words or "puente" in q_words or "bridge" in q_words
 
             best_score = -1
             for s in sentences:
@@ -410,14 +413,15 @@ class ArbitrationDecisionAssistant:
                 for p in [
                     "8 m x 8 m", "10 m x 10 m", "white: snow white", "pantone", "uniform colour",
                     "no score or penalty", "beyond the limit of the safety area", "ippon! sore-made!",
-                    "failing to return immediately to the starting position", "controlled by sokuteiki"
+                    "failing to return immediately to the starting position", "controlled by sokuteiki",
+                    "voluntarily makes a bridge", "bridge (head and one foot or both feet"
                 ]:
                     if p in s_clean:
                         hits += 3
 
-                if requires_tori and ("throw as tori" in s_clean or "tori" in s_words):
+                if requires_tori and ("throw as tori" in s_clean or "tori" in s_words or "head diving" in s_clean):
                     hits += 4
-                if requires_uke and ("defend as uke" in s_clean or "uke" in s_words):
+                if requires_uke and ("defend as uke" in s_clean or "uke" in s_words or "voluntarily makes a bridge" in s_clean or "bridge" in s_clean):
                     hits += 4
 
                 if hits > best_score:
