@@ -33,11 +33,13 @@ class BaseLLMClient:
 
 class GeminiClient(BaseLLMClient):
     """Native zero-dependency HTTP client for Google Gemini API."""
-    DEFAULT_MODEL = "gemini-flash-latest"
+    DEFAULT_MODEL = "gemini-flash-lite-latest"
     _UNSET = object()
 
     def __init__(self, api_key: Any = _UNSET, model: Optional[str] = None):
         key = (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")) if api_key is self._UNSET else api_key
+        if key and isinstance(key, str):
+            key = key.strip().strip("'\"")
         mod = model or os.environ.get("GEMINI_MODEL") or self.DEFAULT_MODEL
         super().__init__(api_key=key, model=mod)
 
@@ -64,7 +66,7 @@ class GeminiClient(BaseLLMClient):
 
         try:
             req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers, method='POST')
-            with urllib.request.urlopen(req, timeout=15) as response:
+            with urllib.request.urlopen(req, timeout=25) as response:
                 res_data = json.loads(response.read().decode('utf-8'))
                 candidates = res_data.get('candidates', [])
                 if candidates:
@@ -119,6 +121,8 @@ class GroqClient(BaseLLMClient):
 
     def __init__(self, api_key: Any = _UNSET, model: Optional[str] = None):
         key = os.environ.get("GROQ_API_KEY") if api_key is self._UNSET else api_key
+        if key and isinstance(key, str):
+            key = key.strip().strip("'\"")
         mod = model or os.environ.get("GROQ_MODEL") or self.DEFAULT_MODEL
         super().__init__(api_key=key, model=mod)
 
@@ -147,7 +151,7 @@ class GroqClient(BaseLLMClient):
 
         try:
             req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers, method='POST')
-            with urllib.request.urlopen(req, timeout=15) as response:
+            with urllib.request.urlopen(req, timeout=25) as response:
                 res_data = json.loads(response.read().decode('utf-8'))
                 choices = res_data.get('choices', [])
                 if choices:
@@ -197,7 +201,7 @@ class MultiProviderLLMManager:
     """
     SUPPORTED_PROVIDERS = {
         "Gemini": {
-            "models": ["gemini-flash-latest", "gemini-2.5-flash", "gemini-1.5-flash", "gemini-2.5-pro", "gemini-1.5-pro"],
+            "models": ["gemini-flash-lite-latest", "gemini-3.5-flash", "gemini-flash-latest", "gemini-2.5-flash", "gemini-1.5-flash", "gemini-2.5-pro", "gemini-1.5-pro"],
             "client_class": GeminiClient,
             "env_key": "GEMINI_API_KEY",
             "env_model": "GEMINI_MODEL"
@@ -232,7 +236,12 @@ class MultiProviderLLMManager:
 
         self.fallback_policy = fallback_policy.lower()  # 'automatic' or 'manual'
         self.gemini_api_key = (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")) if gemini_api_key is self._UNSET else gemini_api_key
+        if self.gemini_api_key and isinstance(self.gemini_api_key, str):
+            self.gemini_api_key = self.gemini_api_key.strip().strip("'\"")
+
         self.groq_api_key = os.environ.get("GROQ_API_KEY") if groq_api_key is self._UNSET else groq_api_key
+        if self.groq_api_key and isinstance(self.groq_api_key, str):
+            self.groq_api_key = self.groq_api_key.strip().strip("'\"")
         
         # Configure models with automatic fallback to supported default if deprecated model string provided
         g_cand = gemini_model or os.environ.get("GEMINI_MODEL")

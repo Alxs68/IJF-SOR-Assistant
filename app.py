@@ -58,45 +58,115 @@ st.markdown("""
         padding-bottom: 1.5rem !important;
     }
 
-    .status-badge-connected {
-        background-color: #D1FAE5;
-        color: #065F46;
-        padding: 0.2rem 0.4rem;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        font-weight: 600;
-    }
-    .status-badge-offline {
-        background-color: #FEF3C7;
-        color: #92400E;
-        padding: 0.2rem 0.4rem;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        font-weight: 600;
-    }
     :root {
+        /* Base Design Tokens - Modo Claro */
+        --ijf-text-color: #0f172a;
         --ijf-blue: #003399;
         --ijf-blue-light: #1d4ed8;
+        --ijf-blue-accent: #2563eb;
         --ijf-red: #ED1C24;
-        --kun-bg: #F9FAFB;
+        --kun-bg: #F8FAFC;
+        --kun-border: #E2E8F0;
+        --ijf-metric-val: #003399;
+        --ijf-metric-lbl: #4B5563;
+        --ijf-cit-label: #1e3a8a;
+        --ijf-btn-border: rgba(128, 128, 128, 0.25);
+        --ijf-btn-hover-border: #003399;
+        --ijf-btn-hover-color: #003399;
+        --ijf-btn-hover-bg: rgba(0, 51, 153, 0.08);
+        --ijf-tier1-bg: rgba(37, 99, 235, 0.06);
+        --ijf-tier1-border: #2563eb;
+        --ijf-tier1-outline: rgba(37, 99, 235, 0.15);
+        --ijf-title-color: #1d4ed8;
+        --ijf-subtitle-color: #475569;
+        --ijf-tooltip-bg: #1e293b;
+        --ijf-tooltip-color: #f8fafc;
+        --ijf-tooltip-border: #334155;
+        --ijf-help-bg: rgba(29, 78, 216, 0.10);
+        --status-conn-bg: #D1FAE5;
+        --status-conn-color: #065F46;
+        --status-conn-border: #A7F3D0;
+        --status-off-bg: #FEF3C7;
+        --status-off-color: #92400E;
+        --status-off-border: #FDE68A;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            /* Design Tokens Adaptados - Modo Oscuro */
+            --ijf-text-color: #f8fafc;
+            --ijf-blue: #60a5fa;
+            --ijf-blue-light: #3b82f6;
+            --ijf-blue-accent: #60a5fa;
+            --ijf-red: #f87171;
+            --kun-bg: #1e293b;
+            --kun-border: #334155;
+            --ijf-metric-val: #60a5fa;
+            --ijf-metric-lbl: #9ca3af;
+            --ijf-cit-label: #93c5fd;
+            --ijf-btn-border: rgba(255, 255, 255, 0.20);
+            --ijf-btn-hover-border: #60a5fa;
+            --ijf-btn-hover-color: #93c5fd;
+            --ijf-btn-hover-bg: rgba(59, 130, 246, 0.16);
+            --ijf-tier1-bg: rgba(59, 130, 246, 0.14);
+            --ijf-tier1-border: #3b82f6;
+            --ijf-tier1-outline: rgba(59, 130, 246, 0.25);
+            --ijf-title-color: #60a5fa;
+            --ijf-subtitle-color: #94a3b8;
+            --ijf-tooltip-bg: #0f172a;
+            --ijf-tooltip-color: #f8fafc;
+            --ijf-tooltip-border: #475569;
+            --ijf-help-bg: rgba(59, 130, 246, 0.15);
+            --status-conn-bg: rgba(16, 185, 129, 0.18);
+            --status-conn-color: #34d399;
+            --status-conn-border: rgba(52, 211, 153, 0.35);
+            --status-off-bg: rgba(245, 158, 11, 0.18);
+            --status-off-color: #fbbf24;
+            --status-off-border: rgba(251, 191, 36, 0.35);
+        }
+    }
+
+    .status-badge-connected {
+        background-color: var(--status-conn-bg);
+        color: var(--status-conn-color);
+        border: 1px solid var(--status-conn-border);
+        padding: 0.2rem 0.5rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: inline-block;
+    }
+    .status-badge-offline {
+        background-color: var(--status-off-bg);
+        color: var(--status-off-color);
+        border: 1px solid var(--status-off-border);
+        padding: 0.2rem 0.5rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: inline-block;
     }
     .kun-card {
-        border-left: 3px solid var(--ijf-blue);
+        border-left: 3px solid var(--ijf-blue-accent);
+        border-top: 1px solid var(--kun-border);
+        border-right: 1px solid var(--kun-border);
+        border-bottom: 1px solid var(--kun-border);
         background-color: var(--kun-bg);
         padding: 0.6rem;
         border-radius: 0 6px 6px 0;
         margin-bottom: 0.4rem;
         font-size: 0.85rem;
+        color: var(--text-color);
     }
     [data-testid="stMetricValue"] {
         font-size: 1.15rem !important;
         font-weight: 700 !important;
-        color: var(--ijf-blue) !important;
+        color: var(--ijf-metric-val) !important;
     }
     [data-testid="stMetricLabel"] {
         font-size: 0.75rem !important;
         font-weight: 600 !important;
-        color: #4B5563 !important;
+        color: var(--ijf-metric-lbl) !important;
     }
     [data-testid="stSidebar"] [data-testid="stVerticalBlock"] > div {
         padding-top: 0.15rem !important;
@@ -104,6 +174,19 @@ st.markdown("""
     }
     .element-container {
         margin-bottom: 0.4rem !important;
+    }
+    .tier1-box {
+        background-color: var(--ijf-tier1-bg);
+        border-left: 4px solid var(--ijf-tier1-border);
+        border-top: 1px solid var(--ijf-tier1-outline);
+        border-right: 1px solid var(--ijf-tier1-outline);
+        border-bottom: 1px solid var(--ijf-tier1-outline);
+        padding: 14px 18px;
+        border-radius: 6px;
+        margin-bottom: 14px;
+        font-size: 1.05rem;
+        line-height: 1.55;
+        color: var(--ijf-text-color) !important;
     }
     .active-query-card {
         background-color: rgba(234, 179, 8, 0.08) !important;
@@ -115,15 +198,15 @@ st.markdown("""
         border-radius: 0 8px 8px 0 !important;
         margin-bottom: 1.2rem !important;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
-        color: var(--text-color) !important;
+        color: var(--ijf-text-color) !important;
     }
     div[data-testid="stButton"] button {
         background-color: transparent;
-        border: 1px solid rgba(128,128,128,0.25);
+        border: 1px solid var(--ijf-btn-border);
         border-radius: 9999px;
         padding: 0.4rem 0.85rem !important;
         text-align: center !important;
-        color: var(--text-color);
+        color: var(--ijf-text-color) !important;
         font-family: 'Inter', sans-serif;
         font-size: 0.85rem;
         line-height: 1.3;
@@ -132,20 +215,20 @@ st.markdown("""
         width: 100%;
         cursor: pointer;
         transition: all 0.2s ease;
-        opacity: 0.8;
+        opacity: 0.85;
     }
     div[data-testid="stButton"] button p {
         margin: 0;
         text-align: center !important;
     }
     div[data-testid="stButton"] button:hover {
-        border-color: var(--ijf-blue) !important;
-        color: var(--ijf-blue) !important;
-        background-color: rgba(0, 51, 153, 0.08) !important;
+        border-color: var(--ijf-btn-hover-border) !important;
+        color: var(--ijf-btn-hover-color) !important;
+        background-color: var(--ijf-btn-hover-bg) !important;
         opacity: 1;
     }
     div[data-testid="stButton"] button:active {
-        background-color: rgba(29, 78, 216, 0.14) !important;
+        background-color: rgba(37, 99, 235, 0.20) !important;
     }
     /* Estilos específicos para píldoras interactivas de citas normativas */
     .citation-container {
@@ -159,7 +242,7 @@ st.markdown("""
     .citation-title-label {
         font-size: 0.82rem;
         font-weight: 700;
-        color: #1e3a8a;
+        color: var(--ijf-cit-label);
         margin-right: 6px;
         display: inline-flex;
         align-items: center;
@@ -277,9 +360,49 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.css">
       <style>
         * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+        :root {{
+          --pdf-bg: #f8fafc;
+          --pdf-color: #0f172a;
+          --pdf-toolbar-bg: #ffffff;
+          --pdf-toolbar-border: #e2e8f0;
+          --pdf-btn-bg: #f1f5f9;
+          --pdf-btn-color: #1e293b;
+          --pdf-btn-border: #cbd5e1;
+          --pdf-btn-hover-bg: #e2e8f0;
+          --pdf-btn-hover-border: #94a3b8;
+          --pdf-input-bg: #ffffff;
+          --pdf-input-color: #0f172a;
+          --pdf-input-border: #cbd5e1;
+          --pdf-status-color: #64748b;
+          --pdf-badge-bg: rgba(202, 138, 4, 0.15);
+          --pdf-badge-color: #854d0e;
+          --pdf-badge-border: #ca8a04;
+          --pdf-container-bg: #e2e8f0;
+        }}
+        @media (prefers-color-scheme: dark) {{
+          :root {{
+            --pdf-bg: #0f172a;
+            --pdf-color: #f8fafc;
+            --pdf-toolbar-bg: #1e293b;
+            --pdf-toolbar-border: #334155;
+            --pdf-btn-bg: #334155;
+            --pdf-btn-color: #f8fafc;
+            --pdf-btn-border: #475569;
+            --pdf-btn-hover-bg: #475569;
+            --pdf-btn-hover-border: #64748b;
+            --pdf-input-bg: #0f172a;
+            --pdf-input-color: #f8fafc;
+            --pdf-input-border: #475569;
+            --pdf-status-color: #94a3b8;
+            --pdf-badge-bg: rgba(234, 179, 8, 0.2);
+            --pdf-badge-color: #fde047;
+            --pdf-badge-border: #ca8a04;
+            --pdf-container-bg: #0b0f19;
+          }}
+        }}
         body {{
-          background-color: #0f172a;
-          color: #f8fafc;
+          background-color: var(--pdf-bg);
+          color: var(--pdf-color);
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
           height: 100vh;
           display: flex;
@@ -287,8 +410,8 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           overflow: hidden;
         }}
         #toolbar {{
-          background: #1e293b;
-          border-bottom: 1px solid #334155;
+          background: var(--pdf-toolbar-bg);
+          border-bottom: 1px solid var(--pdf-toolbar-border);
           padding: 8px 12px;
           display: flex;
           align-items: center;
@@ -298,9 +421,9 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           user-select: none;
         }}
         .btn {{
-          background: #334155;
-          color: #f8fafc;
-          border: 1px solid #475569;
+          background: var(--pdf-btn-bg);
+          color: var(--pdf-btn-color);
+          border: 1px solid var(--pdf-btn-border);
           border-radius: 4px;
           padding: 4px 10px;
           cursor: pointer;
@@ -313,12 +436,13 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           gap: 4px;
         }}
         .btn:hover {{
-          background: #475569;
-          border-color: #64748b;
+          background: var(--pdf-btn-hover-bg);
+          border-color: var(--pdf-btn-hover-border);
         }}
         .btn-primary {{
           background: #2563eb;
           border-color: #3b82f6;
+          color: #ffffff;
         }}
         .btn-primary:hover {{
           background: #1d4ed8;
@@ -329,9 +453,9 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           cursor: not-allowed;
         }}
         .input-page {{
-          background: #0f172a;
-          color: #f8fafc;
-          border: 1px solid #475569;
+          background: var(--pdf-input-bg);
+          color: var(--pdf-input-color);
+          border: 1px solid var(--pdf-input-border);
           border-radius: 4px;
           padding: 3px 6px;
           width: 52px;
@@ -339,9 +463,9 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           font-size: 0.85rem;
         }}
         #search-box {{
-          background: #0f172a;
-          color: #f8fafc;
-          border: 1px solid #475569;
+          background: var(--pdf-input-bg);
+          color: var(--pdf-input-color);
+          border: 1px solid var(--pdf-input-border);
           border-radius: 4px;
           padding: 3px 8px;
           font-size: 0.82rem;
@@ -350,16 +474,16 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
         }}
         #status-bar {{
           font-size: 0.78rem;
-          color: #94a3b8;
+          color: var(--pdf-status-color);
           margin-left: auto;
           display: flex;
           align-items: center;
           gap: 8px;
         }}
         #highlight-badge {{
-          background: rgba(234, 179, 8, 0.2);
-          color: #fde047;
-          border: 1px solid #ca8a04;
+          background: var(--pdf-badge-bg);
+          color: var(--pdf-badge-color);
+          border: 1px solid var(--pdf-badge-border);
           padding: 2px 6px;
           border-radius: 4px;
           font-size: 0.74rem;
@@ -372,7 +496,7 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           justify-content: center;
           align-items: flex-start;
           padding: 16px;
-          background-color: #0b0f19;
+          background-color: var(--pdf-container-bg);
           position: relative;
         }}
         #canvas-wrapper {{
@@ -1132,8 +1256,9 @@ if base64_logo:
 }}
 .ijf-tooltip .ijf-tooltiptext {{
     visibility: hidden;
-    background-color: #1e293b;
-    color: #e2e8f0;
+    background-color: var(--ijf-tooltip-bg);
+    color: var(--ijf-tooltip-color);
+    border: 1px solid var(--ijf-tooltip-border);
     text-align: left;
     padding: 0.5rem 0.8rem;
     border-radius: 6px;
@@ -1151,26 +1276,26 @@ if base64_logo:
 }}
 .ijf-help-icon {{
     width: 16px; height: 16px;
-    background: rgba(29,78,216,0.15);
-    border: 1px solid #1d4ed8;
+    background: var(--ijf-help-bg);
+    border: 1px solid var(--ijf-title-color);
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 0.65rem;
-    color: #1d4ed8;
+    color: var(--ijf-title-color);
     font-weight: 700;
     margin-left: 0.5rem;
     font-family: 'Inter', sans-serif;
     flex-shrink: 0;
 }}
 </style>
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 1.5rem 1rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; position: relative; z-index: 99; text-align: center; gap: 0.8rem;">
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--secondary-background-color); border-bottom: 2px solid var(--ijf-title-color); padding: 1.5rem 1rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; position: relative; z-index: 99; text-align: center; gap: 0.8rem;">
     <div style="display: flex; align-items: center; justify-content: center;">
         <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 80px; height: 80px; object-fit: contain; display: block;" />
     </div>
     <div style="position: relative; display: inline-block;">
-        <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">{t('app_title', lang)}</h2>
+        <h2 style="font-family: 'Outfit', sans-serif; color: var(--ijf-title-color); font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">{t('app_title', lang)}</h2>
         <div class="ijf-tooltip" style="position: absolute; right: -28px; top: 50%; transform: translateY(-50%);">
             <div class="ijf-help-icon" style="margin-left: 0;">?</div>
             <div class="ijf-tooltiptext" style="left: 50%; transform: translateX(-50%); top: 130%;">{t('header_tooltip', lang)}</div>
@@ -1178,8 +1303,8 @@ if base64_logo:
     </div>
 </div>""")
 else:
-    render_custom_html(f"""<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--secondary-background-color); border-bottom: 2px solid #1d4ed8; padding: 1.5rem 1rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; text-align: center;">
-    <h2 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">{t('app_title', lang)}</h2>
+    render_custom_html(f"""<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--secondary-background-color); border-bottom: 2px solid var(--ijf-title-color); padding: 1.5rem 1rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; text-align: center;">
+    <h2 style="font-family: 'Outfit', sans-serif; color: var(--ijf-title-color); font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">{t('app_title', lang)}</h2>
 </div>""")
 
 # Handle user input
@@ -1323,9 +1448,9 @@ if st.session_state.active_index >= 0:
                     # Nivel 1: Respuesta directa destacada en bloque visual visible inmediatamente
                     box_title = t("tier1_box_header", lang)
                     st.markdown(
-                        f"""<div style="background-color: rgba(59, 130, 246, 0.08); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 4px; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.5;">
-                        <strong>{box_title}</strong><br>{summary_text}
-                        </div>""",
+                        f"""<div class="tier1-box">
+<strong>{box_title}</strong><br>{summary_text}
+</div>""",
                         unsafe_allow_html=True
                     )
 
@@ -1393,18 +1518,18 @@ if st.session_state.active_index >= 0:
                     if "\n\n---\n\n" in clean_raw:
                         parts = clean_raw.split("\n\n---\n\n", 1)
                         st.markdown(
-                            f"""<div style="background-color: rgba(59, 130, 246, 0.08); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 4px; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.5;">
-                            <strong>{box_title}</strong><br>{parts[0]}
-                            </div>""",
+                            f"""<div class="tier1-box">
+<strong>{box_title}</strong><br>{parts[0]}
+</div>""",
                             unsafe_allow_html=True
                         )
                         with st.expander(t("view_details_expander", lang), expanded=False):
                             st.markdown(parts[1])
                     else:
                         st.markdown(
-                            f"""<div style="background-color: rgba(59, 130, 246, 0.08); border-left: 4px solid #2563eb; padding: 12px 16px; border-radius: 4px; margin-bottom: 12px; font-size: 1.05rem; line-height: 1.5;">
-                            <strong>{box_title}</strong><br>{clean_raw}
-                            </div>""",
+                            f"""<div class="tier1-box">
+<strong>{box_title}</strong><br>{clean_raw}
+</div>""",
                             unsafe_allow_html=True
                         )
 
@@ -1536,8 +1661,8 @@ if st.session_state.active_index >= 0:
             )
 else:
     render_custom_html(f"""<div style="text-align: center; margin-top: 1.6rem; margin-bottom: 1.2rem;">
-    <h1 style="font-family: 'Outfit', sans-serif; color: #1d4ed8; font-size: 2.05rem; font-weight: 700; line-height: 1.05; margin-bottom: 0.4rem; max-width: 28rem; margin-left: auto; margin-right: auto;">{t('welcome_title', lang)}</h1>
-    <p style="font-size: 0.85rem; color: rgba(212, 175, 55, 0.45); max-width: 640px; margin: 0 auto; line-height: 1.45; margin-bottom: 1rem; font-weight: 400;">{t('app_subtitle', lang)}</p>
+    <h1 style="font-family: 'Outfit', sans-serif; color: var(--ijf-title-color); font-size: 2.05rem; font-weight: 700; line-height: 1.05; margin-bottom: 0.4rem; max-width: 28rem; margin-left: auto; margin-right: auto;">{t('welcome_title', lang)}</h1>
+    <p style="font-size: 0.88rem; color: var(--ijf-subtitle-color); max-width: 640px; margin: 0 auto; line-height: 1.5; margin-bottom: 1rem; font-weight: 400;">{t('app_subtitle', lang)}</p>
 </div>""")
 
 st.write("---")
