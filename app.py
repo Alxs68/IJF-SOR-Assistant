@@ -50,16 +50,12 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom Styling for modern premium UI
-st.markdown("""
-<style>
-    .block-container {
-        padding-top: 0.8rem !important;
-        padding-bottom: 1.5rem !important;
-    }
+if "app_theme" not in st.session_state:
+    st.session_state.app_theme = "auto"
 
-    :root {
-        /* Base Design Tokens - Modo Claro */
+theme_mode = st.session_state.get("app_theme", "auto")
+
+light_theme_vars = """
         --ijf-text-color: #0f172a;
         --ijf-blue: #003399;
         --ijf-blue-light: #1d4ed8;
@@ -79,6 +75,7 @@ st.markdown("""
         --ijf-tier1-outline: rgba(37, 99, 235, 0.15);
         --ijf-title-color: #1d4ed8;
         --ijf-subtitle-color: #475569;
+        --ijf-caption-color: #475569;
         --ijf-tooltip-bg: #1e293b;
         --ijf-tooltip-color: #f8fafc;
         --ijf-tooltip-border: #334155;
@@ -89,46 +86,194 @@ st.markdown("""
         --status-off-bg: #FEF3C7;
         --status-off-color: #92400E;
         --status-off-border: #FDE68A;
-    }
+        --surface-main-bg: #ffffff;
+        --surface-sidebar-bg: #F8FAFC;
+        --surface-header-bg: rgba(255, 255, 255, 0.95);
+        --surface-card-bg: #F8FAFC;
+        --surface-card-border: #E2E8F0;
+        --surface-input-bg: #ffffff;
+        --surface-input-color: #0f172a;
+        --surface-input-border: #cbd5e1;
+        --surface-expander-bg: #F8FAFC;
+        --surface-expander-border: #E2E8F0;
+        --background-color: #ffffff;
+        --secondary-background-color: #F8FAFC;
+        --text-color: #0f172a;
+"""
 
-    @media (prefers-color-scheme: dark) {
-        :root {
-            /* Design Tokens Adaptados - Modo Oscuro */
-            --ijf-text-color: #f8fafc;
-            --ijf-blue: #60a5fa;
-            --ijf-blue-light: #3b82f6;
-            --ijf-blue-accent: #60a5fa;
-            --ijf-red: #f87171;
-            --kun-bg: #1e293b;
-            --kun-border: #334155;
-            --ijf-metric-val: #60a5fa;
-            --ijf-metric-lbl: #9ca3af;
-            --ijf-cit-label: #93c5fd;
-            --ijf-btn-border: rgba(255, 255, 255, 0.20);
-            --ijf-btn-hover-border: #60a5fa;
-            --ijf-btn-hover-color: #93c5fd;
-            --ijf-btn-hover-bg: rgba(59, 130, 246, 0.16);
-            --ijf-tier1-bg: rgba(59, 130, 246, 0.14);
-            --ijf-tier1-border: #3b82f6;
-            --ijf-tier1-outline: rgba(59, 130, 246, 0.25);
-            --ijf-title-color: #60a5fa;
-            --ijf-subtitle-color: #94a3b8;
-            --ijf-tooltip-bg: #0f172a;
-            --ijf-tooltip-color: #f8fafc;
-            --ijf-tooltip-border: #475569;
-            --ijf-help-bg: rgba(59, 130, 246, 0.15);
-            --status-conn-bg: rgba(16, 185, 129, 0.18);
-            --status-conn-color: #34d399;
-            --status-conn-border: rgba(52, 211, 153, 0.35);
-            --status-off-bg: rgba(245, 158, 11, 0.18);
-            --status-off-color: #fbbf24;
-            --status-off-border: rgba(251, 191, 36, 0.35);
-        }
-    }
+dark_theme_vars = """
+        --ijf-text-color: #f8fafc;
+        --ijf-blue: #60a5fa;
+        --ijf-blue-light: #3b82f6;
+        --ijf-blue-accent: #60a5fa;
+        --ijf-red: #f87171;
+        --kun-bg: #1e293b;
+        --kun-border: #334155;
+        --ijf-metric-val: #60a5fa;
+        --ijf-metric-lbl: #9ca3af;
+        --ijf-cit-label: #93c5fd;
+        --ijf-btn-border: rgba(255, 255, 255, 0.20);
+        --ijf-btn-hover-border: #60a5fa;
+        --ijf-btn-hover-color: #93c5fd;
+        --ijf-btn-hover-bg: rgba(59, 130, 246, 0.16);
+        --ijf-tier1-bg: rgba(59, 130, 246, 0.14);
+        --ijf-tier1-border: #3b82f6;
+        --ijf-tier1-outline: rgba(59, 130, 246, 0.25);
+        --ijf-title-color: #60a5fa;
+        --ijf-subtitle-color: #94a3b8;
+        --ijf-caption-color: #f1f5f9;
+        --ijf-tooltip-bg: #0f172a;
+        --ijf-tooltip-color: #f8fafc;
+        --ijf-tooltip-border: #475569;
+        --ijf-help-bg: rgba(59, 130, 246, 0.15);
+        --status-conn-bg: rgba(16, 185, 129, 0.18);
+        --status-conn-color: #34d399;
+        --status-conn-border: rgba(52, 211, 153, 0.35);
+        --status-off-bg: rgba(245, 158, 11, 0.18);
+        --status-off-color: #fbbf24;
+        --status-off-border: rgba(251, 191, 36, 0.35);
+        --surface-main-bg: #0e1117;
+        --surface-sidebar-bg: #1e293b;
+        --surface-header-bg: rgba(14, 17, 23, 0.95);
+        --surface-card-bg: #1e293b;
+        --surface-card-border: #334155;
+        --surface-input-bg: #1e293b;
+        --surface-input-color: #f8fafc;
+        --surface-input-border: #475569;
+        --surface-expander-bg: #1e293b;
+        --surface-expander-border: #334155;
+        --background-color: #0e1117;
+        --secondary-background-color: #1e293b;
+        --text-color: #f8fafc;
+"""
 
+if theme_mode == "dark":
+    active_theme_tokens = f":root {{\n{dark_theme_vars}\n}}"
+elif theme_mode == "light":
+    active_theme_tokens = f":root {{\n{light_theme_vars}\n}}"
+else:  # "auto"
+    active_theme_tokens = f"""
+    :root {{
+        {light_theme_vars}
+    }}
+    @media (prefers-color-scheme: dark) {{
+        :root {{
+            {dark_theme_vars}
+        }}
+    }}
+    """
+
+# Custom Styling for modern premium UI
+st.markdown(f"""
+<style>
+    .block-container {{
+        padding-top: 0.8rem !important;
+        padding-bottom: 1.5rem !important;
+    }}
+
+    {active_theme_tokens}
+
+    /* Dynamic Theme Surface Overrides */
+    .stApp {{
+        background-color: var(--surface-main-bg) !important;
+        color: var(--ijf-text-color) !important;
+    }}
+    [data-testid="stSidebar"] {{
+        background-color: var(--surface-sidebar-bg) !important;
+        color: var(--ijf-text-color) !important;
+    }}
+    [data-testid="stSidebar"] .stMarkdown,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] label {{
+        color: var(--ijf-text-color);
+    }}
+    [data-testid="stHeader"] {{
+        background-color: var(--surface-header-bg) !important;
+    }}
+    .stTextInput input, .stTextArea textarea {{
+        background-color: var(--surface-input-bg) !important;
+        color: var(--surface-input-color) !important;
+        border: 1px solid var(--surface-input-border) !important;
+    }}
+    .stSelectbox div[data-baseweb="select"] > div {{
+        background-color: var(--surface-input-bg) !important;
+        color: var(--surface-input-color) !important;
+        border-color: var(--surface-input-border) !important;
+    }}
+    div[data-baseweb="popover"], div[data-baseweb="menu"], ul[role="listbox"] {{
+        background-color: var(--surface-card-bg) !important;
+        color: var(--ijf-text-color) !important;
+        border: 1px solid var(--surface-card-border) !important;
+    }}
+    li[role="option"] {{
+        background-color: var(--surface-card-bg) !important;
+        color: var(--ijf-text-color) !important;
+    }}
+    li[role="option"]:hover, li[aria-selected="true"] {{
+        background-color: var(--ijf-tier1-bg) !important;
+        color: var(--ijf-blue-accent) !important;
+    }}
+    [data-testid="stExpander"] {{
+        background-color: var(--surface-expander-bg) !important;
+        border: 1px solid var(--surface-expander-border) !important;
+        border-radius: 6px !important;
+    }}
+    [data-testid="stExpander"] summary {{
+        color: var(--ijf-text-color) !important;
+    }}
+    [data-testid="stChatMessage"] {{
+        background-color: transparent !important;
+        color: var(--ijf-text-color) !important;
+    }}
+    [data-testid="stChatMessageContent"] {{
+        color: var(--ijf-text-color) !important;
+    }}
+    [data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] p {{
+        color: var(--ijf-text-color) !important;
+        font-weight: 500 !important;
+    }}
+    [data-testid="stMarkdownContainer"] p,
+    [data-testid="stMarkdownContainer"] span,
+    [data-testid="stMarkdownContainer"] li,
+    .stMarkdown p,
+    .stMarkdown span,
+    .stMarkdown li {{
+        color: var(--ijf-text-color) !important;
+    }}
+    [data-testid="stCaptionContainer"] {{
+        opacity: 1 !important;
+    }}
+    [data-testid="stCaptionContainer"],
+    [data-testid="stCaptionContainer"] p,
+    .stCaption,
+    small {{
+        color: var(--ijf-caption-color) !important;
+        opacity: 1 !important;
+        font-weight: 500 !important;
+    }}
+    button[data-baseweb="tab"] {{
+        color: var(--ijf-caption-color) !important;
+    }}
+    button[data-baseweb="tab"][aria-selected="true"] {{
+        color: var(--ijf-blue-accent) !important;
+    }}
+    [data-testid="stStatusWidget"] {{
+        background-color: var(--surface-card-bg) !important;
+        border: 1px solid var(--surface-card-border) !important;
+        color: var(--ijf-text-color) !important;
+    }}
+    [data-testid="stStatusWidget"] summary {{
+        color: var(--ijf-text-color) !important;
+    }}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
     .status-badge-connected {
         background-color: var(--status-conn-bg);
-        color: var(--status-conn-color);
+        color: var(--status-conn-color) !important;
         border: 1px solid var(--status-conn-border);
         padding: 0.2rem 0.5rem;
         border-radius: 9999px;
@@ -138,7 +283,7 @@ st.markdown("""
     }
     .status-badge-offline {
         background-color: var(--status-off-bg);
-        color: var(--status-off-color);
+        color: var(--status-off-color) !important;
         border: 1px solid var(--status-off-border);
         padding: 0.2rem 0.5rem;
         border-radius: 9999px;
@@ -350,17 +495,8 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
     loading_text = t("pdf_loading_text", lang)
     load_error_template = t("pdf_load_error", lang, url=pdf_url, num="'+pageNum+'").replace("'", "\\'")
 
-    viewer_html = f"""
-    <!DOCTYPE html>
-    <html lang="{lang}">
-    <head>
-      <meta charset="utf-8">
-      <title>{viewer_title}</title>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.css">
-      <style>
-        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-        :root {{
+    cur_theme = st.session_state.get("app_theme", "auto")
+    pdf_light_vars = """
           --pdf-bg: #f8fafc;
           --pdf-color: #0f172a;
           --pdf-toolbar-bg: #ffffff;
@@ -378,28 +514,53 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           --pdf-badge-color: #854d0e;
           --pdf-badge-border: #ca8a04;
           --pdf-container-bg: #e2e8f0;
+    """
+    pdf_dark_vars = """
+          --pdf-bg: #0f172a;
+          --pdf-color: #f8fafc;
+          --pdf-toolbar-bg: #1e293b;
+          --pdf-toolbar-border: #334155;
+          --pdf-btn-bg: #334155;
+          --pdf-btn-color: #f8fafc;
+          --pdf-btn-border: #475569;
+          --pdf-btn-hover-bg: #475569;
+          --pdf-btn-hover-border: #64748b;
+          --pdf-input-bg: #0f172a;
+          --pdf-input-color: #f8fafc;
+          --pdf-input-border: #475569;
+          --pdf-status-color: #94a3b8;
+          --pdf-badge-bg: rgba(234, 179, 8, 0.2);
+          --pdf-badge-color: #fde047;
+          --pdf-badge-border: #ca8a04;
+          --pdf-container-bg: #0b0f19;
+    """
+    if cur_theme == "dark":
+        pdf_theme_tokens = f":root {{\n{pdf_dark_vars}\n}}"
+    elif cur_theme == "light":
+        pdf_theme_tokens = f":root {{\n{pdf_light_vars}\n}}"
+    else:
+        pdf_theme_tokens = f"""
+        :root {{
+          {pdf_light_vars}
         }}
         @media (prefers-color-scheme: dark) {{
           :root {{
-            --pdf-bg: #0f172a;
-            --pdf-color: #f8fafc;
-            --pdf-toolbar-bg: #1e293b;
-            --pdf-toolbar-border: #334155;
-            --pdf-btn-bg: #334155;
-            --pdf-btn-color: #f8fafc;
-            --pdf-btn-border: #475569;
-            --pdf-btn-hover-bg: #475569;
-            --pdf-btn-hover-border: #64748b;
-            --pdf-input-bg: #0f172a;
-            --pdf-input-color: #f8fafc;
-            --pdf-input-border: #475569;
-            --pdf-status-color: #94a3b8;
-            --pdf-badge-bg: rgba(234, 179, 8, 0.2);
-            --pdf-badge-color: #fde047;
-            --pdf-badge-border: #ca8a04;
-            --pdf-container-bg: #0b0f19;
+            {pdf_dark_vars}
           }}
         }}
+        """
+
+    viewer_html = f"""
+    <!DOCTYPE html>
+    <html lang="{lang}">
+    <head>
+      <meta charset="utf-8">
+      <title>{viewer_title}</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.css">
+      <style>
+        * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+        {pdf_theme_tokens}
         body {{
           background-color: var(--pdf-bg);
           color: var(--pdf-color);
@@ -949,6 +1110,26 @@ with st.sidebar:
         st.rerun()
 
     lang = st.session_state.ui_lang
+
+    # Theme Selection Widget (Automático / Claro / Oscuro)
+    theme_options = [
+        ("Automático (Sistema)", "auto") if lang == "es" else ("Automatic (System)", "auto"),
+        ("Claro", "light") if lang == "es" else ("Light", "light"),
+        ("Oscuro", "dark") if lang == "es" else ("Dark", "dark")
+    ]
+    cur_theme_code = st.session_state.get("app_theme", "auto")
+    theme_indices = {"auto": 0, "light": 1, "dark": 2}
+    cur_theme_idx = theme_indices.get(cur_theme_code, 0)
+    selected_theme_tuple = st.selectbox(
+        "🎨 " + ("Tema / Theme:" if lang == "es" else "Theme / Tema:"),
+        options=theme_options,
+        index=cur_theme_idx,
+        format_func=lambda x: x[0],
+        help="Selecciona la apariencia visual: Automático (Sistema), Claro u Oscuro." if lang == "es" else "Select visual theme: Automatic (System), Light or Dark."
+    )
+    if selected_theme_tuple[1] != st.session_state.get("app_theme", "auto"):
+        st.session_state.app_theme = selected_theme_tuple[1]
+        st.rerun()
 
     st.markdown(f"**{t('sidebar_info_title', lang)}**")
 
