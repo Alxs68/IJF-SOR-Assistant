@@ -31,6 +31,7 @@ from feedback_manager import (
     TIPOS_NOVEDAD
 )
 from i18n import t
+from response_structurer import clean_presentation_text, sanitize_presentation_html
 
 def render_custom_html(html_content: str):
     """Inserta HTML en la UI evitando la interpretacion CommonMark como bloque de codigo."""
@@ -333,6 +334,155 @@ st.markdown("""
         line-height: 1.55;
         color: var(--ijf-text-color) !important;
     }
+        /* Bloque Independiente de Evidencias Normativas */
+    .normative-evidence-container {
+        margin-top: 1.1rem;
+        margin-bottom: 1.2rem;
+    }
+    .evidence-section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 0.8rem;
+        margin-bottom: 0.25rem;
+        padding-bottom: 0.35rem;
+        border-bottom: 1px solid var(--surface-card-border);
+    }
+    .evidence-section-title {
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.96rem;
+        font-weight: 700;
+        color: var(--ijf-text-color);
+        letter-spacing: -0.01em;
+    }
+    .evidence-section-subtitle {
+        font-size: 0.78rem;
+        color: var(--ijf-subtitle-color);
+        margin-bottom: 0.7rem;
+    }
+    .normative-evidence-card {
+        background-color: var(--surface-card-bg);
+        border: 1px solid var(--surface-card-border);
+        border-left: 4px solid var(--ijf-blue-accent);
+        border-radius: 8px;
+        padding: 0.75rem 0.95rem;
+        margin-bottom: 0.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    .evidence-card-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 0.35rem;
+    }
+    .evidence-badge-art {
+        background-color: var(--ijf-tier1-bg);
+        color: var(--ijf-blue-accent) !important;
+        border: 1px solid var(--ijf-tier1-outline);
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        font-size: 0.78rem;
+        font-weight: 700;
+    }
+    .evidence-badge-page {
+        background-color: var(--surface-expander-bg);
+        color: var(--ijf-text-color) !important;
+        border: 1px solid var(--surface-card-border);
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        font-size: 0.78rem;
+        font-weight: 600;
+    }
+    .evidence-badge-edition {
+        background-color: var(--surface-expander-bg);
+        color: var(--ijf-subtitle-color) !important;
+        border: 1px solid var(--surface-card-border);
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        font-size: 0.72rem;
+        font-weight: 600;
+    }
+    .evidence-badge-verified {
+        background-color: var(--status-conn-bg);
+        color: var(--status-conn-color) !important;
+        border: 1px solid var(--status-conn-border);
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        font-size: 0.74rem;
+        font-weight: 600;
+    }
+    .tier1-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 0.45rem;
+        color: var(--ijf-text-color) !important;
+    }
+    .evidence-card-title {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--ijf-text-color);
+        margin-bottom: 0.3rem;
+    }
+    .normative-quote-box {
+        background-color: var(--ijf-tier1-bg);
+        border-left: 3px solid var(--ijf-blue-accent);
+        padding: 0.45rem 0.75rem;
+        border-radius: 0 5px 5px 0;
+        font-size: 0.84rem;
+        line-height: 1.45;
+        color: var(--ijf-text-color) !important;
+        margin-top: 0.3rem;
+        margin-bottom: 0.2rem;
+        font-style: italic;
+    }
+    .normative-context-box {
+        background-color: var(--surface-expander-bg);
+        border-left: 3px solid var(--surface-card-border);
+        padding: 0.45rem 0.75rem;
+        border-radius: 0 5px 5px 0;
+        font-size: 0.84rem;
+        line-height: 1.45;
+        color: var(--ijf-text-color) !important;
+        margin-top: 0.3rem;
+        margin-bottom: 0.2rem;
+    }
+    .quote-type-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--ijf-subtitle-color) !important;
+        margin-bottom: 0.25rem;
+        font-style: normal;
+    }
+    .audit-panel-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.6rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.82rem;
+    }
+    .audit-panel-item {
+        background-color: var(--surface-card-bg);
+        border: 1px solid var(--surface-card-border);
+        border-radius: 6px;
+        padding: 0.5rem 0.75rem;
+    }
+    .audit-panel-label {
+        font-size: 0.70rem;
+        font-weight: 600;
+        color: var(--ijf-subtitle-color);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        margin-bottom: 0.2rem;
+    }
+    .audit-panel-value {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ijf-text-color);
+    }
+
     .active-query-card {
         background-color: rgba(234, 179, 8, 0.08) !important;
         border-left: 5px solid #eab308 !important;
@@ -1593,79 +1743,223 @@ if st.session_state.active_index >= 0:
             with st.chat_message("user", avatar="👤"):
                 st.markdown(item['query'])
             with st.chat_message("assistant", avatar="⚖️"):
-                # Inform user if automatic fallback was triggered and succeeded
                 item_llm_meta = item.get("llm_meta", {})
                 succ_prov = item_llm_meta.get("successful_provider")
                 prim_prov = item_llm_meta.get("primary_provider", "")
 
-                if item_llm_meta.get("fallback_triggered") and succ_prov:
-                    st.caption(t("fallback_badge_notice", lang, primary=prim_prov, secondary=succ_prov))
-                elif item_llm_meta.get("fallback_attempted") and not succ_prov:
-                    st.caption(t("fallback_all_failed_notice", lang))
-
-                mode = item.get("rre_operating_mode", "UNKNOWN")
-                st.caption(t("rre_mode_caption", lang, mode=mode) + (f" — {item.get('degradation_reason')}" if item.get("degradation_reason") else ""))
-                if item.get("source_sha256_verified", False):
-                    st.caption(t("pdf_source_caption", lang))
-                else:
-                    st.caption(t("pdf_source_unverified_caption", lang))
-
-                # Two-tier UI presentation contract: La síntesis directa es la respuesta principal destacada
+                # 1. PRESENTACIÓN LIMPIA DE LA RESPUESTA PRINCIPAL (Texto natural, sin códigos técnicos ni metadatos)
                 struct = item.get("structured_answer")
                 citations_list = []
                 if struct and isinstance(struct, dict):
                     citations_list = struct.get("citations", [])
 
                 if struct and isinstance(struct, dict) and struct.get("summary"):
-                    summary_text = struct["summary"].strip()
-                    # Eliminar cualquier prefijo o encabezado accidental que pueda preceder a la conclusión
-                    summary_text = re.sub(
-                        r'^(?:⚖️\s*\*\*Síntesis Analítica IA.*?\*\*\s*|📋\s*\*\*Resumen de Evidencias.*?\*\*\s*|⚖️\s*\*\*AI Analytical Synthesis.*?\*\*\s*|📋\s*\*\*Normative Evidence Summary.*?\*\*\s*)',
-                        '',
-                        summary_text,
-                        flags=re.IGNORECASE
-                    ).strip()
+                    raw_summary = struct["summary"]
+                    clean_summary = struct.get("clean_summary") or clean_presentation_text(raw_summary)
+                    safe_summary = sanitize_presentation_html(clean_summary)
 
-                    # Nivel 1: Respuesta directa destacada en bloque visual visible inmediatamente
                     box_title = t("tier1_box_header", lang)
+                    safe_title = html.escape(box_title)
                     st.markdown(
                         f"""<div class="tier1-box">
-<strong>{box_title}</strong><br>{summary_text}
+<div class="tier1-title"><strong>{safe_title}</strong></div>
+{safe_summary}
 </div>""",
                         unsafe_allow_html=True
                     )
 
-                    # Píldoras Interactivas de Citas Normativas (en Nivel 1)
-                    if citations_list:
-                        cit_title = t("citations_title_label", lang)
-                        st.markdown(f'<div class="citation-title-label">{cit_title}</div>', unsafe_allow_html=True)
-                        pill_cols = st.columns(min(len(citations_list), 4))
-                        for c_idx, cite in enumerate(citations_list):
-                            col_p = pill_cols[c_idx % len(pill_cols)]
-                            with col_p:
-                                if isinstance(cite, dict):
-                                    art_label = cite.get("article_id") or cite.get("title") or "Cita"
-                                    page_num = cite.get("page_number")
-                                    exact_q = cite.get("exact_quote", "")
-                                    p_label = "Page" if lang == "en" else "Pág."
-                                    btn_text = f"📍 {art_label} | {p_label} {page_num}" if page_num else f"📍 {art_label}"
-                                    tooltip = f"{cite.get('text_snippet', '')}"
-                                    if st.button(btn_text, key=f"pill_{original_i}_{c_idx}", help=tooltip, use_container_width=True):
-                                        if page_num:
-                                            st.session_state.pdf_page = int(page_num)
-                                        if exact_q:
-                                            st.session_state.pdf_quote = exact_q
-                                        st.session_state.pdf_article = str(art_label)
-                                        st.session_state.pdf_visible = True
-                                        st.rerun()
-                                else:
-                                    st.button(f"📍 {cite}", key=f"pill_{original_i}_{c_idx}", use_container_width=True)
-
-                    # Si el validador detectó inconsistencias normativas o límites probatorios, avisar visiblemente en Nivel 1
+                    # Aviso si el validador detectó límites probatorios específicos
                     if "Control de Rigor Normativo" in str(struct.get("limitations", "")) or "Normative Rigor Control" in str(struct.get("limitations", "")):
                         st.warning(t("normative_rigor_warning", lang))
 
-                    # Nivel 2: Fundamentación completa inicialmente contraída
+                else:
+                    # Compatibilidad con entradas planas
+                    raw_ans = item.get('answer', '')
+                    clean_ans = clean_presentation_text(raw_ans)
+                    box_title = t("tier1_box_header", lang)
+                    safe_title = html.escape(box_title)
+                    if "\n\n---\n\n" in clean_ans:
+                        parts = clean_ans.split("\n\n---\n\n", 1)
+                        safe_part0 = sanitize_presentation_html(parts[0])
+                        st.markdown(
+                            f"""<div class="tier1-box">
+<div class="tier1-title"><strong>{safe_title}</strong></div>
+{safe_part0}
+</div>""",
+                            unsafe_allow_html=True
+                        )
+                        with st.expander(t("view_details_expander", lang), expanded=False):
+                            st.markdown(parts[1])
+                    else:
+                        safe_ans = sanitize_presentation_html(clean_ans)
+                        st.markdown(
+                            f"""<div class="tier1-box">
+<div class="tier1-title"><strong>{safe_title}</strong></div>
+{safe_ans}
+</div>""",
+                            unsafe_allow_html=True
+                        )
+
+                # 2. BLOQUE INDEPENDIENTE DE EVIDENCIAS NORMATIVAS CERTIFICADAS
+                evidence_entries = []
+                seen_evidence_keys = set()
+                is_source_verified = bool(item.get("source_sha256_verified", False))
+
+                if citations_list:
+                    for c in citations_list:
+                        if isinstance(c, dict):
+                            pid = c.get("passage_id") or c.get("article_id")
+                            if pid and pid in seen_evidence_keys:
+                                continue
+                            if pid:
+                                seen_evidence_keys.add(pid)
+
+                            art_label = c.get("article_id") or c.get("title") or "Norma Oficial"
+                            title = c.get("title") or art_label
+
+                            # AUD-03: Manejo estricto de número de página, sin sustitución arbitraria por página 1
+                            raw_page = c.get("page_number") if c.get("page_number") is not None else c.get("page")
+                            page_num = None
+                            if raw_page is not None:
+                                try:
+                                    val = int(raw_page)
+                                    if val > 0:
+                                        page_num = val
+                                except (ValueError, TypeError):
+                                    page_num = None
+
+                            # AUD-04: Distinguir cita textual exacta verificada vs extracto contextual
+                            exact_q = (c.get("exact_quote") or "").strip()
+                            text_snip = (c.get("text_snippet") or "").strip()
+                            has_exact = bool(exact_q)
+                            quote_str = exact_q if has_exact else (text_snip or (c.get("quote") or "").strip())
+
+                            source_url = c.get("source_url") or official_pdf_url
+
+                            # AUD-01: Verificación real y no automática (requiere hash PDF verificado y cita válida)
+                            is_cit_verified = is_source_verified and bool(c.get("verified", True if is_source_verified else False))
+
+                            evidence_entries.append({
+                                "passage_id": pid or "",
+                                "article_label": art_label,
+                                "title": title,
+                                "page_number": page_num,
+                                "edition": "IJF SOR 2026-08",
+                                "verified": is_cit_verified,
+                                "quote": quote_str,
+                                "has_exact_quote": has_exact,
+                                "source_url": source_url,
+                                "exact_quote": exact_q
+                            })
+
+                if len(evidence_entries) < 2 and item.get("trazabilidad"):
+                    for kun in item["trazabilidad"]:
+                        kid = kun.get("id_conocimiento")
+                        if kid and kid in seen_evidence_keys:
+                            continue
+                        if kid:
+                            seen_evidence_keys.add(kid)
+
+                        art_num = kun.get("article_id") or kun.get("referencia_especifica", "").split("(")[0].strip()
+                        art_label = f"Art. {art_num}" if art_num and not str(art_num).lower().startswith("art") else (art_num or "Norma")
+                        title = kun.get("titulo") or "Disposición Oficial"
+
+                        # AUD-03: Manejo estricto de número de página en fallback KUNs
+                        raw_page = kun.get("pdf_page_index") if kun.get("pdf_page_index") is not None else kun.get("page")
+                        page_num = None
+                        if raw_page is not None:
+                            try:
+                                val = int(raw_page)
+                                if val > 0:
+                                    page_num = val
+                            except (ValueError, TypeError):
+                                page_num = None
+
+                        raw_quote = kun.get("contenido_traduccion") or kun.get("contenido_original") or ""
+                        if len(raw_quote) > 280:
+                            raw_quote = raw_quote[:277].rsplit(" ", 1)[0] + "..."
+
+                        # AUD-02: Fallback no presupone verificación si falta el atributo
+                        is_kun_verified = is_source_verified and bool(kun.get("verified", True if is_source_verified else False))
+
+                        exact_q = (kun.get("exact_quote") or "").strip()
+                        has_exact = bool(exact_q)
+                        quote_str = exact_q if has_exact else raw_quote.strip()
+
+                        evidence_entries.append({
+                            "passage_id": kid or "",
+                            "article_label": art_label,
+                            "title": title,
+                            "page_number": page_num,
+                            "edition": "IJF SOR 2026-08",
+                            "verified": is_kun_verified,
+                            "quote": quote_str,
+                            "has_exact_quote": has_exact,
+                            "source_url": kun.get("source_url") or official_pdf_url,
+                            "exact_quote": exact_q
+                        })
+
+                if evidence_entries:
+                    st.markdown(f"""
+<div class="evidence-section-header">
+    <span class="evidence-section-title">⚖️ {t('evidences_section_title', lang)}</span>
+    <span class="evidence-badge-edition">IJF SOR 2026-08</span>
+</div>
+<div class="evidence-section-subtitle">{t('evidences_section_subtitle', lang)}</div>
+""", unsafe_allow_html=True)
+
+                    visible_evs = evidence_entries[:3]
+                    extra_evs = evidence_entries[3:]
+
+                    def _render_evidence_card(ev_item, orig_idx, card_idx):
+                        badge_ver = f'<span class="evidence-badge-verified">✓ {t("evidence_verified_badge", lang)}</span>' if ev_item["verified"] else ''
+                        p_label = t("evidence_page_label", lang)
+                        badge_page = f'<span class="evidence-badge-page">📄 {p_label} {ev_item["page_number"]}</span>' if ev_item["page_number"] is not None else ''
+
+                        quote_html = ''
+                        if ev_item["quote"]:
+                            escaped_q = html.escape(ev_item["quote"])
+                            if ev_item.get("has_exact_quote"):
+                                q_label = t("evidence_quote_label", lang)
+                                quote_html = f'<div class="normative-quote-box"><div class="quote-type-label">📌 {q_label}</div>“{escaped_q}”</div>'
+                            else:
+                                ctx_label = t("evidence_context_label", lang)
+                                quote_html = f'<div class="normative-context-box"><div class="quote-type-label">📖 {ctx_label}</div>{escaped_q}</div>'
+
+                        st.markdown(f"""
+<div class="normative-evidence-card">
+    <div class="evidence-card-header">
+        <span class="evidence-badge-art">📌 {html.escape(str(ev_item["article_label"]))}</span>
+        {badge_page}
+        {badge_ver}
+    </div>
+    <div class="evidence-card-title">{html.escape(str(ev_item["title"]))}</div>
+    {quote_html}
+</div>
+""", unsafe_allow_html=True)
+
+                        if ev_item["page_number"] is not None:
+                            btn_col, _ = st.columns([0.48, 0.52])
+                            with btn_col:
+                                btn_label = t("evidence_view_pdf_btn", lang, page=ev_item["page_number"])
+                                if st.button(f"🔍 {btn_label}", key=f"ev_pdf_{orig_idx}_{card_idx}", use_container_width=True):
+                                    st.session_state.pdf_page = int(ev_item["page_number"])
+                                    if ev_item.get("exact_quote"):
+                                        st.session_state.pdf_quote = ev_item["exact_quote"]
+                                    st.session_state.pdf_article = str(ev_item["article_label"])
+                                    st.session_state.pdf_visible = True
+                                    st.rerun()
+
+                    for ev_idx, ev in enumerate(visible_evs):
+                        _render_evidence_card(ev, original_i, ev_idx)
+
+                    if extra_evs:
+                        with st.expander(t("evidence_more_expander", lang, count=len(extra_evs)), expanded=False):
+                            for ev_idx, ev in enumerate(extra_evs, start=3):
+                                _render_evidence_card(ev, original_i, ev_idx)
+
+                # 3. NIVEL 2: FUNDAMENTACIÓN COMPLETA INICIALMENTE CONTRAÍDA
+                if struct and isinstance(struct, dict):
                     has_details = bool(
                         struct.get("normative_basis") or
                         struct.get("conditions_and_exceptions") or
@@ -1686,48 +1980,51 @@ if st.session_state.active_index >= 0:
                             if struct.get("limitations"):
                                 st.markdown(f"#### {t('sec_limitations', lang)}")
                                 st.markdown(struct["limitations"])
-                else:
-                    # Backward compatibility for legacy flat text entries: extraer respuesta directa sin título redundante
-                    raw_ans = item['answer']
-                    clean_raw = re.sub(
-                        r'^(?:⚖️\s*\*\*Síntesis Analítica IA.*?\*\*\s*|📋\s*\*\*Resumen de Evidencias.*?\*\*\s*|⚖️\s*\*\*AI Analytical Synthesis.*?\*\*\s*|📋\s*\*\*Normative Evidence Summary.*?\*\*\s*)',
-                        '',
-                        raw_ans,
-                        flags=re.IGNORECASE
-                    ).strip()
-                    box_title = t("tier1_box_header", lang)
-                    if "\n\n---\n\n" in clean_raw:
-                        parts = clean_raw.split("\n\n---\n\n", 1)
-                        st.markdown(
-                            f"""<div class="tier1-box">
-<strong>{box_title}</strong><br>{parts[0]}
-</div>""",
-                            unsafe_allow_html=True
-                        )
-                        with st.expander(t("view_details_expander", lang), expanded=False):
-                            st.markdown(parts[1])
-                    else:
-                        st.markdown(
-                            f"""<div class="tier1-box">
-<strong>{box_title}</strong><br>{clean_raw}
-</div>""",
-                            unsafe_allow_html=True
-                        )
 
-                is_fallback = "lo siento" in item['answer'].lower() or "sorry" in item['answer'].lower()
-                if not is_fallback and item.get('trazabilidad'):
-                    with st.expander(t("expander_traceability", lang), expanded=False):
-                        tab_cite, tab_graph = st.tabs([t("tab_traceability", lang), t("tab_graph", lang)])
+                # 4. PANEL DE TRAZABILIDAD TÉCNICA Y AUDITORÍA (Consolidado fuera de la respuesta ordinaria)
+                is_fallback = "lo siento" in item.get('answer', '').lower() or "sorry" in item.get('answer', '').lower()
+                with st.expander(t("expander_audit_metadata", lang), expanded=False):
+                    audit_mode = item.get("rre_operating_mode", getattr(engine.rre, "operating_mode", "HYBRID"))
+                    deg_reason = f" ({item.get('degradation_reason')})" if item.get('degradation_reason') else ""
+                    audit_sha = t("pdf_source_caption", lang) if item.get("source_sha256_verified", False) else t("pdf_source_unverified_caption", lang)
 
-                        with tab_cite:
-                            with st.expander(t("sidebar_sources_title", lang), expanded=False):
-                                st.markdown(t("source_availability_notice", lang), unsafe_allow_html=True)
+                    prov_name = item_llm_meta.get("successful_provider") or ("Gemini" if is_connected else "Modo Local Desconectado")
+                    model_name = item_llm_meta.get("successful_model") or ("gemini-2.5-flash" if is_connected else "Deterministic Brief")
 
+                    st.markdown(f"""
+<div class="audit-panel-grid">
+    <div class="audit-panel-item">
+        <div class="audit-panel-label">{t('audit_rre_title', lang)}</div>
+        <div class="audit-panel-value">⚙️ {audit_mode}{deg_reason}</div>
+    </div>
+    <div class="audit-panel-item">
+        <div class="audit-panel-label">{t('audit_sha_title', lang)}</div>
+        <div class="audit-panel-value">🔒 {audit_sha}</div>
+    </div>
+    <div class="audit-panel-item">
+        <div class="audit-panel-label">{t('audit_provider_title', lang)}</div>
+        <div class="audit-panel-value">🤖 {prov_name} ({model_name})</div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+                    if item_llm_meta.get("fallback_triggered") and succ_prov:
+                        st.info(t("fallback_badge_notice", lang, primary=prim_prov, secondary=succ_prov))
+                    elif item_llm_meta.get("fallback_attempted") and not succ_prov:
+                        st.warning(t("fallback_all_failed_notice", lang))
+
+                    tab_cite, tab_graph = st.tabs([t("tab_traceability", lang), t("tab_graph", lang)])
+
+                    with tab_cite:
+                        with st.expander(t("sidebar_sources_title", lang), expanded=False):
+                            st.markdown(t("source_availability_notice", lang), unsafe_allow_html=True)
+
+                        if not is_fallback and item.get('trazabilidad'):
                             for kun in item['trazabilidad']:
-                                res = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
-                                url = res.get("url")
-                                is_clickable = res.get("is_clickable", True)
-                                op_status = res.get("operational_status", "AVAILABLE")
+                                res_rrm = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
+                                url = res_rrm.get("url")
+                                is_clickable = res_rrm.get("is_clickable", True)
+                                op_status = res_rrm.get("operational_status", "AVAILABLE")
 
                                 source_id = kun['fuente_origen']
                                 ref_spec = kun.get('referencia_especifica', 'Rules')
@@ -1748,20 +2045,19 @@ if st.session_state.active_index >= 0:
                                 elif op_status == "DELETED":
                                     badge_emoji = "🔴"
 
-                                st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res.get('ux_message', '')}*")
+                                st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res_rrm.get('ux_message', '')}*")
                                 st.markdown(f"* **{t('source_label', lang)}** {source_link}")
                                 st.write(f"* {t('original_text_label', lang)} *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
                                 st.write(f"* {t('interpretation_label', lang)} {kun['interpretacion']}")
                                 st.write("---")
+                        else:
+                            st.info(t("no_traceability_msg", lang))
 
-                        with tab_graph:
-                            if item.get('dot_code'):
-                                st.graphviz_chart(item['dot_code'])
-                            else:
-                                st.info(t("no_graph_msg", lang))
-                elif not is_fallback:
-                    with st.expander(t("expander_traceability", lang), expanded=False):
-                        st.info(t("no_traceability_msg", lang))
+                    with tab_graph:
+                        if item.get('dot_code'):
+                            st.graphviz_chart(item['dot_code'])
+                        else:
+                            st.info(t("no_graph_msg", lang))
 
                 # Friendly feedback observation channel (Simple low-friction report)
                 with st.expander(t("feedback_expander", lang), expanded=False):

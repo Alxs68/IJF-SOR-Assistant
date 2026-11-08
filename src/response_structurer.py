@@ -13,9 +13,125 @@ Defines the two-tier response contract:
 Provides robust parsing, validation, and safe fallback for unstructured or legacy responses.
 """
 
+import html
 import json
 import re
 from typing import Dict, Any, List, Optional
+
+
+def clean_presentation_text(raw_text: str) -> str:
+    """
+    Cleans an analytical synthesis text for polished natural language presentation:
+    - Strips meta-narrative headers (e.g. 'Síntesis Analítica IA', 'Resumen de Evidencias').
+    - Removes rigid deterministic title/passage prefixes like:
+      '**Title (Art. X, Pág. Y) [SOR-xxxx]:**' or '**[SOR-xxxx] Title:**'.
+    - Eliminates internal retrieval codes like '[SOR-2026-08-Pxxx-Sxxx]' or '[KUN-xxxx]'
+      and their markdown links while preserving natural article names (e.g. 'Artículo 8.7').
+    - Removes synthetic trailing remissions ('Disposiciones complementarias aplicables en...').
+    - Normalizes punctuation, whitespace, and preserves natural paragraphs and bullet points.
+    """
+    if not raw_text or not isinstance(raw_text, str):
+        return ""
+
+    text = raw_text.strip()
+
+    # 1. Eliminar encabezados metanarrativos o de auditoría
+    text = re.sub(
+        r'^(?:⚖️\s*\*\*Síntesis Analítica IA.*?\*\*\s*|📋\s*\*\*Resumen de Evidencias.*?\*\*\s*|⚖️\s*\*\*AI Analytical Synthesis.*?\*\*\s*|📋\s*\*\*Normative Evidence Summary.*?\*\*\s*)',
+        '',
+        text,
+        flags=re.IGNORECASE
+    ).strip()
+
+    # 2. Eliminar prefijos deterministas con identificadores técnicos entre corchetes
+    # Ej: **8.7 Field of Play and Competition Area (Art. 8.7, Pág. 96) [SOR-2026-08-P096-S114](https://...):**
+    # o **Field of Play (Art. 8.7, Pág. 96) [SOR-2026-08-P096-S114]:**
+    text = re.sub(
+        r'^\*\*.*?\((?:Art\.|Artículo|Article|Regla|Rule|Section|Appendix).*?\)\s*\[(?:SOR-[A-Za-z0-9-]+|KUN-\d{4})\s*\](?:\([^)]+\))?:\*\*\s*',
+        '',
+        text,
+        flags=re.IGNORECASE
+    ).strip()
+
+    # Ej: **[SOR-2026-08-P096-S114] Field of Play (Art. 8.7):**
+    text = re.sub(
+        r'^\*\*\[(?:SOR-[A-Za-z0-9-]+|KUN-\d{4})\].*?\*\*\s*',
+        '',
+        text,
+        flags=re.IGNORECASE
+    ).strip()
+
+    # 3. Remover enlaces markdown de códigos de recuperación: [SOR-2026-08-Pxxx-Sxxx](...) o [KUN-xxxx](...)
+    text = re.sub(
+        r'\s*\[(?:SOR-2026-08-P\d{3}-S\d{3}|KUN-\d{4})\]\([^)]+\)',
+        '',
+        text
+    )
+
+    # 4. Remover códigos de recuperación aislados en corchetes: [SOR-2026-08-Pxxx-Sxxx] o [KUN-xxxx]
+    text = re.sub(
+        r'\s*\[(?:SOR-2026-08-P\d{3}-S\d{3}|KUN-\d{4})\]',
+        '',
+        text
+    )
+
+    # 5. Remover corchetes residuales vacíos []
+    text = re.sub(r'\[\s*\]', '', text)
+
+    # 6. Eliminar coletilla determinista de remisión sintética al final si existe
+    text = re.sub(
+        r'\s*Disposiciones complementarias aplicables en\s+Art\..*?\.?$',
+        '',
+        text,
+        flags=re.IGNORECASE
+    ).strip()
+    text = re.sub(
+        r'\s*Complementary provisions applicable in\s+Art\..*?\.?$',
+        '',
+        text,
+        flags=re.IGNORECASE
+    ).strip()
+
+    # 6b. Eliminar residuos de etiquetas de referencia sueltas al final (ej. "Referencia:.", "Reference:.")
+    text = re.sub(
+        r'\s*(?:Referencia|Reference|Cita|Citation|Ref)\s*:\s*\.?\s*$',
+        '',
+        text,
+        flags=re.IGNORECASE
+    ).strip()
+
+    # 7. Normalizar espacios antes de signos de puntuación y dobles espacios
+    text = re.sub(r'\s+([,.;:!?])', r'\1', text)
+    text = re.sub(r'[ \t]+', ' ', text)
+
+    # 8. Limpiar saltos de línea repetidos innecesarios
+    text = re.sub(r'\n{3,}', '\n\n', text)
+
+    return text.strip()
+
+
+def sanitize_presentation_html(text: str) -> str:
+    """
+    Sanitizes text for safe HTML presentation in UI containers (e.g., Streamlit Tier-1 cards):
+    - Escapes dangerous raw HTML characters (<, >, &, \", \') to neutralize script/tag injection.
+    - Safely translates inline Markdown bold (**text**) and italic (*text*) to HTML strong/em.
+    - Converts newlines to linebreaks (<br>) while keeping structured paragraphs (<br><br>).
+    """
+    if not text or not isinstance(text, str):
+        return ""
+
+    # 1. Escapar caracteres HTML para neutralizar inyecciones XSS y tags malformados
+    escaped = html.escape(text.strip())
+
+    # 2. Convertir negrita (**texto**) y cursiva (*texto*) de forma segura sobre el texto ya escapado
+    formatted = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', escaped)
+    formatted = re.sub(r'(?<!\*)\*([^*]+?)\*(?!\*)', r'<em>\1</em>', formatted)
+
+    # 3. Preservar saltos de párrafo y de línea
+    formatted = formatted.replace('\r\n', '\n').replace('\r', '\n')
+    formatted = formatted.replace('\n\n', '<br><br>').replace('\n', '<br>')
+
+    return formatted
 
 
 class StructuredAnswer:
@@ -39,9 +155,14 @@ class StructuredAnswer:
         self.limitations = limitations.strip()
         self.is_structured = is_structured
 
+    def clean_summary(self) -> str:
+        """Returns the summary clean of technical retrieval identifiers, prefixes, and metadata."""
+        return clean_presentation_text(self.summary)
+
     def to_dict(self) -> Dict[str, Any]:
         return {
             "summary": self.summary,
+            "clean_summary": self.clean_summary(),
             "normative_basis": self.normative_basis,
             "citations": self.citations,
             "conditions_and_exceptions": self.conditions_and_exceptions,

@@ -9,7 +9,9 @@ sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__f
 from response_structurer import (
     StructuredAnswer,
     parse_structured_response,
-    build_deterministic_structured_answer
+    build_deterministic_structured_answer,
+    clean_presentation_text,
+    sanitize_presentation_html
 )
 from ada_assistant import ArbitrationDecisionAssistant
 from llm_provider import MultiProviderLLMManager
@@ -135,6 +137,27 @@ Suspensión del evento si reincide."""
         struct = res["structured_answer"]
         self.assertIn("Abstención Normativa Oficial", struct["summary"])
         self.assertEqual(len(res["evidence"]), 0)
+
+
+    def test_08_clean_presentation_text(self):
+        raw = "⚖️ **Síntesis Analítica IA (Gemini)**\n\nEl tatami mide 8x8m [SOR-2026-08-P096-S114](https://example.com#page=96). Referencia:."
+        cleaned = clean_presentation_text(raw)
+        self.assertNotIn("Síntesis Analítica IA", cleaned)
+        self.assertNotIn("SOR-2026-08", cleaned)
+        self.assertNotIn("https://example.com", cleaned)
+        self.assertNotIn("Referencia:.", cleaned)
+        self.assertIn("El tatami mide 8x8m", cleaned)
+
+    def test_09_sanitize_presentation_html_security(self):
+        # AUD-05: Injection attack and XSS neutralization
+        unsafe = "<script>alert('xss')</script> **Tori** debe medir < 60cm & pesar > 50kg.\n\n*Nota:* reglamentario."
+        sanitized = sanitize_presentation_html(unsafe)
+        self.assertNotIn("<script>", sanitized)
+        self.assertIn("&lt;script&gt;alert(&#x27;xss&#x27;)&lt;/script&gt;", sanitized)
+        self.assertIn("&lt; 60cm &amp; pesar &gt; 50kg.", sanitized)
+        self.assertIn("<strong>Tori</strong>", sanitized)
+        self.assertIn("<em>Nota:</em>", sanitized)
+        self.assertIn("<br><br>", sanitized)
 
 
 if __name__ == "__main__":
