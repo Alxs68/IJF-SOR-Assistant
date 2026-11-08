@@ -13,7 +13,9 @@ class TestGoldenDataset(unittest.TestCase):
     def setUpClass(cls):
         os.environ["IJF_SOR_EDITION"] = "2026-08"
         cls.brain_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        cls.engine = RagEngine(cls.brain_path)
+        from llm_provider import MultiProviderLLMManager
+        local_mgr = MultiProviderLLMManager(gemini_api_key=None, groq_api_key=None)
+        cls.engine = RagEngine(cls.brain_path, llm_manager=local_mgr)
 
         # Historical Golden QA Dataset (Edición previa 2026-01 para trazabilidad)
         cls.historical_golden_pairs_2026_01 = [

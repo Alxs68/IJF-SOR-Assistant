@@ -12,12 +12,25 @@ import uuid
 import hmac
 import hashlib
 import re
+import csv
+import io
 from datetime import datetime, timezone
 from typing import Dict, Any, Optional, List, Tuple
 
 FEEDBACK_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "feedback")
 ATTACHMENTS_DIR = os.path.join(FEEDBACK_DIR, "attachments")
 OBSERVATIONS_FILE = os.path.join(FEEDBACK_DIR, "user_observations.jsonl")
+
+# Clasificación oficial autorizada por el Product Owner (Alexis)
+TIPOS_NOVEDAD = [
+    "Posible error o inconsistencia normativa",
+    "Consulta no resuelta satisfactoriamente",
+    "Aclaración o comentario",
+    "Sugerencia de mejora",
+    "Solicitud de nueva funcionalidad",
+    "Observación de funcionamiento",
+    "Otro"
+]
 
 # Official Status Pipeline
 VALID_STATUSES = [
@@ -156,11 +169,13 @@ def save_attachment(
 
 def record_observation(
     motivo: Optional[str] = None,
+    tipo_novedad: Optional[str] = None,
     comentario: Optional[str] = None,
     query: Optional[str] = None,
     response_summary: Optional[str] = None,
     citations: Optional[list] = None,
     edition: Optional[str] = None,
+    session_id: Optional[str] = None,
     extra_metadata: Optional[Dict[str, Any]] = None,
     attachment_bytes: Optional[bytes] = None,
     attachment_filename: Optional[str] = None,
@@ -169,11 +184,11 @@ def record_observation(
     """
     Public entrypoint to persist a user observation/feedback in JSONL format with
     automatic non-sensitive technical context and optional evidence attachment.
-    Requires at least a comment or a reason. Motivo is no longer mandatory.
+    Requires at least a comment or a reason/tipo_novedad.
     """
     try:
         user_text = (comentario or "").strip()
-        reason_text = (motivo or "").strip()
+        reason_text = (tipo_novedad or motivo or "").strip()
 
         # Check that user provided at least some descriptive content
         if not user_text and not reason_text:
@@ -228,6 +243,8 @@ def record_observation(
             "citations": cleaned_citations,
             "normative_edition": edition or "2026-08 (Official)"
         }
+        if session_id:
+            safe_context["session_id"] = str(session_id)[:64]
         if extra_metadata and isinstance(extra_metadata, dict):
             # Whitelist only safe technical metadata
             for k in ("lang", "ui_section", "app_version"):
@@ -280,12 +297,13 @@ def record_observation(
 def list_observations_protected(
     admin_token: Optional[str],
     status_filter: Optional[str] = None,
+    tipo_filter: Optional[str] = None,
     search_term: Optional[str] = None,
     limit: int = 100
 ) -> Dict[str, Any]:
     """
     Authenticated retrieval of observations. Strictly returns unauthorized error if token is invalid.
-    Handles backward compatibility with older jsonl records.
+    Handles backward compatibility with older jsonl records. Supports status and tipo filtering.
     """
     if not verify_admin_token(admin_token):
         return {
@@ -321,16 +339,127 @@ def list_observations_protected(
                 if status_filter and status_filter != "TODOS" and st != status_filter:
                     continue
 
+                # Filter by tipo/reason if requested
+                if tipo_filter and tipo_filter != "TODOS" and record.get("reason") != tipo_filter:
+                    continue
+
                 # Filter by search term if requested
                 if search_term:
                     term = search_term.lower()
                     obs_id = record.get("observation_id", "").lower()
                     comment = record.get("user_comment", "").lower()
                     query = record.get("context", {}).get("query", "").lower()
-                    if term not in obs_id and term not in comment and term not in query:
+                    reason = record.get("reason", "").lower()
+                    if term not in obs_id and term not in comment and term not in query and term not in reason:
                         continue
 
                 results.append(record)
+
+        # Sort reverse chronological by timestamp
+        results.sort(key=lambda x: x.get("timestamp", ""), reverse=True)
+        return {
+            "success": True,
+            "data": results[:limit],
+            "total": len(results)
+        }
+    except Exception as e:
+        return {
+            "success": False,
+            "error": "STORAGE_ERROR",
+            "message": f"Error al leer las novedades: {e}",
+            "data": []
+        }
+
+
+def export_observations_csv(admin_token: Optional[str]) -> Tuple[bool, Optional[str], Optional[str]]:
+    """
+    Generates a structured CSV export of all user observations for administrative analysis.
+    Protected by administrative token.
+    """
+    if not verify_admin_token(admin_token):
+        return False, None, "Acceso no autorizado: token de administración no válido o no configurado."
+
+    file_path = ensure_feedback_storage()
+    if not os.path.exists(file_path):
+        return True, "ID,Fecha,Tipo,Pregunta,Respuesta,Observacion,Estado,Tiene_Adjunto\n", None
+
+    output = io.StringIO()
+    writer = csv.writer(output, quoting=csv.QUOTE_MINIMAL)
+    writer.writerow(["ID", "Fecha", "Tipo", "Pregunta", "Respuesta", "Observacion", "Estado", "Tiene_Adjunto"])
+
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line in f:
+                if not line.strip():
+                    continue
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                ctx = rec.get("context", {})
+                writer.writerow([
+                    rec.get("observation_id", ""),
+                    rec.get("timestamp", ""),
+                    rec.get("reason", "General"),
+                    ctx.get("query", ""),
+                    ctx.get("response_summary", ""),
+                    rec.get("user_comment", ""),
+                    rec.get("status", "Recibida"),
+                    "SI" if rec.get("attachment") else "NO"
+                ])
+        return True, output.getvalue(), None
+    except Exception as e:
+        return False, None, f"Error al generar exportación CSV: {e}"
+
+
+def get_feedback_metrics(admin_token: Optional[str]) -> Dict[str, Any]:
+    """
+    Computes basic participation and feedback distribution metrics for admin observation.
+    Returns: {total, by_type, recent_7d}
+    """
+    if not verify_admin_token(admin_token):
+        return {"success": False, "error": "UNAUTHORIZED"}
+
+    file_path = ensure_feedback_storage()
+    if not os.path.exists(file_path):
+        return {"success": True, "total": 0, "by_type": {}, "recent_7d": 0}
+
+    total = 0
+    by_type: Dict[str, int] = {}
+    recent_7d = 0
+    now = datetime.now(timezone.utc)
+
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line in f:
+                if not line.strip():
+                    continue
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                total += 1
+                t_reason = rec.get("reason", "General")
+                by_type[t_reason] = by_type.get(t_reason, 0) + 1
+
+                # Check recent 7 days
+                ts_str = rec.get("timestamp")
+                if ts_str:
+                    try:
+                        rec_dt = datetime.fromisoformat(ts_str.replace("Z", "+00:00"))
+                        if (now - rec_dt).total_seconds() <= 7 * 86400:
+                            recent_7d += 1
+                    except Exception:
+                        pass
+
+        return {
+            "success": True,
+            "total": total,
+            "by_type": by_type,
+            "recent_7d": recent_7d
+        }
+    except Exception as e:
+        return {"success": False, "error": str(e), "total": 0, "by_type": {}, "recent_7d": 0}
 
         # Sort reverse chronological by timestamp
         results.sort(key=lambda x: x.get("timestamp", ""), reverse=True)

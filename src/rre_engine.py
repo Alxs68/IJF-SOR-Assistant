@@ -15,9 +15,17 @@ import os
 import re
 import json
 import math
+from typing import List, Dict, Any, Optional
 import numpy as np
 from collections import Counter
 import glob
+
+from src.normative_ontology import NormativeOntology, NormativeDomain
+from src.passage_stitcher import PassageStitcher
+from src.referee_command_disambiguator import RefereeCommandDisambiguator
+from src.normative_semantic_ranker import NormativeSemanticRanker
+from src.ood_detector import OODDetector
+from src.negative_domain_anchor_scoring import NegativeDomainAnchorScorer, NegativeDomainResult
 
 # Domain-specific stopwords (English & Spanish functional words)
 STOPWORDS = {
@@ -34,12 +42,51 @@ class ReasoningRetrievalEngine:
     designed for arbitration and regulatory rules.
     """
 
-    def __init__(self, base_dir="data/processed/rebuild_2026_08_corrected", allow_degraded: bool | None = None, enable_code_matching: bool = True):
+    def __init__(self, base_dir="data/processed/rebuild_2026_08_corrected", allow_degraded: bool | None = None, enable_code_matching: bool = True, enable_chunk_stitching: bool | None = None, max_expansion_pages: int = 3, enable_semantic_ranker: bool = False, enable_referee_disambiguation: bool = False, enable_ood_detector: bool = False, enable_negative_domain_anchors: bool = False, shadow_mode_negative_anchors: bool = False, enable_shadow_mode_multisource: bool = False, shadow_log_path: str = "scratch/shadow_multisource_evaluation.jsonl"):
         self.base_dir = base_dir
         if allow_degraded is None:
             allow_degraded = os.environ.get("RRE_ALLOW_DEGRADED_LEXICAL", "").strip().lower() in {"1", "true", "yes", "on"}
         self.allow_degraded = bool(allow_degraded)
-        self.enable_code_matching = enable_code_matching
+        self.enable_code_matching = enable_code_matching        # Feature flag: Chunk Stitching (activado por defecto en arquitectura Lean, desactivable explícitamente)
+        if enable_chunk_stitching is None:
+            env_val = os.environ.get("RRE_ENABLE_CHUNK_STITCHING", "").strip().lower()
+            if env_val in {"0", "false", "no", "off"}:
+                enable_chunk_stitching = False
+            else:
+                enable_chunk_stitching = True
+        self.enable_chunk_stitching = bool(enable_chunk_stitching)
+        self.max_expansion_pages = max_expansion_pages
+
+        # Feature flags Fase 3: RRE 3.0 (desactivados por defecto)
+        if not enable_semantic_ranker:
+            enable_semantic_ranker = os.environ.get("RRE_ENABLE_SEMANTIC_RANKER", "").strip().lower() in {"1", "true", "yes", "on"}
+        self.enable_semantic_ranker = bool(enable_semantic_ranker)
+
+        if not enable_referee_disambiguation:
+            enable_referee_disambiguation = os.environ.get("RRE_ENABLE_REFEREE_DISAMBIGUATION", "").strip().lower() in {"1", "true", "yes", "on"}
+        self.enable_referee_disambiguation = bool(enable_referee_disambiguation)
+
+        if not enable_ood_detector:
+            enable_ood_detector = os.environ.get("RRE_ENABLE_OOD_DETECTOR", "").strip().lower() in {"1", "true", "yes", "on"}
+        self.enable_ood_detector = bool(enable_ood_detector)
+
+        # Feature flags Fase 4.2.1: BK-01 Negative Domain Anchors (desactivados por defecto)
+        if not enable_negative_domain_anchors:
+            enable_negative_domain_anchors = os.environ.get("RRE_ENABLE_NEGATIVE_DOMAIN_ANCHORS", "").strip().lower() in {"1", "true", "yes", "on"}
+        self.enable_negative_domain_anchors = bool(enable_negative_domain_anchors)
+
+        if not shadow_mode_negative_anchors:
+            shadow_mode_negative_anchors = os.environ.get("RRE_SHADOW_MODE_NEGATIVE_ANCHORS", "").strip().lower() in {"1", "true", "yes", "on"}
+        self.shadow_mode_negative_anchors = bool(shadow_mode_negative_anchors)
+
+        # Feature flag Fase 4.2.3: Multisource Sidecar Shadow Mode (desactivado por defecto)
+        if not enable_shadow_mode_multisource:
+            enable_shadow_mode_multisource = os.environ.get("RRE_ENABLE_SHADOW_MODE_MULTISOURCE", "").strip().lower() in {"1", "true", "yes", "on"}
+        self.enable_shadow_mode_multisource = bool(enable_shadow_mode_multisource)
+        self.shadow_log_path = shadow_log_path
+        self.sidecar_retriever = None
+        self.last_shadow_result = None
+
         self.passages_file = os.path.join(base_dir, "passages_candidate.json")
         self.graph_file = os.path.join(base_dir, "knowledge_graph_candidate.json")
         self.sparse_index_file = os.path.join(base_dir, "vector_index_candidate.json")
@@ -63,11 +110,90 @@ class ReasoningRetrievalEngine:
         self._init_dense_model()
         self._determine_operating_mode()
 
+        # Inicializar componentes Fase 3 si están habilitados
+        self.stitcher = PassageStitcher(self.passages_by_id, max_expansion_pages=self.max_expansion_pages) if self.enable_chunk_stitching else None
+        self.ood_detector = OODDetector(self.dense_model, self.dense_embeddings) if self.enable_ood_detector else None
+
+        # Inicializar componente Sidecar Shadow Mode si está habilitado
+        if self.enable_shadow_mode_multisource:
+            self._init_sidecar_retriever()
+
         if not self.allow_degraded and self.operating_mode != "HYBRID":
             raise RuntimeError(
                 f"Inicialización de RRE rechazada: Se requiere modo HYBRID pero el motor operaría en modo "
                 f"'{self.operating_mode}' debido a: {self.degradation_reason}"
             )
+
+    def _init_sidecar_retriever(self):
+        """Inicializa el recuperador Sidecar con aislamiento total de errores."""
+        try:
+            from src.multisource_retriever import MultisourceRetriever
+            self.sidecar_retriever = MultisourceRetriever()
+        except Exception as e:
+            # En caso de fallo de inicialización, no bloquear RRE
+            self.sidecar_retriever = None
+
+    def _execute_shadow_sidecar_retrieval(self, query: str, primary_evidence: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Ejecuta la recuperación Sidecar en modo sombra.
+        - Completamente aislado de la respuesta principal.
+        - No modifica `primary_evidence`.
+        - Registra el log de evaluación comparativa.
+        """
+        import time
+        t0 = time.perf_counter()
+        shadow_record = {
+            "timestamp": time.time(),
+            "query": query,
+            "primary_top1_id": primary_evidence[0].get("passage_id") if primary_evidence else None,
+            "primary_top1_article": primary_evidence[0].get("article_id") if primary_evidence else None,
+            "primary_top1_score": primary_evidence[0].get("score") if primary_evidence else None,
+            "sidecar_status": "DISABLED",
+            "sidecar_matches": [],
+            "sidecar_elapsed_ms": 0.0,
+            "shadow_overhead_ms": 0.0
+        }
+
+        if not self.enable_shadow_mode_multisource:
+            return shadow_record
+
+        if self.sidecar_retriever is None:
+            self._init_sidecar_retriever()
+
+        if self.sidecar_retriever is None:
+            shadow_record["sidecar_status"] = "INITIALIZATION_FAILED"
+            self.last_shadow_result = shadow_record
+            self._write_shadow_log(shadow_record)
+            return shadow_record
+
+        try:
+            # Ejecutar búsqueda con timeout de seguridad (100ms)
+            sidecar_res = self.sidecar_retriever.search(query, top_k=3, min_score=0.05, timeout_ms=100.0)
+            shadow_record["sidecar_status"] = sidecar_res.get("status", "UNKNOWN")
+            shadow_record["sidecar_elapsed_ms"] = sidecar_res.get("elapsed_ms", 0.0)
+            shadow_record["sidecar_matches"] = sidecar_res.get("matches", [])
+        except Exception as e:
+            shadow_record["sidecar_status"] = f"ERROR: {type(e).__name__}: {str(e)}"
+
+        overhead_ms = (time.perf_counter() - t0) * 1000.0
+        shadow_record["shadow_overhead_ms"] = round(overhead_ms, 3)
+        self.last_shadow_result = shadow_record
+        self._write_shadow_log(shadow_record)
+        return shadow_record
+
+    def _write_shadow_log(self, record: Dict[str, Any]):
+        """Escribe el registro de evaluación en el archivo de log con manejo seguro de concurrencia/fallos."""
+        try:
+            if not self.shadow_log_path:
+                return
+            log_dir = os.path.dirname(self.shadow_log_path)
+            if log_dir and not os.path.exists(log_dir):
+                os.makedirs(log_dir, exist_ok=True)
+            with open(self.shadow_log_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(record, ensure_ascii=False) + "\n")
+        except Exception:
+            # Jamás interrumpir el flujo del RRE por un fallo de escritura de log
+            pass
 
     def _load_resources(self):
         if not os.path.exists(self.passages_file):
@@ -437,7 +563,7 @@ class ReasoningRetrievalEngine:
         "medidas": "size measurements",
         "manga": "sleeve",
         "mangas": "sleeves",
-        "faldon": "skirt",
+        "faldon": "skirt bottom shime-waza",
         "competidor": "athlete competitor",
         "competidores": "athletes competitors",
         "regresa": "return returning",
@@ -466,8 +592,8 @@ class ReasoningRetrievalEngine:
         "color": "colour color",
         "colores": "colour colours color colors",
         "colours": "colour",
-        "cinturon": "belt",
-        "cinturones": "belt belts",
+        "cinturon": "belt shime-waza encircle",
+        "cinturones": "belt belts shime-waza encircle",
         "permitido": "allowed permitted",
         "permitidos": "allowed permitted",
         "permitida": "allowed permitted",
@@ -490,7 +616,20 @@ class ReasoningRetrievalEngine:
         "emblema": "emblem",
         "emblemas": "emblems",
         "reversible": "reversible",
-        "reversibles": "reversible"
+        "reversibles": "reversible",
+        "rodilla": "joint knee ashi-garami kansetsu-waza elbow",
+        "rodillas": "joint knee ashi-garami kansetsu-waza elbow",
+        "tobillo": "joint ankle ashi-garami kansetsu-waza elbow",
+        "tobillos": "joint ankle ashi-garami kansetsu-waza elbow",
+        "palanca": "kansetsu-waza joint lock armlock",
+        "palancas": "kansetsu-waza joint lock armlocks",
+        "desatado": "unfastened untied shime-waza",
+        "desatada": "unfastened untied shime-waza",
+        "pretina": "belt shime-waza encircle",
+        "tirarse": "diving head",
+        "zambullirse": "diving dive head",
+        "meter": "insert foot leg belt lapel",
+        "pie": "foot leg belt lapel"
     }
 
     def _tokenize(self, text):
@@ -506,7 +645,23 @@ class ReasoningRetrievalEngine:
                 if t in self.SPANISH_TO_ENGLISH_SYNONYMS:
                     syn = self.SPANISH_TO_ENGLISH_SYNONYMS[t]
                     tokens.extend(syn.split())
-        return tokens
+
+        # Normative Ontology Expansion (Phase 1 RRE 3.0)
+        expanded_tokens, detected_domains = NormativeOntology.expand_token_stream(tokens)
+        
+        # Dampen procedural generic words if specific normative domains are detected
+        if detected_domains and not any(d in detected_domains for d in [NormativeDomain.DRAW_AND_CONTEST_SYSTEM]):
+            # If the query is about specific actions, penalties, ethics, head, etc.,
+            # dampen procedural generic tokens (competitor, athlete, team) so table templates don't dominate BM25
+            filtered_tokens = []
+            for t in expanded_tokens:
+                if t in NormativeOntology.PROCEDURAL_DAMPEN_WORDS and t in {"competitor", "competitors", "athlete", "athletes", "team", "teams"}:
+                    continue
+                filtered_tokens.append(t)
+            if filtered_tokens:
+                expanded_tokens = filtered_tokens
+
+        return expanded_tokens
 
     def _sparse_search(self, query, top_k=20):
         tokens = self._tokenize(query)
@@ -594,7 +749,7 @@ class ReasoningRetrievalEngine:
             or headings.strip() == "document control"
         )
 
-    def retrieve(self, query: str, top_k: int = 4, min_confidence: float = 0.015, expand_graph: bool = True):
+    def retrieve(self, query: str, top_k: int = 5, min_confidence: float = 0.015, expand_graph: bool = True):
         """
         Executes Reasoning Retrieval with Reciprocal Rank Fusion (RRF) and Graph Expansion.
         """
@@ -626,15 +781,65 @@ class ReasoningRetrievalEngine:
         ]
 
         # 3. Domain Grounding & Dual-channel verification
-        # Verificación de anclaje de dominio: al menos un término sustantivo debe pertenecer al vocabulario del corpus,
+        # Verificación de anclaje de dominio: al menos un término sustantivo directo de la consulta
+        # (excluyendo expansiones ontológicas globales de shido/falta) debe pertenecer al vocabulario del corpus,
         # o bien formularse una referencia verificable a una página física del SOR 2026-08 (1 a 298).
-        # Se excluyen términos genéricos transversales (rules, rule, system, systems) para evitar que consultas OOD de otros deportes
-        # superen el umbral solo por incluir la palabra "reglas" o "sistema".
-        GENERIC_WORDS = {"rules", "rule", "system", "systems"}
+        # Se excluyen términos genéricos transversales (rules, rule, system, systems, falta, personal, libre, sancion)
+        # para evitar que consultas OOD de otros deportes (e.g. básquetbol) superen el umbral.
+        GENERIC_WORDS = {"rules", "rule", "system", "systems", "falta", "faltas", "personal", "personales", "libre", "libres", "sancion", "sanciones", "castigo"}
         vocab = self.sparse_index.get("idf", {})
-        substantive_in_vocab = {t for t in tokens if t in vocab and not t.isdigit() and t not in GENERIC_WORDS}
+        
+        # Evaluar anclaje directo de la consulta original
+        clean_q_direct = query.lower().replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u").replace("ñ", "n")
+        raw_direct_tokens = re.findall(r"\b[a-zA-Z0-9_\-]{2,}\b", clean_q_direct)
+        direct_tokens = [t for t in raw_direct_tokens if t not in STOPWORDS]
+        substantive_in_vocab = {t for t in direct_tokens if t in vocab and not t.isdigit() and t not in GENERIC_WORDS}
+        for t in direct_tokens:
+            if t in self.SPANISH_TO_ENGLISH_SYNONYMS and t not in GENERIC_WORDS:
+                for s in self.SPANISH_TO_ENGLISH_SYNONYMS[t].split():
+                    if s in vocab and s not in GENERIC_WORDS:
+                        substantive_in_vocab.add(s)
+
         page_refs = re.findall(r'\b(?:p[aá]gina|p[aá]g\.?|page)\s*(\d+)\b', query, re.IGNORECASE)
         has_valid_page_ref = any(1 <= int(p) <= 298 for p in page_refs)
+
+        # Evaluacion BK-01: Negative Domain Anchor Scoring
+        neg_anchor_result = None
+        if self.enable_negative_domain_anchors or self.shadow_mode_negative_anchors:
+            neg_anchor_result = NegativeDomainAnchorScorer.score_negative_domain(query)
+            # En modo activo (no solo shadow), si se confirma OOD negativo inequívoco sin inmunidad de judo:
+            if self.enable_negative_domain_anchors and not self.shadow_mode_negative_anchors:
+                if neg_anchor_result.is_ood and not has_valid_page_ref:
+                    return {
+                        "status": "ABSTAIN",
+                        "reason": "OUT_OF_DOMAIN",
+                        "message": f"Consulta identificada fuera del dominio Judo por anclas negativas de {', '.join(neg_anchor_result.detected_domains)}.",
+                        "evidence": [],
+                        "related_passages": [],
+                        "operating_mode": self.operating_mode,
+                        "degradation_reason": self.degradation_reason,
+                        "source_sha256_verified": self.source_sha256_verified,
+                        "negative_domain_metrics": neg_anchor_result.model_dump()
+                    }
+
+        # OOD Detector (Phase 3 continuous metric abstention if enabled)
+        if self.enable_ood_detector and self.ood_detector:
+            top_dense = dense_hits[0][1] if dense_hits else 0.0
+            top_sparse = sparse_hits[0][1] if sparse_hits else 0.0
+            ood_eval = self.ood_detector.evaluate_grounding(query, sparse_top=top_sparse, dense_top=top_dense)
+            if not ood_eval.get("is_in_domain", True) and not has_valid_page_ref and not substantive_in_vocab:
+                return {
+                    "status": "ABSTAIN",
+                    "reason": "OUT_OF_DOMAIN",
+                    "message": "Sin evidencia normativa certificada en el SOR 2026-08 para los términos consultados.",
+                    "evidence": [],
+                    "related_passages": [],
+                    "operating_mode": self.operating_mode,
+                    "degradation_reason": self.degradation_reason,
+                    "source_sha256_verified": self.source_sha256_verified,
+                    "ood_metrics": ood_eval,
+                    "shadow_negative_metrics": neg_anchor_result.model_dump() if neg_anchor_result else None
+                }
 
         if not substantive_in_vocab and not has_valid_page_ref and (not dense_hits or dense_hits[0][1] < 0.45):
             return {
@@ -711,9 +916,17 @@ class ReasoningRetrievalEngine:
 
         # Controlled topical alignment for equipment regulations (Appendix C)
         clean_q_lower = query.lower()
-        is_belt_query = any(w in clean_q_lower for w in ["cinturon", "cinturón", "belt"])
+        is_boundary_newaza = any(w in clean_q_lower for w in ["fuera", "outside", "seguridad", "safety", "limite", "límite", "continuidad"]) and any(w in clean_q_lower for w in ["ne-waza", "newaza", "suelo", "osaekomi"])
+        is_kumikata_grip_query = not is_boundary_newaza and any(w in clean_q_lower for w in [
+            "agarre", "agarres", "agarrar", "kumikata", "kumi-kata", "grip", "grips",
+            "cross grip", "pocket grip", "pistol grip", "same-side", "belt grip",
+            "inside sleeve", "bocamanga", "interlocking", "dedos entrelazados", "entrelazar",
+            "leg grabbing", "romper", "ruptura", "bloqueo", "posicion encorvada", "posición encorvada",
+            "brazos rigidos", "brazos rígidos", "bending position", "blocking attitude"
+        ])
+        is_belt_query = any(w in clean_q_lower for w in ["cinturon", "cinturón", "belt"]) and not is_kumikata_grip_query
         is_judogi_color_query = any(w in clean_q_lower for w in ["color", "colores", "colour", "colours"]) and any(w in clean_q_lower for w in ["judogi", "traje", "uniforme"]) and not is_belt_query
-        is_sleeve_query = any(w in clean_q_lower for w in ["manga", "mangas", "sleeve", "sleeves", "sokuteiki"])
+        is_sleeve_query = any(w in clean_q_lower for w in ["manga", "mangas", "sleeve", "sleeves", "sokuteiki"]) and not is_kumikata_grip_query
         is_mark_query = any(w in clean_q_lower for w in ["marca", "marcas", "parche", "parches", "dorsal", "dorsales", "patch", "logo", "advertising", "publicidad", "emblema"])
 
         if is_belt_query:
@@ -758,6 +971,7 @@ class ReasoningRetrievalEngine:
 
         # Controlled topical alignment for head actions (Appendix D Refereeing Rules)
         has_bridge_term = any(w in clean_q_lower for w in ["puente", "bridge"])
+        has_hansoku_term = any(w in clean_q_lower for w in ["hansoku", "hansoku-make", "hansokumake", "descalificacion", "descalificación", "directo"])
         has_head_term = any(w in clean_q_lower for w in ["cabeza", "head", "craneo", "cráneo", "cervical", "cuello"]) or has_bridge_term
         if has_head_term:
             is_cadet_specific = any(w in clean_q_lower for w in ["cadet", "cadete", "cadetes", "u18", "sub18", "sub-18"])
@@ -769,9 +983,8 @@ class ReasoningRetrievalEngine:
             is_concussion_specific = any(w in clean_q_lower for w in ["conmocion", "conmoción", "concussion", "trauma", "inhabilitacion", "inhabilitación", "suspension", "suspensión", "dias", "días", "days"])
 
             # 1. Regla General de Puente de Uke (Art. 14.2, Págs. 166-167): evaluado como Ippon por seguridad cervical
-            # Debe recuperarse tanto cuando se busca puente como cuando se indaga de forma general sobre defensa/escape con la cabeza
-            if is_bridge_specific or (is_defense_specific and not is_dive_specific):
-                # Asegurar presencia de los pasajes de puente en rrf_scores aunque su puntuación inicial multi-canal sea baja
+            # Debe recuperarse cuando se busca puente o defensa general de cabeza SIN mención de Hansoku-make
+            if is_bridge_specific or (is_defense_specific and not is_dive_specific and not has_hansoku_term):
                 for bridge_pid in ("SOR-2026-08-P166-S187", "SOR-2026-08-P167-S187"):
                     if bridge_pid in self.passages_by_id and bridge_pid not in rrf_scores:
                         rrf_scores[bridge_pid] = 0.025
@@ -782,16 +995,20 @@ class ReasoningRetrievalEngine:
                         if "bridge" in text_p or "voluntarily makes a" in text_p or "cervical" in text_p:
                             rrf_scores[pid] += 0.12 if not is_cadet_specific else 0.07
 
-            # 2. Regla de Head Diving (Art. 18.2.1, Pág. 190): técnica peligrosa sancionada con Hansoku-make en cualquier categoría
-            if is_dive_specific or is_throw_by_tori or (not is_defense_specific and not is_concussion_specific):
-                if "SOR-2026-08-P190-S197" in self.passages_by_id and "SOR-2026-08-P190-S197" not in rrf_scores:
-                    rrf_scores["SOR-2026-08-P190-S197"] = 0.025
+            # 2. Regla de Head Diving / Hansoku-make por técnica de cabeza (Art. 18.2.1 / 18.2.2, Pág. 190): técnica peligrosa sancionada con Hansoku-make
+            if is_dive_specific or is_throw_by_tori or has_hansoku_term or (not is_defense_specific and not is_concussion_specific):
+                for h_pid in ("SOR-2026-08-P190-S197", "SOR-2026-08-P190-S198"):
+                    if h_pid in self.passages_by_id and h_pid not in rrf_scores:
+                        rrf_scores[h_pid] = 0.025
                 for pid in list(rrf_scores):
                     p = self.passages_by_id.get(pid)
                     if p and p.get("pdf_page_index") == 190:
                         text_p = p.get("text_original", "").lower()
-                        if "head diving" in text_p or "article 18 .2 .1" in text_p:
-                            rrf_scores[pid] += 0.11 if not is_cadet_specific else 0.06
+                        if "head diving" in text_p or "article 18 .2 .1" in text_p or "hansoku-make" in text_p:
+                            bonus = 0.14 if has_hansoku_term else (0.11 if not is_cadet_specific else 0.06)
+                            if pid == 'SOR-2026-08-P190-S197' or str(p.get('article_id')) == 'Article 18.2.1':
+                                bonus += 0.03
+                            rrf_scores[pid] += bonus
 
             # 3. Reglas Específicas de Cadetes (Art. 18.1.4, Págs. 188-189):
             # Punto 33 (Tori proyectar con cabeza -> Shido) y Punto 34 (Uke defender con cabeza -> Shido y puntuación a Tori)
@@ -803,24 +1020,63 @@ class ReasoningRetrievalEngine:
                     p = self.passages_by_id.get(pid)
                     if p:
                         if p.get("pdf_page_index") == 188 and "18.1.4" in str(p.get("article_id", "")):
-                            # Pág. 188 regula taxativamente puntos 33 (Tori cabeza) y 34 (Uke cabeza)
                             rrf_scores[pid] += 0.16 if (is_cadet_specific and not is_reverse_seoi) else 0.08
                         elif p.get("pdf_page_index") == 189 and "18.1.4" in str(p.get("article_id", "")):
-                            # Pág. 189 regula punto 35 (reverse seoi-nage)
                             rrf_scores[pid] += 0.16 if is_reverse_seoi else 0.04
 
             # 4. Atenuación de pasajes irrelevantes cuando se indaga sobre arbitraje de cabeza en combate
-            # Evita que el código de vestimenta de médicos (E1.5 P202) o gestos (P138/P149) desplacen los artículos sustantivos
             if not is_concussion_specific:
-                for pid in rrf_scores:
+                for pid in list(rrf_scores):
                     p = self.passages_by_id.get(pid)
                     if p:
-                        # Si es el apéndice médico sobre higiene/vestimenta de médicos y la consulta no es médica
                         if p.get("pdf_page_index") == 202 and not is_concussion_specific:
                             rrf_scores[pid] *= 0.65
-                        # Si es un gesto aislado de señalización arbitral
                         elif p.get("pdf_page_index") in (138, 149, 150) and not any(w in clean_q_lower for w in ["gesto", "gesture", "senal", "señal"]):
                             rrf_scores[pid] *= 0.70
+
+        # Controlled topical alignment for kumikata and illegal moves (Article 18.1.2, Págs. 178-185)
+        if is_kumikata_grip_query:
+            is_pocket_pistol = any(w in clean_q_lower for w in ["pocket", "pistol"])
+            is_cross_grip = any(w in clean_q_lower for w in ["cross", "cruzado"])
+            is_bending_or_blocking = any(w in clean_q_lower for w in ["encorvada", "bloqueo", "rigido", "rígido", "rigidos", "rígidos", "bending", "blocking"])
+            is_under_belt = any(w in clean_q_lower for w in ["muslo", "cinturon", "cinturón"]) and not any(w in clean_q_lower for w in ["manga", "sleeve", "bocamanga"])
+            is_leg_grabbing = any(w in clean_q_lower for w in ["pierna", "pantalon", "pantalón"]) and any(w in clean_q_lower for w in ["agarrar", "tocar", "sancion", "sanción", "falta", "grabbing"])
+            is_breaking_grips = any(w in clean_q_lower for w in ["romper", "ruptura", "soltando", "liberando", "conservando", "dos manos"])
+            is_inside_sleeve_or_trouser = any(w in clean_q_lower for w in ["bocamanga", "sleeve", "trouser", "pantalon", "pantalón", "dentro"]) and any(w in clean_q_lower for w in ["dentro", "inside", "bocamanga"])
+            is_interlocking = any(w in clean_q_lower for w in ["interlocking", "entrelazados", "entrelazar"]) or ("dedos" in clean_q_lower and any(w in clean_q_lower for w in ["continuamente", "sanciona", "sanción", "interlocking"]))
+
+            for pid in list(rrf_scores):
+                p = self.passages_by_id.get(pid)
+                if not p:
+                    continue
+                art = str(p.get("article_id", "")).lower()
+                page = p.get("pdf_page_index", 0)
+
+                # Dampen referee gestures when asking about substantive illegal moves
+                if ("article 4" in art or "gestures" in str(p.get("heading_path", "")).lower() or 137 <= page <= 151) and not any(w in clean_q_lower for w in ["gesto", "gesture", "senal", "señal"]):
+                    rrf_scores[pid] *= 0.20
+
+                # Dampen equipment sizing / sokuteiki when asking about combat grips
+                if ("c1.10" in art or "size" in str(p.get("heading_path", "")).lower() or 115 <= page <= 127) and not any(w in clean_q_lower for w in ["sokuteiki", "tamano", "tamaño", "medida", "medidas", "calibrador"]):
+                    rrf_scores[pid] *= 0.20
+
+                # Dampen exam / education appendix
+                if 250 <= page <= 275:
+                    rrf_scores[pid] *= 0.20
+
+                # Boost Article 18.1.2
+                if "18.1.2" in art or (178 <= page <= 185):
+                    rrf_scores[pid] *= 1.40
+
+                    # Fine-grained page affinity for substantive rules
+                    if (is_pocket_pistol or is_cross_grip or is_bending_or_blocking) and page == 178:
+                        rrf_scores[pid] += 0.25
+                    elif is_under_belt and page == 179:
+                        rrf_scores[pid] += 0.25
+                    elif is_leg_grabbing and page in (179, 180, 183):
+                        rrf_scores[pid] += 0.18
+                    elif (is_breaking_grips or is_inside_sleeve_or_trouser or is_interlocking) and page == 180:
+                        rrf_scores[pid] += 0.25
 
         # Controlled exact normative code and title alignment signal
         if self.enable_code_matching:
@@ -904,6 +1160,25 @@ class ReasoningRetrievalEngine:
                 if any("penalty codes" in heading or "glossary" in heading for heading in headings):
                     rrf_scores[pid] *= 0.80
 
+        # Phase 3: Referee Command Disambiguator (if enabled)
+        if self.enable_referee_disambiguation:
+            ref_analysis = RefereeCommandDisambiguator.analyze_query(query)
+            if ref_analysis.get("intent_type") != "NONE":
+                rrf_scores = RefereeCommandDisambiguator.apply_disambiguation(rrf_scores, self.passages_by_id, ref_analysis)
+
+        # Phase 3: Lateral scoring alignment (Article 15 Waza-ari / Yuko)
+        if self.enable_semantic_ranker:
+            clean_q = query.lower()
+            is_lateral_scoring = any(w in clean_q for w in ["costado", "perpendicular", "lateral", "90"]) and any(w in clean_q for w in ["puntuacion", "puntuación", "score", "valoracion", "valora", "cae", "caida"])
+            if is_lateral_scoring:
+                for pid in ("SOR-2026-08-P168-S188", "SOR-2026-08-P169-S188"):
+                    if pid in self.passages_by_id:
+                        rrf_scores[pid] = rrf_scores.get(pid, 0.0) + 0.12
+
+        # Phase 3: Normative Semantic Ranker (if enabled)
+        if self.enable_semantic_ranker:
+            rrf_scores = NormativeSemanticRanker.rerank_scores(query, rrf_scores, self.passages_by_id)
+
         ranked_pids = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
         top_seeds = []
         seen_texts = []
@@ -948,16 +1223,42 @@ class ReasoningRetrievalEngine:
         for pid in top_seeds:
             p = self.passages_by_id.get(pid)
             if p:
-                rec = {
-                    "passage_id": pid,
-                    "title": p.get("heading_path", [""])[0] if p.get("heading_path") else f"Artículo {p.get('article_id')}",
-                    "article_id": p.get("article_id"),
-                    "page": p.get("pdf_page_index"),
-                    "score": round(rrf_scores[pid], 4),
-                    "source_url": f"{p.get('source_url', '')}#page={p.get('pdf_page_index')}",
-                    "text_original": p.get("text_original", ""),
-                    "is_seed": True
-                }
+                if self.enable_chunk_stitching and self.stitcher:
+                    stitched = self.stitcher.stitch_evidence(p)
+                    rec = {
+                        'passage_id': pid,  # Preserva KUN semilla como primario
+                        'title': p.get('heading_path', [''])[0] if p.get('heading_path') else f"Articulo {p.get('article_id')}",
+                        'article_id': p.get('article_id'),
+                        'page': p.get('pdf_page_index'),
+                        'score': round(rrf_scores[pid], 4),
+                        'source_url': f"{p.get('source_url', '')}#page={p.get('pdf_page_index')}",
+                        'text_original': stitched.get('text_original', p.get('text_original', '')),
+                        'is_seed': True,
+                        'is_stitched': stitched.get('is_stitched', False),
+                        'composite_kun': stitched.get('composite_kun'),
+                        'source_spans': stitched.get('source_spans', []),
+                        'stitched_kuns': stitched.get('stitched_kuns', [pid]),
+                        'is_partial_reconstruction': stitched.get('is_partial_reconstruction', False)
+                    }
+                    if stitched.get('reconstruction_note'):
+                        rec['reconstruction_note'] = stitched['reconstruction_note']
+                else:
+                    rec = {
+                        'passage_id': pid,
+                        'title': p.get('heading_path', [''])[0] if p.get('heading_path') else f"Articulo {p.get('article_id')}",
+                        'article_id': p.get('article_id'),
+                        'page': p.get('pdf_page_index'),
+                        'score': round(rrf_scores[pid], 4),
+                        'source_url': f"{p.get('source_url', '')}#page={p.get('pdf_page_index')}",
+                        'text_original': p.get('text_original', ''),
+                        'is_seed': True,
+                        'is_stitched': False,
+                        'source_spans': [{
+                            'kun': pid,
+                            'page': p.get('pdf_page_index'),
+                            'url': f"{p.get('source_url', '')}#page={p.get('pdf_page_index')}"
+                        }]
+                    }
                 evidence_list.append(rec)
 
         # 6. Graph-Guided Cross-Reference Expansion
@@ -981,6 +1282,11 @@ class ReasoningRetrievalEngine:
                             "source_url": f"{tp.get('source_url', '')}#page={tp.get('pdf_page_index')}",
                             "text_original": tp.get("text_original", "")
                         })
+
+        # 7. Multisource Sidecar Shadow Mode Execution (Fase 4.2.3)
+        # Se ejecuta en paralelo / segundo plano sin tocar jamás 'evidence_list', 'related_passages', ni modificar las respuestas canónicas.
+        if self.enable_shadow_mode_multisource:
+            self._execute_shadow_sidecar_retrieval(query, evidence_list)
 
         return {
             "status": "SUCCESS",

@@ -30,6 +30,26 @@ from response_structurer import (
     build_deterministic_structured_answer
 )
 from normative_validator import NormativeValidator
+try:
+    from src.document_validator import DocumentValidator
+    from src.document_governance import (
+        EvidenceItem,
+        EvidenceRole,
+        DocumentAuthority,
+        ValidityStatus,
+        EligibilityStatus,
+        EvidenceBundle
+    )
+except ImportError:
+    from document_validator import DocumentValidator
+    from document_governance import (
+        EvidenceItem,
+        EvidenceRole,
+        DocumentAuthority,
+        ValidityStatus,
+        EligibilityStatus,
+        EvidenceBundle
+    )
 
 class ArbitrationDecisionAssistant:
     """
@@ -43,16 +63,24 @@ class ArbitrationDecisionAssistant:
         llm_manager: Optional[MultiProviderLLMManager] = None
     ):
         self.base_dir = base_dir
-        self.rre = ReasoningRetrievalEngine(base_dir, allow_degraded=allow_degraded)
+        self.rre = ReasoningRetrievalEngine(
+            base_dir,
+            allow_degraded=allow_degraded,
+            enable_semantic_ranker=True,
+            enable_referee_disambiguation=True,
+            enable_ood_detector=True,
+            enable_negative_domain_anchors=True
+        )
         self.config = get_active_corpus_config()
         self.llm_manager = llm_manager or MultiProviderLLMManager()
         self.api_key = self.llm_manager.gemini_api_key
+        self.doc_validator = DocumentValidator()
 
     def _call_llm(self, prompt: str) -> Tuple[Optional[str], Dict[str, Any]]:
         """Invokes active LLM provider (Gemini/Groq) with fallback according to configured policy."""
         return self.llm_manager.generate_with_fallback(prompt)
 
-    def analyze_situation(self, situation_query: str, top_k: int = 4, language: Optional[str] = None):
+    def analyze_situation(self, situation_query: str, top_k: int = 5, language: Optional[str] = None):
         """
         Executes complete ADA arbitration reasoning cycle:
         1. Retrieval of evidence via RRE.
@@ -93,6 +121,62 @@ class ArbitrationDecisionAssistant:
 
         evidence = retrieval_res["evidence"]
         related = retrieval_res.get("related_passages", [])
+
+        # Document Authority & Validity Gate via DocumentValidator
+        candidate_items = []
+        for ev in evidence:
+            candidate_items.append(
+                EvidenceItem(
+                    evidence_id=ev.get("passage_id", "UNKNOWN"),
+                    document_id="DOC-SOR-2026-08",
+                    content_text=ev.get("text_original") or "Contenido no disponible",
+                    role=EvidenceRole.NORMA_PRIMARIA,
+                    authority=DocumentAuthority.TIER_1_NORMATIVE_PRIMARY,
+                    validity=ValidityStatus.VIGENTE,
+                    eligibility=EligibilityStatus.ELIGIBLE_DECISORIA,
+                    semantic_relevance_score=min(1.0, max(0.0, float(ev.get("score", 0.5)))),
+                    article_number=f"Art. {ev.get('article_id')}" if ev.get("article_id") else None,
+                    page_number=ev.get("page"),
+                    paragraph_or_section=ev.get("title"),
+                    url_reference=ev.get("source_url")
+                )
+            )
+
+        bundle_id = f"BND-{abs(hash(situation_query)) % 1000000:06d}"
+        certified_bundle = self.doc_validator.build_certified_bundle(
+            bundle_id=bundle_id,
+            query_text=situation_query,
+            candidate_items=candidate_items
+        )
+
+        if certified_bundle.abstention_required or not certified_bundle.is_sufficient_for_decision:
+            reason_text = certified_bundle.abstention_reason or "Evidencia documental insuficiente para emitir dictamen normativo vinculante."
+            abstain_msg = (
+                f"⚠️ **Abstención Normativa Oficial ({self.config['version_label']})**\n\n"
+                f"{reason_text}\n\n"
+                "*Por gobernanza documental, el asistente no emite dictámenes sin respaldo de la norma primaria vigente.*"
+            )
+            return {
+                "status": "ABSTAIN",
+                "query": situation_query,
+                "analysis": abstain_msg,
+                "structured_answer": {
+                    "summary": abstain_msg,
+                    "normative_basis": "",
+                    "citations": [],
+                    "conditions_and_exceptions": "",
+                    "extended_analysis": "",
+                    "limitations": reason_text,
+                    "is_structured": True
+                },
+                "evidence": [],
+                "related_passages": [],
+                "engine": "ADA-RRE-v2",
+                "rre_operating_mode": retrieval_res.get("operating_mode", "UNKNOWN"),
+                "degradation_reason": retrieval_res.get("degradation_reason"),
+                "source_sha256_verified": retrieval_res.get("source_sha256_verified", False),
+                "certified_bundle": certified_bundle.model_dump()
+            }
 
         # Build context for reasoning
         context_blocks = []
@@ -268,11 +352,13 @@ class ArbitrationDecisionAssistant:
             "rre_operating_mode": retrieval_res.get("operating_mode", "UNKNOWN"),
             "degradation_reason": retrieval_res.get("degradation_reason"),
             "source_sha256_verified": retrieval_res.get("source_sha256_verified", False),
+            "certified_bundle": certified_bundle.model_dump(),
             "llm_meta": llm_meta
         }
 
     def _validate_llm_citations(self, answer: str | None, evidence: list, related: list) -> bool:
-        """Accept generated analysis only when it cites retrieved official passage IDs."""
+        """Accept generated analysis only when it cites retrieved official passage IDs
+        and does not introduce hallucinated articles or penalty codes."""
         if not isinstance(answer, str) or not answer.strip():
             return False
 
@@ -282,7 +368,16 @@ class ArbitrationDecisionAssistant:
             if isinstance(item, dict) and item.get("passage_id")
         }
         cited_ids = re.findall(r"\[((?:SOR-[A-Za-z0-9-]+)|KUN-\d{4})\]", answer)
-        return bool(cited_ids) and all(citation in allowed_ids for citation in cited_ids)
+        if not (bool(cited_ids) and all(citation in allowed_ids for citation in cited_ids)):
+            return False
+
+        # Additional semantic and normative validation check
+        validator = NormativeValidator(evidence_passages=evidence, related_passages=related)
+        res = validator.validate_text(answer)
+        if res.hallucinated_codes or res.hallucinated_articles:
+            return False
+
+        return True
 
     def _build_deterministic_arbitration_brief(self, query: str, evidence: list, related: list) -> str:
         """Constructs legacy string brief for compatibility if called directly."""

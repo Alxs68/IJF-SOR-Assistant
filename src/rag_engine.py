@@ -126,7 +126,7 @@ class RagEngine:
             self.vs.index_kun_corpus(self.kg.nodes, api_key=self.api_key)
             self.vs.save_index(self.vector_path)
 
-    def retrieve_context(self, query, k=3, min_score=None, depth=1):
+    def retrieve_context(self, query, k=5, min_score=None, depth=1):
         """Retrieves semantic hits and expands context using graph relations, prioritizing direct evidence."""
         if min_score is None:
             min_score = self.config.get("min_relevance_score", 0.10)
@@ -196,7 +196,7 @@ class RagEngine:
         print(f"[LOG] [LLM Provider Client] Ningún proveedor LLM externo pudo completar la solicitud.")
         return None
 
-    def query(self, user_query, k=3, min_score=None, language: Optional[str] = None):
+    def query(self, user_query, k=5, min_score=None, language: Optional[str] = None):
         """Runs the active ADA / RRE reasoning flow for 2026-08 or legacy fallback for 2026-01."""
         print(f"\n[LOG] [RAG Flow] --- INICIO DE CONSULTA ---")
         print(f"[LOG] [RAG Flow] Consulta recibida: '{user_query}'")
@@ -249,6 +249,7 @@ class RagEngine:
                 'rre_operating_mode': ada_res.get('rre_operating_mode', 'HYBRID'),
                 'degradation_reason': ada_res.get('degradation_reason'),
                 'source_sha256_verified': ada_res.get('source_sha256_verified', False),
+                'certified_bundle': ada_res.get('certified_bundle'),
                 'llm_meta': ada_res.get('llm_meta', {})
             }
 

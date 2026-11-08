@@ -327,3 +327,57 @@ def test_official_8_statuses_lifecycle(tmp_path, monkeypatch):
     assert target["status"] == "Bloqueada"
     assert "Auditor IJF" in target["internal_review"]["notes"]
     assert len(target["internal_review"]["status_history"]) == 9  # 1 inicial + 8 cambios
+
+
+def test_simplified_feedback_types_and_export(tmp_path, monkeypatch):
+    """
+    Verifica el registro con la clasificación simplificada autorizada (TIPOS_NOVEDAD),
+    el registro de session_id, la exportación a CSV y las métricas de participación.
+    """
+    from feedback_manager import TIPOS_NOVEDAD, export_observations_csv, get_feedback_metrics
+
+    test_file = str(tmp_path / "test_observations.jsonl")
+    monkeypatch.setattr("feedback_manager.OBSERVATIONS_FILE", test_file)
+    monkeypatch.setattr("feedback_manager.FEEDBACK_DIR", str(tmp_path))
+    monkeypatch.setenv("FEEDBACK_ADMIN_TOKEN", TEST_ADMIN_TOKEN)
+
+    assert len(TIPOS_NOVEDAD) == 7
+    tipo_elegido = TIPOS_NOVEDAD[0]  # "Posible error o inconsistencia normativa"
+
+    res = record_observation(
+        tipo_novedad=tipo_elegido,
+        comentario="El artículo 18.2 indica descalificación directa para esta acción.",
+        query="¿Qué penalización aplica por head diving?",
+        response_summary="Hansoku-make directo según Art. 18.2.1.",
+        session_id="session-test-uuid-12345"
+    )
+
+    assert res["success"] is True
+    obs_id = res["observation_id"]
+
+    # Consulta protegida con filtro de tipo
+    list_res = list_observations_protected(
+        admin_token=TEST_ADMIN_TOKEN,
+        tipo_filter=tipo_elegido
+    )
+    assert list_res["success"] is True
+    assert len(list_res["data"]) == 1
+    rec = list_res["data"][0]
+    assert rec["reason"] == tipo_elegido
+    assert rec["context"]["session_id"] == "session-test-uuid-12345"
+
+    # Exportación a CSV
+    csv_ok, csv_data, csv_err = export_observations_csv(admin_token=TEST_ADMIN_TOKEN)
+    assert csv_ok is True
+    assert csv_err is None
+    assert obs_id in csv_data
+    assert tipo_elegido in csv_data
+    assert "head diving" in csv_data
+
+    # Métricas de participación
+    metrics = get_feedback_metrics(admin_token=TEST_ADMIN_TOKEN)
+    assert metrics["success"] is True
+    assert metrics["total"] == 1
+    assert metrics["by_type"].get(tipo_elegido) == 1
+    assert metrics["recent_7d"] == 1
+
