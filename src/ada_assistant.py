@@ -80,6 +80,65 @@ class ArbitrationDecisionAssistant:
         """Invokes active LLM provider (Gemini/Groq) with fallback according to configured policy."""
         return self.llm_manager.generate_with_fallback(prompt)
 
+    def _translate_to_technical_english(self, query: str) -> str:
+        """
+        Translates a Spanish judo query into concise, official technical English for
+        accurate cross-lingual retrieval against the IJF SOR corpus, while strictly
+        preserving Japanese judo terminology (Ippon, Shido, Hansoku-make, etc.).
+        Falls back to original query if not in Spanish or if translation fails.
+        """
+        if not query or not isinstance(query, str):
+            return ""
+
+        q_clean = query.strip()
+        q_lower = q_clean.lower()
+
+        # Check for Spanish markers (accented chars, ñ, or key Spanish judo inquiry terms)
+        has_spanish_chars = bool(re.search(r"[áéíóúüñ¿¡]", q_lower))
+        spanish_keywords = {
+            "duracion", "duración", "sancion", "sanción", "sanciones", "combate", "combates",
+            "tiempo", "tiempos", "regla", "reglas", "cabeza", "pesaje", "medida", "medidas",
+            "area", "área", "tatami", "cuanto", "cuánto", "cuanta", "cuánta", "cuantos", "cuántos",
+            "cuales", "cuáles", "cual", "cuál", "como", "cómo", "que", "qué", "cuando", "cuándo",
+            "quien", "quién", "quienes", "quiénes", "puede", "pueden", "debe", "deben",
+            "descalificacion", "descalificación", "descalificado", "descalificados",
+            "inmovilizacion", "inmovilización", "inmovilizaciones", "estrangulacion", "estrangulación",
+            "luxacion", "luxación", "proyeccion", "proyección", "proyecciones", "lanzamiento",
+            "agarre", "agarres", "entrenador", "entrenadores", "arbitro", "árbitro", "arbitros",
+            "puente", "prohibido", "permitido", "falta", "faltas", "castigo", "castigos"
+        }
+        tokens = set(re.findall(r"\b[a-zA-Záéíóúüñ]{2,}\b", q_lower))
+        has_spanish_keywords = bool(tokens & spanish_keywords)
+
+        if not has_spanish_chars and not has_spanish_keywords:
+            return q_clean
+
+        prompt = (
+            "You are an expert official IJF (International Judo Federation) translator and terminology specialist.\n"
+            "Translate the following judo inquiry from Spanish into concise, precise technical English for retrieval against the official IJF Sport and Organisation Rules (SOR 2026).\n"
+            "CRITICAL RULES:\n"
+            "1. Strictly preserve all official Japanese judo terminology exactly as spelled (e.g. Ippon, Waza-ari, Shido, Hansoku-make, Osaekomi, Tori, Uke, Tatami, Matte, Hajime, Shime-waza, Kansetsu-waza, Toketa, etc.).\n"
+            "2. Output ONLY the translated technical English query without any explanation, markdown formatting, quotes, or trailing notes.\n\n"
+            f"Query to translate: {q_clean}\n"
+            "English translation:"
+        )
+
+        try:
+            llm_res = self._call_llm(prompt)
+            raw_text = llm_res[0] if isinstance(llm_res, tuple) else llm_res
+            if raw_text and isinstance(raw_text, str):
+                cleaned = raw_text.strip().strip('"\'`')
+                lines = [l.strip() for l in cleaned.splitlines() if l.strip()]
+                if lines:
+                    candidate = lines[0]
+                    if not candidate.lower().startswith(("here is", "translation:", "i cannot", "lo siento")):
+                        if len(candidate) >= 3:
+                            return candidate
+        except Exception:
+            pass
+
+        return q_clean
+
     def analyze_situation(self, situation_query: str, top_k: int = 5, language: Optional[str] = None):
         """
         Executes complete ADA arbitration reasoning cycle:
@@ -89,7 +148,8 @@ class ArbitrationDecisionAssistant:
         4. LLM synthesis with two-tier contract or structured local brief.
         5. Citing verified articles and PDF pages with physical anchors.
         """
-        retrieval_res = self.rre.retrieve(situation_query, top_k=top_k, expand_graph=True)
+        search_query_en = self._translate_to_technical_english(situation_query)
+        retrieval_res = self.rre.retrieve(search_query_en, top_k=top_k, expand_graph=True)
 
         if retrieval_res["status"] == "ABSTAIN":
             abstain_msg = (
@@ -145,7 +205,7 @@ class ArbitrationDecisionAssistant:
         bundle_id = f"BND-{abs(hash(situation_query)) % 1000000:06d}"
         certified_bundle = self.doc_validator.build_certified_bundle(
             bundle_id=bundle_id,
-            query_text=situation_query,
+            query_text=search_query_en,
             candidate_items=candidate_items
         )
 
@@ -205,9 +265,9 @@ class ArbitrationDecisionAssistant:
             '  "summary": "Nivel 1: RESPUESTA DIRECTA Y OPERATIVA, concisa y proporcional a la consulta. Debe responder de inmediato qué establece la norma, especificando cifras exactas, límites, tolerancias, sanciones o decisiones según corresponda y su referencia normativa rectora ([Regla X / Art. Y / Pág. Z]). PROHIBIDO iniciar con introducciones, saludos o frases meta como \'A continuación se expone el razonamiento\', \'El análisis arbitral determina\', \'En este documento\'. La primera palabra debe ser la respuesta concreta.",\n'
             '  "normative_basis": "Nivel 2: Artículos, reglas y apartados aplicables con citas exactas de los identificadores entre corchetes [SOR-2026-08-Pxxx-Sxxx] y números de página.",\n'
             '  "citations": ["Lista de identificadores citados, ej: SOR-2026-08-Pxxx-Sxxx"],\n'
-            '  "conditions_and_exceptions": "Condiciones específicas, excepciones reglamentarias, restricciones por categoría (ej. cadetes/juniors) y notas técnicas.",\n'
-            '  "extended_analysis": "Explicación detallada de cómo se aplica la norma al caso planteado, procedimiento arbitral paso a paso y aplicación práctica.",\n'
-            '  "limitations": "Límites de la evidencia disponible y aspectos no expresamente contemplados en los extractos adjuntos."\n'
+            '  "conditions_and_exceptions": "Condiciones específicas, excepciones reglamentarias, restricciones por categoría (ej. cadetes/juniors) y notas técnicas. Si la consulta es simple o fáctica y no existen excepciones reglamentarias aplicables, responde exactamente: \\"No aplica\\".",\n'
+            '  "extended_analysis": "Explicación detallada de cómo se aplica la norma al caso planteado, procedimiento arbitral paso a paso y aplicación práctica. Para preguntas fácticas directas (ej. duración del combate, dimensiones del tatami), responde exactamente: \\"No aplica\\".",\n'
+            '  "limitations": "Límites de la evidencia disponible y aspectos no expresamente contemplados en los extractos adjuntos. Si el texto normativo primario certificado responde de manera completa, indubitable y autosuficiente a la consulta, responde exactamente: \\"Ninguna\\"."\n'
             "}\n\n"
             "POLÍTICA TRANSVERSAL DE RAZONAMIENTO REGLAMENTARIO:\n"
             "1. Fidelidad Normativa y Distinción en Tres Niveles: Distingue rigurosamente entre:\n"

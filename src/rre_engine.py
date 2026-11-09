@@ -786,7 +786,7 @@ class ReasoningRetrievalEngine:
         # o bien formularse una referencia verificable a una página física del SOR 2026-08 (1 a 298).
         # Se excluyen términos genéricos transversales (rules, rule, system, systems, falta, personal, libre, sancion)
         # para evitar que consultas OOD de otros deportes (e.g. básquetbol) superen el umbral.
-        GENERIC_WORDS = {"rules", "rule", "system", "systems", "falta", "faltas", "personal", "personales", "libre", "libres", "sancion", "sanciones", "castigo"}
+        GENERIC_WORDS = {"rules", "rule", "system", "systems", "faltas", "personal", "personales", "libre", "libres"}
         vocab = self.sparse_index.get("idf", {})
         
         # Evaluar anclaje directo de la consulta original
@@ -799,6 +799,15 @@ class ReasoningRetrievalEngine:
                 for s in self.SPANISH_TO_ENGLISH_SYNONYMS[t].split():
                     if s in vocab and s not in GENERIC_WORDS:
                         substantive_in_vocab.add(s)
+
+        JUDO_TECHNICAL_IMMUNITY = {
+            "descalificacion", "sancion", "inmovilizacion", "shido",
+            "hansoku-make", "osaekomi", "duracion", "combate",
+            "pesaje", "tatami", "puente", "cabeza", "repesca"
+        }
+        for t in raw_direct_tokens:
+            if t in JUDO_TECHNICAL_IMMUNITY:
+                substantive_in_vocab.add("judo_technical_anchor")
 
         page_refs = re.findall(r'\b(?:p[aá]gina|p[aá]g\.?|page)\s*(\d+)\b', query, re.IGNORECASE)
         has_valid_page_ref = any(1 <= int(p) <= 298 for p in page_refs)

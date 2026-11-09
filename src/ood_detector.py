@@ -44,7 +44,10 @@ class OODDetector:
         "sokuteiki", "backnumber", "shushin", "fukushin", "care system", "puente",
         "cadete", "cadetes", "senior", "seniors", "junior", "juniors", "combate", "contest",
         "entrenador", "entrenadores", "coach", "coaches",
-        "pesaje", "weigh-in", "draw", "sorteo", "repechage", "repesca"
+        "pesaje", "weigh-in", "draw", "sorteo", "repechage", "repesca",
+        "descalificacion", "descalificaciones", "descalificado", "inmovilizacion",
+        "inmovilizaciones", "estrangulacion", "luxacion", "proyeccion",
+        "lanzamiento", "agarre", "duracion"
     }
 
     # Words representing concepts not regulated by IJF SOR 2026 competition/sport rules
@@ -149,7 +152,7 @@ class OODDetector:
             # Damped by lack of any judo substantive concepts
             j_score = min(j_score, 0.25)
 
-        is_in_domain = bool(j_score >= self.THETA_OOD and not has_unregulated)
+        is_in_domain = bool((j_score >= self.THETA_OOD or o_cov >= 0.25) and not has_unregulated)
 
         return {
             "j_score": round(j_score, 4),
