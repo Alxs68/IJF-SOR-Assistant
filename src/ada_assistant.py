@@ -358,9 +358,19 @@ class ArbitrationDecisionAssistant:
 
             exact_quote, text_snippet = self.extract_exact_quote(p, query=situation_query)
 
+            raw_art = str(p.get("article_id") or "").strip()
+            if re.match(r"^article\s+", raw_art, re.IGNORECASE):
+                clean_art_id = re.sub(r"^article\s+", "Art. ", raw_art, flags=re.IGNORECASE)
+            elif re.match(r"^art\.?\s*", raw_art, re.IGNORECASE):
+                clean_art_id = raw_art
+            elif raw_art:
+                clean_art_id = f"Art. {raw_art}"
+            else:
+                clean_art_id = p.get("title", "")
+
             rich_citations_map[pid] = {
                 "passage_id": pid,
-                "article_id": f"Art. {p.get('article_id')}" if p.get("article_id") else p.get("title", ""),
+                "article_id": clean_art_id,
                 "page_number": p.get("page") or p.get("pdf_page_index", 1),
                 "source_url": p.get("source_url", ""),
                 "exact_quote": exact_quote,
@@ -545,7 +555,17 @@ class ArbitrationDecisionAssistant:
                 "inicio": ["starting", "position"],
                 "suelo": ["ground", "stand", "promptly"],
                 "manga": ["sleeve", "sokuteiki"],
-                "traje": ["judogi", "jacket", "trousers", "suit"]
+                "traje": ["judogi", "jacket", "trousers", "suit"],
+                "criterio": ["criteria", "criterion", "four criteria", "speed", "force"],
+                "criterios": ["criteria", "criterion", "four criteria", "speed", "force"],
+                "elemento": ["element", "elements", "criteria", "speed", "force"],
+                "elementos": ["element", "elements", "criteria", "speed", "force"],
+                "requisito": ["requirement", "criteria", "speed", "force"],
+                "requisitos": ["requirements", "criteria", "speed", "force"],
+                "velocidad": ["speed", "force"],
+                "fuerza": ["force", "speed"],
+                "control": ["control", "skilfully"],
+                "espalda": ["back"]
             }
 
             expanded = set(q_words)
@@ -555,6 +575,11 @@ class ArbitrationDecisionAssistant:
 
             requires_tori = "tori" in q_words or "lanzar" in q_words or "lanzamiento" in q_words or "proyectar" in q_words
             requires_uke = "uke" in q_words or "defiende" in q_words or "defensa" in q_words or "puente" in q_words or "bridge" in q_words
+            query_asks_exception = bool({
+                "excepcion", "excepción", "exception", "penalty", "penalise",
+                "penalised", "no score", "no se otorga", "landing", "aterriza",
+                "aterrizaje", "escape", "endanger"
+            } & expanded)
 
             best_score = -1
             for s in sentences:
@@ -567,12 +592,21 @@ class ArbitrationDecisionAssistant:
                 # Bonificaciones por sintagmas exactos normativos
                 for p in [
                     "8 m x 8 m", "10 m x 10 m", "white: snow white", "pantone", "uniform colour",
-                    "no score or penalty", "beyond the limit of the safety area", "ippon! sore-made!",
+                    "beyond the limit of the safety area", "ippon! sore-made!",
                     "failing to return immediately to the starting position", "controlled by sokuteiki",
                     "voluntarily makes a bridge", "bridge (head and one foot or both feet"
                 ]:
                     if p in s_clean:
                         hits += 3
+
+                if "no score or penalty" in s_clean and query_asks_exception:
+                    hits += 3
+
+                if {"criteria", "criterion", "element", "elements", "criterio", "criterios", "elementos", "elemento", "requisitos"} & expanded:
+                    if "four criteria for ippon" in s_clean or "four criteria" in s_clean:
+                        hits += 5
+                    elif "ippon will be given when" in s_clean:
+                        hits += 4
 
                 if requires_tori and ("throw as tori" in s_clean or "tori" in s_words or "head diving" in s_clean):
                     hits += 4
@@ -588,5 +622,8 @@ class ArbitrationDecisionAssistant:
 
         words = clean_sent.split()
         exact_quote = " ".join(words[:9]) if words else (passage.get("title") or "")
-        text_snippet = clean_sent[:180] + ("..." if len(clean_sent) > 180 else "")
+        if len(clean_sent) <= 320:
+            text_snippet = clean_sent
+        else:
+            text_snippet = clean_sent[:317].rsplit(" ", 1)[0] + "..."
         return exact_quote, text_snippet

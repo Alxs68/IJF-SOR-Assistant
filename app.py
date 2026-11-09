@@ -1814,7 +1814,10 @@ if st.session_state.active_index >= 0:
                             if pid:
                                 seen_evidence_keys.add(pid)
 
-                            art_label = c.get("article_id") or c.get("title") or "Norma Oficial"
+                            raw_art = str(c.get("article_id") or c.get("title") or "Norma Oficial").strip()
+                            clean_art = re.sub(r"^(?:art\.?\s*)+article\s*", "Art. ", raw_art, flags=re.IGNORECASE)
+                            clean_art = re.sub(r"^article\s+", "Art. ", clean_art, flags=re.IGNORECASE)
+                            art_label = clean_art
                             title = c.get("title") or art_label
 
                             # AUD-03: Manejo estricto de número de página, sin sustitución arbitraria por página 1
@@ -1832,7 +1835,20 @@ if st.session_state.active_index >= 0:
                             exact_q = (c.get("exact_quote") or "").strip()
                             text_snip = (c.get("text_snippet") or "").strip()
                             has_exact = bool(exact_q)
-                            quote_str = exact_q if has_exact else (text_snip or (c.get("quote") or "").strip())
+                            raw_q = (c.get("quote") or "").strip()
+                            # Priorizar la frase completa y gramatical (text_snippet) sobre el ancla corta de busqueda PDF (exact_quote)
+                            if text_snip:
+                                quote_str = text_snip
+                                has_exact = True
+                            elif exact_q:
+                                quote_str = exact_q
+                                has_exact = True
+                            elif raw_q:
+                                quote_str = raw_q
+                                has_exact = False
+                            else:
+                                quote_str = ""
+                                has_exact = False
 
                             source_url = c.get("source_url") or official_pdf_url
 
@@ -1861,7 +1877,9 @@ if st.session_state.active_index >= 0:
                             seen_evidence_keys.add(kid)
 
                         art_num = kun.get("article_id") or kun.get("referencia_especifica", "").split("(")[0].strip()
-                        art_label = f"Art. {art_num}" if art_num and not str(art_num).lower().startswith("art") else (art_num or "Norma")
+                        raw_art = f"Art. {art_num}" if art_num and not str(art_num).lower().startswith("art") else (art_num or "Norma")
+                        art_label = re.sub(r"^(?:art\.?\s*)+article\s*", "Art. ", raw_art, flags=re.IGNORECASE)
+                        art_label = re.sub(r"^article\s+", "Art. ", art_label, flags=re.IGNORECASE)
                         title = kun.get("titulo") or "Disposición Oficial"
 
                         # AUD-03: Manejo estricto de número de página en fallback KUNs
