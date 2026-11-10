@@ -174,7 +174,7 @@ def build_pdf(filename):
     # Title & Subtitle
     story.append(Paragraph("GUÍA OFICIAL DE USUARIO", title_style))
     story.append(Paragraph("Asistente Experto en el Reglamento SOR de la IJF (Edición Rebuild 2026)", subtitle_style))
-    story.append(Paragraph("Autor: Alexis Oliveros (Árbitro Nacional de Judo - 2° Dan) &bull; Edición Normativa: 14 de Agosto de 2026", meta_style))
+    story.append(Paragraph("Autor: Alexis Oliveros (Árbitro Nacional de Judo – Colombia • 2° Dan) &bull; Edición Normativa: 14 de Agosto de 2026", meta_style))
     story.append(HRFlowable(width="100%", thickness=1.5, color=primary_color, spaceBefore=0, spaceAfter=10))
 
     # Resumen Ejecutivo / Propósito
@@ -360,12 +360,12 @@ def build_pdf(filename):
     story.append(Paragraph("5. Ficha Técnica y Control de Versión", h1_style))
     meta_info = [
         [Paragraph("<b>Parámetro</b>", table_header), Paragraph("<b>Especificación Oficial</b>", table_header)],
-        [Paragraph("<b>Sistema</b>", table_cell), Paragraph("IJF SOR Assistant (Rebuild Edition 2026)", table_cell)],
+        [Paragraph("<b>Sistema</b>", table_cell), Paragraph("IJF SOR Assistant (Versión 3.2.0 — Lean RRE 3.0 / Multi-Source)", table_cell)],
         [Paragraph("<b>Reglamento Base</b>", table_cell), Paragraph("IJF Sport and Organisation Rules (14 August 2026)", table_cell)],
         [Paragraph("<b>Arquitectura</b>", table_cell), Paragraph("Recuperación Documental RRE (híbrido denso/disperso/grafo) + Generación LLM Multi-Proveedor", table_cell)],
         [Paragraph("<b>Hash SHA-256 Fuente</b>", table_cell), Paragraph("<code>4fd5d55cb15082b2f6797a7a149f131a316279f6764500902888cf982a7f05b0</code>", table_cell)],
         [Paragraph("<b>Despliegue</b>", table_cell), Paragraph("OCI Ubuntu 24.04 ARM64 &bull; Docker Compose &bull; Puerto 8501", table_cell)],
-        [Paragraph("<b>Autor / Desarrollador</b>", table_cell), Paragraph("Alexis Oliveros &bull; Árbitro Nacional de Judo &bull; 2° Dan", table_cell)],
+        [Paragraph("<b>Autor / Desarrollador</b>", table_cell), Paragraph("Alexis Oliveros &bull; Árbitro Nacional de Judo &bull; Colombia &bull; 2° Dan", table_cell)],
     ]
     t_meta = Table(meta_info, colWidths=[130, 374])
     t_meta.setStyle(TableStyle([

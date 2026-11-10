@@ -51,7 +51,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
             "© 2026 Alexis Oliveros. All rights reserved."
         ),
         "sidebar_version_title": "5. Version",
-        "sidebar_version_label": "Version **1.2.0 (Rebuild Edition)**",
+        "sidebar_version_label": "Version **3.2.0 (Lean RRE 3.0 / Multi-Source)**",
         "sidebar_based_on": "Based on:",
         "sidebar_source_hash": "Source SHA-256 hash:",
         
@@ -346,13 +346,13 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_author_title": "4. Autor",
         "sidebar_author_content": (
             "**Alexis Oliveros**\n\n"
-            "National Judo Referee – Colombia\n\n"
-            "2nd Dan\n\n"
+            "Árbitro Nacional de Judo – Colombia\n\n"
+            "2° Dan\n\n"
             "Desarrollador del proyecto **IJF SOR Assistant**.\n\n"
             "© 2026 Alexis Oliveros. Todos los derechos reservados."
         ),
         "sidebar_version_title": "5. Versión",
-        "sidebar_version_label": "Versión **1.2.0 (Rebuild Edition)**",
+        "sidebar_version_label": "Versión **3.2.0 (Lean RRE 3.0 / Multi-Source)**",
         "sidebar_based_on": "Basado en:",
         "sidebar_source_hash": "Hash SHA-256 de fuente:",
         

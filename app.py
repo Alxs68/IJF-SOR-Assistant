@@ -207,7 +207,7 @@ st.markdown(f"""
         font-size: 0.93rem !important;
     }}
 
-    /* Apertura del Menú Lateral (Sidebar Toggle Button) con alto contraste e indicador visible */
+    /* Apertura del Menú Lateral (Sidebar Toggle Button) sobrio y acorde al tema */
     [data-testid="stExpandSidebarButton"],
     button[aria-label*="Expand sidebar" i],
     button[aria-label*="Abrir barra lateral" i],
@@ -216,30 +216,32 @@ st.markdown(f"""
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 0.45rem !important;
-        background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%) !important;
-        color: #ffffff !important;
-        border: 2px solid #60a5fa !important;
-        border-radius: 24px !important;
-        padding: 0.35rem 0.95rem !important;
-        height: 2.35rem !important;
-        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.5) !important;
+        background: var(--surface-card-bg) !important;
+        color: var(--ijf-title-color) !important;
+        border: 1.5px solid var(--surface-card-border) !important;
+        border-radius: 8px !important;
+        padding: 0.35rem 0.85rem !important;
+        height: 2.25rem !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
         cursor: pointer !important;
-        transition: all 0.25s ease-in-out !important;
+        transition: all 0.2s ease-in-out !important;
         z-index: 99999 !important;
     }}
     [data-testid="stExpandSidebarButton"]:hover,
     button[aria-label*="Expand sidebar" i]:hover,
     [data-testid="stSidebarCollapsedControl"]:hover,
     [data-testid="collapsedControl"]:hover {{
-        transform: scale(1.04) !important;
-        box-shadow: 0 6px 18px rgba(59, 130, 246, 0.65) !important;
-        background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%) !important;
+        background: var(--ijf-tier1-bg) !important;
+        border-color: var(--ijf-title-color) !important;
+        color: var(--ijf-blue-accent) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35) !important;
     }}
-    [data-testid="stExpandSidebarButton"] span,
+    /* Ocultar las flechas >> para dejar solo el texto sobrio */
+    [data-testid="stExpandSidebarButton"] > span,
     [data-testid="stExpandSidebarButton"] [data-testid="stIconMaterial"],
     [data-testid="stExpandSidebarButton"] svg,
-    button[aria-label*="Expand sidebar" i] span,
+    button[aria-label*="Expand sidebar" i] > span,
     button[aria-label*="Expand sidebar" i] [data-testid="stIconMaterial"],
     button[aria-label*="Expand sidebar" i] svg,
     [data-testid="stSidebarCollapsedControl"] button span,
@@ -248,11 +250,7 @@ st.markdown(f"""
     [data-testid="collapsedControl"] button span,
     [data-testid="collapsedControl"] button [data-testid="stIconMaterial"],
     [data-testid="collapsedControl"] button svg {{
-        color: #ffffff !important;
-        fill: currentColor !important;
-        font-size: 1.25rem !important;
-        display: inline-flex !important;
-        align-items: center !important;
+        display: none !important;
     }}
     [data-testid="stExpandSidebarButton"]::after,
     button[aria-label*="Expand sidebar" i]::after,
@@ -261,12 +259,11 @@ st.markdown(f"""
         content: "☰ Menú lateral";
         font-family: 'Outfit', sans-serif !important;
         font-size: 0.88rem !important;
-        font-weight: 700 !important;
-        color: #ffffff !important;
-        letter-spacing: 0.02em !important;
+        font-weight: 600 !important;
+        color: inherit !important;
+        letter-spacing: 0.01em !important;
         white-space: nowrap !important;
         display: inline-block !important;
-        margin-left: 0.25rem !important;
     }}
 
     /* Botón de cierre de barra lateral (abierta) siempre visible */
@@ -2299,7 +2296,7 @@ if st.session_state.active_index >= 0:
                                 extra_metadata={
                                     "lang": lang,
                                     "ui_section": "response_card",
-                                    "app_version": "1.2.0"
+                                    "app_version": "3.2.0"
                                 },
                                 attachment_bytes=att_bytes,
                                 attachment_filename=att_name,
