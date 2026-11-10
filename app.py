@@ -358,6 +358,61 @@ st.markdown(f"""
     [data-testid="stStatusWidget"] summary {{
         color: var(--ijf-text-color) !important;
     }}
+
+    /* Eliminacion de fondos blancos en botones secundarios y descargas */
+    [data-testid="stDownloadButton"] button,
+    [data-testid="stBaseButton-secondary"],
+    button[kind="secondary"] {{
+        background-color: var(--surface-card-bg) !important;
+        color: var(--ijf-title-color) !important;
+        border: 1.5px solid var(--surface-card-border) !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease-in-out !important;
+    }}
+    [data-testid="stDownloadButton"] button:hover,
+    [data-testid="stBaseButton-secondary"]:hover,
+    button[kind="secondary"]:hover {{
+        background-color: var(--ijf-tier1-bg) !important;
+        border-color: var(--ijf-blue-accent) !important;
+        color: var(--ijf-blue-accent) !important;
+    }}
+    [data-testid="stDownloadButton"] button p,
+    [data-testid="stDownloadButton"] button span,
+    [data-testid="stDownloadButton"] button div,
+    [data-testid="stBaseButton-secondary"] p,
+    [data-testid="stBaseButton-secondary"] span,
+    [data-testid="stBaseButton-secondary"] div {{
+        color: inherit !important;
+    }}
+
+    /* Eliminacion de fondos blancos en cajas de alerta e informativas (st.info, Guia Rapida) */
+    [data-testid="stAlert"],
+    [data-testid="stAlertContainer"],
+    .stAlert,
+    .stAlert > div {{
+        background-color: var(--kun-bg) !important;
+        border: 1px solid var(--kun-border) !important;
+        color: var(--ijf-text-color) !important;
+        border-radius: 8px !important;
+    }}
+    [data-testid="stAlert"] p,
+    [data-testid="stAlert"] span,
+    [data-testid="stAlert"] li,
+    [data-testid="stAlertContainer"] p,
+    [data-testid="stAlertContainer"] span,
+    [data-testid="stAlertContainer"] li,
+    [data-testid="stAlertContainer"] div,
+    .stAlert p,
+    .stAlert span,
+    .stAlert li {{
+        color: var(--ijf-text-color) !important;
+    }}
+    [data-testid="stAlertContainer"] svg,
+    .stAlert svg {{
+        color: var(--ijf-blue-accent) !important;
+        fill: currentColor !important;
+    }}
 </style>
 """, unsafe_allow_html=True)
 
