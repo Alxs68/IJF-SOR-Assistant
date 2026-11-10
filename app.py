@@ -208,69 +208,88 @@ st.markdown(f"""
     }}
 
     /* Apertura del Menú Lateral (Sidebar Toggle Button) con alto contraste e indicador visible */
+    [data-testid="stExpandSidebarButton"],
+    button[aria-label*="Expand sidebar" i],
+    button[aria-label*="Abrir barra lateral" i],
     [data-testid="stSidebarCollapsedControl"],
     [data-testid="collapsedControl"] {{
         display: inline-flex !important;
         align-items: center !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        z-index: 99999 !important;
-        top: 0.55rem !important;
-        left: 0.75rem !important;
-    }}
-    [data-testid="stSidebarCollapsedControl"] button,
-    [data-testid="collapsedControl"] button {{
-        display: inline-flex !important;
-        align-items: center !important;
         justify-content: center !important;
         gap: 0.45rem !important;
-        background-color: var(--surface-card-bg) !important;
-        color: var(--ijf-title-color) !important;
-        border: 2px solid var(--ijf-title-color) !important;
-        border-radius: 20px !important;
+        background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%) !important;
+        color: #ffffff !important;
+        border: 2px solid #60a5fa !important;
+        border-radius: 24px !important;
         padding: 0.35rem 0.95rem !important;
-        min-height: 2.3rem !important;
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35) !important;
-        transition: all 0.25s ease-in-out !important;
+        height: 2.35rem !important;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.5) !important;
         cursor: pointer !important;
+        transition: all 0.25s ease-in-out !important;
+        z-index: 99999 !important;
     }}
-    [data-testid="stSidebarCollapsedControl"] button:hover,
-    [data-testid="collapsedControl"] button:hover {{
-        background-color: var(--ijf-tier1-bg) !important;
-        border-color: var(--ijf-blue-accent) !important;
-        color: var(--ijf-blue-accent) !important;
-        transform: scale(1.05) !important;
-        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.45) !important;
+    [data-testid="stExpandSidebarButton"]:hover,
+    button[aria-label*="Expand sidebar" i]:hover,
+    [data-testid="stSidebarCollapsedControl"]:hover,
+    [data-testid="collapsedControl"]:hover {{
+        transform: scale(1.04) !important;
+        box-shadow: 0 6px 18px rgba(59, 130, 246, 0.65) !important;
+        background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%) !important;
     }}
+    [data-testid="stExpandSidebarButton"] span,
+    [data-testid="stExpandSidebarButton"] [data-testid="stIconMaterial"],
+    [data-testid="stExpandSidebarButton"] svg,
+    button[aria-label*="Expand sidebar" i] span,
+    button[aria-label*="Expand sidebar" i] [data-testid="stIconMaterial"],
+    button[aria-label*="Expand sidebar" i] svg,
+    [data-testid="stSidebarCollapsedControl"] button span,
+    [data-testid="stSidebarCollapsedControl"] button [data-testid="stIconMaterial"],
     [data-testid="stSidebarCollapsedControl"] button svg,
+    [data-testid="collapsedControl"] button span,
+    [data-testid="collapsedControl"] button [data-testid="stIconMaterial"],
     [data-testid="collapsedControl"] button svg {{
-        color: var(--ijf-title-color) !important;
+        color: #ffffff !important;
         fill: currentColor !important;
-        stroke: currentColor !important;
-        width: 1.25rem !important;
-        height: 1.25rem !important;
-        flex-shrink: 0 !important;
+        font-size: 1.25rem !important;
+        display: inline-flex !important;
+        align-items: center !important;
     }}
+    [data-testid="stExpandSidebarButton"]::after,
+    button[aria-label*="Expand sidebar" i]::after,
     [data-testid="stSidebarCollapsedControl"] button::after,
     [data-testid="collapsedControl"] button::after {{
         content: "☰ Menú lateral";
         font-family: 'Outfit', sans-serif !important;
         font-size: 0.88rem !important;
         font-weight: 700 !important;
+        color: #ffffff !important;
         letter-spacing: 0.02em !important;
-        color: var(--ijf-title-color) !important;
         white-space: nowrap !important;
+        display: inline-block !important;
+        margin-left: 0.25rem !important;
+    }}
+
+    /* Botón de cierre de barra lateral (abierta) siempre visible */
+    [data-testid="stSidebarCollapseButton"] {{
+        visibility: visible !important;
+        opacity: 1 !important;
     }}
     [data-testid="stSidebarCollapseButton"] button {{
-        background-color: var(--surface-card-bg) !important;
-        color: var(--ijf-text-color) !important;
-        border: 1.5px solid var(--surface-card-border) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        background-color: rgba(37, 99, 235, 0.15) !important;
+        border: 1.5px solid rgba(59, 130, 246, 0.5) !important;
         border-radius: 8px !important;
+        color: #3b82f6 !important;
         transition: all 0.2s ease-in-out !important;
     }}
     [data-testid="stSidebarCollapseButton"] button:hover {{
-        border-color: var(--ijf-blue-accent) !important;
-        color: var(--ijf-blue-accent) !important;
+        background-color: #2563eb !important;
+        color: #ffffff !important;
+    }}
+    [data-testid="stSidebarCollapseButton"] [data-testid="stIconMaterial"],
+    [data-testid="stSidebarCollapseButton"] span {{
+        color: inherit !important;
     }}
     .stSelectbox div[data-baseweb="select"] > div {{
         background-color: var(--surface-input-bg) !important;
