@@ -197,6 +197,81 @@ st.markdown(f"""
         color: var(--surface-input-color) !important;
         border: 1px solid var(--surface-input-border) !important;
     }}
+    .stTextInput input::placeholder,
+    .stTextArea textarea::placeholder,
+    input::placeholder,
+    textarea::placeholder {{
+        color: var(--ijf-subtitle-color) !important;
+        opacity: 0.75 !important;
+        font-style: italic !important;
+        font-size: 0.93rem !important;
+    }}
+
+    /* Apertura del Menú Lateral (Sidebar Toggle Button) con alto contraste e indicador visible */
+    [data-testid="stSidebarCollapsedControl"],
+    [data-testid="collapsedControl"] {{
+        display: inline-flex !important;
+        align-items: center !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 99999 !important;
+        top: 0.55rem !important;
+        left: 0.75rem !important;
+    }}
+    [data-testid="stSidebarCollapsedControl"] button,
+    [data-testid="collapsedControl"] button {{
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.45rem !important;
+        background-color: var(--surface-card-bg) !important;
+        color: var(--ijf-title-color) !important;
+        border: 2px solid var(--ijf-title-color) !important;
+        border-radius: 20px !important;
+        padding: 0.35rem 0.95rem !important;
+        min-height: 2.3rem !important;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35) !important;
+        transition: all 0.25s ease-in-out !important;
+        cursor: pointer !important;
+    }}
+    [data-testid="stSidebarCollapsedControl"] button:hover,
+    [data-testid="collapsedControl"] button:hover {{
+        background-color: var(--ijf-tier1-bg) !important;
+        border-color: var(--ijf-blue-accent) !important;
+        color: var(--ijf-blue-accent) !important;
+        transform: scale(1.05) !important;
+        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.45) !important;
+    }}
+    [data-testid="stSidebarCollapsedControl"] button svg,
+    [data-testid="collapsedControl"] button svg {{
+        color: var(--ijf-title-color) !important;
+        fill: currentColor !important;
+        stroke: currentColor !important;
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+        flex-shrink: 0 !important;
+    }}
+    [data-testid="stSidebarCollapsedControl"] button::after,
+    [data-testid="collapsedControl"] button::after {{
+        content: "☰ Menú lateral";
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.88rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.02em !important;
+        color: var(--ijf-title-color) !important;
+        white-space: nowrap !important;
+    }}
+    [data-testid="stSidebarCollapseButton"] button {{
+        background-color: var(--surface-card-bg) !important;
+        color: var(--ijf-text-color) !important;
+        border: 1.5px solid var(--surface-card-border) !important;
+        border-radius: 8px !important;
+        transition: all 0.2s ease-in-out !important;
+    }}
+    [data-testid="stSidebarCollapseButton"] button:hover {{
+        border-color: var(--ijf-blue-accent) !important;
+        color: var(--ijf-blue-accent) !important;
+    }}
     .stSelectbox div[data-baseweb="select"] > div {{
         background-color: var(--surface-input-bg) !important;
         color: var(--surface-input-color) !important;
@@ -347,6 +422,52 @@ st.markdown("""
         color: var(--ijf-text-color);
         line-height: 1.45;
         opacity: 0.92;
+    }
+    .quota-info-card {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, rgba(245, 158, 11, 0.08) 100%);
+        border: 1px solid var(--surface-card-border);
+        border-left: 3px solid var(--ijf-blue-accent);
+        padding: 0.65rem 0.8rem;
+        border-radius: 6px;
+        margin-top: 0.5rem;
+        margin-bottom: 0.6rem;
+        font-size: 0.78rem;
+        line-height: 1.45;
+    }
+    .quota-info-title {
+        font-weight: 700;
+        color: var(--ijf-title-color);
+        margin-bottom: 0.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+    .quota-info-body {
+        color: var(--ijf-subtitle-color);
+        font-size: 0.75rem;
+    }
+    .local-fallback-banner {
+        background-color: var(--status-off-bg);
+        border: 1px solid var(--status-off-border);
+        border-left: 4px solid var(--status-off-color);
+        border-radius: 6px;
+        padding: 0.65rem 0.9rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.82rem;
+        line-height: 1.45;
+    }
+    .local-fallback-header {
+        font-weight: 700;
+        color: var(--status-off-color);
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin-bottom: 0.2rem;
+    }
+    .local-fallback-desc {
+        color: var(--ijf-text-color);
+        font-size: 0.8rem;
+        opacity: 0.95;
     }
 
     .tier1-box {
@@ -1309,21 +1430,41 @@ with st.sidebar:
         st.session_state.app_theme = selected_theme_tuple[1]
         st.rerun()
 
-    st.markdown(f"**{t('sidebar_info_title', lang)}**")
+    # 3. Preguntas Sugeridas (Visible por defecto en la parte superior)
+    st.markdown(f"**💡 {t('quick_suggestions_title', lang)}**")
+    example_list = t("example_queries", lang)
+    st.selectbox(
+        t("example_select_placeholder", lang),
+        example_list,
+        key="example_select_widget",
+        on_change=load_example,
+        label_visibility="collapsed",
+        help=t("example_select_help", lang)
+    )
 
-    with st.expander(t("sidebar_project_title", lang), expanded=False):
+    # 4. Nota Informativa de Cuotas de IA y Continuidad
+    st.markdown(f"""<div class="quota-info-card">
+<div class="quota-info-title">{t('quota_info_title', lang)}</div>
+<div class="quota-info-body">{t('quota_info_desc', lang)}</div>
+</div>""", unsafe_allow_html=True)
+
+    st.write("---")
+
+    # 5. EXPANDER: Información y Documentación del Proyecto (Colapsado)
+    with st.expander(t("sidebar_docs_expander_title", lang), expanded=False):
+        st.markdown(f"**{t('sidebar_project_title', lang)}**")
         st.markdown(t("sidebar_project_content", lang))
-
-    with st.expander(t("sidebar_purpose_title", lang), expanded=False):
+        st.write("---")
+        st.markdown(f"**{t('sidebar_purpose_title', lang)}**")
         st.markdown(t("sidebar_purpose_content", lang))
-
-    with st.expander(t("sidebar_sources_title", lang), expanded=False):
+        st.write("---")
+        st.markdown(f"**{t('sidebar_sources_title', lang)}**")
         st.markdown(t("sidebar_sources_content", lang))
-
-    with st.expander(t("sidebar_author_title", lang), expanded=False):
+        st.write("---")
+        st.markdown(f"**{t('sidebar_author_title', lang)}**")
         st.markdown(t("sidebar_author_content", lang))
-
-    with st.expander(t("sidebar_version_title", lang), expanded=False):
+        st.write("---")
+        st.markdown(f"**{t('sidebar_version_title', lang)}**")
         st.markdown(f"""
 **IJF SOR Assistant**
 
@@ -1333,8 +1474,8 @@ with st.sidebar:
 
 {t("sidebar_source_hash", lang)} `{engine.config['source_sha256'][:16]}...`
         """)
-
-    with st.expander(t("sidebar_guide_title", lang), expanded=False):
+        st.write("---")
+        st.markdown(f"**{t('sidebar_guide_title', lang)}**")
         st.markdown(t("sidebar_guide_summary", lang))
         guide_pdf_path = os.path.join(
             os.path.dirname(os.path.abspath(__file__)),
@@ -1356,6 +1497,91 @@ with st.sidebar:
         st.markdown(f"**{t('sidebar_guide_quick_title', lang)}**")
         st.info(t("sidebar_guide_quick_content", lang))
 
+    # 6. EXPANDER: Configuración del Asistente (IA) (Colapsado)
+    with st.expander(t("sidebar_llm_expander_title", lang), expanded=False):
+        prov_options = ["Gemini", "Groq"]
+        cur_prov_idx = prov_options.index(st.session_state.llm_provider) if st.session_state.llm_provider in prov_options else 0
+        selected_prov = st.selectbox(
+            t("primary_provider_label", lang),
+            prov_options,
+            index=cur_prov_idx,
+            help=t("primary_provider_help", lang)
+        )
+        if selected_prov != st.session_state.llm_provider:
+            st.session_state.llm_provider = selected_prov
+            st.rerun()
+
+        models_available = MultiProviderLLMManager.SUPPORTED_PROVIDERS[selected_prov]["models"]
+        cur_model = st.session_state.gemini_model if selected_prov == "Gemini" else st.session_state.groq_model
+        cur_model_idx = models_available.index(cur_model) if cur_model in models_available else 0
+        selected_model = st.selectbox(
+            t("model_label", lang, provider=selected_prov),
+            models_available,
+            index=cur_model_idx,
+            help=t("model_help", lang, provider=selected_prov)
+        )
+        if selected_prov == "Gemini" and selected_model != st.session_state.gemini_model:
+            st.session_state.gemini_model = selected_model
+            st.rerun()
+        elif selected_prov == "Groq" and selected_model != st.session_state.groq_model:
+            st.session_state.groq_model = selected_model
+            st.rerun()
+
+        fb_options = [t("fallback_opt_auto", lang), t("fallback_opt_manual", lang)]
+        cur_fb_idx = 0 if st.session_state.fallback_policy in ("Automatic", "Automático") else 1
+        selected_fb = st.selectbox(
+            t("fallback_policy_label", lang),
+            fb_options,
+            index=cur_fb_idx,
+            help=t("fallback_policy_help", lang)
+        )
+        canonical_fb = "Automatic" if selected_fb in ("Automatic", "Automático") else "Manual"
+        if canonical_fb != st.session_state.fallback_policy:
+            st.session_state.fallback_policy = canonical_fb
+            st.rerun()
+
+        p_info = provider_status["providers"].get(selected_prov, {})
+        if p_info.get("available"):
+            st.caption(t("key_active", lang, provider=selected_prov, masked_key=p_info.get('masked_key')))
+        else:
+            env_var_name = MultiProviderLLMManager.SUPPORTED_PROVIDERS[selected_prov]["env_key"]
+            st.caption(t("key_missing", lang, env_var=env_var_name))
+
+    # 7. EXPANDER: Historial de Consultas (Colapsado)
+    if len(st.session_state.history) > 0:
+        with st.expander(t("sidebar_history_expander_title", lang), expanded=False):
+            options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
+            selected_option = st.selectbox(
+                t("history_select_label", lang),
+                options,
+                index=st.session_state.active_index,
+                help=t("history_select_help", lang)
+            )
+            new_active = options.index(selected_option)
+            if new_active != st.session_state.active_index:
+                st.session_state.active_index = new_active
+                st.rerun()
+
+    # 8. EXPANDER: Grafo de Conocimiento (KG) (Colapsado)
+    with st.expander(t("sidebar_kg_expander_title", lang), expanded=False):
+        if is_connected:
+            st.markdown(f'<span class="status-badge-connected">{t("badge_connected", lang, provider=st.session_state.llm_provider)}</span>', unsafe_allow_html=True)
+        else:
+            st.markdown(f'<span class="status-badge-offline">{t("badge_offline", lang)}</span>', unsafe_allow_html=True)
+
+        st.markdown(f"**{t('kg_modules_title', lang)}**")
+        mcol1, mcol2 = st.columns(2)
+        with mcol1:
+            st.metric(t("kg_total_kuns", lang), kg_metrics['nodes_count'])
+        with mcol2:
+            st.metric(t("kg_relations", lang), kg_metrics['edges_count'])
+        st.metric(t("kg_avg_degree", lang), f"{kg_metrics['avg_degree']:.2f}")
+
+        st.markdown(f"**{t('kg_hubs_title', lang)}**")
+        for node, deg in kg_metrics['hubs'][:2]:
+            st.markdown(f"- `{node}` ({deg} {t('kg_links_suffix', lang)})", unsafe_allow_html=True)
+
+    # 9. EXPANDER: Administración y Novedades (Colapsado)
     with st.expander(t("sidebar_admin_title", lang), expanded=False):
         if not is_admin_configured():
             st.warning(t("admin_not_configured", lang))
@@ -1389,7 +1615,6 @@ with st.sidebar:
                     st.rerun()
 
                 st.write("---")
-                # Indicadores básicos de participación (Product Owner Scope)
                 metrics = get_feedback_metrics(st.session_state.admin_token)
                 if metrics.get("success"):
                     st.markdown(f"**{t('admin_metrics_title', lang)}**")
@@ -1399,7 +1624,6 @@ with st.sidebar:
                     with col_m2:
                         st.metric(t("admin_recent_feedback", lang), metrics.get("recent_7d", 0))
 
-                # Exportación administrativa a CSV
                 csv_ok, csv_str, csv_err = export_observations_csv(st.session_state.admin_token)
                 if csv_ok and csv_str:
                     st.download_button(
@@ -1411,7 +1635,6 @@ with st.sidebar:
                     )
 
                 st.write("---")
-                # Filtrado simple por Tipo de Novedad y búsqueda
                 tipo_choices = ["TODOS"] + TIPOS_NOVEDAD
                 filter_tp = st.selectbox(
                     t("admin_filter_type", lang),
@@ -1449,7 +1672,6 @@ with st.sidebar:
                                 if rec.get('context', {}).get('response_summary'):
                                     st.markdown(f"**Respuesta:** {rec.get('context', {}).get('response_summary')[:300]}...")
 
-                                # Show attachment if available with secure download
                                 att = rec.get("attachment")
                                 if att and isinstance(att, dict) and att.get("relative_path"):
                                     fn = att.get("original_filename", "adjunto")
@@ -1471,109 +1693,6 @@ with st.sidebar:
                                         st.caption(f"⚠️ {err_att}")
 
     st.write("---")
-    st.markdown(f"**{t('edition_title', lang)}**")
-    st.info(t("edition_info", lang, version_label=engine.config['version_label']))
-
-    st.write("---")
-    st.markdown(f"**{t('model_config_title', lang)}**")
-
-    prov_options = ["Gemini", "Groq"]
-    cur_prov_idx = prov_options.index(st.session_state.llm_provider) if st.session_state.llm_provider in prov_options else 0
-    selected_prov = st.selectbox(
-        t("primary_provider_label", lang),
-        prov_options,
-        index=cur_prov_idx,
-        help=t("primary_provider_help", lang)
-    )
-    if selected_prov != st.session_state.llm_provider:
-        st.session_state.llm_provider = selected_prov
-        st.rerun()
-
-    models_available = MultiProviderLLMManager.SUPPORTED_PROVIDERS[selected_prov]["models"]
-    cur_model = st.session_state.gemini_model if selected_prov == "Gemini" else st.session_state.groq_model
-    cur_model_idx = models_available.index(cur_model) if cur_model in models_available else 0
-    selected_model = st.selectbox(
-        t("model_label", lang, provider=selected_prov),
-        models_available,
-        index=cur_model_idx,
-        help=t("model_help", lang, provider=selected_prov)
-    )
-    if selected_prov == "Gemini" and selected_model != st.session_state.gemini_model:
-        st.session_state.gemini_model = selected_model
-        st.rerun()
-    elif selected_prov == "Groq" and selected_model != st.session_state.groq_model:
-        st.session_state.groq_model = selected_model
-        st.rerun()
-
-    fb_options = [t("fallback_opt_auto", lang), t("fallback_opt_manual", lang)]
-    cur_fb_idx = 0 if st.session_state.fallback_policy in ("Automatic", "Automático") else 1
-    selected_fb = st.selectbox(
-        t("fallback_policy_label", lang),
-        fb_options,
-        index=cur_fb_idx,
-        help=t("fallback_policy_help", lang)
-    )
-    canonical_fb = "Automatic" if selected_fb in ("Automatic", "Automático") else "Manual"
-    if canonical_fb != st.session_state.fallback_policy:
-        st.session_state.fallback_policy = canonical_fb
-        st.rerun()
-
-    # Status of keys and provider availability
-    p_info = provider_status["providers"].get(selected_prov, {})
-    if p_info.get("available"):
-        st.caption(t("key_active", lang, provider=selected_prov, masked_key=p_info.get('masked_key')))
-    else:
-        env_var_name = MultiProviderLLMManager.SUPPORTED_PROVIDERS[selected_prov]["env_key"]
-        st.caption(t("key_missing", lang, env_var=env_var_name))
-
-
-
-    st.write("---")
-    st.markdown(f"**{t('quick_suggestions_title', lang)}**")
-    example_list = t("example_queries", lang)
-    st.selectbox(
-        t("example_select_placeholder", lang),
-        example_list,
-        key="example_select_widget",
-        on_change=load_example,
-        label_visibility="collapsed",
-        help=t("example_select_help", lang)
-    )
-
-    if len(st.session_state.history) > 0:
-        st.write("---")
-        st.markdown(f"**{t('history_title', lang)}**")
-        options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
-        selected_option = st.selectbox(
-            t("history_select_label", lang),
-            options,
-            index=st.session_state.active_index,
-            help=t("history_select_help", lang)
-        )
-        new_active = options.index(selected_option)
-        if new_active != st.session_state.active_index:
-            st.session_state.active_index = new_active
-            st.rerun()
-
-    st.write("---")
-    st.markdown(f"### {t('kg_title', lang)}")
-    if is_connected:
-        st.markdown(f'<span class="status-badge-connected">{t("badge_connected", lang, provider=st.session_state.llm_provider)}</span>', unsafe_allow_html=True)
-    else:
-        st.markdown(f'<span class="status-badge-offline">{t("badge_offline", lang)}</span>', unsafe_allow_html=True)
-
-    st.markdown(f"**{t('kg_modules_title', lang)}**")
-    mcol1, mcol2 = st.columns(2)
-    with mcol1:
-        st.metric(t("kg_total_kuns", lang), kg_metrics['nodes_count'])
-    with mcol2:
-        st.metric(t("kg_relations", lang), kg_metrics['edges_count'])
-    st.metric(t("kg_avg_degree", lang), f"{kg_metrics['avg_degree']:.2f}")
-
-    st.markdown(f"**{t('kg_hubs_title', lang)}**")
-    for node, deg in kg_metrics['hubs'][:2]:
-        st.markdown(f"- `{node}` ({deg} {t('kg_links_suffix', lang)})", unsafe_allow_html=True)
-
     # Client-side Exclusive Accordion for Sidebar Expanders
     components.html("""
     <script>
@@ -1934,6 +2053,21 @@ if st.session_state.active_index >= 0:
                                 st.session_state.pdf_article = str(ev_item["article_label"])
                                 st.session_state.pdf_visible = True
                                 st.rerun()
+
+                # Aviso de Modo Alternativo Local o Conmutación de Cuota IA
+                if not succ_prov:
+                    st.markdown(f"""
+<div class="local-fallback-banner">
+    <div class="local-fallback-header">
+        <span>{t('local_fallback_banner_title', lang)}</span>
+    </div>
+    <div class="local-fallback-desc">
+        {t('local_fallback_banner_desc', lang)}
+    </div>
+</div>
+""", unsafe_allow_html=True)
+                elif item_llm_meta.get("fallback_triggered"):
+                    st.caption(f"ℹ️ Cuota de {prim_prov} alcanzada. Respuesta generada automáticamente mediante {succ_prov}.")
 
                 # 2. RESPUESTA DIRECTA (Nivel 1 - Visible por defecto)
                 if clean_summary:

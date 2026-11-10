@@ -14,7 +14,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
     "en": {
         # App metadata & headers
         "app_title": "IJF SOR Assistant",
-        "app_subtitle": "Your Official IJF Sport and Organisation Rules (SOR 2026) Advisory Assistant. Inquire about refereeing, contest rules, judogi control, weigh-in, medical protocols, and organization.",
+        "app_subtitle": "Official IJF Sport and Organisation Rules (SOR 2026) consultant. Certified responses, normative reasoning, and complete document traceability.",
         "welcome_title": "Welcome",
         "header_tooltip": "International Judo Federation Rules (SOR 2026)",
         
@@ -121,7 +121,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "lang_selector_label": "🌐 Language / Idioma:",
         
         # Chat input & actions
-        "chat_input_placeholder": "Type your regulatory inquiry here...",
+        "chat_input_placeholder": "Type your IJF SOR rules inquiry here...",
         "send_btn": "Submit 📤",
         
         # Query Status messages
@@ -260,7 +260,15 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "admin_download_attachment_btn": "Download Attachment",
         
         # Scope and coverage expander
-        "scope_expander_title": "📝 Assistant Scope & Topic Coverage",
+        "scope_expander_title": "📋 View topics included in assistant scope and coverage",
+        "quota_info_title": "⚡ AI Quotas & Service Continuity",
+        "quota_info_desc": "This assistant uses free-tier AI models (Gemini / Groq). If provider rate or token quotas are reached, the assistant automatically activates Local Alternative Mode (certified extraction from the official SOR), ensuring continuous and verifiable regulatory answers.",
+        "local_fallback_banner_title": "⚡ Local Alternative Mode Active",
+        "local_fallback_banner_desc": "The free-tier AI model quota was reached or the external service is temporarily unavailable. The assistant is responding via certified direct extraction from official SOR 2026, guaranteeing complete continuity and regulatory fidelity.",
+        "sidebar_docs_expander_title": "ℹ️ Project Information & Official Documentation",
+        "sidebar_llm_expander_title": "⚙️ Assistant AI Configuration",
+        "sidebar_kg_expander_title": "🕸️ Knowledge Graph (KG)",
+        "sidebar_history_expander_title": "🕒 Query History",
         "scope_certified_kuns": "The assistant features **{count} Certified Knowledge Units** extracted directly from official IJF sources.",
         "scope_covered_title": "#### ✅ In-Scope Certified Topics",
         "scope_covered_body": (
@@ -313,7 +321,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
     "es": {
         # App metadata & headers
         "app_title": "Asistente SOR IJF",
-        "app_subtitle": "Tu consultor del Reglamento de Organización y Deporte (SOR 2026). Pregúntame sobre arbitraje, uniformes, pesaje o asistencia médica.",
+        "app_subtitle": "Consultor oficial del Reglamento de Organización y Deporte (IJF SOR 2026). Respuestas certificadas, fundamentación normativa y trazabilidad documental completa.",
         "welcome_title": "Bienvenido",
         "header_tooltip": "Reglamento de la Federación Internacional de Judo (SOR 2026)",
         
@@ -414,7 +422,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "lang_selector_label": "🌐 Idioma / Language:",
         
         # Chat input & actions
-        "chat_input_placeholder": "Escribe tu pregunta aquí...",
+        "chat_input_placeholder": "Escriba aquí su consulta sobre el reglamento IJF SOR...",
         "send_btn": "Enviar 📤",
         
         # Query Status messages
@@ -553,7 +561,15 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "admin_download_attachment_btn": "Descargar Adjunto",
         
         # Scope and coverage expander
-        "scope_expander_title": "📝 Alcance del Asistente & Cobertura de Temas",
+        "scope_expander_title": "📋 Ver temas incluidos en alcance y cobertura del asistente",
+        "quota_info_title": "⚡ Cuotas de IA y Continuidad de Servicio",
+        "quota_info_desc": "Este asistente utiliza modelos de IA de nivel gratuito (Gemini / Groq). Si se alcanza el límite temporal de cuotas del proveedor o no hay conexión, se activa de forma automática el Modo Alternativo Local (extracción certificada del SOR oficial), garantizando respuestas normativas ininterrumpidas y verificables.",
+        "local_fallback_banner_title": "⚡ Modo Alternativo Local Activo",
+        "local_fallback_banner_desc": "Se ha alcanzado la cuota de consultas del modelo de IA gratuito o el servicio externo está temporalmente no disponible. El asistente está respondiendo mediante extracción directa certificada del SOR 2026 oficial, asegurando continuidad y fidelidad reglamentaria.",
+        "sidebar_docs_expander_title": "ℹ️ Información y Documentación del Proyecto",
+        "sidebar_llm_expander_title": "⚙️ Configuración del Asistente (IA)",
+        "sidebar_kg_expander_title": "🕸️ Grafo de Conocimiento (KG)",
+        "sidebar_history_expander_title": "🕒 Historial de Consultas",
         "scope_certified_kuns": "El asistente cuenta con **{count} Unidades de Conocimiento certificadas** extraídas de las fuentes oficiales de la IJF.",
         "scope_covered_title": "#### ✅ Temas Cubiertos",
         "scope_covered_body": (
