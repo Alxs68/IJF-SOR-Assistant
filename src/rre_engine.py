@@ -1017,7 +1017,7 @@ class ReasoningRetrievalEngine:
 
         if has_head_term:
             # 1. Regla General de Puente de Uke (Art. 14.2, Págs. 166-167): evaluado como Ippon por seguridad cervical
-            if is_bridge_specific or (is_defense_specific and not is_dive_specific and not has_hansoku_term):
+            if is_bridge_specific or is_defense_specific:
                 for bridge_pid in ("SOR-2026-08-P166-S187", "SOR-2026-08-P167-S187"):
                     if bridge_pid in self.passages_by_id and bridge_pid not in rrf_scores:
                         rrf_scores[bridge_pid] = 0.025

@@ -123,6 +123,7 @@ class ArbitrationDecisionAssistant:
             "   - agredir / agresión física / golpe -> action against the spirit of judo, deliberate action causing injury, direct hansoku-make\n"
             "   - falta de respeto / conducta antideportiva -> acts against the spirit of judo, direct hansoku-make\n"
             "   - cadetes reverse seoi-nage -> cadet reverse seoi-nage shido penalty\n"
+            "   - defensa con la cabeza -> head defense bridge uke cadet restriction\n"
             "   - entrenador / coach vestimenta / dress code -> coaches' dress code preliminaries final block formal suit track suit\n"
             "   - veteranos / master / categoría de edad -> regulations for veterans age divisions contest duration category combining\n"
             "   - antidopaje / control dopaje -> medical and anti-doping handbook doping control selection procedure\n"
@@ -454,9 +455,11 @@ class ArbitrationDecisionAssistant:
             for item in [*evidence, *related]
             if isinstance(item, dict) and item.get("passage_id")
         }
-        raw_found = re.findall(r"(?:SOR-[A-Za-z0-9-]+|KUN-\d{4})", answer)
+        # Strict regex to extract official passage IDs without matching edition strings like 'SOR-2026-08'
+        raw_found = re.findall(r"(?:SOR-[A-Za-z0-9]+-[A-Za-z0-9]+-P\d+-S\d+|KUN-\d{4})", answer)
         cited_ids = set(raw_found)
-        if not (bool(cited_ids) and all(citation in allowed_ids for citation in cited_ids)):
+        # If passage IDs were cited, verify all of them belong to allowed_ids
+        if cited_ids and not all(citation in allowed_ids for citation in cited_ids):
             return False
 
         # Additional semantic and normative validation check

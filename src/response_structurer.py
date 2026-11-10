@@ -80,7 +80,7 @@ def clean_presentation_text(raw_text: str) -> str:
 
     # 6. Eliminar coletilla determinista de remisión sintética al final si existe
     text = re.sub(
-        r'\s*Disposiciones complementarias aplicables en\s+Art\..*?\.?$',
+        r'\s*Disposiciones complementarias aplicables en\s+.*$',
         '',
         text,
         flags=re.IGNORECASE
@@ -250,6 +250,20 @@ def parse_structured_response(
                     cits = [cits]
                 elif not isinstance(cits, list):
                     cits = []
+
+                # Unwrap if summary was accidentally encoded as an inner JSON string
+                if summary.startswith("{") and summary.endswith("}"):
+                    try:
+                        inner_data = json.loads(summary)
+                        if isinstance(inner_data, dict) and "summary" in inner_data:
+                            summary = str(inner_data.get("summary") or "").strip()
+                            if not norm_basis and "normative_basis" in inner_data:
+                                norm_basis = str(inner_data.get("normative_basis") or "").strip()
+                    except Exception:
+                        pass
+
+                # Clean any accidental JSON key residue in summary string
+                summary = re.sub(r'^\s*\{\s*"summary"\s*:\s*"(.*)"\s*\}\s*$', r'\1', summary, flags=re.DOTALL)
 
                 if summary:
                     # Clean any accidental conversational/introductory prefixes from summary

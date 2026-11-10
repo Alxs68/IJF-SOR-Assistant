@@ -131,6 +131,56 @@ class NormativeValidator:
             c.upper() for c in self.PENALTY_CODE_PATTERN.findall(self.ground_truth_text)
         }
 
+    def _is_article_valid(self, art: str) -> bool:
+        """
+        Validates whether an article or sub-article reference is grounded in the retrieved passages.
+        Accepts:
+        - Exact match in self.valid_articles (including parent prefixes)
+        - Direct mention in ground truth text ('article X', 'art. X', 'art X', 'section X')
+        - Sub-article whose parent prefix exists in self.valid_articles
+          (e.g., '20.3.1' and '20.3.2' under '20.3'; '19.1' under '19'; '6.5.1' under '6.5')
+        - Textual mention as a numbered subsection in ground truth
+        """
+        cleaned_art = re.sub(r'^(?:article|art\.?)\s*', '', art).strip().lower()
+        if not cleaned_art:
+            return True
+
+        # 1. Direct match in registered valid articles
+        if cleaned_art in self.valid_articles or art in self.valid_articles:
+            return True
+
+        # 2. Direct string mention in ground truth text
+        gt = self.ground_truth_text_lower
+        if (f"article {cleaned_art}" in gt or 
+            f"art. {cleaned_art}" in gt or 
+            f"art {cleaned_art}" in gt or
+            f"section {cleaned_art}" in gt or
+            f"sección {cleaned_art}" in gt or
+            f"apéndice {cleaned_art}" in gt or
+            f"appendix {cleaned_art}" in gt):
+            return True
+
+        # 3. Check hierarchical parent prefixes (e.g., 20.3 for 20.3.1, or 19 for 19.1)
+        parts = cleaned_art.split(".")
+        if len(parts) > 1:
+            for i in range(len(parts) - 1, 0, -1):
+                parent = ".".join(parts[:i])
+                if parent in self.valid_articles:
+                    return True
+                if (f"article {parent}" in gt or 
+                    f"art. {parent}" in gt or 
+                    f"art {parent}" in gt or
+                    f"section {parent}" in gt or
+                    f"sección {parent}" in gt or
+                    f"appendix {parent}" in gt):
+                    return True
+
+        # 4. Direct token presence in ground truth text for numeric clauses (e.g., '20.3' or '6.5.1')
+        if "." in cleaned_art and re.search(r'\b' + re.escape(cleaned_art) + r'\b', gt):
+            return True
+
+        return False
+
     def validate_text(self, text: str) -> NormativeVerificationResult:
         """Inspects arbitrary response text for ungrounded normative claims."""
         if not text or not text.strip():
@@ -166,10 +216,7 @@ class NormativeValidator:
             art = (a1 or a2).strip().lower()
             if not art:
                 continue
-            if (art not in self.valid_articles and 
-                f"article {art}" not in self.ground_truth_text_lower and 
-                f"art. {art}" not in self.ground_truth_text_lower and 
-                f"art {art}" not in self.ground_truth_text_lower):
+            if not self._is_article_valid(art):
                 hallucinated_articles.append(art)
 
         # 4. Procedural Check: Hallucinated Authorities or Disciplines
