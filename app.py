@@ -592,13 +592,127 @@ st.markdown(f"""
         color: var(--ijf-blue-accent) !important;
     }}
 
-    [data-testid="stExpander"] {{
+    [data-testid="stExpander"],
+    [data-testid="stExpander"] details,
+    [data-testid="stExpander"] details[open],
+    [data-testid="stExpanderDetails"] {{
         background-color: var(--surface-expander-bg) !important;
-        border: 1px solid var(--surface-expander-border) !important;
-        border-radius: 6px !important;
-    }}
-    [data-testid="stExpander"] summary {{
+        border-color: var(--surface-expander-border) !important;
         color: var(--ijf-text-color) !important;
+    }}
+
+    [data-testid="stExpander"] summary,
+    [data-testid="stExpander"] details[open] > summary,
+    [data-testid="stExpander"] summary:hover,
+    [data-testid="stExpander"] summary:focus,
+    [data-testid="stExpander"] summary:focus-visible,
+    [data-testid="stExpander"] summary:active,
+    [data-testid="stExpander"] details[open] > summary:hover,
+    [data-testid="stExpander"] details[open] > summary:focus,
+    [data-testid="stExpander"] details[open] > summary:active {{
+        background-color: var(--surface-card-bg) !important;
+        color: var(--ijf-title-color) !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }}
+
+    [data-testid="stExpander"] summary *,
+    [data-testid="stExpander"] details[open] > summary *,
+    [data-testid="stExpander"] summary:hover *,
+    [data-testid="stExpander"] summary:focus *,
+    [data-testid="stExpander"] summary:active *,
+    [data-testid="stExpander"] details[open] > summary:hover *,
+    [data-testid="stExpander"] details[open] > summary:focus * {{
+        background-color: transparent !important;
+        color: var(--ijf-title-color) !important;
+    }}
+
+    [data-testid="stSidebar"] [data-testid="stExpander"] summary,
+    [data-testid="stSidebar"] [data-testid="stExpander"] details[open] > summary {{
+        background-color: var(--surface-card-bg) !important;
+        color: var(--ijf-title-color) !important;
+    }}
+    [data-testid="stSidebar"] [data-testid="stExpander"] summary p,
+    [data-testid="stSidebar"] [data-testid="stExpander"] summary span,
+    [data-testid="stSidebar"] [data-testid="stExpander"] summary div,
+    [data-testid="stSidebar"] [data-testid="stExpander"] details[open] > summary p,
+    [data-testid="stSidebar"] [data-testid="stExpander"] details[open] > summary span,
+    [data-testid="stSidebar"] [data-testid="stExpander"] details[open] > summary div {{
+        background-color: transparent !important;
+        color: var(--ijf-title-color) !important;
+    }}
+
+    /* Subtemas colapsables exclusivos en Informacion y Documentacion */
+    .subtopic-accordion {{
+        margin-bottom: 0.45rem !important;
+        border: 1px solid var(--surface-card-border) !important;
+        border-radius: 6px !important;
+        background-color: var(--surface-card-bg) !important;
+        overflow: hidden !important;
+        transition: all 0.2s ease !important;
+    }}
+    .subtopic-summary {{
+        padding: 0.5rem 0.65rem !important;
+        font-weight: 600 !important;
+        font-size: 0.86rem !important;
+        color: var(--ijf-title-color) !important;
+        background-color: var(--surface-card-bg) !important;
+        cursor: pointer !important;
+        list-style: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        user-select: none !important;
+    }}
+    .subtopic-summary::-webkit-details-marker {{
+        display: none !important;
+    }}
+    .subtopic-summary:hover {{
+        background-color: var(--ijf-tier1-bg) !important;
+        color: var(--ijf-blue-accent) !important;
+    }}
+    .subtopic-accordion[open] > .subtopic-summary {{
+        background-color: var(--ijf-tier1-bg) !important;
+        color: var(--ijf-blue-accent) !important;
+        border-bottom: 1px solid var(--surface-card-border) !important;
+    }}
+    .subtopic-body {{
+        padding: 0.65rem !important;
+        font-size: 0.83rem !important;
+        line-height: 1.55 !important;
+        color: var(--ijf-subtitle-color) !important;
+        background-color: transparent !important;
+    }}
+    .subtopic-body p,
+    .subtopic-body span,
+    .subtopic-body div,
+    .subtopic-body li {{
+        color: var(--ijf-subtitle-color) !important;
+        line-height: 1.55 !important;
+    }}
+    .subtopic-body strong,
+    .subtopic-body b {{
+        color: var(--ijf-title-color) !important;
+    }}
+    .subtopic-download-btn {{
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0.45rem 0.6rem !important;
+        background-color: var(--surface-card-bg) !important;
+        color: var(--ijf-blue-accent) !important;
+        border: 1px solid var(--ijf-blue-accent) !important;
+        border-radius: 5px !important;
+        font-weight: 600 !important;
+        font-size: 0.82rem !important;
+        text-decoration: none !important;
+        margin: 0.5rem 0 !important;
+        box-sizing: border-box !important;
+        transition: background-color 0.2s ease !important;
+    }}
+    .subtopic-download-btn:hover {{
+        background-color: var(--ijf-tier1-bg) !important;
     }}
     [data-testid="stChatMessage"] {{
         background-color: transparent !important;
@@ -1826,13 +1940,14 @@ def load_example():
 # Sidebar
 with st.sidebar:
     # Language Selection Widget (Español | English, Spanish as Default)
-    lang_options = [("Español", "es"), ("English", "en")]
+    lang_options = [("🇪🇸 Español", "es"), ("🇬🇧 English", "en")]
     cur_lang_idx = 0 if st.session_state.ui_lang == "es" else 1
     selected_lang_tuple = st.selectbox(
         t("lang_selector_label", st.session_state.ui_lang),
         options=lang_options,
         index=cur_lang_idx,
         format_func=lambda x: x[0],
+        key="ui_language_selectbox",
         help="Selecciona el idioma de la interfaz / Select user interface language."
     )
     if selected_lang_tuple[1] != st.session_state.ui_lang:
@@ -1881,52 +1996,67 @@ with st.sidebar:
 
     st.write("---")
 
-    # 5. EXPANDER: Información y Documentación del Proyecto (Colapsado)
+    # 5. EXPANDER: Información y Documentación del Proyecto (Colapsado con subtemas exclusivos)
     with st.expander(t("sidebar_docs_expander_title", lang), expanded=False):
-        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_project_title", lang)}</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="sidebar-doc-body">{t("sidebar_project_content", lang)}</div>', unsafe_allow_html=True)
-        st.write("---")
-        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_purpose_title", lang)}</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="sidebar-doc-body">{t("sidebar_purpose_content", lang)}</div>', unsafe_allow_html=True)
-        st.write("---")
-        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_sources_title", lang)}</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="sidebar-doc-body">{t("sidebar_sources_content", lang)}</div>', unsafe_allow_html=True)
-        st.write("---")
-        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_author_title", lang)}</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="sidebar-doc-body">{t("sidebar_author_content", lang)}</div>', unsafe_allow_html=True)
-        st.write("---")
-        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_version_title", lang)}</div>', unsafe_allow_html=True)
-        st.markdown(f"""
-**IJF SOR Assistant**
-
-{t("sidebar_version_label", lang)}
-
-{t("sidebar_based_on", lang)} **{engine.config['version_label']}**
-
-{t("sidebar_source_hash", lang)} `{engine.config['source_sha256'][:16]}...`
-        """)
-        st.write("---")
-        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_guide_title", lang)}</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="sidebar-doc-body">{t("sidebar_guide_summary", lang)}</div>', unsafe_allow_html=True)
         guide_pdf_path = os.path.join(
             os.path.dirname(os.path.abspath(__file__)),
             "docs", "guides", "IJF_SOR_Assistant_Guia_Usuario.pdf"
         )
+        guide_b64 = ""
         if os.path.exists(guide_pdf_path):
             try:
                 with open(guide_pdf_path, "rb") as f_guide:
-                    guide_bytes = f_guide.read()
-                st.download_button(
-                    label=t("sidebar_guide_download_btn", lang),
-                    data=guide_bytes,
-                    file_name="IJF_SOR_Assistant_Guia_Usuario.pdf",
-                    mime="application/pdf",
-                    use_container_width=True
-                )
-            except Exception as e_guide:
-                st.caption(f"Error cargando guía PDF: {e_guide}")
-        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_guide_quick_title", lang)}</div>', unsafe_allow_html=True)
-        st.info(t("sidebar_guide_quick_content", lang))
+                    guide_b64 = base64.b64encode(f_guide.read()).decode("utf-8")
+            except Exception:
+                pass
+
+        download_link_html = ""
+        if guide_b64:
+            download_link_html = f'<a href="data:application/pdf;base64,{guide_b64}" download="IJF_SOR_Assistant_Guia_Usuario.pdf" class="subtopic-download-btn">{t("sidebar_guide_download_btn", lang)}</a>'
+
+        quick_guide_formatted = t("sidebar_guide_quick_content", lang).replace("\n", "<br>")
+
+        st.markdown(f"""
+<details class="subtopic-accordion" name="doc_info_subtopics">
+  <summary class="subtopic-summary"><span>{t("sidebar_project_title", lang)}</span><span>▾</span></summary>
+  <div class="subtopic-body">{t("sidebar_project_content", lang)}</div>
+</details>
+
+<details class="subtopic-accordion" name="doc_info_subtopics">
+  <summary class="subtopic-summary"><span>{t("sidebar_purpose_title", lang)}</span><span>▾</span></summary>
+  <div class="subtopic-body">{t("sidebar_purpose_content", lang)}</div>
+</details>
+
+<details class="subtopic-accordion" name="doc_info_subtopics">
+  <summary class="subtopic-summary"><span>{t("sidebar_sources_title", lang)}</span><span>▾</span></summary>
+  <div class="subtopic-body">{t("sidebar_sources_content", lang)}</div>
+</details>
+
+<details class="subtopic-accordion" name="doc_info_subtopics">
+  <summary class="subtopic-summary"><span>{t("sidebar_author_title", lang)}</span><span>▾</span></summary>
+  <div class="subtopic-body">{t("sidebar_author_content", lang)}</div>
+</details>
+
+<details class="subtopic-accordion" name="doc_info_subtopics">
+  <summary class="subtopic-summary"><span>{t("sidebar_version_title", lang)}</span><span>▾</span></summary>
+  <div class="subtopic-body">
+    <strong>IJF SOR Assistant</strong><br>
+    {t("sidebar_version_label", lang)}<br><br>
+    {t("sidebar_based_on", lang)} <strong>{engine.config['version_label']}</strong><br>
+    {t("sidebar_source_hash", lang)} <code>{engine.config['source_sha256'][:16]}...</code>
+  </div>
+</details>
+
+<details class="subtopic-accordion" name="doc_info_subtopics">
+  <summary class="subtopic-summary"><span>{t("sidebar_guide_title", lang)}</span><span>▾</span></summary>
+  <div class="subtopic-body">
+    {t("sidebar_guide_summary", lang)}
+    {download_link_html}
+    <div style="margin-top:0.6rem; font-weight:600; color:var(--ijf-title-color);">{t("sidebar_guide_quick_title", lang)}</div>
+    <div style="font-size:0.8rem; margin-top:0.35rem; line-height:1.5;">{quick_guide_formatted}</div>
+  </div>
+</details>
+""", unsafe_allow_html=True)
 
     # 6. EXPANDER: Configuración del Asistente (IA) (Colapsado)
     with st.expander(t("sidebar_llm_expander_title", lang), expanded=False):
@@ -2131,7 +2261,16 @@ with st.sidebar:
     function setupSidebarAccordion() {
         const sidebar = doc.querySelector('section[data-testid="stSidebar"]');
         if (!sidebar) return;
-        const expanders = sidebar.querySelectorAll('details');
+        
+        // Prevent auto-translation of language selectbox
+        const sel = sidebar.querySelector('[data-testid="stSelectbox"]');
+        if (sel) {
+            sel.setAttribute('translate', 'no');
+            sel.classList.add('notranslate');
+        }
+
+        // Outer expanders mutual exclusion
+        const expanders = sidebar.querySelectorAll(':scope > div > div > div > details, [data-testid="stExpander"] > details');
         expanders.forEach((targetExp) => {
             if (targetExp.dataset.hasAccordionListener) return;
             targetExp.dataset.hasAccordionListener = "true";
@@ -2140,6 +2279,22 @@ with st.sidebar:
                     expanders.forEach((otherExp) => {
                         if (otherExp !== targetExp && otherExp.open) {
                             otherExp.removeAttribute('open');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Inner subtopics mutual exclusion inside project info
+        const subtopics = sidebar.querySelectorAll('.subtopic-accordion');
+        subtopics.forEach((targetSub) => {
+            if (targetSub.dataset.hasSubAccordionListener) return;
+            targetSub.dataset.hasSubAccordionListener = "true";
+            targetSub.addEventListener('toggle', () => {
+                if (targetSub.open) {
+                    subtopics.forEach((otherSub) => {
+                        if (otherSub !== targetSub && otherSub.open) {
+                            otherSub.removeAttribute('open');
                         }
                     });
                 }
@@ -2546,24 +2701,30 @@ if st.session_state.active_index >= 0:
 
                 # 3. VER FUNDAMENTACIÓN NORMATIVA Y ANÁLISIS COMPLETO (Colapsado por defecto)
                 has_details = False
+                has_graph = bool(item.get('dot_code') and "->" in item.get('dot_code', ''))
                 if struct and isinstance(struct, dict):
                     has_details = bool(
                         struct.get("normative_basis") or
                         struct.get("conditions_and_exceptions") or
                         struct.get("extended_analysis") or
-                        struct.get("limitations")
+                        struct.get("limitations") or
+                        has_graph
                     )
                     if has_details:
                         with st.expander(t("view_details_expander", lang), expanded=False):
+                            if struct.get("extended_analysis"):
+                                st.markdown(f"#### {t('sec_extended', lang)}")
+                                st.markdown(struct["extended_analysis"])
                             if struct.get("normative_basis"):
                                 st.markdown(f"#### {t('sec_normative_basis', lang)}")
                                 st.markdown(struct["normative_basis"])
                             if struct.get("conditions_and_exceptions"):
                                 st.markdown(f"#### {t('sec_conditions', lang)}")
                                 st.markdown(struct["conditions_and_exceptions"])
-                            if struct.get("extended_analysis"):
-                                st.markdown(f"#### {t('sec_extended', lang)}")
-                                st.markdown(struct["extended_analysis"])
+                            if has_graph:
+                                st.markdown(f"#### {t('sec_graph_relations', lang)}")
+                                st.caption(t('graph_caption_relations', lang))
+                                st.graphviz_chart(item['dot_code'])
                             if struct.get("limitations"):
                                 st.markdown(f"#### {t('sec_limitations', lang)}")
                                 st.markdown(struct["limitations"])
@@ -2571,6 +2732,15 @@ if st.session_state.active_index >= 0:
                     parts = item.get('answer', '').split("\n\n---\n\n", 1)
                     with st.expander(t("view_details_expander", lang), expanded=False):
                         st.markdown(parts[1])
+                        if has_graph:
+                            st.markdown(f"#### {t('sec_graph_relations', lang)}")
+                            st.caption(t('graph_caption_relations', lang))
+                            st.graphviz_chart(item['dot_code'])
+                elif has_graph:
+                    with st.expander(t("view_details_expander", lang), expanded=False):
+                        st.markdown(f"#### {t('sec_graph_relations', lang)}")
+                        st.caption(t('graph_caption_relations', lang))
+                        st.graphviz_chart(item['dot_code'])
 
                 # 4. EVIDENCIAS NORMATIVAS CERTIFICADAS (Colapsado por defecto)
                 if evidence_entries:

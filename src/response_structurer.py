@@ -320,16 +320,16 @@ def _parse_unstructured_fallback(
         return StructuredAnswer(
             summary=summary_candidate if summary_candidate else "Resumen del análisis:",
             extended_analysis=extended_candidate,
-            is_structured=False
+            is_structured=True
         )
 
     # If text is paragraph-based
     paragraphs = [p.strip() for p in clean_text.split('\n\n') if p.strip()]
     if not paragraphs:
-        return StructuredAnswer(summary=clean_text, is_structured=False)
+        return StructuredAnswer(summary=clean_text, is_structured=True)
 
     if len(paragraphs) == 1:
-        return StructuredAnswer(summary=paragraphs[0], is_structured=False)
+        return StructuredAnswer(summary=paragraphs[0], is_structured=True)
 
     # First paragraph is Level 1, remaining paragraphs are Level 2
     summary_candidate = paragraphs[0]
@@ -338,12 +338,19 @@ def _parse_unstructured_fallback(
     return StructuredAnswer(
         summary=summary_candidate,
         extended_analysis=extended_candidate,
-        is_structured=False
+        is_structured=True
     )
 
 
 
 SYNONYM_EXPANSIONS = {
+    "simultanea": ["simultaneous", "both", "ambos", "caen", "fall", "score", "attack"],
+    "simultaneo": ["simultaneous", "both", "ambos", "caen", "fall", "score", "attack"],
+    "simultaneas": ["simultaneous", "both", "ambos", "caen", "fall", "score", "attack"],
+    "simultaneous": ["simultanea", "simultaneo", "both", "ambos", "score", "fall"],
+    "veteranos": ["veterans", "veteran", "m7", "f7", "a1.6"],
+    "veterano": ["veterans", "veteran", "m7", "f7", "a1.6"],
+    "veterans": ["veteranos", "veterano", "m7", "f7", "a1.6"],
     "dimension": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
     "dimensiones": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
     "medida": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
@@ -684,6 +691,13 @@ def build_deterministic_structured_answer(
         sentences = [full_text]
 
     SYNONYM_EXPANSIONS = {
+    "simultanea": ["simultaneous", "both", "ambos", "caen", "fall", "score", "attack"],
+    "simultaneo": ["simultaneous", "both", "ambos", "caen", "fall", "score", "attack"],
+    "simultaneas": ["simultaneous", "both", "ambos", "caen", "fall", "score", "attack"],
+    "simultaneous": ["simultanea", "simultaneo", "both", "ambos", "score", "fall"],
+    "veteranos": ["veterans", "veteran", "m7", "f7", "a1.6"],
+    "veterano": ["veterans", "veteran", "m7", "f7", "a1.6"],
+    "veterans": ["veteranos", "veterano", "m7", "f7", "a1.6"],
         "dimension": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
         "dimensiones": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
         "medida": ["dimension", "size", "measure", "meter", "metre", "8 m", "10 m"],
@@ -1006,18 +1020,35 @@ def build_deterministic_structured_answer(
             "2. Como acción defensiva (Uke): Válido en Senior y Junior; en Cadetes se sanciona con Shido a Uke y se concede a Tori la puntuación técnica reconocible generada (Art. 18.1.4, pág. 188). El puente voluntario al caer es Ippon en todas las categorías (Art. 14, pág. 166)."
         )
 
-    first_sentence = clean_sent
-    if len(first_sentence) > 560 and "." in first_sentence[:560]:
-        first_sentence = first_sentence[:first_sentence[:560].rfind(".") + 1].strip()
-    elif len(first_sentence) > 560:
-        first_sentence = first_sentence[:560].rstrip() + "..."
+    
+    # Acción Simultánea / Ambos caen / Ataque simultáneo / Posibilidad de puntuación (Art. 14, pág. 167; Art. 13.3/13.4, pág. 164; Apéndice A1.6, pág. 103)
+    is_simultaneous_q = (
+        any(w in clean_q for w in ["simultanea", "simultaneo", "simultaneas", "simultaneous", "al tiempo", "a la vez", "ambos caen", "caen los dos", "ambos competidores caen"]) or
+        (any(w in clean_q for w in ["ambos", "los dos"]) and any(w in clean_q for w in ["caen", "caer", "proyectar", "lanzar", "anotar", "puntuacion"]))
+    )
+    if is_simultaneous_q:
+        clean_sent = (
+            "En caso de acción simultánea donde ambos atletas caen con posibilidad de puntuación (SOR 2026-08): "
+            "(1) Criterio de Control Técnico (Art. 14, pág. 167): Si no es posible determinar con certeza quién ejerció el control de la técnica y provocó la caída, NO se otorga puntuación a ninguno de los dos atletas (*No score*). "
+            "(2) Puntuación Simultánea en Tiempo Regular (Art. 13.3.c y 13.3.d, pág. 164): Si ambos atletas proyectan y puntúan simultáneamente con valor idéntico (Ippon o Waza-ari) durante el tiempo regular, las puntuaciones se cancelan/igualan y el combate continúa en Golden Score conforme al Art. 13. "
+            "(3) Acción Simultánea en Golden Score (Art. 13.4.b, pág. 164): Si la acción simultánea ocurre dentro del Golden Score, el árbitro anuncia *Mate* y el combate se reanuda de pie sin alterar el marcador ni decidir el resultado. "
+            "(4) Duración en Golden Score y Excepción de Veteranos (Apéndice A1.6, pág. 103): En categorías regulares no existe límite de tiempo (tiempo indefinido hasta que uno anote o reciba Hansoku-make); únicamente en las categorías de Veteranos M7/F7 en adelante (60+ años) rige un límite estricto de un (1) minuto."
+        )
+
+    first_sentence = clean_sent.strip()
     if first_sentence and not any(first_sentence.endswith(p) for p in [".", "!", "?", '"', "'", "”"]):
         first_sentence += "."
 
-    summary = (
-        f"**{top_ev['title']} (Art. {top_ev['article_id']}, Pág. {top_ev['page']}) [{top_ev['passage_id']}]:** "
-        f"{first_sentence}"
-    )
+    if is_simultaneous_q:
+        summary = (
+            f"**Acción Simultánea / Ambos Caen al Tatami (Art. 14, Pág. 167; Art. 13.3/13.4, Pág. 164; Apéndice A1.6, Pág. 103):** "
+            f"{first_sentence}"
+        )
+    else:
+        summary = (
+            f"**{top_ev['title']} (Art. {top_ev['article_id']}, Pág. {top_ev['page']}) [{top_ev['passage_id']}]:** "
+            f"{first_sentence}"
+        )
     if num_rules > 1:
         other_arts = ", ".join([f"Art. {e['article_id']} (Pág. {e['page']})" for e in evidence[1:]])
         summary += f" Disposiciones complementarias aplicables en {other_arts}."
@@ -1048,7 +1079,19 @@ def build_deterministic_structured_answer(
     is_osaekomi_safety_query = any(w in clean_q for w in ["osaekomi", "inmovilizacion", "inmovilización"]) and any(w in clean_q for w in ["seguridad", "safety", "limite", "limit", "sobrepasa", "beyond", "exterior"])
     is_newaza_boundary_query = any(w in clean_q for w in ["ne-waza", "newaza", "suelo", "kansetsu", "shime"]) and any(w in clean_q for w in ["seguridad", "safety", "limite", "limit", "fuera", "outside"])
 
-    if is_time_wasting_query:
+    if is_simultaneous_q:
+        extended = (
+            "**Protocolo y Análisis Arbitral ante Acciones Simultáneas (SOR 2026-08):**\n"
+            "1. **Criterio de Control Técnico (Art. 14, Pág. 167):** Para que una técnica de proyección sea puntuada (Ippon o Waza-ari), debe existir un control inequívoco por parte de Tori durante toda la fase de ejecución. Si ambos judokas atacan o caen simultáneamente y ni el árbitro central ni la mesa de supervisión técnica / CARE system pueden discernir quién ejerció el control de la técnica, no se adjudica puntuación a ninguno (*No score*).\n"
+            "2. **Puntuación Simultánea en Tiempo Regular (Art. 13.3.c y 13.3.d, Pág. 164):** Si ambos atletas logran proyectar y anotar simultáneamente puntuaciones equivalentes durante el tiempo regular reglamentario (por ejemplo, ambos marcan Ippon o Waza-ari al unísono), el combate finaliza en empate técnico temporal y se aplica de inmediato el procedimiento de **Golden Score** conforme al Artículo 13.\n"
+            "3. **Acción Simultánea en Golden Score (Art. 13.4.b, Pág. 164):** Si la acción simultánea ocurre durante el período de Golden Score, el árbitro detiene el combate con la voz de *Mate* y hace retornar a los atletas a sus posiciones iniciales. Las acciones simultáneas no suben al marcador ni definen el combate; la contienda continúa hasta que se produzca una ventaja técnica individual o una sanción determinante.\n"
+            "4. **Límite Temporal en Golden Score y Excepción de Veteranos (Apéndice A1.6, Pág. 103):** Como regla general en categorías Senior, Junior y Cadetes, el Golden Score no tiene límite de tiempo (sin tiempo límite hasta que se marque o descalifique). La única excepción reglamentaria aplica en el circuito oficial de Veteranos: en las divisiones de edad **M7 / F7 y superiores (judokas de 60 años o más)**, el Golden Score tiene una duración máxima fija de **un (1) minuto**."
+        )
+        cond_exc = (
+            "- **Kaeshi-waza (Contraataque):** Si un judoka inicia un ataque y el oponente reacciona contragolpeando con control total de la caída, la acción pertenece al contraatacante y no se cataloga como acción simultánea.\n"
+            "- **Excepción de Tiempo en Veteranos 60+ (Apéndice A1.6, Pág. 103):** El tiempo indefinido de Golden Score se restringe a un máximo improrrogable de 1 minuto en categorías M7/F7 en adelante."
+        )
+    elif is_time_wasting_query:
         extended = (
             "**Procedimiento y Consecuencias Arbitrales (SOR 2026-08):**\n"
             "1. **Primera ocurrencia:** Conforme al Art. 18.1.3 (pág. 188) y el protocolo de señales arbitrales (págs. 286–287), la primera vez que un judoka incurre en pérdida de tiempo (failing to stand up from ground / not returning immediately to starting position) **no se aplica penalización de Shido**, sino una advertencia formal del árbitro con la señal reglamentaria.\n"
