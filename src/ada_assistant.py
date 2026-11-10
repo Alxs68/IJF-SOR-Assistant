@@ -105,7 +105,7 @@ class ArbitrationDecisionAssistant:
             "inmovilizacion", "inmovilización", "inmovilizaciones", "estrangulacion", "estrangulación",
             "luxacion", "luxación", "proyeccion", "proyección", "proyecciones", "lanzamiento",
             "agarre", "agarres", "entrenador", "entrenadores", "arbitro", "árbitro", "arbitros",
-            "puente", "prohibido", "permitido", "falta", "faltas", "castigo", "castigos"
+            "puente", "prohibido", "permitido", "falta", "faltas", "castigo", "castigos", "insulto", "insultos", "insulta", "agrede", "agresion", "agresión", "golpe", "procede", "reverse"
         }
         tokens = set(re.findall(r"\b[a-zA-Záéíóúüñ]{2,}\b", q_lower))
         has_spanish_keywords = bool(tokens & spanish_keywords)
@@ -117,8 +117,13 @@ class ArbitrationDecisionAssistant:
             "You are an expert official IJF (International Judo Federation) translator and terminology specialist.\n"
             "Translate the following judo inquiry from Spanish into concise, precise technical English for retrieval against the official IJF Sport and Organisation Rules (SOR 2026).\n"
             "CRITICAL RULES:\n"
-            "1. Strictly preserve all official Japanese judo terminology exactly as spelled (e.g. Ippon, Waza-ari, Shido, Hansoku-make, Osaekomi, Tori, Uke, Tatami, Matte, Hajime, Shime-waza, Kansetsu-waza, Toketa, etc.).\n"
-            "2. Output ONLY the translated technical English query without any explanation, markdown formatting, quotes, or trailing notes.\n\n"
+            "1. Strictly preserve all official Japanese judo terminology exactly as spelled (e.g. Ippon, Waza-ari, Shido, Hansoku-make, Osaekomi, Tori, Uke, Tatami, Matte, Hajime, Shime-waza, Kansetsu-waza, Toketa, Seoi-nage, Reverse seoi-nage, etc.).\n"
+            "2. Map colloquial, descriptive, or informal actions to official IJF SOR normative phrases:\n"
+            "   - insult / insulta / ofensa verbal -> derogatory remarks, calls or gestures to opponent or referee\n"
+            "   - agredir / agresión física / golpe -> action against the spirit of judo, deliberate action causing injury, direct hansoku-make\n"
+            "   - falta de respeto / conducta antideportiva -> acts against the spirit of judo, direct hansoku-make\n"
+            "   - cadetes reverse seoi-nage -> cadet reverse seoi-nage shido penalty\n"
+            "3. Output ONLY the translated technical English query without any explanation, markdown formatting, quotes, or trailing notes.\n\n"
             f"Query to translate: {q_clean}\n"
             "English translation:"
         )
@@ -384,19 +389,27 @@ class ArbitrationDecisionAssistant:
         # First add citations explicitly cited in structured.citations
         raw_cits = structured.citations if isinstance(structured.citations, list) else []
         for c in raw_cits:
-            cid = c if isinstance(c, str) else c.get("passage_id")
+            if isinstance(c, str):
+                match_id = re.search(r"((?:SOR-[A-Za-z0-9-]+)|KUN-\d{4})", c)
+                cid = match_id.group(1) if match_id else c
+            elif isinstance(c, dict):
+                cid = c.get("passage_id")
+            else:
+                cid = None
+
             if cid and cid in rich_citations_map and cid not in seen_pids:
                 enriched_citations.append(rich_citations_map[cid])
                 seen_pids.add(cid)
             elif isinstance(c, dict):
                 enriched_citations.append(c)
 
-        # Ensure all retrieved seed evidence items are represented
-        for e in evidence:
-            eid = e.get("passage_id")
-            if eid and eid in rich_citations_map and eid not in seen_pids:
-                enriched_citations.append(rich_citations_map[eid])
-                seen_pids.add(eid)
+        # If no explicit citations were captured (e.g. deterministic brief), include relevant seed evidence (max 3)
+        if not enriched_citations:
+            for e in evidence[:3]:
+                eid = e.get("passage_id")
+                if eid and eid in rich_citations_map and eid not in seen_pids:
+                    enriched_citations.append(rich_citations_map[eid])
+                    seen_pids.add(eid)
 
         structured.citations = enriched_citations
 
@@ -437,7 +450,8 @@ class ArbitrationDecisionAssistant:
             for item in [*evidence, *related]
             if isinstance(item, dict) and item.get("passage_id")
         }
-        cited_ids = re.findall(r"\[((?:SOR-[A-Za-z0-9-]+)|KUN-\d{4})\]", answer)
+        raw_found = re.findall(r"(?:SOR-[A-Za-z0-9-]+|KUN-\d{4})", answer)
+        cited_ids = set(raw_found)
         if not (bool(cited_ids) and all(citation in allowed_ids for citation in cited_ids)):
             return False
 
@@ -565,7 +579,15 @@ class ArbitrationDecisionAssistant:
                 "velocidad": ["speed", "force"],
                 "fuerza": ["force", "speed"],
                 "control": ["control", "skilfully"],
-                "espalda": ["back"]
+                "espalda": ["back"],
+                "insulto": ["derogatory", "remark", "remarks", "gesture", "gestures", "spirit"],
+                "insultos": ["derogatory", "remark", "remarks", "gesture", "gestures", "spirit"],
+                "insulta": ["derogatory", "remark", "remarks", "gesture", "gestures", "spirit"],
+                "agrede": ["derogatory", "spirit", "endanger", "injure", "deliberate", "hansoku-make"],
+                "agresion": ["derogatory", "spirit", "endanger", "injure", "deliberate", "hansoku-make"],
+                "agresión": ["derogatory", "spirit", "endanger", "injure", "deliberate", "hansoku-make"],
+                "seoi-nage": ["seoi-nage", "seoinage", "reverse"],
+                "seoinage": ["seoi-nage", "seoinage", "reverse"]
             }
 
             expanded = set(q_words)
@@ -608,22 +630,47 @@ class ArbitrationDecisionAssistant:
                     elif "ippon will be given when" in s_clean:
                         hits += 4
 
-                if requires_tori and ("throw as tori" in s_clean or "tori" in s_words or "head diving" in s_clean):
-                    hits += 4
-                if requires_uke and ("defend as uke" in s_clean or "uke" in s_words or "voluntarily makes a bridge" in s_clean or "bridge" in s_clean):
-                    hits += 4
+                has_seoi = bool({"reverse", "seoi-nage", "seoinage", "seoi"} & expanded)
+                requires_head = bool({"head", "cabeza", "cuello", "neck"} & expanded)
+                requires_ethics = bool({"insulto", "insultos", "insulta", "agrede", "agresion", "agresión", "derogatory", "remark", "remarks", "spirit", "antideportiva"} & expanded)
+
+                if has_seoi and ("reverse seoi-nage" in s_clean or "reverse seoinage" in s_clean):
+                    hits += 10
+                elif has_seoi and "seoi-nage" in s_clean:
+                    hits += 6
+
+                if requires_ethics:
+                    if "derogatory" in s_clean or "unnecessary calls" in s_clean:
+                        hits += 10
+                    elif "spirit of judo" in s_clean:
+                        hits += 8
+                    elif "deliberate action" in s_clean:
+                        hits += 7
+
+                if requires_head and requires_tori and ("throw as tori" in s_clean or "head diving" in s_clean):
+                    hits += 6
+                elif not requires_head and requires_tori and "tori" in s_words:
+                    hits += 2
+
+                if requires_head and requires_uke and ("defend as uke" in s_clean or "voluntarily makes a bridge" in s_clean):
+                    hits += 6
+                elif not requires_head and requires_uke and "uke" in s_words:
+                    hits += 2
 
                 if hits > best_score:
                     best_score = hits
                     chosen_sentence = s
 
-        clean_sent = re.sub(r"^[•·\-\*\s]+", "", chosen_sentence).strip()
+        clean_sent = re.sub(r"\[PAGE BREAK:[^\]]+\]\s*(?:---\s*)?", "", chosen_sentence).strip()
+        clean_sent = re.sub(r"^[\s\-•·\*]+", "", clean_sent).strip()
+        clean_sent = re.sub(r"^(?:pictures?|figures?|table|note:?)\s*[0-9\.\-\s]+", "", clean_sent, flags=re.IGNORECASE).strip()
+        clean_sent = re.sub(r"^[\s\-•·\*]+", "", clean_sent).strip()
         clean_sent = re.sub(r"^[0-9]{1,3}\.\s*", "", clean_sent).strip()
 
         words = clean_sent.split()
-        exact_quote = " ".join(words[:9]) if words else (passage.get("title") or "")
-        if len(clean_sent) <= 320:
+        exact_quote = " ".join(words[:14]) if words else (passage.get("title") or "")
+        if len(clean_sent) <= 350:
             text_snippet = clean_sent
         else:
-            text_snippet = clean_sent[:317].rsplit(" ", 1)[0] + "..."
+            text_snippet = clean_sent[:347].rsplit(" ", 1)[0] + "..."
         return exact_quote, text_snippet

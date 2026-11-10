@@ -503,6 +503,16 @@ class ReasoningRetrievalEngine:
         "cadete": "cadet",
         "juniors": "junior",
         "seniors": "senior",
+        "insulto": "derogatory remark remarks gesture spirit",
+        "insultos": "derogatory remarks gestures spirit",
+        "insulta": "derogatory remark remarks gesture spirit",
+        "agresion": "spirit deliberate injury hansoku-make",
+        "agresión": "spirit deliberate injury hansoku-make",
+        "agrede": "spirit deliberate injury hansoku-make",
+        "agredio": "spirit deliberate injury hansoku-make",
+        "golpe": "strike punch kick deliberate injury spirit",
+        "reverse": "reverse seoi-nage",
+        "seoinage": "seoi-nage",
         "proyeccion": "throw",
         "proyecciones": "throw",
         "lanzamiento": "throw",
@@ -803,7 +813,9 @@ class ReasoningRetrievalEngine:
         JUDO_TECHNICAL_IMMUNITY = {
             "descalificacion", "sancion", "inmovilizacion", "shido",
             "hansoku-make", "osaekomi", "duracion", "combate",
-            "pesaje", "tatami", "puente", "cabeza", "repesca"
+            "pesaje", "tatami", "puente", "cabeza", "repesca",
+            "insulto", "insulta", "agresion", "agresión", "agrede",
+            "antideportiva", "reverse", "seoi-nage", "seoinage"
         }
         for t in raw_direct_tokens:
             if t in JUDO_TECHNICAL_IMMUNITY:
@@ -982,17 +994,16 @@ class ReasoningRetrievalEngine:
         has_bridge_term = any(w in clean_q_lower for w in ["puente", "bridge"])
         has_hansoku_term = any(w in clean_q_lower for w in ["hansoku", "hansoku-make", "hansokumake", "descalificacion", "descalificación", "directo"])
         has_head_term = any(w in clean_q_lower for w in ["cabeza", "head", "craneo", "cráneo", "cervical", "cuello"]) or has_bridge_term
-        if has_head_term:
-            is_cadet_specific = any(w in clean_q_lower for w in ["cadet", "cadete", "cadetes", "u18", "sub18", "sub-18"])
-            is_senior_junior_specific = any(w in clean_q_lower for w in ["senior", "seniors", "junior", "juniors", "adulto", "adultos"])
-            is_dive_specific = any(w in clean_q_lower for w in ["dive", "diving", "clavado", "clavar", "zambullida", "buceo", "somersault"])
-            is_bridge_specific = has_bridge_term
-            is_defense_specific = any(w in clean_q_lower for w in ["defensa", "defender", "defiende", "defend", "defence", "escapar", "escape", "evitar"])
-            is_throw_by_tori = any(w in clean_q_lower for w in ["proyectar", "proyeccion", "proyección", "lanzar", "lanzamiento", "throw", "tori"])
-            is_concussion_specific = any(w in clean_q_lower for w in ["conmocion", "conmoción", "concussion", "trauma", "inhabilitacion", "inhabilitación", "suspension", "suspensión", "dias", "días", "days"])
+        is_cadet_specific = any(w in clean_q_lower for w in ["cadet", "cadete", "cadetes", "u18", "sub18", "sub-18"])
+        is_senior_junior_specific = any(w in clean_q_lower for w in ["senior", "seniors", "junior", "juniors", "adulto", "adultos"])
+        is_dive_specific = any(w in clean_q_lower for w in ["dive", "diving", "clavado", "clavar", "zambullida", "buceo", "somersault"])
+        is_bridge_specific = has_bridge_term
+        is_defense_specific = any(w in clean_q_lower for w in ["defensa", "defender", "defiende", "defend", "defence", "escapar", "escape", "evitar"])
+        is_throw_by_tori = any(w in clean_q_lower for w in ["proyectar", "proyeccion", "proyección", "lanzar", "lanzamiento", "throw", "tori"])
+        is_concussion_specific = any(w in clean_q_lower for w in ["conmocion", "conmoción", "concussion", "trauma", "inhabilitacion", "inhabilitación", "suspension", "suspensión", "dias", "días", "days"])
 
+        if has_head_term:
             # 1. Regla General de Puente de Uke (Art. 14.2, Págs. 166-167): evaluado como Ippon por seguridad cervical
-            # Debe recuperarse cuando se busca puente o defensa general de cabeza SIN mención de Hansoku-make
             if is_bridge_specific or (is_defense_specific and not is_dive_specific and not has_hansoku_term):
                 for bridge_pid in ("SOR-2026-08-P166-S187", "SOR-2026-08-P167-S187"):
                     if bridge_pid in self.passages_by_id and bridge_pid not in rrf_scores:
@@ -1004,7 +1015,7 @@ class ReasoningRetrievalEngine:
                         if "bridge" in text_p or "voluntarily makes a" in text_p or "cervical" in text_p:
                             rrf_scores[pid] += 0.12 if not is_cadet_specific else 0.07
 
-            # 2. Regla de Head Diving / Hansoku-make por técnica de cabeza (Art. 18.2.1 / 18.2.2, Pág. 190): técnica peligrosa sancionada con Hansoku-make
+            # 2. Regla de Head Diving / Hansoku-make por técnica de cabeza (Art. 18.2.1 / 18.2.2, Pág. 190)
             if is_dive_specific or is_throw_by_tori or has_hansoku_term or (not is_defense_specific and not is_concussion_specific):
                 for h_pid in ("SOR-2026-08-P190-S197", "SOR-2026-08-P190-S198"):
                     if h_pid in self.passages_by_id and h_pid not in rrf_scores:
@@ -1019,20 +1030,6 @@ class ReasoningRetrievalEngine:
                                 bonus += 0.03
                             rrf_scores[pid] += bonus
 
-            # 3. Reglas Específicas de Cadetes (Art. 18.1.4, Págs. 188-189):
-            # Punto 33 (Tori proyectar con cabeza -> Shido) y Punto 34 (Uke defender con cabeza -> Shido y puntuación a Tori)
-            if is_cadet_specific or is_defense_specific or is_throw_by_tori or is_senior_junior_specific:
-                is_reverse_seoi = any(w in clean_q_lower for w in ["reverse", "seoi-nage", "seoi", "inversa"])
-                if "SOR-2026-08-P188-S196" in self.passages_by_id and "SOR-2026-08-P188-S196" not in rrf_scores:
-                    rrf_scores["SOR-2026-08-P188-S196"] = 0.025
-                for pid in list(rrf_scores):
-                    p = self.passages_by_id.get(pid)
-                    if p:
-                        if p.get("pdf_page_index") == 188 and "18.1.4" in str(p.get("article_id", "")):
-                            rrf_scores[pid] += 0.16 if (is_cadet_specific and not is_reverse_seoi) else 0.08
-                        elif p.get("pdf_page_index") == 189 and "18.1.4" in str(p.get("article_id", "")):
-                            rrf_scores[pid] += 0.16 if is_reverse_seoi else 0.04
-
             # 4. Atenuación de pasajes irrelevantes cuando se indaga sobre arbitraje de cabeza en combate
             if not is_concussion_specific:
                 for pid in list(rrf_scores):
@@ -1042,6 +1039,52 @@ class ReasoningRetrievalEngine:
                             rrf_scores[pid] *= 0.65
                         elif p.get("pdf_page_index") in (138, 149, 150) and not any(w in clean_q_lower for w in ["gesto", "gesture", "senal", "señal"]):
                             rrf_scores[pid] *= 0.70
+
+        # Reglas Específicas de Cadetes (Art. 18.1.4, Págs. 188-189): evaluadas independientemente de mención de cabeza
+        if is_cadet_specific or ((is_defense_specific or is_throw_by_tori or is_senior_junior_specific) and has_head_term):
+            is_reverse_seoi = any(w in clean_q_lower for w in ["reverse", "seoi-nage", "seoi", "inversa"])
+            cadet_target_pid = "SOR-2026-08-P189-S196" if is_reverse_seoi else "SOR-2026-08-P188-S196"
+            if cadet_target_pid in self.passages_by_id and cadet_target_pid not in rrf_scores:
+                rrf_scores[cadet_target_pid] = 0.035
+            for pid in list(rrf_scores):
+                p = self.passages_by_id.get(pid)
+                if p:
+                    if p.get("pdf_page_index") == 188 and "18.1.4" in str(p.get("article_id", "")):
+                        rrf_scores[pid] += 0.18 if (is_cadet_specific and not is_reverse_seoi) else 0.08
+                    elif p.get("pdf_page_index") == 189 and "18.1.4" in str(p.get("article_id", "")):
+                        rrf_scores[pid] += 0.22 if is_reverse_seoi else 0.04
+
+            # Dampen general contest area (Art. 5) and landings when querying cadet technique restrictions
+            if not any(w in clean_q_lower for w in ["area", "área", "zona", "fuera", "outside", "border"]):
+                for pid in list(rrf_scores):
+                    p = self.passages_by_id.get(pid)
+                    if p:
+                        art = str(p.get("article_id", "")).lower()
+                        page = p.get("pdf_page_index", 0)
+                        if "article 5" in art or page in (151, 152):
+                            rrf_scores[pid] *= 0.20
+
+        # Reglas de Conducta, Ética, Insultos, Agresiones y Actos contra el Espíritu del Judo (Art. 18.2.2, Págs. 190, 193)
+        has_conduct_term = any(w in clean_q_lower for w in [
+            "insult", "insulto", "insultos", "insulta", "agresion", "agresión", "agrede",
+            "derogatory", "spirit of judo", "espiritu del judo", "espíritu del judo",
+            "antideportiva", "antideportivo", "anti-judo", "violencia", "conducta"
+        ])
+        if has_conduct_term:
+            for conduct_pid in ("SOR-2026-08-P193-S198", "SOR-2026-08-P190-S198"):
+                if conduct_pid in self.passages_by_id:
+                    if conduct_pid not in rrf_scores:
+                        rrf_scores[conduct_pid] = 0.040
+                    rrf_scores[conduct_pid] += 0.22
+            # Atenuar gestos arbitrales de judogi/cabello, inmovilizaciones y shidos ordinarios
+            for pid in list(rrf_scores):
+                p = self.passages_by_id.get(pid)
+                if not p:
+                    continue
+                art = str(p.get("article_id", "")).lower()
+                page = p.get("pdf_page_index", 0)
+                if page in (137, 138, 147, 148, 149, 150, 151, 160, 161, 173, 175) or "article 4" in art or "gestures" in str(p.get("heading_path", "")).lower():
+                    rrf_scores[pid] *= 0.10
 
         # Controlled topical alignment for kumikata and illegal moves (Article 18.1.2, Págs. 178-185)
         if is_kumikata_grip_query:
