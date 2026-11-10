@@ -321,6 +321,34 @@ st.markdown("""
     .element-container {
         margin-bottom: 0.4rem !important;
     }
+    /* Banner y Contenedor Resaltado para Ayúdanos a Mejorar (Feedback) */
+    .feedback-highlight-banner {
+        margin-top: 1.15rem;
+        margin-bottom: 0.45rem;
+        padding: 0.85rem 1.1rem;
+        border-radius: 8px;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(245, 158, 11, 0.09) 100%);
+        border: 1.5px dashed var(--ijf-blue-accent);
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .feedback-highlight-badge {
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--ijf-blue-accent);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    .feedback-highlight-text {
+        font-size: 0.82rem;
+        color: var(--ijf-text-color);
+        line-height: 1.45;
+        opacity: 0.92;
+    }
+
     .tier1-box {
         background-color: var(--ijf-tier1-bg);
         border-left: 4px solid var(--ijf-tier1-border);
@@ -1747,60 +1775,18 @@ if st.session_state.active_index >= 0:
                 succ_prov = item_llm_meta.get("successful_provider")
                 prim_prov = item_llm_meta.get("primary_provider", "")
 
-                # 1. PRESENTACIÓN LIMPIA DE LA RESPUESTA PRINCIPAL (Texto natural, sin códigos técnicos ni metadatos)
+                # 1. PREPARACIÓN DE DATOS (Estructura, Citas y Evidencias)
                 struct = item.get("structured_answer")
                 citations_list = []
                 if struct and isinstance(struct, dict):
                     citations_list = struct.get("citations", [])
 
+                clean_summary = ""
                 if struct and isinstance(struct, dict) and struct.get("summary"):
                     raw_summary = struct["summary"]
                     clean_summary = struct.get("clean_summary") or clean_presentation_text(raw_summary)
-                    safe_summary = sanitize_presentation_html(clean_summary)
 
-                    box_title = t("tier1_box_header", lang)
-                    safe_title = html.escape(box_title)
-                    st.markdown(
-                        f"""<div class="tier1-box">
-<div class="tier1-title"><strong>{safe_title}</strong></div>
-{safe_summary}
-</div>""",
-                        unsafe_allow_html=True
-                    )
-
-                    # Aviso si el validador detectó límites probatorios específicos
-                    if "Control de Rigor Normativo" in str(struct.get("limitations", "")) or "Normative Rigor Control" in str(struct.get("limitations", "")):
-                        st.warning(t("normative_rigor_warning", lang))
-
-                else:
-                    # Compatibilidad con entradas planas
-                    raw_ans = item.get('answer', '')
-                    clean_ans = clean_presentation_text(raw_ans)
-                    box_title = t("tier1_box_header", lang)
-                    safe_title = html.escape(box_title)
-                    if "\n\n---\n\n" in clean_ans:
-                        parts = clean_ans.split("\n\n---\n\n", 1)
-                        safe_part0 = sanitize_presentation_html(parts[0])
-                        st.markdown(
-                            f"""<div class="tier1-box">
-<div class="tier1-title"><strong>{safe_title}</strong></div>
-{safe_part0}
-</div>""",
-                            unsafe_allow_html=True
-                        )
-                        with st.expander(t("view_details_expander", lang), expanded=False):
-                            st.markdown(parts[1])
-                    else:
-                        safe_ans = sanitize_presentation_html(clean_ans)
-                        st.markdown(
-                            f"""<div class="tier1-box">
-<div class="tier1-title"><strong>{safe_title}</strong></div>
-{safe_ans}
-</div>""",
-                            unsafe_allow_html=True
-                        )
-
-                # 2. BLOQUE INDEPENDIENTE DE EVIDENCIAS NORMATIVAS CERTIFICADAS
+                # Construir catálogo de evidencias normativas certificadas
                 evidence_entries = []
                 seen_evidence_keys = set()
                 is_source_verified = bool(item.get("source_sha256_verified", False))
@@ -1820,7 +1806,6 @@ if st.session_state.active_index >= 0:
                             art_label = clean_art
                             title = c.get("title") or art_label
 
-                            # AUD-03: Manejo estricto de número de página, sin sustitución arbitraria por página 1
                             raw_page = c.get("page_number") if c.get("page_number") is not None else c.get("page")
                             page_num = None
                             if raw_page is not None:
@@ -1831,12 +1816,10 @@ if st.session_state.active_index >= 0:
                                 except (ValueError, TypeError):
                                     page_num = None
 
-                            # AUD-04: Distinguir cita textual exacta verificada vs extracto contextual
                             exact_q = (c.get("exact_quote") or "").strip()
                             text_snip = (c.get("text_snippet") or "").strip()
                             has_exact = bool(exact_q)
                             raw_q = (c.get("quote") or "").strip()
-                            # Priorizar la frase completa y gramatical (text_snippet) sobre el ancla corta de busqueda PDF (exact_quote)
                             if text_snip:
                                 quote_str = text_snip
                                 has_exact = True
@@ -1851,8 +1834,6 @@ if st.session_state.active_index >= 0:
                                 has_exact = False
 
                             source_url = c.get("source_url") or official_pdf_url
-
-                            # AUD-01: Verificación real y no automática (requiere hash PDF verificado y cita válida)
                             is_cit_verified = is_source_verified and bool(c.get("verified", True if is_source_verified else False))
 
                             evidence_entries.append({
@@ -1882,7 +1863,6 @@ if st.session_state.active_index >= 0:
                         art_label = re.sub(r"^article\s+", "Art. ", art_label, flags=re.IGNORECASE)
                         title = kun.get("titulo") or "Disposición Oficial"
 
-                        # AUD-03: Manejo estricto de número de página en fallback KUNs
                         raw_page = kun.get("pdf_page_index") if kun.get("pdf_page_index") is not None else kun.get("page")
                         page_num = None
                         if raw_page is not None:
@@ -1897,9 +1877,7 @@ if st.session_state.active_index >= 0:
                         if len(raw_quote) > 280:
                             raw_quote = raw_quote[:277].rsplit(" ", 1)[0] + "..."
 
-                        # AUD-02: Fallback no presupone verificación si falta el atributo
                         is_kun_verified = is_source_verified and bool(kun.get("verified", True if is_source_verified else False))
-
                         exact_q = (kun.get("exact_quote") or "").strip()
                         has_exact = bool(exact_q)
                         quote_str = exact_q if has_exact else raw_quote.strip()
@@ -1917,34 +1895,23 @@ if st.session_state.active_index >= 0:
                             "exact_quote": exact_q
                         })
 
-                if evidence_entries:
+                # Helper para renderizar cada tarjeta de evidencia con badges y enlace a visor PDF
+                def _render_evidence_card(ev_item, orig_idx, card_idx):
+                    badge_ver = f'<span class="evidence-badge-verified">✓ {t("evidence_verified_badge", lang)}</span>' if ev_item["verified"] else ''
+                    p_label = t("evidence_page_label", lang)
+                    badge_page = f'<span class="evidence-badge-page">📄 {p_label} {ev_item["page_number"]}</span>' if ev_item["page_number"] is not None else ''
+
+                    quote_html = ''
+                    if ev_item["quote"]:
+                        escaped_q = html.escape(ev_item["quote"])
+                        if ev_item.get("has_exact_quote"):
+                            q_label = t("evidence_quote_label", lang)
+                            quote_html = f'<div class="normative-quote-box"><div class="quote-type-label">📌 {q_label}</div>“{escaped_q}”</div>'
+                        else:
+                            ctx_label = t("evidence_context_label", lang)
+                            quote_html = f'<div class="normative-context-box"><div class="quote-type-label">📖 {ctx_label}</div>{escaped_q}</div>'
+
                     st.markdown(f"""
-<div class="evidence-section-header">
-    <span class="evidence-section-title">⚖️ {t('evidences_section_title', lang)}</span>
-    <span class="evidence-badge-edition">IJF SOR 2026-08</span>
-</div>
-<div class="evidence-section-subtitle">{t('evidences_section_subtitle', lang)}</div>
-""", unsafe_allow_html=True)
-
-                    visible_evs = evidence_entries[:3]
-                    extra_evs = evidence_entries[3:]
-
-                    def _render_evidence_card(ev_item, orig_idx, card_idx):
-                        badge_ver = f'<span class="evidence-badge-verified">✓ {t("evidence_verified_badge", lang)}</span>' if ev_item["verified"] else ''
-                        p_label = t("evidence_page_label", lang)
-                        badge_page = f'<span class="evidence-badge-page">📄 {p_label} {ev_item["page_number"]}</span>' if ev_item["page_number"] is not None else ''
-
-                        quote_html = ''
-                        if ev_item["quote"]:
-                            escaped_q = html.escape(ev_item["quote"])
-                            if ev_item.get("has_exact_quote"):
-                                q_label = t("evidence_quote_label", lang)
-                                quote_html = f'<div class="normative-quote-box"><div class="quote-type-label">📌 {q_label}</div>“{escaped_q}”</div>'
-                            else:
-                                ctx_label = t("evidence_context_label", lang)
-                                quote_html = f'<div class="normative-context-box"><div class="quote-type-label">📖 {ctx_label}</div>{escaped_q}</div>'
-
-                        st.markdown(f"""
 <div class="normative-evidence-card">
     <div class="evidence-card-header">
         <span class="evidence-badge-art">📌 {html.escape(str(ev_item["article_label"]))}</span>
@@ -1956,27 +1923,64 @@ if st.session_state.active_index >= 0:
 </div>
 """, unsafe_allow_html=True)
 
-                        if ev_item["page_number"] is not None:
-                            btn_col, _ = st.columns([0.48, 0.52])
-                            with btn_col:
-                                btn_label = t("evidence_view_pdf_btn", lang, page=ev_item["page_number"])
-                                if st.button(f"🔍 {btn_label}", key=f"ev_pdf_{orig_idx}_{card_idx}", use_container_width=True):
-                                    st.session_state.pdf_page = int(ev_item["page_number"])
-                                    if ev_item.get("exact_quote"):
-                                        st.session_state.pdf_quote = ev_item["exact_quote"]
-                                    st.session_state.pdf_article = str(ev_item["article_label"])
-                                    st.session_state.pdf_visible = True
-                                    st.rerun()
+                    if ev_item["page_number"] is not None:
+                        btn_col, _ = st.columns([0.48, 0.52])
+                        with btn_col:
+                            btn_label = t("evidence_view_pdf_btn", lang, page=ev_item["page_number"])
+                            if st.button(f"🔍 {btn_label}", key=f"ev_pdf_{orig_idx}_{card_idx}", use_container_width=True):
+                                st.session_state.pdf_page = int(ev_item["page_number"])
+                                if ev_item.get("exact_quote"):
+                                    st.session_state.pdf_quote = ev_item["exact_quote"]
+                                st.session_state.pdf_article = str(ev_item["article_label"])
+                                st.session_state.pdf_visible = True
+                                st.rerun()
 
-                    for ev_idx, ev in enumerate(visible_evs):
-                        _render_evidence_card(ev, original_i, ev_idx)
+                # 2. RESPUESTA DIRECTA (Nivel 1 - Visible por defecto)
+                if clean_summary:
+                    safe_summary = sanitize_presentation_html(clean_summary)
+                    box_title = t("tier1_box_header", lang)
+                    safe_title = html.escape(box_title)
+                    st.markdown(
+                        f"""<div class="tier1-box">
+<div class="tier1-title"><strong>{safe_title}</strong></div>
+{safe_summary}
+</div>""",
+                        unsafe_allow_html=True
+                    )
 
-                    if extra_evs:
-                        with st.expander(t("evidence_more_expander", lang, count=len(extra_evs)), expanded=False):
-                            for ev_idx, ev in enumerate(extra_evs, start=3):
-                                _render_evidence_card(ev, original_i, ev_idx)
+                    if "Control de Rigor Normativo" in str(struct.get("limitations", "")) or "Normative Rigor Control" in str(struct.get("limitations", "")):
+                        st.warning(t("normative_rigor_warning", lang))
 
-                # 3. NIVEL 2: FUNDAMENTACIÓN COMPLETA INICIALMENTE CONTRAÍDA
+                else:
+                    # Compatibilidad con entradas planas
+                    raw_ans = item.get('answer', '')
+                    clean_ans = clean_presentation_text(raw_ans)
+                    box_title = t("tier1_box_header", lang)
+                    safe_title = html.escape(box_title)
+                    if "\n\n---\n\n" in clean_ans:
+                        parts = clean_ans.split("\n\n---\n\n", 1)
+                        safe_part0 = sanitize_presentation_html(parts[0])
+                        st.markdown(
+                            f"""<div class="tier1-box">
+<div class="tier1-title"><strong>{safe_title}</strong></div>
+{safe_part0}
+</div>""",
+                            unsafe_allow_html=True
+                        )
+                        clean_summary = safe_part0
+                    else:
+                        safe_ans = sanitize_presentation_html(clean_ans)
+                        st.markdown(
+                            f"""<div class="tier1-box">
+<div class="tier1-title"><strong>{safe_title}</strong></div>
+{safe_ans}
+</div>""",
+                            unsafe_allow_html=True
+                        )
+                        clean_summary = safe_ans
+
+                # 3. VER FUNDAMENTACIÓN NORMATIVA Y ANÁLISIS COMPLETO (Colapsado por defecto)
+                has_details = False
                 if struct and isinstance(struct, dict):
                     has_details = bool(
                         struct.get("normative_basis") or
@@ -1998,8 +2002,25 @@ if st.session_state.active_index >= 0:
                             if struct.get("limitations"):
                                 st.markdown(f"#### {t('sec_limitations', lang)}")
                                 st.markdown(struct["limitations"])
+                elif "\n\n---\n\n" in item.get('answer', ''):
+                    parts = item.get('answer', '').split("\n\n---\n\n", 1)
+                    with st.expander(t("view_details_expander", lang), expanded=False):
+                        st.markdown(parts[1])
 
-                # 4. PANEL DE TRAZABILIDAD TÉCNICA Y AUDITORÍA (Consolidado fuera de la respuesta ordinaria)
+                # 4. EVIDENCIAS NORMATIVAS CERTIFICADAS (Colapsado por defecto)
+                if evidence_entries:
+                    with st.expander(f"⚖️ {t('evidences_section_title', lang)}", expanded=False):
+                        st.markdown(f"""
+<div class="evidence-section-header">
+    <span class="evidence-section-title">⚖️ {t('evidences_section_title', lang)}</span>
+    <span class="evidence-badge-edition">IJF SOR 2026-08</span>
+</div>
+<div class="evidence-section-subtitle">{t('evidences_section_subtitle', lang)}</div>
+""", unsafe_allow_html=True)
+                        for ev_idx, ev in enumerate(evidence_entries):
+                            _render_evidence_card(ev, original_i, ev_idx)
+
+                # 5. PANEL DE AUDITORÍA TÉCNICA Y TRAZABILIDAD (Colapsado por defecto)
                 is_fallback = "lo siento" in item.get('answer', '').lower() or "sorry" in item.get('answer', '').lower()
                 with st.expander(t("expander_audit_metadata", lang), expanded=False):
                     audit_mode = item.get("rre_operating_mode", getattr(engine.rre, "operating_mode", "HYBRID"))
@@ -2077,9 +2098,15 @@ if st.session_state.active_index >= 0:
                         else:
                             st.info(t("no_graph_msg", lang))
 
-                # Friendly feedback observation channel (Simple low-friction report)
-                with st.expander(t("feedback_expander", lang), expanded=False):
-                    st.caption(t("feedback_caption", lang))
+                # 6. CANAL DE OBSERVACIONES Y FEEDBACK (RESALTADO DESTACADO)
+                st.markdown(f"""
+<div class="feedback-highlight-banner">
+    <div class="feedback-highlight-badge">💬 {t('feedback_expander', lang)}</div>
+    <div class="feedback-highlight-text">{t('feedback_caption', lang)}</div>
+</div>
+""", unsafe_allow_html=True)
+
+                with st.expander(f"{t('feedback_expander', lang)} — Reportar novedad o sugerencia", expanded=False):
                     with st.form(key=f"feedback_form_{original_i}", clear_on_submit=True):
                         tipo_novedad_sel = st.selectbox(
                             t("feedback_type_label", lang),
@@ -2112,7 +2139,7 @@ if st.session_state.active_index >= 0:
                                 tipo_novedad=tipo_novedad_sel,
                                 comentario=comentario_user,
                                 query=item.get("query"),
-                                response_summary=summary_text if (struct and isinstance(struct, dict) and struct.get("summary")) else item.get("answer"),
+                                response_summary=clean_summary or item.get("answer"),
                                 citations=citations_list,
                                 edition="2026-08 (Official)" if engine.is_2026_08 else "2026-01 (Historical)",
                                 session_id=st.session_state.get("session_id", "session_anonymous"),
