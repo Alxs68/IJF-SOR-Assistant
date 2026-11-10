@@ -92,7 +92,7 @@ light_theme_vars = """
         --surface-header-bg: rgba(255, 255, 255, 0.95);
         --surface-card-bg: #F8FAFC;
         --surface-card-border: #E2E8F0;
-        --surface-input-bg: #ffffff;
+        --surface-input-bg: #F1F5F9;
         --surface-input-color: #0f172a;
         --surface-input-border: #cbd5e1;
         --surface-expander-bg: #F8FAFC;
@@ -192,19 +192,202 @@ st.markdown(f"""
     [data-testid="stHeader"] {{
         background-color: var(--surface-header-bg) !important;
     }}
-    .stTextInput input, .stTextArea textarea {{
+    /* Campos de Entrada de Texto y TextAreas (Abolir fondos blancos, maxima legibilidad) */
+    .stTextInput,
+    .stTextArea,
+    [data-testid="stTextInput"],
+    [data-testid="stTextArea"] {{
+        background-color: transparent !important;
+    }}
+
+    .stTextInput input,
+    .stTextArea textarea,
+    [data-testid="stTextInputField"],
+    [data-testid="stTextInputRootElement"],
+    [data-testid="stTextAreaRootElement"],
+    div[data-baseweb="input"],
+    div[data-baseweb="base-input"],
+    div[data-baseweb="textarea"] {{
         background-color: var(--surface-input-bg) !important;
         color: var(--surface-input-color) !important;
-        border: 1px solid var(--surface-input-border) !important;
+        border-color: var(--surface-input-border) !important;
     }}
+
+    [data-testid="stTextInputRootElement"],
+    div[data-baseweb="input"],
+    [data-testid="stTextAreaRootElement"],
+    div[data-baseweb="textarea"] {{
+        background-color: var(--surface-input-bg) !important;
+        border: 1.5px solid var(--surface-input-border) !important;
+        border-radius: 8px !important;
+        transition: all 0.2s ease-in-out !important;
+    }}
+
+    .stTextInput input,
+    [data-testid="stTextInputField"],
+    .stTextArea textarea {{
+        background-color: transparent !important;
+        color: var(--surface-input-color) !important;
+        border: none !important;
+    }}
+
+    [data-testid="stTextInputRootElement"]:hover,
+    div[data-baseweb="input"]:hover,
+    [data-testid="stTextAreaRootElement"]:hover,
+    div[data-baseweb="textarea"]:hover {{
+        background-color: var(--ijf-tier1-bg) !important;
+        border-color: var(--ijf-blue-accent) !important;
+    }}
+
+    [data-testid="stTextInputRootElement"]:focus-within,
+    div[data-baseweb="input"]:focus-within,
+    [data-testid="stTextAreaRootElement"]:focus-within,
+    div[data-baseweb="textarea"]:focus-within {{
+        background-color: var(--surface-input-bg) !important;
+        border-color: var(--ijf-blue-accent) !important;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35) !important;
+    }}
+
     .stTextInput input::placeholder,
     .stTextArea textarea::placeholder,
     input::placeholder,
     textarea::placeholder {{
         color: var(--ijf-subtitle-color) !important;
-        opacity: 0.75 !important;
+        opacity: 0.85 !important;
         font-style: italic !important;
         font-size: 0.93rem !important;
+    }}
+
+    /* Boton "Enviar" y Formularios (stFormSubmitButton): Abolir fondo blanco, diseno institucional IJF */
+    div[data-testid="stFormSubmitButton"] button,
+    [data-testid="stBaseButton-secondaryFormSubmit"],
+    [data-testid="stBaseButton-primaryFormSubmit"],
+    button[kind="secondaryFormSubmit"],
+    button[kind="primaryFormSubmit"],
+    button[data-testid*="FormSubmit" i] {{
+        background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%) !important;
+        color: #ffffff !important;
+        border: 1.5px solid #3b82f6 !important;
+        border-radius: 8px !important;
+        padding: 0.45rem 1.2rem !important;
+        font-weight: 600 !important;
+        font-size: 0.92rem !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease-in-out !important;
+        white-space: nowrap !important;
+    }}
+
+    div[data-testid="stFormSubmitButton"] button p,
+    div[data-testid="stFormSubmitButton"] button span,
+    div[data-testid="stFormSubmitButton"] button div,
+    [data-testid="stBaseButton-secondaryFormSubmit"] p,
+    [data-testid="stBaseButton-secondaryFormSubmit"] span {{
+        color: #ffffff !important;
+        font-weight: 600 !important;
+    }}
+
+    div[data-testid="stFormSubmitButton"] button:hover,
+    [data-testid="stBaseButton-secondaryFormSubmit"]:hover,
+    button[kind="secondaryFormSubmit"]:hover {{
+        background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%) !important;
+        border-color: #60a5fa !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.45) !important;
+        transform: translateY(-1px) !important;
+    }}
+
+    div[data-testid="stFormSubmitButton"] button:hover p,
+    div[data-testid="stFormSubmitButton"] button:hover span {{
+        color: #ffffff !important;
+    }}
+
+    div[data-testid="stFormSubmitButton"] button:active,
+    [data-testid="stBaseButton-secondaryFormSubmit"]:active {{
+        background: #1e3a8a !important;
+        transform: translateY(0) !important;
+    }}
+
+    /* Botones Secundarios Generales (stButton) - Sin fondos blancos */
+    div[data-testid="stButton"] button,
+    button[data-testid="baseButton-secondary"],
+    button[kind="secondary"] {{
+        background-color: var(--surface-card-bg) !important;
+        border: 1.5px solid var(--surface-card-border) !important;
+        border-radius: 8px !important;
+        padding: 0.4rem 0.9rem !important;
+        text-align: center !important;
+        color: var(--ijf-text-color) !important;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 0.88rem !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease-in-out !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+    }}
+
+    div[data-testid="stButton"] button p,
+    div[data-testid="stButton"] button span {{
+        color: var(--ijf-text-color) !important;
+        font-weight: 500 !important;
+    }}
+
+    div[data-testid="stButton"] button:hover,
+    button[data-testid="baseButton-secondary"]:hover {{
+        background-color: var(--ijf-tier1-bg) !important;
+        border-color: var(--ijf-blue-accent) !important;
+        color: var(--ijf-blue-accent) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important;
+    }}
+
+    div[data-testid="stButton"] button:hover p,
+    div[data-testid="stButton"] button:hover span {{
+        color: var(--ijf-blue-accent) !important;
+    }}
+
+    /* Botones de Descarga (stDownloadButton) - Sin fondos blancos */
+    [data-testid="stDownloadButton"] button {{
+        background-color: var(--surface-card-bg) !important;
+        border: 1.5px solid var(--surface-card-border) !important;
+        border-radius: 8px !important;
+        color: var(--ijf-blue-accent) !important;
+        padding: 0.45rem 0.95rem !important;
+        transition: all 0.2s ease-in-out !important;
+        cursor: pointer !important;
+    }}
+
+    [data-testid="stDownloadButton"] button p,
+    [data-testid="stDownloadButton"] button span {{
+        color: var(--ijf-blue-accent) !important;
+        font-weight: 600 !important;
+    }}
+
+    [data-testid="stDownloadButton"] button:hover {{
+        background-color: var(--ijf-tier1-bg) !important;
+        border-color: var(--ijf-blue-accent) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important;
+    }}
+
+    /* Zona de carga de archivos (stFileUploader) */
+    [data-testid="stFileUploaderDropzone"],
+    [data-testid="stFileUploader"] section {{
+        background-color: var(--surface-card-bg) !important;
+        border: 1.5px dashed var(--surface-card-border) !important;
+        border-radius: 8px !important;
+        color: var(--ijf-text-color) !important;
+    }}
+
+    [data-testid="stFileUploaderDropzone"] span,
+    [data-testid="stFileUploaderDropzone"] div,
+    [data-testid="stFileUploaderDropzone"] small {{
+        color: var(--ijf-subtitle-color) !important;
+    }}
+
+    [data-testid="stFileUploaderDropzone"] button {{
+        background-color: var(--surface-input-bg) !important;
+        border: 1px solid var(--surface-input-border) !important;
+        color: var(--ijf-text-color) !important;
     }}
 
     /* Apertura del Menú Lateral (Sidebar Toggle Button) sobrio y acorde al tema */
