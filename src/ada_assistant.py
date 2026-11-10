@@ -127,6 +127,7 @@ class ArbitrationDecisionAssistant:
             "   - entrenador / coach vestimenta / dress code -> coaches' dress code preliminaries final block formal suit track suit\n"
             "   - veteranos / master / categoría de edad -> regulations for veterans age divisions contest duration category combining\n"
             "   - antidopaje / control dopaje -> medical and anti-doping handbook doping control selection procedure\n"
+            "   - accion simultanea / ambos caen / ataque simultaneo -> simultaneous action both athletes fall tatami no score Article 14 Article 13 golden score\n"
             "   - disciplinario / comite disciplinario -> IJF Disciplinary Committee Disciplinary Code sports integrity betting sanctions\n"
             "3. Output ONLY the translated technical English query without any explanation, markdown formatting, quotes, or trailing notes.\n\n"
             f"Query to translate: {q_clean}\n"
