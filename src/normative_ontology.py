@@ -238,10 +238,17 @@ class NormativeOntology:
 
         NormativeDomain.MEDICAL_AND_INJURY: {
             "canonical_lemmas_en": [
-                "doctor", "medical", "blood", "bleeding", "injury", "kiken-gachi", "concussion"
+                "doctor", "medical", "blood", "bleeding", "injury", "kiken-gachi", "concussion", "assistance", "treatment"
             ],
             "spanish_triggers": {
                 "medico": "doctor medical",
+                "medicos": "doctor doctors medical",
+                "medica": "doctor medical treatment assistance",
+                "medicas": "doctor medical treatment assistance",
+                "intervencion": "medical treatment assistance occasions",
+                "intervenciones": "medical treatment assistance occasions",
+                "asistencia": "assistance medical treatment doctor",
+                "atencion": "assistance medical treatment doctor",
                 "doctor": "doctor medical",
                 "sangre": "blood bleeding",
                 "sangrado": "blood bleeding",
@@ -250,7 +257,7 @@ class NormativeOntology:
                 "abandono": "kiken-gachi withdraw",
                 "conmocion": "concussion"
             },
-            "priority_articles": ["Article 20", "Article 20.1", "E1.5"]
+            "priority_articles": ["Article 20", "Article 20.1", "Article 20.2", "Article 20.3", "Article 20.3.1", "Article 20.3.2", "E1.5"]
         },
 
         NormativeDomain.DRAW_AND_CONTEST_SYSTEM: {

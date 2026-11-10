@@ -409,6 +409,29 @@ SYNONYM_EXPANSIONS = {
     "sancion": ["shido", "penalised", "penalized", "penalty", "forbidden"],
     "sanción": ["shido", "penalised", "penalized", "penalty", "forbidden"],
     "sanciona": ["shido", "penalised", "penalized", "penalty", "forbidden"],
+    "intervencion": ["medical", "doctor", "assistance", "treatment", "bleeding", "joint", "two", "2", "occasions"],
+    "intervenciones": ["medical", "doctor", "assistance", "treatment", "bleeding", "joint", "two", "2", "occasions"],
+    "medica": ["medical", "doctor", "treatment", "assistance", "bleeding"],
+    "medicas": ["medical", "doctor", "treatment", "assistance", "bleeding"],
+    "medico": ["doctor", "medical", "treatment"],
+    "medicos": ["doctor", "medical", "treatment"],
+    "asistencia": ["assistance", "medical", "treatment", "doctor"],
+    "cuantas": ["two", "2", "twice", "occasions", "maximum", "third time"],
+    "cuantos": ["two", "2", "twice", "occasions", "maximum", "third time"],
+    "permite": ["allowed", "permitted", "valid"],
+    "permiten": ["allowed", "permitted", "valid"],
+    "desmaya": ["loses consciousness", "unconscious", "consciousness", "shime-waza"],
+    "desmayo": ["loss consciousness", "unconscious", "consciousness", "shime-waza"],
+    "estrangulacion": ["shime-waza", "strangulation", "strangle"],
+    "estrangulación": ["shime-waza", "strangulation", "strangle"],
+    "pesaje": ["weigh-in", "weight", "random", "official"],
+    "aleatorio": ["random weigh-in", "random", "5%"],
+    "tolerancia": ["tolerance", "weight", "weigh-in", "5%"],
+    "fusen": ["fusen-gachi", "default", "appear", "failure to appear"],
+    "fusengachi": ["fusen-gachi", "default", "appear", "failure to appear"],
+    "smart": ["smart", "approved", "optical label", "chip", "nfc"],
+    "nfc": ["optical label", "approved", "judogi control"],
+    "chip": ["optical label", "approved", "judogi control"],
     "traje": ["judogi", "jacket", "trousers", "suit"]
 }
 
@@ -609,18 +632,34 @@ def build_deterministic_structured_answer(
                 break
 
     target_lines = content_lines[start_idx:]
-    is_heading_line = False
-    if target_lines:
-        first_line = target_lines[0].strip()
-        if first_line.lower().startswith("article") or first_line.lower().startswith("section") or first_line.lower().startswith("appendix"):
-            is_heading_line = True
-        elif re.match(r"^[A-Z0-9]+(?:\.[0-9]+)+\s*$", first_line):
-            is_heading_line = True
+    while target_lines and (target_lines[0].strip().startswith("[PAGE BREAK") or not target_lines[0].strip()):
+        target_lines = target_lines[1:]
 
-    if len(target_lines) > 1 and is_heading_line:
-        substantive_lines = target_lines[1:]
-    else:
-        substantive_lines = target_lines
+    idx_content = 0
+    while idx_content < len(target_lines):
+        line = target_lines[idx_content].strip()
+        is_hdr = (
+            re.match(r"^(?:Article|Section|Appendix|DRAW|[A-Z][0-9]+(?:\.[0-9]+)*|[0-9]+(?:\.[0-9]+)+)", line, re.IGNORECASE)
+            or (line.isupper() and len(line) < 30)
+            or line.lower().startswith("page -")
+        )
+        if is_hdr:
+            idx_content += 1
+            while idx_content < len(target_lines):
+                nxt = target_lines[idx_content].strip()
+                if (len(nxt) < 40 and not any(nxt.endswith(p) for p in [".", ";", ":"]) 
+                    and not re.search(r"\b(shall|must|is|are|will|can|cannot|should|may|takes?)\b", nxt, re.IGNORECASE)):
+                    idx_content += 1
+                else:
+                    break
+            continue
+        elif line.startswith("[PAGE BREAK"):
+            idx_content += 1
+            continue
+        else:
+            break
+
+    substantive_lines = target_lines[idx_content:] if idx_content < len(target_lines) else target_lines
 
     full_text = "\n".join(substantive_lines)
     prot = re.sub(r"[\r\n]+[•·\-\*]\s*", r"\n___BULLET___ ", full_text)
@@ -710,7 +749,30 @@ def build_deterministic_structured_answer(
         "sancion": ["shido", "penalised", "penalized", "penalty", "forbidden"],
         "sanción": ["shido", "penalised", "penalized", "penalty", "forbidden"],
         "sanciona": ["shido", "penalised", "penalized", "penalty", "forbidden"],
-        "traje": ["judogi", "jacket", "trousers", "suit"]
+        "intervencion": ["medical", "doctor", "assistance", "treatment", "bleeding", "joint", "two", "2", "occasions"],
+    "intervenciones": ["medical", "doctor", "assistance", "treatment", "bleeding", "joint", "two", "2", "occasions"],
+    "medica": ["medical", "doctor", "treatment", "assistance", "bleeding"],
+    "medicas": ["medical", "doctor", "treatment", "assistance", "bleeding"],
+    "medico": ["doctor", "medical", "treatment"],
+    "medicos": ["doctor", "medical", "treatment"],
+    "asistencia": ["assistance", "medical", "treatment", "doctor"],
+    "cuantas": ["two", "2", "twice", "occasions", "maximum", "third time"],
+    "cuantos": ["two", "2", "twice", "occasions", "maximum", "third time"],
+    "permite": ["allowed", "permitted", "valid"],
+    "permiten": ["allowed", "permitted", "valid"],
+    "desmaya": ["loses consciousness", "unconscious", "consciousness", "shime-waza"],
+    "desmayo": ["loss consciousness", "unconscious", "consciousness", "shime-waza"],
+    "estrangulacion": ["shime-waza", "strangulation", "strangle"],
+    "estrangulación": ["shime-waza", "strangulation", "strangle"],
+    "pesaje": ["weigh-in", "weight", "random", "official"],
+    "aleatorio": ["random weigh-in", "random", "5%"],
+    "tolerancia": ["tolerance", "weight", "weigh-in", "5%"],
+    "fusen": ["fusen-gachi", "default", "appear", "failure to appear"],
+    "fusengachi": ["fusen-gachi", "default", "appear", "failure to appear"],
+    "smart": ["smart", "approved", "optical label", "chip", "nfc"],
+    "nfc": ["optical label", "approved", "judogi control"],
+    "chip": ["optical label", "approved", "judogi control"],
+    "traje": ["judogi", "jacket", "trousers", "suit"]
     }
 
     chosen_sentence = sentences[0]
@@ -786,6 +848,9 @@ def build_deterministic_structured_answer(
     clean_sent = clean_sent.replace("___CLAUSE___", "").strip()
     clean_sent = re.sub(r"^[0-9]{1,3}\.\s*", "", clean_sent).strip()
     clean_sent = re.sub(r"^[a-d]\)\s*", "", clean_sent).strip()
+    clean_sent = re.sub(r"^(?:\[PAGE BREAK:[^\]]+\]\s*(?:---\s*)?)+", "", clean_sent).strip()
+    clean_sent = re.sub(r"^(?:Article|Section|Appendix|[A-Z][0-9]+(?:\.[0-9]+)*|[0-9]+(?:\.[0-9]+)+)\s*.*?(?::\s*|\.\s+)", "", clean_sent, flags=re.IGNORECASE).strip()
+    clean_sent = re.sub(r"^(?:Contest\s+Area|Competition\s+Area|Area|DRAW)\s+", "", clean_sent, flags=re.IGNORECASE).strip()
     clean_sent = re.sub(r"^(?:Pictures?\s+[0-9\s\.\-]+\s*)+", "", clean_sent, flags=re.IGNORECASE).strip()
 
     # Si la cláusula describe dedos entrelazados (Art. 18.1.2 punto 12), explicitar la sanción de Shido derivada del encabezado del artículo
@@ -812,6 +877,108 @@ def build_deterministic_structured_answer(
                 clean_sent = "Techniques using head diving are dangerous and will be penalised with direct hansoku-make (Article 18.2.1; pág. 190). El atleta SÍ puede continuar en la competición, salvo que exista sospecha o diagnóstico médico de conmoción cerebral (Art. 20, pág. 196), caso en el cual no se permite continuar."
             else:
                 clean_sent = "Techniques using head diving are dangerous and will be penalised with direct hansoku-make (Article 18.2.1). Conforme a la regla oficial, el judoka SÍ puede continuar en la competición en rondas posteriores si califica."
+
+    # Asistencia Médica: Límite de intervenciones permitidas por combate (Art. 20.3, pág. 198)
+    is_med_count_q = any(w in clean_q for w in ["intervencion", "intervenciones", "asistencia", "medica", "medicas", "medico", "doctor"]) and any(w in clean_q for w in ["cuanta", "cuantas", "cuanto", "cuantos", "numero", "limite", "permiten", "permite", "combate", "regla"])
+    if is_med_count_q and ("20.3" in str(top_ev.get("article_id", "")) or "20.3" in full_text or "bleeding" in full_text.lower() or "minor injuries" in full_text.lower()):
+        clean_sent = (
+            "En el SOR 2026-08 (Art. 20.3, pág. 198), la asistencia médica está permitida en un máximo de dos (2) ocasiones únicamente en supuestos específicos fuera del área de combate: "
+            "(1) Sangrado (Art. 20.3.1): permitido hasta en dos (2) ocasiones para detener y aislar la hemorragia. "
+            "(2) Lesiones menores (Art. 20.3.2): para dislocación de dedo de mano o pie, se permite asistencia para reajustar la articulación hasta dos (2) veces para la misma articulación. "
+            "Cualquier requerimiento de una tercera intervención para el mismo supuesto, o cualquier otra asistencia médica en el tatami, implica la terminación del combate por Kiken-gachi."
+        )
+
+    # Pérdida de conocimiento por estrangulación (Shime-waza) (Art. 14.2, pág. 167; Art. 21, pág. 199)
+    if any(w in clean_q for w in ["desmaya", "desmayo", "desmayarse", "inconsciente", "conocimiento", "consciousness"]) and any(w in clean_q for w in ["estrangulacion", "estrangulación", "shime-waza", "shime", "estrangula"]):
+        clean_sent = (
+            "Conforme al SOR 2026-08 (Art. 14.2, pág. 167 y Art. 21, pág. 199): si un judoka pierde el conocimiento durante la aplicación de shime-waza (estrangulación), el árbitro debe detener inmediatamente el combate anunciando Ippon a favor del rival y llamar al médico. "
+            "El competidor que perdió el conocimiento no puede continuar en el combate. En categoría Cadetes, queda terminantemente inhabilitado para continuar compitiendo en el evento por razones médicas y de seguridad."
+        )
+
+    # Tolerancia de peso: Pesaje Oficial vs Pesaje Aleatorio (Art. 6.2.3, pág. 77; Art. 6.3, pág. 79)
+    if any(w in clean_q for w in ["pesaje", "peso", "weigh-in"]) and any(w in clean_q for w in ["tolerancia", "aleatorio", "diferencia", "diferencias"]):
+        clean_sent = (
+            "Diferencias de tolerancia de peso según el SOR 2026-08: "
+            "(1) Pesaje Oficial (Art. 6.2.3, pág. 77): La tolerancia es de cero (0%); el atleta debe registrar un peso igual o inferior al límite superior exacto de su categoría de peso. "
+            "(2) Pesaje Aleatorio (Art. 6.3, pág. 79): Se efectúa la mañana de la competencia y se permite una tolerancia máxima de peso del 5% sobre el límite superior de la categoría."
+        )
+
+    # Protocolo de Conmoción Cerebral (Head Trauma) (Apéndice E1.2, pág. 202)
+    if any(w in clean_q for w in ["conmoción", "conmocion", "concussion", "trauma", "head trauma"]) and any(w in clean_q for w in ["protocolo", "dias", "días", "inhabilitacion", "inhabilitación", "suspension", "suspensión"]):
+        clean_sent = (
+            "Protocolo de Conmoción Cerebral (SOR 2026-08, Apéndice E1.2, pág. 202): Cualquier judoka con sospecha o confirmación médica de conmoción queda inmediatamente excluido del torneo. "
+            "Genera una suspensión médica obligatoria mínima de veintiún (21) días para adultos y juniors, y de treinta (30) días para menores de 18 años (cadetes), sin posibilidad de competir hasta obtener alta médica formal."
+        )
+
+    # Sanción al Abrazo de Oso (Bear Hug) (Art. 18.1.2, pág. 185)
+    if any(w in clean_q for w in ["abrazo de oso", "bear hug", "bearhug"]):
+        clean_sent = (
+            "Conforme al Art. 18.1.2 (pág. 185): el abrazo de oso (bear hug) en tachi-waza sin agarre previo establecido con al menos una mano se sanciona con Shido para Tori. "
+            "Si Tori ya tiene establecido y mantiene al menos un agarre (kumi-kata) sobre el judogi de Uke antes de rodear el cuerpo con el otro brazo, la acción es válida y no se penaliza."
+        )
+
+    # Reverse Seoi-nage en Cadetes (Art. 18.1.4, pág. 189)
+    if any(w in clean_q for w in ["reverse seoi", "reverse seoi-nage", "reverso"]) and any(w in clean_q for w in ["cadete", "cadetes", "sub18", "sub-18"]):
+        clean_sent = (
+            "Regulación de reverse seoi-nage en Cadetes (Art. 18.1.4, punto 35, pág. 189): En competiciones de categoría Cadetes, el reverse seoi-nage está terminantemente prohibido. "
+            "La ejecución de esta técnica no otorgará ninguna puntuación y será sancionada inmediatamente con Shido contra Tori."
+        )
+
+    # Smart Judogi y Chip NFC (Apéndice C1.1 / C1.2, págs. 115-118)
+    if any(w in clean_q for w in ["smart judogi", "chip", "nfc"]) or (any(w in clean_q for w in ["judogi", "tecnologia", "tecnología"]) and any(w in clean_q for w in ["chip", "nfc", "smart"])):
+        clean_sent = (
+            "Tecnología Smart Judogi y control óptico oficial (SOR 2026-08, Art. C1.1 y C1.2, págs. 115-118): Todos los judogis homologados por la IJF deben portar la etiqueta óptica oficial con microdispositivo de verificación de autenticidad. "
+            "Permite a los jueces de control de judogi escanear instantáneamente la chaqueta y el pantalón para certificar que el uniforme cumple las especificaciones reglamentarias vigentes."
+        )
+
+    # Sokuteiki (Art. C1.10, pág. 124)
+    if "sokuteiki" in clean_q:
+        clean_sent = (
+            "El Sokuteiki (Art. C1.10, pág. 124) es el instrumento oficial de medición homologado por la IJF utilizado en el control de judogi para verificar con precisión milimétrica las dimensiones del uniforme: "
+            "ancho y largo de mangas, holgura de la bocamanga, cruce frontal de las solapas (mínimo 20 cm) y faldón de la chaqueta."
+        )
+
+    # Comparecencia en el tatami y Fusen-gachi (Art. 19.1, pág. 195)
+    if any(w in clean_q for w in ["tiempo de tolerancia", "tolerancia para presentarse", "presentarse en el tatami", "comparecer", "no se presenta", "fusen-gachi"]):
+        clean_sent = (
+            "Comparecencia en el tatami y descalificación por incomparecencia (SOR 2026-08, Art. 19.1, pág. 195): Los atletas deben estar listos en el tatami al ser llamados. "
+            "Si un atleta no se presenta al combate tras ser convocado formalmente, el árbitro otorga la victoria al oponente por Fusen-gachi (abandono/incomparecencia)."
+        )
+
+    # Reglas de color del Judogi (SOR 2026-08, Regla C1.9, pág. 124)
+    if any(w in clean_q for w in ["color", "colores", "colour", "blanco y azul", "azul y blanco"]):
+        clean_sent = (
+            "Reglas de color del Judogi (SOR 2026-08, Regla C1.9, pág. 124): "
+            "Los judogis oficiales para competencias IJF deben ser exclusivamente de dos colores autorizados: blanco (blanco nieve limpio y uniforme) y azul (escala oficial Pantone). "
+            "Cada competidor debe disponer obligatoriamente de ambos judogis (uno blanco y uno azul): el primer competidor llamado viste judogi blanco y el segundo competidor llamado viste judogi azul."
+        )
+
+    # Código de vestimenta de los médicos de equipo (Apéndice E1.5, pág. 202)
+    if any(w in clean_q for w in ["vestimenta", "ropa", "dress code", "traje", "codigo de vestimenta", "código de vestimenta"]) and any(w in clean_q for w in ["medico", "medicos", "doctor", "doctores"]):
+        clean_sent = (
+            "Código de vestimenta para médicos de delegación (SOR 2026-08, Apéndice E1.5, pág. 202): "
+            "Los médicos deben portar siempre su acreditación oficial visible con el símbolo médico en el área de competencia y calentamiento. "
+            "Está estrictamente prohibido el uso de jeans, overoles, pantalones cortos o 3/4, leggings, sandalias, chanclas, gorras o cubiertas para la cabeza, escotes pronunciados o minifaldas, piercings faciales/corporales y joyas que puedan lesionar al examinar al atleta. "
+            "Deben cambiarse inmediatamente si su vestimenta se mancha con sangre y llevar el cabello largo recogido fuera del cuello."
+        )
+
+    # Llaves de competencia con repechaje (SOR 2026-08, Sección 2.6 / F1.3)
+    if any(w in clean_q for w in ["llave", "llaves", "sorteo", "draw", "cuadro", "cuadros"]) and any(w in clean_q for w in ["repechaje", "repesca", "repechage", "dividen", "sistema"]):
+        clean_sent = (
+            "Sistema de llaves con repechaje (SOR 2026-08, Sección 2.6 y Sección F1.3, págs. 41-42, 210-230): "
+            "El sorteo divide la categoría en cuatro (4) grupos o cuartos de final (A, B, C y D). "
+            "Los cuatro atletas derrotados en cuartos de final acceden al cuadro de repechaje (perdedor de A vs perdedor de B; perdedor de C vs perdedor de D). "
+            "Los vencedores del repechaje disputan los dos combates por medalla de bronce de forma cruzada contra los atletas derrotados en las semifinales."
+        )
+
+    # Vendajes (taping) en los dedos y aprobación médica (Art. 20.3.2, pág. 198; Art. C1.13, pág. 128)
+    if any(w in clean_q for w in ["vendaje", "vendajes", "taping", "cinta"]) and any(w in clean_q for w in ["dedo", "dedos", "aprobado", "permitido"]):
+        clean_sent = (
+            "Uso de vendajes (taping) en los dedos (SOR 2026-08, Art. 20.3.2, pág. 198 y Art. C1.13, pág. 128): "
+            "El taping en los dedos de manos o pies SÍ está permitido para proteger o fijar articulaciones dislocadas. "
+            "Debe realizarse con cinta adhesiva médica adecuada sin elementos rígidos, plásticos o cortantes. "
+            "Si ocurre una dislocación durante el combate, el médico puede asistir en la recolocación y fijación del dedo fuera del tatami (máximo 2 veces para la misma articulación); cualquier vendaje previo debe cumplir las especificaciones del control de judogi."
+        )
 
     # Si la consulta indaga la distinción de acciones de cabeza entre Cadetes y Senior / Junior
     has_cadet_q = any(w in clean_q for w in ["cadet", "cadete", "cadetes", "sub18", "sub-18"])

@@ -347,9 +347,8 @@ class MultiProviderLLMManager:
                     "retry_after": e.retry_after
                 }
 
-                # Decide if fallback is allowed (QUOTA, TEMPORARY, NOT_FOUND)
-                # Note: AUTH (invalid key) does not trigger silent fallback unless key was missing
-                if self.fallback_policy == "automatic" and i == 0 and e.error_type in ("QUOTA", "TEMPORARY", "NOT_FOUND"):
+                # In automatic mode, any failure of primary provider triggers fallback to secondary provider
+                if self.fallback_policy == "automatic" and i == 0:
                     meta["fallback_attempted"] = True
                     meta["fallback_reason"] = f"{e.error_type} en {prov}: {e}"
                     continue
