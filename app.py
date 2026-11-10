@@ -288,24 +288,127 @@ st.markdown(f"""
     [data-testid="stSidebarCollapseButton"] span {{
         color: inherit !important;
     }}
-    .stSelectbox div[data-baseweb="select"] > div {{
-        background-color: var(--surface-input-bg) !important;
-        color: var(--surface-input-color) !important;
-        border-color: var(--surface-input-border) !important;
+    /* Header Banner Responsivo para PC y Celulares */
+    .app-header-banner {{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--secondary-background-color);
+        border-bottom: 2px solid var(--ijf-title-color);
+        padding: 1.4rem 1rem;
+        margin-top: 0.8rem;
+        margin-bottom: 1.2rem;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border-radius: 6px;
+        position: relative;
+        z-index: 99;
+        text-align: center;
+        gap: 0.75rem;
     }}
-    div[data-baseweb="popover"], div[data-baseweb="menu"], ul[role="listbox"] {{
+    .app-main-title {{
+        font-family: 'Outfit', sans-serif !important;
+        color: var(--ijf-title-color) !important;
+        font-size: clamp(1.25rem, 5.2vw, 2.6rem) !important;
+        margin: 0 !important;
+        font-weight: 700 !important;
+        line-height: 1.15 !important;
+        white-space: nowrap !important;
+        text-align: center !important;
+        max-width: 100% !important;
+    }}
+    .app-header-logo {{
+        width: clamp(75px, 15vw, 105px) !important;
+        height: clamp(75px, 15vw, 105px) !important;
+        object-fit: contain !important;
+        display: block !important;
+    }}
+    @media (max-width: 640px) {{
+        .app-header-banner {{
+            padding: 1rem 0.6rem !important;
+            margin-top: 0.4rem !important;
+            margin-bottom: 0.8rem !important;
+            gap: 0.5rem !important;
+        }}
+        .app-main-title {{
+            font-size: 1.35rem !important;
+            letter-spacing: -0.01em !important;
+            white-space: nowrap !important;
+        }}
+        .app-header-logo {{
+            width: 78px !important;
+            height: 78px !important;
+        }}
+    }}
+
+    /* Campos selectbox desplegables sin fondo blanco - Estilo sobrio y acorde al tema */
+    [data-testid="stSelectbox"] div[data-rac][role="group"],
+    .react-aria-ComboBox div[data-rac][role="group"],
+    .react-aria-ComboBox,
+    .stSelectbox div[data-baseweb="select"] > div {{
         background-color: var(--surface-card-bg) !important;
         color: var(--ijf-text-color) !important;
-        border: 1px solid var(--surface-card-border) !important;
+        border: 1.5px solid var(--surface-card-border) !important;
+        border-radius: 8px !important;
+        transition: all 0.2s ease-in-out !important;
     }}
+    
+    [data-testid="stSelectbox"] div[data-rac][role="group"]:hover,
+    .react-aria-ComboBox div[data-rac][role="group"]:hover {{
+        border-color: var(--ijf-blue-accent) !important;
+        background-color: var(--ijf-tier1-bg) !important;
+    }}
+    
+    [data-testid="stSelectbox"] input,
+    .react-aria-ComboBox input {{
+        background-color: transparent !important;
+        color: var(--ijf-text-color) !important;
+        font-weight: 500 !important;
+        font-family: inherit !important;
+    }}
+    
+    [data-testid="stSelectbox"] button[data-rac],
+    .react-aria-ComboBox button {{
+        background-color: transparent !important;
+        color: var(--ijf-blue-accent) !important;
+    }}
+    
+    [data-testid="stSelectbox"] svg,
+    .react-aria-ComboBox svg {{
+        color: var(--ijf-blue-accent) !important;
+        fill: currentColor !important;
+    }}
+    
+    /* Popover desplegable de opciones */
+    div[data-rac][role="listbox"],
+    ul[role="listbox"],
+    div[data-baseweb="popover"],
+    div[data-baseweb="menu"] {{
+        background-color: var(--surface-card-bg) !important;
+        color: var(--ijf-text-color) !important;
+        border: 1.5px solid var(--surface-card-border) !important;
+        border-radius: 8px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+    }}
+    
+    div[data-rac][role="option"],
     li[role="option"] {{
         background-color: var(--surface-card-bg) !important;
         color: var(--ijf-text-color) !important;
+        padding: 0.5rem 0.75rem !important;
+        transition: background 0.15s ease !important;
     }}
-    li[role="option"]:hover, li[aria-selected="true"] {{
+    
+    div[data-rac][role="option"]:hover,
+    div[data-rac][role="option"][data-focused="true"],
+    div[data-rac][role="option"][aria-selected="true"],
+    li[role="option"]:hover,
+    li[aria-selected="true"] {{
         background-color: var(--ijf-tier1-bg) !important;
         color: var(--ijf-blue-accent) !important;
     }}
+
     [data-testid="stExpander"] {{
         background-color: var(--surface-expander-bg) !important;
         border: 1px solid var(--surface-expander-border) !important;
@@ -1913,12 +2016,12 @@ if base64_logo:
     flex-shrink: 0;
 }}
 </style>
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--secondary-background-color); border-bottom: 2px solid var(--ijf-title-color); padding: 1.5rem 1rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; position: relative; z-index: 99; text-align: center; gap: 0.8rem;">
+<div class="app-header-banner">
     <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="data:image/svg+xml;base64,{base64_logo}" style="width: 80px; height: 80px; object-fit: contain; display: block;" />
+        <img src="data:image/svg+xml;base64,{base64_logo}" class="app-header-logo" alt="IJF Logo" />
     </div>
-    <div style="position: relative; display: inline-block;">
-        <h2 style="font-family: 'Outfit', sans-serif; color: var(--ijf-title-color); font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">{t('app_title', lang)}</h2>
+    <div style="position: relative; display: inline-flex; align-items: center; justify-content: center; max-width: 100%;">
+        <h2 class="app-main-title">{t('app_title', lang)}</h2>
         <div class="ijf-tooltip" style="position: absolute; right: -28px; top: 50%; transform: translateY(-50%);">
             <div class="ijf-help-icon" style="margin-left: 0;">?</div>
             <div class="ijf-tooltiptext" style="left: 50%; transform: translateX(-50%); top: 130%;">{t('header_tooltip', lang)}</div>
@@ -1926,8 +2029,8 @@ if base64_logo:
     </div>
 </div>""")
 else:
-    render_custom_html(f"""<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--secondary-background-color); border-bottom: 2px solid var(--ijf-title-color); padding: 1.5rem 1rem; margin-top: 1.2rem; margin-bottom: 1.2rem; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); border-radius: 6px; text-align: center;">
-    <h2 style="font-family: 'Outfit', sans-serif; color: var(--ijf-title-color); font-size: 2.8rem; margin: 0; font-weight: 700; line-height: 1.1;">{t('app_title', lang)}</h2>
+    render_custom_html(f"""<div class="app-header-banner">
+    <h2 class="app-main-title">{t('app_title', lang)}</h2>
 </div>""")
 
 # Handle user input
