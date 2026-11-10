@@ -532,6 +532,15 @@ class ReasoningRetrievalEngine:
         "hemorragia": "bleeding",
         "entrenador": "coach",
         "entrenadores": "coaches",
+        "vestimenta": "dress code clothing attire",
+        "veterano": "veteran",
+        "veteranos": "veterans",
+        "master": "veteran",
+        "masters": "veterans",
+        "antidopaje": "doping control anti-doping",
+        "dopaje": "doping control anti-doping",
+        "disciplinario": "disciplinary committee code sanctions",
+        "disciplinaria": "disciplinary committee code sanctions",
         "dimensiones": "dimensions",
         "dimension": "dimensions",
         "inmovilizacion": "osaekomi",
@@ -815,7 +824,11 @@ class ReasoningRetrievalEngine:
             "hansoku-make", "osaekomi", "duracion", "combate",
             "pesaje", "tatami", "puente", "cabeza", "repesca",
             "insulto", "insulta", "agresion", "agresión", "agrede",
-            "antideportiva", "reverse", "seoi-nage", "seoinage"
+            "antideportiva", "reverse", "seoi-nage", "seoinage",
+            "veterano", "veteranos", "master", "masters", "veteran", "veterans",
+            "antidopaje", "dopaje", "doping", "anti-doping",
+            "disciplinario", "disciplinaria", "disciplinary",
+            "entrenador", "entrenadores", "coach", "coaches", "vestimenta"
         }
         for t in raw_direct_tokens:
             if t in JUDO_TECHNICAL_IMMUNITY:

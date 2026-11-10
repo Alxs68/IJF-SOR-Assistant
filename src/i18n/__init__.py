@@ -267,16 +267,17 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
             "*   **📖 Refereeing Rules (Appendix D - 100%):** All articles (1 to 21), official gestures, scoring (Ippon, Waza-ari), Osaekomi, Mate, Kansetsu-waza, direct Hansoku-make, head diving, and concussion protocols.\n"
             "*   **🥋 Judogi Control (Appendix C - 100%):** Control procedure, approved dimensions, Sokuteiki tool, label placement, certified colors (Snow white & Pantone blue), and belt requirements.\n"
             "*   **⏱️ Competition Systems & Weigh-in (Sections 2, 3, 4):** Official weigh-in and random weigh-in, weight tolerances, repechage brackets, seeding, and draw procedures.\n"
-            "*   **🏥 Medical Guidelines (Section 6):** On-tatami medical assistance, bleeding limits (2 treatments), head trauma, and mandatory suspension periods.\n"
+            "*   **🏥 Medical & Anti-Doping Handbook (Section 6 & Appendix E):** On-tatami medical assistance, bleeding limits (2 treatments), head trauma, anti-doping requirements, and athlete selection procedures.\n"
+            "*   **🏫 Coach Education & Dress Code (Section 7 & Appendix F):** Coaches' code of conduct, chair dress codes (preliminaries vs. final block), coach penalty cards, and review forms.\n"
+            "*   **👴 Veterans / Masters Regulations (Appendix A):** Age divisions (M1-M11, F1-F11), weight categories, contest duration, category combining, and veterans weigh-in.\n"
+            "*   **⚖️ Disciplinary Code & Ethics (Section 1):** IJF Disciplinary Committee, betting rules, competition manipulation, ethical infringements, and sanctions.\n"
             "*   **🎖️ Protocol & Ceremonies (Section 8):** Medal ceremonies, flag raising, national anthems, and official dress codes."
         ),
         "scope_uncovered_title": "#### ❌ Out-of-Scope (Not Covered)",
         "scope_uncovered_body": (
-            "*   **🏫 Coach Education (Section 5):** Coach chair dress codes, technical accreditations, and yellow/red coach card disciplinary processes.\n"
-            "*   **📢 Marketing & Broadcast (Section 10):** Commercial sponsorship contracts, broadcast rights, and arena banner specifications.\n"
-            "*   **🏟️ Venue Infrastructure (Section 11):** Arena layout, VIP lounges, warm-up room lighting, and stadium air conditioning standards.\n"
-            "*   **📋 Statutes & Ethics (Appendices A, B):** Internal IJF governance, executive elections, Disciplinary Code, and Court of Arbitration appeals.\n"
-            "*   **🧬 Special Categories (Appendices E, F, G, H):** Gender transition rules, laboratory anti-doping protocols, Veterans/Masters modified rules, and Kata competition refereeing."
+            "*   **📢 Commercial Marketing & Broadcast:** Private corporate sponsorship agreements and commercial television broadcast distribution contracts.\n"
+            "*   **🏟️ Venue Engineering & Facilities:** Civil engineering architectural layout, VIP hospitality lounges, and stadium HVAC specifications.\n"
+            "*   **📋 Internal Political Governance:** General Assembly elections and non-sporting corporate bylaws."
         ),
         
         # Predefined examples (bilingual list)
@@ -559,16 +560,17 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
             "*   **📖 Reglas de Arbitraje (Apéndice D - 100%):** Todos los artículos (1 al 21), gestos oficiales, puntuaciones, Osaekomi, Mate, luxaciones, descalificaciones directas (Hansoku-make) y conmoción cerebral.\n"
             "*   **🥋 Control de Judogi (Apéndice C - 100%):** Proceso de control, medidas permitidas, Sokuteiki, colocación de logotipos, colores (blanco/azul) e indumentaria.\n"
             "*   **⏱️ Sistemas y Pesaje (Secciones 2, 3, 4):** Pesaje oficial y sorteo aleatorio, tolerancias, llaves de competencia con repechaje, siembra de cabezas de serie y gestión de categorías.\n"
-            "*   **🏥 Manual Médico (Sección 6):** Asistencia médica en tatami, límite de 2 atenciones para lesiones con sangrado, conmociones y días de inhabilitación.\n"
+            "*   **🏥 Manual Médico y Antidopaje (Sección 6 & Apéndice E):** Asistencia médica en tatami, límite de 2 atenciones para sangrado, conmociones, requisitos de control antidopaje y selección de atletas.\n"
+            "*   **🏫 Educación y Coaches (Sección 7 & Apéndice F):** Código de conducta y vestimenta de entrenadores en la silla (eliminatorias y bloque final), tarjetas de sanción a coaches y formularios oficiales.\n"
+            "*   **👴 Regulaciones para Veteranos / Masters (Apéndice A):** Divisiones de edad (M1-M11, F1-F11), categorías de peso, duración de combates, unificación de divisiones y pesaje para veteranos.\n"
+            "*   **⚖️ Régimen Disciplinario y Ética (Sección 1):** Comité Disciplinario de la IJF, violaciones éticas, manipulación de combates y sanciones aplicables.\n"
             "*   **🎖️ Protocolos de Premiación (Sección 8):** Ceremonias de medallas, izado de banderas, himnos nacionales y código de vestimenta oficial."
         ),
         "scope_uncovered_title": "#### ❌ Fuera de Alcance (No Cubiertos)",
         "scope_uncovered_body": (
-            "*   **🏫 Educación y Coaches (Sección 5):** Códigos de vestimenta para entrenadores en la silla, acreditaciones técnicas y penalización de tarjetas en la silla de coach.\n"
-            "*   **📢 Marketing y Difusión (Sección 10):** Contratos de patrocinadores oficiales de la IJF, derechos de transmisión de televisión y publicidad permitida en los banners.\n"
-            "*   **🏟️ Infraestructura del Recinto (Sección 11):** Disposición física del pabellón, áreas VIP, vestuarios, requisitos de iluminación y climatización de la arena.\n"
-            "*   **📋 Estatutos y Apelaciones (Apéndices A, B):** Normas internas de la IJF, elecciones directivas, el Código Disciplinario y procesos de apelación federativos.\n"
-            "*   **🧬 Transición y Categorías Especiales (Apéndices E, F, G, H):** Reglamentos de transición de género, control antidopaje de laboratorio, reglas modificadas para veteranos/masters y arbitraje de competencias de Kata."
+            "*   **📢 Marketing y Difusión Comercial:** Contratos corporativos de patrocinio privado de la IJF y derechos de transmisión televisiva externa.\n"
+            "*   **🏟️ Infraestructura del Recinto:** Planos arquitectónicos de ingeniería civil del pabellón, áreas VIP y climatización de la arena.\n"
+            "*   **📋 Gobernanza Política Interna:** Elecciones de la asamblea general de la IJF y estatutos políticos federativos no deportivos."
         ),
         
         # Predefined examples (bilingual list)
