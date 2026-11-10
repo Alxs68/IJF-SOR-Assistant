@@ -1,294 +1,238 @@
-# 🥋 IJF SOR Assistant - MVP v1.0
-> **Asistente de Consulta Inteligente y Trazable del Reglamento Oficial de la Federación Internacional de Judo (IJF)**
-
-Este proyecto es una plataforma interactiva de respuesta a preguntas (Q&A) basada en una arquitectura **RAG Híbrida** (Similitud Vectorial + Grafo de Conocimiento). Ha sido desarrollado para el reto de **Oracle ONE / Alura** y cumple con los estándares metodológicos más estrictos de ingeniería de software e ingeniería del conocimiento.
+# 🥋 IJF SOR Assistant 2026 — Versión 3.0
+> **Asistente Oficial de Consulta Reglamentaria y Decisión Arbitral de la Federación Internacional de Judo (IJF)**  
+> **Marco Normativo Vigente:** IJF Sport and Organisation Rules (Edición oficial del 14 de agosto de 2026 — 298 páginas)  
+> **Producción:** [https://sor.alxol.com](https://sor.alxol.com)
 
 ---
 
-## 📸 Captura de la Aplicación
-La interfaz interactiva está desarrollada en **Streamlit** y provee un chatbot conversacional junto a un visualizador 2D interactivo del subgrafo de relaciones normativas recuperado en tiempo real:
+## 📋 Resumen del Proyecto
+
+El **IJF SOR Assistant** es una plataforma judicial y de consulta reglamentaria inteligente diseñada para resolver consultas operativas, normativas y fácticas sobre el judo internacional de alto rendimiento. 
+
+Basado en una arquitectura desacoplada de **Recuperación y Razonamiento Reglamentario (RRE/ADA)** con recuperación híbrida trifásica, gobernanza documental inmutable y verificación criptográfica SHA-256, el asistente garantiza:
+1. **Fidelidad Normativa Absoluta:** Respuestas fundamentadas estrictamente en las 298 páginas del SOR 2026-08 oficial, sin alucinación de artículos, tolerancias o códigos de sanción inexistentes.
+2. **Presentación Limpia en Dos Niveles:** Separación estricta entre la respuesta directa u operativa (Nivel 1), las evidencias normativas certificadas con citas textuales y acceso interactivo al PDF (Nivel 2), y la auditoría técnica detallada (reservada para diagnóstico y panel de trazabilidad).
+3. **Resiliencia Operativa Multi-Proveedor:** Orquestador de modelos de lenguaje con conmutación por error (*fallback*) automático entre Google Gemini, Groq (Llama-3) y un motor determinístico local desconectado.
+
+---
+
+## 📚 Alcance y Cobertura Normativa Certificada (SOR 2026-08)
+
+El corpus activo del asistente cubre íntegramente las materias deportivas y organizativas promulgadas en las **298 páginas del SOR oficial**:
 
 ```text
-+--------------------------------------------------------------+
-| 🥋 IJF SOR Assistant                                         |
-| Asistente Oficial de Consulta del Reglamento IJF             |
-+--------------------------------------------------------------+
-| [ Bar Lateral ]          | [ Panel Principal ]               |
-| ℹ️ Información           |                                   |
-| 🧭 Ajustes de Búsqueda   | ⚖️ Assistant: Sanción con...       |
-| 💡 Sugerencias           | [KUN-0001] [SOR Art. 20]          |
-| 📚 Historial             |                                   |
-| 🥋 Gobernanza del Grafo  | 🔍 [ Mostrar Trazabilidad ]       |
-| 🟢 Conectado (Gemini)    |                                   |
-| Nodos Grafo: 841         | 👤 User: ¿Otra pregunta?          |
-| Relaciones:  144         |                                   |
-| Hubs Centrales:          | 🔍 [ Escribe tu pregunta aquí ]   |
-| - KUN-0001 (16 enlaces)  |                                   |
-+--------------------------------------------------------------+
+========================================================================================
+SECCIÓN / APÉNDICE          MATERIA NORMATIVA CUBIERTA                    PÁGINAS SOR
+========================================================================================
+Apéndice D (100%)           Reglas de Arbitraje (Artículos 1 al 21)       Págs. 132-200
+Apéndice C (100%)           Control de Judogi e Indumentaria (Sokuteiki)  Págs. 114-131
+Secciones 2, 3 y 4          Sistemas de Competición, Pesaje y Sorteo      Págs. 34-87
+Sección 6 & Apéndice E      Manual Médico y Control Antidopaje            Págs. 94-99, 200-212
+Sección 7 & Apéndice F      Educación y Entrenadores (Coaches)            Págs. 88-93, 236-238
+Apéndice A                  Regulaciones para Veteranos / Masters         Págs. 100-106
+Sección 1                   Régimen Disciplinario, Integridad y Ética     Págs. 12-25
+Sección 8                   Protocolo, Premiación y Ceremonias Oficiales   Págs. 107-111
+========================================================================================
 ```
+
+### Detalle de Capítulos Incorporados:
+
+1. **📖 Reglas de Arbitraje (Apéndice D):**
+   - Acciones técnicas y puntuaciones (Ippon, Waza-ari, cuatro criterios rectores).
+   - Inmovilizaciones (Osaekomi, Toketa), estrangulaciones (Shime-waza) y luxaciones (Kansetsu-waza).
+   - Sistema de sanciones leves (Shido) e infracciones graves (Hansoku-make indirecto y directo).
+   - Protocolo de seguridad cervical y regla de puente voluntario de Uke (Art. 14.2, págs. 166-167).
+   - Acciones de cabeza y zambullida peligrosa (*Head Diving*, Art. 18.2.1, pág. 190).
+   - Reglas específicas por edad: restricciones en Cadetes (Art. 18.1.4, págs. 188-189, ej. penalización con Shido para reverse seoi-nage y prohibición de uso defensivo de la cabeza).
+
+2. **🏫 Educación y Entrenadores / Coaches (Sección 7 & Apéndice F):**
+   - **Código de Conducta de Entrenadores (Art. 7.1):** Comportamiento en la silla de coach, prohibición de grabaciones o instrucciones inadecuadas durante las acciones de combate.
+   - **Código de Vestimenta Oficial (Art. 7.2):** Requisitos obligatorios diferenciados:
+     * *Bloque Final (Final Block / Horario TV) y Sorteo (Draw):* Traje formal (chaqueta, pantalón, camisa y corbata para hombres; chaqueta, pantalón/falda/vestido, blusa para mujeres) y zapatos formales de vestir (prohibido calzado deportivo o chanclas).
+     * *Rondas Preliminares (Eliminatorias):* Chándal nacional oficial con pantalones largos hasta los zapatos, camisetas oficiales y calzado deportivo.
+   - **Régimen de Tarjetas y Suspensión (Art. 7.3 & Formulario F1.3.29, Pág. 236):** Procedimiento disciplinario de amonestación (tarjeta amarilla) y expulsión de la silla de coach (tarjeta roja), con tramitación formal ante la Comisión de Arbitraje de la IJF.
+
+3. **🏥 Manual Médico y Control Antidopaje (Sección 6 & Apéndice E):**
+   - **Asistencia Médica en Tatami:** Límite estricto de dos (2) intervenciones médicas para lesiones con sangrado (Art. 20, págs. 196-198); atención fuera de la zona de combate.
+   - **Protocolo de Traumatismo Craneoencefálico / Conmoción (Head Trauma):** Evaluación médica obligatoria, registro oficial y suspensión preventiva de combate.
+   - **Requisitos de Control Antidopaje (Art. E1.6, Págs. 203-206):** Protocolo oficial de sorteo médico, selección de judokas para control, cadena de custodia de muestras y responsabilidades del Comisionado Médico de la IJF.
+
+4. **👴 Regulaciones para Veteranos / Masters (Apéndice A):**
+   - **Divisiones de Edad (Art. A1.4, Pág. 103):** Categorías masculinas (M1 a M11, desde 30 hasta más de 80 años) y femeninas (F1 a F11).
+   - **Duración del Combate para Veteranos (Art. A1.6, Pág. 103):** 3 minutos para M7/F7 y categorías superiores; 4 minutos para divisiones jóvenes.
+   - **Unificación de Categorías (Category Combining, Art. A1.7, Pág. 104):** Criterios oficiales para fusionar divisiones de peso o edad cuando no se alcanza el quórum mínimo de competidores.
+   - **Pesaje y Judogi para Veteranos (Art. A1.10 y A1.11, Pág. 105):** Normas adaptadas de pesaje y dorsales oficiales para torneos de veteranos.
+
+5. **⚖️ Régimen Disciplinario, Integridad y Ética (Sección 1):**
+   - **Comité Disciplinario de la IJF (Art. 1.2.1, Pág. 14):** Competencias para juzgar faltas a la ética, conductas antideportivas graves y trampas.
+   - **Integridad Deportiva y Apuestas (Art. 1.2.2 y 1.2.3, Págs. 15-16):** Prohibición de manipulación de combates (*match fixing*) y sanciones federativas.
+   - **Actos contra el Espíritu del Judo (Art. 18.2.2, Págs. 190-194):** Descalificación directa inmediata (*Hansoku-make*) por insultos, gestos despectivos, agresión deliberada o conductas contrarias a la moral del judo, con expulsión del torneo.
+
+6. **🥋 Control de Judogi e Indumentaria (Apéndice C):**
+   - Inspección previa en la mesa de control de Judogi (*Judogi Control Table*).
+   - Medidas reglamentarias verificadas con el calibrador oficial **Sokuteiki** (cruce de solapa, holgura de mangas y pantalones).
+   - Colores oficiales certificados: Blanco puro (*Snow white*) y Azul Pantone oficial (*Pantone 285M*).
+   - Colocación de etiquetas de homologación de la IJF, parches publicitarios y dorsales oficiales (*Backnumbers*).
 
 ---
 
 ## 🏛️ Arquitectura del Sistema
 
-El asistente utiliza un diseño desacoplado que separa la base de conocimiento original del índice de recuperación y del motor de búsqueda relacional:
-
 ```text
-  [ Entrada del Usuario ]
-            │
-            ▼
-┌───────────────────────┐
-│  Streamlit Frontend   │ <─── Indicador Conectado / Offline
-└───────────────────────┘
-            │
-            ▼
-┌───────────────────────┐
-│     Motor RAG         │
-│     (rag_engine.py)   │
-└───────────────────────┘
-     │            │
-     │            ├── (1. Búsqueda Vectorial TF-IDF)
-     │            │   ▼
-     │            │ ┌───────────────────────┐
-     │            │ │     Vector Store      │ ── (Almacena IDs y vectores)
-     │            │ │   (vector_store.py)   │
-     │            │ └───────────────────────┘
-     │            │
-     │            └── (2. Expansión de Grafo y Contenido de KUNs)
-     │                ▼
-     │              ┌───────────────────────┐
-     │              │    Knowledge Graph    │ ── (Nodos de KUNs, relaciones)
-     │              │   (graph_manager.py)  │
-     │              └───────────────────────┘
-     │                          │
-     ▼                          ▼
-┌───────────────────────────────────────────┐
-│            Corpus Oficial v1.0            │ <─── (Única fuente de verdad)
-│         (kuns_doc_*.md, kuns_vid_*.md)    │
-└───────────────────────────────────────────┘
+                     [ Consulta del Usuario (ES / EN) ]
+                                      │
+                                      ▼
+             ┌──────────────────────────────────────────────────┐
+             │       Streamlit Frontend (app.py)                │
+             │   - Selector de Tema Claro / Oscuro Nativo       │
+             │   - Presentación Limpia (Nivel 1: Summary)       │
+             │   - Tarjetas de Evidencias (Nivel 2: Citas/PDF)  │
+             │   - Visor PDF Interactivo Integrado              │
+             │   - Panel Técnico de Auditoría Plegable          │
+             └──────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+             ┌──────────────────────────────────────────────────┐
+             │   Arbitration Decision Assistant (ADA v2.0)      │
+             │   - Traductor Técnico Normativo Bilingüe         │
+             │   - Coordinador de Razonamiento en Dos Niveles   │
+             │   - Validador Normativo Anti-Alucinaciones       │
+             │   - Extractor de Citas Textuales Completas       │
+             └──────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+             ┌──────────────────────────────────────────────────┐
+             │   Reasoning Retrieval Engine (RRE v3.0)          │
+             │   - Sparse BM25 + Dense FAISS/Embeddings         │
+             │   - Re-ranker Semántico Topológico               │
+             │   - Alineación Tópica (Topological Scoping)      │
+             │   - Inmunidad Técnica de Judo                    │
+             │   - Anclas de Dominio Negativo (Anti-OOD)        │
+             └──────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+             ┌──────────────────────────────────────────────────┐
+             │   Multi-Provider LLM Manager                     │
+             │   - Primario: Google Gemini Flash / Pro          │
+             │   - Fallback: Groq (Llama-3-70B / 8B)            │
+             │   - Respaldo: Motor Determinístico Local         │
+             └──────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+             ┌──────────────────────────────────────────────────┐
+             │   Corpus Normativo Oficial IJF SOR 2026-08       │
+             │   (298 Páginas Certificadas — SHA-256 Verificado)│
+             └──────────────────────────────────────────────────┘
 ```
 
-### Principios Clave:
-1.  **Fuente Única de Verdad:** El texto completo y las interpretaciones de las reglas solo residen en el Corpus y se manejan a través del Grafo. El **Vector Store** no duplica información de texto, solo almacena los vectores matemáticos vinculados al ID de la KUN.
-2.  **Cero Dependencias Complejas:** El procesamiento de lenguaje natural y el grafo están construidos con librerías nativas de Python (`math`, `re`, `urllib`), evitando dependencias pesadas que fallen en Windows o despliegues Cloud.
-3.  **Trazabilidad Explícita:** Cada afirmación generada se acompaña de sus referencias oficiales exactas (páginas del SOR, diapositivas del seminario o marcas de tiempo de video de la IJF).
+---
+
+## 🛠️ Tecnologías y Librerías
+
+- **Lenguaje:** Python 3.12+
+- **Frontend Interactivo:** Streamlit 1.35+, HTML5 sanitizado, CSS dinámico con soporte total de modo claro y modo oscuro.
+- **Modelos de Lenguaje (LLM):** Google Gemini API (`gemini-flash-lite-latest`, `gemini-1.5-flash`, `gemini-1.5-pro`) y Groq API.
+- **Recuperación Vectorial y Búsqueda:** BM25 sparse + FAISS dense embeddings + Re-ranker semántico topológico.
+- **Validación Normativa:** Modelos Pydantic v2, validador de integridad documental y verificación criptográfica SHA-256.
+- **Infraestructura Cloud:** Oracle Cloud Infrastructure (OCI) — VM ARM64 Ampere A1 (Ubuntu 24.04 LTS), Docker Compose, Cloudflare Tunnel con certificado SSL/TLS inmutable en `https://sor.alxol.com`.
 
 ---
 
-## 🛠️ Tecnologías y Herramientas Utilizadas
+## 💡 Ejemplos de Consultas Reales Soportadas
 
-Para lograr un sistema robusto, rápido y libre de dependencias pesadas de Machine Learning, el asistente fue construido con las siguientes tecnologías:
-
-1.  **Lenguaje y Núcleo Lógico:**
-    *   **Python 3.12:** Utilizado como el lenguaje base para todo el procesamiento de datos y la pipeline del motor RAG.
-    *   **Bibliotecas Nativas:** Procesamiento de texto con expresiones regulares (`re`), operaciones vectoriales con matemáticas estándar (`math`), persistencia con serialización de archivos (`json`) y consumo de APIs de red nativo (`urllib`).
-2.  **Inteligencia Artificial y Modelos de Lenguaje (Modo Conectado):**
-    *   **API de Gemini:** Consumo directo mediante peticiones HTTP nativas sin dependencias de SDKs pesados.
-    *   **Embeddings Densos (`gemini-embedding-001`):** Generación de vectores semánticos densos de 768 dimensiones utilizando peticiones HTTP en lotes (`batchEmbedContents`) para una velocidad de indexación óptima.
-    *   **Generador RAG (`gemini-1.5-flash` / `gemini-1.5-pro`):** Generación de respuestas sintetizadas basadas exclusivamente en el contexto recuperado bajo instrucciones de fidelidad estricta.
-3.  **Base de Datos y Recuperación Híbrida:**
-    *   **Semantic Vector Store (Buscador Semántico):** Motor vectorial híbrido que calcula la similitud coseno sobre vectores densos en Modo Conectado, con un fallback automático a similitud coseno **TF-IDF clásico local** en Modo Offline.
-    *   **Knowledge Graph (Grafo de Conocimiento):** Estructura lógica en listas de adyacencia bidireccionales compilada dinámicamente desde Markdown y persistida en JSON (`knowledge_graph.json`).
-4.  **Visualización y Capa Gráfica (UI):**
-    *   **Streamlit (v1.36+):** Utilizado para el frontend interactivo responsivo.
-    *   **CSS Dinámico (Theme-Aware):** Inyección de estilos CSS basados en variables de sistema de Streamlit para soportar el modo claro y oscuro de forma nativa.
-    *   **Graphviz:** Renderizado vectorial en 2D interactivo del subgrafo de relaciones normativas a partir de código DOT generado dinámicamente.
-5.  **Infraestructura y Despliegue:**
-    *   **Oracle Cloud Infrastructure (OCI):** Servidor VM en la nube ejecutando Ubuntu Server.
-    *   **Systemd (Gestión de Servicios):** Configuración como demonio en segundo plano (`ijf-assistant.service`) para asegurar alta disponibilidad y resiliencia ante reinicios del servidor.
-    *   **GitHub:** Control de versiones con versionamiento semántico e integración basada en Git Flow.
+| Dominio Reglamentario | Pregunta de Ejemplo | Fundamento y Cita Oficial |
+| :--- | :--- | :--- |
+| **Entrenadores (Coaches)** | *¿Cuál es el código de vestimenta de los entrenadores en el bloque final y eliminatorias?* | **Art. 7.2 (Pág. 89):** Traje formal obligatorio para finales/sorteo; chándal nacional oficial para eliminatorias. |
+| **Antidopaje** | *¿Cómo es el procedimiento de selección para el control de dopaje en eventos IJF?* | **Art. E1.6.2 (Pág. 203):** Sorteo oficial del Comisionado Médico con el delegado IJF y firma de protocolo. |
+| **Veteranos / Masters** | *¿Cuáles son las divisiones de edad y la duración del combate para veteranos?* | **Art. A1.4 y A1.6 (Pág. 103):** Divisiones M1 a M11; tiempos de combate de 3 y 4 minutos según categoría. |
+| **Régimen Disciplinario** | *¿Qué facultades y sanciones aplica el Comité Disciplinario de la IJF?* | **Art. 1.2.1 (Pág. 14):** Medidas disciplinarias por trampas, faltas éticas o conductas contrarias a los valores del judo. |
+| **Conducta y Respeto** | *¿Si un competidor insulta o agrede a otro, qué procede?* | **Art. 18.2.2 (Págs. 190, 193):** Hansoku-make directo inmediato por actos contra el espíritu del judo; no puede continuar en el torneo. |
+| **Cadetes (Técnicas)** | *¿Cómo se sanciona el reverse seoi-nage en cadetes?* | **Art. 18.1.4 (Pág. 189):** Sin puntuación y Shido inmediato a Tori. |
+| **Seguridad Cervical** | *¿Se permite defenderse haciendo un puente tras ser proyectado?* | **Art. 14.2 (Pág. 166):** Todo puente voluntario tras proyección se evalúa como Ippon para Tori por seguridad cervical. |
+| **Judogi y Medidas** | *¿Cuáles son las medidas y colores reglamentarios del Judogi?* | **Regla C1.1 y C1.9 (Págs. 115, 124):** Dimensiones verificadas con Sokuteiki; colores blanco nieve y azul Pantone 285M. |
 
 ---
 
-## 🔌 Infraestructura Core MCP (v1.2.1-Oficial)
-El proyecto incorpora un Servidor MCP (Model Context Protocol) nativo, síncrono y desacoplado, diseñado bajo una arquitectura de capas puras para dotar a los LLMs de capacidades de explotación de entorno seguras.
+## 🚀 Instalación y Ejecución Local
 
-- **Ubicación del Código:** `src/mcp/`
-- **Gobernanza y Reglas de Integración:** [Manual de Contratos Técnicos v1.2](docs/architecture/contracts.md)
-- **Mapa de Ruta y Futuras Capacidades:** [Planificación del Ecosistema ALXOL](docs/architecture/roadmap.md)
-- **Estado Actual:** Fase 2 (Filesystem Read-Only) completada con validación estricta de lista blanca y protección contra Path Traversal.
-
----
-
-## 📂 Estructura del Proyecto
-
-```text
-C:\PROYECTOS\IJF-SOR-Assistant/
-├── app.py                      # Frontend Streamlit interactivo
-├── README.md                   # Documentación principal (este archivo)
-├── requirements.txt            # Dependencias del proyecto
-├── kuns_doc_*.md               # Repositorio de KUNs por recurso (Corpus de reglas)
-├── assets/                     # Recursos estáticos (Logotipos e imágenes)
-│   └── logo.png                # Logotipo oficial de la aplicación
-├── docs/                       # Documentación del proyecto, auditorías y reportes
-│   ├── architecture/           # Especificaciones del Reference Resolution Manager (RRM) y gobernanza de referencias
-│   ├── deployment/             # Guías de instalación y despliegue (OCI)
-│   ├── project-management/     # Extracción de KUNs, inventarios y políticas de autonomía y gobernanza de IA
-│   └── reports/                # Reportes de auditoría y certificación de conformidad (AUD/CERT)
-├── src/                        # Código fuente del backend
-│   ├── graph_manager.py        # Compilador y analista de relaciones de grafos
-│   ├── vector_store.py         # Modelo vectorial TF-IDF de similitud
-│   ├── rag_engine.py           # Orquestador principal del RAG Híbrido
-│   ├── app_readme.md
-│   ├── graph_manager_readme.md
-│   ├── vector_store_readme.md
-│   └── rag_engine_readme.md
-├── tests/                      # Suite de pruebas unitarias e integración
-│   ├── test_graph_manager.py   # Pruebas del compilador de grafos
-│   ├── test_vector_store.py    # Pruebas del buscador vectorial
-│   ├── test_rag_engine.py      # Pruebas del motor RAG
-│   └── test_golden_dataset.py  # Dataset de oro (12 consultas críticas del reglamento)
-├── scratch/                    # Entregables intermedios persistidos localmente
-│   ├── knowledge_graph.json    # Estructura del grafo en formato JSON
-│   ├── vector_store_index.json # Índice de términos vectoriales en JSON
-│   └── golden_validation_report.md # Reporte de precisión RAG de la suite de oro
-└── [Carpetas de reserva con .gitkeep]
-    ├── app/                    # Reservada para submódulos de la UI
-    ├── config/                 # Reservada para configuraciones de infraestructura
-    ├── data/                   # Reservada para almacenamiento local de datos (raw, processed, vectordb)
-    ├── models/                 # Reservada para modelos de embeddings locales
-    ├── notebooks/              # Reservada para libretas Jupyter de experimentación
-    └── scripts/                # Reservada para scripts utilitarios globales
+### 1. Clonar el Repositorio
+```bash
+git clone https://github.com/Alxs68/IJF-SOR-Assistant.git
+cd IJF-SOR-Assistant
 ```
 
-> [!NOTE]
-> Las carpetas indicadas como **Carpetas de reserva** se encuentran vacías a excepción de un archivo `.gitkeep`. Esto es una práctica estándar en Git para preservar la estructura de directorios necesaria para la ejecución local de datos temporales, bases de datos o descargas que no deben subirse al control de versiones.
+### 2. Crear y Activar Entorno Virtual
+```bash
+python -m venv venv
+# En Windows:
+venv\Scripts\activate
+# En Linux/macOS:
+source venv/bin/activate
+```
 
----
-
-## 💡 Ejemplos de Preguntas y Respuestas (Q&A)
-A continuación se muestran ejemplos reales de consultas reglamentarias resueltas por el asistente con su respectiva trazabilidad técnica:
-
-### 1. Regulación de la Defensa de Cabeza (Head Defence)
-*   **Pregunta:** *¿Se permite la defensa con la cabeza?*
-*   **Respuesta:** En eventos de la categoría Cadetes (Sub-18), no se permite usar la cabeza para defenderse (se penaliza con **Shido**). Para las categorías Senior y Junior, el uso de la cabeza para defenderse o proyectar está **permitido** y ya no se penaliza. Sin embargo, el "buceo de cabeza" (head diving - zambullirse de cabeza sobre el tatami) sigue estando estrictamente prohibido para todas las categorías y se penaliza con **Hansoku-make** directo.
-*   **Citas Oficiales:** `KUN-0001` (SOR Artículo 20 - Apéndice D) y `KUN-0046` (SOR Artículo 18.1.4 - Apéndice D, Página 180).
-
-### 2. Dimensiones del Tatami y Área de Seguridad
-*   **Pregunta:** *¿Cuáles son las dimensiones del tatami?*
-*   **Respuesta:** El área de combate debe tener unas dimensiones mínimas de 8m x 8m y máximas de 10m x 10m. El área de seguridad circundante debe medir un mínimo de 3m para proteger a los atletas de caídas fuera de la plataforma.
-*   **Citas Oficiales:** `KUN-0007` (SOR Artículo 3 - Área de Competencia).
-
-### 3. Sanción de Abrazo de Oso (Bear Hug)
-*   **Pregunta:** *¿Cómo se sanciona el abrazo de oso (bear hug)?*
-*   **Respuesta:** El abrazo de oso (bear hug) en tachi-waza se penaliza con **Shido** si el atleta entrelaza ambas manos o sujeta sus propios brazos para formar un círculo alrededor del torso del rival sin haber establecido un agarre (kumikata) normal previo. Se permite si el atleta ya tenía un agarre normal establecido, o durante transiciones de ne-waza a tachi-waza.
-*   **Citas Oficiales:** `KUN-0045` (SOR Artículo 18.1.2 - Apéndice D, Página 176).
-
----
-
-## 🚀 Requisitos e Instalación
-
-### 1. Prerrequisitos
-*   **Python 3.12** o superior instalado en el sistema.
-*   Conexión a internet (para llamadas de API en Modo Conectado, opcional).
-
-### 2. Instalación de Dependencias
-Instale Streamlit (única librería externa requerida):
+### 3. Instalar Dependencias
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Configuración de API Key (Opcional)
-Para habilitar la generación de respuestas con el modelo de lenguaje de Gemini, configure la variable de entorno:
-*   **En PowerShell:**
-    ```powershell
-    $env:GEMINI_API_KEY="tu-api-key-aqui"
-    ```
-*   **En CMD:**
-    ```cmd
-    set GEMINI_API_KEY=tu-api-key-aqui
-    ```
-*Si no se configura, el sistema funcionará automáticamente en **Modo Offline (Simulado)** de manera resiliente.*
+### 4. Configurar Variables de Entorno (Opcional para Modo Conectado)
+Crear un archivo `.env` en la raíz del proyecto:
+```env
+GEMINI_API_KEY="tu-api-key-de-gemini"
+# Opcional para proveedor de respaldo:
+GROQ_API_KEY="tu-api-key-de-groq"
+```
+*(Si no se configuran claves, el sistema opera automáticamente en **Modo Local Desconectado Certificado**).*
 
----
-
-## 🥋 Ejecución de la Aplicación
-
-### 1. Ejecución Local (Desarrollo)
-Para iniciar el servidor de Streamlit y usar el chatbot localmente:
+### 5. Iniciar la Interfaz Web
 ```bash
 streamlit run app.py
 ```
-La aplicación se abrirá en su navegador predeterminado en `http://localhost:8501`.
-
-### 2. Despliegue en Producción (Oracle Cloud Infrastructure - OCI)
-La aplicación está configurada para ejecutarse como un servicio en segundo plano (Systemd) en la dirección IP pública del servidor OCI: [http://149.130.187.132:8501](http://149.130.187.132:8501).
-
-*   **Comando de Conexión SSH:**
-    ```bash
-    ssh -i "ruta/a/tu/ssh-key.key" ubuntu@149.130.187.132
-    ```
-*   **Comandos de Gestión del Servicio (Systemd):**
-    *   Ver estado del servicio: `systemctl status ijf-assistant`
-    *   Reiniciar servicio (para aplicar cambios de código): `sudo systemctl restart ijf-assistant`
-    *   Iniciar / Detener servicio: `sudo systemctl start ijf-assistant` / `sudo systemctl stop ijf-assistant`
-    *   Habilitar auto-arranque tras reinicios del servidor: `sudo systemctl enable ijf-assistant`
-*   **Variables de Entorno Seguras:**
-    La clave API de Gemini se almacena de forma segura en `/etc/ijf-assistant.env` con permisos restringidos de lectura (`chmod 640`).
-
-### ⚙️ Guía de Parámetros de Consulta (Barra Lateral)
-Para ajustar el comportamiento y la precisión de las respuestas del asistente, se exponen dos controles en el panel lateral:
-1.  **Resultados Semánticos (K):** Cantidad máxima de Unidades de Conocimiento (KUNs) recuperadas en cada consulta (Valor óptimo recomendado: `3`).
-2.  **Score Mínimo:** Umbral de similitud coseno (entre 0.05 y 0.50) requerido para validar un documento. Si la consulta tiene una relevancia inferior a este umbral (por ejemplo, preguntas de fútbol o fuera de contexto), el RAG descarta las reglas y activa el mensaje seguro de bloqueo: *"Lo siento, no tengo esa información..."* (Valor recomendado para demostraciones: `0.10`).
+Acceder en el navegador a `http://localhost:8501`.
 
 ---
 
-## 🧪 Suite de Pruebas y Validación
+## 🧪 Ejecución de Pruebas Unitarias y Regresión
 
-El proyecto incluye pruebas unitarias para cada componente y un validador del **Dataset de Oro** que ejecuta consultas complejas del reglamento real y evalúa la exactitud del buscador:
+El proyecto cuenta con una batería de pruebas exhaustiva que valida la gobernanza, la precisión de citas y la respuesta sin alucinaciones:
 
 ```bash
-# Probar el gestor de grafo
-python tests/test_graph_manager.py
-
-# Probar el motor de búsqueda vectorial
-python tests/test_vector_store.py
-
-# Probar el flujo RAG híbrido
-python tests/test_rag_engine.py
-
-# Probar el Dataset de Oro
-python tests/test_golden_dataset.py
+# Ejecutar suite de validación completa:
+python -m pytest tests/test_citation_highlighting_regression.py \
+                 tests/test_citation_highlighting.py \
+                 tests/test_response_structurer.py \
+                 tests/test_ood_detector.py \
+                 tests/test_p1_a_abstention_ood.py -v
 ```
 
-### Resultados de la Validación Final:
-*   **Tasa de Éxito de Recuperación (Golden QA):** **100.00%** (12 de 12 consultas críticas exitosas).
-*   Consulte el informe detallado en: `scratch/golden_validation_report.md`.
+---
+
+## ☁️ Despliegue en Producción (Oracle Cloud Infrastructure - OCI)
+
+La versión de producción está contenerizada mediante **Docker Compose** en una instancia VM de OCI detrás de un túnel seguro de Cloudflare:
+
+```bash
+# Conectar al servidor de producción vía SSH:
+ssh ubuntu@149.130.187.132
+
+# Actualizar a la versión más reciente de main:
+cd /home/ubuntu/IJF-SOR-Assistant
+git pull origin main
+
+# Reiniciar el contenedor de Streamlit:
+sudo docker compose restart streamlit
+```
+
+Verificar la disponibilidad del servicio:
+```bash
+curl -I https://sor.alxol.com
+```
 
 ---
 
-## 📋 Metodología de Desarrollo y Trazabilidad Documental
+## ⚖️ Gobernanza y Autoridad Documental
 
-El desarrollo de este asistente sigue una rigurosa secuencia metodológica diseñada para garantizar la entrega de un código limpio, estructurado y libre de "alucinaciones" en las respuestas de la IA:
-
-### 1. Modelado del Conocimiento y Certificación del Corpus
-*   **Extracción Sistemática:** El reglamento oficial de la IJF se fragmentó en **841 Unidades de Conocimiento certificadas (KUNs)** que aíslan la lógica normativa, cubriendo la totalidad del SOR 2026.
-*   **Auditoría de Correspondencia (AUD-001):** Se verificó que cada KUN tuviera un enlace unívoco e inalterado con su fuente de origen en el PDF oficial de la IJF (páginas, clips de video o diapositivas oficiales), alcanzando una tasa de cobertura del 100% en los temas seleccionados.
-*   **Certificado de Conformidad (CERT-001):** Garantiza la veracidad del corpus indexado, obligando al modelo de lenguaje a depender únicamente del contexto recuperado para responder.
-
-### 2. Ciclo de Vida del Repositorio y Git Flow Semántico
-Para mantener un historial de cambios trazable, legible y alineado con los estándares de la industria, se adoptaron las siguientes buenas prácticas de control de versiones:
-*   **Mensajería Semántica (Conventional Commits):** Se utilizaron prefijos estandarizados para clasificar atómicamente cada cambio en el repositorio, permitiendo una fácil lectura de la evolución del proyecto:
-    *   `feat:` para la incorporación de características lógicas (como la creación del motor RAG).
-    *   `fix:` para la corrección de errores (como permisos de archivos).
-    *   `refactor:` para optimización, desacoplamiento y limpieza de código (como la remoción del cargador manual de `.env`).
-    *   `style:` para cambios estéticos, ajustes visuales e interactividad (como el encabezado fijo y paddings de logo).
-    *   `docs:` para la redacción de reportes y READMEs técnicos.
-*   **Hitos de Versión:** Las diferentes etapas de desarrollo se estructuraron de forma incremental, culminando en la auditoría técnica final y el etiquetado del commit de producción mediante tags de Git (como `v1.0.0`) para marcar de forma profesional la versión de entrega oficial.
-
-### 3. Gobernanza Operativa y Autonomía de Agentes
-*   **Política de Gobernanza:** Todas las actividades de desarrollo, transición de fases y modificación de activos críticos en el proyecto se rigen de forma estricta por la [Política de Autonomía y Gobernanza](file:///C:/PROYECTOS/IJF-SOR-Assistant/docs/project-management/autonomy_and_governance_policy.md).
-*   **Stage Gates (Compuertas de Control):** Se definen compuertas síncronas que exigen la validación técnica y aprobación del Product Owner antes de aplicar cambios a la arquitectura aprobada, iniciar nuevas fases de desarrollo, modificar el corpus, realizar despliegues de producción en OCI o declarar cierres/certificaciones del sistema.
-
----
-
-## ⚠️ Limitaciones Conocidas del MVP v1.0
-1.  **Límite de Contexto de un Solo Salto:** El motor RAG híbrido expande las consultas semánticas de forma fija a profundidad 1 en el grafo. Para consultas que requieran encadenamiento de múltiples reglas indirectas (profundidad >= 2), el contexto podría omitir dependencias indirectas.
-2.  **Mecanismo de Recuperación Vectorial Híbrido:** El sistema es híbrido. En **Modo Conectado**, utiliza embeddings neuronales densos mediante la API oficial de Gemini (`gemini-embedding-001`) con cálculo de similitud coseno de 768 dimensiones. Si no hay conexión o no se detecta la clave API, el sistema activa automáticamente un motor **TF-IDF clásico local** para garantizar la resiliencia offline de forma transparente.
-
----
-
-## 🔮 Trabajo Futuro (Backlog v1.1)
-1.  **Embeddings Locales Offline:** Incorporar soporte para modelos de embeddings densos locales (como SentenceTransformers MiniLM) ejecutados localmente en la máquina virtual OCI para eliminar la dependencia de red incluso en el cálculo de embeddings.
-2.  **Expansión Selectiva por Tipo de Relación:** Permitir al motor filtrar dinámicamente qué aristas del grafo recorrer (ej. seguir solo relaciones `exceptua_a` o `ilustra_a`) para optimizar el tamaño del prompt.
-3.  **Evaluación Automatizada de Generación:** Integrar métricas G-Eval o Ragas para evaluar no solo la precisión de la recuperación de KUNs, sino la fidelidad y exactitud textual de la respuesta final generada por el LLM.
+- **Autoridad Normativa y Product Owner:** Alexis Oliveros Lozano
+- **Norma Primaria Oficial:** International Judo Federation (IJF) Sport and Organisation Rules (SOR), 14 de agosto de 2026.
+- **Hash SHA-256 del PDF Oficial:** `9426B10D11C21A4CB9EB23150C2C4FC95BFCD463511E66BA451D2CFF005AE620`
+- **Trazabilidad:** Cada respuesta generada enlaza directamente a la página física correspondiente del PDF oficial accesible desde el visor integrado.
