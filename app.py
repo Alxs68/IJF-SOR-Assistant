@@ -386,6 +386,80 @@ st.markdown(f"""
         color: inherit !important;
     }}
 
+    /* Titulos diferenciados en Informacion y Documentacion del Proyecto */
+    .sidebar-doc-title {{
+        color: var(--ijf-title-color) !important;
+        font-size: 0.96rem !important;
+        font-weight: 700 !important;
+        margin-top: 0.6rem !important;
+        margin-bottom: 0.35rem !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.35rem !important;
+        border-bottom: 1.5px solid rgba(96, 165, 250, 0.25) !important;
+        padding-bottom: 0.25rem !important;
+        letter-spacing: 0.01em !important;
+    }}
+    .sidebar-doc-body {{
+        color: var(--ijf-subtitle-color) !important;
+        font-size: 0.84rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 0.5rem !important;
+    }}
+    .sidebar-doc-body p,
+    .sidebar-doc-body span,
+    .sidebar-doc-body li {{
+        color: var(--ijf-subtitle-color) !important;
+        line-height: 1.55 !important;
+    }}
+    .sidebar-doc-body strong,
+    .sidebar-doc-body b {{
+        color: var(--ijf-title-color) !important;
+        font-weight: 600 !important;
+    }}
+
+    /* Suavizado de parrafos largos en el sidebar para evitar fatiga visual */
+    [data-testid="stSidebar"] [data-testid="stExpander"] p,
+    [data-testid="stSidebar"] [data-testid="stExpander"] span {{
+        color: var(--ijf-subtitle-color);
+        line-height: 1.55;
+    }}
+    [data-testid="stSidebar"] [data-testid="stExpander"] strong,
+    [data-testid="stSidebar"] [data-testid="stExpander"] b {{
+        color: var(--ijf-title-color) !important;
+    }}
+
+    /* Tarjeta de Cuotas de IA Gratuita */
+    .quota-info-card {{
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(245, 158, 11, 0.10) 100%) !important;
+        border: 1px solid var(--surface-card-border) !important;
+        border-left: 3.5px solid var(--ijf-blue-accent) !important;
+        padding: 0.75rem 0.85rem !important;
+        border-radius: 8px !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.6rem !important;
+        font-size: 0.78rem !important;
+        line-height: 1.45 !important;
+    }}
+    .quota-info-title {{
+        font-weight: 700 !important;
+        font-size: 0.88rem !important;
+        color: var(--ijf-title-color) !important;
+        margin-bottom: 0.35rem !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.35rem !important;
+    }}
+    .quota-info-body {{
+        color: var(--ijf-subtitle-color) !important;
+        font-size: 0.77rem !important;
+        line-height: 1.45 !important;
+    }}
+    .quota-info-body b,
+    .quota-info-body strong {{
+        color: var(--ijf-text-color) !important;
+    }}
+
     /* Eliminacion de fondos blancos en cajas de alerta e informativas (st.info, Guia Rapida) */
     [data-testid="stAlert"],
     [data-testid="stAlertContainer"],
@@ -1523,19 +1597,19 @@ with st.sidebar:
 
     # 5. EXPANDER: Información y Documentación del Proyecto (Colapsado)
     with st.expander(t("sidebar_docs_expander_title", lang), expanded=False):
-        st.markdown(f"**{t('sidebar_project_title', lang)}**")
-        st.markdown(t("sidebar_project_content", lang))
+        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_project_title", lang)}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="sidebar-doc-body">{t("sidebar_project_content", lang)}</div>', unsafe_allow_html=True)
         st.write("---")
-        st.markdown(f"**{t('sidebar_purpose_title', lang)}**")
-        st.markdown(t("sidebar_purpose_content", lang))
+        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_purpose_title", lang)}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="sidebar-doc-body">{t("sidebar_purpose_content", lang)}</div>', unsafe_allow_html=True)
         st.write("---")
-        st.markdown(f"**{t('sidebar_sources_title', lang)}**")
-        st.markdown(t("sidebar_sources_content", lang))
+        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_sources_title", lang)}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="sidebar-doc-body">{t("sidebar_sources_content", lang)}</div>', unsafe_allow_html=True)
         st.write("---")
-        st.markdown(f"**{t('sidebar_author_title', lang)}**")
-        st.markdown(t("sidebar_author_content", lang))
+        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_author_title", lang)}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="sidebar-doc-body">{t("sidebar_author_content", lang)}</div>', unsafe_allow_html=True)
         st.write("---")
-        st.markdown(f"**{t('sidebar_version_title', lang)}**")
+        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_version_title", lang)}</div>', unsafe_allow_html=True)
         st.markdown(f"""
 **IJF SOR Assistant**
 
@@ -1546,8 +1620,8 @@ with st.sidebar:
 {t("sidebar_source_hash", lang)} `{engine.config['source_sha256'][:16]}...`
         """)
         st.write("---")
-        st.markdown(f"**{t('sidebar_guide_title', lang)}**")
-        st.markdown(t("sidebar_guide_summary", lang))
+        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_guide_title", lang)}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="sidebar-doc-body">{t("sidebar_guide_summary", lang)}</div>', unsafe_allow_html=True)
         guide_pdf_path = os.path.join(
             os.path.dirname(os.path.abspath(__file__)),
             "docs", "guides", "IJF_SOR_Assistant_Guia_Usuario.pdf"
@@ -1565,7 +1639,7 @@ with st.sidebar:
                 )
             except Exception as e_guide:
                 st.caption(f"Error cargando guía PDF: {e_guide}")
-        st.markdown(f"**{t('sidebar_guide_quick_title', lang)}**")
+        st.markdown(f'<div class="sidebar-doc-title">{t("sidebar_guide_quick_title", lang)}</div>', unsafe_allow_html=True)
         st.info(t("sidebar_guide_quick_content", lang))
 
     # 6. EXPANDER: Configuración del Asistente (IA) (Colapsado)

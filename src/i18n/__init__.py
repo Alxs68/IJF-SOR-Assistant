@@ -261,10 +261,10 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         
         # Scope and coverage expander
         "scope_expander_title": "📋 View topics included in assistant scope and coverage",
-        "quota_info_title": "⚡ AI Quotas & Service Continuity",
-        "quota_info_desc": "This assistant uses free-tier AI models (Gemini / Groq). If provider rate or token quotas are reached, the assistant automatically activates Local Alternative Mode (certified extraction from the official SOR), ensuring continuous and verifiable regulatory answers.",
+        "quota_info_title": "⚡ Free AI Quotas & Service Continuity",
+        "quota_info_desc": ("This assistant operates with <b>free-tier</b> community AI models:<br>""• <b>Google Gemini:</b> Limit of 15 queries/min and 1,500/day.<br>""• <b>Groq (Backup):</b> Limit of 30 queries/min.<br>""<div style='margin-top: 6px; padding: 6px 8px; background: rgba(59, 130, 246, 0.08); border-radius: 6px; border: 1px solid var(--surface-card-border); font-size: 0.75rem;'>""🛡️ <b>What happens if a quota is reached?</b><br>""<b>The assistant DOES NOT stop working:</b> It automatically switches to <b>Local Alternative Mode</b> (certified algorithmic extraction from official SOR 2026), ensuring uninterrupted and 100% verifiable answers without external server dependencies.""</div>"),
         "local_fallback_banner_title": "⚡ Local Alternative Mode Active",
-        "local_fallback_banner_desc": "The free-tier AI model quota was reached or the external service is temporarily unavailable. The assistant is responding via certified direct extraction from official SOR 2026, guaranteeing complete continuity and regulatory fidelity.",
+        "local_fallback_banner_desc": "The free-tier AI quota limit was reached (15 queries/min on Gemini or 30/min on Groq). The assistant continues operating normally via Local Alternative Mode (certified algorithmic extraction from official SOR 2026).",
         "sidebar_docs_expander_title": "ℹ️ Project Information & Official Documentation",
         "sidebar_llm_expander_title": "⚙️ Assistant AI Configuration",
         "sidebar_kg_expander_title": "🕸️ Knowledge Graph (KG)",
@@ -562,8 +562,8 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         
         # Scope and coverage expander
         "scope_expander_title": "📋 Ver temas incluidos en alcance y cobertura del asistente",
-        "quota_info_title": "⚡ Cuotas de IA y Continuidad de Servicio",
-        "quota_info_desc": "Este asistente utiliza modelos de IA de nivel gratuito (Gemini / Groq). Si se alcanza el límite temporal de cuotas del proveedor o no hay conexión, se activa de forma automática el Modo Alternativo Local (extracción certificada del SOR oficial), garantizando respuestas normativas ininterrumpidas y verificables.",
+        "quota_info_title": "⚡ Cuotas de IA Gratuita y Continuidad",
+        "quota_info_desc": ("Este asistente opera con modelos de IA en modalidad <b>gratuita</b> para la comunidad:<br>""• <b>Google Gemini:</b> Límite de 15 consultas/minuto y 1.500/día.<br>""• <b>Groq (Respaldo):</b> Límite de 30 consultas/minuto.<br>""<div style='margin-top: 6px; padding: 6px 8px; background: rgba(59, 130, 246, 0.08); border-radius: 6px; border: 1px solid var(--surface-card-border); font-size: 0.75rem;'>""🛡️ <b>¿Qué ocurre si se alcanza el límite de cuota?</b><br>""<b>El asistente NO deja de funcionar:</b> Se activa de inmediato el <b>Modo Alternativo Local</b> (extracción algorítmica certificada del SOR 2026 oficial), garantizando respuestas oficiales continuas y verificables sin depender de servidores externos.""</div>"),
         "local_fallback_banner_title": "⚡ Modo Alternativo Local Activo",
         "local_fallback_banner_desc": "Se ha alcanzado la cuota de consultas del modelo de IA gratuito o el servicio externo está temporalmente no disponible. El asistente está respondiendo mediante extracción directa certificada del SOR 2026 oficial, asegurando continuidad y fidelidad reglamentaria.",
         "sidebar_docs_expander_title": "ℹ️ Información y Documentación del Proyecto",
