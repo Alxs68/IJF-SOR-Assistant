@@ -31,6 +31,9 @@ archive/
 # User feedback dynamic observations (privacy)
 data/feedback/*.jsonl
 
+# Dynamic API token usage metrics
+data/usage_metrics.json*
+
 # Unprocessed raw pages from historical rebuild
 data/processed/rebuild_2026_08/pages_raw/
 

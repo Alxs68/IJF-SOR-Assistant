@@ -32,6 +32,9 @@ from feedback_manager import (
 )
 from i18n import t
 from response_structurer import clean_presentation_text, sanitize_presentation_html
+from usage_tracker import get_usage_tracker
+
+usage_tracker = get_usage_tracker()
 
 def render_custom_html(html_content: str):
     """Inserta HTML en la UI evitando la interpretacion CommonMark como bloque de codigo."""
@@ -858,6 +861,60 @@ st.markdown(f"""
     .quota-info-body b,
     .quota-info-body strong {{
         color: var(--ijf-text-color) !important;
+    }}
+
+    /* Métricas de Tokens y Tarjeta de Viabilidad API */
+    .token-usage-pill {{
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 0.45rem !important;
+        background: var(--surface-card-bg) !important;
+        border: 1px solid var(--surface-card-border) !important;
+        border-left: 3.5px solid var(--ijf-blue-accent) !important;
+        color: var(--ijf-subtitle-color) !important;
+        font-size: 0.76rem !important;
+        font-family: 'SF Mono', 'Fira Code', monospace !important;
+        padding: 0.3rem 0.65rem !important;
+        border-radius: 6px !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.35rem !important;
+    }}
+    .token-usage-card {{
+        background: var(--surface-card-bg) !important;
+        border: 1px solid var(--surface-card-border) !important;
+        border-radius: 8px !important;
+        padding: 0.75rem 0.85rem !important;
+        margin-top: 0.6rem !important;
+        margin-bottom: 0.6rem !important;
+        font-size: 0.78rem !important;
+        line-height: 1.45 !important;
+    }}
+    .token-viability-badge {{
+        display: inline-block !important;
+        background: rgba(16, 185, 129, 0.15) !important;
+        color: #10b981 !important;
+        border: 1px solid rgba(16, 185, 129, 0.3) !important;
+        padding: 0.2rem 0.5rem !important;
+        border-radius: 4px !important;
+        font-weight: 700 !important;
+        font-size: 0.75rem !important;
+        margin-bottom: 0.4rem !important;
+    }}
+    .token-projection-table {{
+        width: 100% !important;
+        border-collapse: collapse !important;
+        font-size: 0.75rem !important;
+        margin-top: 0.4rem !important;
+    }}
+    .token-projection-table th, .token-projection-table td {{
+        padding: 0.25rem 0.4rem !important;
+        border-bottom: 1px solid var(--surface-card-border) !important;
+        text-align: left !important;
+        color: var(--ijf-text-color) !important;
+    }}
+    .token-projection-table th {{
+        color: var(--ijf-title-color) !important;
+        font-weight: 600 !important;
     }}
 
     /* Eliminacion de fondos blancos en cajas de alerta e informativas (st.info, Guia Rapida) */
@@ -2108,7 +2165,76 @@ with st.sidebar:
             env_var_name = MultiProviderLLMManager.SUPPORTED_PROVIDERS[selected_prov]["env_key"]
             st.caption(t("key_missing", lang, env_var=env_var_name))
 
-    # 7. EXPANDER: Historial de Consultas (Colapsado)
+    # 7. EXPANDER: Consumo de Tokens y Métricas API (Colapsado)
+    with st.expander(t("usage_metrics_expander_title", lang), expanded=False):
+        u_metrics = usage_tracker.get_metrics()
+        
+        st.markdown(f"**{t('usage_metrics_card_title', lang)}**")
+        
+        ucol1, ucol2 = st.columns(2)
+        with ucol1:
+            st.metric(
+                t("usage_total_queries", lang),
+                f"{u_metrics['total_queries']:,}",
+                delta=f"{u_metrics['queries_with_llm']} IA | {u_metrics['queries_local']} Loc" if u_metrics['total_queries'] > 0 else None,
+                help="Total acumulado de consultas formuladas al asistente."
+            )
+            st.metric(
+                t("usage_avg_tokens", lang),
+                f"{u_metrics['avg_tokens_per_query']:,}",
+                delta=f"E: {u_metrics['avg_prompt_tokens']:,} | S: {u_metrics['avg_completion_tokens']:,}" if u_metrics['queries_with_llm'] > 0 else None,
+                help="Promedio histórico de tokens por consulta (entrada y salida)."
+            )
+        with ucol2:
+            st.metric(
+                t("usage_last_tokens", lang),
+                f"{u_metrics['last_query']['total_tokens']:,}",
+                delta=f"E: {u_metrics['last_query']['prompt_tokens']:,} | S: {u_metrics['last_query']['completion_tokens']:,}" if u_metrics['last_query']['total_tokens'] > 0 else None,
+                help="Tokens consumidos en la última consulta ejecutada."
+            )
+            st.metric(
+                t("usage_est_cost", lang),
+                f"${u_metrics['total_cost_usd']:.4f} USD",
+                delta=f"~${u_metrics['avg_cost_per_query_usd']:.5f} / q" if u_metrics['total_queries'] > 0 else None,
+                help="Costo total estimado acumulado según tarifas oficiales de Google Gemini."
+            )
+
+        # Tarjeta de Viabilidad Económica de Renta de API Key
+        proj = u_metrics["projections"]
+        q_per_dlr = u_metrics["queries_per_dollar"]
+        st.markdown(f"""
+<div class="token-usage-card">
+    <div class="token-viability-badge">✓ {t('usage_viability_title', lang)}</div>
+    <div>{t('usage_viability_verdict', lang)}</div>
+    <div style="margin-top:0.45rem; font-weight:600; color:var(--ijf-title-color);">
+        ⚡ {t('usage_queries_per_usd', lang)}: <span style="color:#10b981; font-size:0.9rem;">~{q_per_dlr:,} consultas</span>
+    </div>
+    <table class="token-projection-table">
+        <thead>
+            <tr>
+                <th>Volumen</th>
+                <th>Costo estimado (USD)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>500 consultas</td><td>~${proj['queries_500_usd']:.3f} USD</td></tr>
+            <tr><td>1,000 consultas</td><td>~${proj['queries_1000_usd']:.3f} USD</td></tr>
+            <tr><td>5,000 consultas</td><td>~${proj['queries_5000_usd']:.2f} USD</td></tr>
+            <tr><td>10,000 consultas</td><td>~${proj['queries_10000_usd']:.2f} USD</td></tr>
+        </tbody>
+    </table>
+    <div style="margin-top:0.4rem; font-size:0.72rem; color:var(--ijf-subtitle-color);">
+        *Estimación basada en tarifas de Google AI Studio / Gemini API.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+        if st.button(t("usage_reset_btn", lang), key="reset_usage_metrics_btn", use_container_width=True):
+            usage_tracker.reset_metrics()
+            st.success(t("usage_reset_success", lang))
+            st.rerun()
+
+    # 8. EXPANDER: Historial de Consultas (Colapsado)
     if len(st.session_state.history) > 0:
         with st.expander(t("sidebar_history_expander_title", lang), expanded=False):
             options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
@@ -2435,6 +2561,16 @@ if query_to_run:
                         dot_code += f'  "{node_id}" -> "{dest_id}" [label="{edge["tipo_relacion"]}", fontsize=8];\n'
         dot_code += "}"
 
+        q_tok_usage = res.get("token_usage") or res.get("llm_meta", {}).get("token_usage", {})
+        q_prov = res.get("llm_meta", {}).get("successful_provider") or ("Gemini" if is_connected else "Local")
+        q_mod = res.get("llm_meta", {}).get("successful_model") or ("gemini-flash-lite-latest" if is_connected else "deterministic")
+        usage_tracker.record_query(
+            query_text=query_to_run,
+            token_usage=q_tok_usage,
+            provider=q_prov,
+            model=q_mod
+        )
+
         st.session_state.history.append({
             "query": query_to_run,
             "answer": res['answer'],
@@ -2442,6 +2578,7 @@ if query_to_run:
             "trazabilidad": retrieved_kuns,
             "dot_code": dot_code,
             "llm_meta": res.get("llm_meta", {}),
+            "token_usage": q_tok_usage,
             "rre_operating_mode": res.get("rre_operating_mode", getattr(engine.rre, "operating_mode", "UNKNOWN")),
             "degradation_reason": res.get("degradation_reason"),
             "source_sha256_verified": res.get("source_sha256_verified", False)
@@ -2699,6 +2836,19 @@ if st.session_state.active_index >= 0:
                         )
                         clean_summary = safe_ans
 
+                # Píldora de Consumo de Tokens y Promedio en Respuesta
+                cur_u = item.get("token_usage") or item_llm_meta.get("token_usage", {})
+                p_tok = int(cur_u.get("prompt_tokens", 0))
+                c_tok = int(cur_u.get("completion_tokens", 0))
+                t_tok = int(cur_u.get("total_tokens", 0))
+                if t_tok == 0 and (p_tok > 0 or c_tok > 0):
+                    t_tok = p_tok + c_tok
+                
+                live_avg = usage_tracker.get_metrics()["avg_tokens_per_query"]
+                if t_tok > 0:
+                    badge_str = t("usage_response_badge", lang, tokens=f"{t_tok:,}", prompt=f"{p_tok:,}", completion=f"{c_tok:,}", avg=f"{live_avg:,}")
+                    st.markdown(f'<div class="token-usage-pill">{badge_str}</div>', unsafe_allow_html=True)
+
                 # 3. VER FUNDAMENTACIÓN NORMATIVA Y ANÁLISIS COMPLETO (Colapsado por defecto)
                 has_details = False
                 has_graph = bool(item.get('dot_code') and "->" in item.get('dot_code', ''))
@@ -2778,6 +2928,10 @@ if st.session_state.active_index >= 0:
     <div class="audit-panel-item">
         <div class="audit-panel-label">{t('audit_provider_title', lang)}</div>
         <div class="audit-panel-value">🤖 {prov_name} ({model_name})</div>
+    </div>
+    <div class="audit-panel-item">
+        <div class="audit-panel-label">{t('audit_tokens_title', lang)}</div>
+        <div class="audit-panel-value">🔢 {t_tok:,} (P: {p_tok:,} | R: {c_tok:,}) • Prom: {live_avg:,}</div>
     </div>
 </div>
 """, unsafe_allow_html=True)

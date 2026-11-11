@@ -144,7 +144,17 @@ class ArbitrationDecisionAssistant:
 
         try:
             llm_res = self._call_llm(prompt)
-            raw_text = llm_res[0] if isinstance(llm_res, tuple) else llm_res
+            raw_text = None
+            trans_meta = {}
+            if isinstance(llm_res, tuple) and len(llm_res) >= 2:
+                raw_text, trans_meta = llm_res[0], llm_res[1]
+            elif isinstance(llm_res, str):
+                raw_text = llm_res
+
+            self._last_translation_usage = trans_meta.get("token_usage", {
+                "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0
+            })
+
             if raw_text and isinstance(raw_text, str):
                 cleaned = raw_text.strip().strip('"\'`')
                 lines = [l.strip() for l in cleaned.splitlines() if l.strip()]
@@ -188,6 +198,43 @@ class ArbitrationDecisionAssistant:
         4. LLM synthesis with two-tier contract or structured local brief.
         5. Citing verified articles and PDF pages with physical anchors.
         """
+        # Fast pre-check: if query contains clear negative domain anchors (e.g. NBA, Formula 1), abstain without LLM translation cost
+        try:
+            from negative_domain_anchor_scoring import NegativeDomainAnchorScorer
+            neg_check = NegativeDomainAnchorScorer.score_negative_domain(situation_query)
+            if neg_check.is_ood:
+                retrieval_res = self.rre.retrieve(situation_query, top_k=top_k, expand_graph=False)
+                if retrieval_res.get("status") == "ABSTAIN":
+                    abstain_msg = (
+                        f"⚠️ **Abstención Normativa Oficial ({self.config['version_label']})**\n\n"
+                        "La situación o consulta planteada no encuentra respaldo ni evidencia suficiente en los artículos "
+                        "certificados del reglamento deportivo y de organización de la IJF (SOR 2026-08).\n\n"
+                        "*Por razones de rigor técnico y arbitral, el asistente no formula suposiciones no documentadas.*"
+                    )
+                    return {
+                        "status": "ABSTAIN",
+                        "query": situation_query,
+                        "analysis": abstain_msg,
+                        "structured_answer": {
+                            "summary": abstain_msg,
+                            "normative_basis": "",
+                            "citations": [],
+                            "conditions_and_exceptions": "",
+                            "extended_analysis": "",
+                            "limitations": "Consulta fuera del dominio reglamentario certificado o evidencia insuficiente.",
+                            "is_structured": True
+                        },
+                        "evidence": [],
+                        "related_passages": [],
+                        "engine": "ADA-RRE-v2",
+                        "rre_operating_mode": retrieval_res.get("operating_mode", "UNKNOWN"),
+                        "degradation_reason": retrieval_res.get("degradation_reason"),
+                        "source_sha256_verified": retrieval_res.get("source_sha256_verified", False),
+                        "token_usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+                    }
+        except Exception:
+            pass
+
         search_query_en = self._translate_to_technical_english(situation_query)
         retrieval_res = self.rre.retrieve(search_query_en, top_k=top_k, expand_graph=True)
 
@@ -216,7 +263,8 @@ class ArbitrationDecisionAssistant:
                 "engine": "ADA-RRE-v2",
                 "rre_operating_mode": retrieval_res.get("operating_mode", "UNKNOWN"),
                 "degradation_reason": retrieval_res.get("degradation_reason"),
-                "source_sha256_verified": retrieval_res.get("source_sha256_verified", False)
+                "source_sha256_verified": retrieval_res.get("source_sha256_verified", False),
+                "token_usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
             }
 
         evidence = retrieval_res["evidence"]
@@ -341,6 +389,23 @@ class ArbitrationDecisionAssistant:
             llm_answer, llm_meta = llm_res
         else:
             llm_answer, llm_meta = llm_res, {}
+
+        # Consolidate token usage from translation step (if any) and analysis step
+        main_usage = llm_meta.get("token_usage", {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0})
+        trans_usage = getattr(self, "_last_translation_usage", {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0})
+        self._last_translation_usage = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+
+        total_p = trans_usage.get("prompt_tokens", 0) + main_usage.get("prompt_tokens", 0)
+        total_c = trans_usage.get("completion_tokens", 0) + main_usage.get("completion_tokens", 0)
+        total_t = total_p + total_c
+        query_token_usage = {
+            "prompt_tokens": total_p,
+            "completion_tokens": total_c,
+            "total_tokens": total_t,
+            "translation_tokens": trans_usage,
+            "analysis_tokens": main_usage
+        }
+        llm_meta["token_usage"] = query_token_usage
 
         citations_valid = self._validate_llm_citations(llm_answer, evidence, related)
 
@@ -471,7 +536,8 @@ class ArbitrationDecisionAssistant:
             "degradation_reason": retrieval_res.get("degradation_reason"),
             "source_sha256_verified": retrieval_res.get("source_sha256_verified", False),
             "certified_bundle": certified_bundle.model_dump(),
-            "llm_meta": llm_meta
+            "llm_meta": llm_meta,
+            "token_usage": query_token_usage
         }
 
     def _validate_llm_citations(self, answer: str | None, evidence: list, related: list) -> bool:

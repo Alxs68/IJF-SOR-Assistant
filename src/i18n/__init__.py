@@ -318,7 +318,28 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
             ("Sokuteiki usage", "What is the Sokuteiki and how is it used?"),
             ("Reverse seoi-nage", "How is reverse seoi-nage penalised in the cadet category?"),
             ("Judogi colour rules", "What are the official Judogi colour rules?"),
-        ]
+        ],
+
+        # Token metrics & API Key viability
+        "usage_metrics_expander_title": "📊 API Usage & Token Metrics",
+        "usage_metrics_card_title": "API Consumption & Viability Monitor",
+        "usage_total_queries": "Total Inquiries",
+        "usage_llm_queries": "Queries with LLM",
+        "usage_local_queries": "Local / Deterministic",
+        "usage_last_tokens": "Last Query Tokens",
+        "usage_avg_tokens": "Average Tokens / Query",
+        "usage_prompt_tokens": "Prompt (Input)",
+        "usage_completion_tokens": "Response (Output)",
+        "usage_total_accumulated": "Accumulated Tokens",
+        "usage_est_cost": "Estimated API Cost",
+        "usage_avg_cost_query": "Avg Cost / Query",
+        "usage_queries_per_usd": "Estimated Queries per $1 USD",
+        "usage_viability_title": "💡 API Key Rental & Cost Viability",
+        "usage_viability_verdict": "Highly viable: Official Gemini rates make high-volume operational use exceptionally affordable.",
+        "usage_reset_btn": "🔄 Reset Metrics",
+        "usage_reset_success": "Metrics reset successfully.",
+        "usage_response_badge": "📊 Tokens: {tokens} (Input: {prompt} | Output: {completion}) • Running Avg: {avg} tokens/query",
+        "audit_tokens_title": "Token Usage & Running Avg",
     },
     "es": {
         # App metadata & headers
@@ -621,7 +642,28 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
             ("Sokuteiki y su uso", "¿Qué es el Sokuteiki y cómo se usa?"),
             ("Reverse seoi-nage", "¿Cómo se sanciona el reverse seoi-nage en cadetes?"),
             ("Color de Judogi", "¿Cuáles son las reglas de color de Judogi?"),
-        ]
+        ],
+
+        # Token metrics & API Key viability
+        "usage_metrics_expander_title": "📊 Consumo de Tokens y Métricas API",
+        "usage_metrics_card_title": "Monitor de Consumo y Viabilidad API",
+        "usage_total_queries": "Consultas Totales",
+        "usage_llm_queries": "Consultas con IA",
+        "usage_local_queries": "Modo Local / Determinista",
+        "usage_last_tokens": "Tokens Última Consulta",
+        "usage_avg_tokens": "Promedio Tokens / Consulta",
+        "usage_prompt_tokens": "Entrada (Prompt)",
+        "usage_completion_tokens": "Salida (Respuesta)",
+        "usage_total_accumulated": "Tokens Acumulados",
+        "usage_est_cost": "Costo Estimado Acumulado",
+        "usage_avg_cost_query": "Costo Promedio / Consulta",
+        "usage_queries_per_usd": "Consultas Estimadas por $1 USD",
+        "usage_viability_title": "💡 Viabilidad Económica de Renta de API Key",
+        "usage_viability_verdict": "Altamente viable: Las tarifas oficiales de Gemini hacen que el asistente resulte extraordinariamente económico para uso intensivo.",
+        "usage_reset_btn": "🔄 Reiniciar Estadísticas",
+        "usage_reset_success": "Contadores de métricas reiniciados exitosamente.",
+        "usage_response_badge": "📊 Consumo: {tokens} tokens (Entrada: {prompt} | Salida: {completion}) • Promedio acumulado: {avg} tokens/consulta",
+        "audit_tokens_title": "Consumo de Tokens y Promedio",
     }
 }
 

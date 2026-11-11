@@ -26,6 +26,7 @@ class BaseLLMClient:
     def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
         self.api_key = api_key
         self.model = model
+        self.last_usage: Dict[str, int] = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
 
     def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         raise NotImplementedError
@@ -68,6 +69,20 @@ class GeminiClient(BaseLLMClient):
             req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers, method='POST')
             with urllib.request.urlopen(req, timeout=25) as response:
                 res_data = json.loads(response.read().decode('utf-8'))
+                
+                # Extract token usage metadata from Gemini response
+                usage_meta = res_data.get('usageMetadata', {})
+                p_tok = int(usage_meta.get('promptTokenCount', 0))
+                c_tok = int(usage_meta.get('candidatesTokenCount', 0))
+                t_tok = int(usage_meta.get('totalTokenCount', 0))
+                if t_tok == 0 and (p_tok > 0 or c_tok > 0):
+                    t_tok = p_tok + c_tok
+                self.last_usage = {
+                    "prompt_tokens": p_tok,
+                    "completion_tokens": c_tok,
+                    "total_tokens": t_tok
+                }
+
                 candidates = res_data.get('candidates', [])
                 if candidates:
                     parts = candidates[0].get('content', {}).get('parts', [])
@@ -153,6 +168,20 @@ class GroqClient(BaseLLMClient):
             req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers, method='POST')
             with urllib.request.urlopen(req, timeout=25) as response:
                 res_data = json.loads(response.read().decode('utf-8'))
+
+                # Extract token usage metadata from Groq response
+                usage_meta = res_data.get('usage', {})
+                p_tok = int(usage_meta.get('prompt_tokens', 0))
+                c_tok = int(usage_meta.get('completion_tokens', 0))
+                t_tok = int(usage_meta.get('total_tokens', 0))
+                if t_tok == 0 and (p_tok > 0 or c_tok > 0):
+                    t_tok = p_tok + c_tok
+                self.last_usage = {
+                    "prompt_tokens": p_tok,
+                    "completion_tokens": c_tok,
+                    "total_tokens": t_tok
+                }
+
                 choices = res_data.get('choices', [])
                 if choices:
                     return choices[0].get('message', {}).get('content', '')
@@ -307,6 +336,7 @@ class MultiProviderLLMManager:
             "successful_model": None,
             "fallback_triggered": False,
             "fallback_reason": None,
+            "token_usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0},
             "errors": {}
         }
 
@@ -336,6 +366,9 @@ class MultiProviderLLMManager:
                 if text:
                     meta["successful_provider"] = prov
                     meta["successful_model"] = client.model
+                    meta["token_usage"] = getattr(client, "last_usage", {
+                        "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0
+                    })
                     if i > 0:
                         meta["fallback_triggered"] = True
                     return text, meta

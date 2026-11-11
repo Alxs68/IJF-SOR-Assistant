@@ -250,7 +250,8 @@ class RagEngine:
                 'degradation_reason': ada_res.get('degradation_reason'),
                 'source_sha256_verified': ada_res.get('source_sha256_verified', False),
                 'certified_bundle': ada_res.get('certified_bundle'),
-                'llm_meta': ada_res.get('llm_meta', {})
+                'llm_meta': ada_res.get('llm_meta', {}),
+                'token_usage': ada_res.get('token_usage', ada_res.get('llm_meta', {}).get('token_usage', {'prompt_tokens': 0, 'completion_tokens': 0, 'total_tokens': 0}))
             }
 
         # 2. Legacy RAG Flow for 2026-01
