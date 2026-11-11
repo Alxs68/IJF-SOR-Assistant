@@ -93,7 +93,7 @@ class ArbitrationDecisionAssistant:
         q_clean = query.strip()
         q_lower = q_clean.lower()
 
-        # Check for Spanish markers (accented chars, ñ, or key Spanish judo inquiry terms)
+        # Check for Spanish markers (accented chars, ñ, universal Spanish stopwords, or judo keywords)
         has_spanish_chars = bool(re.search(r"[áéíóúüñ¿¡]", q_lower))
         spanish_keywords = {
             "duracion", "duración", "sancion", "sanción", "sanciones", "combate", "combates",
@@ -105,7 +105,13 @@ class ArbitrationDecisionAssistant:
             "inmovilizacion", "inmovilización", "inmovilizaciones", "estrangulacion", "estrangulación",
             "luxacion", "luxación", "proyeccion", "proyección", "proyecciones", "lanzamiento",
             "agarre", "agarres", "entrenador", "entrenadores", "arbitro", "árbitro", "arbitros",
-            "puente", "prohibido", "permitido", "falta", "faltas", "castigo", "castigos", "insulto", "insultos", "insulta", "agrede", "agresion", "agresión", "golpe", "procede", "reverse"
+            "puente", "prohibido", "permitido", "falta", "faltas", "castigo", "castigos", "insulto",
+            "insultos", "insulta", "agrede", "agresion", "agresión", "golpe", "procede", "reverse",
+            "saludo", "saludos", "saludar", "reverencia", "equipo", "equipos", "mixto", "mixtos",
+            "mixta", "mixtas", "tolerancia", "presentarse", "presenta", "presentan", "comparecer",
+            "comparecencia", "incomparecencia", "llamada", "antes", "despues", "competencia",
+            "el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "al", "en", "por",
+            "para", "con", "sin", "sobre", "entre", "es", "son", "se", "su", "sus", "este", "esta"
         }
         tokens = set(re.findall(r"\b[a-zA-Záéíóúüñ]{2,}\b", q_lower))
         has_spanish_keywords = bool(tokens & spanish_keywords)
@@ -128,6 +134,8 @@ class ArbitrationDecisionAssistant:
             "   - veteranos / master / categoría de edad -> regulations for veterans age divisions contest duration category combining\n"
             "   - antidopaje / control dopaje -> medical and anti-doping handbook doping control selection procedure\n"
             "   - accion simultanea / ambos caen / ataque simultaneo -> simultaneous action both athletes fall tatami no score Article 14 Article 13 golden score\n"
+            "   - saludo / saludo equipos / equipos mixtos / reverencia -> Article 9 Start of the Contest bowing ceremony team competition mixed team encounter rei otagai-ni technical table\n"
+            "   - tiempo de tolerancia / presentarse en el tatami / comparecer / incomparecencia -> Article 19.1 Default 30-second rule failure to appear countdown scoreboard fusen-gachi\n"
             "   - disciplinario / comite disciplinario -> IJF Disciplinary Committee Disciplinary Code sports integrity betting sanctions\n"
             "3. Output ONLY the translated technical English query without any explanation, markdown formatting, quotes, or trailing notes.\n\n"
             f"Query to translate: {q_clean}\n"
@@ -147,6 +155,27 @@ class ArbitrationDecisionAssistant:
                             return candidate
         except Exception:
             pass
+
+        # Robust offline deterministic dictionary projection fallback
+        proj_parts = []
+        for w in re.findall(r"\b[a-zA-Z0-9_\-]{2,}\b", q_lower):
+            clean_w = w.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u").replace("ñ", "n")
+            if clean_w in self.rre.SPANISH_TO_ENGLISH_SYNONYMS:
+                proj_parts.append(self.rre.SPANISH_TO_ENGLISH_SYNONYMS[clean_w])
+            elif clean_w in {"saludo", "saludos", "saludar"}:
+                proj_parts.append("bowing bow ceremony rei otagai-ni")
+            elif clean_w in {"equipos", "equipo"}:
+                proj_parts.append("team teams")
+            elif clean_w in {"mixtos", "mixto", "mixtas", "mixta"}:
+                proj_parts.append("mixed")
+            elif clean_w in {"tolerancia"}:
+                proj_parts.append("tolerance 30-second rule countdown scoreboard fusen-gachi")
+            elif clean_w in {"presentarse", "presenta", "comparecer", "comparecencia"}:
+                proj_parts.append("appear appearance failure to appear 30-second fusen-gachi")
+            elif clean_w not in {"en", "la", "de", "del", "por", "para", "con", "el", "los", "las", "un", "una", "al", "es", "son", "se", "su", "sus", "cual", "que"}:
+                proj_parts.append(w)
+        if proj_parts:
+            return " ".join(proj_parts)
 
         return q_clean
 

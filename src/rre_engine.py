@@ -538,6 +538,26 @@ class ReasoningRetrievalEngine:
         "master": "veteran",
         "masters": "veterans",
         "antidopaje": "doping control anti-doping",
+        "saludo": "bowing bow ceremony rei otagai-ni",
+        "saludos": "bowing bow ceremony rei",
+        "saludar": "bowing bow rei",
+        "reverencia": "bowing bow rei",
+        "equipo": "team teams encounter",
+        "equipos": "team teams encounter",
+        "mixto": "mixed team teams",
+        "mixtos": "mixed team teams",
+        "mixta": "mixed team teams",
+        "mixtas": "mixed team teams",
+        "tolerancia": "tolerance 30-second rule countdown scoreboard fusen-gachi",
+        "presentarse": "appear appearance failure to appear 30-second rule countdown fusen-gachi",
+        "presenta": "appear appearance failure to appear 30-second rule countdown fusen-gachi",
+        "presentan": "appear appearance failure to appear 30-second rule countdown fusen-gachi",
+        "comparecer": "appear appearance failure to appear 30-second rule countdown fusen-gachi",
+        "comparecencia": "appear appearance failure to appear 30-second rule countdown fusen-gachi",
+        "incomparecencia": "failure to appear fusen-gachi default 30-second countdown",
+        "simultanea": "simultaneous both fall tatami Article 14 Article 13",
+        "simultaneo": "simultaneous both fall tatami Article 14 Article 13",
+        "simultaneas": "simultaneous both fall tatami Article 14 Article 13",
         "dopaje": "doping control anti-doping",
         "disciplinario": "disciplinary committee code sanctions",
         "disciplinaria": "disciplinary committee code sanctions",
@@ -859,7 +879,10 @@ class ReasoningRetrievalEngine:
             "veterano", "veteranos", "master", "masters", "veteran", "veterans",
             "antidopaje", "dopaje", "doping", "anti-doping",
             "disciplinario", "disciplinaria", "disciplinary",
-            "entrenador", "entrenadores", "coach", "coaches", "vestimenta"
+            "entrenador", "entrenadores", "coach", "coaches", "vestimenta",
+            "saludo", "saludos", "saludar", "reverencia", "equipo", "equipos", "mixto", "mixtos",
+            "tolerancia", "presentarse", "presenta", "comparecer", "comparecencia", "incomparecencia",
+            "simultanea", "simultaneo", "simultaneas", "fusen-gachi", "fusengachi"
         }
         for t in raw_direct_tokens:
             if t in JUDO_TECHNICAL_IMMUNITY:

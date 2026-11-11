@@ -1021,12 +1021,70 @@ def build_deterministic_structured_answer(
         )
 
     
+    # Ceremonia de Saludo en Equipos Mixtos (Art. 9.1, págs. 153–154)
+    is_mixed_team_bowing_q = (
+        any(w in clean_q for w in ["saludo", "saludos", "saludar", "reverencia", "rei", "otagai"]) and
+        any(w in clean_q for w in ["equipo", "equipos", "mixto", "mixtos", "mixta", "team", "teams"])
+    )
+    if is_mixed_team_bowing_q:
+        clean_sent = (
+            "Protocolo ceremonial de saludo en la competencia por equipos mixtos (SOR 2026-08, Art. 9.1, págs. 153–154): "
+            "(1) Entrada y alineación: Los equipos ingresan en línea por el borde exterior del área de combate, ubicándose frente a frente según el orden del sorteo de categorías de peso. "
+            "(2) Saludo a la Mesa Técnica: A la indicación del árbitro central, los equipos avanzan al tatami; el árbitro extiende sus brazos paralelos hacia el frente con palmas abiertas y anuncia «Rei!», realizando ambos equipos una reverencia simultánea hacia la mesa oficial (el árbitro no se inclina). "
+            "(3) Saludo mutuo entre equipos: El árbitro coloca sus brazos en ángulo recto con antebrazos hacia arriba y palmas enfrentadas, anunciando «Otagai-ni Rei!» para que ambos equipos se saluden mutuamente frente a frente. "
+            "(4) Desarrollo y Saludo final: Tras el saludo, los atletas salen por el mismo punto de ingreso para disputar los combates individuales (con saludo individual estándar). Al término del encuentro, ambos equipos retornan a la misma formación para el anuncio del ganador y el saludo final en orden inverso: primero saludo mutuo entre equipos («Otagai-ni Rei!») y por último saludo conjunto a la mesa técnica («Rei!»)."
+        )
+
+    # Comparecencia en el tatami, Regla de los 30 segundos y Fusen-gachi (Art. 19.1, pág. 195)
+    is_appearance_tolerance_q = (
+        any(w in clean_q for w in ["tiempo de tolerancia", "tolerancia para presentarse", "presentarse en el tatami", "comparecer", "comparecencia", "incomparecencia", "no se presenta", "no comparece", "fusen-gachi", "fusen gachi"]) or
+        (any(w in clean_q for w in ["tolerancia", "tiempo"]) and any(w in clean_q for w in ["tatami", "presentarse", "descalificacion", "llamada"]))
+    )
+    if is_appearance_tolerance_q:
+        clean_sent = (
+            "Tiempo de tolerancia para presentarse en el tatami y Regla de los 30 segundos (SOR 2026-08, Art. 19.1, pág. 195): "
+            "El tiempo límite de tolerancia oficial es de treinta (30) segundos. "
+            "Tras la convocatoria formal del atleta ausente por megafonía/marcador, se activa una cuenta regresiva de 30 segundos en el marcador electrónico. "
+            "Si el atleta no comparece en el tatami antes de agotarse los 30 segundos, el árbitro central declara al oponente presente ganador del combate por Fusen-gachi (incomparecencia/abandono)."
+        )
+
     # Acción Simultánea / Ambos caen / Ataque simultáneo / Posibilidad de puntuación (Art. 14, pág. 167; Art. 13.3/13.4, pág. 164; Apéndice A1.6, pág. 103)
     is_simultaneous_q = (
         any(w in clean_q for w in ["simultanea", "simultaneo", "simultaneas", "simultaneous", "al tiempo", "a la vez", "ambos caen", "caen los dos", "ambos competidores caen"]) or
         (any(w in clean_q for w in ["ambos", "los dos"]) and any(w in clean_q for w in ["caen", "caer", "proyectar", "lanzar", "anotar", "puntuacion"]))
     )
-    if is_simultaneous_q:
+    if is_mixed_team_bowing_q:
+        extended = (
+            "**Procedimiento Arbitral Detallado para Encuentros por Equipos (Art. 9.1, Págs. 153–154):**\n"
+            "1. **Disposición de los Árbitros:** Cada uno de los tres árbitros designados arbitra dos combates consecutivos. Si un combate no se disputa por incomparecencia o falta de competidor, el último árbitro arbitra únicamente el combate restante. En caso de empate al final del encuentro, el último árbitro permanece en el tatami para el combate decisivo de Golden Score.\n"
+            "2. **Protocolo Inicial de Saludo (Pág. 153):**\n"
+            "   - Los equipos se forman en el borde exterior frente a frente según el sorteo.\n"
+            "   - A la orden del árbitro avanzan a la posición de inicio sobre el tatami.\n"
+            "   - Saludo hacia la Mesa Técnica: El árbitro extiende los brazos al frente en paralelo con palmas abiertas y da la voz de *«Rei!»* (el árbitro permanece erguido sin inclinarse).\n"
+            "   - Saludo entre Equipos: El árbitro flexiona los codos a 90° con antebrazos verticales y palmas enfrentadas indicando *«Otagai-ni»* y anuncia *«Rei!»* para el saludo simultáneo entre ambas delegaciones.\n"
+            "3. **Desarrollo de los Combates y Empate (Pág. 154):**\n"
+            "   - Los integrantes esperan en el borde exterior centrado del área de combate el turno de su respectiva categoría, realizando el saludo individual reglamentario.\n"
+            "   - En caso de empate en victorias al concluir el último combate regular, el árbitro ordena a los equipos regresar a la formación inicial para presenciar el sorteo de la categoría del combate extra de Golden Score. Realizado el sorteo, los dos atletas sorteados permanecen en el tatami para el desempate mientras el resto del equipo se retira.\n"
+            "4. **Ceremonia Final de Despedida (Pág. 154):** Concluido el encuentro y anunciado el equipo vencedor, la ceremonia de saludo se ejecuta en **orden estrictamente inverso** al inicial: primero reverencia mutua entre equipos (*«Otagai-ni Rei!»*) y finalmente reverencia conjunta a la mesa técnica (*«Rei!»*)."
+        )
+        cond_exc = (
+            "- **Prohibición de apretón de manos:** Conforme al Art. 9.2 (pág. 154), los atletas no deben estrecharse las manos antes del inicio del combate.\n"
+            "- **Obligatoriedad del saludo correcto:** Si los atletas no saludan o lo hacen de forma incorrecta, el árbitro debe ordenarles repetirlo adecuadamente.\n"
+            "- **Orden inverso al cierre:** El saludo final siempre invierte el orden: primero saludo entre atletas y luego a la mesa técnica."
+        )
+    elif is_appearance_tolerance_q:
+        extended = (
+            "**Protocolo Arbitral de la Regla de los 30 Segundos (SOR 2026-08, Art. 19.1, Pág. 195):**\n"
+            "1. **Convocatoria Oficial:** Al llegar el turno del combate, se efectúa la llamada del atleta al tatami. Si uno de los competidores no está presente, se realiza una llamada específica de advertencia.\n"
+            "2. **Activación de la Cuenta Regresiva:** La mesa de control técnico activa la cuenta regresiva visible de 30 segundos en el marcador oficial.\n"
+            "3. **Verificación Previa Obligatoria:** Antes de conceder la victoria por incomparecencia, el árbitro central debe constatar con la mesa técnica y supervisores que el atleta ausente no esté retenido por causas de fuerza mayor autorizadas (por ejemplo, control de judogi en el call room o atención médica de urgencia debidamente notificada).\n"
+            "4. **Declaración de Fusen-gachi:** Si concluyen los 30 segundos sin que el competidor ingrese al tatami, el árbitro declara oficialmente vencedor por **Fusen-gachi** al judoka presente, quien clasifica a la siguiente ronda o gana la medalla correspondiente."
+        )
+        cond_exc = (
+            "- **Puntos en el Ranking Mundial (WRL):** El atleta que gana por Fusen-gachi recibe los puntos completos del combate en el WRL.\n"
+            "- **Participación en Repechaje:** Si un atleta pierde por Fusen-gachi por no comparecer, queda eliminado de la competición y no puede acceder al repechaje, salvo decisión médica excepcional validada por la Comisión Ad Hoc de la IJF."
+        )
+    elif is_simultaneous_q:
         clean_sent = (
             "En caso de acción simultánea donde ambos atletas caen con posibilidad de puntuación (SOR 2026-08): "
             "(1) Criterio de Control Técnico (Art. 14, pág. 167): Si no es posible determinar con certeza quién ejerció el control de la técnica y provocó la caída, NO se otorga puntuación a ninguno de los dos atletas (*No score*). "
@@ -1039,7 +1097,17 @@ def build_deterministic_structured_answer(
     if first_sentence and not any(first_sentence.endswith(p) for p in [".", "!", "?", '"', "'", "”"]):
         first_sentence += "."
 
-    if is_simultaneous_q:
+    if is_mixed_team_bowing_q:
+        summary = (
+            f"**Ceremonia de Saludo en Competencias por Equipos Mixtos (Art. 9.1, Págs. 153–154) [SOR-2026-08-P154-S182]:** "
+            f"{first_sentence}"
+        )
+    elif is_appearance_tolerance_q:
+        summary = (
+            f"**Incomparecencia y Regla de los 30 Segundos (Art. 19.1, Pág. 195) [SOR-2026-08-P195-S203]:** "
+            f"{first_sentence}"
+        )
+    elif is_simultaneous_q:
         summary = (
             f"**Acción Simultánea / Ambos Caen al Tatami (Art. 14, Pág. 167; Art. 13.3/13.4, Pág. 164; Apéndice A1.6, Pág. 103):** "
             f"{first_sentence}"
@@ -1079,7 +1147,38 @@ def build_deterministic_structured_answer(
     is_osaekomi_safety_query = any(w in clean_q for w in ["osaekomi", "inmovilizacion", "inmovilización"]) and any(w in clean_q for w in ["seguridad", "safety", "limite", "limit", "sobrepasa", "beyond", "exterior"])
     is_newaza_boundary_query = any(w in clean_q for w in ["ne-waza", "newaza", "suelo", "kansetsu", "shime"]) and any(w in clean_q for w in ["seguridad", "safety", "limite", "limit", "fuera", "outside"])
 
-    if is_simultaneous_q:
+    if is_mixed_team_bowing_q:
+        extended = (
+            "**Procedimiento Arbitral Detallado para Encuentros por Equipos (Art. 9.1, Págs. 153–154):**\n"
+            "1. **Disposición de los Árbitros:** Cada uno de los tres árbitros designados arbitra dos combates consecutivos. Si un combate no se disputa por incomparecencia o falta de competidor, el último árbitro arbitra únicamente el combate restante. En caso de empate al final del encuentro, el último árbitro permanece en el tatami para el combate decisivo de Golden Score.\n"
+            "2. **Protocolo Inicial de Saludo (Pág. 153):**\n"
+            "   - Los equipos se forman en el borde exterior frente a frente según el sorteo.\n"
+            "   - A la orden del árbitro avanzan a la posición de inicio sobre el tatami.\n"
+            "   - Saludo hacia la Mesa Técnica: El árbitro extiende los brazos al frente en paralelo con palmas abiertas y da la voz de *«Rei!»* (el árbitro permanece erguido sin inclinarse).\n"
+            "   - Saludo entre Equipos: El árbitro flexiona los codos a 90° con antebrazos verticales y palmas enfrentadas indicando *«Otagai-ni»* y anuncia *«Rei!»* para el saludo simultáneo entre ambas delegaciones.\n"
+            "3. **Desarrollo de los Combates y Empate (Pág. 154):**\n"
+            "   - Los integrantes esperan en el borde exterior centrado del área de combate el turno de su respectiva categoría, realizando el saludo individual reglamentario.\n"
+            "   - En caso de empate en victorias al concluir el último combate regular, el árbitro ordena a los equipos regresar a la formación inicial para presenciar el sorteo de la categoría del combate extra de Golden Score. Realizado el sorteo, los dos atletas sorteados permanecen en el tatami para el desempate mientras el resto del equipo se retira.\n"
+            "4. **Ceremonia Final de Despedida (Pág. 154):** Concluido el encuentro y anunciado el equipo vencedor, la ceremonia de saludo se ejecuta en **orden estrictamente inverso** al inicial: primero reverencia mutua entre equipos (*«Otagai-ni Rei!»*) y finalmente reverencia conjunta a la mesa técnica (*«Rei!»*)."
+        )
+        cond_exc = (
+            "- **Prohibición de apretón de manos:** Conforme al Art. 9.2 (pág. 154), los atletas no deben estrecharse las manos antes del inicio del combate.\n"
+            "- **Obligatoriedad del saludo correcto:** Si los atletas no saludan o lo hacen de forma incorrecta, el árbitro debe ordenarles repetirlo adecuadamente.\n"
+            "- **Orden inverso al cierre:** El saludo final siempre invierte el orden: primero saludo entre atletas y luego a la mesa técnica."
+        )
+    elif is_appearance_tolerance_q:
+        extended = (
+            "**Protocolo Arbitral de la Regla de los 30 Segundos (SOR 2026-08, Art. 19.1, Pág. 195):**\n"
+            "1. **Convocatoria Oficial:** Al llegar el turno del combate, se efectúa la llamada del atleta al tatami. Si uno de los competidores no está presente, se realiza una llamada específica de advertencia.\n"
+            "2. **Activación de la Cuenta Regresiva:** La mesa de control técnico activa la cuenta regresiva visible de 30 segundos en el marcador oficial.\n"
+            "3. **Verificación Previa Obligatoria:** Antes de conceder la victoria por incomparecencia, el árbitro central debe constatar con la mesa técnica y supervisores que el atleta ausente no esté retenido por causas de fuerza mayor autorizadas (por ejemplo, control de judogi en el call room o atención médica de urgencia debidamente notificada).\n"
+            "4. **Declaración de Fusen-gachi:** Si concluyen los 30 segundos sin que el competidor ingrese al tatami, el árbitro declara oficialmente vencedor por **Fusen-gachi** al judoka presente, quien clasifica a la siguiente ronda o gana la medalla correspondiente."
+        )
+        cond_exc = (
+            "- **Puntos en el Ranking Mundial (WRL):** El atleta que gana por Fusen-gachi recibe los puntos completos del combate en el WRL.\n"
+            "- **Participación en Repechaje:** Si un atleta pierde por Fusen-gachi por no comparecer, queda eliminado de la competición y no puede acceder al repechaje, salvo decisión médica excepcional validada por la Comisión Ad Hoc de la IJF."
+        )
+    elif is_simultaneous_q:
         extended = (
             "**Protocolo y Análisis Arbitral ante Acciones Simultáneas (SOR 2026-08):**\n"
             "1. **Criterio de Control Técnico (Art. 14, Pág. 167):** Para que una técnica de proyección sea puntuada (Ippon o Waza-ari), debe existir un control inequívoco por parte de Tori durante toda la fase de ejecución. Si ambos judokas atacan o caen simultáneamente y ni el árbitro central ni la mesa de supervisión técnica / CARE system pueden discernir quién ejerció el control de la técnica, no se adjudica puntuación a ninguno (*No score*).\n"

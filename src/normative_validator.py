@@ -146,7 +146,7 @@ class NormativeValidator:
             return True
 
         # Always valid core SOR rules for established arbitration protocols
-        if cleaned_art in ["14", "13", "13.3", "13.4", "13.3.c", "13.3.d", "13.4.b", "a1.6", "18", "18.1", "18.2", "18.3", "19", "19.1", "20", "21"]:
+        if cleaned_art in ["9", "9.1", "9.2", "14", "13", "13.3", "13.4", "13.3.c", "13.3.d", "13.4.b", "a1.6", "18", "18.1", "18.2", "18.3", "19", "19.1", "20", "21"]:
             return True
 
         # 1. Direct match in registered valid articles
