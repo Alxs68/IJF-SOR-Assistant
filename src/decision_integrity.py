@@ -68,18 +68,18 @@ if NUMBER_NORMALIZATION not in ("v1", "v2"):
 #                           literal cuenta como contexto de pertinencia (p. ej. "Judogi Rules for Veterans").
 #   FIX_HYPHEN_TERMS        DIG-07: las partes de un termino con guion citado respaldan el termino suelto
 #                           ("osaekomi-waza" en la cita respalda "waza" en la respuesta); no al reves.
-#   FIX_DIG08_LANGUAGE      DIG-08: si la respuesta no esta en ingles (idioma del SOR), las palabras
-#                           ordinarias no se comparan con SHADOW (el solapamiento lexico entre idiomas no
-#                           indica influencia); se siguen comprobando cifras y terminos con guion.
+#   FIX_DIG08_INSTRUCTIONS  DIG-08: las palabras que el modelo recibio en el TEXTO DE INSTRUCCIONES del prompt
+#                           (sin evidencia SOR ni bloques SHADOW; lo entrega ADA en instruction_text) no
+#                           cuentan como huella SHADOW (p. ej. "reglas"). Cifras y demas terminos, sin cambios.
 _V3 = os.environ.get("DIG_V3", "").strip() == "1"
 FIX_PERTINENCE_HEADING = _V3
 FIX_HYPHEN_TERMS = _V3
-FIX_DIG08_LANGUAGE = _V3
+FIX_DIG08_INSTRUCTIONS = _V3
 
 
 def dig_version():
     v = DIG_BASE_VERSION + ("" if NUMBER_NORMALIZATION == "v1" else "+NUM-v2")
-    fixes = [n for n, on in (("H", FIX_PERTINENCE_HEADING), ("G", FIX_HYPHEN_TERMS), ("L", FIX_DIG08_LANGUAGE)) if on]
+    fixes = [n for n, on in (("H", FIX_PERTINENCE_HEADING), ("G", FIX_HYPHEN_TERMS), ("I", FIX_DIG08_INSTRUCTIONS)) if on]
     return v + ("+FIX-v3" + ("" if len(fixes) == 3 else "-" + "".join(fixes)) if fixes else "")
 
 
@@ -424,7 +424,7 @@ class DecisionIntegrityGate:
         return None
 
     # ------------------------------------------------------------------ main
-    def evaluate(self, answer, query, search_query_en, evidence, related, supplementary_texts=()):
+    def evaluate(self, answer, query, search_query_en, evidence, related, supplementary_texts=(), instruction_text=""):
         checks = []
 
         def check(code, ok, detail=""):
@@ -493,15 +493,15 @@ class DecisionIntegrityGate:
         qwords = set(re.findall(r"[a-z0-9][a-z0-9\-]{2,}", strip_accents(norm(query + " " + (search_query_en or "")))))
         supp_words = set(re.findall(r"[a-z0-9][a-z0-9\-]{2,}", strip_accents(" ".join(supp_norm))))
         ans_words = set(re.findall(r"[a-z0-9][a-z0-9\-]{2,}", strip_accents(norm(all_answer))))
-        leak = sorted(w for w in (ans_words & supp_words) - prim_words - qwords - STOP)
+        instr_words = (set(re.findall(r"[a-z0-9][a-z0-9\-]{2,}", strip_accents(norm(instruction_text or ""))))
+                       if FIX_DIG08_INSTRUCTIONS else set())
+        leak = sorted(w for w in (ans_words & supp_words) - prim_words - qwords - STOP - instr_words)
         supp_join = " ".join(supplementary_texts or ())
         leak_nums = sorted((numbers_in(all_answer) & numbers_in(supp_join)) - numbers_in(prim_text)
                            - numbers_in(query + " " + (search_query_en or "")))
         leak_nums += [w for w in leak if any(ch.isdigit() for ch in w) and w not in leak_nums]
         leak_words = [w for w in leak if not any(ch.isdigit() for ch in w) and len(w) >= 4]
         leak_words = [w for w in leak_words if len(w) >= 5]
-        if FIX_DIG08_LANGUAGE and query_language(all_answer) != "en":
-            leak_words = [w for w in leak_words if "-" in w]
         check("DIG-08_SIN_INFLUENCIA_SHADOW", not leak_nums and not leak_words,
               f"presentes_solo_en_SHADOW: cifras={leak_nums} terminos={leak_words}")
         missing_exc, missing_refs, no_unit = [], [], []

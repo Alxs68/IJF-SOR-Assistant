@@ -332,11 +332,12 @@ def main(argv=None):
         def keep(p):
             return {k: p.get(k) for k in ("passage_id", "text_original", "pdf_page_index", "page", "article_id")}
 
-        def capture(answer, query, search_query_en, evidence, related, supplementary_texts=()):
-            res = orig_eval(answer, query, search_query_en, evidence, related, supplementary_texts=supplementary_texts)
+        def capture(answer, query, search_query_en, evidence, related, supplementary_texts=(), **kw):
+            res = orig_eval(answer, query, search_query_en, evidence, related, supplementary_texts=supplementary_texts, **kw)
             dig_calls.append({"answer": answer, "query": query, "search_query_en": search_query_en,
                               "evidence": [keep(p) for p in evidence], "related": [keep(p) for p in related],
                               "supplementary_texts": list(supplementary_texts or []),
+                              "instruction_text": kw.get("instruction_text", ""),
                               "result": {"decision": res.get("decision"), "failed_checks": res.get("failed_checks"),
                                          "version": res.get("version")}})
             return res

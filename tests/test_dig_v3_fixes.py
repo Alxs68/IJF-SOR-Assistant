@@ -1,4 +1,4 @@
-"""Correcciones v3 del DIG (FIX_PERTINENCE_HEADING, FIX_HYPHEN_TERMS, FIX_DIG08_LANGUAGE) y modo JSON
+"""Correcciones v3 del DIG (FIX_PERTINENCE_HEADING, FIX_HYPHEN_TERMS, FIX_DIG08_INSTRUCTIONS) y modo JSON
 del LLM (LLM_JSON_MODE). Todas desactivadas por defecto; con ellas activas no se aceptan cifras,
 terminos ni citas que el DIG actual rechaza por falta de respaldo."""
 import json
@@ -14,7 +14,7 @@ CORPUS = os.path.join(ROOT, "data/processed/rebuild_2026_08_corrected/passages_c
 PS = json.load(open(CORPUS, encoding="utf-8"))
 BY = {p["passage_id"]: p for p in PS}
 GATE = D.DecisionIntegrityGate(PS)
-FLAGS = ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_LANGUAGE")
+FLAGS = ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_INSTRUCTIONS")
 
 
 @contextmanager
@@ -123,7 +123,7 @@ def test_hyphen_part_supported_only_by_quoted_hyphenated_term():
     assert "shime-waza" in GATE.distinctive and failed(res, "DIG-07")
 
 
-def _dig08(summary, extended, supp, query="Cuanto dura el combate?"):
+def _dig08(summary, extended, supp, instruction_text="", query="Cuanto dura el combate?"):
     pid = "SOR-2026-08-P152-S179"
     text = BY[pid]["text_original"]
     i = text.find("Article 7")
@@ -132,29 +132,30 @@ def _dig08(summary, extended, supp, query="Cuanto dura el combate?"):
          "normative_basis": f"Article 6 [{pid}]", "conditions_and_exceptions": "", "extended_analysis": extended,
          "limitations": "", "citations": [pid], "evidence_quotes": [{"passage_id": pid, "quote": quote, "supports": "x"}]}
     return GATE.evaluate(json.dumps(a, ensure_ascii=False), query, "How long does the contest last?",
-                         ev([pid]), [], supp)
+                         ev([pid]), [], supp, instruction_text=instruction_text)
 
 
-def test_dig08_spanish_ordinary_words_not_flagged_but_numbers_are():
+INSTR = "Reglas Generales y Reglas Especiales: expon cada una con su propia cita."
+
+
+def test_dig08_instruction_vocabulary_is_not_shadow_footprint():
     supp = ["Estas reglas complementarias del documento tratan otros asuntos administrativos."]
     with fixes(False):
-        base = _dig08("Segun las reglas oficiales del combate.", "", supp)
+        base = _dig08("Segun las reglas oficiales del combate.", "", supp, INSTR)
     with fixes(True):
-        new = _dig08("Segun las reglas oficiales del combate.", "", supp)
+        new = _dig08("Segun las reglas oficiales del combate.", "", supp, INSTR)
+        no_instr = _dig08("Segun las reglas oficiales del combate.", "", supp, "")
     assert failed(base, "DIG-08")
     assert not failed(new, "DIG-08"), new["checks"]
-    with fixes(True):
-        leak = _dig08("Segun las reglas oficiales.", "El plazo complementario es de 73 dias.",
-                      ["El plazo complementario es de 73 dias."])
-    assert failed(leak, "DIG-08")
+    assert failed(no_instr, "DIG-08")  # sin texto de instrucciones no se excluye nada
 
 
-def test_dig08_english_answers_keep_word_check():
-    supp = ["The sidecar guideline mentions chaperones for travelling delegations."]
+def test_dig08_real_shadow_leaks_still_detected_with_fix():
+    supp = ["Congelacion decidida: las listas quedaron locked tras Ulaanbaatar; el plazo es de 73 dias."]
     with fixes(True):
-        res = _dig08("According to the rules, chaperones must accompany delegations.", "", supp,
-                     query="How long does the contest last?")
-    assert failed(res, "DIG-08")
+        words = _dig08("Segun las reglas oficiales.", "Las listas quedaron locked tras Ulaanbaatar.", supp, INSTR)
+        nums = _dig08("Segun las reglas oficiales.", "El plazo es de 73 dias.", supp, INSTR)
+    assert failed(words, "DIG-08") and failed(nums, "DIG-08")
 
 
 def test_json_mode_only_for_analysis_calls(monkeypatch=None):

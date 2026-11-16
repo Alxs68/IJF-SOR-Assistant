@@ -114,6 +114,8 @@ def test_dig_v2_decisions_equal_experimental_replay_on_captured_inputs(monkeypat
     import decision_integrity as D
     from experimental.dig_variants import dig_variant
     ps = json.load(open(os.path.join(ROOT, "data/processed/rebuild_2026_08_corrected/passages_candidate.json"), encoding="utf-8"))
+    for f in ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_INSTRUCTIONS"):
+        monkeypatch.setattr(D, f, False)  # las grabaciones son anteriores a las correcciones v3
     gate = D.DecisionIntegrityGate(ps)
     rows = [r for run in json.load(open(CAPTURE, encoding="utf-8"))["per_run"] for r in run if r.get("dig_input")]
     assert rows

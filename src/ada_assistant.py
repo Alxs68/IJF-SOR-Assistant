@@ -562,10 +562,19 @@ class ArbitrationDecisionAssistant:
         # conservadores; si alguno falla se abstiene. Nunca certifica entailment (D = NO_VERIFICADO).
         decision_integrity = None
         if llm_answer and citations_valid:
+            import decision_integrity as _dig
+            extra = {}
+            if _dig.FIX_DIG08_INSTRUCTIONS:
+                # Texto de instrucciones = prompt sin evidencia SOR ni bloques SHADOW (DIG-08, correccion v3).
+                instr = prompt.replace(full_context, " ")
+                if supp_context:
+                    instr = instr.replace(supp_context, " ")
+                extra["instruction_text"] = instr
             decision_integrity = self._decision_integrity_gate().evaluate(
                 llm_answer, situation_query, search_query_en, evidence, related,
                 # Titles are delivered to the model too, so they are part of the SHADOW footprint.
                 supplementary_texts=[f"{s.get('title') or ''} {s.get('content_text') or s.get('text') or ''}" for s in supp_results],
+                **extra,
             )
 
         # Build citation passage data for resolution

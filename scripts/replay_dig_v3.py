@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Reejecucion OFFLINE: DIG actual vs DIG con las correcciones v3 (FIX_PERTINENCE_HEADING,
-FIX_HYPHEN_TERMS, FIX_DIG08_LANGUAGE) sobre entradas CAPTURADAS del DIG.
+FIX_HYPHEN_TERMS, FIX_DIG08_INSTRUCTIONS) sobre entradas CAPTURADAS del DIG.
 
 Informa: decisiones que cambian (con citas y si la cita toca la evidencia esperada / un distractor)
 y ataques adversariales (cifras inventadas, termino distintivo inventado, fuga de cifra SHADOW):
@@ -20,7 +20,7 @@ sys.path[:0] = [ROOT, os.path.join(ROOT, "src"), os.path.join(ROOT, "scripts")]
 import decision_integrity as D  # noqa: E402
 import replay_dig_f11 as R  # noqa: E402
 
-FLAGS = ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_LANGUAGE")
+FLAGS = ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_INSTRUCTIONS")
 
 
 @contextmanager
@@ -37,7 +37,8 @@ def v3(on=True, only=None):
 
 def ev(gate, c, answer=None, supp=None):
     return gate.evaluate(c["answer"] if answer is None else answer, c["query"], c["search_query_en"],
-                         c["evidence"], c["related"], c["supplementary_texts"] if supp is None else supp)
+                         c["evidence"], c["related"], c["supplementary_texts"] if supp is None else supp,
+                         instruction_text=c.get("instruction_text", ""))
 
 
 def extra_attacks(gate, c):

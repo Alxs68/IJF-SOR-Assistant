@@ -41,3 +41,6 @@ data/processed/rebuild_2026_08/pages_raw/
 scratch/*.png
 scratch/*.jpg
 
+
+# paquetes de despliegue experimental (artefactos, no codigo)
+deploy/exp/out/
