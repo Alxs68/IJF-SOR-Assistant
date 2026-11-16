@@ -1,0 +1,8 @@
+{
+  "benchmark_v2.jsonl": "01759b58124fd874c2af660e9fe945c1827b35882890dbbba6b052e0295d4d44",
+  "manifest.json": "10eec97137e776bc5ef0e0d0f809c3b726ec5857cd5331b8d015b28e13a97eb8",
+  "review/REVIEW_PROTOCOL.md": "c25fed94fb28b1d3ec6170ffdca73a9e34dc1fb1006e45075b8cf75bfd45d62b",
+  "review/review_template.csv": "ec5b8bec39ee2881b5fe8e0e3df6c56faa767fc5b2d05a125dac5aea1dd6c29a",
+  "splits/dev.jsonl": "b2bb36ccfb5849d552d2b8f8d7c9db1266cf7889d0b82cf23c54a37af62ef191",
+  "splits/test_sealed.jsonl": "324d7626950fa1fb81aeb2392acc12c3323467ace5574cf66ec6ad0fd01e485a"
+}

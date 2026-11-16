@@ -1,0 +1,24 @@
+{
+  "selected_params": {
+    "min_info": 2.0,
+    "ratio": 0.7,
+    "max_df_discriminative": 0.3
+  },
+  "selection_rule": "max precision con recall>=0.8 (dev); desempate: menor aclaracion innecesaria",
+  "projection": "ada",
+  "benchmark": {
+    "benchmark_version": "benchmark_v2.0.0",
+    "split": "dev",
+    "test_sealed_hash_ok": true,
+    "n": 41
+  },
+  "selected_metrics": {
+    "min_info": 2.0,
+    "ratio": 0.7,
+    "max_df_discriminative": 0.3,
+    "precision": 0.312,
+    "recall": 0.833,
+    "unnecessary": 0.355,
+    "inc_vs_amb": 0.8
+  }
+}

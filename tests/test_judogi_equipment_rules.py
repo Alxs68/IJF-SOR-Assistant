@@ -7,6 +7,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(
 from rag_engine import RagEngine
 from rre_engine import ReasoningRetrievalEngine
 from response_structurer import build_deterministic_structured_answer
+from unittest.mock import patch
+from tests._ada_contract_helpers import (
+    StubLLM, answer_citing, cite_first_delivered, citation_ids,
+    delivered_ids_in_result, delivered_primary_ids, ABSTENTION_MARKER, TRANSLATION_MARKER,
+)
 
 
 class TestJudogiEquipmentRules(unittest.TestCase):
@@ -79,26 +84,35 @@ class TestJudogiEquipmentRules(unittest.TestCase):
         self.assertNotEqual(res.get("evidence", [])[0].get("article_id"), "C1.9")
 
     def test_judogi_color_answer_pertinence_and_segregation(self):
-        """The answer to judogi color query must state White and Blue first, cite C1.9, and segregate unrelated rules."""
+        """Judogi colour query: C1.9 (p. 124, White/Blue) is the top delivered passage. No generator ->
+        ABSTAIN; a generator citing it -> SUCCESS whose only citation is C1.9 on page 124."""
         query = "¿Cuáles son las reglas de color de Judogi?"
-        res = self.engine.query(query, k=3, min_score=0.10)
+        c19 = "SOR-2026-08-P124-S164"
+        with patch.object(self.engine.ada, "_call_llm", StubLLM()):
+            res = self.engine.query(query, k=3, min_score=0.10)
         self.assertIn("answer", res)
-        answer = res["answer"].lower()
-        self.assertIn("blanco", answer)
-        self.assertIn("azul", answer)
-        self.assertIn("c1.9", answer)
+        self.assertIn(ABSTENTION_MARKER, res["answer"])
+        self.assertEqual(res["structured_answer"]["citations"], [])
+        top = res["retrieved_kuns_data"][0]
+        self.assertEqual(top["id_conocimiento"], c19)
+        self.assertEqual(top["article_id"], "C1.9")
+        top_text = top["contenido_traduccion"].lower()
+        self.assertIn("white", top_text)
+        self.assertIn("blue", top_text)
 
-        # Check structured answer
+        stub = StubLLM(answer_citing(lambda delivered: [c19] if c19 in delivered else []))
+        with patch.object(self.engine.ada, "_call_llm", stub):
+            res = self.engine.query(query, k=3, min_score=0.10)
         struct = res.get("structured_answer")
         self.assertIsNotNone(struct)
-        summary = struct.get("summary", "").lower()
-        self.assertTrue(any(w in summary for w in ["blanco", "white"]))
-        self.assertTrue(any(w in summary for w in ["azul", "blue"]))
-        self.assertIn("c1.9", summary)
-        self.assertIn("124", summary)
+        self.assertEqual(citation_ids(res), [c19])
+        cit = struct["citations"][0]
+        self.assertIn("C1.9", str(cit["article_id"]))
+        self.assertEqual(cit["page_number"], 124)
 
     def test_deterministic_generator_judogi_color(self):
-        """Deterministic fallback must format C1.9 with white/blue specifications cleanly."""
+        """Deterministic fallback formats C1.9 from the passage itself: White/Blue/Pantone come from
+        the passage text and nothing outside it (e.g. reversible-judogi rule of C1.1) is added."""
         p124 = self.rre.passages_by_id["SOR-2026-08-P124-S164"]
         ev = [{
             "passage_id": p124["passage_id"],
@@ -107,14 +121,18 @@ class TestJudogiEquipmentRules(unittest.TestCase):
             "page": p124.get("pdf_page_index"),
             "text_original": p124.get("text_original", "")
         }]
+        source_text = p124.get("text_original", "")
         ans = build_deterministic_structured_answer("¿Cuáles son las reglas de color de Judogi?", ev, [], "14 August 2026")
         self.assertIn("White", ans.summary)
         self.assertIn("Blue", ans.summary)
         self.assertIn("C1.9", ans.summary)
         self.assertIn("124", ans.summary)
         self.assertIn("Pantone", ans.extended_analysis)
-        self.assertIn("Reversible", ans.extended_analysis)
-
+        self.assertIn("Snow white", ans.extended_analysis)
+        self.assertEqual(ans.citations, ["SOR-2026-08-P124-S164"])
+        # Content absent from the passage must not appear in the fallback output
+        self.assertNotIn("reversible", source_text.lower())
+        self.assertNotIn("reversible", (ans.summary + ans.extended_analysis).lower())
 
 if __name__ == "__main__":
     unittest.main()

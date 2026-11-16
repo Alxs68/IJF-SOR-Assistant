@@ -17,6 +17,16 @@ from llm_provider import (
 )
 from ada_assistant import ArbitrationDecisionAssistant
 
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(_ROOT, "tests"))
+from _ada_contract_helpers import grounded_quotes  # noqa: E402
+
+
+def _real_text(pid):
+    """Certified text of ``pid`` from the official corpus (literal quotes are verified against it)."""
+    with open(os.path.join(_ROOT, "data", "processed", "rebuild_2026_08_corrected", "passages_candidate.json"), encoding="utf-8") as fh:
+        return next(p["text_original"] for p in json.load(fh) if p["passage_id"] == pid)
+
 
 class TestMultiProviderLLM(unittest.TestCase):
 
@@ -180,10 +190,22 @@ class TestMultiProviderLLM(unittest.TestCase):
         gemini_error_body = json.dumps({"error": {"code": 429, "message": "Resource exhausted"}}).encode('utf-8')
         err1 = urllib.error.HTTPError("url1", 429, "Too Many Requests", {}, io.BytesIO(gemini_error_body))
 
+        # Fase 9.1: fixture modernizada al contrato ADA vigente (JSON con citas literales verificables).
+        # El texto plano anterior ya no es una respuesta normativa aceptable (DIG-00).
+        # El fixture original citaba P189 (seoi-nage inverso), que no trata la defensa con la cabeza:
+        # se cita el pasaje pertinente P188 (Article 18.1.4, punto 34), que el RRE tambien entrega.
+        p188 = "SOR-2026-08-P188-S196"
+        content = json.dumps({
+            "summary": f"En cadetes la acción se penaliza con shido [{p188}].",
+            "normative_basis": f"[{p188}]", "citations": [p188],
+            "conditions_and_exceptions": "No aplica", "extended_analysis": "No aplica", "limitations": "Ninguna",
+            "answerability": "RESPALDADA", "evidence_conflicts": [],
+            "evidence_quotes": grounded_quotes(p188, _real_text(p188), "cadet head defence defend shido"),
+        }, ensure_ascii=False)
         groq_resp = MagicMock()
         groq_resp.read.return_value = json.dumps({
             "choices": [{
-                "message": {"content": "En cadetes la defensa con cabeza se penaliza con shido [SOR-2026-08-P189-S196]."}
+                "message": {"content": content}
             }]
         }).encode('utf-8')
         cm_groq = MagicMock()
@@ -274,11 +296,12 @@ class TestMultiProviderLLM(unittest.TestCase):
         ada = ArbitrationDecisionAssistant(llm_manager=mgr)
         res = ada.analyze_situation("¿Cuáles son las dimensiones del tatami?")
 
-        self.assertEqual(res["status"], "SUCCESS")
-        self.assertIn("Modo Local Desconectado", res["mode"])
+        # AUD-03 (opción A, aprobada en Fase 3): sin modelo generativo no se puede establecer que la
+        # evidencia respalde la consulta -> ABSTAIN conservando la evidencia; nunca SUCCESS "local".
+        self.assertEqual(res["status"], "ABSTAIN")
+        self.assertIn("modo local", res["mode"].lower())
         self.assertNotIn("Síntesis Analítica IA", res["analysis"])
-        self.assertIn("Resumen de Evidencias Normativas — Modo Local Desconectado", res["analysis"])
-        self.assertIn("Aviso de Operación Local", res["analysis"])
+        self.assertEqual(res["structured_answer"]["citations"], [])
         # Must retain physical page grounding and verifiable passage ids
         self.assertTrue(len(res["evidence"]) > 0)
         self.assertIn("SOR-2026-08-P096-S114", [e["passage_id"] for e in res["evidence"]])

@@ -12,6 +12,30 @@ import urllib.error
 import time
 from typing import Dict, Any, Optional, Tuple
 
+def _load_env_fallback():
+    """Safely populates environment variables from .env if present and not already set in os.environ."""
+    candidates = [
+        os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env"),
+        os.path.join(os.getcwd(), ".env")
+    ]
+    for env_path in candidates:
+        if os.path.exists(env_path):
+            try:
+                with open(env_path, "r", encoding="utf-8") as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and not line.startswith("#") and "=" in line:
+                            k, v = line.split("=", 1)
+                            k = k.strip()
+                            v = v.strip().strip("'\"")
+                            if k and k not in os.environ:
+                                os.environ[k] = v
+                break
+            except Exception:
+                pass
+
+_load_env_fallback()
+
 class LLMProviderError(Exception):
     """Base exception for LLM provider errors."""
     def __init__(self, message: str, error_type: str, retry_after: Optional[int] = None, status_code: Optional[int] = None):
@@ -27,6 +51,7 @@ class BaseLLMClient:
         self.api_key = api_key
         self.model = model
         self.last_usage: Dict[str, int] = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+        self.last_finish_reason: str = "UNKNOWN"
 
     def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         raise NotImplementedError
@@ -60,14 +85,15 @@ class GeminiClient(BaseLLMClient):
             }],
             "generationConfig": {
                 "temperature": 0.1,
-                "topP": 0.95
+                "topP": 0.95,
+                "maxOutputTokens": 4096
             }
         }
         headers = {"Content-Type": "application/json"}
 
         try:
             req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers, method='POST')
-            with urllib.request.urlopen(req, timeout=25) as response:
+            with urllib.request.urlopen(req, timeout=35) as response:
                 res_data = json.loads(response.read().decode('utf-8'))
                 
                 # Extract token usage metadata from Gemini response
@@ -85,7 +111,9 @@ class GeminiClient(BaseLLMClient):
 
                 candidates = res_data.get('candidates', [])
                 if candidates:
-                    parts = candidates[0].get('content', {}).get('parts', [])
+                    cand = candidates[0]
+                    self.last_finish_reason = cand.get('finishReason', 'STOP')
+                    parts = cand.get('content', {}).get('parts', [])
                     if parts:
                         return parts[0].get('text', '')
                 raise LLMProviderError("Respuesta de Gemini sin contenido válido.", error_type="CONTENT")
@@ -156,7 +184,7 @@ class GroqClient(BaseLLMClient):
             "model": self.model,
             "messages": messages,
             "temperature": 0.1,
-            "max_tokens": 2048
+            "max_tokens": 4096
         }
         headers = {
             "Content-Type": "application/json",
@@ -166,7 +194,7 @@ class GroqClient(BaseLLMClient):
 
         try:
             req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers, method='POST')
-            with urllib.request.urlopen(req, timeout=25) as response:
+            with urllib.request.urlopen(req, timeout=30) as response:
                 res_data = json.loads(response.read().decode('utf-8'))
 
                 # Extract token usage metadata from Groq response
@@ -184,7 +212,9 @@ class GroqClient(BaseLLMClient):
 
                 choices = res_data.get('choices', [])
                 if choices:
-                    return choices[0].get('message', {}).get('content', '')
+                    choice = choices[0]
+                    self.last_finish_reason = choice.get('finish_reason', 'stop')
+                    return choice.get('message', {}).get('content', '')
                 raise LLMProviderError("Respuesta de Groq sin choices válidos.", error_type="CONTENT")
         except urllib.error.HTTPError as e:
             code = e.code
@@ -204,6 +234,8 @@ class GroqClient(BaseLLMClient):
 
             if code == 429:
                 err_type = "QUOTA"
+            elif code == 413:
+                err_type = "REQUEST_TOO_LARGE"
             elif code in (401, 403):
                 err_type = "AUTH"
             elif code == 404:
@@ -366,6 +398,7 @@ class MultiProviderLLMManager:
                 if text:
                     meta["successful_provider"] = prov
                     meta["successful_model"] = client.model
+                    meta["finish_reason"] = getattr(client, "last_finish_reason", "STOP")
                     meta["token_usage"] = getattr(client, "last_usage", {
                         "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0
                     })

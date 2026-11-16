@@ -26,6 +26,11 @@ from document_governance import EvidenceItem, EvidenceRole, DocumentAuthority, V
 from document_validator import DocumentValidator
 from llm_provider import MultiProviderLLMManager
 from rag_engine import RagEngine
+from unittest.mock import patch
+from tests._ada_contract_helpers import (
+    StubLLM, answer_citing, cite_first_delivered, citation_ids,
+    delivered_ids_in_result, delivered_primary_ids, ABSTENTION_MARKER, TRANSLATION_MARKER,
+)
 
 
 class TestP1AAbstentionAndOOD(unittest.TestCase):
@@ -149,14 +154,18 @@ class TestP1AAbstentionAndOOD(unittest.TestCase):
         self.assertTrue("Abstención" in ans or "no encuentra respaldo" in ans)
 
     def test_10_end_to_end_in_domain_preserved(self):
-        """End-to-end RagEngine.query returns verified answer on tatami dimensions."""
-        res = self.engine.query("¿Cuáles son las dimensiones mínimas y máximas del área de combate del tatami?")
+        """In-domain query is not treated as OOD: the tatami passage (with its 8 m x 8 m rule) is
+        retrieved and kept; without a generator the answer is an abstention, not an OOD rejection."""
+        with patch.object(self.engine.ada, "_call_llm", StubLLM()):
+            res = self.engine.query("¿Cuáles son las dimensiones mínimas y máximas del área de combate del tatami?")
         ans = res.get("answer", "")
         kuns = res.get("retrieved_kuns", [])
         self.assertGreaterEqual(len(kuns), 1)
         self.assertIn("SOR-2026-08-P096-S114", kuns)
-        self.assertIn("8 m x 8 m", ans)
-
+        p096 = next(e for e in res["retrieved_kuns_data"] if e["id_conocimiento"] == "SOR-2026-08-P096-S114")
+        self.assertIn("8 m x 8 m", " ".join(p096["contenido_traduccion"].split()))
+        self.assertIn(ABSTENTION_MARKER, ans)
+        self.assertEqual(res["structured_answer"]["citations"], [])
 
 if __name__ == "__main__":
     unittest.main()

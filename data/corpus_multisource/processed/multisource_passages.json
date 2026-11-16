@@ -1,0 +1,290 @@
+[
+  {
+    "chunk_id": "CHK-KUN-PPT-002-001",
+    "document_id": "KUN-PPT-002",
+    "title": "Criterio de Continuidad en la Transición a Suelo (Ne-waza)",
+    "content_text": "Groundwork (ne-waza) transition is allowed if one competitor immediately initiates a technique; otherwise, the referee must call Mate.",
+    "authority": "TIER_3_REFEREEING_INTERPRETATION",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Arts. 11 18.1 18.2"
+    ],
+    "normative_relation": "COMPLEMENTO_OPERATIVO",
+    "source_kun_id": "KUN-0035",
+    "staging_sha256": "05cce344311a93cd07d102bd4ea6e25c5ee60bac80aef61231f2a9f2c55d9427",
+    "ingested_at": "2026-11-12T10:44:01.537823+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-PPT-002-002",
+    "document_id": "KUN-PPT-002",
+    "title": "Penalización de Shido por Arrastre Directo a Ne-waza",
+    "content_text": "Pulling down the opponent directly to groundwork (ne-waza) without an active throw attempt is penalized with Shido.",
+    "authority": "TIER_3_REFEREEING_INTERPRETATION",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Arts. 11 18.1 18.2"
+    ],
+    "normative_relation": "COMPLEMENTO_OPERATIVO",
+    "source_kun_id": "KUN-0036",
+    "staging_sha256": "05cce344311a93cd07d102bd4ea6e25c5ee60bac80aef61231f2a9f2c55d9427",
+    "ingested_at": "2026-11-12T10:44:01.537823+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-NEW-001-001",
+    "document_id": "KUN-NEW-001",
+    "title": "Cierre y Congelación de Reglas de Arbitraje para el Ciclo Olímpico LA28",
+    "content_text": "The IJF refereeing rules are locked in for the duration of the Olympic qualification cycle starting from the 2026 Ulaanbaatar Grand Slam.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 18.1.4 y Art. 18.2.2"
+    ],
+    "normative_relation": "SUBSUMIDO_PARCIALMENTE",
+    "source_kun_id": "KUN-0072",
+    "staging_sha256": "50a8fcb43b875884e6d7f53d66062c56f7a272fe720c7a9115ec1b97399d258a",
+    "ingested_at": "2026-11-12T10:44:01.538823+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-NEW-001-002",
+    "document_id": "KUN-NEW-001",
+    "title": "Permiso de Ejecución de Seoi-Nage Inverso en Categoría Senior",
+    "content_text": "Reverse seoi-nage is re-allowed for senior athletes in competition.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 18.1.4 y Art. 18.2.2"
+    ],
+    "normative_relation": "SUBSUMIDO_PARCIALMENTE",
+    "source_kun_id": "KUN-0073",
+    "staging_sha256": "50a8fcb43b875884e6d7f53d66062c56f7a272fe720c7a9115ec1b97399d258a",
+    "ingested_at": "2026-11-12T10:44:01.539823+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-NEW-001-003",
+    "document_id": "KUN-NEW-001",
+    "title": "Límite de Tiempo para el Trabajo de Kumi-kata sin Fase de Ataque",
+    "content_text": "A 30-second time limit for kumi-kata (gripping) before an attack is required.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 18.1.4 y Art. 18.2.2"
+    ],
+    "normative_relation": "SUBSUMIDO_PARCIALMENTE",
+    "source_kun_id": "KUN-0075",
+    "staging_sha256": "50a8fcb43b875884e6d7f53d66062c56f7a272fe720c7a9115ec1b97399d258a",
+    "ingested_at": "2026-11-12T10:44:01.539823+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-NEW-003-001",
+    "document_id": "KUN-NEW-003",
+    "title": "Puntuación de Yuko por Inmovilización Corta de 5 a 9 Segundos",
+    "content_text": "If an athlete holds osaekomi-waza for 5 to 9 seconds, yuko scores are counted but do not accumulate toward a waza-ari.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 15 y Art. 17"
+    ],
+    "normative_relation": "SUBSUMIDO_TOTALMENTE",
+    "source_kun_id": "KUN-0053",
+    "staging_sha256": "6b561b878aae7c608d808aa2ded24efd868e271e0a5cff35d4970e344973d2be",
+    "ingested_at": "2026-11-12T10:44:01.540824+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-NEW-003-002",
+    "document_id": "KUN-NEW-003",
+    "title": "Evaluación Integrada de Pasividad en Combate de Pie y Suelo",
+    "content_text": "When evaluating passivity, referees will consider attacks in both tachi-waza (standing techniques) and ne-waza (ground techniques).",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 15 y Art. 17"
+    ],
+    "normative_relation": "SUBSUMIDO_TOTALMENTE",
+    "source_kun_id": "KUN-0057",
+    "staging_sha256": "6b561b878aae7c608d808aa2ded24efd868e271e0a5cff35d4970e344973d2be",
+    "ingested_at": "2026-11-12T10:44:01.540824+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-NEW-003-003",
+    "document_id": "KUN-NEW-003",
+    "title": "Excepción para Contacto Involuntario de Cabeza",
+    "content_text": "Involuntary head contact during a transition or throw is not subject to penalization.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 15 y Art. 17"
+    ],
+    "normative_relation": "SUBSUMIDO_TOTALMENTE",
+    "source_kun_id": "KUN-0003",
+    "staging_sha256": "6b561b878aae7c608d808aa2ded24efd868e271e0a5cff35d4970e344973d2be",
+    "ingested_at": "2026-11-12T10:44:01.540824+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-DIS-001-001",
+    "document_id": "KUN-DIS-001",
+    "title": "Ámbito de Aplicación y Jurisdicción de los Órganos Disciplinarios de la IJF",
+    "content_text": "The IJF Disciplinary Bodies shall have the power to investigate and sanction any fact or incident which is contrary to the moral code of judo, the principle of reciprocity, the Statutes and the Regulations of the IJF, or which constitutes a disciplinary offence committed by affiliated members, officials, athletes and coaches.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 1.2.1; SOR Art. 18.2.2"
+    ],
+    "normative_relation": "COMPLEMENTO_OPERATIVO",
+    "source_kun_id": "KUN-DIS-001",
+    "staging_sha256": "387e0b97fac2576ec78b0c2a1d81d77d1cb929449e51c9a8fb461f702eea812d",
+    "ingested_at": "2026-11-12T10:44:01.541824+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-DIS-001-002",
+    "document_id": "KUN-DIS-001",
+    "title": "Catálogo Oficial de Sanciones Disciplinarias en Judo",
+    "content_text": "The Disciplinary Bodies may impose the following sanctions: warning, reprimand, fine, disqualification and cancellation of results, temporary suspension from participation in IJF events, withdrawal of IJF official license, and lifetime ban from judo activities.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 1.2.1; SOR Art. 18.2.2"
+    ],
+    "normative_relation": "COMPLEMENTO_OPERATIVO",
+    "source_kun_id": "KUN-DIS-002",
+    "staging_sha256": "387e0b97fac2576ec78b0c2a1d81d77d1cb929449e51c9a8fb461f702eea812d",
+    "ingested_at": "2026-11-12T10:44:01.541824+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-DIS-001-003",
+    "document_id": "KUN-DIS-001",
+    "title": "Plazo de Prescripción General de las Infracciones Disciplinarias (5 Años)",
+    "content_text": "No disciplinary sanction may be imposed if five (5) years have elapsed since the disciplinary offence was committed (general limitation period). If the victim is a minor at the time of the offence, the limitation period shall begin on the date on which the victim reaches 18 years of age.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 1.2.1; SOR Art. 18.2.2"
+    ],
+    "normative_relation": "COMPLEMENTO_OPERATIVO",
+    "source_kun_id": "KUN-DIS-003",
+    "staging_sha256": "387e0b97fac2576ec78b0c2a1d81d77d1cb929449e51c9a8fb461f702eea812d",
+    "ingested_at": "2026-11-12T10:44:01.541824+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-ETH-001-001",
+    "document_id": "KUN-ETH-001",
+    "title": "Principio Fundamental de Respeto hacia Árbitros, Rivales y Oficiales",
+    "content_text": "At all times opponents, coaches, referees, organizers, guests, the media, and the public must be spoken to calmly and with respect, without making aggressive or obscene gestures. Both victory and defeat must be accepted by exercising self-control and without displaying any sign of disrespect.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 1.1.1; SOR Art. 1.2.2; SOR Art. 1.2.3"
+    ],
+    "normative_relation": "COMPLEMENTO_EXPLICATIVO",
+    "source_kun_id": "KUN-ETH-001",
+    "staging_sha256": "4620fb98b32111c71ce3aacf7f05af21874bbb1ddac0b665343033e71a923f7c",
+    "ingested_at": "2026-11-12T10:44:01.542832+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-ETH-001-002",
+    "document_id": "KUN-ETH-001",
+    "title": "Prohibición Absoluta de Apuestas Deportivas y Manipulación de Competiciones",
+    "content_text": "All persons bound by the IJF Code of Ethics are strictly prohibited from participating in, supporting or promoting any form of betting related to IJF competitions, or from disclosing inside confidential information that may be used for betting purposes.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 1.1.1; SOR Art. 1.2.2; SOR Art. 1.2.3"
+    ],
+    "normative_relation": "COMPLEMENTO_EXPLICATIVO",
+    "source_kun_id": "KUN-ETH-002",
+    "staging_sha256": "4620fb98b32111c71ce3aacf7f05af21874bbb1ddac0b665343033e71a923f7c",
+    "ingested_at": "2026-11-12T10:44:01.542832+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-ETH-001-003",
+    "document_id": "KUN-ETH-001",
+    "title": "Protección Integral y Salvaguardia contra el Abuso y Acoso en el Judo",
+    "content_text": "Zero tolerance applies to any form of harassment, abuse, violence, neglect, bullying, or discrimination based on race, gender, sexual orientation, religion, or disability. All participants are obligated to maintain a safe and protective sporting environment for everyone.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 1.1.1; SOR Art. 1.2.2; SOR Art. 1.2.3"
+    ],
+    "normative_relation": "COMPLEMENTO_EXPLICATIVO",
+    "source_kun_id": "KUN-ETH-003",
+    "staging_sha256": "4620fb98b32111c71ce3aacf7f05af21874bbb1ddac0b665343033e71a923f7c",
+    "ingested_at": "2026-11-12T10:44:01.542832+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-QSY-001-001",
+    "document_id": "KUN-QSY-001",
+    "title": "Cuota Total y Estructura de Plazas de Judo para los Juegos Olímpicos LA28",
+    "content_text": "Total quota places for judo at the LA28 Olympic Games is 342 athletes (171 men and 171 women) across 14 individual weight categories (7 men, 7 women) and the mixed team event. Host country USA is allocated 14 quota places (1 per individual event).",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 2.2.3; SOR Art. 3.1; SOR Art. 3.2.1"
+    ],
+    "normative_relation": "COMPLEMENTO_OPERATIVO",
+    "source_kun_id": "KUN-QSY-001",
+    "staging_sha256": "9560deb8a96e00ab63a030139a35660a889b93f1fad3732b1c3d12377e0702e7",
+    "ingested_at": "2026-11-12T10:44:01.543825+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-QSY-001-002",
+    "document_id": "KUN-QSY-001",
+    "title": "Clasificación Directa por el IJF World Ranking List (Top 17) para LA28",
+    "content_text": "The top 17 highest ranked athletes per individual weight category on the IJF World Ranking List at the end of the Olympic qualification period qualify directly for the LA28 Olympic Games, respecting the maximum quota of one athlete per NOC per category.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 2.2.3; SOR Art. 3.1; SOR Art. 3.2.1"
+    ],
+    "normative_relation": "COMPLEMENTO_OPERATIVO",
+    "source_kun_id": "KUN-QSY-002",
+    "staging_sha256": "9560deb8a96e00ab63a030139a35660a889b93f1fad3732b1c3d12377e0702e7",
+    "ingested_at": "2026-11-12T10:44:01.543825+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-QSY-001-003",
+    "document_id": "KUN-QSY-001",
+    "title": "Requisitos de Elegibilidad y Conformación del Equipo Mixto Olímpico LA28",
+    "content_text": "NOCs qualifying at least one athlete in each of the designated mixed team weight divisions (Women: -57 kg, -70 kg, +70 kg; Men: -73 kg, -90 kg, +90 kg) are eligible to enter a team in the Olympic Mixed Team competition.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 2.2.3; SOR Art. 3.1; SOR Art. 3.2.1"
+    ],
+    "normative_relation": "COMPLEMENTO_OPERATIVO",
+    "source_kun_id": "KUN-QSY-003",
+    "staging_sha256": "9560deb8a96e00ab63a030139a35660a889b93f1fad3732b1c3d12377e0702e7",
+    "ingested_at": "2026-11-12T10:44:01.543825+00:00"
+  },
+  {
+    "chunk_id": "CHK-KUN-QSY-001-004",
+    "document_id": "KUN-QSY-001",
+    "title": "Período de Calificación Olímpica LA28, Tolerancia de Peso y Cuotas Continentales",
+    "content_text": "The Olympic qualification period runs from 15th June 2026 to 12th June 2028. A 5% weight tolerance applies to the mixed team event as for world championships (maximum 14 athletes receiving medals). Continental quota allocation totals 104 places: Europe 26, Africa 24, Asia 24, Americas 22, Oceania 8.",
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE",
+    "eligibility": "ELIGIBLE_INTERPRETATIVA",
+    "related_sor_articles": [
+      "SOR Art. 2.2.3; SOR Art. 3.1; SOR Art. 3.2.1"
+    ],
+    "normative_relation": "COMPLEMENTO_OPERATIVO",
+    "source_kun_id": "KUN-QSY-004",
+    "staging_sha256": "9560deb8a96e00ab63a030139a35660a889b93f1fad3732b1c3d12377e0702e7",
+    "ingested_at": "2026-11-12T10:44:01.543825+00:00"
+  }
+]

@@ -15,6 +15,10 @@ from response_structurer import (
 )
 from ada_assistant import ArbitrationDecisionAssistant
 from llm_provider import MultiProviderLLMManager
+from tests._ada_contract_helpers import (
+    StubLLM, answer_citing, cite_first_delivered, citation_ids,
+    delivered_ids_in_result, delivered_primary_ids, ABSTENTION_MARKER, TRANSLATION_MARKER,
+)
 
 
 class TestResponseStructurerTransversal(unittest.TestCase):
@@ -108,24 +112,38 @@ Suspensión del evento si reincide."""
         self.assertIn("Modo Local Desconectado", structured.limitations)
 
     def test_06_ada_analyze_situation_two_tier_contract(self):
+        """Two-tier contract under the evidence policy (stubbed generator, no network).
+
+        Without a generator ADA abstains but keeps the two-tier fields and the retrieved evidence;
+        with a generator citing a delivered primary passage the two-tier answer carries that citation.
+        """
         mgr = MultiProviderLLMManager(gemini_api_key=None, groq_api_key=None)
         ada = ArbitrationDecisionAssistant(llm_manager=mgr)
-        res = ada.analyze_situation("¿Cuáles son las dimensiones del tatami?")
+        query = "¿Cuáles son las dimensiones del tatami?"
+        tatami_pid = "SOR-2026-08-P096-S114"
+        fields = ("summary", "normative_basis", "conditions_and_exceptions", "extended_analysis", "limitations")
 
+        with patch.object(ada, "_call_llm", StubLLM()):
+            offline = ada.analyze_situation(query)
+        self.assertEqual(offline["status"], "ABSTAIN")
+        for key in fields:
+            self.assertIn(key, offline["structured_answer"])
+        self.assertEqual(offline["structured_answer"]["citations"], [])
+        self.assertIn(ABSTENTION_MARKER, offline["structured_answer"]["summary"])
+        self.assertIn(tatami_pid, delivered_ids_in_result(offline))
+
+        stub = StubLLM(answer_citing(lambda delivered: [tatami_pid] if tatami_pid in delivered else []))
+        with patch.object(ada, "_call_llm", stub):
+            res = ada.analyze_situation(query)
+        self.assertIn(tatami_pid, delivered_primary_ids(stub.analysis_prompts[0]))
         self.assertEqual(res["status"], "SUCCESS")
-        self.assertIn("structured_answer", res)
         struct = res["structured_answer"]
-        self.assertIn("summary", struct)
-        self.assertIn("normative_basis", struct)
-        self.assertIn("conditions_and_exceptions", struct)
-        self.assertIn("extended_analysis", struct)
-        self.assertIn("limitations", struct)
-        
-        # Verify Level 1 summary is present and concise
+        for key in fields:
+            self.assertIn(key, struct)
         self.assertTrue(len(struct["summary"]) > 20)
-        self.assertIn("Art. 8.7", struct["summary"])
-        # Verify clickable markdown formatting applied
-        self.assertIn("SOR-2026-08-P096-S114", struct["summary"])
+        # Clickable citation formatting applied to the cited, delivered passage
+        self.assertIn(tatami_pid, struct["summary"])
+        self.assertEqual(citation_ids(res), [tatami_pid])
 
     def test_07_ada_abstain_query_structured_contract(self):
         mgr = MultiProviderLLMManager(gemini_api_key=None, groq_api_key=None)

@@ -1,0 +1,50 @@
+[
+  {
+    "document_id": "KUN-PPT-002",
+    "staging_path": "C:\\PROYECTOS\\IJF-SOR-Assistant\\data\\corpus_multisource\\staging\\KUN-PPT-002_staged.md",
+    "staging_sha256": "05cce344311a93cd07d102bd4ea6e25c5ee60bac80aef61231f2a9f2c55d9427",
+    "chunks_count": 2,
+    "authority": "TIER_3_REFEREEING_INTERPRETATION",
+    "validity": "VIGENTE"
+  },
+  {
+    "document_id": "KUN-NEW-001",
+    "staging_path": "C:\\PROYECTOS\\IJF-SOR-Assistant\\data\\corpus_multisource\\staging\\KUN-NEW-001_staged.md",
+    "staging_sha256": "50a8fcb43b875884e6d7f53d66062c56f7a272fe720c7a9115ec1b97399d258a",
+    "chunks_count": 3,
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE"
+  },
+  {
+    "document_id": "KUN-NEW-003",
+    "staging_path": "C:\\PROYECTOS\\IJF-SOR-Assistant\\data\\corpus_multisource\\staging\\KUN-NEW-003_staged.md",
+    "staging_sha256": "6b561b878aae7c608d808aa2ded24efd868e271e0a5cff35d4970e344973d2be",
+    "chunks_count": 3,
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE"
+  },
+  {
+    "document_id": "KUN-DIS-001",
+    "staging_path": "C:\\PROYECTOS\\IJF-SOR-Assistant\\data\\corpus_multisource\\staging\\KUN-DIS-001_staged.md",
+    "staging_sha256": "387e0b97fac2576ec78b0c2a1d81d77d1cb929449e51c9a8fb461f702eea812d",
+    "chunks_count": 3,
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE"
+  },
+  {
+    "document_id": "KUN-ETH-001",
+    "staging_path": "C:\\PROYECTOS\\IJF-SOR-Assistant\\data\\corpus_multisource\\staging\\KUN-ETH-001_staged.md",
+    "staging_sha256": "4620fb98b32111c71ce3aacf7f05af21874bbb1ddac0b665343033e71a923f7c",
+    "chunks_count": 3,
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE"
+  },
+  {
+    "document_id": "KUN-QSY-001",
+    "staging_path": "C:\\PROYECTOS\\IJF-SOR-Assistant\\data\\corpus_multisource\\staging\\KUN-QSY-001_staged.md",
+    "staging_sha256": "9560deb8a96e00ab63a030139a35660a889b93f1fad3732b1c3d12377e0702e7",
+    "chunks_count": 4,
+    "authority": "TIER_2_OFFICIAL_AMENDMENT",
+    "validity": "VIGENTE"
+  }
+]

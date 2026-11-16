@@ -1,0 +1,22 @@
+{
+  "accepted": true,
+  "checks": [
+    "traceability_chunk_staged_catalog_manifest",
+    "hash_consistency",
+    "corpus_separation",
+    "no_normative_authority",
+    "eligibility_consistency",
+    "id_disjointness_with_sor"
+  ],
+  "errors": [],
+  "processor": "sor_shadow_unit_builder",
+  "processor_version": "1.0.0",
+  "warnings": [
+    {
+      "code": "LOCAL_FILE_NOT_IN_CATALOG",
+      "detail": "data/raw/complementary/IJF_LA28_Olympic_Qualification_FAQ_2026_06_12.pdf",
+      "severity": "WARNING",
+      "unit_id": null
+    }
+  ]
+}

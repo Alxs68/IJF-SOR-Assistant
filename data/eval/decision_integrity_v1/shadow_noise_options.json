@@ -1,0 +1,182 @@
+{
+  "N0_actual": {
+    "v1_with_shadow": "32/150",
+    "v1_by_category": {
+      "AMBIGUA": "3/15",
+      "EXCEPCION_CONDICION_REFERENCIA": "9/30",
+      "FUERA_DE_DOMINIO": "1/15",
+      "ORDINARIA_EN": "8/30",
+      "ORDINARIA_ES": "11/60"
+    },
+    "shadow_by_class": {
+      "PRIMARIA_CON_AUXILIAR": {
+        "n": 8,
+        "aux_hit": 7,
+        "forbidden_delivered": 0,
+        "any": 7
+      },
+      "SOLO_AUXILIAR_SIN_PRIMARIA": {
+        "n": 6,
+        "aux_hit": 6,
+        "forbidden_delivered": 0,
+        "any": 6
+      },
+      "AUXILIAR_NO_DEBE_FUNDAMENTAR": {
+        "n": 6,
+        "aux_hit": 0,
+        "forbidden_delivered": 5,
+        "any": 5
+      },
+      "SIN_EVIDENCIA_SUFICIENTE": {
+        "n": 4,
+        "aux_hit": 0,
+        "forbidden_delivered": 0,
+        "any": 2
+      }
+    }
+  },
+  "N1a_min3": {
+    "v1_with_shadow": "29/150",
+    "v1_by_category": {
+      "AMBIGUA": "1/15",
+      "EXCEPCION_CONDICION_REFERENCIA": "9/30",
+      "FUERA_DE_DOMINIO": "0/15",
+      "ORDINARIA_EN": "8/30",
+      "ORDINARIA_ES": "11/60"
+    },
+    "shadow_by_class": {
+      "PRIMARIA_CON_AUXILIAR": {
+        "n": 8,
+        "aux_hit": 7,
+        "forbidden_delivered": 0,
+        "any": 7
+      },
+      "SOLO_AUXILIAR_SIN_PRIMARIA": {
+        "n": 6,
+        "aux_hit": 6,
+        "forbidden_delivered": 0,
+        "any": 6
+      },
+      "AUXILIAR_NO_DEBE_FUNDAMENTAR": {
+        "n": 6,
+        "aux_hit": 0,
+        "forbidden_delivered": 5,
+        "any": 5
+      },
+      "SIN_EVIDENCIA_SUFICIENTE": {
+        "n": 4,
+        "aux_hit": 0,
+        "forbidden_delivered": 0,
+        "any": 2
+      }
+    }
+  },
+  "N1b_min4": {
+    "v1_with_shadow": "25/150",
+    "v1_by_category": {
+      "AMBIGUA": "1/15",
+      "EXCEPCION_CONDICION_REFERENCIA": "8/30",
+      "FUERA_DE_DOMINIO": "0/15",
+      "ORDINARIA_EN": "7/30",
+      "ORDINARIA_ES": "9/60"
+    },
+    "shadow_by_class": {
+      "PRIMARIA_CON_AUXILIAR": {
+        "n": 8,
+        "aux_hit": 7,
+        "forbidden_delivered": 0,
+        "any": 7
+      },
+      "SOLO_AUXILIAR_SIN_PRIMARIA": {
+        "n": 6,
+        "aux_hit": 6,
+        "forbidden_delivered": 0,
+        "any": 6
+      },
+      "AUXILIAR_NO_DEBE_FUNDAMENTAR": {
+        "n": 6,
+        "aux_hit": 0,
+        "forbidden_delivered": 5,
+        "any": 5
+      },
+      "SIN_EVIDENCIA_SUFICIENTE": {
+        "n": 4,
+        "aux_hit": 0,
+        "forbidden_delivered": 0,
+        "any": 2
+      }
+    }
+  },
+  "N2_anclaje_articulo": {
+    "v1_with_shadow": "8/150",
+    "v1_by_category": {
+      "AMBIGUA": "1/15",
+      "EXCEPCION_CONDICION_REFERENCIA": "3/30",
+      "FUERA_DE_DOMINIO": "0/15",
+      "ORDINARIA_EN": "1/30",
+      "ORDINARIA_ES": "3/60"
+    },
+    "shadow_by_class": {
+      "PRIMARIA_CON_AUXILIAR": {
+        "n": 8,
+        "aux_hit": 6,
+        "forbidden_delivered": 0,
+        "any": 6
+      },
+      "SOLO_AUXILIAR_SIN_PRIMARIA": {
+        "n": 6,
+        "aux_hit": 0,
+        "forbidden_delivered": 0,
+        "any": 0
+      },
+      "AUXILIAR_NO_DEBE_FUNDAMENTAR": {
+        "n": 6,
+        "aux_hit": 0,
+        "forbidden_delivered": 3,
+        "any": 3
+      },
+      "SIN_EVIDENCIA_SUFICIENTE": {
+        "n": 4,
+        "aux_hit": 0,
+        "forbidden_delivered": 0,
+        "any": 0
+      }
+    }
+  },
+  "N3_anclaje_min3": {
+    "v1_with_shadow": "7/150",
+    "v1_by_category": {
+      "AMBIGUA": "0/15",
+      "EXCEPCION_CONDICION_REFERENCIA": "3/30",
+      "FUERA_DE_DOMINIO": "0/15",
+      "ORDINARIA_EN": "1/30",
+      "ORDINARIA_ES": "3/60"
+    },
+    "shadow_by_class": {
+      "PRIMARIA_CON_AUXILIAR": {
+        "n": 8,
+        "aux_hit": 6,
+        "forbidden_delivered": 0,
+        "any": 6
+      },
+      "SOLO_AUXILIAR_SIN_PRIMARIA": {
+        "n": 6,
+        "aux_hit": 0,
+        "forbidden_delivered": 0,
+        "any": 0
+      },
+      "AUXILIAR_NO_DEBE_FUNDAMENTAR": {
+        "n": 6,
+        "aux_hit": 0,
+        "forbidden_delivered": 3,
+        "any": 3
+      },
+      "SIN_EVIDENCIA_SUFICIENTE": {
+        "n": 4,
+        "aux_hit": 0,
+        "forbidden_delivered": 0,
+        "any": 0
+      }
+    }
+  }
+}

@@ -54,6 +54,11 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Instancia experimental (Fase 11): aviso visible solo si el despliegue define IJF_DEPLOY_LABEL.
+_deploy_label = os.environ.get("IJF_DEPLOY_LABEL", "").strip()
+if _deploy_label:
+    st.warning(f"🧪 {_deploy_label}")
+
 if "app_theme" not in st.session_state:
     st.session_state.app_theme = "auto"
 
@@ -526,6 +531,28 @@ st.markdown(f"""
             width: 78px !important;
             height: 78px !important;
         }}
+        .app-header-counter-badge {{
+            font-size: 0.74rem !important;
+            padding: 0.25rem 0.65rem !important;
+        }}
+    }}
+
+    .app-header-counter-badge {{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        background-color: var(--surface-card-bg);
+        border: 1.5px solid var(--surface-card-border);
+        border-radius: 20px;
+        padding: 0.35rem 0.95rem;
+        font-size: 0.84rem;
+        font-weight: 600;
+        color: var(--ijf-text-color);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        margin-top: 0.2rem;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 0.01em;
     }}
 
     /* Campos selectbox desplegables sin fondo blanco - Estilo sobrio y acorde al tema */
@@ -2229,11 +2256,6 @@ with st.sidebar:
 </div>
 """, unsafe_allow_html=True)
 
-        if st.button(t("usage_reset_btn", lang), key="reset_usage_metrics_btn", use_container_width=True):
-            usage_tracker.reset_metrics()
-            st.success(t("usage_reset_success", lang))
-            st.rerun()
-
     # 8. EXPANDER: Historial de Consultas (Colapsado)
     if len(st.session_state.history) > 0:
         with st.expander(t("sidebar_history_expander_title", lang), expanded=False):
@@ -2379,6 +2401,23 @@ with st.sidebar:
                                     elif err_att:
                                         st.caption(f"⚠️ {err_att}")
 
+                # Administración de Métricas de Uso (Protegido por Token Admin)
+                st.write("---")
+                st.markdown(f"**{t('admin_usage_management_title', lang)}**")
+                adm_u = usage_tracker.get_metrics()
+                col_adm1, col_adm2 = st.columns(2)
+                with col_adm1:
+                    st.metric(t("usage_total_queries", lang), f"{adm_u['total_queries']:,}")
+                with col_adm2:
+                    st.metric(t("usage_total_accumulated", lang), f"{adm_u['total_tokens']:,}")
+
+                with st.expander("⚠️ " + t("admin_reset_metrics_btn", lang), expanded=False):
+                    st.warning(t("admin_reset_metrics_warning", lang))
+                    if st.button(t("admin_reset_metrics_btn", lang), key="admin_reset_usage_metrics_btn", type="primary", use_container_width=True):
+                        usage_tracker.reset_metrics()
+                        st.success(t("admin_reset_metrics_confirm", lang))
+                        st.rerun()
+
     st.write("---")
     # Client-side Exclusive Accordion for Sidebar Expanders
     components.html("""
@@ -2436,6 +2475,15 @@ with st.sidebar:
 
 # Header
 base64_logo = get_base64_logo(logo_path)
+cur_usage = usage_tracker.get_metrics()
+tot_q_display = f"{cur_usage['total_queries']:,}"
+llm_q_display = f"{cur_usage['queries_with_llm']:,}"
+loc_q_display = f"{cur_usage['queries_local']:,}"
+header_badge_html = f"""<div class="app-header-counter-badge">
+    <span class="counter-badge-icon">📊</span>
+    <span class="counter-badge-text">{t('header_queries_badge', lang, total=tot_q_display, llm=llm_q_display, local=loc_q_display)}</span>
+</div>"""
+
 if base64_logo:
     render_custom_html(f"""<style>
 .ijf-tooltip {{
@@ -2491,10 +2539,12 @@ if base64_logo:
             <div class="ijf-tooltiptext" style="left: 50%; transform: translateX(-50%); top: 130%;">{t('header_tooltip', lang)}</div>
         </div>
     </div>
+    {header_badge_html}
 </div>""")
 else:
     render_custom_html(f"""<div class="app-header-banner">
     <h2 class="app-main-title">{t('app_title', lang)}</h2>
+    {header_badge_html}
 </div>""")
 
 # Handle user input

@@ -18,6 +18,11 @@ sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__f
 from rre_engine import ReasoningRetrievalEngine
 from ada_assistant import ArbitrationDecisionAssistant
 from response_structurer import build_deterministic_structured_answer
+from unittest.mock import patch
+from tests._ada_contract_helpers import (
+    StubLLM, answer_citing, cite_first_delivered, citation_ids,
+    delivered_ids_in_result, delivered_primary_ids, ABSTENTION_MARKER, TRANSLATION_MARKER,
+)
 
 
 class TestNewazaBoundaryRules(unittest.TestCase):
@@ -42,29 +47,34 @@ class TestNewazaBoundaryRules(unittest.TestCase):
         self.assertIn("beyond the limit of the safety area", normalized_text)
 
     def test_02_osaekomi_beyond_safety_area_answer_and_quote(self):
-        """Answer and exact quote must specify Ippon Sore-Made and not confuse with Shido."""
+        """Safety-boundary passage P174 is delivered; no generator -> ABSTAIN without citations;
+        a generator citing the delivered P174 -> SUCCESS whose citation quotes the boundary rule."""
         query = "concesion de Ippon cuando una accion de ne-waza o inmovilizacion osaekomi alcanza o sobrepasa el limite exterior del area de seguridad"
-        res = self.ada.analyze_situation(query)
+        p174 = "SOR-2026-08-P174-S190"
 
+        with patch.object(self.ada, "_call_llm", StubLLM()):
+            offline = self.ada.analyze_situation(query)
+        self.assertEqual(offline["status"], "ABSTAIN")
+        self.assertEqual(offline["structured_answer"]["citations"], [])
+        delivered = {e["passage_id"]: e for e in offline["evidence"] + offline["related_passages"]}
+        self.assertIn(p174, delivered)
+        normalized_text = " ".join(delivered[p174]["text_original"].lower().split())
+        self.assertIn("beyond the limit of the safety area", normalized_text)
+
+        stub = StubLLM(answer_citing([p174]))
+        with patch.object(self.ada, "_call_llm", stub):
+            res = self.ada.analyze_situation(query)
+        self.assertIn(p174, delivered_primary_ids(stub.analysis_prompts[0]))
         self.assertEqual(res["status"], "SUCCESS")
         struct = res["structured_answer"]
-
-        # Level 1 summary must reference Art. 17 P174 and Ippon! Sore-Made!
-        self.assertIn("174", struct["summary"])
-        self.assertIn("Ippon! Sore-Made!", struct["summary"])
-
-        # Extended analysis must cover the safety boundary rule without mentioning time-wasting
-        self.assertIn("Ippon! Sore-Made!", struct["extended_analysis"])
-        self.assertNotIn("pérdida de tiempo", struct["extended_analysis"].lower())
-        self.assertNotIn("primera ocurrencia: conforme al art. 18.1.3", struct["extended_analysis"].lower())
-
-        # Exact quote and snippet for P174 citation must capture the safety area boundary sentence
-        p174_cits = [c for c in struct["citations"] if c.get("passage_id") == "SOR-2026-08-P174-S190"]
-        self.assertTrue(len(p174_cits) > 0)
-        cit = p174_cits[0]
-        self.assertIn("beyond", cit["exact_quote"].lower() + " " + cit["text_snippet"].lower())
-        self.assertIn("safety area", cit["exact_quote"].lower() + " " + cit["text_snippet"].lower())
+        self.assertEqual(citation_ids(res), [p174])
+        # Exact quote and snippet for the P174 citation must capture the safety area boundary sentence
+        cit = struct["citations"][0]
+        quote_and_snippet = cit["exact_quote"].lower() + " " + cit["text_snippet"].lower()
+        self.assertIn("beyond", quote_and_snippet)
+        self.assertIn("safety area", quote_and_snippet)
         self.assertIn("ippon", cit["text_snippet"].lower())
+        self.assertNotIn("pérdida de tiempo", struct["extended_analysis"].lower())
 
     def test_03_general_newaza_continuity_outside_contest_area(self):
         """Ne-waza continuity outside contest area (within safety area) references Article 5."""
@@ -89,22 +99,22 @@ class TestNewazaBoundaryRules(unittest.TestCase):
         self.assertIn("consultation with the ijf head referee director", p152["text_original"].lower())
 
     def test_05_time_wasting_shido_progression(self):
-        """Time wasting must preserve warning on 1st occurrence, Shido on 2nd, Hansoku-make on 3rd."""
+        """Time-wasting query: no generator, or a generator that cites nothing -> ABSTAIN with no
+        sanction stated; retrieved evidence is kept for consultation and no conclusion is invented."""
         query = "Si un competidor no regresa a la posicion de inicio que le corresponde, quedandose en el suelo y perdiendo tiempo, que debe realizar el arbitro?"
-        res = self.ada.analyze_situation(query)
+        forbidden = ("primera ocurrencia", "segunda ocurrencia", "shido", "hansoku-make")
 
-        self.assertEqual(res["status"], "SUCCESS")
-        struct = res["structured_answer"]
-
-        # Extended analysis must have the 3-step sequence
-        self.assertIn("Primera ocurrencia", struct["extended_analysis"])
-        self.assertIn("Segunda ocurrencia", struct["extended_analysis"])
-        self.assertIn("tercer (3er) Shido", struct["extended_analysis"])
-        self.assertIn("Hansoku-make", struct["extended_analysis"])
-
-        # Must not mention osaekomi outside safety area
-        self.assertNotIn("beyond the limit of the safety area", struct["extended_analysis"].lower())
-
+        for stub in (StubLLM(), StubLLM(answer_citing([]))):
+            with patch.object(self.ada, "_call_llm", stub):
+                res = self.ada.analyze_situation(query)
+            self.assertEqual(res["status"], "ABSTAIN")
+            struct = res["structured_answer"]
+            self.assertEqual(struct["citations"], [])
+            produced = (struct["summary"] + " " + struct["extended_analysis"]).lower()
+            for token in forbidden:
+                self.assertNotIn(token, produced)
+            self.assertNotIn("beyond the limit of the safety area", struct["extended_analysis"].lower())
+            self.assertTrue(len(res["evidence"]) > 0)
 
 if __name__ == "__main__":
     unittest.main()

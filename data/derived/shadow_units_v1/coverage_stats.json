@@ -1,0 +1,46 @@
+{
+  "catalog_documents": 31,
+  "errors_by_code": {
+    "LOCAL_FILE_NOT_IN_CATALOG": 1
+  },
+  "errors_by_severity": {
+    "WARNING": 1
+  },
+  "inventory_by_status": {
+    "CORPUS_PRIMARIO_SOR": 1,
+    "HISTORICO_NO_INGESTADO": 2,
+    "INGESTADO_SIDECAR": 6,
+    "RECHAZADO": 1,
+    "REGISTRADO_NO_INGESTADO": 21
+  },
+  "local_raw_files": [
+    "data/raw/complementary/IJF_Code_of_Ethics_2023_02_27.pdf",
+    "data/raw/complementary/IJF_Disciplinary_Code_2023_05_04.pdf",
+    "data/raw/complementary/IJF_LA28_Olympic_Qualification_FAQ_2026_06_12.pdf",
+    "data/raw/complementary/IJF_LA28_Olympic_Qualification_System_2026_05_12.pdf"
+  ],
+  "local_raw_files_not_in_catalog": [
+    "data/raw/complementary/IJF_LA28_Olympic_Qualification_FAQ_2026_06_12.pdf"
+  ],
+  "related_sor_resolution": {
+    "RESUELTA": 45
+  },
+  "sidecar_chunks": 18,
+  "sidecar_documents": 6,
+  "units": 18,
+  "units_by_document": {
+    "KUN-DIS-001": 3,
+    "KUN-ETH-001": 3,
+    "KUN-NEW-001": 3,
+    "KUN-NEW-003": 3,
+    "KUN-PPT-002": 2,
+    "KUN-QSY-001": 4
+  },
+  "units_by_tier": {
+    "TIER_2": 16,
+    "TIER_3": 2
+  },
+  "units_decisive_true": 0,
+  "units_eligible_for_sidecar": 18,
+  "units_located_literally_in_staged": 18
+}

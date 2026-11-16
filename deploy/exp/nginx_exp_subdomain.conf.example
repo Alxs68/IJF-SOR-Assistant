@@ -1,0 +1,19 @@
+# OPCIONAL (no aplicado): publicar la instancia experimental en un subdominio con contrasena.
+# Requiere: (1) un registro DNS NUEVO exp.sor.alxol.com -> IP de OCI (no modifica el de produccion);
+# (2) certificado (certbot --nginx -d exp.sor.alxol.com); (3) htpasswd -c /etc/nginx/.htpasswd_exp <usuario>.
+# Copiar a /etc/nginx/sites-available/exp.sor.alxol.com, enlazar en sites-enabled, 'nginx -t' y 'systemctl reload nginx'.
+# Reversion: quitar el enlace de sites-enabled y recargar Nginx. El bloque de sor.alxol.com no se toca.
+server {
+    listen 80;
+    server_name exp.sor.alxol.com;
+    auth_basic "IJF SOR Assistant - experimental";
+    auth_basic_user_file /etc/nginx/.htpasswd_exp;
+    location / {
+        proxy_pass http://127.0.0.1:8502;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_read_timeout 86400;
+    }
+}

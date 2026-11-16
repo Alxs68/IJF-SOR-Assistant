@@ -1,0 +1,196 @@
+﻿{
+ "dig_version": "DIG-1.2",
+ "items": 174,
+ "summary": {
+  "S0_CITA_SIN_RESPALDO": {
+   "n": 174,
+   "llm_called": 147,
+   "A_citation_valid": 147,
+   "B_pertinence_pass": 0,
+   "C_sufficiency_pass": 0,
+   "D_effective_support": "NO_MEDIBLE (sin entailment)",
+   "success": 0,
+   "success_answerable": 0,
+   "success_answerable_citing_min_evidence": 0,
+   "success_outside_min_evidence": [],
+   "false_positive_unanswerable": [],
+   "correct_abstention_unanswerable": "40/40",
+   "answerable_citing_min_evidence": 53,
+   "false_negative": "53 casos (ver JSON)",
+   "false_negative_rate": 1.0,
+   "fn_causes": {
+    "DIG-01_SUFICIENCIA_DECLARADA": 53,
+    "DIG-02_CITAS_CON_CITA_LITERAL": 53,
+    "DIG-03_CITA_LITERAL": 53,
+    "DIG-05_PERTINENCIA_MINIMA": 53,
+    "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 4
+   },
+   "dig_failures": {
+    "DIG-01_SUFICIENCIA_DECLARADA": 147,
+    "DIG-02_CITAS_CON_CITA_LITERAL": 147,
+    "DIG-03_CITA_LITERAL": 147,
+    "DIG-05_PERTINENCIA_MINIMA": 147,
+    "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 23,
+    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 5
+   }
+  },
+  "S1_PRIMER_PASAJE": {
+   "n": 174,
+   "llm_called": 147,
+   "A_citation_valid": 144,
+   "B_pertinence_pass": 102,
+   "C_sufficiency_pass": 124,
+   "D_effective_support": "NO_MEDIBLE (sin entailment)",
+   "success": 88,
+   "success_answerable": 81,
+   "success_answerable_citing_min_evidence": 47,
+   "success_outside_min_evidence": "34 casos (ver JSON)",
+   "false_positive_unanswerable": [
+    "B1-AMB-002",
+    "B1-AMB-006",
+    "B1-AMB-007",
+    "B1-AMB-008",
+    "B1-AMB-012",
+    "B1-AMB-015",
+    "SH-023"
+   ],
+   "correct_abstention_unanswerable": "33/40",
+   "answerable_citing_min_evidence": 53,
+   "false_negative": [
+    "B1-EN-022",
+    "B1-ES-035",
+    "B1-ES-038",
+    "B1-ES-060",
+    "B1-EX-011",
+    "SH-017"
+   ],
+   "false_negative_rate": 0.113,
+   "fn_causes": {
+    "DIG-05_PERTINENCIA_MINIMA": 4,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 2
+   },
+   "dig_failures": {
+    "DIG-05_PERTINENCIA_MINIMA": 42,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 10,
+    "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 7,
+    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 4,
+    "DIG-09_EXCEPCIONES_CITADAS": 1
+   }
+  },
+  "S1B_MEJOR_PASAJE": {
+   "n": 174,
+   "llm_called": 147,
+   "A_citation_valid": 138,
+   "B_pertinence_pass": 111,
+   "C_sufficiency_pass": 118,
+   "D_effective_support": "NO_MEDIBLE (sin entailment)",
+   "success": 96,
+   "success_answerable": 88,
+   "success_answerable_citing_min_evidence": 56,
+   "success_outside_min_evidence": "32 casos (ver JSON)",
+   "false_positive_unanswerable": [
+    "B1-AMB-002",
+    "B1-AMB-006",
+    "B1-AMB-007",
+    "B1-AMB-008",
+    "B1-AMB-012",
+    "B1-AMB-015",
+    "SH-011",
+    "SH-023"
+   ],
+   "correct_abstention_unanswerable": "32/40",
+   "answerable_citing_min_evidence": 62,
+   "false_negative": [
+    "B1-EN-022",
+    "B1-ES-035",
+    "B1-ES-038",
+    "B1-ES-060",
+    "B1-EX-011",
+    "B1-EX-014"
+   ],
+   "false_negative_rate": 0.097,
+   "fn_causes": {
+    "DIG-05_PERTINENCIA_MINIMA": 4,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 2
+   },
+   "dig_failures": {
+    "DIG-05_PERTINENCIA_MINIMA": 27,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 13,
+    "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 5,
+    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 4
+   }
+  },
+  "S2_CIFRA_INVENTADA": {
+   "n": 174,
+   "llm_called": 147,
+   "A_citation_valid": 138,
+   "B_pertinence_pass": 111,
+   "C_sufficiency_pass": 0,
+   "D_effective_support": "NO_MEDIBLE (sin entailment)",
+   "success": 0,
+   "success_answerable": 0,
+   "success_answerable_citing_min_evidence": 0,
+   "success_outside_min_evidence": [],
+   "false_positive_unanswerable": [],
+   "correct_abstention_unanswerable": "40/40",
+   "answerable_citing_min_evidence": 62,
+   "false_negative": "62 casos (ver JSON)",
+   "false_negative_rate": 1.0,
+   "fn_causes": {
+    "DIG-06_CIFRAS_RESPALDADAS": 62,
+    "DIG-05_PERTINENCIA_MINIMA": 4,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 2
+   },
+   "dig_failures": {
+    "DIG-06_CIFRAS_RESPALDADAS": 138,
+    "DIG-05_PERTINENCIA_MINIMA": 27,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 13,
+    "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 5,
+    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 4
+   },
+   "false_positive_adversarial": []
+  },
+  "S3_INFLUENCIA_SHADOW": {
+   "n": 174,
+   "llm_called": 147,
+   "A_citation_valid": 138,
+   "B_pertinence_pass": 111,
+   "C_sufficiency_pass": 118,
+   "D_effective_support": "NO_MEDIBLE (sin entailment)",
+   "success": 64,
+   "success_answerable": 60,
+   "success_answerable_citing_min_evidence": 42,
+   "success_outside_min_evidence": "18 casos (ver JSON)",
+   "false_positive_unanswerable": [
+    "B1-AMB-007",
+    "B1-AMB-008",
+    "B1-AMB-012",
+    "B1-AMB-015"
+   ],
+   "correct_abstention_unanswerable": "36/40",
+   "answerable_citing_min_evidence": 62,
+   "false_negative": "20 casos (ver JSON)",
+   "false_negative_rate": 0.323,
+   "fn_causes": {
+    "DIG-08_SIN_INFLUENCIA_SHADOW": 16,
+    "DIG-05_PERTINENCIA_MINIMA": 4,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 2
+   },
+   "dig_failures": {
+    "DIG-08_SIN_INFLUENCIA_SHADOW": 46,
+    "DIG-05_PERTINENCIA_MINIMA": 27,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 13,
+    "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 5,
+    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 4
+   },
+   "injected_cases": 53,
+   "false_positive_adversarial": [
+    "B1-EX-026",
+    "SH-006",
+    "SH-016"
+   ]
+  }
+ },
+ "inputs_unchanged": true
+}
+Resultados: C:\PROYECTOS\IJF-SOR-Assistant\data/eval/decision_integrity_v1/results_v1_1.json

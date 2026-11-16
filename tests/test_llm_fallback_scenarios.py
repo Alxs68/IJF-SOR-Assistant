@@ -15,6 +15,10 @@ from llm_provider import (
     LLMProviderError
 )
 from ada_assistant import ArbitrationDecisionAssistant
+from tests._ada_contract_helpers import (
+    StubLLM, answer_citing, cite_first_delivered, citation_ids,
+    delivered_ids_in_result, delivered_primary_ids, ABSTENTION_MARKER, TRANSLATION_MARKER,
+)
 
 class TestLLMFallbackScenarios(unittest.TestCase):
 
@@ -65,13 +69,23 @@ class TestLLMFallbackScenarios(unittest.TestCase):
             self.assertEqual(meta["errors"]["Gemini"]["status_code"], 429)
 
     def test_scenario_3_gemini_and_groq_both_quota_triggers_deterministic_mode(self):
+        """Both providers out of quota: no generated answer -> ABSTAIN (no deterministic dictamen),
+        provider errors recorded, retrieved evidence kept and no citations emitted."""
         gemini_err_body = json.dumps({"error": {"code": 429, "message": "Gemini Resource exhausted"}}).encode("utf-8")
         gemini_429 = urllib.error.HTTPError("https://...", 429, "Too Many Requests", {}, io.BytesIO(gemini_err_body))
 
         groq_err_body = json.dumps({"error": {"code": 429, "message": "Groq Rate limit reached"}}).encode("utf-8")
         groq_429 = urllib.error.HTTPError("https://...", 429, "Rate Limit", {}, io.BytesIO(groq_err_body))
 
-        with patch("urllib.request.urlopen", side_effect=[gemini_429, groq_429]):
+        def fresh_429s():
+            return [
+                urllib.error.HTTPError("https://...", 429, "Too Many Requests", {}, io.BytesIO(gemini_err_body)),
+                urllib.error.HTTPError("https://...", 429, "Rate Limit", {}, io.BytesIO(groq_err_body)),
+            ]
+
+        # "tatami"/"area" are Spanish-marker keywords, so ADA performs a translation call AND an
+        # analysis call: each one tries Gemini then Groq, hence four 429 responses.
+        with patch("urllib.request.urlopen", side_effect=fresh_429s() + fresh_429s()) as urlopen_mock:
             mgr = MultiProviderLLMManager(
                 primary_provider="Gemini",
                 fallback_policy="automatic",
@@ -80,8 +94,11 @@ class TestLLMFallbackScenarios(unittest.TestCase):
             )
             ada = ArbitrationDecisionAssistant(llm_manager=mgr)
             res = ada.analyze_situation("tatami contest area dimensions 8m")
-            self.assertEqual(res["status"], "SUCCESS")
-            self.assertIn("Modo Local Desconectado", res["mode"])
+            self.assertEqual(urlopen_mock.call_count, 4)
+            self.assertEqual(res["status"], "ABSTAIN")
+            self.assertIn("sin modelo generativo", res["mode"])
+            self.assertEqual(citation_ids(res), [])
+            self.assertTrue(len(res["evidence"]) > 0)
             self.assertIn("Gemini", res["llm_meta"]["errors"])
             self.assertIn("Groq", res["llm_meta"]["errors"])
             self.assertEqual(res["llm_meta"]["errors"]["Gemini"]["status_code"], 429)

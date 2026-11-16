@@ -1,0 +1,335 @@
+{
+  "chunk_to_unit": {
+    "CHK-KUN-DIS-001-001": "SHU1-CHK-KUN-DIS-001-001",
+    "CHK-KUN-DIS-001-002": "SHU1-CHK-KUN-DIS-001-002",
+    "CHK-KUN-DIS-001-003": "SHU1-CHK-KUN-DIS-001-003",
+    "CHK-KUN-ETH-001-001": "SHU1-CHK-KUN-ETH-001-001",
+    "CHK-KUN-ETH-001-002": "SHU1-CHK-KUN-ETH-001-002",
+    "CHK-KUN-ETH-001-003": "SHU1-CHK-KUN-ETH-001-003",
+    "CHK-KUN-NEW-001-001": "SHU1-CHK-KUN-NEW-001-001",
+    "CHK-KUN-NEW-001-002": "SHU1-CHK-KUN-NEW-001-002",
+    "CHK-KUN-NEW-001-003": "SHU1-CHK-KUN-NEW-001-003",
+    "CHK-KUN-NEW-003-001": "SHU1-CHK-KUN-NEW-003-001",
+    "CHK-KUN-NEW-003-002": "SHU1-CHK-KUN-NEW-003-002",
+    "CHK-KUN-NEW-003-003": "SHU1-CHK-KUN-NEW-003-003",
+    "CHK-KUN-PPT-002-001": "SHU1-CHK-KUN-PPT-002-001",
+    "CHK-KUN-PPT-002-002": "SHU1-CHK-KUN-PPT-002-002",
+    "CHK-KUN-QSY-001-001": "SHU1-CHK-KUN-QSY-001-001",
+    "CHK-KUN-QSY-001-002": "SHU1-CHK-KUN-QSY-001-002",
+    "CHK-KUN-QSY-001-003": "SHU1-CHK-KUN-QSY-001-003",
+    "CHK-KUN-QSY-001-004": "SHU1-CHK-KUN-QSY-001-004"
+  },
+  "document_to_units": {
+    "KUN-DIS-001": [
+      "SHU1-CHK-KUN-DIS-001-001",
+      "SHU1-CHK-KUN-DIS-001-002",
+      "SHU1-CHK-KUN-DIS-001-003"
+    ],
+    "KUN-ETH-001": [
+      "SHU1-CHK-KUN-ETH-001-001",
+      "SHU1-CHK-KUN-ETH-001-002",
+      "SHU1-CHK-KUN-ETH-001-003"
+    ],
+    "KUN-NEW-001": [
+      "SHU1-CHK-KUN-NEW-001-001",
+      "SHU1-CHK-KUN-NEW-001-002",
+      "SHU1-CHK-KUN-NEW-001-003"
+    ],
+    "KUN-NEW-003": [
+      "SHU1-CHK-KUN-NEW-003-001",
+      "SHU1-CHK-KUN-NEW-003-002",
+      "SHU1-CHK-KUN-NEW-003-003"
+    ],
+    "KUN-PPT-002": [
+      "SHU1-CHK-KUN-PPT-002-001",
+      "SHU1-CHK-KUN-PPT-002-002"
+    ],
+    "KUN-QSY-001": [
+      "SHU1-CHK-KUN-QSY-001-001",
+      "SHU1-CHK-KUN-QSY-001-002",
+      "SHU1-CHK-KUN-QSY-001-003",
+      "SHU1-CHK-KUN-QSY-001-004"
+    ]
+  },
+  "unit_to_related_sor_units": {
+    "SHU1-CHK-KUN-DIS-001-001": [
+      "AU1-P014-004",
+      "AU1-P015-001",
+      "AU1-P190-003",
+      "AU1-P191-001",
+      "AU1-P192-001",
+      "AU1-P193-001"
+    ],
+    "SHU1-CHK-KUN-DIS-001-002": [
+      "AU1-P014-004",
+      "AU1-P015-001",
+      "AU1-P190-003",
+      "AU1-P191-001",
+      "AU1-P192-001",
+      "AU1-P193-001"
+    ],
+    "SHU1-CHK-KUN-DIS-001-003": [
+      "AU1-P014-004",
+      "AU1-P015-001",
+      "AU1-P190-003",
+      "AU1-P191-001",
+      "AU1-P192-001",
+      "AU1-P193-001"
+    ],
+    "SHU1-CHK-KUN-ETH-001-001": [
+      "AU1-P014-001",
+      "AU1-P015-002",
+      "AU1-P016-001",
+      "AU1-P016-002",
+      "AU1-P017-001"
+    ],
+    "SHU1-CHK-KUN-ETH-001-002": [
+      "AU1-P014-001",
+      "AU1-P015-002",
+      "AU1-P016-001",
+      "AU1-P016-002",
+      "AU1-P017-001"
+    ],
+    "SHU1-CHK-KUN-ETH-001-003": [
+      "AU1-P014-001",
+      "AU1-P015-002",
+      "AU1-P016-001",
+      "AU1-P016-002",
+      "AU1-P017-001"
+    ],
+    "SHU1-CHK-KUN-NEW-001-001": [
+      "AU1-P188-002",
+      "AU1-P189-001",
+      "AU1-P190-003",
+      "AU1-P191-001",
+      "AU1-P192-001",
+      "AU1-P193-001"
+    ],
+    "SHU1-CHK-KUN-NEW-001-002": [
+      "AU1-P188-002",
+      "AU1-P189-001",
+      "AU1-P190-003",
+      "AU1-P191-001",
+      "AU1-P192-001",
+      "AU1-P193-001"
+    ],
+    "SHU1-CHK-KUN-NEW-001-003": [
+      "AU1-P188-002",
+      "AU1-P189-001",
+      "AU1-P190-003",
+      "AU1-P191-001",
+      "AU1-P192-001",
+      "AU1-P193-001"
+    ],
+    "SHU1-CHK-KUN-NEW-003-001": [
+      "AU1-P168-001",
+      "AU1-P169-001",
+      "AU1-P170-001",
+      "AU1-P171-001",
+      "AU1-P172-001",
+      "AU1-P173-001",
+      "AU1-P174-001",
+      "AU1-P175-001"
+    ],
+    "SHU1-CHK-KUN-NEW-003-002": [
+      "AU1-P168-001",
+      "AU1-P169-001",
+      "AU1-P170-001",
+      "AU1-P171-001",
+      "AU1-P172-001",
+      "AU1-P173-001",
+      "AU1-P174-001",
+      "AU1-P175-001"
+    ],
+    "SHU1-CHK-KUN-NEW-003-003": [
+      "AU1-P168-001",
+      "AU1-P169-001",
+      "AU1-P170-001",
+      "AU1-P171-001",
+      "AU1-P172-001",
+      "AU1-P173-001",
+      "AU1-P174-001",
+      "AU1-P175-001"
+    ],
+    "SHU1-CHK-KUN-PPT-002-001": [
+      "AU1-P160-002",
+      "AU1-P161-001",
+      "AU1-P162-001",
+      "AU1-P176-001",
+      "AU1-P190-001"
+    ],
+    "SHU1-CHK-KUN-PPT-002-002": [
+      "AU1-P160-002",
+      "AU1-P161-001",
+      "AU1-P162-001",
+      "AU1-P176-001",
+      "AU1-P190-001"
+    ],
+    "SHU1-CHK-KUN-QSY-001-001": [
+      "AU1-P034-002",
+      "AU1-P051-001",
+      "AU1-P052-002"
+    ],
+    "SHU1-CHK-KUN-QSY-001-002": [
+      "AU1-P034-002",
+      "AU1-P051-001",
+      "AU1-P052-002"
+    ],
+    "SHU1-CHK-KUN-QSY-001-003": [
+      "AU1-P034-002",
+      "AU1-P051-001",
+      "AU1-P052-002"
+    ],
+    "SHU1-CHK-KUN-QSY-001-004": [
+      "AU1-P034-002",
+      "AU1-P051-001",
+      "AU1-P052-002"
+    ]
+  },
+  "unit_to_source": {
+    "SHU1-CHK-KUN-DIS-001-001": {
+      "chunk_id": "CHK-KUN-DIS-001-001",
+      "document_id": "KUN-DIS-001",
+      "kun": "KUN-DIS-001",
+      "staged_char_start": 688,
+      "staged_line": 19,
+      "staged_path": "data/corpus_multisource/staging/KUN-DIS-001_staged.md"
+    },
+    "SHU1-CHK-KUN-DIS-001-002": {
+      "chunk_id": "CHK-KUN-DIS-001-002",
+      "document_id": "KUN-DIS-001",
+      "kun": "KUN-DIS-002",
+      "staged_char_start": 2244,
+      "staged_line": 51,
+      "staged_path": "data/corpus_multisource/staging/KUN-DIS-001_staged.md"
+    },
+    "SHU1-CHK-KUN-DIS-001-003": {
+      "chunk_id": "CHK-KUN-DIS-001-003",
+      "document_id": "KUN-DIS-001",
+      "kun": "KUN-DIS-003",
+      "staged_char_start": 3720,
+      "staged_line": 83,
+      "staged_path": "data/corpus_multisource/staging/KUN-DIS-001_staged.md"
+    },
+    "SHU1-CHK-KUN-ETH-001-001": {
+      "chunk_id": "CHK-KUN-ETH-001-001",
+      "document_id": "KUN-ETH-001",
+      "kun": "KUN-ETH-001",
+      "staged_char_start": 662,
+      "staged_line": 19,
+      "staged_path": "data/corpus_multisource/staging/KUN-ETH-001_staged.md"
+    },
+    "SHU1-CHK-KUN-ETH-001-002": {
+      "chunk_id": "CHK-KUN-ETH-001-002",
+      "document_id": "KUN-ETH-001",
+      "kun": "KUN-ETH-002",
+      "staged_char_start": 2202,
+      "staged_line": 52,
+      "staged_path": "data/corpus_multisource/staging/KUN-ETH-001_staged.md"
+    },
+    "SHU1-CHK-KUN-ETH-001-003": {
+      "chunk_id": "CHK-KUN-ETH-001-003",
+      "document_id": "KUN-ETH-001",
+      "kun": "KUN-ETH-003",
+      "staged_char_start": 3652,
+      "staged_line": 85,
+      "staged_path": "data/corpus_multisource/staging/KUN-ETH-001_staged.md"
+    },
+    "SHU1-CHK-KUN-NEW-001-001": {
+      "chunk_id": "CHK-KUN-NEW-001-001",
+      "document_id": "KUN-NEW-001",
+      "kun": "KUN-0072",
+      "staged_char_start": 711,
+      "staged_line": 19,
+      "staged_path": "data/corpus_multisource/staging/KUN-NEW-001_staged.md"
+    },
+    "SHU1-CHK-KUN-NEW-001-002": {
+      "chunk_id": "CHK-KUN-NEW-001-002",
+      "document_id": "KUN-NEW-001",
+      "kun": "KUN-0073",
+      "staged_char_start": 1905,
+      "staged_line": 50,
+      "staged_path": "data/corpus_multisource/staging/KUN-NEW-001_staged.md"
+    },
+    "SHU1-CHK-KUN-NEW-001-003": {
+      "chunk_id": "CHK-KUN-NEW-001-003",
+      "document_id": "KUN-NEW-001",
+      "kun": "KUN-0075",
+      "staged_char_start": 2999,
+      "staged_line": 81,
+      "staged_path": "data/corpus_multisource/staging/KUN-NEW-001_staged.md"
+    },
+    "SHU1-CHK-KUN-NEW-003-001": {
+      "chunk_id": "CHK-KUN-NEW-003-001",
+      "document_id": "KUN-NEW-003",
+      "kun": "KUN-0053",
+      "staged_char_start": 838,
+      "staged_line": 19,
+      "staged_path": "data/corpus_multisource/staging/KUN-NEW-003_staged.md"
+    },
+    "SHU1-CHK-KUN-NEW-003-002": {
+      "chunk_id": "CHK-KUN-NEW-003-002",
+      "document_id": "KUN-NEW-003",
+      "kun": "KUN-0057",
+      "staged_char_start": 2328,
+      "staged_line": 63,
+      "staged_path": "data/corpus_multisource/staging/KUN-NEW-003_staged.md"
+    },
+    "SHU1-CHK-KUN-NEW-003-003": {
+      "chunk_id": "CHK-KUN-NEW-003-003",
+      "document_id": "KUN-NEW-003",
+      "kun": "KUN-0003",
+      "staged_char_start": 3509,
+      "staged_line": 95,
+      "staged_path": "data/corpus_multisource/staging/KUN-NEW-003_staged.md"
+    },
+    "SHU1-CHK-KUN-PPT-002-001": {
+      "chunk_id": "CHK-KUN-PPT-002-001",
+      "document_id": "KUN-PPT-002",
+      "kun": "KUN-0035",
+      "staged_char_start": 699,
+      "staged_line": 19,
+      "staged_path": "data/corpus_multisource/staging/KUN-PPT-002_staged.md"
+    },
+    "SHU1-CHK-KUN-PPT-002-002": {
+      "chunk_id": "CHK-KUN-PPT-002-002",
+      "document_id": "KUN-PPT-002",
+      "kun": "KUN-0036",
+      "staged_char_start": 2120,
+      "staged_line": 58,
+      "staged_path": "data/corpus_multisource/staging/KUN-PPT-002_staged.md"
+    },
+    "SHU1-CHK-KUN-QSY-001-001": {
+      "chunk_id": "CHK-KUN-QSY-001-001",
+      "document_id": "KUN-QSY-001",
+      "kun": "KUN-QSY-001",
+      "staged_char_start": 735,
+      "staged_line": 19,
+      "staged_path": "data/corpus_multisource/staging/KUN-QSY-001_staged.md"
+    },
+    "SHU1-CHK-KUN-QSY-001-002": {
+      "chunk_id": "CHK-KUN-QSY-001-002",
+      "document_id": "KUN-QSY-001",
+      "kun": "KUN-QSY-002",
+      "staged_char_start": 2176,
+      "staged_line": 52,
+      "staged_path": "data/corpus_multisource/staging/KUN-QSY-001_staged.md"
+    },
+    "SHU1-CHK-KUN-QSY-001-003": {
+      "chunk_id": "CHK-KUN-QSY-001-003",
+      "document_id": "KUN-QSY-001",
+      "kun": "KUN-QSY-003",
+      "staged_char_start": 3625,
+      "staged_line": 85,
+      "staged_path": "data/corpus_multisource/staging/KUN-QSY-001_staged.md"
+    },
+    "SHU1-CHK-KUN-QSY-001-004": {
+      "chunk_id": "CHK-KUN-QSY-001-004",
+      "document_id": "KUN-QSY-001",
+      "kun": "KUN-QSY-004",
+      "staged_char_start": 5014,
+      "staged_line": 117,
+      "staged_path": "data/corpus_multisource/staging/KUN-QSY-001_staged.md"
+    }
+  }
+}

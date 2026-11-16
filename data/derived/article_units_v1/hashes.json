@@ -1,0 +1,12 @@
+{
+  "artifacts_sha256": {
+    "coverage_stats.json": "c69f02bd9ed60e14825a916bbc53055cb783abcff4142dd1a78446f9767bb1c7",
+    "errors.jsonl": "73ff4bd44eb9a3da06da23eb86002d434517471c0979ce471970e8a3718b5755",
+    "metadata.json": "30fa142d26f79a9f42775a028be45ab2339f1f900f0f1d7468809cdda59a313b",
+    "traceability_map.json": "c272b0ca0b3ec95752d9916f2ababb2690a99f2a50ac672c02274dbd65888e7b",
+    "units.jsonl": "9c54a9fd8194d9c0895ee457cce7460db5d9ec24d3b5169ac13efdccc945f5f1",
+    "validation_report.json": "437196650de487981e542c6a37442e7478e327be927efca6e0b2291b61010030"
+  },
+  "input_corpus_file_sha256": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b",
+  "processor_version": "1.0.0"
+}

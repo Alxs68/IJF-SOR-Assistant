@@ -1,0 +1,45 @@
+{
+  "build_command": "python scripts/build_article_units.py",
+  "description": "Capa derivada de unidades articulo/clausula. No es fuente normativa; cada unidad es un corte literal del texto original.",
+  "id_scheme": "AU1-P<page>-<seq> (nivel 1); AU1-P<page>-<seq>-C<nn> (nivel 2)",
+  "input_corpus": "data/processed/rebuild_2026_08_corrected/passages_candidate.json",
+  "input_corpus_file_sha256": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b",
+  "normative_status": "DERIVADA_NO_NORMATIVA",
+  "processor": "sor_article_unit_segmenter",
+  "processor_version": "1.0.0",
+  "source_pdf_sha256": [
+    "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620"
+  ],
+  "source_version": [
+    "2026-08-14"
+  ],
+  "unit_fields": [
+    "article_label",
+    "char_end",
+    "char_start",
+    "child_unit_ids",
+    "clause_label",
+    "clause_structure",
+    "cross_refs",
+    "derived_text",
+    "derived_text_sha256",
+    "exception_markers",
+    "heading",
+    "list_item_count",
+    "merged_exception_clauses",
+    "non_segmentation_reason",
+    "normative_status",
+    "original_passage_ids",
+    "page",
+    "page_passage_ids",
+    "parent_unit_id",
+    "passage_relation",
+    "relation_to_official",
+    "segmentation_method",
+    "source_text_sha256",
+    "unit_id",
+    "unit_level",
+    "unit_type",
+    "validation_status"
+  ]
+}

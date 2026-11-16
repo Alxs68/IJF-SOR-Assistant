@@ -1,0 +1,50 @@
+{
+  "benchmark_version": "benchmark_shadow_v1.0.0",
+  "build_errors": [],
+  "counts": {
+    "by_annotation_status": {
+      "SIN_EVIDENCIA_ESPERADA_NO_VERIFICABLE_EXHAUSTIVAMENTE": 4,
+      "VERIFICADA_TEXTUALMENTE": 19,
+      "VERIFICADA_TEXTUALMENTE_CON_ARTICULO_PENDIENTE": 1
+    },
+    "by_evidence_class": {
+      "AUXILIAR_NO_DEBE_FUNDAMENTAR": 6,
+      "PRIMARIA_CON_AUXILIAR": 8,
+      "SIN_EVIDENCIA_SUFICIENTE": 4,
+      "SOLO_AUXILIAR_SIN_PRIMARIA": 6
+    },
+    "by_language": {
+      "en": 11,
+      "es": 13
+    },
+    "shadow_chunks_covered": [
+      "CHK-KUN-DIS-001-002",
+      "CHK-KUN-DIS-001-003",
+      "CHK-KUN-ETH-001-001",
+      "CHK-KUN-ETH-001-002",
+      "CHK-KUN-ETH-001-003",
+      "CHK-KUN-NEW-001-001",
+      "CHK-KUN-NEW-001-002",
+      "CHK-KUN-NEW-001-003",
+      "CHK-KUN-NEW-003-001",
+      "CHK-KUN-NEW-003-002",
+      "CHK-KUN-NEW-003-003",
+      "CHK-KUN-PPT-002-001",
+      "CHK-KUN-PPT-002-002",
+      "CHK-KUN-QSY-001-001",
+      "CHK-KUN-QSY-001-002",
+      "CHK-KUN-QSY-001-003",
+      "CHK-KUN-QSY-001-004"
+    ],
+    "shadow_chunks_total": 18,
+    "total": 24
+  },
+  "policy": {
+    "auxiliary_use": "CONTEXTO_NO_DECISORIO en todos los items",
+    "certified_by_referees": false,
+    "human_review_status": "PENDIENTE_REVISION_ARBITRAL",
+    "split": "conjunto unico de evaluacion; no usar para ajustar"
+  },
+  "shadow_passages_sha256": "8c5365f08e5448a3d19119e27147082b63766bf17c5d1ac9621920dbe8dd0fb8",
+  "sor_corpus_sha256": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b"
+}

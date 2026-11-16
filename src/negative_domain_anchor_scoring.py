@@ -155,7 +155,7 @@ class NegativeDomainAnchorScorer:
         ],
         NegativeDomainCategory.FUTURE_CHANGES: [
             {"pattern": r"\b(?:2030|2032|2036)\b", "weight": 1.0, "desc": "unincorporated future regulation years"},
-            {"pattern": r"\b(?:ciclo\s+ol[ií]mpico\s+la28|los\s+[aá]ngeles\s+2028|la28)\b", "weight": 1.0, "desc": "future LA28 cycle not in SOR 2026"},
+            {"pattern": r"\b(?:ciclo\s+ol[ií]mpico\s+la28)\b", "weight": 1.0, "desc": "future LA28 cycle rule changes not in SOR 2026"},
         ]
     }
 

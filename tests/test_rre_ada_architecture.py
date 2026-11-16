@@ -7,6 +7,11 @@ sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__f
 from rre_engine import ReasoningRetrievalEngine
 from ada_assistant import ArbitrationDecisionAssistant
 from corpus_config import EDITION_2026_08
+from unittest.mock import patch
+from tests._ada_contract_helpers import (
+    StubLLM, answer_citing, cite_first_delivered, citation_ids, grounded_answer,
+    delivered_ids_in_result, delivered_primary_ids, ABSTENTION_MARKER, TRANSLATION_MARKER,
+)
 
 class TestRREAndADAArchitecture(unittest.TestCase):
     """
@@ -62,13 +67,33 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertEqual(res.get("source_sha256_verified"), self.rre.source_sha256_verified)
 
     def test_04_ada_arbitration_situation_analysis(self):
-        """Verifica que ADA estructure resúmenes normativos a partir de evidencias de RRE."""
-        res = self.ada.analyze_situation("¿Cómo se sanciona el uso de la cabeza para defenderse en cadetes?")
+        """ADA builds on RRE evidence: without LLM -> ABSTAIN, no citations; with a simulated
+        translator and generator citing a delivered primary passage -> SUCCESS (IA synthesis) with
+        citations limited to delivered IDs. (Offline retrieval for this query depends on the
+        dictionary projection, which is outside AUD-01..04; see audit report.)"""
+        q = "¿Cómo se sanciona el uso de la cabeza para defenderse en cadetes?"
+        with patch.object(self.ada, "_call_llm", StubLLM()):
+            offline = self.ada.analyze_situation(q)
+        self.assertEqual(offline["status"], "ABSTAIN")
+        self.assertEqual(offline["engine"], "ADA-RRE-v2")
+        self.assertIn("Abstención", offline["analysis"])
+        self.assertEqual(offline["structured_answer"]["citations"], [])
+
+        # Simulated LLM = simulated translator + simulated generator (deterministic, no network).
+        stub = StubLLM(cite_first_delivered,
+                       translation="How is using the head to defend penalised in cadet competitions?")
+        with patch.object(self.ada, "_call_llm", stub):
+            res = self.ada.analyze_situation(q)
+        self.assertEqual(len(stub.translation_prompts), 1)
+        self.assertEqual(len(stub.analysis_prompts), 1)
+        delivered = delivered_primary_ids(stub.analysis_prompts[0])
+        self.assertTrue(delivered)
+        self.assertTrue(len(res["evidence"]) > 0)
         self.assertEqual(res["status"], "SUCCESS")
         self.assertEqual(res["engine"], "ADA-RRE-v2")
-        self.assertTrue(len(res["evidence"]) > 0)
         self.assertIn("SOR-2026-08", res["analysis"])
-        self.assertTrue("Resumen de Evidencias Normativas" in res["analysis"] or "Síntesis Analítica IA" in res["analysis"])
+        self.assertIn("Síntesis Analítica IA", res["analysis"])
+        self.assertEqual(citation_ids(res), delivered[:1])
 
     def test_05_ada_abstention_handling(self):
         """Verifica que ADA formule una abstención justificada ante consultas out-of-domain."""
@@ -80,38 +105,43 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertEqual(res.get("source_sha256_verified"), self.ada.rre.source_sha256_verified)
 
     def test_06_llm_output_requires_retrieved_official_citations(self):
-        """Reject generated analysis when it cites a passage absent from retrieved evidence."""
-        from unittest.mock import patch
-
+        """Reject generated analysis when it cites a passage absent from the delivered evidence."""
         query = "¿Cuáles son las dimensiones del tatami?"
-        with patch.object(
-            self.ada,
-            "_call_llm",
-            return_value="La conclusión inventada es definitiva [SOR-2026-08-P999-S999]."
-        ):
+        stub = StubLLM(lambda prompt, delivered: "La conclusión inventada es definitiva [SOR-2026-08-P999-S999].")
+        with patch.object(self.ada, "_call_llm", stub):
             result = self.ada.analyze_situation(query)
-        self.assertEqual(result["status"], "SUCCESS")
-        self.assertIn("Fallback: citas IA no verificables", result["mode"])
+        self.assertEqual(len(stub.translation_prompts), 1)
+        self.assertEqual(len(stub.analysis_prompts), 1)
+        self.assertNotIn("SOR-2026-08-P999-S999", delivered_primary_ids(stub.analysis_prompts[0]))
+        self.assertEqual(result["status"], "ABSTAIN")
+        self.assertIn("validación de citas", result["mode"])
         self.assertNotIn("P999-S999", result["analysis"])
-        self.assertIn("Resumen de Evidencias Normativas", result["analysis"])
+        self.assertEqual(result["structured_answer"]["citations"], [])
+        self.assertTrue(len(result["evidence"]) > 0)
 
     def test_07_llm_output_accepts_citation_from_retrieved_evidence(self):
-        """Accept generated analysis when it cites a passage in the retrieved evidence set."""
-        from unittest.mock import patch
+        """Accept generated analysis when it cites a passage delivered to the model.
 
+        The translation call and the analysis call are distinguished explicitly, so the mock never
+        replaces the retrieval query; the cited ID is read from the analysis prompt actually received.
+        """
         query = "¿Cuáles son las dimensiones del tatami?"
-        evidence = self.ada.rre.retrieve(query)["evidence"]
-        self.assertTrue(evidence)
-        valid_id = evidence[0]["passage_id"]
-        with patch.object(
-            self.ada,
-            "_call_llm",
-            return_value=f"Análisis fundamentado en evidencia disponible [{valid_id}]."
-        ):
+        # Fase 9.1: el stub responde con el contrato vigente (JSON + citas literales del pasaje citado);
+        # una frase libre con un ID ya no es una respuesta normativa aceptable (DIG-00).
+        stub = StubLLM(lambda prompt, delivered: grounded_answer(prompt, delivered[:1]) if delivered else "Sin evidencia.")
+        with patch.object(self.ada, "_call_llm", stub):
             result = self.ada.analyze_situation(query)
+        self.assertEqual(len(stub.translation_prompts), 1)
+        self.assertEqual(len(stub.analysis_prompts), 1)
+        self.assertNotIn(TRANSLATION_MARKER, stub.analysis_prompts[0])
+        delivered = delivered_primary_ids(stub.analysis_prompts[0])
+        self.assertTrue(delivered)
+        valid_id = delivered[0]
+        self.assertIn(valid_id, [e["passage_id"] for e in result["evidence"] + result["related_passages"]])
         self.assertEqual(result["status"], "SUCCESS")
-        self.assertIn("citas verificadas", result["mode"])
+        self.assertIn("citas SOR validadas", result["mode"])
         self.assertIn(valid_id, result["analysis"])
+        self.assertEqual(citation_ids(result), [valid_id])
 
     def test_08_dense_matrix_alignment_and_integrity(self):
         """Verifica que la matriz densa pre-computada coincida 1:1 con los 385 pasajes normativos."""
@@ -133,12 +163,21 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertIsNotNone(engine.ada)
         self.assertIsNotNone(engine.rre)
         self.assertIsNone(engine.vs)  # Legacy VectorStore no debe instanciarse para agosto 2026
-        
-        # Test query delegación
-        query_res = engine.query("¿Cuáles son las dimensiones del tatami?")
+
+        # Delegation without a generator: abstention, retrieved SOR evidence kept for the UI
+        with patch.object(engine.ada, "_call_llm", StubLLM()):
+            query_res = engine.query("¿Cuáles son las dimensiones del tatami?")
         self.assertIn("query", query_res)
         self.assertTrue(len(query_res["retrieved_kuns"]) > 0)
+        self.assertTrue(all(pid.startswith("SOR-2026-08") for pid in query_res["retrieved_kuns"]))
+        self.assertIn(ABSTENTION_MARKER, query_res["answer"])
+        self.assertEqual(query_res.get("rre_operating_mode"), "HYBRID")
+
+        # Delegation with a generator citing a delivered passage: the answer carries the SOR citation
+        with patch.object(engine.ada, "_call_llm", StubLLM(cite_first_delivered)):
+            query_res = engine.query("¿Cuáles son las dimensiones del tatami?")
         self.assertIn("SOR-2026-08", query_res["answer"])
+        self.assertNotIn(ABSTENTION_MARKER, query_res["answer"])
         self.assertEqual(query_res.get("rre_operating_mode"), "HYBRID")
 
     def test_10_rre_rejects_corrupted_or_non_finite_matrix(self):

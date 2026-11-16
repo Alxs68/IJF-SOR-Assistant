@@ -1,0 +1,3448 @@
+{
+  "benchmark": {
+    "benchmark_version": "benchmark_v2.0.0",
+    "split": "dev",
+    "test_sealed_hash_ok": true,
+    "n": 41
+  },
+  "split": "dev",
+  "llm_results": "data\\eval\\fase11\\llm_dev_f11.json",
+  "corpus_unchanged": true,
+  "summary": {
+    "DICT|cat=AMBITO_DISTRACTOR": {
+      "n": 12,
+      "r0_R@5": 0.417,
+      "r0_R@10": 0.5,
+      "r0_MRR": 0.328,
+      "r1_R@5": 0.667,
+      "r1_R@10": 0.667,
+      "r1_MRR": 0.406,
+      "attribution": {
+        "OK_TOP5": 5,
+        "EN_CANAL_FUERA_DE_TOP5": 4,
+        "DESPLAZADO_POR_REGLAS_FIJAS": 3
+      },
+      "r1_gains_vs_r0": [
+        "B2-SCO-022",
+        "B2-SCO-025",
+        "B2-SCO-026"
+      ],
+      "r1_losses_vs_r0": [],
+      "distractor_above_evidence_r0": 5,
+      "distractor_above_evidence_r1": 2,
+      "n_scope_separable": 11,
+      "mean_distinct_pages_top10_r0": 10,
+      "lat_ms_mean": {
+        "r0": 28.9,
+        "r1": 17.7
+      }
+    },
+    "DICT|cat=DIRECTA": {
+      "n": 7,
+      "r0_R@5": 1.0,
+      "r0_R@10": 1.0,
+      "r0_MRR": 0.738,
+      "r1_R@5": 1.0,
+      "r1_R@10": 1.0,
+      "r1_MRR": 0.726,
+      "attribution": {
+        "OK_TOP5": 7
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "mean_distinct_pages_top10_r0": 9.86,
+      "lat_ms_mean": {
+        "r0": 35.7,
+        "r1": 20.8
+      }
+    },
+    "DICT|cat=DISTINCION_CATEGORIA": {
+      "n": 3,
+      "r0_R@5": 0.333,
+      "r0_R@10": 0.333,
+      "r0_MRR": 0.167,
+      "r1_R@5": 0.333,
+      "r1_R@10": 0.333,
+      "r1_MRR": 0.333,
+      "attribution": {
+        "EN_CANAL_FUERA_DE_TOP5": 2,
+        "OK_TOP5": 1
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "mean_distinct_pages_top10_r0": 10,
+      "lat_ms_mean": {
+        "r0": 52.3,
+        "r1": 20.2
+      }
+    },
+    "DICT|cat=EXCEPCION": {
+      "n": 4,
+      "r0_R@5": 0.5,
+      "r0_R@10": 0.5,
+      "r0_MRR": 0.3,
+      "r1_R@5": 0.5,
+      "r1_R@10": 0.5,
+      "r1_MRR": 0.312,
+      "attribution": {
+        "EN_CANAL_FUERA_DE_TOP5": 1,
+        "DESPLAZADO_POR_REGLAS_FIJAS": 1,
+        "OK_TOP5": 2
+      },
+      "r1_gains_vs_r0": [
+        "B2-EXC-005"
+      ],
+      "r1_losses_vs_r0": [
+        "B2-EXC-009"
+      ],
+      "distractor_above_evidence_r0": 0,
+      "distractor_above_evidence_r1": 0,
+      "n_scope_separable": 1,
+      "mean_distinct_pages_top10_r0": 10,
+      "lat_ms_mean": {
+        "r0": 35.5,
+        "r1": 20.8
+      }
+    },
+    "DICT|cat=MULTILINGUE": {
+      "n": 2,
+      "r0_R@5": 0.0,
+      "r0_R@10": 0.0,
+      "r0_MRR": 0.0,
+      "r1_R@5": 0.0,
+      "r1_R@10": 0.0,
+      "r1_MRR": 0.0,
+      "attribution": {
+        "AUSENTE_DE_CANALES": 1,
+        "EN_CANAL_FUERA_DE_TOP5": 1
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "distractor_above_evidence_r0": 0,
+      "distractor_above_evidence_r1": 0,
+      "n_scope_separable": 2,
+      "mean_distinct_pages_top10_r0": 6.5,
+      "lat_ms_mean": {
+        "r0": 28.5,
+        "r1": 17.4
+      }
+    },
+    "DICT|cat=MULTI_ARTICULO": {
+      "n": 1,
+      "r0_R@5": 1.0,
+      "r0_R@10": 1.0,
+      "r0_MRR": 0.2,
+      "r1_R@5": 1.0,
+      "r1_R@10": 1.0,
+      "r1_MRR": 0.2,
+      "attribution": {
+        "OK_TOP5": 1
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "mean_distinct_pages_top10_r0": 10,
+      "lat_ms_mean": {
+        "r0": 25.8,
+        "r1": 10.9
+      }
+    },
+    "DICT|cat=REFERENCIA_CRUZADA": {
+      "n": 2,
+      "r0_R@5": 1.0,
+      "r0_R@10": 1.0,
+      "r0_MRR": 0.75,
+      "r1_R@5": 0.5,
+      "r1_R@10": 1.0,
+      "r1_MRR": 0.583,
+      "attribution": {
+        "OK_TOP5": 2
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [
+        "B2-REF-005"
+      ],
+      "mean_distinct_pages_top10_r0": 9.5,
+      "lat_ms_mean": {
+        "r0": 30.0,
+        "r1": 20.4
+      }
+    },
+    "DICT|global": {
+      "n": 31,
+      "r0_R@5": 0.581,
+      "r0_R@10": 0.613,
+      "r0_MRR": 0.403,
+      "r1_R@5": 0.645,
+      "r1_R@10": 0.677,
+      "r1_MRR": 0.438,
+      "attribution": {
+        "EN_CANAL_FUERA_DE_TOP5": 8,
+        "OK_TOP5": 18,
+        "DESPLAZADO_POR_REGLAS_FIJAS": 4,
+        "AUSENTE_DE_CANALES": 1
+      },
+      "r1_gains_vs_r0": [
+        "B2-EXC-005",
+        "B2-SCO-022",
+        "B2-SCO-025",
+        "B2-SCO-026"
+      ],
+      "r1_losses_vs_r0": [
+        "B2-EXC-009",
+        "B2-REF-005"
+      ],
+      "distractor_above_evidence_r0": 5,
+      "distractor_above_evidence_r1": 2,
+      "n_scope_separable": 14,
+      "mean_distinct_pages_top10_r0": 9.71,
+      "lat_ms_mean": {
+        "r0": 33.5,
+        "r1": 18.9
+      }
+    },
+    "DICT|lang=en": {
+      "n": 17,
+      "r0_R@5": 0.706,
+      "r0_R@10": 0.765,
+      "r0_MRR": 0.498,
+      "r1_R@5": 0.706,
+      "r1_R@10": 0.765,
+      "r1_MRR": 0.52,
+      "attribution": {
+        "OK_TOP5": 12,
+        "EN_CANAL_FUERA_DE_TOP5": 3,
+        "DESPLAZADO_POR_REGLAS_FIJAS": 2
+      },
+      "r1_gains_vs_r0": [
+        "B2-EXC-005",
+        "B2-SCO-025"
+      ],
+      "r1_losses_vs_r0": [
+        "B2-EXC-009",
+        "B2-REF-005"
+      ],
+      "distractor_above_evidence_r0": 2,
+      "distractor_above_evidence_r1": 1,
+      "n_scope_separable": 5,
+      "mean_distinct_pages_top10_r0": 9.88,
+      "lat_ms_mean": {
+        "r0": 34.9,
+        "r1": 22.2
+      }
+    },
+    "DICT|lang=es": {
+      "n": 12,
+      "r0_R@5": 0.5,
+      "r0_R@10": 0.5,
+      "r0_MRR": 0.336,
+      "r1_R@5": 0.667,
+      "r1_R@10": 0.667,
+      "r1_MRR": 0.394,
+      "attribution": {
+        "EN_CANAL_FUERA_DE_TOP5": 4,
+        "OK_TOP5": 6,
+        "DESPLAZADO_POR_REGLAS_FIJAS": 2
+      },
+      "r1_gains_vs_r0": [
+        "B2-SCO-022",
+        "B2-SCO-026"
+      ],
+      "r1_losses_vs_r0": [],
+      "distractor_above_evidence_r0": 3,
+      "distractor_above_evidence_r1": 1,
+      "n_scope_separable": 7,
+      "mean_distinct_pages_top10_r0": 10,
+      "lat_ms_mean": {
+        "r0": 32.3,
+        "r1": 14.6
+      }
+    },
+    "DICT|lang=fr": {
+      "n": 1,
+      "r0_R@5": 0.0,
+      "r0_R@10": 0.0,
+      "r0_MRR": 0.0,
+      "r1_R@5": 0.0,
+      "r1_R@10": 0.0,
+      "r1_MRR": 0.0,
+      "attribution": {
+        "EN_CANAL_FUERA_DE_TOP5": 1
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "distractor_above_evidence_r0": 0,
+      "distractor_above_evidence_r1": 0,
+      "n_scope_separable": 1,
+      "mean_distinct_pages_top10_r0": 8,
+      "lat_ms_mean": {
+        "r0": 25.7,
+        "r1": 10.2
+      }
+    },
+    "DICT|lang=pt": {
+      "n": 1,
+      "r0_R@5": 0.0,
+      "r0_R@10": 0.0,
+      "r0_MRR": 0.0,
+      "r1_R@5": 0.0,
+      "r1_R@10": 0.0,
+      "r1_MRR": 0.0,
+      "attribution": {
+        "AUSENTE_DE_CANALES": 1
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "distractor_above_evidence_r0": 0,
+      "distractor_above_evidence_r1": 0,
+      "n_scope_separable": 1,
+      "mean_distinct_pages_top10_r0": 5,
+      "lat_ms_mean": {
+        "r0": 31.3,
+        "r1": 24.5
+      }
+    },
+    "LLM|cat=AMBITO_DISTRACTOR": {
+      "n": 12,
+      "r0_R@5": 0.333,
+      "r0_R@10": 0.5,
+      "r0_MRR": 0.294,
+      "r1_R@5": 0.5,
+      "r1_R@10": 0.667,
+      "r1_MRR": 0.304,
+      "attribution": {
+        "OK_TOP5": 4,
+        "DESPLAZADO_POR_REGLAS_FIJAS": 3,
+        "EN_CANAL_FUERA_DE_TOP5": 5
+      },
+      "r1_gains_vs_r0": [
+        "B2-SCO-010",
+        "B2-SCO-025",
+        "B2-SCO-026"
+      ],
+      "r1_losses_vs_r0": [
+        "B2-SCO-024"
+      ],
+      "distractor_above_evidence_r0": 6,
+      "distractor_above_evidence_r1": 2,
+      "n_scope_separable": 11,
+      "mean_distinct_pages_top10_r0": 9.67,
+      "llm_bundle_complete": 4,
+      "llm_bundle_with_distractor": 5,
+      "lat_ms_mean": {
+        "r0": 30.1,
+        "r1": 19.6
+      }
+    },
+    "LLM|cat=DIRECTA": {
+      "n": 7,
+      "r0_R@5": 1.0,
+      "r0_R@10": 1.0,
+      "r0_MRR": 0.69,
+      "r1_R@5": 1.0,
+      "r1_R@10": 1.0,
+      "r1_MRR": 0.726,
+      "attribution": {
+        "OK_TOP5": 7
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "mean_distinct_pages_top10_r0": 9.86,
+      "llm_bundle_complete": 7,
+      "llm_bundle_with_distractor": 0,
+      "lat_ms_mean": {
+        "r0": 29.9,
+        "r1": 21.1
+      }
+    },
+    "LLM|cat=DISTINCION_CATEGORIA": {
+      "n": 3,
+      "r0_R@5": 0.333,
+      "r0_R@10": 0.333,
+      "r0_MRR": 0.167,
+      "r1_R@5": 0.667,
+      "r1_R@10": 1.0,
+      "r1_MRR": 0.556,
+      "attribution": {
+        "DESPLAZADO_POR_REGLAS_FIJAS": 1,
+        "EN_CANAL_FUERA_DE_TOP5": 1,
+        "OK_TOP5": 1
+      },
+      "r1_gains_vs_r0": [
+        "B2-CAT-001"
+      ],
+      "r1_losses_vs_r0": [],
+      "mean_distinct_pages_top10_r0": 10,
+      "llm_bundle_complete": 1,
+      "llm_bundle_with_distractor": 0,
+      "lat_ms_mean": {
+        "r0": 35.1,
+        "r1": 23.2
+      }
+    },
+    "LLM|cat=EXCEPCION": {
+      "n": 4,
+      "r0_R@5": 0.5,
+      "r0_R@10": 0.5,
+      "r0_MRR": 0.3,
+      "r1_R@5": 0.5,
+      "r1_R@10": 0.5,
+      "r1_MRR": 0.312,
+      "attribution": {
+        "EN_CANAL_FUERA_DE_TOP5": 1,
+        "DESPLAZADO_POR_REGLAS_FIJAS": 1,
+        "OK_TOP5": 2
+      },
+      "r1_gains_vs_r0": [
+        "B2-EXC-005"
+      ],
+      "r1_losses_vs_r0": [
+        "B2-EXC-009"
+      ],
+      "distractor_above_evidence_r0": 0,
+      "distractor_above_evidence_r1": 0,
+      "n_scope_separable": 1,
+      "mean_distinct_pages_top10_r0": 10,
+      "llm_bundle_complete": 2,
+      "llm_bundle_with_distractor": 1,
+      "lat_ms_mean": {
+        "r0": 31.2,
+        "r1": 21.5
+      }
+    },
+    "LLM|cat=MULTILINGUE": {
+      "n": 2,
+      "r0_R@5": 0.5,
+      "r0_R@10": 0.5,
+      "r0_MRR": 0.5,
+      "r1_R@5": 0.5,
+      "r1_R@10": 0.5,
+      "r1_MRR": 0.5,
+      "attribution": {
+        "AUSENTE_DE_CANALES": 1,
+        "OK_TOP5": 1
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "distractor_above_evidence_r0": 0,
+      "distractor_above_evidence_r1": 0,
+      "n_scope_separable": 2,
+      "mean_distinct_pages_top10_r0": 6.5,
+      "llm_bundle_complete": 1,
+      "llm_bundle_with_distractor": 0,
+      "lat_ms_mean": {
+        "r0": 29.5,
+        "r1": 18.1
+      }
+    },
+    "LLM|cat=MULTI_ARTICULO": {
+      "n": 1,
+      "r0_R@5": 1.0,
+      "r0_R@10": 1.0,
+      "r0_MRR": 0.25,
+      "r1_R@5": 1.0,
+      "r1_R@10": 1.0,
+      "r1_MRR": 0.25,
+      "attribution": {
+        "OK_TOP5": 1
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "mean_distinct_pages_top10_r0": 10,
+      "llm_bundle_complete": 0,
+      "llm_bundle_with_distractor": 0,
+      "lat_ms_mean": {
+        "r0": 37.2,
+        "r1": 19.0
+      }
+    },
+    "LLM|cat=REFERENCIA_CRUZADA": {
+      "n": 2,
+      "r0_R@5": 1.0,
+      "r0_R@10": 1.0,
+      "r0_MRR": 0.75,
+      "r1_R@5": 0.5,
+      "r1_R@10": 1.0,
+      "r1_MRR": 0.583,
+      "attribution": {
+        "OK_TOP5": 2
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [
+        "B2-REF-005"
+      ],
+      "mean_distinct_pages_top10_r0": 9.5,
+      "llm_bundle_complete": 2,
+      "llm_bundle_with_distractor": 0,
+      "lat_ms_mean": {
+        "r0": 32.0,
+        "r1": 19.5
+      }
+    },
+    "LLM|global": {
+      "n": 31,
+      "r0_R@5": 0.581,
+      "r0_R@10": 0.645,
+      "r0_MRR": 0.413,
+      "r1_R@5": 0.645,
+      "r1_R@10": 0.774,
+      "r1_MRR": 0.454,
+      "attribution": {
+        "DESPLAZADO_POR_REGLAS_FIJAS": 5,
+        "EN_CANAL_FUERA_DE_TOP5": 7,
+        "OK_TOP5": 18,
+        "AUSENTE_DE_CANALES": 1
+      },
+      "r1_gains_vs_r0": [
+        "B2-CAT-001",
+        "B2-EXC-005",
+        "B2-SCO-010",
+        "B2-SCO-025",
+        "B2-SCO-026"
+      ],
+      "r1_losses_vs_r0": [
+        "B2-EXC-009",
+        "B2-REF-005",
+        "B2-SCO-024"
+      ],
+      "distractor_above_evidence_r0": 6,
+      "distractor_above_evidence_r1": 2,
+      "n_scope_separable": 14,
+      "mean_distinct_pages_top10_r0": 9.58,
+      "llm_bundle_complete": 17,
+      "llm_bundle_with_distractor": 6,
+      "lat_ms_mean": {
+        "r0": 31.0,
+        "r1": 20.4
+      }
+    },
+    "LLM|lang=en": {
+      "n": 17,
+      "r0_R@5": 0.706,
+      "r0_R@10": 0.765,
+      "r0_MRR": 0.469,
+      "r1_R@5": 0.706,
+      "r1_R@10": 0.765,
+      "r1_MRR": 0.49,
+      "attribution": {
+        "OK_TOP5": 12,
+        "EN_CANAL_FUERA_DE_TOP5": 3,
+        "DESPLAZADO_POR_REGLAS_FIJAS": 2
+      },
+      "r1_gains_vs_r0": [
+        "B2-EXC-005",
+        "B2-SCO-025"
+      ],
+      "r1_losses_vs_r0": [
+        "B2-EXC-009",
+        "B2-REF-005"
+      ],
+      "distractor_above_evidence_r0": 2,
+      "distractor_above_evidence_r1": 1,
+      "n_scope_separable": 5,
+      "mean_distinct_pages_top10_r0": 9.88,
+      "llm_bundle_complete": 12,
+      "llm_bundle_with_distractor": 2,
+      "lat_ms_mean": {
+        "r0": 32.7,
+        "r1": 23.4
+      }
+    },
+    "LLM|lang=es": {
+      "n": 12,
+      "r0_R@5": 0.417,
+      "r0_R@10": 0.5,
+      "r0_MRR": 0.321,
+      "r1_R@5": 0.583,
+      "r1_R@10": 0.833,
+      "r1_MRR": 0.394,
+      "attribution": {
+        "DESPLAZADO_POR_REGLAS_FIJAS": 3,
+        "EN_CANAL_FUERA_DE_TOP5": 4,
+        "OK_TOP5": 5
+      },
+      "r1_gains_vs_r0": [
+        "B2-CAT-001",
+        "B2-SCO-010",
+        "B2-SCO-026"
+      ],
+      "r1_losses_vs_r0": [
+        "B2-SCO-024"
+      ],
+      "distractor_above_evidence_r0": 4,
+      "distractor_above_evidence_r1": 1,
+      "n_scope_separable": 7,
+      "mean_distinct_pages_top10_r0": 9.67,
+      "llm_bundle_complete": 4,
+      "llm_bundle_with_distractor": 4,
+      "lat_ms_mean": {
+        "r0": 28.9,
+        "r1": 16.5
+      }
+    },
+    "LLM|lang=fr": {
+      "n": 1,
+      "r0_R@5": 1.0,
+      "r0_R@10": 1.0,
+      "r0_MRR": 1.0,
+      "r1_R@5": 1.0,
+      "r1_R@10": 1.0,
+      "r1_MRR": 1.0,
+      "attribution": {
+        "OK_TOP5": 1
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "distractor_above_evidence_r0": 0,
+      "distractor_above_evidence_r1": 0,
+      "n_scope_separable": 1,
+      "mean_distinct_pages_top10_r0": 8,
+      "llm_bundle_complete": 1,
+      "llm_bundle_with_distractor": 0,
+      "lat_ms_mean": {
+        "r0": 27.1,
+        "r1": 13.6
+      }
+    },
+    "LLM|lang=pt": {
+      "n": 1,
+      "r0_R@5": 0.0,
+      "r0_R@10": 0.0,
+      "r0_MRR": 0.0,
+      "r1_R@5": 0.0,
+      "r1_R@10": 0.0,
+      "r1_MRR": 0.0,
+      "attribution": {
+        "AUSENTE_DE_CANALES": 1
+      },
+      "r1_gains_vs_r0": [],
+      "r1_losses_vs_r0": [],
+      "distractor_above_evidence_r0": 0,
+      "distractor_above_evidence_r1": 0,
+      "n_scope_separable": 1,
+      "mean_distinct_pages_top10_r0": 5,
+      "llm_bundle_complete": 0,
+      "llm_bundle_with_distractor": 0,
+      "lat_ms_mean": {
+        "r0": 31.8,
+        "r1": 22.5
+      }
+    }
+  },
+  "per_query": [
+    {
+      "id": "B2-CAT-001",
+      "language": "es",
+      "category": "DISTINCION_CATEGORIA",
+      "form": "DICT",
+      "query_used": "longitud minima debe tener falda jacket atleta -66 kg",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": null,
+        "dense": 5,
+        "sparse_top_score": 0.4915,
+        "dense_top_score": 0.431
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P076-S088",
+        "SOR-2026-08-P075-S086",
+        "SOR-2026-08-P034-S036",
+        "SOR-2026-08-P033-S035",
+        "SOR-2026-08-P035-S038",
+        "SOR-2026-08-P080-S098",
+        "SOR-2026-08-P036-S040",
+        "SOR-2026-08-P031-S030",
+        "SOR-2026-08-P084-S102",
+        "SOR-2026-08-P032-S032"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P076-S088",
+        "SOR-2026-08-P076-S087",
+        "SOR-2026-08-P076-S089",
+        "SOR-2026-08-P075-S086",
+        "SOR-2026-08-P034-S036",
+        "SOR-2026-08-P033-S035",
+        "SOR-2026-08-P035-S038",
+        "SOR-2026-08-P080-S098",
+        "SOR-2026-08-P033-S034",
+        "SOR-2026-08-P036-S040"
+      ],
+      "lat_r0_ms": 90.7,
+      "lat_r1_ms": 20.3
+    },
+    {
+      "id": "B2-CAT-001",
+      "language": "es",
+      "category": "DISTINCION_CATEGORIA",
+      "form": "LLM",
+      "query_used": "What is the minimum length of the jacket skirt for an athlete of -66 kg?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 2,
+      "channels": {
+        "sparse": 2,
+        "dense": 2,
+        "sparse_top_score": 0.3971,
+        "dense_top_score": 0.6249
+      },
+      "attribution": "DESPLAZADO_POR_REGLAS_FIJAS",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P124-S164",
+        "SOR-2026-08-P075-S086",
+        "SOR-2026-08-P076-S088",
+        "SOR-2026-08-P084-S102",
+        "SOR-2026-08-P034-S036",
+        "SOR-2026-08-P080-S098",
+        "SOR-2026-08-P033-S035",
+        "SOR-2026-08-P036-S040",
+        "SOR-2026-08-P031-S030",
+        "SOR-2026-08-P032-S032"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P124-S164",
+        "SOR-2026-08-P124-S165",
+        "SOR-2026-08-P075-S086",
+        "SOR-2026-08-P076-S088",
+        "SOR-2026-08-P084-S102",
+        "SOR-2026-08-P076-S089",
+        "SOR-2026-08-P076-S087",
+        "SOR-2026-08-P034-S036",
+        "SOR-2026-08-P034-S037",
+        "SOR-2026-08-P080-S098"
+      ],
+      "lat_r0_ms": 39.5,
+      "lat_r1_ms": 23.3,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-CAT-003",
+      "language": "es",
+      "category": "DISTINCION_CATEGORIA",
+      "form": "DICT",
+      "query_used": "puede pareja u18 kata usar belt shime-waza encircle verde",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": 10,
+        "dense": null,
+        "sparse_top_score": 0.3175,
+        "dense_top_score": 0.4602
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P188-S196",
+        "SOR-2026-08-P184-S194",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P192-S198",
+        "SOR-2026-08-P255-S269",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P185-S194",
+        "SOR-2026-08-P155-S183",
+        "SOR-2026-08-P125-S165"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P184-S194",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P109-S139",
+        "SOR-2026-08-P109-S137",
+        "SOR-2026-08-P192-S198",
+        "SOR-2026-08-P255-S269",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P185-S194",
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P155-S183"
+      ],
+      "lat_r0_ms": 32.9,
+      "lat_r1_ms": 16.8
+    },
+    {
+      "id": "B2-CAT-003",
+      "language": "es",
+      "category": "DISTINCION_CATEGORIA",
+      "form": "LLM",
+      "query_used": "U18 kata pair green belt",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 6,
+      "channels": {
+        "sparse": 2,
+        "dense": 14,
+        "sparse_top_score": 0.4191,
+        "dense_top_score": 0.5138
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P188-S196",
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P115-S149",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P118-S157",
+        "SOR-2026-08-P125-S165",
+        "SOR-2026-08-P119-S158",
+        "SOR-2026-08-P127-S168",
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P110-S140"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P109-S139",
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P109-S137",
+        "SOR-2026-08-P118-S157",
+        "SOR-2026-08-P113-S147",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P113-S146",
+        "SOR-2026-08-P125-S165",
+        "SOR-2026-08-P111-S142"
+      ],
+      "lat_r0_ms": 32.8,
+      "lat_r1_ms": 19.4,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-CAT-007",
+      "language": "en",
+      "category": "DISTINCION_CATEGORIA",
+      "form": "DICT",
+      "query_used": "At a Grand Prix Cadets, how many athletes per country and weight category can obtain Cadets WRL points?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 2,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 2,
+        "sparse_top_score": 0.3392,
+        "dense_top_score": 0.7171
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P188-S196",
+        "SOR-2026-08-P055-S069",
+        "SOR-2026-08-P054-S068",
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P065-S079",
+        "SOR-2026-08-P066-S079",
+        "SOR-2026-08-P053-S067",
+        "SOR-2026-08-P071-S082",
+        "SOR-2026-08-P051-S064"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P055-S069",
+        "SOR-2026-08-P055-S070",
+        "SOR-2026-08-P054-S068",
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P057-S074",
+        "SOR-2026-08-P052-S066",
+        "SOR-2026-08-P065-S079",
+        "SOR-2026-08-P066-S079",
+        "SOR-2026-08-P057-S073"
+      ],
+      "lat_r0_ms": 33.2,
+      "lat_r1_ms": 23.6
+    },
+    {
+      "id": "B2-CAT-007",
+      "language": "en",
+      "category": "DISTINCION_CATEGORIA",
+      "form": "LLM",
+      "query_used": "At a Grand Prix Cadets, how many athletes per country and weight category can obtain Cadets WRL points?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 2,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 2,
+        "sparse_top_score": 0.3392,
+        "dense_top_score": 0.7171
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P188-S196",
+        "SOR-2026-08-P055-S069",
+        "SOR-2026-08-P054-S068",
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P065-S079",
+        "SOR-2026-08-P066-S079",
+        "SOR-2026-08-P053-S067",
+        "SOR-2026-08-P071-S082",
+        "SOR-2026-08-P051-S064"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P055-S069",
+        "SOR-2026-08-P055-S070",
+        "SOR-2026-08-P054-S068",
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P057-S074",
+        "SOR-2026-08-P052-S066",
+        "SOR-2026-08-P065-S079",
+        "SOR-2026-08-P066-S079",
+        "SOR-2026-08-P057-S073"
+      ],
+      "lat_r0_ms": 33.1,
+      "lat_r1_ms": 27.0,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-DIR-005",
+      "language": "en",
+      "category": "DIRECTA",
+      "form": "DICT",
+      "query_used": "What spacing is required between the world champion stars on the judogi?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 2,
+        "dense": 2,
+        "sparse_top_score": 0.5,
+        "dense_top_score": 0.6841
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P129-S170",
+        "SOR-2026-08-P130-S171",
+        "SOR-2026-08-P124-S165",
+        "SOR-2026-08-P125-S165",
+        "SOR-2026-08-P114-S148",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P115-S149",
+        "SOR-2026-08-P127-S168",
+        "SOR-2026-08-P126-S167",
+        "SOR-2026-08-P231-S254"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P129-S170",
+        "SOR-2026-08-P129-S169",
+        "SOR-2026-08-P130-S171",
+        "SOR-2026-08-P124-S165",
+        "SOR-2026-08-P125-S165",
+        "SOR-2026-08-P124-S164",
+        "SOR-2026-08-P114-S148",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P116-S154",
+        "SOR-2026-08-P115-S149"
+      ],
+      "lat_r0_ms": 32.6,
+      "lat_r1_ms": 20.3
+    },
+    {
+      "id": "B2-DIR-005",
+      "language": "en",
+      "category": "DIRECTA",
+      "form": "LLM",
+      "query_used": "What spacing is required between the world champion stars on the judogi?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 2,
+        "dense": 2,
+        "sparse_top_score": 0.5,
+        "dense_top_score": 0.6841
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P129-S170",
+        "SOR-2026-08-P130-S171",
+        "SOR-2026-08-P124-S165",
+        "SOR-2026-08-P125-S165",
+        "SOR-2026-08-P114-S148",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P115-S149",
+        "SOR-2026-08-P127-S168",
+        "SOR-2026-08-P126-S167",
+        "SOR-2026-08-P231-S254"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P129-S170",
+        "SOR-2026-08-P129-S169",
+        "SOR-2026-08-P130-S171",
+        "SOR-2026-08-P124-S165",
+        "SOR-2026-08-P125-S165",
+        "SOR-2026-08-P124-S164",
+        "SOR-2026-08-P114-S148",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P116-S154",
+        "SOR-2026-08-P115-S149"
+      ],
+      "lat_r0_ms": 29.7,
+      "lat_r1_ms": 25.9,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-DIR-007",
+      "language": "en",
+      "category": "DIRECTA",
+      "form": "DICT",
+      "query_used": "Must athletes wear shoes at the medal ceremony?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 2,
+      "r1_first": 3,
+      "channels": {
+        "sparse": 1,
+        "dense": 13,
+        "sparse_top_score": 0.2754,
+        "dense_top_score": 0.4578
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P118-S157",
+        "SOR-2026-08-P089-S104",
+        "SOR-2026-08-P127-S168",
+        "SOR-2026-08-P041-S050",
+        "SOR-2026-08-P154-S182",
+        "SOR-2026-08-P038-S042",
+        "SOR-2026-08-P078-S092"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P113-S146",
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P113-S147",
+        "SOR-2026-08-P118-S157",
+        "SOR-2026-08-P089-S104",
+        "SOR-2026-08-P089-S105",
+        "SOR-2026-08-P127-S168"
+      ],
+      "lat_r0_ms": 36.9,
+      "lat_r1_ms": 19.2
+    },
+    {
+      "id": "B2-DIR-007",
+      "language": "en",
+      "category": "DIRECTA",
+      "form": "LLM",
+      "query_used": "Must athletes wear shoes at the medal ceremony?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 2,
+      "r1_first": 3,
+      "channels": {
+        "sparse": 1,
+        "dense": 13,
+        "sparse_top_score": 0.2754,
+        "dense_top_score": 0.4578
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P118-S157",
+        "SOR-2026-08-P089-S104",
+        "SOR-2026-08-P127-S168",
+        "SOR-2026-08-P041-S050",
+        "SOR-2026-08-P154-S182",
+        "SOR-2026-08-P038-S042",
+        "SOR-2026-08-P078-S092"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P113-S146",
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P113-S147",
+        "SOR-2026-08-P118-S157",
+        "SOR-2026-08-P089-S104",
+        "SOR-2026-08-P089-S105",
+        "SOR-2026-08-P127-S168"
+      ],
+      "lat_r0_ms": 29.8,
+      "lat_r1_ms": 19.4,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-DIR-008",
+      "language": "es",
+      "category": "DIRECTA",
+      "form": "DICT",
+      "query_used": "puede referee llevar objetos religiosos mientras arbitra",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 2,
+        "dense": 7,
+        "sparse_top_score": 0.3402,
+        "dense_top_score": 0.3751
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P136-S175",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P026-S024",
+        "SOR-2026-08-P174-S190",
+        "SOR-2026-08-P137-S176",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P165-S186",
+        "SOR-2026-08-P152-S180",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P153-S182"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P136-S175",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P026-S024",
+        "SOR-2026-08-P174-S190",
+        "SOR-2026-08-P137-S176",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P165-S186",
+        "SOR-2026-08-P152-S180",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P153-S182"
+      ],
+      "lat_r0_ms": 21.9,
+      "lat_r1_ms": 11.6
+    },
+    {
+      "id": "B2-DIR-008",
+      "language": "es",
+      "category": "DIRECTA",
+      "form": "LLM",
+      "query_used": "referee religious objects worn while refereeing",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 2,
+        "dense": 1,
+        "sparse_top_score": 0.3166,
+        "dense_top_score": 0.4965
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P136-S175",
+        "SOR-2026-08-P137-S177",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P134-S173",
+        "SOR-2026-08-P147-S177",
+        "SOR-2026-08-P148-S177",
+        "SOR-2026-08-P132-S172",
+        "SOR-2026-08-P026-S024",
+        "SOR-2026-08-P027-S026",
+        "SOR-2026-08-P029-S028"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P136-S175",
+        "SOR-2026-08-P137-S177",
+        "SOR-2026-08-P137-S176",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P134-S173",
+        "SOR-2026-08-P147-S177",
+        "SOR-2026-08-P148-S177",
+        "SOR-2026-08-P132-S172",
+        "SOR-2026-08-P026-S024",
+        "SOR-2026-08-P027-S026"
+      ],
+      "lat_r0_ms": 24.6,
+      "lat_r1_ms": 14.6,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-DIR-011",
+      "language": "en",
+      "category": "DIRECTA",
+      "form": "DICT",
+      "query_used": "How long before the first contest must an athlete arrive at the random weigh-in?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 3,
+        "sparse_top_score": 0.5543,
+        "dense_top_score": 0.7217
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 9,
+      "r0_top10": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P078-S092",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P057-S074"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P079-S097",
+        "SOR-2026-08-P079-S094",
+        "SOR-2026-08-P079-S095",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P077-S091"
+      ],
+      "lat_r0_ms": 32.2,
+      "lat_r1_ms": 21.9
+    },
+    {
+      "id": "B2-DIR-011",
+      "language": "en",
+      "category": "DIRECTA",
+      "form": "LLM",
+      "query_used": "How long before the first contest must an athlete arrive at the random weigh-in?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 3,
+        "sparse_top_score": 0.5543,
+        "dense_top_score": 0.7217
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 9,
+      "r0_top10": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P078-S092",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P057-S074"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P079-S097",
+        "SOR-2026-08-P079-S094",
+        "SOR-2026-08-P079-S095",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P077-S091"
+      ],
+      "lat_r0_ms": 32.2,
+      "lat_r1_ms": 22.1,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-DIR-015",
+      "language": "en",
+      "category": "DIRECTA",
+      "form": "DICT",
+      "query_used": "on which side of the field play is awarding ceremony area set up",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 1,
+        "sparse_top_score": 0.272,
+        "dense_top_score": 0.4604
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P095-S113",
+        "SOR-2026-08-P154-S182",
+        "SOR-2026-08-P097-S115",
+        "SOR-2026-08-P201-S214",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P136-S175",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P094-S111"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P095-S113",
+        "SOR-2026-08-P154-S182",
+        "SOR-2026-08-P095-S112",
+        "SOR-2026-08-P097-S115",
+        "SOR-2026-08-P097-S116",
+        "SOR-2026-08-P201-S214",
+        "SOR-2026-08-P201-S215",
+        "SOR-2026-08-P151-S178"
+      ],
+      "lat_r0_ms": 41.3,
+      "lat_r1_ms": 21.7
+    },
+    {
+      "id": "B2-DIR-015",
+      "language": "en",
+      "category": "DIRECTA",
+      "form": "LLM",
+      "query_used": "award ceremony area side field of play layout competition area",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 2,
+      "r1_first": 2,
+      "channels": {
+        "sparse": 5,
+        "dense": 5,
+        "sparse_top_score": 0.3048,
+        "dense_top_score": 0.5008
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P095-S113",
+        "SOR-2026-08-P097-S115",
+        "SOR-2026-08-P154-S182",
+        "SOR-2026-08-P152-S179",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P161-S184",
+        "SOR-2026-08-P094-S111",
+        "SOR-2026-08-P197-S207"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P095-S113",
+        "SOR-2026-08-P095-S112",
+        "SOR-2026-08-P097-S115",
+        "SOR-2026-08-P097-S116",
+        "SOR-2026-08-P154-S182",
+        "SOR-2026-08-P152-S179",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P161-S184"
+      ],
+      "lat_r0_ms": 37.9,
+      "lat_r1_ms": 26.5,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-DIR-017",
+      "language": "en",
+      "category": "DIRECTA",
+      "form": "DICT",
+      "query_used": "What percentage of prize money must athletes give to their coach?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 3,
+      "r1_first": 4,
+      "channels": {
+        "sparse": 1,
+        "dense": null,
+        "sparse_top_score": 0.2685,
+        "dense_top_score": 0.3833
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P014-S006",
+        "SOR-2026-08-P058-S074",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P089-S104",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P160-S184",
+        "SOR-2026-08-P062-S077",
+        "SOR-2026-08-P090-S106",
+        "SOR-2026-08-P238-S261",
+        "SOR-2026-08-P046-S055"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P014-S006",
+        "SOR-2026-08-P014-S004",
+        "SOR-2026-08-P058-S074",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P089-S104",
+        "SOR-2026-08-P089-S105",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P116-S154",
+        "SOR-2026-08-P160-S184",
+        "SOR-2026-08-P014-S005"
+      ],
+      "lat_r0_ms": 44.3,
+      "lat_r1_ms": 28.4
+    },
+    {
+      "id": "B2-DIR-017",
+      "language": "en",
+      "category": "DIRECTA",
+      "form": "LLM",
+      "query_used": "What percentage of prize money must athletes give to their coach?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 3,
+      "r1_first": 4,
+      "channels": {
+        "sparse": 1,
+        "dense": null,
+        "sparse_top_score": 0.2685,
+        "dense_top_score": 0.3833
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P014-S006",
+        "SOR-2026-08-P058-S074",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P089-S104",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P160-S184",
+        "SOR-2026-08-P062-S077",
+        "SOR-2026-08-P090-S106",
+        "SOR-2026-08-P238-S261",
+        "SOR-2026-08-P046-S055"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P014-S006",
+        "SOR-2026-08-P014-S004",
+        "SOR-2026-08-P058-S074",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P089-S104",
+        "SOR-2026-08-P089-S105",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P116-S154",
+        "SOR-2026-08-P160-S184",
+        "SOR-2026-08-P014-S005"
+      ],
+      "lat_r0_ms": 33.4,
+      "lat_r1_ms": 28.5,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-DIR-018",
+      "language": "es",
+      "category": "DIRECTA",
+      "form": "DICT",
+      "query_used": "debe hacer referee si atleta recibe fuerte impacto head",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 3,
+      "r1_first": 2,
+      "channels": {
+        "sparse": 2,
+        "dense": 6,
+        "sparse_top_score": 0.3012,
+        "dense_top_score": 0.42
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P190-S197",
+        "SOR-2026-08-P136-S175",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P165-S186",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P137-S176",
+        "SOR-2026-08-P174-S190",
+        "SOR-2026-08-P144-S177",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P026-S024"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P136-S175",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P165-S186",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P137-S176",
+        "SOR-2026-08-P174-S190",
+        "SOR-2026-08-P144-S177",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P137-S177",
+        "SOR-2026-08-P026-S024"
+      ],
+      "lat_r0_ms": 40.4,
+      "lat_r1_ms": 22.2
+    },
+    {
+      "id": "B2-DIR-018",
+      "language": "es",
+      "category": "DIRECTA",
+      "form": "LLM",
+      "query_used": "head injury medical examination referee procedure",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 2,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 2,
+        "sparse_top_score": 0.232,
+        "dense_top_score": 0.5573
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P190-S197",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P136-S175",
+        "SOR-2026-08-P198-S208",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P201-S213",
+        "SOR-2026-08-P165-S186",
+        "SOR-2026-08-P202-S217",
+        "SOR-2026-08-P135-S174"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P202-S217",
+        "SOR-2026-08-P196-S206",
+        "SOR-2026-08-P136-S175",
+        "SOR-2026-08-P202-S219",
+        "SOR-2026-08-P202-S220",
+        "SOR-2026-08-P198-S208",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P202-S218"
+      ],
+      "lat_r0_ms": 21.9,
+      "lat_r1_ms": 10.8,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-EXC-003",
+      "language": "en",
+      "category": "EXCEPCION",
+      "form": "DICT",
+      "query_used": "Can the IJF enter an athlete who is not entered by a national federation?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": 19,
+        "dense": null,
+        "sparse_top_score": 0.203,
+        "dense_top_score": 0.7218
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P021-S017",
+        "SOR-2026-08-P025-S022",
+        "SOR-2026-08-P023-S020",
+        "SOR-2026-08-P020-S015",
+        "SOR-2026-08-P024-S021",
+        "SOR-2026-08-P062-S077",
+        "SOR-2026-08-P026-S024",
+        "SOR-2026-08-P018-S013",
+        "SOR-2026-08-P022-S019",
+        "SOR-2026-08-P064-S079"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P021-S017",
+        "SOR-2026-08-P025-S022",
+        "SOR-2026-08-P021-S018",
+        "SOR-2026-08-P025-S023",
+        "SOR-2026-08-P023-S020",
+        "SOR-2026-08-P020-S015",
+        "SOR-2026-08-P020-S016",
+        "SOR-2026-08-P024-S021",
+        "SOR-2026-08-P062-S077",
+        "SOR-2026-08-P026-S024"
+      ],
+      "lat_r0_ms": 46.0,
+      "lat_r1_ms": 26.3
+    },
+    {
+      "id": "B2-EXC-003",
+      "language": "en",
+      "category": "EXCEPCION",
+      "form": "LLM",
+      "query_used": "Can the IJF enter an athlete who is not entered by a national federation?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": 19,
+        "dense": null,
+        "sparse_top_score": 0.203,
+        "dense_top_score": 0.7218
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P021-S017",
+        "SOR-2026-08-P025-S022",
+        "SOR-2026-08-P023-S020",
+        "SOR-2026-08-P020-S015",
+        "SOR-2026-08-P024-S021",
+        "SOR-2026-08-P062-S077",
+        "SOR-2026-08-P026-S024",
+        "SOR-2026-08-P018-S013",
+        "SOR-2026-08-P022-S019",
+        "SOR-2026-08-P064-S079"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P021-S017",
+        "SOR-2026-08-P025-S022",
+        "SOR-2026-08-P021-S018",
+        "SOR-2026-08-P025-S023",
+        "SOR-2026-08-P023-S020",
+        "SOR-2026-08-P020-S015",
+        "SOR-2026-08-P020-S016",
+        "SOR-2026-08-P024-S021",
+        "SOR-2026-08-P062-S077",
+        "SOR-2026-08-P026-S024"
+      ],
+      "lat_r0_ms": 32.0,
+      "lat_r1_ms": 23.8,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-EXC-005",
+      "language": "en",
+      "category": "EXCEPCION",
+      "form": "DICT",
+      "query_used": "May an athlete compete with the head covered?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 4,
+      "channels": {
+        "sparse": 2,
+        "dense": 6,
+        "sparse_top_score": 0.2089,
+        "dense_top_score": 0.5394
+      },
+      "attribution": "DESPLAZADO_POR_REGLAS_FIJAS",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P190-S197",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P021-S017",
+        "SOR-2026-08-P202-S220",
+        "SOR-2026-08-P038-S042",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P128-S168",
+        "SOR-2026-08-P137-S177",
+        "SOR-2026-08-P193-S198"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P202-S220",
+        "SOR-2026-08-P202-S219",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P202-S218",
+        "SOR-2026-08-P202-S217",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P021-S017",
+        "SOR-2026-08-P021-S018",
+        "SOR-2026-08-P038-S042",
+        "SOR-2026-08-P038-S045"
+      ],
+      "lat_r0_ms": 35.4,
+      "lat_r1_ms": 19.9
+    },
+    {
+      "id": "B2-EXC-005",
+      "language": "en",
+      "category": "EXCEPCION",
+      "form": "LLM",
+      "query_used": "May an athlete compete with the head covered?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 4,
+      "channels": {
+        "sparse": 2,
+        "dense": 6,
+        "sparse_top_score": 0.2089,
+        "dense_top_score": 0.5394
+      },
+      "attribution": "DESPLAZADO_POR_REGLAS_FIJAS",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P190-S197",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P021-S017",
+        "SOR-2026-08-P202-S220",
+        "SOR-2026-08-P038-S042",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P128-S168",
+        "SOR-2026-08-P137-S177",
+        "SOR-2026-08-P193-S198"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P202-S220",
+        "SOR-2026-08-P202-S219",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P202-S218",
+        "SOR-2026-08-P202-S217",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P021-S017",
+        "SOR-2026-08-P021-S018",
+        "SOR-2026-08-P038-S042",
+        "SOR-2026-08-P038-S045"
+      ],
+      "lat_r0_ms": 31.3,
+      "lat_r1_ms": 23.3,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-EXC-006",
+      "language": "es",
+      "category": "EXCEPCION",
+      "form": "DICT",
+      "query_used": "compite individual mixed team teams puede dar weight siempre margen",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 4,
+        "sparse_top_score": 0.5812,
+        "dense_top_score": 0.497
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P235-S258",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P057-S072"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P235-S258",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P042-S052",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P045-S055"
+      ],
+      "lat_r0_ms": 25.5,
+      "lat_r1_ms": 11.1,
+      "r0_distractor_first": null,
+      "r1_distractor_first": null
+    },
+    {
+      "id": "B2-EXC-006",
+      "language": "es",
+      "category": "EXCEPCION",
+      "form": "LLM",
+      "query_used": "individual and mixed team competitor weight allowance 5 percent tolerance",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 1,
+        "sparse_top_score": 0.5551,
+        "dense_top_score": 0.7177
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P081-S100",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P233-S256",
+        "SOR-2026-08-P057-S072"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P081-S100",
+        "SOR-2026-08-P081-S099",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P042-S052"
+      ],
+      "lat_r0_ms": 30.6,
+      "lat_r1_ms": 19.9,
+      "r0_distractor_first": 4,
+      "r1_distractor_first": 4,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": true
+    },
+    {
+      "id": "B2-EXC-009",
+      "language": "en",
+      "category": "EXCEPCION",
+      "form": "DICT",
+      "query_used": "Does an athlete who skips the medal ceremony keep the medal?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 5,
+      "r1_first": null,
+      "channels": {
+        "sparse": 1,
+        "dense": null,
+        "sparse_top_score": 0.2477,
+        "dense_top_score": 0.5292
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P195-S202",
+        "SOR-2026-08-P038-S045",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P041-S051",
+        "SOR-2026-08-P206-S228",
+        "SOR-2026-08-P205-S228",
+        "SOR-2026-08-P046-S055",
+        "SOR-2026-08-P180-S194"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P113-S146",
+        "SOR-2026-08-P113-S147",
+        "SOR-2026-08-P195-S202",
+        "SOR-2026-08-P195-S204",
+        "SOR-2026-08-P195-S203",
+        "SOR-2026-08-P038-S045",
+        "SOR-2026-08-P038-S044"
+      ],
+      "lat_r0_ms": 35.1,
+      "lat_r1_ms": 25.8
+    },
+    {
+      "id": "B2-EXC-009",
+      "language": "en",
+      "category": "EXCEPCION",
+      "form": "LLM",
+      "query_used": "Does an athlete who skips the medal ceremony keep the medal?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 5,
+      "r1_first": null,
+      "channels": {
+        "sparse": 1,
+        "dense": null,
+        "sparse_top_score": 0.2477,
+        "dense_top_score": 0.5292
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P195-S202",
+        "SOR-2026-08-P038-S045",
+        "SOR-2026-08-P098-S117",
+        "SOR-2026-08-P041-S051",
+        "SOR-2026-08-P206-S228",
+        "SOR-2026-08-P205-S228",
+        "SOR-2026-08-P046-S055",
+        "SOR-2026-08-P180-S194"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P113-S146",
+        "SOR-2026-08-P113-S147",
+        "SOR-2026-08-P195-S202",
+        "SOR-2026-08-P195-S204",
+        "SOR-2026-08-P195-S203",
+        "SOR-2026-08-P038-S045",
+        "SOR-2026-08-P038-S044"
+      ],
+      "lat_r0_ms": 30.9,
+      "lat_r1_ms": 19.0,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-MLG-002",
+      "language": "pt",
+      "category": "MULTILINGUE",
+      "form": "DICT",
+      "query_used": "Quantos atletas compõem uma equipa mista?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": null,
+        "dense": null,
+        "sparse_top_score": 0.0615,
+        "dense_top_score": 0.1925
+      },
+      "attribution": "AUSENTE_DE_CANALES",
+      "r0_distinct_pages_top10": 5,
+      "r0_top10": [
+        "SOR-2026-08-P251-S267",
+        "SOR-2026-08-P192-S198",
+        "SOR-2026-08-P162-S185",
+        "SOR-2026-08-P252-S268",
+        "SOR-2026-08-P141-S177"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P251-S267",
+        "SOR-2026-08-P192-S198",
+        "SOR-2026-08-P162-S185",
+        "SOR-2026-08-P252-S268",
+        "SOR-2026-08-P141-S177"
+      ],
+      "lat_r0_ms": 31.3,
+      "lat_r1_ms": 24.5,
+      "r0_distractor_first": null,
+      "r1_distractor_first": null
+    },
+    {
+      "id": "B2-MLG-002",
+      "language": "pt",
+      "category": "MULTILINGUE",
+      "form": "LLM",
+      "query_used": "Quantos atletas compõem uma equipa mista?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": null,
+        "dense": null,
+        "sparse_top_score": 0.0615,
+        "dense_top_score": 0.1925
+      },
+      "attribution": "AUSENTE_DE_CANALES",
+      "r0_distinct_pages_top10": 5,
+      "r0_top10": [
+        "SOR-2026-08-P251-S267",
+        "SOR-2026-08-P192-S198",
+        "SOR-2026-08-P162-S185",
+        "SOR-2026-08-P252-S268",
+        "SOR-2026-08-P141-S177"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P251-S267",
+        "SOR-2026-08-P192-S198",
+        "SOR-2026-08-P162-S185",
+        "SOR-2026-08-P252-S268",
+        "SOR-2026-08-P141-S177"
+      ],
+      "lat_r0_ms": 31.8,
+      "lat_r1_ms": 22.5,
+      "r0_distractor_first": null,
+      "r1_distractor_first": null,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-MLG-003",
+      "language": "fr",
+      "category": "MULTILINGUE",
+      "form": "DICT",
+      "query_used": "veterans sont-ils soumis une pesee aleatoire",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": 7,
+        "dense": null,
+        "sparse_top_score": 0.4239,
+        "dense_top_score": 0.3097
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 8,
+      "r0_top10": [
+        "SOR-2026-08-P100-S119",
+        "SOR-2026-08-P103-S124",
+        "SOR-2026-08-P105-S132",
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P102-S123",
+        "SOR-2026-08-P107-S135",
+        "SOR-2026-08-P101-S121",
+        "SOR-2026-08-P062-S077"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P100-S119",
+        "SOR-2026-08-P103-S124",
+        "SOR-2026-08-P103-S125",
+        "SOR-2026-08-P103-S127",
+        "SOR-2026-08-P105-S132",
+        "SOR-2026-08-P103-S126",
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P102-S123",
+        "SOR-2026-08-P105-S129",
+        "SOR-2026-08-P105-S128"
+      ],
+      "lat_r0_ms": 25.7,
+      "lat_r1_ms": 10.2,
+      "r0_distractor_first": null,
+      "r1_distractor_first": null
+    },
+    {
+      "id": "B2-MLG-003",
+      "language": "fr",
+      "category": "MULTILINGUE",
+      "form": "LLM",
+      "query_used": "veterans random weigh-in",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 10,
+        "dense": 1,
+        "sparse_top_score": 0.7064,
+        "dense_top_score": 0.5855
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 8,
+      "r0_top10": [
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P100-S119",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P078-S092",
+        "SOR-2026-08-P057-S074"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P105-S128",
+        "SOR-2026-08-P105-S129",
+        "SOR-2026-08-P079-S097",
+        "SOR-2026-08-P105-S132",
+        "SOR-2026-08-P079-S094",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P079-S095"
+      ],
+      "lat_r0_ms": 27.1,
+      "lat_r1_ms": 13.6,
+      "r0_distractor_first": null,
+      "r1_distractor_first": 3,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-MUL-004",
+      "language": "es",
+      "category": "MULTI_ARTICULO",
+      "form": "DICT",
+      "query_used": "compara atletas forman team teams encounter mixed femenino",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 5,
+      "r1_first": 5,
+      "channels": {
+        "sparse": 2,
+        "dense": 18,
+        "sparse_top_score": 0.3547,
+        "dense_top_score": 0.4933
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P235-S258",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P055-S069",
+        "SOR-2026-08-P051-S064"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P235-S258",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P042-S052",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P057-S072"
+      ],
+      "lat_r0_ms": 25.8,
+      "lat_r1_ms": 10.9
+    },
+    {
+      "id": "B2-MUL-004",
+      "language": "es",
+      "category": "MULTI_ARTICULO",
+      "form": "LLM",
+      "query_used": "mixed team women team number of athletes",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 4,
+      "r1_first": 4,
+      "channels": {
+        "sparse": 2,
+        "dense": null,
+        "sparse_top_score": 0.6157,
+        "dense_top_score": 0.5789
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P046-S055",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P040-S048",
+        "SOR-2026-08-P065-S079",
+        "SOR-2026-08-P067-S080"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P046-S055",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P042-S052",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P040-S048"
+      ],
+      "lat_r0_ms": 37.2,
+      "lat_r1_ms": 19.0,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-REF-001",
+      "language": "en",
+      "category": "REFERENCIA_CRUZADA",
+      "form": "DICT",
+      "query_used": "Which rules must the judogi of veterans conform to?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 2,
+        "dense": 8,
+        "sparse_top_score": 0.4301,
+        "dense_top_score": 0.7271
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P105-S131",
+        "SOR-2026-08-P101-S121",
+        "SOR-2026-08-P115-S150",
+        "SOR-2026-08-P127-S168",
+        "SOR-2026-08-P117-S156",
+        "SOR-2026-08-P100-S119",
+        "SOR-2026-08-P114-S148",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P059-S074",
+        "SOR-2026-08-P107-S135"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P105-S131",
+        "SOR-2026-08-P101-S121",
+        "SOR-2026-08-P115-S150",
+        "SOR-2026-08-P115-S152",
+        "SOR-2026-08-P115-S151",
+        "SOR-2026-08-P105-S132",
+        "SOR-2026-08-P115-S149",
+        "SOR-2026-08-P127-S168",
+        "SOR-2026-08-P115-S153",
+        "SOR-2026-08-P117-S156"
+      ],
+      "lat_r0_ms": 29.9,
+      "lat_r1_ms": 19.0
+    },
+    {
+      "id": "B2-REF-001",
+      "language": "en",
+      "category": "REFERENCIA_CRUZADA",
+      "form": "LLM",
+      "query_used": "Which rules must the judogi of veterans conform to?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 2,
+        "dense": 8,
+        "sparse_top_score": 0.4301,
+        "dense_top_score": 0.7271
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P105-S131",
+        "SOR-2026-08-P101-S121",
+        "SOR-2026-08-P115-S150",
+        "SOR-2026-08-P127-S168",
+        "SOR-2026-08-P117-S156",
+        "SOR-2026-08-P100-S119",
+        "SOR-2026-08-P114-S148",
+        "SOR-2026-08-P116-S155",
+        "SOR-2026-08-P059-S074",
+        "SOR-2026-08-P107-S135"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P105-S131",
+        "SOR-2026-08-P101-S121",
+        "SOR-2026-08-P115-S150",
+        "SOR-2026-08-P115-S152",
+        "SOR-2026-08-P115-S151",
+        "SOR-2026-08-P105-S132",
+        "SOR-2026-08-P115-S149",
+        "SOR-2026-08-P127-S168",
+        "SOR-2026-08-P115-S153",
+        "SOR-2026-08-P117-S156"
+      ],
+      "lat_r0_ms": 30.2,
+      "lat_r1_ms": 18.7,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-REF-005",
+      "language": "en",
+      "category": "REFERENCIA_CRUZADA",
+      "form": "DICT",
+      "query_used": "Which weight categories are used in veterans competitions?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 2,
+      "r1_first": 6,
+      "channels": {
+        "sparse": 11,
+        "dense": 1,
+        "sparse_top_score": 0.4522,
+        "dense_top_score": 0.7022
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 9,
+      "r0_top10": [
+        "SOR-2026-08-P105-S129",
+        "SOR-2026-08-P103-S125",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P100-S119",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P062-S077",
+        "SOR-2026-08-P042-S052",
+        "SOR-2026-08-P106-S135"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P105-S129",
+        "SOR-2026-08-P105-S128",
+        "SOR-2026-08-P105-S133",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P105-S132",
+        "SOR-2026-08-P103-S125",
+        "SOR-2026-08-P105-S131",
+        "SOR-2026-08-P103-S127",
+        "SOR-2026-08-P105-S134",
+        "SOR-2026-08-P103-S124"
+      ],
+      "lat_r0_ms": 30.2,
+      "lat_r1_ms": 21.7
+    },
+    {
+      "id": "B2-REF-005",
+      "language": "en",
+      "category": "REFERENCIA_CRUZADA",
+      "form": "LLM",
+      "query_used": "Which weight categories are used in veterans competitions?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 2,
+      "r1_first": 6,
+      "channels": {
+        "sparse": 11,
+        "dense": 1,
+        "sparse_top_score": 0.4522,
+        "dense_top_score": 0.7022
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 9,
+      "r0_top10": [
+        "SOR-2026-08-P105-S129",
+        "SOR-2026-08-P103-S125",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P100-S119",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P062-S077",
+        "SOR-2026-08-P042-S052",
+        "SOR-2026-08-P106-S135"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P105-S129",
+        "SOR-2026-08-P105-S128",
+        "SOR-2026-08-P105-S133",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P105-S132",
+        "SOR-2026-08-P103-S125",
+        "SOR-2026-08-P105-S131",
+        "SOR-2026-08-P103-S127",
+        "SOR-2026-08-P105-S134",
+        "SOR-2026-08-P103-S124"
+      ],
+      "lat_r0_ms": 33.7,
+      "lat_r1_ms": 20.4,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-SCO-009",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "Is there a random weigh-in at IJF mixed team events?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 1,
+        "sparse_top_score": 0.6886,
+        "dense_top_score": 0.6819
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P078-S092"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P079-S097",
+        "SOR-2026-08-P079-S094",
+        "SOR-2026-08-P079-S095",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P077-S091",
+        "SOR-2026-08-P044-S054"
+      ],
+      "lat_r0_ms": 31.1,
+      "lat_r1_ms": 20.9
+    },
+    {
+      "id": "B2-SCO-009",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "Is there a random weigh-in at IJF mixed team events?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 1,
+        "sparse_top_score": 0.6886,
+        "dense_top_score": 0.6819
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P078-S092"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P079-S097",
+        "SOR-2026-08-P079-S094",
+        "SOR-2026-08-P079-S095",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P077-S091",
+        "SOR-2026-08-P044-S054"
+      ],
+      "lat_r0_ms": 34.0,
+      "lat_r1_ms": 22.2,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-SCO-010",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "hace weigh-in weight official random tolerance veterans",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 9,
+        "dense": 1,
+        "sparse_top_score": 0.6172,
+        "dense_top_score": 0.5525
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P100-S119",
+        "SOR-2026-08-P078-S092",
+        "SOR-2026-08-P057-S074",
+        "SOR-2026-08-P080-S098"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P105-S128",
+        "SOR-2026-08-P079-S097",
+        "SOR-2026-08-P105-S132",
+        "SOR-2026-08-P105-S129",
+        "SOR-2026-08-P079-S095",
+        "SOR-2026-08-P105-S133"
+      ],
+      "lat_r0_ms": 25.9,
+      "lat_r1_ms": 11.8,
+      "r0_distractor_first": null,
+      "r1_distractor_first": 4
+    },
+    {
+      "id": "B2-SCO-010",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "random weighing veterans",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 4,
+      "channels": {
+        "sparse": 7,
+        "dense": 1,
+        "sparse_top_score": 0.5585,
+        "dense_top_score": 0.5298
+      },
+      "attribution": "DESPLAZADO_POR_REGLAS_FIJAS",
+      "r0_distinct_pages_top10": 7,
+      "r0_top10": [
+        "SOR-2026-08-P105-S129",
+        "SOR-2026-08-P103-S125",
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P100-S119",
+        "SOR-2026-08-P106-S135",
+        "SOR-2026-08-P101-S121"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P105-S129",
+        "SOR-2026-08-P105-S132",
+        "SOR-2026-08-P105-S128",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P105-S133",
+        "SOR-2026-08-P105-S131",
+        "SOR-2026-08-P103-S125",
+        "SOR-2026-08-P105-S134",
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S096"
+      ],
+      "lat_r0_ms": 19.3,
+      "lat_r1_ms": 10.4,
+      "r0_distractor_first": 3,
+      "r1_distractor_first": 9,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": true
+    },
+    {
+      "id": "B2-SCO-013",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "what are the dimensions of competition area at world kata championships",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": 17,
+        "dense": null,
+        "sparse_top_score": 0.2662,
+        "dense_top_score": 0.6455
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P065-S079",
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P097-S115",
+        "SOR-2026-08-P037-S041"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P110-S140",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P113-S147",
+        "SOR-2026-08-P065-S079",
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P151-S178"
+      ],
+      "lat_r0_ms": 33.4,
+      "lat_r1_ms": 24.3,
+      "r0_distractor_first": 5,
+      "r1_distractor_first": 8
+    },
+    {
+      "id": "B2-SCO-013",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "dimensions competition area World Kata Championships",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": 17,
+        "dense": null,
+        "sparse_top_score": 0.2673,
+        "dense_top_score": 0.588
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P097-S115",
+        "SOR-2026-08-P037-S041",
+        "SOR-2026-08-P161-S184",
+        "SOR-2026-08-P113-S145"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P110-S140",
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P109-S139",
+        "SOR-2026-08-P109-S137",
+        "SOR-2026-08-P097-S115"
+      ],
+      "lat_r0_ms": 31.8,
+      "lat_r1_ms": 28.7,
+      "r0_distractor_first": 3,
+      "r1_distractor_first": 4,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": true
+    },
+    {
+      "id": "B2-SCO-014",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "size measurements tiene area competition kata evento no campeonato mundo",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": 18,
+        "dense": null,
+        "sparse_top_score": 0.2619,
+        "dense_top_score": 0.5158
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P095-S112",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P161-S184",
+        "SOR-2026-08-P097-S115",
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P210-S233"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P095-S112",
+        "SOR-2026-08-P095-S113",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P109-S139",
+        "SOR-2026-08-P109-S137",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P161-S184"
+      ],
+      "lat_r0_ms": 24.4,
+      "lat_r1_ms": 11.8,
+      "r0_distractor_first": 1,
+      "r1_distractor_first": 1
+    },
+    {
+      "id": "B2-SCO-014",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "dimensions of the competition area kata events other than world championships",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": 14,
+        "dense": null,
+        "sparse_top_score": 0.2723,
+        "dense_top_score": 0.6103
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P110-S140",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P037-S041",
+        "SOR-2026-08-P097-S115",
+        "SOR-2026-08-P161-S184"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P110-S140",
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P109-S139"
+      ],
+      "lat_r0_ms": 32.3,
+      "lat_r1_ms": 21.3,
+      "r0_distractor_first": 4,
+      "r1_distractor_first": 6,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": true
+    },
+    {
+      "id": "B2-SCO-019",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "tolerance weight tienen cadet weigh-in official random oficial",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": null,
+      "channels": {
+        "sparse": null,
+        "dense": 10,
+        "sparse_top_score": 0.6256,
+        "dense_top_score": 0.6201
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P188-S196",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P078-S092",
+        "SOR-2026-08-P057-S074",
+        "SOR-2026-08-P085-S102"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S097",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P079-S094",
+        "SOR-2026-08-P079-S095",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P077-S090"
+      ],
+      "lat_r0_ms": 26.5,
+      "lat_r1_ms": 15.5,
+      "r0_distractor_first": null,
+      "r1_distractor_first": null
+    },
+    {
+      "id": "B2-SCO-019",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "cadets official weigh-in weight tolerance",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 10,
+      "r1_first": null,
+      "channels": {
+        "sparse": null,
+        "dense": 1,
+        "sparse_top_score": 0.5313,
+        "dense_top_score": 0.6274
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P188-S196",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P078-S092",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P075-S086"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P077-S091",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P079-S097",
+        "SOR-2026-08-P079-S094"
+      ],
+      "lat_r0_ms": 23.8,
+      "lat_r1_ms": 10.7,
+      "r0_distractor_first": null,
+      "r1_distractor_first": null,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-SCO-020",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "Do senior athletes get any weight tolerance at the official weigh-in of an individual event?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 10,
+      "r1_first": null,
+      "channels": {
+        "sparse": null,
+        "dense": 2,
+        "sparse_top_score": 0.4265,
+        "dense_top_score": 0.5847
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P079-S094",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P078-S092",
+        "SOR-2026-08-P057-S074",
+        "SOR-2026-08-P075-S086"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P079-S094",
+        "SOR-2026-08-P079-S095",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P077-S091",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P079-S097"
+      ],
+      "lat_r0_ms": 35.8,
+      "lat_r1_ms": 21.1,
+      "r0_distractor_first": null,
+      "r1_distractor_first": null
+    },
+    {
+      "id": "B2-SCO-020",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "Do senior athletes get any weight tolerance at the official weigh-in of an individual event?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 10,
+      "r1_first": null,
+      "channels": {
+        "sparse": null,
+        "dense": 2,
+        "sparse_top_score": 0.4265,
+        "dense_top_score": 0.5847
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P079-S094",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P074-S085",
+        "SOR-2026-08-P105-S130",
+        "SOR-2026-08-P078-S092",
+        "SOR-2026-08-P057-S074",
+        "SOR-2026-08-P075-S086"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P079-S094",
+        "SOR-2026-08-P079-S095",
+        "SOR-2026-08-P077-S090",
+        "SOR-2026-08-P077-S091",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P079-S093",
+        "SOR-2026-08-P079-S096",
+        "SOR-2026-08-P079-S097"
+      ],
+      "lat_r0_ms": 32.0,
+      "lat_r1_ms": 25.8,
+      "r0_distractor_first": null,
+      "r1_distractor_first": null,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-SCO-021",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "How many athletes can a female team have in a team event?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 3,
+      "r1_first": 3,
+      "channels": {
+        "sparse": 1,
+        "dense": null,
+        "sparse_top_score": 0.3274,
+        "dense_top_score": 0.6162
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P046-S055",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P040-S048",
+        "SOR-2026-08-P234-S257"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P046-S055",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P042-S052",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P043-S054"
+      ],
+      "lat_r0_ms": 31.0,
+      "lat_r1_ms": 20.1,
+      "r0_distractor_first": null,
+      "r1_distractor_first": 5
+    },
+    {
+      "id": "B2-SCO-021",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "How many athletes can a female team have in a team event?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 3,
+      "r1_first": 3,
+      "channels": {
+        "sparse": 1,
+        "dense": null,
+        "sparse_top_score": 0.3274,
+        "dense_top_score": 0.6162
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P046-S055",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P040-S048",
+        "SOR-2026-08-P234-S257"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P046-S055",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P042-S052",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P043-S054"
+      ],
+      "lat_r0_ms": 29.5,
+      "lat_r1_ms": 19.5,
+      "r0_distractor_first": null,
+      "r1_distractor_first": 5,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-SCO-022",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "reservas puede tener team teams encounter mixed",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 3,
+      "channels": {
+        "sparse": 2,
+        "dense": 7,
+        "sparse_top_score": 0.3578,
+        "dense_top_score": 0.4703
+      },
+      "attribution": "DESPLAZADO_POR_REGLAS_FIJAS",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P235-S258",
+        "SOR-2026-08-P041-S050",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P055-S069"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P042-S052",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P235-S258",
+        "SOR-2026-08-P041-S050",
+        "SOR-2026-08-P041-S051"
+      ],
+      "lat_r0_ms": 20.7,
+      "lat_r1_ms": 12.4,
+      "r0_distractor_first": 3,
+      "r1_distractor_first": 4
+    },
+    {
+      "id": "B2-SCO-022",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "How many reserves can a mixed team have?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 7,
+      "channels": {
+        "sparse": 2,
+        "dense": null,
+        "sparse_top_score": 0.3518,
+        "dense_top_score": 0.4989
+      },
+      "attribution": "EN_CANAL_FUERA_DE_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P235-S258",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P044-S054",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P055-S069"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P043-S054",
+        "SOR-2026-08-P235-S258",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P042-S054",
+        "SOR-2026-08-P042-S052",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P044-S054"
+      ],
+      "lat_r0_ms": 31.8,
+      "lat_r1_ms": 18.8,
+      "r0_distractor_first": 7,
+      "r1_distractor_first": 9,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-SCO-023",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "Which events give points for the IJF Juniors World Ranking List?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 1,
+        "sparse_top_score": 0.4668,
+        "dense_top_score": 0.7132
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P053-S067",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P050-S063",
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P057-S073",
+        "SOR-2026-08-P054-S068",
+        "SOR-2026-08-P055-S070",
+        "SOR-2026-08-P051-S064",
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P071-S083"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P053-S067",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P050-S063",
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P052-S066",
+        "SOR-2026-08-P057-S073",
+        "SOR-2026-08-P054-S068",
+        "SOR-2026-08-P055-S070",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P055-S069"
+      ],
+      "lat_r0_ms": 33.0,
+      "lat_r1_ms": 21.2,
+      "r0_distractor_first": 6,
+      "r1_distractor_first": 5
+    },
+    {
+      "id": "B2-SCO-023",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "Which events give points for the IJF Juniors World Ranking List?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 1,
+      "channels": {
+        "sparse": 1,
+        "dense": 1,
+        "sparse_top_score": 0.4668,
+        "dense_top_score": 0.7132
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P053-S067",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P050-S063",
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P057-S073",
+        "SOR-2026-08-P054-S068",
+        "SOR-2026-08-P055-S070",
+        "SOR-2026-08-P051-S064",
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P071-S083"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P053-S067",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P050-S063",
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P052-S066",
+        "SOR-2026-08-P057-S073",
+        "SOR-2026-08-P054-S068",
+        "SOR-2026-08-P055-S070",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P055-S069"
+      ],
+      "lat_r0_ms": 32.2,
+      "lat_r1_ms": 25.8,
+      "r0_distractor_first": 6,
+      "r1_distractor_first": 5,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-SCO-024",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "eventos puede sumar points ranking pareja kata",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 2,
+      "r1_first": 2,
+      "channels": {
+        "sparse": 11,
+        "dense": 1,
+        "sparse_top_score": 0.4944,
+        "dense_top_score": 0.4328
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P051-S064",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P057-S073",
+        "SOR-2026-08-P055-S070",
+        "SOR-2026-08-P053-S067",
+        "SOR-2026-08-P058-S074",
+        "SOR-2026-08-P108-S136"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P110-S140",
+        "SOR-2026-08-P051-S064",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P057-S073",
+        "SOR-2026-08-P057-S072",
+        "SOR-2026-08-P055-S070",
+        "SOR-2026-08-P053-S067"
+      ],
+      "lat_r0_ms": 21.9,
+      "lat_r1_ms": 10.7,
+      "r0_distractor_first": null,
+      "r1_distractor_first": null
+    },
+    {
+      "id": "B2-SCO-024",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "In which events can a kata pair score ranking points",
+      "retrieve_status": "SUCCESS",
+      "r0_first": 1,
+      "r1_first": 6,
+      "channels": {
+        "sparse": 11,
+        "dense": 1,
+        "sparse_top_score": 0.4839,
+        "dense_top_score": 0.7461
+      },
+      "attribution": "OK_TOP5",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P051-S064",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P039-S047",
+        "SOR-2026-08-P055-S070",
+        "SOR-2026-08-P057-S073",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P050-S063",
+        "SOR-2026-08-P113-S145"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P113-S146",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P113-S147",
+        "SOR-2026-08-P110-S141",
+        "SOR-2026-08-P110-S140",
+        "SOR-2026-08-P051-S064",
+        "SOR-2026-08-P056-S071",
+        "SOR-2026-08-P039-S047"
+      ],
+      "lat_r0_ms": 32.9,
+      "lat_r1_ms": 19.4,
+      "r0_distractor_first": null,
+      "r1_distractor_first": null,
+      "llm_bundle_has_all_evidence": true,
+      "llm_bundle_has_distractor": false
+    },
+    {
+      "id": "B2-SCO-025",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "What happens if an athlete suffers a minor injury during a kata performance?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 2,
+      "channels": {
+        "sparse": 3,
+        "dense": 1,
+        "sparse_top_score": 0.3603,
+        "dense_top_score": 0.7171
+      },
+      "attribution": "DESPLAZADO_POR_REGLAS_FIJAS",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P198-S210",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P025-S022",
+        "SOR-2026-08-P157-S183",
+        "SOR-2026-08-P110-S140",
+        "SOR-2026-08-P161-S184"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P113-S146",
+        "SOR-2026-08-P113-S147",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P196-S206",
+        "SOR-2026-08-P198-S210",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P109-S139"
+      ],
+      "lat_r0_ms": 32.3,
+      "lat_r1_ms": 22.4,
+      "r0_distractor_first": 3,
+      "r1_distractor_first": 7
+    },
+    {
+      "id": "B2-SCO-025",
+      "language": "en",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "What happens if an athlete suffers a minor injury during a kata performance?",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 2,
+      "channels": {
+        "sparse": 3,
+        "dense": 1,
+        "sparse_top_score": 0.3603,
+        "dense_top_score": 0.7171
+      },
+      "attribution": "DESPLAZADO_POR_REGLAS_FIJAS",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P198-S210",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P111-S142",
+        "SOR-2026-08-P025-S022",
+        "SOR-2026-08-P157-S183",
+        "SOR-2026-08-P110-S140",
+        "SOR-2026-08-P161-S184"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P113-S145",
+        "SOR-2026-08-P113-S146",
+        "SOR-2026-08-P113-S147",
+        "SOR-2026-08-P113-S144",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P196-S206",
+        "SOR-2026-08-P198-S210",
+        "SOR-2026-08-P108-S136",
+        "SOR-2026-08-P109-S138",
+        "SOR-2026-08-P109-S139"
+      ],
+      "lat_r0_ms": 41.5,
+      "lat_r1_ms": 21.9,
+      "r0_distractor_first": 3,
+      "r1_distractor_first": 7,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": true
+    },
+    {
+      "id": "B2-SCO-026",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "DICT",
+      "query_used": "puede atleta tratarse si mismo lesion leve contest",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 5,
+      "channels": {
+        "sparse": 3,
+        "dense": 8,
+        "sparse_top_score": 0.515,
+        "dense_top_score": 0.2641
+      },
+      "attribution": "DESPLAZADO_POR_REGLAS_FIJAS",
+      "r0_distinct_pages_top10": 10,
+      "r0_top10": [
+        "SOR-2026-08-P198-S208",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P196-S206",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P201-S214",
+        "SOR-2026-08-P202-S217",
+        "SOR-2026-08-P233-S256",
+        "SOR-2026-08-P200-S212",
+        "SOR-2026-08-P113-S146",
+        "SOR-2026-08-P154-S182"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P198-S208",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P198-S209",
+        "SOR-2026-08-P196-S206",
+        "SOR-2026-08-P198-S210",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P199-S211",
+        "SOR-2026-08-P201-S214",
+        "SOR-2026-08-P202-S217",
+        "SOR-2026-08-P202-S219"
+      ],
+      "lat_r0_ms": 30.5,
+      "lat_r1_ms": 19.8,
+      "r0_distractor_first": 9,
+      "r1_distractor_first": null
+    },
+    {
+      "id": "B2-SCO-026",
+      "language": "es",
+      "category": "AMBITO_DISTRACTOR",
+      "form": "LLM",
+      "query_used": "treatment minor injury athlete contest medical examination",
+      "retrieve_status": "SUCCESS",
+      "r0_first": null,
+      "r1_first": 4,
+      "channels": {
+        "sparse": 2,
+        "dense": 6,
+        "sparse_top_score": 0.3964,
+        "dense_top_score": 0.6082
+      },
+      "attribution": "DESPLAZADO_POR_REGLAS_FIJAS",
+      "r0_distinct_pages_top10": 9,
+      "r0_top10": [
+        "SOR-2026-08-P198-S208",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P201-S213",
+        "SOR-2026-08-P113-S146",
+        "SOR-2026-08-P161-S184",
+        "SOR-2026-08-P202-S219",
+        "SOR-2026-08-P200-S212",
+        "SOR-2026-08-P199-S211"
+      ],
+      "r1_top10": [
+        "SOR-2026-08-P198-S208",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P196-S206",
+        "SOR-2026-08-P198-S210",
+        "SOR-2026-08-P197-S207",
+        "SOR-2026-08-P198-S209",
+        "SOR-2026-08-P201-S213",
+        "SOR-2026-08-P201-S214",
+        "SOR-2026-08-P201-S215",
+        "SOR-2026-08-P201-S216"
+      ],
+      "lat_r0_ms": 20.4,
+      "lat_r1_ms": 10.1,
+      "r0_distractor_first": 5,
+      "r1_distractor_first": null,
+      "llm_bundle_has_all_evidence": false,
+      "llm_bundle_has_distractor": true
+    }
+  ],
+  "note": "Diagnostico; localizadores de pasaje; etiquetas PENDING_EXPERT_REVIEW; sin llamadas al LLM."
+}

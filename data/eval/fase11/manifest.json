@@ -1,0 +1,147 @@
+{
+  "phase": "11 (11A diagnostico + calibracion DIG, 11B recuperacion R2-R5, 11C comparativa dev)",
+  "created": "2026-11-15",
+  "policy": {
+    "split_used_for_decisions": "dev",
+    "test_sealed": "no ejecutado; solo filas de revision humana en el CSV",
+    "production_modified": false,
+    "corpus_modified": false,
+    "shadow_modified": false,
+    "benchmark_modified": false
+  },
+  "experiments": [
+    {
+      "id": "E11A-1",
+      "desc": "LLM real en dev, 2 corridas, detalle DIG",
+      "cmd": "python scripts/eval_llm_shadow.py --split dev --runs 2 --sleep 4 --out data/eval/fase11/llm_dev_f11.json",
+      "where": "Windows",
+      "llm": true
+    },
+    {
+      "id": "E11A-2",
+      "desc": "Reclasificacion con equivalencia de pasajes",
+      "cmd": "python scripts/eval_llm_shadow.py --rescore data/eval/fase11/llm_dev_f11.json",
+      "llm": false
+    },
+    {
+      "id": "E11A-3",
+      "desc": "Diagnostico de recuperacion R0 vs R1, DICT vs LLM",
+      "cmd": "python scripts/diag_retrieval_f11.py --llm-results data/eval/fase11/llm_dev_f11.json",
+      "where": "Windows",
+      "llm": false
+    },
+    {
+      "id": "E11A-4",
+      "desc": "Recalculo offline estricto vs equivalente",
+      "cmd": "python scripts/recompute_equivalence_f11.py",
+      "llm": false
+    },
+    {
+      "id": "E11A-5",
+      "desc": "CSV arbitral y diagnostico de abstenciones",
+      "cmd": "python scripts/diag_abstentions_f11.py --dev data/eval/fase11/llm_dev_f11_rescored.json --phase10 data/eval/benchmark_v2/results/llm_shadow_dev_rescored.json data/eval/benchmark_v2/results/llm_shadow_test_sealed_rescored.json",
+      "llm": false
+    },
+    {
+      "id": "E11A-6",
+      "desc": "Captura exacta de entradas del DIG (2 corridas dev; degradada por cuota: 20 llamadas DIG)",
+      "cmd": "python scripts/eval_llm_shadow.py --split dev --runs 2 --sleep 8 --capture-dig --out data/eval/fase11/llm_dev_f11_capture.json",
+      "where": "Windows",
+      "llm": true
+    },
+    {
+      "id": "E11A-7",
+      "desc": "Reejecucion offline DIG base y variante DIG-06 + 130 ataques adversariales",
+      "cmd": "python scripts/replay_dig_f11.py data/eval/fase11/llm_dev_f11_capture.json data/eval/fase11/llm_dev_f11_rescored.json",
+      "llm": false,
+      "params": {
+        "variant": "experimental.dig_variants.numbers_in_v2 (dashes Unicode, edicion de corpus_config, listas 1..k, etiqueta+titulo propio)",
+        "attacks": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A4b",
+          "A5",
+          "A6"
+        ]
+      }
+    },
+    {
+      "id": "E11B-1",
+      "desc": "Variantes de recuperacion R2,R3,R4,R5 por separado frente a R0 (dev)",
+      "cmd": "python scripts/eval_f11_retrieval.py --llm-results data/eval/fase11/llm_dev_f11.json",
+      "where": "Windows",
+      "llm": false,
+      "params": {
+        "R0": "rre.retrieve(top_k=25, expand_graph=True)",
+        "RRF_k": 60,
+        "fusion_weights": "1:1",
+        "R3_beta": [
+          0.2,
+          0.5
+        ],
+        "R3_indicators": "share>=0.5, lift>=4, count>=3 sobre titulos de partes COVER",
+        "R4_max_lane": 3,
+        "R5_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+        "R5_max_seq": 256
+      }
+    },
+    {
+      "id": "E11C-1",
+      "desc": "Resumen del flujo completo de base (Fase 10 dev reclasificado con equivalencia) y Fase 11",
+      "cmd": "python scripts/eval_llm_shadow.py --rescore data/eval/fase11/llm_dev_f10_baseline.json (+ agregacion en e2e_dev_summary.json)",
+      "llm": false
+    }
+  ],
+  "sha256": {
+    "code": {
+      "src/experimental/scope_retriever.py": "e7d98f530c70b6cb144a09b1b8332a1de859fafee8e29e4355839573fa230326",
+      "src/experimental/dig_variants.py": "f818518ca5aec42701838d4d8740191f938e9cd2a3ec47fe6637417c36406ae9",
+      "src/experimental/benchmark_access.py": "334a239989f162797a52cb930756392f166991885326c457c50fd5fed8106d6f",
+      "scripts/eval_llm_shadow.py": "4d0c2ba6ff8cb33a8ac42dda167f48b2b39d1c4a0981ad29d800c7181e4a0614",
+      "scripts/diag_retrieval_f11.py": "18837020a93cc35768bd229638f1fa54b886bccf5763a3c910f26664b853e4a2",
+      "scripts/diag_abstentions_f11.py": "f6f3a80f89241051f97b4af7d70a7178fdbae7ec9940d6728b11069f1de8e9af",
+      "scripts/recompute_equivalence_f11.py": "994c20fff5ffdc2e6cd988985715c69efcf90745174d1b2f0bbe8e63c8ada437",
+      "scripts/eval_benchmark_v2_retrieval.py": "863d1510b4f53330b4ba6216614b9fca684d25de7cdf6d1e0860952e2756d445",
+      "scripts/run_fase11a.ps1": "6e954a9ac7e4a1dd85e1c4c976a42b7ab85e38ba6db5b48309754c6993c1a80a",
+      "tests/test_fase11_experimental.py": "e4b0b45492b970648674d1c98bef1258bed34cfdd1efb8f6cf778b2700d10f43",
+      "src/experimental/retrieval_variants.py": "d20f0650f76f24a144c788bcb79d4c39955de4dd3fd912a9b3e2832f8f8db3a6",
+      "scripts/replay_dig_f11.py": "fbbf52904e28040e613652dcc4dd74267676fde024b7b27908c702c410f66ea0",
+      "scripts/eval_f11_retrieval.py": "dfd880459173147007b62d83198edb447d1a5e9b1350c9bc357897dc1def2c28",
+      "scripts/run_fase11b.ps1": "5f418766fab6c30d53c1adcf9084fc328bfd1d4fbde4ec5f0ddad56211adfdc5"
+    },
+    "inputs": {
+      "data/processed/rebuild_2026_08_corrected/passages_candidate.json": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b",
+      "data/eval/benchmark_v2/benchmark_v2.jsonl": "01759b58124fd874c2af660e9fe945c1827b35882890dbbba6b052e0295d4d44",
+      "data/eval/benchmark_v2/splits/dev.jsonl": "b2bb36ccfb5849d552d2b8f8d7c9db1266cf7889d0b82cf23c54a37af62ef191",
+      "data/eval/benchmark_v2/splits/test_sealed.jsonl": "324d7626950fa1fb81aeb2392acc12c3323467ace5574cf66ec6ad0fd01e485a",
+      "data/eval/benchmark_v2/results/retrieval_all.json": "34b462e876a9986cebe82e5c2d88ea7beaa8ccaaeaaab835834878e3df413aa0",
+      "data/eval/benchmark_v2/results/llm_shadow_dev_rescored.json": "108236c6e9cba59b2e56c1938c3d4ca5326aa7ab474abe4b9ac77b15a4c217c5",
+      "data/eval/benchmark_v2/results/llm_shadow_test_sealed_rescored.json": "46aea16ba36127e17db4701fe4be4946d7b24bd3bc236b19fec1f7d3eeae70e3"
+    },
+    "outputs": {
+      "data/eval/fase11/llm_dev_f11.json": "dcba32d8c6c46d0b5f047cec48d627cf817327042a9f12ab37f369b96988caef",
+      "data/eval/fase11/llm_dev_f11_rescored.json": "34683b803a70141d61e9c3da2e9c3a90aebecae2b6f0645f472fa62d588a6136",
+      "data/eval/fase11/diag_retrieval_dev.json": "34d1320ba604b3ba7f4251967eaad7238c037e3c7a71f6f4aa19106baed8174c",
+      "data/eval/fase11/equivalence_dev.json": "62093d9a229daa1605c08aa33052163e86e0afd99e1537c0302561f43bb06530",
+      "data/eval/fase11/arbitral_review_abstentions.csv": "7d781096530f4b5ef3d6f07d858fee46e6a622f753f2958335493abf19041b7e",
+      "data/eval/fase11/diag_abstentions_summary.json": "ee80bf462e5626a919fe1bd78f442abaa5e54ee22cd605ad28c904711940e9eb",
+      "docs/audits/FASE_11_DIAGNOSTICO_ABSTENCIONES.md": "0500207883a82d35d1855d92755938730b0d5378d4568cd7bd0d7139deae1467",
+      "docs/audits/FASE_11_RECUPERACION_EXPERIMENTAL.md": "5bebb93ae812763fd986dc6ed92a379be93c46c93e1b0dd0ba9b3f70d6aaa3a0",
+      "data/eval/fase11/llm_dev_f11_capture.json": "261a8ce96fcff69eca2e4e8f3170179991cc11b92baced361ac6d720f9886049",
+      "data/eval/fase11/dig_replay_dev.json": "0ef9e54482b40947e0220f59011a810262c51a266f6c52b1765438ea83ae26c6",
+      "data/eval/fase11/retrieval_experiments_dev.json": "b89460bc9f1c4ac86263717a1821979556f10837ba5da48b639f7d0c3f81d670",
+      "data/eval/fase11/llm_dev_f10_baseline_rescored.json": "c51d383db614e10c68a9cce6437ae41b9e7f2ab3ccdbbb1868e94cfcf3749466",
+      "data/eval/fase11/e2e_dev_summary.json": "ec167c7c782db8ea5f5efb052b50470bb2bbd38dc6fedb7b0a112a0f0c0bbefa",
+      "docs/audits/FASE_11_CALIBRACION_DIG.md": "fc083b4c67ae0bb79c6898b69eb6377a7d0059eefb3f1d2b84e48d598d40e763",
+      "docs/audits/FASE_11_EVALUACION_COMPARATIVA.md": "4e9f1ac053cb76344dd332df9d63e30012a032e2f59376ebda65fe8d2827124d",
+      "docs/audits/FASE_11_INFORME_EJECUTIVO.md": "45d8475f7f1327a33458bae57419fa49e402c45065ee7515351664aa9f5902f5"
+    }
+  },
+  "updated": "2026-11-15",
+  "tests": {
+    "windows_b0": "60 passed (test_fase10_experimental, test_fase11_experimental, test_decision_integrity)",
+    "vm_fase11": "14 tests PASS"
+  }
+}

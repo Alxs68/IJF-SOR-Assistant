@@ -90,7 +90,13 @@ class NormativeValidator:
         "PX7b": {"action": "kata-sankaku throw higher risk", "type": "hansoku-make", "scope": "all", "terms": ["kata-sankaku", "proyección con riesgo", "higher risk"]}
     }
 
-    def __init__(self, evidence_passages: List[Dict[str, Any]], related_passages: Optional[List[Dict[str, Any]]] = None):
+    def __init__(
+        self,
+        evidence_passages: List[Dict[str, Any]],
+        related_passages: Optional[List[Dict[str, Any]]] = None
+    ):
+        # AUD-04.5: the validator operates only on certified primary SOR evidence (direct and
+        # related). Supplementary material is never ground truth for articles, codes or IDs.
         self.evidence = evidence_passages or []
         self.related = related_passages or []
         self.all_passages = self.evidence + self.related
@@ -145,9 +151,8 @@ class NormativeValidator:
         if not cleaned_art:
             return True
 
-        # Always valid core SOR rules for established arbitration protocols
-        if cleaned_art in ["9", "9.1", "9.2", "14", "13", "13.3", "13.4", "13.3.c", "13.3.d", "13.4.b", "a1.6", "18", "18.1", "18.2", "18.3", "19", "19.1", "20", "21"]:
-            return True
+        # AUD-03: no article is valid by default; every reference must be grounded in the
+        # passages delivered with this answer.
 
         # 1. Direct match in registered valid articles
         if cleaned_art in self.valid_articles or art in self.valid_articles:

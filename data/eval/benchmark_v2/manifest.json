@@ -1,0 +1,98 @@
+{
+  "benchmark_version": "benchmark_v2.0.0",
+  "build_command": "python scripts/build_benchmark_v2.py",
+  "build_errors": [],
+  "corpus": "data/processed/rebuild_2026_08_corrected/passages_candidate.json",
+  "corpus_file_sha256": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b",
+  "counts": {
+    "by_category": {
+      "AMBIGUA": 10,
+      "AMBITO_DISTRACTOR": 30,
+      "DIRECTA": 18,
+      "DISTINCION_CATEGORIA": 7,
+      "EXCEPCION": 10,
+      "INCOMPLETA": 5,
+      "INSUFICIENTE": 6,
+      "MULTILINGUE": 4,
+      "MULTI_ARTICULO": 4,
+      "OOD": 6,
+      "REFERENCIA_CRUZADA": 5
+    },
+    "by_expected_behavior": {
+      "ABSTENER_FUERA_DE_DOMINIO": 6,
+      "ABSTENER_INSUFICIENCIA": 6,
+      "RESPONDER": 78,
+      "SOLICITAR_ACLARACION": 15
+    },
+    "by_language": {
+      "en": 52,
+      "es": 48,
+      "fr": 2,
+      "pt": 3
+    },
+    "by_split": {
+      "dev": 41,
+      "test_sealed": 64
+    },
+    "by_split_category": {
+      "dev": {
+        "AMBIGUA": 4,
+        "AMBITO_DISTRACTOR": 12,
+        "DIRECTA": 7,
+        "DISTINCION_CATEGORIA": 3,
+        "EXCEPCION": 4,
+        "INCOMPLETA": 2,
+        "INSUFICIENTE": 2,
+        "MULTILINGUE": 2,
+        "MULTI_ARTICULO": 1,
+        "OOD": 2,
+        "REFERENCIA_CRUZADA": 2
+      },
+      "test_sealed": {
+        "AMBIGUA": 6,
+        "AMBITO_DISTRACTOR": 18,
+        "DIRECTA": 11,
+        "DISTINCION_CATEGORIA": 4,
+        "EXCEPCION": 6,
+        "INCOMPLETA": 3,
+        "INSUFICIENTE": 4,
+        "MULTILINGUE": 2,
+        "MULTI_ARTICULO": 3,
+        "OOD": 4,
+        "REFERENCIA_CRUZADA": 3
+      }
+    },
+    "items_with_cross_refs": 5,
+    "items_with_exceptions": 2,
+    "items_with_wrong_scope_distractors": 44,
+    "max_jaccard_vs_benchmark_v1": 0.667,
+    "review_status": {
+      "PENDING_EXPERT_REVIEW": 105
+    },
+    "semantic_groups": 82,
+    "total": 105,
+    "wrong_scope_distractors_total": 54
+  },
+  "independence": {
+    "known_limitation": "mismo autor (asistido por IA) que v1 y conocedor de los fallos de Fases 8-9; las reglas cubiertas se solapan parcialmente con v1. Independencia de redaccion, no de autoria.",
+    "lexical_overlap_check": "Jaccard de tokens contra las 150 consultas v1; umbral de rechazo 0.7",
+    "queries": "redactadas de nuevo para v2; no copiadas de benchmark_v1"
+  },
+  "label_policy": {
+    "anchors": "fragmentos literales verificados contra el texto de la pagina (espacios normalizados)",
+    "auto_labels": "AUTOMATICA_ASISTIDA_IA_ANCLADA_A_TEXTO_LITERAL",
+    "certified_by_referees": false,
+    "human_labels": "null hasta revision arbitral (ver review/REVIEW_PROTOCOL.md)",
+    "normative_answers": "no incluidas",
+    "review_status": "PENDING_EXPERT_REVIEW"
+  },
+  "split_policy": {
+    "method": "estratificado por categoria dominante del grupo semantico; orden sha256(version+grupo)",
+    "ratios": {
+      "dev": 0.4,
+      "test_sealed": 0.6
+    },
+    "test_sealed": "NO usar para ajustar reglas, umbrales, prompts, modelos ni anclas; los evaluadores requieren --allow-test-sealed",
+    "test_sealed_sha256": "324d7626950fa1fb81aeb2392acc12c3323467ace5574cf66ec6ad0fd01e485a"
+  }
+}

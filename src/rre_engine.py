@@ -42,7 +42,7 @@ class ReasoningRetrievalEngine:
     designed for arbitration and regulatory rules.
     """
 
-    def __init__(self, base_dir="data/processed/rebuild_2026_08_corrected", allow_degraded: bool | None = None, enable_code_matching: bool = True, enable_chunk_stitching: bool | None = None, max_expansion_pages: int = 3, enable_semantic_ranker: bool = False, enable_referee_disambiguation: bool = False, enable_ood_detector: bool = False, enable_negative_domain_anchors: bool = False, shadow_mode_negative_anchors: bool = False, enable_shadow_mode_multisource: bool = False, shadow_log_path: str = "scratch/shadow_multisource_evaluation.jsonl"):
+    def __init__(self, base_dir="data/processed/rebuild_2026_08_corrected", allow_degraded: bool | None = None, enable_code_matching: bool = True, enable_chunk_stitching: bool | None = None, max_expansion_pages: int = 3, enable_semantic_ranker: bool = False, enable_referee_disambiguation: bool = False, enable_ood_detector: bool = False, enable_negative_domain_anchors: bool = False, shadow_mode_negative_anchors: bool = False, enable_shadow_mode_multisource: bool = False, shadow_log_path: str = "scratch/shadow_multisource_evaluation.jsonl", enable_scope_preference: bool | None = None):
         self.base_dir = base_dir
         if allow_degraded is None:
             allow_degraded = os.environ.get("RRE_ALLOW_DEGRADED_LEXICAL", "").strip().lower() in {"1", "true", "yes", "on"}
@@ -114,6 +114,11 @@ class ReasoningRetrievalEngine:
         self.stitcher = PassageStitcher(self.passages_by_id, max_expansion_pages=self.max_expansion_pages) if self.enable_chunk_stitching else None
         self.ood_detector = OODDetector(self.dense_model, self.dense_embeddings) if self.enable_ood_detector else None
 
+        # Fase 11 - R3: preferencia por ambito (desactivada por defecto; RRE_ENABLE_SCOPE_PREFERENCE=1)
+        from src.scope_preference import ScopePreference, flag_enabled
+        self.enable_scope_preference = flag_enabled(enable_scope_preference)
+        self.scope_preference = ScopePreference() if self.enable_scope_preference else None
+
         # Inicializar componente Sidecar Shadow Mode si está habilitado
         if self.enable_shadow_mode_multisource:
             self._init_sidecar_retriever()
@@ -132,6 +137,20 @@ class ReasoningRetrievalEngine:
         except Exception as e:
             # En caso de fallo de inicialización, no bloquear RRE
             self.sidecar_retriever = None
+
+
+    def retrieve_supplementary(self, query: str, top_k: int = 3, min_score: float = 2.0) -> list:
+        """Safely retrieves supplementary passages from multisource sidecar if available."""
+        try:
+            if self.sidecar_retriever is None:
+                from src.multisource_retriever import MultisourceRetriever
+                self.sidecar_retriever = MultisourceRetriever()
+            res = self.sidecar_retriever.search(query, top_k=top_k, min_score=min_score)
+            if res.get("status") == "SUCCESS":
+                return res.get("matches", [])
+        except Exception:
+            pass
+        return []
 
     def _execute_shadow_sidecar_retrieval(self, query: str, primary_evidence: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
@@ -506,10 +525,10 @@ class ReasoningRetrievalEngine:
         "insulto": "derogatory remark remarks gesture spirit",
         "insultos": "derogatory remarks gestures spirit",
         "insulta": "derogatory remark remarks gesture spirit",
-        "agresion": "spirit deliberate injury hansoku-make",
-        "agresión": "spirit deliberate injury hansoku-make",
-        "agrede": "spirit deliberate injury hansoku-make",
-        "agredio": "spirit deliberate injury hansoku-make",
+        "agresion": "aggression spirit deliberate injury",
+        "agresión": "aggression spirit deliberate injury",
+        "agrede": "aggression spirit deliberate injury",
+        "agredio": "aggression spirit deliberate injury",
         "golpe": "strike punch kick deliberate injury spirit",
         "reverse": "reverse seoi-nage",
         "seoinage": "seoi-nage",
@@ -548,16 +567,16 @@ class ReasoningRetrievalEngine:
         "mixtos": "mixed team teams",
         "mixta": "mixed team teams",
         "mixtas": "mixed team teams",
-        "tolerancia": "tolerance 30-second rule countdown scoreboard fusen-gachi",
-        "presentarse": "appear appearance failure to appear 30-second rule countdown fusen-gachi",
-        "presenta": "appear appearance failure to appear 30-second rule countdown fusen-gachi",
-        "presentan": "appear appearance failure to appear 30-second rule countdown fusen-gachi",
-        "comparecer": "appear appearance failure to appear 30-second rule countdown fusen-gachi",
-        "comparecencia": "appear appearance failure to appear 30-second rule countdown fusen-gachi",
-        "incomparecencia": "failure to appear fusen-gachi default 30-second countdown",
-        "simultanea": "simultaneous both fall tatami Article 14 Article 13",
-        "simultaneo": "simultaneous both fall tatami Article 14 Article 13",
-        "simultaneas": "simultaneous both fall tatami Article 14 Article 13",
+        "tolerancia": "tolerance",
+        "presentarse": "appear appearance failure to appear",
+        "presenta": "appear appearance failure to appear",
+        "presentan": "appear appearance failure to appear",
+        "comparecer": "appear appearance failure to appear",
+        "comparecencia": "appear appearance failure to appear",
+        "incomparecencia": "failure to appear",
+        "simultanea": "simultaneous both fall tatami",
+        "simultaneo": "simultaneous both fall tatami",
+        "simultaneas": "simultaneous both fall tatami",
         "dopaje": "doping control anti-doping",
         "disciplinario": "disciplinary committee code sanctions",
         "disciplinaria": "disciplinary committee code sanctions",
@@ -578,6 +597,14 @@ class ReasoningRetrievalEngine:
         "sistemas": "systems",
         "competicion": "competition",
         "competiciones": "competitions",
+        "empujar": "pushing push forced out outside contest area",
+        "empuja": "pushing push forced out outside contest area",
+        "empujando": "pushing push forced out outside contest area",
+        "deliberadamente": "intentionally intentional",
+        "deliberada": "intentionally intentional",
+        "convencional": "conventional grip",
+        "inmediato": "immediate attack positive attack",
+        "inmediata": "immediate attack positive attack",
         "regla": "rules rule",
         "reglas": "rules",
         "cuadro": "draw bracket",
@@ -621,8 +648,8 @@ class ReasoningRetrievalEngine:
         "limites": "limits",
         "exterior": "outside beyond",
         "seguridad": "safety",
-        "continuidad": "continue continuing valid uninterrupted",
-        "continuar": "continue valid",
+        "continuidad": "continue continuing uninterrupted",
+        "continuar": "continue",
         "agarre": "grip holding",
         "aterriza": "landing land lands",
         "aterrizar": "landing land lands",
@@ -688,13 +715,13 @@ class ReasoningRetrievalEngine:
         "estrangulacion": "shime-waza strangulation strangle choke",
         "estrangulación": "shime-waza strangulation strangle choke",
         "pesaje": "weigh-in weight official random",
-        "aleatorio": "random weigh-in 5% tolerance",
-        "tolerancia": "tolerance weight weigh-in 5%",
+        "aleatorio": "random weigh-in tolerance",
+        "tolerancia": "tolerance",
         "fusen": "fusen-gachi default failure to appear",
         "fusengachi": "fusen-gachi default failure to appear",
-        "comparecencia": "appear contest tatami fusen-gachi default",
-        "presentarse": "appear contest tatami fusen-gachi default",
-        "presentacion": "appear contest tatami fusen-gachi default",
+        "comparecencia": "appear contest tatami",
+        "presentarse": "appear contest tatami",
+        "presentacion": "appear contest tatami",
         "smart": "smart judogi approved optical label chip",
         "chip": "optical label approved judogi control",
         "nfc": "optical label approved judogi control",
@@ -819,7 +846,8 @@ class ReasoningRetrievalEngine:
             or headings.strip() == "document control"
         )
 
-    def retrieve(self, query: str, top_k: int = 5, min_confidence: float = 0.015, expand_graph: bool = True):
+    def retrieve(self, query: str, top_k: int = 5, min_confidence: float = 0.015, expand_graph: bool = True,
+                 domain_query: Optional[str] = None):
         """
         Executes Reasoning Retrieval with Reciprocal Rank Fusion (RRF) and Graph Expansion.
         """
@@ -893,8 +921,11 @@ class ReasoningRetrievalEngine:
 
         # Evaluacion BK-01: Negative Domain Anchor Scoring
         neg_anchor_result = None
-        if self.enable_negative_domain_anchors or self.shadow_mode_negative_anchors:
-            neg_anchor_result = NegativeDomainAnchorScorer.score_negative_domain(query)
+        if self.enable_negative_domain_anchors or self.shadow_mode_negative_anchors or self.enable_ood_detector:
+            # Phase 6 (C1): negative-domain anchors describe the user's own words. When the retrieval
+            # query is a translation/projection, score the original query so that vocabulary injected
+            # by the translation (e.g. 'penalty') cannot by itself mark a judo question as another sport.
+            neg_anchor_result = NegativeDomainAnchorScorer.score_negative_domain(domain_query or query)
             # En modo activo (no solo shadow), si se confirma OOD negativo inequívoco sin inmunidad de judo:
             if self.enable_negative_domain_anchors and not self.shadow_mode_negative_anchors:
                 if neg_anchor_result.is_ood and not has_valid_page_ref:
@@ -915,7 +946,8 @@ class ReasoningRetrievalEngine:
             top_dense = dense_hits[0][1] if dense_hits else 0.0
             top_sparse = sparse_hits[0][1] if sparse_hits else 0.0
             ood_eval = self.ood_detector.evaluate_grounding(query, sparse_top=top_sparse, dense_top=top_dense)
-            if not ood_eval.get("is_in_domain", True) and not has_valid_page_ref and not substantive_in_vocab:
+            is_negative_ood = bool(neg_anchor_result and neg_anchor_result.is_ood)
+            if not ood_eval.get("is_in_domain", True) and not has_valid_page_ref and (is_negative_ood or not substantive_in_vocab):
                 return {
                     "status": "ABSTAIN",
                     "reason": "OUT_OF_DOMAIN",
@@ -1065,7 +1097,7 @@ class ReasoningRetrievalEngine:
         is_senior_junior_specific = any(w in clean_q_lower for w in ["senior", "seniors", "junior", "juniors", "adulto", "adultos"])
         is_dive_specific = any(w in clean_q_lower for w in ["dive", "diving", "clavado", "clavar", "zambullida", "buceo", "somersault"])
         is_bridge_specific = has_bridge_term
-        is_defense_specific = any(w in clean_q_lower for w in ["defensa", "defender", "defiende", "defend", "defence", "escapar", "escape", "evitar"])
+        is_defense_specific = any(w in clean_q_lower for w in ["defensa", "defender", "defiende", "defend", "defence", "defense", "defensive", "escapar", "escape", "evitar"])
         is_throw_by_tori = any(w in clean_q_lower for w in ["proyectar", "proyeccion", "proyección", "lanzar", "lanzamiento", "throw", "tori"])
         is_concussion_specific = any(w in clean_q_lower for w in ["conmocion", "conmoción", "concussion", "trauma", "inhabilitacion", "inhabilitación", "suspension", "suspensión", "dias", "días", "days"])
 
@@ -1121,14 +1153,15 @@ class ReasoningRetrievalEngine:
                     elif p.get("pdf_page_index") == 189 and "18.1.4" in str(p.get("article_id", "")):
                         rrf_scores[pid] += 0.22 if is_reverse_seoi else 0.04
 
-            # Dampen general contest area (Art. 5) and landings when querying cadet technique restrictions
-            if not any(w in clean_q_lower for w in ["area", "área", "zona", "fuera", "outside", "border"]):
+            # Dampen general contest area (Art. 5) when querying cadet technique restrictions (never dampen contest duration Art. 6 or osaekomi Art. 7)
+            is_duration_or_time_query = any(w in clean_q_lower for w in ["dura", "duration", "tiempo", "time", "minuto", "minute", "osaekomi", "segundo", "second"])
+            if not is_duration_or_time_query and not any(w in clean_q_lower for w in ["area", "área", "zona", "fuera", "outside", "border"]):
                 for pid in list(rrf_scores):
                     p = self.passages_by_id.get(pid)
                     if p:
                         art = str(p.get("article_id", "")).lower()
-                        page = p.get("pdf_page_index", 0)
-                        if "article 5" in art or page in (151, 152):
+                        # Only dampen Article 5 (Contest area), never Article 6 (Duration) or Article 7 (Osaekomi)
+                        if "article 5" in art:
                             rrf_scores[pid] *= 0.20
 
         # Reglas de Conducta, Ética, Insultos, Agresiones y Actos contra el Espíritu del Judo (Art. 18.2.2, Págs. 190, 193)
@@ -1299,6 +1332,13 @@ class ReasoningRetrievalEngine:
             rrf_scores = NormativeSemanticRanker.rerank_scores(query, rrf_scores, self.passages_by_id)
 
         ranked_pids = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
+        # Fase 11 - R3: con la preferencia de ambito activa se forma un conjunto de hasta POOL candidatos
+        # (mismo filtrado y deduplicacion) que se reordena y despues se recorta a top_k.
+        scope_info = None
+        pool_k = top_k
+        if self.scope_preference is not None and self.scope_preference.available:
+            from src.scope_preference import POOL
+            pool_k = max(top_k, POOL)
         top_seeds = []
         seen_texts = []
         for pid, score in ranked_pids:
@@ -1322,8 +1362,16 @@ class ReasoningRetrievalEngine:
                 continue
             top_seeds.append(pid)
             seen_texts.append(raw_t)
-            if len(top_seeds) >= top_k:
+            if len(top_seeds) >= pool_k:
                 break
+
+        if pool_k != top_k:
+            parts = self.scope_preference.query_parts(domain_query or query, query)
+            before = list(top_seeds[:top_k])
+            top_seeds = self.scope_preference.rerank(
+                top_seeds, parts, lambda x: self.passages_by_id.get(x, {}).get("pdf_page_index"))[:top_k]
+            scope_info = {"applied": bool(parts), "parts": sorted(parts), "beta": self.scope_preference.beta,
+                          "changed_top_k": before != top_seeds}
 
         if not top_seeds:
             return {
@@ -1414,5 +1462,6 @@ class ReasoningRetrievalEngine:
             "related_passages": related_passages[:3],
             "operating_mode": self.operating_mode,
             "degradation_reason": self.degradation_reason,
-            "source_sha256_verified": self.source_sha256_verified
+            "source_sha256_verified": self.source_sha256_verified,
+            "scope_preference": scope_info,
         }

@@ -1,0 +1,33 @@
+﻿python : C:\Users\User\AppData\Roaming\Python\Python312\site-packages\pytest_asyncio\plugin.py:208: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+En línea: 2 Carácter: 1
++ python -m pytest tests -p no:cacheprovider -q -rf --tb=line 2>&1 | Ou ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\User\A...cope" is unset.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", 
+"package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+.........s.............................................................. [ 15%]
+........................................................................ [ 31%]
+...........................F..F..................F...................... [ 47%]
+........................................................................ [ 63%]
+........................................................................ [ 79%]
+...............................F.........F.F............................ [ 95%]
+......................                                                   [100%]
+================================== FAILURES ===================================
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_evaluation_battery.py:219: AssertionError: D01 ABSTAIN tras generador | cited=[] | pertinent=['SOR-2026-08-P096-S114'] | offline=ABSTAIN correcto por insuficiencia (sin verificador; evidencia pertinente conservada)
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_evaluation_battery.py:219: AssertionError: D04 ABSTAIN tras generador | cited=[] | pertinent=['SOR-2026-08-P188-S196', 'SOR-2026-08-P189-S196'] | offline=ABSTAIN correcto por insuficiencia (sin verificador; evidencia pertinente conservada)
+C:\Program Files\Python312\Lib\unittest\case.py:727: AssertionError: False is not true : Tasa de Úxito 75.00% es inferior al 80% requerido.
+C:\Program Files\Python312\Lib\unittest\case.py:715: AssertionError: 'ABSTAIN' != 'SUCCESS'
+C:\Program Files\Python312\Lib\unittest\case.py:715: AssertionError: 'ABSTAIN' != 'SUCCESS'
+C:\\Program Files\\Python312\\Lib\\unittest\\case.py:715: AssertionError: 'SOR-2026-08' not found in '\u26a0\ufe0f **Abstenci\xf3n Normativa Oficial (14 August 2026 (Official))**\\n\\nLa respuesta generada cita pasajes SOR certificados, pero no super\xf3 el control de integridad decisoria (DIG-05_PERTINENCIA_MINIMA). Una cita v\xe1lida no demuestra que la evidencia respalde la respuesta.\\n\\n*Los pasajes certificados recuperados se conservan solo como referencia de consulta; no constituyen dictamen.*'
+=========================== short test summary info ===========================
+FAILED tests/test_evaluation_battery.py::test_generator_success_is_backed_by_pertinent_evidence[D01]
+FAILED tests/test_evaluation_battery.py::test_generator_success_is_backed_by_pertinent_evidence[D04]
+FAILED tests/test_golden_dataset.py::TestGoldenDataset::test_golden_dataset_retrieval
+FAILED tests/test_response_structurer.py::TestResponseStructurerTransversal::test_06_ada_analyze_situation_two_tier_contract
+FAILED tests/test_rre_ada_architecture.py::TestRREAndADAArchitecture::test_07_llm_output_accepts_citation_from_retrieved_evidence
+FAILED tests/test_rre_ada_architecture.py::TestRREAndADAArchitecture::test_09_rag_engine_separation_for_2026_08
+6 failed, 447 passed, 1 skipped in 51.64s

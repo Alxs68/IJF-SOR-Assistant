@@ -6,6 +6,11 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'src'))
 
 from rag_engine import RagEngine
+from unittest.mock import patch
+from tests._ada_contract_helpers import (
+    StubLLM, answer_citing, cite_first_delivered, citation_ids,
+    delivered_ids_in_result, delivered_primary_ids, ABSTENTION_MARKER, TRANSLATION_MARKER,
+)
 
 class TestHeadActionsReasoningRegression(unittest.TestCase):
     """
@@ -47,32 +52,61 @@ class TestHeadActionsReasoningRegression(unittest.TestCase):
         self.assertNotIn("no se encontró información", answer)
 
     def test_02_uke_voluntary_bridge_ippon(self):
-        """2. ¿Qué ocurre cuando Uke hace puente? Evalúa Ippon por seguridad cervical (Art. 14.2)."""
+        """2. ¿Qué ocurre cuando Uke hace puente? Bridge passages (P166/P167) are retrieved and kept.
+        No generator -> ABSTAIN; a generator citing a delivered bridge passage -> SUCCESS citing it."""
         q = "¿Qué ocurre cuando Uke hace puente?"
-        res = self.engine.query(q, k=4, language="es")
+        with patch.object(self.engine.ada, "_call_llm", StubLLM()):
+            res = self.engine.query(q, k=4, language="es")
         self.assertTrue(len(res.get("retrieved_kuns_data", [])) > 0)
-        
         evidence_pids = [e["id_conocimiento"] for e in res.get("retrieved_kuns_data", [])]
         self.assertTrue(
             any("P166" in pid or "P167" in pid for pid in evidence_pids),
             f"Debe recuperar pasajes de puente (P166 o P167). PIDs: {evidence_pids}"
         )
-        answer = res.get("answer", "").lower()
-        self.assertTrue("ippon" in answer or "bridge" in answer)
+        self.assertIn(ABSTENTION_MARKER, res.get("answer", ""))
+        self.assertEqual(res["structured_answer"]["citations"], [])
+
+        def bridge_ids(delivered):
+            return [pid for pid in delivered if "P166" in pid or "P167" in pid][:1]
+
+        stub = StubLLM(answer_citing(bridge_ids))
+        with patch.object(self.engine.ada, "_call_llm", stub):
+            res = self.engine.query(q, k=4, language="es")
+        cited = bridge_ids(delivered_primary_ids(stub.analysis_prompts[0]))
+        self.assertTrue(cited, "A bridge passage (P166/P167) must be delivered to the model")
+        self.assertEqual(citation_ids(res), cited)
+        cited_text = next(e["contenido_traduccion"] for e in res["retrieved_kuns_data"] if e["id_conocimiento"] == cited[0]).lower()
+        self.assertTrue("ippon" in cited_text or "bridge" in cited_text)
 
     def test_03_head_diving_penalty_all_categories(self):
-        """3. ¿Cómo se sanciona el Head Diving? Hansoku-make directo por técnica peligrosa (Art. 18.2.1, Pág. 190)."""
+        """3. ¿Cómo se sanciona el Head Diving? Retrieval must deliver Art. 18.2.1 (P190, head diving).
+        Without LLM -> ABSTAIN keeping P190 as retrieved evidence; with a simulated generator -> SUCCESS
+        only when citing a P190 passage actually delivered to the model."""
         q = "¿Cómo se sanciona el Head Diving?"
-        res = self.engine.query(q, k=4, language="es")
+        with patch.object(self.engine.ada, "_call_llm", StubLLM()):
+            res = self.engine.query(q, k=4, language="es")
         self.assertTrue(len(res.get("retrieved_kuns_data", [])) > 0)
-        
         evidence_pids = [e["id_conocimiento"] for e in res.get("retrieved_kuns_data", [])]
         self.assertTrue(
             any("P190" in pid for pid in evidence_pids),
             f"Debe recuperar Art. 18.2.1 (P190). PIDs: {evidence_pids}"
         )
-        answer = res.get("answer", "").lower()
-        self.assertTrue("hansoku-make" in answer or "hansokumake" in answer)
+        p190_texts = [" ".join(e["contenido_traduccion"].lower().split())
+                      for e in res["retrieved_kuns_data"] if "P190" in e["id_conocimiento"]]
+        self.assertTrue(any("head diving" in text for text in p190_texts))
+        self.assertIn(ABSTENTION_MARKER, res.get("answer", ""))
+        self.assertEqual(res["structured_answer"]["citations"], [])
+
+        def p190_ids(delivered):
+            return [pid for pid in delivered if "P190" in pid][:1]
+
+        stub = StubLLM(answer_citing(p190_ids))
+        with patch.object(self.engine.ada, "_call_llm", stub):
+            res = self.engine.query(q, k=4, language="es")
+        cited = p190_ids(delivered_primary_ids(stub.analysis_prompts[0]))
+        self.assertTrue(cited, "A P190 passage must be delivered to the model")
+        self.assertNotIn(ABSTENTION_MARKER, res.get("answer", ""))
+        self.assertEqual(citation_ids(res), cited)
 
     def test_04_tori_use_head_to_throw(self):
         """4. ¿Puede Tori utilizar la cabeza para proyectar? Distingue zambullida peligrosa (Hansoku-make) de cadetes (Shido)."""

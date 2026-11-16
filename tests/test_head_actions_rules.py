@@ -7,6 +7,11 @@ sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__f
 
 from rre_engine import ReasoningRetrievalEngine
 from ada_assistant import ArbitrationDecisionAssistant
+from unittest.mock import patch
+from tests._ada_contract_helpers import (
+    StubLLM, answer_citing, cite_first_delivered, citation_ids,
+    delivered_ids_in_result, delivered_primary_ids, ABSTENTION_MARKER, TRANSLATION_MARKER,
+)
 
 class TestHeadActionsRules(unittest.TestCase):
     """
@@ -107,14 +112,30 @@ class TestHeadActionsRules(unittest.TestCase):
         """
         4. Defensa de cabeza en junior y sénior: no trasladar automáticamente la sanción
         de Shido de cadetes ni confundir con head diving.
+        Contract: no generator -> ABSTAIN without a sanction; a generator citing a delivered
+        primary passage -> SUCCESS with citations restricted to delivered passages.
         """
         q = "defensa de cabeza en categorias junior y senior"
         res = self.rre.retrieve(q, top_k=4)
         self.assertEqual(res["status"], "SUCCESS")
-        # El pasaje específico de cadetes P188 no debe ser el único dominante sin clarificar
-        # Comprobar que ADA analiza la situación sin atribuir Shido general de cadetes a séniors
-        ada_res = self.ada.analyze_situation(q)
-        self.assertEqual(ada_res["status"], "SUCCESS")
+
+        with patch.object(self.ada, "_call_llm", StubLLM()):
+            offline = self.ada.analyze_situation(q)
+        self.assertEqual(offline["status"], "ABSTAIN")
+        self.assertEqual(offline["structured_answer"]["citations"], [])
+        self.assertNotIn("shido", offline["structured_answer"]["summary"].lower())
+        self.assertTrue(len(offline["evidence"]) > 0)
+
+        stub = StubLLM(cite_first_delivered)
+        with patch.object(self.ada, "_call_llm", stub):
+            ada_res = self.ada.analyze_situation(q)
+        delivered = delivered_primary_ids(stub.analysis_prompts[0])
+        self.assertTrue(delivered)
+        # Fase 9.1: el primer pasaje entregado no tiene por que ser pertinente; SUCCESS solo si DIG lo
+        # permite. En ambos casos, ninguna cita fuera de lo entregado.
+        di = ada_res.get("decision_integrity") or {}
+        self.assertEqual(ada_res["status"] == "SUCCESS", di.get("decision") == "PERMITIR")
+        self.assertTrue(set(citation_ids(ada_res)) <= set(delivered))
         summary = ada_res.get("structured_answer", {}).get("summary", "").lower()
         # No debe declarar que en séniors o júniors la defensa común de cabeza sea Shido de cadetes
         self.assertNotIn("sancionado con shido en senior", summary)

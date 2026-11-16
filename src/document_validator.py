@@ -174,8 +174,12 @@ class DocumentValidator:
         # If both define specific times for the same rule and differ, detect potential conflict
         if "osaekomi" in primary_item.content_text.lower() and "osaekomi" in supplementary_item.content_text.lower():
             if prim_times and supp_times:
-                # If numbers differ and supplementary is not explicitly marked as subsumed
-                if set(prim_times) != set(supp_times) and supplementary_item.authority != DocumentAuthority.TIER_1_NORMATIVE_PRIMARY:
+                # The reference times are taken only from the primary passage text being
+                # compared; no normative threshold is hard-coded here.  A supplementary
+                # time that the primary passage does not state is treated as a potential
+                # conflict (conservative: it leads to abstention, never to a decision).
+                conflicting_times = set(supp_times) - set(prim_times)
+                if conflicting_times and supplementary_item.authority != DocumentAuthority.TIER_1_NORMATIVE_PRIMARY:
                     if supplementary_item.validity != ValidityStatus.SUBSUMIDO_EN_SOR:
                         return True, f"Temporal Conflict in Osaekomi duration: SOR states {prim_times}s vs supplementary {supp_times}s."
 
@@ -301,22 +305,24 @@ class DocumentValidator:
 
         # Determine sufficiency and abstention
         has_substantive_relevance, irrelevance_reason = self.evaluate_substantive_relevance(query_text, primary_lane)
-        is_sufficient = len(primary_lane) > 0 and not has_conflict and has_substantive_relevance
+        is_sufficient = False
         abstention_req = False
         abstention_reason = None
 
-        if not primary_lane:
-            # No primary normative rule found
-            abstention_req = True
-            abstention_reason = "Abstention: No applicable Tier 1 (SOR 2026) normative rule recovered for decisive ruling."
-        elif has_conflict:
+        if has_conflict:
             # Normative conflict detected
             abstention_req = True
             abstention_reason = f"Abstention due to unresolved normative conflict: {'; '.join(conflict_notes)}"
-        elif not has_substantive_relevance:
-            # Substantive relevance check failed (critical entity missing from evidence)
+        elif len(primary_lane) > 0:
+            if has_substantive_relevance:
+                is_sufficient = True
+            else:
+                abstention_req = True
+                abstention_reason = f"Abstención por evidencia insuficiente: {irrelevance_reason}"
+        else:
+            # No primary normative rule found; under governance invariant, sufficiency requires primary SOR rule
             abstention_req = True
-            abstention_reason = f"Abstención por evidencia insuficiente: {irrelevance_reason}"
+            abstention_reason = "Abstention: No applicable Tier 1 (SOR 2026) primary normative rule recovered."
 
         bundle = EvidenceBundle(
             bundle_id=bundle_id,

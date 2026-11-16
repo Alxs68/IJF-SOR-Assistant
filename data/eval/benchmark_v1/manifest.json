@@ -1,0 +1,83 @@
+{
+  "annotation_policy": {
+    "anchors": "fragmentos literales verificados automaticamente contra el texto de la pagina (espacios normalizados)",
+    "certified_by_referees": false,
+    "human_review_status": "PENDIENTE_REVISION_ARBITRAL",
+    "normative_answers": "no incluidas",
+    "source": "ASISTIDA_IA_ANCLADA_A_TEXTO_LITERAL",
+    "unverifiable": "marcado PENDIENTE; ningun articulo ni respuesta normativa inferido"
+  },
+  "benchmark_version": "benchmark_v1.0.0",
+  "build_command": "python scripts/build_benchmark_v1.py",
+  "build_errors": [],
+  "corpus": "data/processed/rebuild_2026_08_corrected/passages_candidate.json",
+  "corpus_file_sha256": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b",
+  "counts": {
+    "anchors_total": 139,
+    "by_annotation_status": {
+      "PENDIENTE": 15,
+      "VERIFICADA_SIN_EVIDENCIA_ESPERADA": 15,
+      "VERIFICADA_TEXTUALMENTE": 112,
+      "VERIFICADA_TEXTUALMENTE_CON_ARTICULO_PENDIENTE": 8
+    },
+    "by_category": {
+      "AMBIGUA": 15,
+      "EXCEPCION_CONDICION_REFERENCIA": 30,
+      "FUERA_DE_DOMINIO": 15,
+      "ORDINARIA_EN": 30,
+      "ORDINARIA_ES": 60
+    },
+    "by_human_review_status": {
+      "PENDIENTE_REVISION_ARBITRAL": 150
+    },
+    "by_language": {
+      "en": 55,
+      "es": 95
+    },
+    "by_split": {
+      "dev": 78,
+      "test": 42,
+      "validation": 30
+    },
+    "by_split_category": {
+      "dev": {
+        "AMBIGUA": 8,
+        "EXCEPCION_CONDICION_REFERENCIA": 16,
+        "FUERA_DE_DOMINIO": 8,
+        "ORDINARIA_EN": 16,
+        "ORDINARIA_ES": 30
+      },
+      "test": {
+        "AMBIGUA": 4,
+        "EXCEPCION_CONDICION_REFERENCIA": 9,
+        "FUERA_DE_DOMINIO": 4,
+        "ORDINARIA_EN": 7,
+        "ORDINARIA_ES": 18
+      },
+      "validation": {
+        "AMBIGUA": 3,
+        "EXCEPCION_CONDICION_REFERENCIA": 5,
+        "FUERA_DE_DOMINIO": 3,
+        "ORDINARIA_EN": 7,
+        "ORDINARIA_ES": 12
+      }
+    },
+    "cross_lingual_pairs": 16,
+    "items_with_cross_refs": 5,
+    "items_with_exceptions": 14,
+    "semantic_groups": 132,
+    "total": 150
+  },
+  "source_pdf_sha256": [
+    "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620"
+  ],
+  "split_policy": {
+    "method": "estratificado por categoria, por grupo semantico, orden sha256(version+grupo)",
+    "ratios": {
+      "dev": 0.5,
+      "test": 0.3,
+      "validation": 0.2
+    },
+    "test_restriction": "TEST RESERVADO: no usar para ajustar reglas, umbrales, prompts ni anclas"
+  }
+}

@@ -1,0 +1,4262 @@
+{
+  "summary": {
+    "cases": 61,
+    "captured": 20,
+    "reconstructed": 41,
+    "reproducibility_captured": "20/20",
+    "reproducibility_reconstructed": "34/41",
+    "variant_changed": 8,
+    "unblocked_by_variant": [
+      {
+        "id": "B2-SCO-009",
+        "run": 0,
+        "mode": "CAPTURADO",
+        "hit_expected": true,
+        "hit_distractor": false,
+        "dig06_base": "cifras_sin_respaldo=['6.3']"
+      },
+      {
+        "id": "B2-DIR-017",
+        "run": 1,
+        "mode": "CAPTURADO",
+        "hit_expected": true,
+        "hit_distractor": false,
+        "dig06_base": "cifras_sin_respaldo=['8.1']"
+      },
+      {
+        "id": "B2-DIR-011",
+        "run": 1,
+        "mode": "RECONSTRUIDO",
+        "hit_expected": true,
+        "hit_distractor": false,
+        "dig06_base": "cifras_sin_respaldo=['2026', '8', '93']"
+      },
+      {
+        "id": "B2-EXC-005",
+        "run": 1,
+        "mode": "RECONSTRUIDO",
+        "hit_expected": true,
+        "hit_distractor": false,
+        "dig06_base": "cifras_sin_respaldo=['14', '2026']"
+      },
+      {
+        "id": "B2-EXC-006",
+        "run": 1,
+        "mode": "RECONSTRUIDO",
+        "hit_expected": true,
+        "hit_distractor": false,
+        "dig06_base": "cifras_sin_respaldo=['1', '2', '2026', '3', '4']"
+      },
+      {
+        "id": "B2-MLG-003",
+        "run": 1,
+        "mode": "RECONSTRUIDO",
+        "hit_expected": true,
+        "hit_distractor": false,
+        "dig06_base": "cifras_sin_respaldo=['6.3']"
+      }
+    ],
+    "newly_blocked_by_variant": [],
+    "failed_rule_counts_base": {
+      "DIG-02_CITAS_CON_CITA_LITERAL": 6,
+      "DIG-05_PERTINENCIA_MINIMA": 22,
+      "DIG-06_CIFRAS_RESPALDADAS": 19,
+      "DIG-08_SIN_INFLUENCIA_SHADOW": 2,
+      "DIG-09_EXCEPCIONES_CITADAS": 6,
+      "DIG-03_CITA_LITERAL": 14,
+      "DIG-07_TERMINOS_RESPALDADOS": 5,
+      "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 7,
+      "DIG-01_SUFICIENCIA_DECLARADA": 5,
+      "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 1
+    },
+    "failed_rule_counts_variant": {
+      "DIG-02_CITAS_CON_CITA_LITERAL": 6,
+      "DIG-05_PERTINENCIA_MINIMA": 22,
+      "DIG-06_CIFRAS_RESPALDADAS": 11,
+      "DIG-08_SIN_INFLUENCIA_SHADOW": 2,
+      "DIG-09_EXCEPCIONES_CITADAS": 6,
+      "DIG-03_CITA_LITERAL": 14,
+      "DIG-07_TERMINOS_RESPALDADOS": 5,
+      "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 7,
+      "DIG-01_SUFICIENCIA_DECLARADA": 5,
+      "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 1
+    },
+    "adversarial": {
+      "A2_CIFRA_NUEVA": {
+        "base": {
+          "detected": 20,
+          "missed": 0
+        },
+        "variant": {
+          "detected": 20,
+          "missed": 0
+        }
+      },
+      "A3_CIFRA_EN_LISTA": {
+        "base": {
+          "detected": 20,
+          "missed": 0
+        },
+        "variant": {
+          "detected": 20,
+          "missed": 0
+        }
+      },
+      "A4_DECIMAL_TRAS_CAPITULO": {
+        "base": {
+          "detected": 20,
+          "missed": 0
+        },
+        "variant": {
+          "detected": 20,
+          "missed": 0
+        }
+      },
+      "A4b_ETIQUETA_REAL_CON_OTRO_TITULO": {
+        "base": {
+          "detected": 20,
+          "missed": 0
+        },
+        "variant": {
+          "detected": 20,
+          "missed": 0
+        }
+      },
+      "A5_FECHA_DISTINTA_DE_LA_EDICION": {
+        "base": {
+          "detected": 20,
+          "missed": 0
+        },
+        "variant": {
+          "detected": 20,
+          "missed": 0
+        }
+      },
+      "A6_ID_SOR_UNICODE_MAS_CIFRA": {
+        "base": {
+          "detected": 20,
+          "missed": 0
+        },
+        "variant": {
+          "detected": 20,
+          "missed": 0
+        }
+      },
+      "A1_SUSTITUIR_CIFRA_RESPALDADA": {
+        "base": {
+          "detected": 10,
+          "missed": 0
+        },
+        "variant": {
+          "detected": 10,
+          "missed": 0
+        }
+      }
+    },
+    "adversarial_variant_misses": [],
+    "adversarial_base_misses": []
+  },
+  "cases": [
+    {
+      "id": "B2-AMB-005",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "AMBIGUA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P065-S079",
+          "The top 36 athletes in the IJF Seniors WRL in each weight category will be invited. No reserve athletes will be invited."
+        ]
+      ],
+      "claims": {
+        "summary": "No se permiten atletas de reserva en el evento World Masters [SOR-2026-08-P065-S079].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Article 4.4 Number of Entries, Pág. 65 [SOR-2026-08-P065-S079].",
+        "conditions_and_exceptions": "Para el evento World Masters, se invita a los mejores 36 atletas en el IJF Seniors WRL en cada categoría de peso, y la normativa establece explícitamente que ningún atleta de reserva será invitado [SOR-2026-08-P065-S079]."
+      }
+    },
+    {
+      "id": "B2-AMB-006",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "AMBIGUA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-08_SIN_INFLUENCIA_SHADOW"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-08_SIN_INFLUENCIA_SHADOW"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-08_SIN_INFLUENCIA_SHADOW"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['.2', '1', '2', '3', '4']",
+      "dig06_variant": "cifras_sin_respaldo=['.2', '1', '2', '3', '4']",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P081-S100",
+          "A +5% tolerance applies only to the minus weight categories. No tolerance applies to the plus weight categories because they do not have an upper weight limit"
+        ],
+        [
+          "SOR-2026-08-P085-S102",
+          "A +5% tolerance applies only to the minus weight categories. No tolerance applies to the plus weight categories because they do not have an upper weight limit"
+        ]
+      ],
+      "claims": {
+        "summary": "Sí, existe una tolerancia de peso del +5% que se aplica exclusivamente a las categorías de peso inferior (minus weight categories) en competiciones de equipos mixtos y de equipos masculinos y femeninos que siguen a una competición individual. No se aplica ninguna tolerancia a las categorías de peso superior (plus weight categories) ya que no tienen límite superior de peso ([SOR-2026-08-P081-S100], [SOR-2026-08-P085-S102]).",
+        "normative_basis": "La regulación aplicable se encuentra en las reglas de pesaje para eventos por equipos que siguen a una competición individual, específicamente en las secciones de Equipos Mixtos y de Equipos Femeninos y Masculinos [SOR-2026-08-P081-S100, SOR-2026-08-P082-S100, SOR-2026-08-P083-S101, SOR-2026-08-P085-S102, SOR-2026-08-P086-S102].",
+        "conditions_and_exceptions": "1. La tolerancia de +5% solo se aplica a las categorías de peso inferior (minus weight categories); no hay tolerancia para las categorías de peso superior (plus weight categories) porque no tienen límite superior de peso. 2. Los atletas que compiten en competiciones tanto individuales como por equipos deben estar dentro del límite de peso de su categoría de equipo (sin la tolerancia del +5%) al menos una vez durante las dos competiciones. 3. La tolerancia de peso del +5% no puede ser utilizada por un atleta que desee competir en una categoría de peso por equipos inferior a su categoría de peso"
+      }
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "AMBIGUA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P056-S071",
+          "Placing Continental Championship points World Championship points 1st place 700 2000"
+        ],
+        [
+          "SOR-2026-08-P057-S073",
+          "Placing Continental Championship points World Championship points 1st place 700 2000"
+        ],
+        [
+          "SOR-2026-08-P053-S067",
+          "Placing Continental Cups Continental Championships Grand Prix World Championships 1st place 100 300 400 700"
+        ],
+        [
+          "SOR-2026-08-P110-S141",
+          "Placing Continental Open Kata World Series Continental Championships World Championships 1st place 350 700 1000 1500"
+        ]
+      ],
+      "claims": {
+        "summary": "First place awards 700 points at a Continental Championship (mixed teams) and 2000 points at a World Championship (mixed teams); for individual juniors it gives 100 points at a Continental Cup, 300 points at a Continental Championship, 400 points at a Grand Prix, and 700 points at a World Championship; for kata pairs it gives 350 points at a Continental Open, 700 points at a Kata World Series, 1000 points at a Continental Championship and 1500 points at a World Championship.",
+        "normative_basis": "Mixed Teams points table for Juniors and Cadets (Art. 3.3.2) [SOR-2026-08-P056-S071]; Mixed Teams points table for Cadets (Art. 3.4) [SOR-2026-08-P057-S073]; Juniors individual points table (Art. 3.2.2) [SOR-2026-08-P053-S067]; Kata pairs points table (Art. B1.5) [SOR-2026-08-P110-S141].",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-AMB-010",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "AMBIGUA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P198-S210",
+          "A minor injury may be treated by the athlete himself. For example, in the case of a dislocated finger or toe, the referee shall stop the contest (by calling “Mate!” or “Sono-mama!”) and allow the athlete to reset the dis"
+        ],
+        [
+          "SOR-2026-08-P198-S210",
+          "The same finger or toe is allowed to be reset on two (2) occasions. If the same dislocation occurs a third time, the athlete is declared unable to continue in the contest. The referee, after consultation with the IJF Med"
+        ],
+        [
+          "SOR-2026-08-P198-S210",
+          "Except for the situations above, any medical treatment administered by a doctor shall result in the athlete being declared unable to continue, and the opponent shall be declared the winner by kiken-gachi."
+        ]
+      ],
+      "claims": {
+        "summary": "Cuando se produce una lesión leve (minor injury), el árbitro debe detener el combate llamando “¡Mate!” o “¡Sono-mama!” para permitir que el deportista se recoloque por sí mismo (por ejemplo, un dedo de la mano o del pie dislocado), acción que debe realizarse inmediatamente a petición del deportista y con la asistencia del médico fuera del tatami, pudiendo continuar el combate [Article 20.3.2 Treatment of Minor Injuries / Art. Article 20.3.2, Pág. 198].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Article 20.3.2 Treatment of Minor Injuries [SOR-2026-08-P198-S210] y Article 11 Application of Mate [SOR-2026-08-P161-S184].",
+        "conditions_and_exceptions": "La misma articulación (mismo dedo de la mano o del pie) puede recolocarse en dos (2) ocasiones únicamente; si la misma dislocación ocurre por tercera vez, el deportista es declarado incapaz de continuar y el árbitro, previa consulta con el Comisionado Médico de la IJF, finalizará el combate declarando al oponente ganador por kiken-gachi [SOR-2026-08-P198-S210]. La asistencia médica para lesiones leves también puede prestarse fuera del área de combate en presencia de otro árbitro asignado al tatami específico, permitiendo cortar o tratar una uña rota con ayuda del doctor, ajustar una lesión esc"
+      }
+    },
+    {
+      "id": "B2-CAT-001",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "DISTINCION_CATEGORIA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['66']",
+      "dig06_variant": "cifras_sin_respaldo=['66']",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P124-S165",
+          "The length of the jacket skirt, below the belt (to be worn on the waist above the hip bone and be tied very tightly) must measure as follows:\n• All athletes -73 kg*: a minimum of 20 cm"
+        ]
+      ],
+      "claims": {
+        "summary": "La longitud mínima de la falda de la chaqueta (medida por debajo del cinturón) para un atleta de -66 kg debe ser de 20 cm ([C1.10 Judogi Size, Art. C1.10, Pág. 124]).",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. C1.10 Judogi Size, Pág. 124 [SOR-2026-08-P124-S165].",
+        "conditions_and_exceptions": "La categoría -66 kg se encuentra dentro del rango de atletas -73 kg, los cuales requieren un mínimo de 20 cm ([SOR-2026-08-P124-S165]). La falda debe cubrir los glúteos completamente y ser de longitud equivalente en la parte delantera y trasera. El cinturón debe usarse en la cintura sobre el hueso de la cadera y estar atado muy apretadamente ([SOR-2026-08-P124-S165])."
+      }
+    },
+    {
+      "id": "B2-CAT-003",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "DISTINCION_CATEGORIA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P109-S138",
+          "For the U18 age group both tori and uke must be under 18 years old in the calendar year of the competition and shall have a minimum of 3rd kyu (green belt)."
+        ],
+        [
+          "SOR-2026-08-P113-S147",
+          "A green, blue or brown belt without an IJF label is authorised for the U18 age group."
+        ]
+      ],
+      "claims": {
+        "summary": "Sí, una pareja U18 de kata puede utilizar un cinturón verde (3er kyu), ya que se autoriza expresamente un cinturón verde, azul o marrón sin etiqueta oficial de la IJF para este grupo de edad [Art. B1.2, Pág. 109; Art. B1.12, Pág. 113].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Article B1.1 Eligibility to Participate (Pág. 109) y Article B1.12 Judogi Control (Pág. 113) [SOR-2026-08-P109-S138, SOR-2026-08-P113-S147].",
+        "conditions_and_exceptions": "Para el grupo U18, tanto tori como uke deben tener un mínimo de 3er kyu (cinturón verde). Un cinturón verde sin etiqueta IJF está autorizado específicamente para el grupo de edad U18 [SOR-2026-08-P109-S138, SOR-2026-08-P113-S147]."
+      }
+    },
+    {
+      "id": "B2-CAT-007",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "DISTINCION_CATEGORIA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P055-S069",
+          "At Grand Prix Cadets events only the two (2) best domestic athletes per weight category can obtain points for the IJF Cadets WRL."
+        ],
+        [
+          "SOR-2026-08-P055-S069",
+          "In case of equality the points will be automatically given to the highest ranked athlete. If still equal, the domestic national federation will decide."
+        ]
+      ],
+      "claims": {
+        "summary": "Two athletes per country per weight category can obtain Cadets WRL points at a Grand Prix Cadets event.",
+        "normative_basis": "[SOR-2026-08-P055-S069] page 55",
+        "conditions_and_exceptions": "If two or more athletes are equal, the points are automatically given to the highest ranked athlete; if still equal, the domestic federation decides. No other exceptions are stated."
+      }
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P129-S170",
+          "There should be a space of 0.5 cm - 2 cm between each star."
+        ],
+        [
+          "SOR-2026-08-P129-S170",
+          "Space between two stars: From 1.5 cm to 2 cm."
+        ]
+      ],
+      "claims": {
+        "summary": "The space between two world champion stars on the judogi must be from 1.5 cm to 2 cm ([Art. C1.14.1, Pág. 129 / SOR-2026-08-P129-S170]).",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. C1.14.1 Procedure Regarding World Champion Title(s) [SOR-2026-08-P129-S170] page 129.",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P098-S117",
+          "Prize money will be given to the athletes who are then responsible to give 20% to their coach."
+        ]
+      ],
+      "claims": {
+        "summary": "20% of prize money must be given to the athlete's coach.",
+        "normative_basis": "Awarding ceremonies – athletes must give 20% of prize money to their coach (Art. 8.10, page 98).",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-MLG-003",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "MULTILINGUE",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P105-S130",
+          "The weigh‑in will take place the day before the competition as indicated in the outlines. There is no random weigh‑in for veterans."
+        ],
+        [
+          "SOR-2026-08-P079-S093",
+          "Random weigh‑in is carried out for individual events only, there will be no random weigh‑in for IJF Mixed Team events."
+        ]
+      ],
+      "claims": {
+        "summary": "No, veterans are not subject to a random weigh‑in; their official weigh‑in takes place the day before the competition and the rules expressly state there is no random weigh‑in for veterans [SOR-2026-08-P105-S130].",
+        "normative_basis": "A1.10 Weigh‑in for Veterans (Art. A1.10, p. 105) states the official weigh‑in is the day before competition and explicitly that there is no random weigh‑in for veterans. The general provision on random weigh‑in (Art. 6.3, p. 79) applies to individual events but does not override the specific veteran rule.",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-OOD-006",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "OOD",
+      "expected_behavior": "ABSTENER_FUERA_DE_DOMINIO",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": true,
+      "dig06_base": "cifras_sin_respaldo=['2026']",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [],
+      "claims": {
+        "summary": "La normativa oficial de la Federación Internacional de Judo (IJF) contenida en el SOR 2026 regula exclusivamente el judo y no contempla ni regula el funcionamiento del VAR (Video Assistant Referee) en el fútbol [SOR-2026-08-P097-S116].",
+        "normative_basis": "No aplica el ámbito normativo del fútbol en el reglamento de la IJF [SOR-2026-08-P097-S116].",
+        "conditions_and_exceptions": "No aplica."
+      }
+    },
+    {
+      "id": "B2-SCO-009",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": true,
+      "dig06_base": "cifras_sin_respaldo=['6.3']",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P079-S093",
+          "Random weigh-in is carried out for individual events only, there will be no random weigh-in for IJF Mixed Team events."
+        ]
+      ],
+      "claims": {
+        "summary": "No, random weigh‑in is not conducted for IJF mixed team events; it is only for individual events.",
+        "normative_basis": "6.3 Random Weigh-in – Random weigh‑in is carried out for individual events only, there will be no random weigh‑in for IJF Mixed Team events. ([SOR-2026-08-P079-S093] page 79)",
+        "conditions_and_exceptions": "Not applicable"
+      }
+    },
+    {
+      "id": "B2-SCO-022",
+      "run": 0,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P043-S054",
+          "Each mixed team must consist of six (6) athletes (3 women and 3 men) and has the possibility to have up to six (6) reserves (3 women and 3 men)."
+        ]
+      ],
+      "claims": {
+        "summary": "Hasta seis reservas (tres mujeres y tres hombres) pueden ser designadas por un equipo mixto, según la normativa.",
+        "normative_basis": "Reglamento de equipos mixtos: cada equipo debe constar de seis (6) atletas (3 mujeres y 3 hombres) y puede tener hasta seis (6) reservas (3 mujeres y 3 hombres) [SOR-2026-08-P043-S054, pág. 43].",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 1,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "AMBIGUA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['0', '2', '500']",
+      "dig06_variant": "cifras_sin_respaldo=['0', '2', '500']",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P056-S071",
+          "Placing Continental Championship points World Championship points 1st place 700 2000"
+        ],
+        [
+          "SOR-2026-08-P057-S073",
+          "Placing Continental Championship points World Championship points 1st place 700 2000"
+        ],
+        [
+          "SOR-2026-08-P053-S067",
+          "Placing Continental Cups Continental Championships Grand Prix World Championships 1st place 100 300 400 700"
+        ],
+        [
+          "SOR-2026-08-P110-S141",
+          "Ranking points for kata pairs Placing Continental Open Kata World Series Continental Championships World Championships 1st place 350 700 1000 1500"
+        ]
+      ],
+      "claims": {
+        "summary": "First place awards 700 points at Continental Championships and 2 000 points at World Championships for Juniors Mixed Teams and Cadets Mixed Teams; 100, 300, 400 and 700 points respectively for Continental Cup, Continental Championship, Grand Prix and World Championship in the IJF Juniors individual ranking; and 350, 700, 1 000 and 1 500 points respectively for Continental Open, Kata World Series, Continental Championships and World Championships for Kata pairs. [SOR-2026-08-P056-S071] [SOR-2026-08-P057-S073] [SOR-2026-08-P053-S067] [SOR-2026-08-P110-S141]",
+        "normative_basis": "Mixed Teams points tables for Juniors and Cadets (Art. 3.3.2) and individual Juniors points table (Art. 3.2.2) and Kata pairs points table (Art. B1.5).",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 1,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P129-S170",
+          "There should be a space of 0.5 cm - 2 cm between each star."
+        ],
+        [
+          "SOR-2026-08-P129-S170",
+          "Space between two stars: From 1.5 cm to 2 cm."
+        ]
+      ],
+      "claims": {
+        "summary": "0.5 cm–2 cm (standard arrangement 1.5 cm–2 cm) spacing is required between the world champion stars on the judogi.",
+        "normative_basis": "C1.14.1 Procedure Regarding World Champion Title(s) specifies the required spacing between stars. It states: \"There should be a space of 0.5 cm - 2 cm between each star\" and later clarifies \"Space between two stars: From 1.5 cm to 2 cm\". ([SOR-2026-08-P129-S170], page 129)",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 1,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": true,
+      "dig06_base": "cifras_sin_respaldo=['8.1']",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P098-S117",
+          "Prize money will be given to the athletes who are then responsible to give 20% to their coach."
+        ]
+      ],
+      "claims": {
+        "summary": "20% of the prize money must be given to the athlete's coach.",
+        "normative_basis": "8.10 Awarding Ceremonies (Art. 8.10, Pág. 98) establece la obligación del atleta de destinar el 20% del premio monetario a su entrenador. [SOR-2026-08-P098-S117]",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-EXC-009",
+      "run": 1,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "EXCEPCION",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P098-S117",
+          "Each athlete who has won a medal must be present at the ceremony to receive their medal personally."
+        ],
+        [
+          "SOR-2026-08-P098-S117",
+          "Any athlete who is absent from the awards ceremony without a good reason may forfeit the medal and prize money."
+        ]
+      ],
+      "claims": {
+        "summary": "No, an athlete who is absent from the awards ceremony without a good reason may forfeit the medal and prize money.",
+        "normative_basis": "Awarding Ceremonies – each medalist must be present to receive the medal personally; absence without a good reason may lead to forfeiture of the medal and prize money. ([SOR-2026-08-P098-S117] page 98)",
+        "conditions_and_exceptions": "The forfeiture applies only when the athlete is absent without a good reason. If a valid reason is provided, the rule does not mandate forfeiture."
+      }
+    },
+    {
+      "id": "B2-MUL-004",
+      "run": 1,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "MULTI_ARTICULO",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-08_SIN_INFLUENCIA_SHADOW"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-08_SIN_INFLUENCIA_SHADOW"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-08_SIN_INFLUENCIA_SHADOW"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['4']",
+      "dig06_variant": "cifras_sin_respaldo=['4']",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P042-S053",
+          "Each mixed team must consist of six (6) athletes (3 women and 3 men) and has the possibility to have up to six (6) reserves (3 women and 3 men)."
+        ],
+        [
+          "SOR-2026-08-P045-S055",
+          "Each team will consist of up to five (5) athletes and has the possibility to have up to five (5) reserves. A team must consist of a minimum of three (3) athletes."
+        ],
+        [
+          "SOR-2026-08-P046-S055",
+          "Each team will consist of up to five (5) athletes and has the possibility to have up to five (5) reserves. A team must consist of a minimum of three (3) athletes."
+        ]
+      ],
+      "claims": {
+        "summary": "Un equipo mixto está compuesto por seis (6) atletas (tres mujeres y tres hombres), mientras que un equipo femenino (o masculino) está compuesto por hasta cinco (5) atletas.",
+        "normative_basis": "Mixed team composition: [SOR-2026-08-P042-S053] Art. 2.7.1. Female/male team composition: [SOR-2026-08-P045-S055] Art. 2.7.2 y [SOR-2026-08-P046-S055] Art. 2.7.2.",
+        "conditions_and_exceptions": "Mixed team: puede competir con un mínimo de cuatro (4) atletas si tras el pesaje aparecen lesiones o enfermedad; si solo quedan tres, no compite. Female/male team: debe tener al menos tres (3) atletas y puede tener hasta cinco (5) inscritos, con un máximo de dos por categoría. Ambos tipos pueden contar con reservas (hasta seis para mixto, hasta cinco para femenino/masculino)."
+      }
+    },
+    {
+      "id": "B2-SCO-010",
+      "run": 1,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P105-S130",
+          "There is no random weigh‑in for veterans."
+        ],
+        [
+          "SOR-2026-08-P079-S096",
+          "Random weigh‑in is carried out for individual events only, there will be no random weigh‑in for IJF Mixed Team events."
+        ]
+      ],
+      "claims": {
+        "summary": "No, random weigh‑in is not performed for veterans; the regulations state there is no random weigh‑in for veterans (A1.10).",
+        "normative_basis": "A1.10 Weigh‑in for Veterans (Art. A1.10, p. 105) expressly prohibits random weigh‑in for veterans. The general Random Weigh‑in Procedure (Art. 6.3.3, p. 79) applies to individual events but does not override the veteran‑specific rule.",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-SCO-023",
+      "run": 1,
+      "src": "llm_dev_f11_capture.json",
+      "mode": "CAPTURADO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P053-S067",
+          "Athletes can earn points for the IJF Juniors WRL by competing in Continental Cups Juniors, Continental Championships Juniors, Grand Prix Juniors and World Championships Juniors."
+        ],
+        [
+          "SOR-2026-08-P053-S067",
+          "Participation points will be given for all juniors events. Other ranking points will be given when there is at least one (1) contest won."
+        ],
+        [
+          "SOR-2026-08-P053-S067",
+          "At Grand Prix Juniors events only the two (2) best domestic athletes per weight category can obtain points for the IJF Juniors WRL."
+        ],
+        [
+          "SOR-2026-08-P053-S067",
+          "At World Championships Juniors only the nine (9) best domestic male and nine (9) best domestic female athletes from the host country will be considered for the IJF Juniors WRL."
+        ]
+      ],
+      "claims": {
+        "summary": "Continental Cups Juniors, Continental Championships Juniors, Grand Prix Juniors and World Championships Juniors are the events that award points for the IJF Juniors World Ranking List; participation points are awarded for all junior events.",
+        "normative_basis": "Art. 3.2.2 of the Sport and Organisation Rules of the International Judo Federation (IJF) – IJF Juniors World Ranking List (page 53) [SOR-2026-08-P053-S067].",
+        "conditions_and_exceptions": "Participation points are given for every junior event regardless of result. Other ranking points (placement points) are awarded only when the athlete has at least one contest won. At Grand Prix Juniors only the two best domestic athletes per weight category may obtain points; at World Championships Juniors only the nine best domestic male and nine best domestic female athletes from the host country are considered for points."
+      }
+    },
+    {
+      "id": "B2-AMB-005",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBIGUA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['4']",
+      "dig06_variant": "cifras_sin_respaldo=['4']",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P042-S052",
+          "Each mixed team must consist of six (6) athletes (3 women and 3 men) and has the possibility to have up to six (6) reserves (3 women and 3 men)."
+        ],
+        [
+          "SOR-2026-08-P042-S052",
+          "A maximum of 12 athletes can be entered, with a maximum of two (2) athletes per mixed team weight category."
+        ]
+      ],
+      "claims": {
+        "summary": "Se permiten hasta seis reservas (tres mujeres y tres hombres) en un equipo mixto, con un máximo total de 12 atletas inscritos.",
+        "normative_basis": "[SOR-2026-08-P042-S052] 2.7 .1 Regulations for Mixed Team Events (pág. 42)",
+        "conditions_and_exceptions": "El total de atletas del equipo mixto no puede superar los 12 y sólo se pueden inscribir como máximo dos (2) atletas por categoría de peso del equipo mixto. Si después del sorteo el equipo queda con menos de cuatro (4) atletas disponibles, no podrá competir."
+      }
+    },
+    {
+      "id": "B2-CAT-001",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DISTINCION_CATEGORIA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['66']",
+      "dig06_variant": "cifras_sin_respaldo=['66']",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P124-S164",
+          "The length of the judogi jacket will be measured from the front of the athlete with sokuteiki. The length of the jacket skirt, below the belt (to be worn on the waist above the hip bone and be tied very tightly) must mea"
+        ]
+      ],
+      "claims": {
+        "summary": "Para un atleta de -66 kg, la longitud mínima de la falda de la chaqueta del judogi es de 20 cm medidos por debajo del cinturón [Art. C1.10, Pág. 124].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. C1.10 Judogi Size, Pág. 124 [SOR-2026-08-P124-S164].",
+        "conditions_and_exceptions": "La longitud de la falda de la chaqueta, por debajo del cinturón (el cual debe llevarse en la cintura sobre el hueso de la cadera y atarse muy apretado), debe medir un mínimo de 20 cm para todos los atletas de -73 kg y menores (lo que incluye la categoría de -66 kg) [Art. C1.10, Pág. 124]."
+      }
+    },
+    {
+      "id": "B2-CAT-007",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DISTINCION_CATEGORIA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P055-S069",
+          "At Grand Prix Cadets events only the two (2) best domestic athletes per weight category can obtain points for the IJF Cadets WRL. In case of equality the points will be automatically given to the highest ranked athlete. "
+        ]
+      ],
+      "claims": {
+        "summary": "En un evento Grand Prix Cadets, únicamente los dos (2) mejores atletas domésticos por categoría de peso pueden obtener puntos para el IJF Cadets WRL [Art. 3.3, Pág. 55].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Artículos sobre IJF World Ranking Lists for Mixed Teams / IJF Cadets WRL [SOR-2026-08-P055-S069].",
+        "conditions_and_exceptions": "En caso de empate en los puntos, estos se otorgarán automáticamente al atleta mejor clasificado. Si persiste la igualdad, decidirá la federación nacional respectiva [SOR-2026-08-P055-S069]."
+      }
+    },
+    {
+      "id": "B2-DIR-007",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P098-S117",
+          "Athletes must attend the medal ceremony barefoot, without any hat, cap or any similar head covering and wearing their IJF approved white judogi"
+        ]
+      ],
+      "claims": {
+        "summary": "No, los atletas deben asistir a la ceremonia de premiación descalzos [Regla 8.10 / Pág. 98].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. 8.10 Awarding Ceremonies, Pág. 98 [SOR-2026-08-P098-S117].",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-DIR-011",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P079-S093",
+          "The time limit to arrive to the random weigh-in is 30 minutes or 6 contests before the athlete’s first contest at the latest."
+        ]
+      ],
+      "claims": {
+        "summary": "30 minutes (or up to 6 contests) before the athlete’s first contest is the latest arrival time for the random weigh‑in.",
+        "normative_basis": "Article 6.3 Random Weigh-in, page 79 of the Sport and Organisation Rules (SOR-2026-08-P079-S093).",
+        "conditions_and_exceptions": "No additional conditions; the deadline applies to all athletes in individual events."
+      }
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P098-S117",
+          "Prize money will be given to the athletes who are then responsible to give 20% to their coach."
+        ]
+      ],
+      "claims": {
+        "summary": "Atletas deben entregar el 20% de su premio en metálico (prize money) a su entrenador, conforme a lo establecido en el reglamento oficial [Art. 8.10, Pág. 98].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. 8.10 Awarding Ceremonies, Pág. 98 [SOR-2026-08-P098-S117].",
+        "conditions_and_exceptions": "No aplica."
+      }
+    },
+    {
+      "id": "B2-EXC-005",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "EXCEPCION",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P202-S220",
+          "The head may not be covered except for bandaging of a medical nature, which must adhere firmly."
+        ],
+        [
+          "SOR-2026-08-P202-S220",
+          "Any athlete not willing to comply with the requirements of hygiene, judogi rules or the head cover regulation shall be refused the right to compete, and the opponent shall win the contest by fusen‑gachi, if the contest h"
+        ]
+      ],
+      "claims": {
+        "summary": "No, an athlete may not compete with the head covered, except when a medical bandage is applied and firmly adhered.",
+        "normative_basis": "E1.3 Hygiene (Article on hygiene requirements) [SOR-2026-08-P202-S220]",
+        "conditions_and_exceptions": "The prohibition applies universally; the only exception is a medical bandage covering the head, which must be firmly adhered. No other head coverings (e.g., hats, caps, scarves) are permitted."
+      }
+    },
+    {
+      "id": "B2-EXC-009",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "EXCEPCION",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P098-S117",
+          "Any athlete who is absent from the awards ceremony without a good reason may forfeit the medal and prize money."
+        ]
+      ],
+      "claims": {
+        "summary": "Un atleta que esté ausente de la ceremonia de premiación sin una buena razón puede perder la medalla y el premio en efectivo ([Regla 8.10 / Art. 8.10 / Pág. 98]).",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. 8.10 Awarding Ceremonies, pág. 98 [SOR-2026-08-P098-S117].",
+        "conditions_and_exceptions": "La penalización de perder la medalla y el premio en efectivo se aplica específicamente cuando el atleta está ausente de la ceremonia de premiación sin una buena razón ([SOR-2026-08-P098-S117])."
+      }
+    },
+    {
+      "id": "B2-INC-001",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "INCOMPLETA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P196-S205",
+          "Each case shall be decided on its own merit."
+        ]
+      ],
+      "claims": {
+        "summary": "La consulta actual resulta ambigua y carece de datos fácticos determinantes ('¿Y en ese caso?'), por lo que no es posible emitir una resolución definitiva sin conocer los antecedentes específicos del caso al que se hace referencia [SOR-2026-08-P196-S205].",
+        "normative_basis": "Artículo 20 Injury, Illness or Accident del Sport and Organisation Rules de la IJF [SOR-2026-08-P196-S205].",
+        "conditions_and_exceptions": "Cada caso de lesión, enfermedad o accidente se decide en función de sus propios méritos según las reglas aplicables [SOR-2026-08-P196-S205]."
+      }
+    },
+    {
+      "id": "B2-MLG-003",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "MULTILINGUE",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P105-S130",
+          "There is no random weigh-in for veterans."
+        ]
+      ],
+      "claims": {
+        "summary": "No hay pesaje aleatorio para los veteranos [Regla A1.10 / Pág. 105].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Appendix A1 Veterans, A1.10 Weigh-in for Veterans [SOR-2026-08-P105-S130].",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-OOD-006",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "OOD",
+      "expected_behavior": "ABSTENER_FUERA_DE_DOMINIO",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P097-S115",
+          "A certified Video Replay System is mandatory for all IJF-sanctioned competitions."
+        ]
+      ],
+      "claims": {
+        "summary": "El VAR de fútbol no está regulado en las reglas oficiales de la Federación Internacional de Judo (IJF), ya que el marco normativo certificado corresponde estrictamente a las reglas de arbitraje de judo y al Sistema de Video Repetición (CARE) de la IJF [SOR-2026-08-P097-S115].",
+        "normative_basis": "Las materias de arbitraje de judo son responsabilidad de la Comisión de Arbitraje de la IJF [SOR-2026-08-P132-S172]. Para las competiciones sancionadas por la IJF es obligatorio un Sistema de Video Repetición certificado (CARE), integrado con el sistema de cronometraje y puntuación oficiales, operado por personal capacitado para garantizar la equidad, precisión y seguridad de los atletas [SOR-2026-08-P097-S115].",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-REF-005",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "REFERENCIA_CRUZADA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P103-S125",
+          "The weight categories are the same as those for senior men and women."
+        ]
+      ],
+      "claims": {
+        "summary": "The weight categories for veterans are the same as those for senior men and women [Art. A1.5, Pág. 103 / SOR-2026-08-P103-S125].",
+        "normative_basis": "A1.5 Weight Categories for Veterans (Art. A1.5, Pág. 103) [SOR-2026-08-P103-S125]",
+        "conditions_and_exceptions": "In case the number of participants in a category is not sufficient (age and/or weight), categories will be combined according to the IJF SOR [Art. A1.13, Pág. 105 / SOR-2026-08-P105-S129]."
+      }
+    },
+    {
+      "id": "B2-SCO-009",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P079-S093",
+          "Random weigh-in is carried out for individual events only, there will be no random weigh-in for IJF Mixed Team events."
+        ]
+      ],
+      "claims": {
+        "summary": "No hay pesaje aleatorio (random weigh-in) en los eventos de equipos mixtos de la IJF ([SOR-2026-08-P079-S093]). El pesaje aleatorio se realiza únicamente para eventos individuales ([SOR-2026-08-P079-S093]).",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. 6.3 Random Weigh-in [SOR-2026-08-P079-S093].",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-SCO-010",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P105-S129",
+          "There is no random weigh-in for veterans."
+        ]
+      ],
+      "claims": {
+        "summary": "No, no se realiza pesaje aleatorio a los veteranos ([A1.10 Weigh-in for Veterans / Art. A1.10 / Pág. 105]).",
+        "normative_basis": "Reglamento para Veteranos, apartado de Pesaje para Veteranos: [SOR-2026-08-P105-S129] A1.10 Weigh-in for Veterans.",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-SCO-013",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-08_SIN_INFLUENCIA_SHADOW"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": false,
+      "changed_by_variant": true,
+      "dig06_base": "cifras_sin_respaldo=['14', '2026']",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P096-S114",
+          "For Masters, World Championships Seniors and Olympic Games, the contest area shall be 10 m x 10 m with a minimum common safety area of 4 m and a minimum exterior safety area of 4 m."
+        ]
+      ],
+      "claims": {
+        "summary": "Para los Campeonatos Mundiales, el área de combate (contest area) debe ser de 10 m x 10 m, con un área de seguridad común (common safety area) mínima de 4 m y un área de seguridad exterior (exterior safety area) mínima de 4 m [SOR-2026-08-P096-S114].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation (Edición 14 de agosto de 2026), Artículo 8.7 Field of Play and Competition Area, página 96 [SOR-2026-08-P096-S114].",
+        "conditions_and_exceptions": "No aplica."
+      }
+    },
+    {
+      "id": "B2-SCO-014",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": true,
+      "quotes": [
+        [
+          "SOR-2026-08-P096-S114",
+          "The contest area for IJF events shall be a minimum of 8 m x 8 m and a maximum of 10 m x 10 m."
+        ],
+        [
+          "SOR-2026-08-P096-S114",
+          "For Masters, World Championships Seniors and Olympic Games, the contest area shall be 10 m x 10 m."
+        ]
+      ],
+      "claims": {
+        "summary": "8 m × 8 m a 10 m × 10 m es el rango de dimensiones del área de competición de kata en eventos que no son Campeonato del Mundo.",
+        "normative_basis": "Artículo 8.7 del SOR establece las dimensiones mínimas y máximas del área de competición para eventos IJF, con una excepción específica para Masters, Campeonatos del Mundo Senior y Juegos Olímpicos.",
+        "conditions_and_exceptions": "La regla de 10 m × 10 m es obligatoria sólo para Masters, Campeonatos del Mundo Senior y Juegos Olímpicos; para otros eventos, incluido kata fuera de Campeonato del Mundo, se aplica el rango de 8 m × 8 m a 10 m × 10 m."
+      }
+    },
+    {
+      "id": "B2-SCO-019",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-09_EXCEPCIONES_CITADAS",
+          "DIG-10_REFERENCIAS_ENTREGADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "reproduced_exactly": false,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['.2', '5']",
+      "dig06_variant": "cifras_sin_respaldo=['.2', '5']",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": true,
+      "quotes": [
+        [
+          "SOR-2026-08-P086-S102",
+          "Athletes who take part in cadets teams are given a 0.2 kg weight tolerance in accordance with Section 6.1"
+        ],
+        [
+          "SOR-2026-08-P086-S102",
+          "A +5% tolerance applies only to the minus weight categories. No tolerance applies to the plus weight categories because they do not have an upper weight limit"
+        ],
+        [
+          "SOR-2026-08-P082-S100",
+          "Cadet Mixed Team +0 .2 kg allowed for underwear"
+        ]
+      ],
+      "claims": {
+        "summary": "Los atletas que participan en eventos de equipos cadetes cuentan con una tolerancia de peso de 0,2 kg para la ropa interior, de acuerdo con la sección 6.1, tal como se especifica en el Artículo 6.5 [SOR-2026-08-P086-S102]. Asimismo, en los supuestos de competiciones de equipos mixtos o por equipos que siguen a una competición individual, se aplica una tolerancia de peso del +5% exclusivamente para las categorías de peso inferior (minus weight categories), existiendo además una tolerancia de 0,2 kg permitida para la ropa interior [SOR-2026-08-P086-S102, SOR-2026-08-P082-S100].",
+        "normative_basis": "Artículo 6.5 Female and Male Teams Events Weigh-in [SOR-2026-08-P086-S102], Artículo 6.4.2 Mixed Team Following an Individual Competition Weigh-in [SOR-2026-08-P082-S100], Artículo 6.4.1 Standalone Mixed Team Weigh-in [SOR-2026-08-P082-S100].",
+        "conditions_and_exceptions": "La tolerancia del +5% aplica únicamente a las categorías de peso inferior (minus weight categories). No se aplica ninguna tolerancia a las categorías de peso superior (plus weight categories) debido a que no poseen un límite superior de peso [SOR-2026-08-P086-S102, SOR-2026-08-P082-S100]. Además, los atletas que compiten tanto en las competiciones individuales como de equipos deben encontrarse dentro del límite de peso de su categoría de equipo (sin la tolerancia del +5%) al menos una vez durante las dos competiciones, y dicha tolerancia del +5% no puede ser utilizada por un atleta que desee c"
+      }
+    },
+    {
+      "id": "B2-SCO-022",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA"
+        ]
+      },
+      "reproduced_exactly": false,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['1', '12', '3', '6']",
+      "dig06_variant": "cifras_sin_respaldo=['1', '12', '3', '6']",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P043-S054",
+          "Each mixed team must consist of six (6) athletes (3 women and 3 men) and has the possibility to have up to six (6) reserves (3 women and 3 men)."
+        ]
+      ],
+      "claims": {
+        "summary": "Cada equipo mixto puede tener hasta seis (6) reservas (3 mujeres y 3 hombres) [Art. 2.7.1, Pág. 43].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. 2.7.1 Regulations for Mixed Team Events (Pág. 43) [SOR-2026-08-P043-S054].",
+        "conditions_and_exceptions": "Cada equipo mixto debe constar de seis (6) atletas (3 mujeres y 3 hombres) y tiene la posibilidad de tener hasta seis (6) reservas (3 mujeres y 3 hombres) [Art. 2.7.1, Pág. 43]. En el momento de la confirmación del equipo mixto en la acreditación, la delegación debe inscribir un equipo mixto completo, lo que significa un mínimo de 1 atleta por categoría de peso de equipo mixto, con un máximo de 12 atletas en total (máximo de dos atletas por categoría de peso de equipo mixto) [Art. 2.7.1, Pág. 43]."
+      }
+    },
+    {
+      "id": "B2-SCO-024",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P110-S141",
+          "A pair can earn points in the following events: Continental Open, Continental Championships, Kata World Series (KWS) and World Kata Championships."
+        ]
+      ],
+      "claims": {
+        "summary": "Una pareja de kata puede sumar puntos de ranking en los siguientes eventos: Continental Open, Continental Championships, Kata World Series (KWS) y World Kata Championships [SOR-2026-08-P110-S141].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. B1.5 Ranking Points, Página 110 [SOR-2026-08-P110-S141].",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-SCO-026",
+      "run": 0,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P198-S208",
+          "A minor injury may be treated by the athlete himself."
+        ],
+        [
+          "SOR-2026-08-P198-S208",
+          "the referee shall stop the contest (by calling “Mate!” or “Sono‑mama!”) and allow the athlete to reset the dislocated finger or toe."
+        ],
+        [
+          "SOR-2026-08-P198-S208",
+          "The same finger or toe is allowed to be reset on two (2) occasions. If the same dislocation occurs a third time, the athlete is declared unable to continue in the contest."
+        ],
+        [
+          "SOR-2026-08-P196-S205",
+          "Athlete safety takes priority over the continuation of a contest. The final medical decision resting with the IJF Medical Commissioner, or a doctor delegated or nominated by them."
+        ]
+      ],
+      "claims": {
+        "summary": "Sí, el atleta puede tratarse a sí mismo una lesión leve durante el combate, siempre que el árbitro detenga la pelea, el médico asista fuera del tatami y la lesión sea considerada menor.",
+        "normative_basis": "Artículo 20.3 .2 Tratamiento de Lesiones Menores (pág. 198) establece que el atleta puede autotratarse una lesión menor con la intervención del árbitro y del médico fuera del área de combate.",
+        "conditions_and_exceptions": "El árbitro debe detener el combate (llamando “Mate!” o “Sono‑mama!”) y permitir que el atleta se auto‑trate fuera del tatami, con la asistencia del médico. Sólo se permite el restablecimiento del mismo dedo o dedo del pie en dos (2) ocasiones; una tercera dislocación implica que el atleta es declarado incapaz de continuar y pierde por kiken‑gachi. Sólo lesiones calificadas como “menores” pueden autotratarse; cualquier otra lesión obliga a la interrupción y posible pérdida del atleta."
+      }
+    },
+    {
+      "id": "B2-AMB-005",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBIGUA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P065-S079",
+          "The top 36 athletes in the IJF Seniors WRL in each weight category will be invited. No reserve athletes will be invited."
+        ]
+      ],
+      "claims": {
+        "summary": "No se invitará a ningún deportista suplente o de reserva al World Masters. La norma establece textualmente que no se invitarán atletas de reserva (\"No reserve athletes will be invited\") [SOR-2026-08-P065-S079].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, World Masters section (Pág. 65, [SOR-2026-08-P065-S079]).",
+        "conditions_and_exceptions": "Para el evento World Masters, se invitará a los 36 mejores atletas en el WRL Senior de cada categoría de peso, especificándose que no se invitarán atletas de reserva (\"No reserve athletes will be invited\") [SOR-2026-08-P065-S079]."
+      }
+    },
+    {
+      "id": "B2-AMB-006",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBIGUA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-08_SIN_INFLUENCIA_SHADOW",
+          "DIG-09_EXCEPCIONES_CITADAS",
+          "DIG-10_REFERENCIAS_ENTREGADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "reproduced_exactly": false,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['.2', '14', '2026']",
+      "dig06_variant": "cifras_sin_respaldo=['.2']",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P082-S100",
+          "A +5% tolerance applies only to the minus weight categories. No tolerance applies to the plus weight categories because they do not have an upper weight limit"
+        ],
+        [
+          "SOR-2026-08-P085-S102",
+          "A +5% tolerance applies only to the minus weight categories. No tolerance applies to the plus weight categories because they do not have an upper weight limit"
+        ],
+        [
+          "SOR-2026-08-P086-S102",
+          "Athletes who take part in cadets teams are given a 0.2 kg weight tolerance in accordance with Section 6.1"
+        ]
+      ],
+      "claims": {
+        "summary": "Sí, existe una tolerancia de peso (+5%) que se aplica exclusivamente a las categorías de peso menos (minus weight categories) en las competiciones de equipos mixtos y de equipos masculinos y femeninos que siguen a una competición individual [SOR-2026-08-P082-S100, SOR-2026-08-P085-S102]. No se aplica ninguna tolerancia a las categorías de peso plus, ya que no tienen límite de peso superior [SOR-2026-08-P082-S100, SOR-2026-08-P085-S102]. Además, en las categorías de equipos de cadetes, se permite una tolerancia de 0.2 kg para la ropa interior de acuerdo con la Sección 6.1 [SOR-2026-08-P086-S102",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation (Edición 14 de agosto de 2026): Art. 6.4.2 [SOR-2026-08-P082-S100], Art. 6.5.2 [SOR-2026-08-P085-S102], y Art. 6.5 [SOR-2026-08-P086-S102].",
+        "conditions_and_exceptions": "La tolerancia de peso del +5% no se puede utilizar por un atleta que desee competir en una categoría de peso de equipo inferior a su categoría de peso de competición individual. En tales casos, el atleta debe cumplir con el límite de peso exacto de la categoría de equipo, sin ninguna tolerancia [SOR-2026-08-P082-S100, SOR-2026-08-P085-S102]. Ninguna tolerancia se aplica a las categorías plus [SOR-2026-08-P082-S100, SOR-2026-08-P085-S102]. Los atletas cadetes que participan en equipos tienen una tolerancia de 0.2 kg permitida para la ropa interior [SOR-2026-08-P086-S102]."
+      }
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBIGUA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-07_TERMINOS_RESPALDADOS",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-07_TERMINOS_RESPALDADOS",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-07_TERMINOS_RESPALDADOS",
+          "DIG-09_EXCEPCIONES_CITADAS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['2000']",
+      "dig06_variant": "cifras_sin_respaldo=['2000']",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P056-S071",
+          "1st place 700 2000"
+        ],
+        [
+          "SOR-2026-08-P057-S073",
+          "1st place 700 2000"
+        ],
+        [
+          "SOR-2026-08-P053-S067",
+          "1st place 100 300 400 700"
+        ],
+        [
+          "SOR-2026-08-P110-S141",
+          "1st place 350 700 1000 1500"
+        ]
+      ],
+      "claims": {
+        "summary": "First place points depend on the competition type: Mixed Teams (Juniors or Cadets) award 700 points for a Continental Championship and 2000 points for a World Championship; Individual Juniors award 100 points for a Continental Cup, 300 points for a Continental Championship, 400 points for a Grand Prix, and 700 points for a World Championship; Kata pairs award 350 points for a Continental Open, 700 points for a Kata World Series, 1000 points for a Continental Championship, and 1500 points for a World Championship.",
+        "normative_basis": "Mixed Teams points table in [SOR-2026-08-P056-S071] and [SOR-2026-08-P057-S073]; Individual Juniors points table in [SOR-2026-08-P053-S067]; Kata pairs points table in [SOR-2026-08-P110-S141].",
+        "conditions_and_exceptions": "Points vary by event category (Mixed Teams, individual Juniors, Kata) and by competition level (Continental vs. World). No additional exceptions are stated for first‑place points."
+      }
+    },
+    {
+      "id": "B2-CAT-003",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DISTINCION_CATEGORIA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P109-S138",
+          "For the U18 age group both tori and uke must be under 18 years old in the calendar year of the competition and shall have a minimum of 3rd kyu (green belt)."
+        ],
+        [
+          "SOR-2026-08-P113-S145",
+          "A green, blue or brown belt without an IJF label is authorised for the U18 age group."
+        ]
+      ],
+      "claims": {
+        "summary": "Sí, para el grupo de edad U18 de kata, se autoriza el uso de un cinturón verde sin etiqueta oficial de la IJF ([B1.12 Judogi Control / Art. B1.12, Pág. 113]). Asimismo, los participantes de la categoría U18 deben tener un mínimo de 3er kyu (cinturón verde) ([B1.1 Eligibility to Participate / Art. B1.1, Pág. 109]).",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation: Article B1.1 (Pág. 109) [SOR-2026-08-P109-S138] y Article B1.12 (Pág. 113) [SOR-2026-08-P113-S145].",
+        "conditions_and_exceptions": "Para el grupo U18, tanto tori como uke deben ser menores de 18 años en el año natural de la competición y tener un mínimo de 3er kyu (cinturón verde). Un cinturón verde sin etiqueta de la IJF está autorizado específicamente para este grupo de edad U18."
+      }
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P129-S170",
+          "There should be a space of 0.5 cm - 2 cm between each star."
+        ]
+      ],
+      "claims": {
+        "summary": "El espacio requerido entre cada estrella de campeón mundial en el judogi es de 0.5 cm a 2 cm ([Art. C1.14.1, Pág. 129 / SOR-2026-08-P129-S170]).",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. C1.14.1 Procedure Regarding World Champion Title(s), Pág. 129 [SOR-2026-08-P129-S170].",
+        "conditions_and_exceptions": "No aplica."
+      }
+    },
+    {
+      "id": "B2-DIR-007",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P098-S117",
+          "Athletes must attend the medal ceremony barefoot, without any hat, cap or any similar head covering and wearing their IJF approved white judogi"
+        ]
+      ],
+      "claims": {
+        "summary": "No, athletes must attend the medal ceremony barefoot [8.10 Awarding Ceremonies (Art. 8.10, Pág. 98)].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Article 8.10 Awarding Ceremonies, page 98 [SOR-2026-08-P098-S117].",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-DIR-008",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P136-S175",
+          "The referee should wear the IJF approved uniform without any head coverings, religious objects, or garish jewellery."
+        ]
+      ],
+      "claims": {
+        "summary": "No. El árbitro no puede llevar objetos religiosos mientras arbitra. Según el reglamento oficial, el árbitro debe llevar el uniforme aprobado por la IJF sin ningún tipo de tocados, objetos religiosos o joyas ostentosas [SOR-2026-08-P136-S175].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Article 2 Position and Function of the Referee [SOR-2026-08-P136-S175].",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-DIR-011",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": true,
+      "dig06_base": "cifras_sin_respaldo=['2026', '8', '93']",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P079-S093",
+          "The time limit to arrive to the random weigh-in is 30 minutes or 6 contests before the athlete’s first contest at the latest."
+        ],
+        [
+          "SOR-2026-08-P079-S093",
+          "Random weight checks for athletes will be organised and are the responsibility of the IJF Education and Coaching Commission. Random weigh-in is carried out for individual events only, there will be no random weigh-in for"
+        ]
+      ],
+      "claims": {
+        "summary": "30 minutes (or up to 6 contests) before the athlete’s first contest is the latest time an athlete may arrive at the random weigh‑in.",
+        "normative_basis": "Article 6.3 Random Weigh‑in, page 79 of the Sport and Organisation Rules (SOR‑2026‑08‑P079‑S093).",
+        "conditions_and_exceptions": "The rule applies only to individual events; there is no random weigh‑in for IJF Mixed Team events. No other exceptions are stated."
+      }
+    },
+    {
+      "id": "B2-DIR-018",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "DIRECTA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=['1']",
+      "dig06_variant": "cifras_sin_respaldo=['1']",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P197-S207",
+          "The referee shall call the doctor inside the contest area, to attend to an athlete who has received a severe impact to the head or back (spinal column), or whenever the referee has reason to believe there may be a grave "
+        ]
+      ],
+      "claims": {
+        "summary": "Si un atleta recibe un impacto severo en la cabeza, el árbitro debe llamar inmediatamente al médico dentro del área de competición para atender al atleta, examinándolo en el menor tiempo posible para indicar si puede continuar o no ([SOR-2026-08-P197-S207] Article 20.2).",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Article 20.2 Medical Examinations and Treatment Inside the Contest Area [SOR-2026-08-P197-S207].",
+        "conditions_and_exceptions": "El médico examinará al atleta en el tiempo más breve posible e indicará al árbitro si el atleta puede continuar o no. Generalmente solo se permite un (1) doctor por atleta en el área de competición. El árbitro debe permanecer cerca del atleta lesionado para asegurar que la asistencia del doctor cumpla con las reglas. El árbitro puede consultar con el Director(es) de Árbitros Principal de la IJF, Supervisor(es) de Árbitros de la IJF y el Comisionado Médico de la IJF. Si el doctor aconseja que el atleta no puede continuar, el árbitro, tras la consulta mencionada, finalizará el combate y declarar"
+      }
+    },
+    {
+      "id": "B2-EXC-005",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "EXCEPCION",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": true,
+      "dig06_base": "cifras_sin_respaldo=['14', '2026']",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P202-S220",
+          "The head may not be covered except for bandaging of a medical nature, which must adhere firmly."
+        ],
+        [
+          "SOR-2026-08-P202-S220",
+          "Any athlete not willing to comply with the requirements of hygiene, judogi rules or the head cover regulation shall be refused the right to compete, and the opponent shall win the contest by fusen-gachi, if the contest h"
+        ]
+      ],
+      "claims": {
+        "summary": "No, un atleta no puede competir con la cabeza cubierta, salvo para vendajes de carácter médico que deben adherirse firmemente [SOR-2026-08-P202-S220]. El incumplimiento de esta regulación de cabeza y de higiene o del judogi conlleva la negativa al derecho a competir, otorgando la victoria al oponente por fusen-gachi si el combate no ha comenzado, o por kiken-gachi si ya ha empezado [SOR-2026-08-P202-S220].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation (14 August 2026), Article E1.3 Hygiene (Pág. 202) [SOR-2026-08-P202-S220].",
+        "conditions_and_exceptions": "La única excepción permitida para llevar la cabeza cubierta es un vendaje de carácter médico, el cual debe adherirse firmemente [SOR-2026-08-P202-S220]. Cualquier atleta que no esté dispuesto a cumplir con los requisitos de higiene, reglas del judogi o la regulación de cobertura de la cabeza se le negará el derecho a competir, resultando en que el oponente gane el combate por fusen-gachi (si no ha comenzado) o por kiken-gachi (si ya ha comenzado) [SOR-2026-08-P202-S220]."
+      }
+    },
+    {
+      "id": "B2-EXC-006",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "EXCEPCION",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": true,
+      "dig06_base": "cifras_sin_respaldo=['1', '2', '2026', '3', '4']",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P082-S100",
+          "Athletes who compete in both the individual and mixed team competitions must be within the weight limit of their mixed team category (without the +5% tolerance) at least once during the two competitions."
+        ],
+        [
+          "SOR-2026-08-P082-S100",
+          "The +5% weight tolerance cannot be used by an athlete wishing to compete in a lower Mixed Team weight category than their individual competition weight category. In such cases, the athlete must meet the exact weight limi"
+        ],
+        [
+          "SOR-2026-08-P082-S100",
+          "If the athlete, in the individual competition, was within the weight limits of the mixed team weight category for which they are inscribed (see table: Weight Categories for Mixed Team Competitions) they will be given a +"
+        ],
+        [
+          "SOR-2026-08-P082-S100",
+          "If the athlete, in the individual competition, was NOT within the weight limits of the mixed team weight category for which they are inscribed, they MUST weigh within the limits of this category (see table: Weight Catego"
+        ]
+      ],
+      "claims": {
+        "summary": "No. La tolerancia del 5% no se puede utilizar siempre ni de forma ilimitada: para poder beneficiarse de la tolerancia del +5% en las categorías de peso menos (minus) del equipo mixto, la regla exige que el atleta, en la competición individual, estuviera dentro de los límites de peso de la categoría de peso del equipo mixto en la que está inscrito; de lo contrario, si no estaba dentro de dichos límites en el evento individual, DEBE dar el peso exacto de la categoría del equipo mixto sin recibir ninguna tolerancia del 5% ([Art. 6.4.2.2 / Art. 6.4.2.3, Pág. 82]). Asimismo, el reglamento establece",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation (SOR 2026), Section 6.4.2, 6.4.2.2 and 6.4.2.3 [SOR-2026-08-P082-S100].",
+        "conditions_and_exceptions": "1. Los atletas deben estar dentro del límite de peso de su categoría de equipo mixto (sin la tolerancia del +5%) al menos una vez durante las dos competiciones [SOR-2026-08-P082-S100].\n2. La tolerancia de peso del +5% no puede ser utilizada por un atleta que desee competir en una categoría de peso de equipo mixto inferior a su categoría de peso de competición individual; en tales casos, debe cumplir exactamente con el límite de peso de la categoría de equipo mixto, sin ninguna tolerancia [SOR-2026-08-P082-S100].\n3. La tolerancia del +5% se aplica exclusivamente a las categorías de peso menos ("
+      }
+    },
+    {
+      "id": "B2-EXC-009",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "EXCEPCION",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P098-S117",
+          "Any athlete who is absent from the awards ceremony without a good reason may forfeit the medal and prize money."
+        ]
+      ],
+      "claims": {
+        "summary": "Cualquier atleta ausente de la ceremonia de premiación sin una buena razón puede perder la medalla y el premio en efectivo ([Art. 8.10, Pág. 98]).",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. 8.10 Awarding Ceremonies, Pág. 98 [SOR-2026-08-P098-S117].",
+        "conditions_and_exceptions": "La pérdida de la medalla y del premio en efectivo aplica específicamente a los atletas ausentes de la ceremonia de premiación 'sin una buena razón' ([Art. 8.10, Pág. 98]). Además, cada atleta que haya ganado una medalla debe estar presente en la ceremonia para recibir su medalla personalmente e ir al área de premiación inmediatamente después de su combate por medalla ([Art. 8.10, Pág. 98])."
+      }
+    },
+    {
+      "id": "B2-INC-001",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "INCOMPLETA",
+      "expected_behavior": "SOLICITAR_ACLARACION",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P196-S206",
+          "Each case shall be decided on its own merit."
+        ]
+      ],
+      "claims": {
+        "summary": "La consulta actual resulta ambigua y carece de datos fácticos determinantes («¿Y en ese caso?»), por lo que no es posible emitir una resolución definitiva sin conocer los antecedentes específicos del caso al que se refiere. [SOR-2026-08-P196-S206]",
+        "normative_basis": "Artículo 20 Injury, Illness or Accident del Reglamento de Organización y Deporte de la IJF [SOR-2026-08-P196-S206].",
+        "conditions_and_exceptions": "Cada caso debe ser decidido en su propio mérito conforme a las reglas aplicables de lesión, enfermedad o accidente [SOR-2026-08-P196-S206]."
+      }
+    },
+    {
+      "id": "B2-MLG-002",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "MULTILINGUE",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-01_SUFICIENCIA_DECLARADA",
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-07_TERMINOS_RESPALDADOS"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [],
+      "claims": {
+        "summary": "Los pasajes normativos certificados proporcionados no contienen información sobre la composición de los equipos mixtos. [SOR-2026-08-P251-S267]",
+        "normative_basis": "Los pasajes certificados incluidos en la base normativa (G1.2.1 Nage-waza, G1.2.2 Katame-waza, Artículo 4 Gestures, Artículo 12 Sono-mama y Artículo 18 Hansoku-make) regulan nomenclatura de técnicas, gestos arbitrales, el procedimiento de sono-mama y faltas hansoku-make, sin abordar la composición numérica de equipos mixtos [SOR-2026-08-P192-S198, SOR-2026-08-P162-S185, SOR-2026-08-P252-S268, SOR-2026-08-P141-S177, SOR-2026-08-P251-S267].",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-MLG-003",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "MULTILINGUE",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-06_CIFRAS_RESPALDADAS"
+        ]
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": true,
+      "dig06_base": "cifras_sin_respaldo=['6.3']",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P105-S130",
+          "The weigh-in will take place the day before the competition as indicated in the outlines. There is no random weigh-in for veterans."
+        ],
+        [
+          "SOR-2026-08-P079-S093",
+          "Random weight checks for athletes will be organised and are the responsibility of the IJF Education and Coaching Commission. Random weigh-in is carried out for individual events only, there will be no random weigh-in for"
+        ]
+      ],
+      "claims": {
+        "summary": "No, veterans are not subject to a random weigh‑in; their weigh‑in is scheduled the day before the competition and the rules explicitly state there is no random weigh‑in for veterans.",
+        "normative_basis": "A1.10 Weigh‑in for Veterans (Art. A1.10, p. 105) and 6.3 Random Weigh‑in (Art. 6.3, p. 79).",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-REF-005",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "REFERENCIA_CRUZADA",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-08_SIN_INFLUENCIA_SHADOW"
+        ]
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": false,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P103-S125",
+          "A1 .5 Weight Categories for Veterans\nThe weight categories are the same as those for senior men and women."
+        ]
+      ],
+      "claims": {
+        "summary": "Las categorías de peso utilizadas en las competiciones de veteranos son las mismas que se aplican para las categorías sénior masculinas y femeninas ([Regla Art. A1.5 / Pág. 103]).",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Appendix A1 (Regulations for Veterans), Article A1.5 Weight Categories for Veterans [SOR-2026-08-P103-S125], page 103.",
+        "conditions_and_exceptions": "No aplica."
+      }
+    },
+    {
+      "id": "B2-SCO-010",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-02_CITAS_CON_CITA_LITERAL",
+          "DIG-03_CITA_LITERAL",
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P105-S129",
+          "There is no random weigh‑in for veterans."
+        ]
+      ],
+      "claims": {
+        "summary": "No, no se realiza pesaje aleatorio a los veteranos; el pesaje oficial se lleva a cabo el día anterior al concurso y no incluye pesaje aleatorio.",
+        "normative_basis": "A1.10 Weigh‑in for Veterans establece que el pesaje se hará el día anterior y que \"There is no random weigh‑in for veterans\" ([SOR-2026-08-P105-S129]). La normativa general de pesaje aleatorio (6.3.3) se aplica a eventos individuales, pero no a la categoría de veteranos ([SOR-2026-08-P079-S096]).",
+        "conditions_and_exceptions": "No aplica"
+      }
+    },
+    {
+      "id": "B2-SCO-013",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-08_SIN_INFLUENCIA_SHADOW"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": false,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P096-S114",
+          "For Masters, World Championships Seniors and Olympic Games, the contest area shall be 10 m x 10 m with a minimum common safety area of 4 m and a minimum exterior safety area of 4 m."
+        ]
+      ],
+      "claims": {
+        "summary": "Para los Campeonatos Mundiales Senior, el área de combate (contest area) debe medir 10 m x 10 m, con un área de seguridad común mínima de 4 m y un área de seguridad exterior mínima de 4 m [Art. 8.7, Pág. 96].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. 8.7 Field of Play and Competition Area, Pág. 96 [SOR-2026-08-P096-S114].",
+        "conditions_and_exceptions": "Esta dimensión de 10 m x 10 m con seguridad de 4 m es obligatoria para Masters, Campeonatos Mundiales Seniors y Juegos Olímpicos, y también se recomienda para Campeonatos Continentales [SOR-2026-08-P096-S114]."
+      }
+    },
+    {
+      "id": "B2-SCO-020",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA",
+          "DIG-08_SIN_INFLUENCIA_SHADOW"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-05_PERTINENCIA_MINIMA"
+        ]
+      },
+      "reproduced_exactly": false,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": false,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P077-S090",
+          "Passing the official weigh-in is the responsibility of the athlete. Only the weight recorded on the official scale for the athlete’s weight category will be considered."
+        ]
+      ],
+      "claims": {
+        "summary": "No se concede ninguna tolerancia de peso en el pesaje oficial de un evento individual para los atletas sénior [Regla 6.2.3 / Art. 6.2.3 / Pág. 77].",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, Art. 6.2.3 Official Weigh-in [SOR-2026-08-P077-S090].",
+        "conditions_and_exceptions": "No aplica."
+      }
+    },
+    {
+      "id": "B2-SCO-023",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "base": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "variant": {
+        "decision": "PERMITIR",
+        "failed": []
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P053-S067",
+          "Athletes can earn points for the IJF Juniors WRL by competing in Continental Cups Juniors, Continental Championships Juniors, Grand Prix Juniors and World Championships Juniors."
+        ],
+        [
+          "SOR-2026-08-P053-S067",
+          "Participation points will be given for all juniors events. Other ranking points will be given when there is at least one (1) contest won."
+        ]
+      ],
+      "claims": {
+        "summary": "Continental Cups Juniors, Continental Championships Juniors, Grand Prix Juniors and World Championships Juniors (plus participation points for all junior events).",
+        "normative_basis": "Article 3.2.2 of the Sport and Organisation Rules (IJF Juniors World Ranking List) – [SOR-2026-08-P053-S067] page 53.",
+        "conditions_and_exceptions": "Participation points are awarded for every junior event, even if the athlete does not win a contest. Other ranking points (placement points) are only awarded when the athlete has at least one contest won."
+      }
+    },
+    {
+      "id": "B2-SCO-025",
+      "run": 1,
+      "src": "llm_dev_f11_rescored.json",
+      "mode": "RECONSTRUIDO",
+      "category": "AMBITO_DISTRACTOR",
+      "expected_behavior": "RESPONDER",
+      "recorded": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "base": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "variant": {
+        "decision": "ABSTENER",
+        "failed": [
+          "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+        ]
+      },
+      "reproduced_exactly": true,
+      "changed_by_variant": false,
+      "dig06_base": "cifras_sin_respaldo=[]",
+      "dig06_variant": "cifras_sin_respaldo=[]",
+      "quotes_hit_expected_evidence": true,
+      "quotes_hit_scope_distractor": false,
+      "quotes": [
+        [
+          "SOR-2026-08-P113-S145",
+          "In case of a minor injury like bloody wound, broken nails or a problem with contact lenses etc., and according to the decision of the judges, the kata performance will be stopped, and the athlete will be assisted by a do"
+        ],
+        [
+          "SOR-2026-08-P113-S145",
+          "In case another minor injury happens to the same athlete during the second performance of the kata or after a forgotten technique or a major mistake, the pair will be given a score of 0 for the technique where the injury"
+        ]
+      ],
+      "claims": {
+        "summary": "En caso de una lesión menor durante la ejecución de un kata, la actuación se detiene según la decisión de los jueces y el atleta recibe asistencia médica fuera del área de competición si es necesario; la competición continúa y la pareja repite el kata entero después de que la última pareja haya actuado [SOR-2026-08-P113-S145]. Si ocurre otra lesión menor a ese mismo atleta durante la segunda ejecución, o tras una técnica olvidada o un error mayor, se le asigna a la pareja una puntuación de 0 para la técnica en la que ocurrió la lesión y para las técnicas siguientes, incluida la ceremonia de cl",
+        "normative_basis": "Sport and Organisation Rules of the International Judo Federation, B1.11 Medical Situation [SOR-2026-08-P113-S145].",
+        "conditions_and_exceptions": "Si la clasificación obtenida les permite participar en la final y no están físicamente aptos para competir, la siguiente pareja en la clasificación del grupo participará en la final [SOR-2026-08-P113-S145]."
+      }
+    }
+  ],
+  "adversarial_cases": [
+    {
+      "id": "B2-AMB-005",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "39",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-005",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "39",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-005",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "39.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-005",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-005",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-005",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "39",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-006",
+      "run": 0,
+      "attack": "A1_SUSTITUIR_CIFRA_RESPALDADA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-006",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-006",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-006",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-006",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-006",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-006",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 0,
+      "attack": "A1_SUSTITUIR_CIFRA_RESPALDADA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-010",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-010",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-010",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-010",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-010",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "21",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-010",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-001",
+      "run": 0,
+      "attack": "A1_SUSTITUIR_CIFRA_RESPALDADA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-001",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-001",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-001",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-001",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-001",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "21",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-001",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-003",
+      "run": 0,
+      "attack": "A1_SUSTITUIR_CIFRA_RESPALDADA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-003",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-003",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-003",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-003",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-003",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-003",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-007",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-007",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-007",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-007",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-007",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-CAT-007",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 0,
+      "attack": "A1_SUSTITUIR_CIFRA_RESPALDADA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 0,
+      "attack": "A1_SUSTITUIR_CIFRA_RESPALDADA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "21",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MLG-003",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MLG-003",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MLG-003",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MLG-003",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MLG-003",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MLG-003",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-OOD-006",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-OOD-006",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-OOD-006",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-OOD-006",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-OOD-006",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-OOD-006",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-009",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-009",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-009",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-009",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-009",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-009",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-022",
+      "run": 0,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-022",
+      "run": 0,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-022",
+      "run": 0,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-022",
+      "run": 0,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-022",
+      "run": 0,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-022",
+      "run": 0,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 1,
+      "attack": "A1_SUSTITUIR_CIFRA_RESPALDADA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 1,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 1,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 1,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 1,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 1,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-AMB-009",
+      "run": 1,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 1,
+      "attack": "A1_SUSTITUIR_CIFRA_RESPALDADA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 1,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 1,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 1,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 1,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 1,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-005",
+      "run": 1,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 1,
+      "attack": "A1_SUSTITUIR_CIFRA_RESPALDADA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 1,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 1,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 1,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 1,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 1,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "21",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-DIR-017",
+      "run": 1,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-EXC-009",
+      "run": 1,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-EXC-009",
+      "run": 1,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-EXC-009",
+      "run": 1,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-EXC-009",
+      "run": 1,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-EXC-009",
+      "run": 1,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-EXC-009",
+      "run": 1,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MUL-004",
+      "run": 1,
+      "attack": "A1_SUSTITUIR_CIFRA_RESPALDADA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MUL-004",
+      "run": 1,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MUL-004",
+      "run": 1,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MUL-004",
+      "run": 1,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MUL-004",
+      "run": 1,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MUL-004",
+      "run": 1,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-MUL-004",
+      "run": 1,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-010",
+      "run": 1,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-010",
+      "run": 1,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-010",
+      "run": 1,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-010",
+      "run": 1,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-010",
+      "run": 1,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-010",
+      "run": 1,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-023",
+      "run": 1,
+      "attack": "A2_CIFRA_NUEVA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-023",
+      "run": 1,
+      "attack": "A3_CIFRA_EN_LISTA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-023",
+      "run": 1,
+      "attack": "A4_DECIMAL_TRAS_CAPITULO",
+      "target": "37.5",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-023",
+      "run": 1,
+      "attack": "A4b_ETIQUETA_REAL_CON_OTRO_TITULO",
+      "target": "6.3",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-023",
+      "run": 1,
+      "attack": "A5_FECHA_DISTINTA_DE_LA_EDICION",
+      "target": "20",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    },
+    {
+      "id": "B2-SCO-023",
+      "run": 1,
+      "attack": "A6_ID_SOR_UNICODE_MAS_CIFRA",
+      "target": "37",
+      "base_detected": true,
+      "variant_detected": true,
+      "base_decision": "ABSTENER",
+      "variant_decision": "ABSTENER"
+    }
+  ],
+  "note": "Reejecucion offline; DIG de produccion sin cambios; la variante solo se aplica dentro de este proceso."
+}

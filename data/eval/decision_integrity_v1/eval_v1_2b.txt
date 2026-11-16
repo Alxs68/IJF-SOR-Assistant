@@ -1,0 +1,696 @@
+﻿{
+ "dig_version": "DIG-1.2",
+ "items": 174,
+ "summary": {
+  "S0_CITA_SIN_RESPALDO": {
+   "n": 174,
+   "llm_called": 147,
+   "A_citation_valid": 147,
+   "B_pertinence_pass": 0,
+   "C_sufficiency_pass": 0,
+   "D_effective_support": "NO_MEDIBLE (sin entailment)",
+   "success": 0,
+   "success_answerable": 0,
+   "success_answerable_citing_min_evidence": 0,
+   "success_outside_min_evidence": [],
+   "false_positive_unanswerable": [],
+   "correct_abstention_unanswerable": "40/40",
+   "answerable_citing_min_evidence": 53,
+   "false_negative": "53 casos (ver JSON)",
+   "false_negative_rate": 1.0,
+   "fn_causes": {
+    "DIG-01_SUFICIENCIA_DECLARADA": 53,
+    "DIG-02_CITAS_CON_CITA_LITERAL": 53,
+    "DIG-03_CITA_LITERAL": 53,
+    "DIG-05_PERTINENCIA_MINIMA": 53,
+    "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 4
+   },
+   "dig_failures": {
+    "DIG-01_SUFICIENCIA_DECLARADA": 147,
+    "DIG-02_CITAS_CON_CITA_LITERAL": 147,
+    "DIG-03_CITA_LITERAL": 147,
+    "DIG-05_PERTINENCIA_MINIMA": 147,
+    "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 23,
+    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 5
+   }
+  },
+  "S1_PRIMER_PASAJE": {
+   "n": 174,
+   "llm_called": 147,
+   "A_citation_valid": 135,
+   "B_pertinence_pass": 99,
+   "C_sufficiency_pass": 115,
+   "D_effective_support": "NO_MEDIBLE (sin entailment)",
+   "success": 83,
+   "success_answerable": 77,
+   "success_answerable_citing_min_evidence": 45,
+   "success_outside_min_evidence": "32 casos (ver JSON)",
+   "false_positive_unanswerable": [
+    "B1-AMB-006",
+    "B1-AMB-007",
+    "B1-AMB-008",
+    "B1-AMB-012",
+    "B1-AMB-015",
+    "SH-023"
+   ],
+   "correct_abstention_unanswerable": "34/40",
+   "answerable_citing_min_evidence": 53,
+   "false_negative": [
+    "B1-EN-022",
+    "B1-ES-034",
+    "B1-ES-035",
+    "B1-ES-038",
+    "B1-ES-060",
+    "B1-EX-007",
+    "B1-EX-011",
+    "SH-018"
+   ],
+   "false_negative_rate": 0.151,
+   "fn_causes": {
+    "DIG-10_REFERENCIAS_ENTREGADAS": 3,
+    "DIG-05_PERTINENCIA_MINIMA": 2,
+    "DIG-09_EXCEPCIONES_CITADAS": 1
+   },
+   "dig_failures": {
+    "DIG-05_PERTINENCIA_MINIMA": 36,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 12,
+    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 4,
+    "DIG-09_EXCEPCIONES_CITADAS": 3,
+    "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 3
+   },
+   "threshold_sweep_DIG05": {
+    "0.15": {
+     "dev": {
+      "success_answerable": 35,
+      "fp_unanswerable": [
+       "B1-AMB-008",
+       "B1-AMB-012"
+      ],
+      "success_outside_min_evidence": 14,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 21
+     },
+     "validation": {
+      "success_answerable": 12,
+      "fp_unanswerable": [
+       "B1-AMB-015"
+      ],
+      "success_outside_min_evidence": 7,
+      "fn_citing_min_evidence": 4,
+      "citing_min_evidence": 9
+     },
+     "test": {
+      "success_answerable": 22,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007"
+      ],
+      "success_outside_min_evidence": 9,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 14
+     },
+     "shadow": {
+      "success_answerable": 8,
+      "fp_unanswerable": [
+       "SH-023"
+      ],
+      "success_outside_min_evidence": 2,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 7
+     },
+     "all": {
+      "success_answerable": 77,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007",
+       "B1-AMB-008",
+       "B1-AMB-012",
+       "B1-AMB-015",
+       "SH-023"
+      ],
+      "success_outside_min_evidence": 32,
+      "fn_citing_min_evidence": 6,
+      "citing_min_evidence": 51
+     }
+    },
+    "0.2": {
+     "dev": {
+      "success_answerable": 41,
+      "fp_unanswerable": [
+       "B1-AMB-008",
+       "B1-AMB-012",
+       "B1-AMB-013"
+      ],
+      "success_outside_min_evidence": 20,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 21
+     },
+     "validation": {
+      "success_answerable": 14,
+      "fp_unanswerable": [
+       "B1-AMB-009",
+       "B1-AMB-015"
+      ],
+      "success_outside_min_evidence": 9,
+      "fn_citing_min_evidence": 4,
+      "citing_min_evidence": 9
+     },
+     "test": {
+      "success_answerable": 27,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007"
+      ],
+      "success_outside_min_evidence": 13,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 14
+     },
+     "shadow": {
+      "success_answerable": 8,
+      "fp_unanswerable": [
+       "SH-023"
+      ],
+      "success_outside_min_evidence": 2,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 7
+     },
+     "all": {
+      "success_answerable": 90,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007",
+       "B1-AMB-008",
+       "B1-AMB-009",
+       "B1-AMB-012",
+       "B1-AMB-013",
+       "B1-AMB-015",
+       "SH-023"
+      ],
+      "success_outside_min_evidence": 44,
+      "fn_citing_min_evidence": 5,
+      "citing_min_evidence": 51
+     }
+    },
+    "0.25": {
+     "dev": {
+      "success_answerable": 43,
+      "fp_unanswerable": [
+       "B1-AMB-005",
+       "B1-AMB-008",
+       "B1-AMB-012",
+       "B1-AMB-013"
+      ],
+      "success_outside_min_evidence": 22,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 21
+     },
+     "validation": {
+      "success_answerable": 14,
+      "fp_unanswerable": [
+       "B1-AMB-009",
+       "B1-AMB-015"
+      ],
+      "success_outside_min_evidence": 9,
+      "fn_citing_min_evidence": 4,
+      "citing_min_evidence": 9
+     },
+     "test": {
+      "success_answerable": 27,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007"
+      ],
+      "success_outside_min_evidence": 13,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 14
+     },
+     "shadow": {
+      "success_answerable": 9,
+      "fp_unanswerable": [
+       "SH-023"
+      ],
+      "success_outside_min_evidence": 3,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 7
+     },
+     "all": {
+      "success_answerable": 93,
+      "fp_unanswerable": [
+       "B1-AMB-005",
+       "B1-AMB-006",
+       "B1-AMB-007",
+       "B1-AMB-008",
+       "B1-AMB-009",
+       "B1-AMB-012",
+       "B1-AMB-013",
+       "B1-AMB-015",
+       "SH-023"
+      ],
+      "success_outside_min_evidence": 47,
+      "fn_citing_min_evidence": 5,
+      "citing_min_evidence": 51
+     }
+    },
+    "0.3": {
+     "dev": {
+      "success_answerable": 44,
+      "fp_unanswerable": [
+       "B1-AMB-004",
+       "B1-AMB-005",
+       "B1-AMB-008",
+       "B1-AMB-012",
+       "B1-AMB-013"
+      ],
+      "success_outside_min_evidence": 23,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 21
+     },
+     "validation": {
+      "success_answerable": 15,
+      "fp_unanswerable": [
+       "B1-AMB-009",
+       "B1-AMB-011",
+       "B1-AMB-015"
+      ],
+      "success_outside_min_evidence": 10,
+      "fn_citing_min_evidence": 4,
+      "citing_min_evidence": 9
+     },
+     "test": {
+      "success_answerable": 27,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007"
+      ],
+      "success_outside_min_evidence": 13,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 14
+     },
+     "shadow": {
+      "success_answerable": 9,
+      "fp_unanswerable": [
+       "SH-023"
+      ],
+      "success_outside_min_evidence": 3,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 7
+     },
+     "all": {
+      "success_answerable": 95,
+      "fp_unanswerable": [
+       "B1-AMB-004",
+       "B1-AMB-005",
+       "B1-AMB-006",
+       "B1-AMB-007",
+       "B1-AMB-008",
+       "B1-AMB-009",
+       "B1-AMB-011",
+       "B1-AMB-012",
+       "B1-AMB-013",
+       "B1-AMB-015",
+       "SH-023"
+      ],
+      "success_outside_min_evidence": 49,
+      "fn_citing_min_evidence": 5,
+      "citing_min_evidence": 51
+     }
+    }
+   }
+  },
+  "S1B_MEJOR_PASAJE": {
+   "n": 174,
+   "llm_called": 147,
+   "A_citation_valid": 133,
+   "B_pertinence_pass": 108,
+   "C_sufficiency_pass": 115,
+   "D_effective_support": "NO_MEDIBLE (sin entailment)",
+   "success": 94,
+   "success_answerable": 86,
+   "success_answerable_citing_min_evidence": 54,
+   "success_outside_min_evidence": "32 casos (ver JSON)",
+   "false_positive_unanswerable": [
+    "B1-AMB-006",
+    "B1-AMB-007",
+    "B1-AMB-008",
+    "B1-AMB-012",
+    "B1-AMB-015",
+    "SH-011",
+    "SH-023",
+    "SH-024"
+   ],
+   "correct_abstention_unanswerable": "32/40",
+   "answerable_citing_min_evidence": 62,
+   "false_negative": [
+    "B1-EN-022",
+    "B1-ES-035",
+    "B1-ES-038",
+    "B1-ES-060",
+    "B1-EX-007",
+    "B1-EX-011",
+    "B1-EX-014",
+    "SH-018"
+   ],
+   "false_negative_rate": 0.129,
+   "fn_causes": {
+    "DIG-05_PERTINENCIA_MINIMA": 3,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 2,
+    "DIG-09_EXCEPCIONES_CITADAS": 1
+   },
+   "dig_failures": {
+    "DIG-05_PERTINENCIA_MINIMA": 25,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 13,
+    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 4,
+    "DIG-09_EXCEPCIONES_CITADAS": 2
+   },
+   "threshold_sweep_DIG05": {
+    "0.15": {
+     "dev": {
+      "success_answerable": 42,
+      "fp_unanswerable": [
+       "B1-AMB-008",
+       "B1-AMB-012"
+      ],
+      "success_outside_min_evidence": 17,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 26
+     },
+     "validation": {
+      "success_answerable": 14,
+      "fp_unanswerable": [
+       "B1-AMB-015"
+      ],
+      "success_outside_min_evidence": 5,
+      "fn_citing_min_evidence": 3,
+      "citing_min_evidence": 12
+     },
+     "test": {
+      "success_answerable": 23,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007"
+      ],
+      "success_outside_min_evidence": 8,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 16
+     },
+     "shadow": {
+      "success_answerable": 7,
+      "fp_unanswerable": [
+       "SH-011",
+       "SH-023",
+       "SH-024"
+      ],
+      "success_outside_min_evidence": 2,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 6
+     },
+     "all": {
+      "success_answerable": 86,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007",
+       "B1-AMB-008",
+       "B1-AMB-012",
+       "B1-AMB-015",
+       "SH-011",
+       "SH-023",
+       "SH-024"
+      ],
+      "success_outside_min_evidence": 32,
+      "fn_citing_min_evidence": 6,
+      "citing_min_evidence": 60
+     }
+    },
+    "0.2": {
+     "dev": {
+      "success_answerable": 47,
+      "fp_unanswerable": [
+       "B1-AMB-008",
+       "B1-AMB-012",
+       "B1-AMB-013"
+      ],
+      "success_outside_min_evidence": 21,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 26
+     },
+     "validation": {
+      "success_answerable": 15,
+      "fp_unanswerable": [
+       "B1-AMB-009",
+       "B1-AMB-015"
+      ],
+      "success_outside_min_evidence": 6,
+      "fn_citing_min_evidence": 3,
+      "citing_min_evidence": 12
+     },
+     "test": {
+      "success_answerable": 25,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007"
+      ],
+      "success_outside_min_evidence": 9,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 16
+     },
+     "shadow": {
+      "success_answerable": 8,
+      "fp_unanswerable": [
+       "SH-011",
+       "SH-023",
+       "SH-024"
+      ],
+      "success_outside_min_evidence": 3,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 6
+     },
+     "all": {
+      "success_answerable": 95,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007",
+       "B1-AMB-008",
+       "B1-AMB-009",
+       "B1-AMB-012",
+       "B1-AMB-013",
+       "B1-AMB-015",
+       "SH-011",
+       "SH-023",
+       "SH-024"
+      ],
+      "success_outside_min_evidence": 39,
+      "fn_citing_min_evidence": 4,
+      "citing_min_evidence": 60
+     }
+    },
+    "0.25": {
+     "dev": {
+      "success_answerable": 48,
+      "fp_unanswerable": [
+       "B1-AMB-005",
+       "B1-AMB-008",
+       "B1-AMB-012",
+       "B1-AMB-013"
+      ],
+      "success_outside_min_evidence": 22,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 26
+     },
+     "validation": {
+      "success_answerable": 15,
+      "fp_unanswerable": [
+       "B1-AMB-009",
+       "B1-AMB-015"
+      ],
+      "success_outside_min_evidence": 6,
+      "fn_citing_min_evidence": 3,
+      "citing_min_evidence": 12
+     },
+     "test": {
+      "success_answerable": 25,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007"
+      ],
+      "success_outside_min_evidence": 9,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 16
+     },
+     "shadow": {
+      "success_answerable": 8,
+      "fp_unanswerable": [
+       "SH-011",
+       "SH-023",
+       "SH-024"
+      ],
+      "success_outside_min_evidence": 3,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 6
+     },
+     "all": {
+      "success_answerable": 96,
+      "fp_unanswerable": [
+       "B1-AMB-005",
+       "B1-AMB-006",
+       "B1-AMB-007",
+       "B1-AMB-008",
+       "B1-AMB-009",
+       "B1-AMB-012",
+       "B1-AMB-013",
+       "B1-AMB-015",
+       "SH-011",
+       "SH-023",
+       "SH-024"
+      ],
+      "success_outside_min_evidence": 40,
+      "fn_citing_min_evidence": 4,
+      "citing_min_evidence": 60
+     }
+    },
+    "0.3": {
+     "dev": {
+      "success_answerable": 48,
+      "fp_unanswerable": [
+       "B1-AMB-004",
+       "B1-AMB-005",
+       "B1-AMB-008",
+       "B1-AMB-012",
+       "B1-AMB-013"
+      ],
+      "success_outside_min_evidence": 22,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 26
+     },
+     "validation": {
+      "success_answerable": 15,
+      "fp_unanswerable": [
+       "B1-AMB-009",
+       "B1-AMB-011",
+       "B1-AMB-015"
+      ],
+      "success_outside_min_evidence": 6,
+      "fn_citing_min_evidence": 3,
+      "citing_min_evidence": 12
+     },
+     "test": {
+      "success_answerable": 25,
+      "fp_unanswerable": [
+       "B1-AMB-006",
+       "B1-AMB-007"
+      ],
+      "success_outside_min_evidence": 9,
+      "fn_citing_min_evidence": 0,
+      "citing_min_evidence": 16
+     },
+     "shadow": {
+      "success_answerable": 8,
+      "fp_unanswerable": [
+       "SH-011",
+       "SH-023",
+       "SH-024"
+      ],
+      "success_outside_min_evidence": 3,
+      "fn_citing_min_evidence": 1,
+      "citing_min_evidence": 6
+     },
+     "all": {
+      "success_answerable": 96,
+      "fp_unanswerable": [
+       "B1-AMB-004",
+       "B1-AMB-005",
+       "B1-AMB-006",
+       "B1-AMB-007",
+       "B1-AMB-008",
+       "B1-AMB-009",
+       "B1-AMB-011",
+       "B1-AMB-012",
+       "B1-AMB-013",
+       "B1-AMB-015",
+       "SH-011",
+       "SH-023",
+       "SH-024"
+      ],
+      "success_outside_min_evidence": 40,
+      "fn_citing_min_evidence": 4,
+      "citing_min_evidence": 60
+     }
+    }
+   }
+  },
+  "S2_CIFRA_INVENTADA": {
+   "n": 174,
+   "llm_called": 147,
+   "A_citation_valid": 133,
+   "B_pertinence_pass": 108,
+   "C_sufficiency_pass": 0,
+   "D_effective_support": "NO_MEDIBLE (sin entailment)",
+   "success": 0,
+   "success_answerable": 0,
+   "success_answerable_citing_min_evidence": 0,
+   "success_outside_min_evidence": [],
+   "false_positive_unanswerable": [],
+   "correct_abstention_unanswerable": "40/40",
+   "answerable_citing_min_evidence": 62,
+   "false_negative": "62 casos (ver JSON)",
+   "false_negative_rate": 1.0,
+   "fn_causes": {
+    "DIG-06_CIFRAS_RESPALDADAS": 60,
+    "DIG-05_PERTINENCIA_MINIMA": 3,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 2,
+    "DIG-09_EXCEPCIONES_CITADAS": 1
+   },
+   "dig_failures": {
+    "DIG-06_CIFRAS_RESPALDADAS": 133,
+    "DIG-05_PERTINENCIA_MINIMA": 25,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 13,
+    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 4,
+    "DIG-09_EXCEPCIONES_CITADAS": 2
+   },
+   "false_positive_adversarial": []
+  },
+  "S3_INFLUENCIA_SHADOW": {
+   "n": 174,
+   "llm_called": 147,
+   "A_citation_valid": 133,
+   "B_pertinence_pass": 108,
+   "C_sufficiency_pass": 115,
+   "D_effective_support": "NO_MEDIBLE (sin entailment)",
+   "success": 67,
+   "success_answerable": 62,
+   "success_answerable_citing_min_evidence": 41,
+   "success_outside_min_evidence": "21 casos (ver JSON)",
+   "false_positive_unanswerable": [
+    "B1-AMB-007",
+    "B1-AMB-008",
+    "B1-AMB-012",
+    "B1-AMB-015",
+    "SH-024"
+   ],
+   "correct_abstention_unanswerable": "35/40",
+   "answerable_citing_min_evidence": 62,
+   "false_negative": "21 casos (ver JSON)",
+   "false_negative_rate": 0.339,
+   "fn_causes": {
+    "DIG-08_SIN_INFLUENCIA_SHADOW": 16,
+    "DIG-05_PERTINENCIA_MINIMA": 3,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 2,
+    "DIG-09_EXCEPCIONES_CITADAS": 1
+   },
+   "dig_failures": {
+    "DIG-08_SIN_INFLUENCIA_SHADOW": 43,
+    "DIG-05_PERTINENCIA_MINIMA": 25,
+    "DIG-10_REFERENCIAS_ENTREGADAS": 13,
+    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 4,
+    "DIG-09_EXCEPCIONES_CITADAS": 2
+   },
+   "injected_cases": 53,
+   "false_positive_adversarial": [
+    "B1-EX-026",
+    "SH-006",
+    "SH-016"
+   ]
+  }
+ },
+ "inputs_unchanged": true
+}
+Resultados: C:\PROYECTOS\IJF-SOR-Assistant\data/eval/decision_integrity_v1/results_v1_1.json

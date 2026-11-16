@@ -1,0 +1,111 @@
+{
+  "coverage_ratio": 1.0,
+  "cross_refs_by_type": {
+    "APPENDIX_SECTION": 19,
+    "ARTICLE": 54,
+    "FIGURE": 141,
+    "SECTION": 27,
+    "TABLE": 1
+  },
+  "cross_refs_resolution": {
+    "NO_APLICA_FIGURA": 141,
+    "NO_RESUELTA": 3,
+    "RESUELTA": 98
+  },
+  "cross_refs_total": 242,
+  "distinct_page_texts": 287,
+  "errors_by_code": {
+    "ARTICLE_PAGE_METADATA_MISMATCH": 3,
+    "CLAUSE_SEGMENTATION_UNSAFE": 9,
+    "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA": 63,
+    "EMPTY_PAGE_TEXT": 1,
+    "EXCEPTION_CLAUSE_MERGED": 2,
+    "HEADING_LIKE_LINE_REJECTED": 99,
+    "HEADING_NOT_IN_METADATA": 3,
+    "METADATA_HEADING_NOT_FOUND": 5,
+    "METADATA_LABEL_NOT_HEADING_ON_PAGE": 108,
+    "NO_PAGE_HEADER": 22
+  },
+  "errors_by_severity": {
+    "INFO": 231,
+    "WARNING": 84
+  },
+  "exception_clause_merges": 2,
+  "exception_markers_total": 107,
+  "leaf_chars": {
+    "max": 3900,
+    "mean": 597.9,
+    "min": 0
+  },
+  "leaf_units": 815,
+  "no_segmentadas": [
+    {
+      "reason": "TEXTO_ORIGINAL_VACIO",
+      "unit_id": "AU1-P131-000"
+    },
+    {
+      "reason": "NUMERACION_IRREGULAR: LETTERED ['c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'a', 'b', 'c']",
+      "unit_id": "AU1-P161-001"
+    },
+    {
+      "reason": "NUMERACION_IRREGULAR: LETTERED ['b', 'c', 'd', 'a', 'b', 'c', 'd']",
+      "unit_id": "AU1-P164-001"
+    },
+    {
+      "reason": "NUMERACION_IRREGULAR: LETTERED ['a', 'b', 'c', 'a', 'b']",
+      "unit_id": "AU1-P167-001"
+    },
+    {
+      "reason": "NUMERACION_IRREGULAR: NUMBERED ['12', '13', '14', '15', '1']",
+      "unit_id": "AU1-P180-001"
+    },
+    {
+      "reason": "NUMERACION_IRREGULAR: NUMBERED ['2', '16', '17']",
+      "unit_id": "AU1-P182-001"
+    },
+    {
+      "reason": "NUMERACION_IRREGULAR: NUMBERED ['1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7']",
+      "unit_id": "AU1-P231-001"
+    },
+    {
+      "reason": "NUMERACION_IRREGULAR: NUMBERED ['1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7']",
+      "unit_id": "AU1-P231-002"
+    },
+    {
+      "reason": "NUMERACION_IRREGULAR: NUMBERED ['32', '33', '4', '5']",
+      "unit_id": "AU1-P289-001"
+    },
+    {
+      "reason": "NUMERACION_IRREGULAR: LETTERED ['c', 'a', 'b', 'c']",
+      "unit_id": "AU1-P292-001"
+    }
+  ],
+  "original_passages": 385,
+  "pages": 287,
+  "passage_relation_level1": {
+    "ARTICLE_METADATA": 379,
+    "PAGE": 265,
+    "PAGE_FALLBACK": 66
+  },
+  "passages_traceable": 385,
+  "segments_with_clauses": 36,
+  "text_chars_covered_level1": 487328,
+  "text_chars_total": 487328,
+  "units_by_type": {
+    "ARTICLE": 258,
+    "CONTINUATION": 171,
+    "COVER": 16,
+    "EMPTY_PAGE": 1,
+    "INTRO": 29,
+    "LETTERED": 35,
+    "NUMBERED": 77,
+    "PAGE_HEADER": 264
+  },
+  "units_by_validation_status": {
+    "NO_SEGMENTADA": 10,
+    "VALIDADA": 841
+  },
+  "units_level1": 710,
+  "units_level2": 141,
+  "units_total": 851
+}

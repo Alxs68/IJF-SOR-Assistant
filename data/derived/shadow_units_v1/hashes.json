@@ -1,0 +1,12 @@
+{
+  "artifacts_sha256": {
+    "coverage_stats.json": "504a3ae0f4c04382d71d867f7c76c2ee2564453ab8bda794ae6b3910ce8105ac",
+    "errors.jsonl": "59223ca210efe32f9d535bf1fce0451ea17eaff99421cf7c098aef56c8798aa0",
+    "inventory.json": "8aedc9b8ac6e4eb173f64f658df61c8df76f65a95596f0aa60106a696c7b4e81",
+    "metadata.json": "61632c24fecd76d0683bb5fbda443dcc6358f886ce561299e825316da524e255",
+    "traceability_map.json": "44187cbfba0f4fff027d1b83b11059aaf9983a7e392e6beb93d3ad5f31f28223",
+    "units.jsonl": "1f91fea0bcb76a016123db49698572c965f1dd434bb37f1555a4f5db5908db0c",
+    "validation_report.json": "88f98fb9d433759e811a8841efca08892506b4caa7c0403174548141ce74689b"
+  },
+  "processor_version": "1.0.0"
+}

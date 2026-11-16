@@ -1,0 +1,261 @@
+﻿python : C:\Users\User\AppData\Roaming\Python\Python312\site-packages\pytest_asyncio\plugin.py:208: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+En línea: 4 Carácter: 1
++ python -m pytest tests -p diag_record_dig -p no:cacheprovider -q -rf  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\User\A...cope" is unset.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", 
+"package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+.........s.....................F........................................ [ 16%]
+........................................................................ [ 32%]
+..F.FF..............F.FF..................F..............F.............. [ 48%]
+........FF.............................................................. [ 64%]
+.........................................................F..FF.......... [ 80%]
+........................F......F..F.F................................... [ 96%]
+...............                                                          [100%]
+================================== FAILURES ===================================
+_ test_critical_query_with_generator_cites_only_delivered_primary[Q09-En cadetes si un competidor se desmaya por estrangulacion puede continuar en la repesca] _
+tests\test_audit_critical_cases.py:66: in test_critical_query_with_generator_cites_only_delivered_primary
+    assert res["status"] == "SUCCESS", qid
+E   AssertionError: Q09
+E   assert 'ABSTAIN' == 'SUCCESS'
+E     
+E     - SUCCESS
+E     + ABSTAIN
+___________________ test_generator_citation_integrity[D01] ____________________
+tests\test_evaluation_battery.py:192: in test_generator_citation_integrity
+    assert run.generator["status"] == "SUCCESS"
+E   AssertionError: assert 'ABSTAIN' == 'SUCCESS'
+E     
+E     - SUCCESS
+E     + ABSTAIN
+___________________ test_generator_citation_integrity[D03] ____________________
+tests\test_evaluation_battery.py:192: in test_generator_citation_integrity
+    assert run.generator["status"] == "SUCCESS"
+E   AssertionError: assert 'ABSTAIN' == 'SUCCESS'
+E     
+E     - SUCCESS
+E     + ABSTAIN
+___________________ test_generator_citation_integrity[D04] ____________________
+tests\test_evaluation_battery.py:192: in test_generator_citation_integrity
+    assert run.generator["status"] == "SUCCESS"
+E   AssertionError: assert 'ABSTAIN' == 'SUCCESS'
+E     
+E     - SUCCESS
+E     + ABSTAIN
+_________ test_generator_success_is_backed_by_pertinent_evidence[D01] _________
+tests\test_evaluation_battery.py:213: in test_generator_success_is_backed_by_pertinent_evidence
+    assert run.classify_generator().startswith("SUCCESS respaldado"), (
+E   AssertionError: D01 ABSTAIN tras generador | cited=[] | pertinent=['SOR-2026-08-P096-S114'] | offline=ABSTAIN correcto por insuficiencia (sin verificador; evidencia pertinente conservada)
+E   assert False
+E    +  where False = <built-in method startswith of str object at 0x0000016F381591F0>('SUCCESS respaldado')
+E    +    where <built-in method startswith of str object at 0x0000016F381591F0> = 'ABSTAIN tras generador'.startswith
+E    +      where 'ABSTAIN tras generador' = classify_generator()
+E    +        where classify_generator = CaseRun(case=Case(cid='D01', dimension='Direct factual', query='┐Cußles son las dimensiones del tatami de competici¾n?...ent will win by kiken-gachi.\nEach case shall be decided on its own merit.'}], pertinent_ids=['SOR-2026-08-P096-S114']).classify_generator
+_________ test_generator_success_is_backed_by_pertinent_evidence[D03] _________
+tests\test_evaluation_battery.py:213: in test_generator_success_is_backed_by_pertinent_evidence
+    assert run.classify_generator().startswith("SUCCESS respaldado"), (
+E   AssertionError: D03 ABSTAIN tras generador | cited=[] | pertinent=['SOR-2026-08-P188-S196'] | offline=ABSTAIN correcto por insuficiencia (sin verificador; evidencia pertinente conservada)
+E   assert False
+E    +  where False = <built-in method startswith of str object at 0x0000016F381591F0>('SUCCESS respaldado')
+E    +    where <built-in method startswith of str object at 0x0000016F381591F0> = 'ABSTAIN tras generador'.startswith
+E    +      where 'ABSTAIN tras generador' = classify_generator()
+E    +        where classify_generator = CaseRun(case=Case(cid='D03', dimension='Cadets vs adults', query='En un combate de cadetes (17 a±os), Tori intenta una... with the IJF Head Referee Director(s) and/\nor IJF Referee Supervisor(s).'}], pertinent_ids=['SOR-2026-08-P188-S196']).classify_generator
+_________ test_generator_success_is_backed_by_pertinent_evidence[D04] _________
+tests\test_evaluation_battery.py:213: in test_generator_success_is_backed_by_pertinent_evidence
+    assert run.classify_generator().startswith("SUCCESS respaldado"), (
+E   AssertionError: D04 ABSTAIN tras generador | cited=[] | pertinent=['SOR-2026-08-P188-S196', 'SOR-2026-08-P189-S196'] | offline=ABSTAIN correcto por insuficiencia (sin verificador; evidencia pertinente conservada)
+E   assert False
+E    +  where False = <built-in method startswith of str object at 0x0000016F381591F0>('SUCCESS respaldado')
+E    +    where <built-in method startswith of str object at 0x0000016F381591F0> = 'ABSTAIN tras generador'.startswith
+E    +      where 'ABSTAIN tras generador' = classify_generator()
+E    +        where classify_generator = CaseRun(case=Case(cid='D04', dimension='Spanish diacritics', query='┐QuÚ sanci¾n se aplica a un judoka de 15 a±os en c...hi.\nEach case shall be decided on its own merit.'}], pertinent_ids=['SOR-2026-08-P188-S196', 'SOR-2026-08-P189-S196']).classify_generator
+_______________ TestGoldenDataset.test_golden_dataset_retrieval _______________
+tests\test_golden_dataset.py:100: in test_golden_dataset_retrieval
+    self.assertTrue(success_rate >= 80.0, f"Tasa de Úxito {success_rate:.2f}% es inferior al 80% requerido.")
+E   AssertionError: False is not true : Tasa de Úxito 75.00% es inferior al 80% requerido.
+---------------------------- Captured stdout setup ----------------------------
+[LOG] [RAG Engine] Activando Corpus Oficial ┌nico Vigente: 14 August 2026 (Official)
+[LOG] [KnowledgeGraph] Cargados 385 nodos y 68 aristas de agosto 2026.
+[LOG] [RAG Engine] Grafo oficial cargado para inspecci¾n UI (385 nodos).
+[LOG] [RAG Engine] Recuperaci¾n activa delegada Ýntegramente a RRE (HÝbrido Denso 384d + Sparse + RRF).
+---------------------------- Captured stdout call -----------------------------
+
+=== EJECUTANDO VALIDACIËN DE DATASET DE ORO (GOLDEN DATASET) ===
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Defensa de cabeza hansoku-make'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P190-S197', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P167-S187', 'SOR-2026-08-P176-S192', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P188-S196']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 01: Query='Defensa de cabeza hansoku-make' -> Expected='SOR-2026-08-P190-S198' -> Got=['SOR-2026-08-P190-S197', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P167-S187', 'SOR-2026-08-P176-S192', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P188-S196'] -> Success=False
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Defensa de cabeza en categorÝa cadete penalizada con shido'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P188-S196', 'SOR-2026-08-P189-S196', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P196-S205']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 02: Query='Defensa de cabeza en categorÝa cadete penalizada con shido' -> Expected='SOR-2026-08-P188-S196' -> Got=['SOR-2026-08-P188-S196', 'SOR-2026-08-P189-S196', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P196-S205'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Video de defensa de cabeza durante seoi-nage'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P189-S196', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P167-S187', 'SOR-2026-08-P196-S205', 'SOR-2026-08-P163-S186']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 03: Query='Video de defensa de cabeza durante seoi-nage' -> Expected='SOR-2026-08-P189-S196' -> Got=['SOR-2026-08-P189-S196', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P167-S187', 'SOR-2026-08-P196-S205', 'SOR-2026-08-P163-S186'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Dimensiones oficiales del tatami y ßrea de seguridad'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P096-S114', 'SOR-2026-08-P095-S112', 'SOR-2026-08-P030-S029', 'SOR-2026-08-P195-S202']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 04: Query='Dimensiones oficiales del tatami y ßrea de seguridad' -> Expected='SOR-2026-08-P096-S114' -> Got=['SOR-2026-08-P096-S114', 'SOR-2026-08-P095-S112', 'SOR-2026-08-P030-S029', 'SOR-2026-08-P195-S202'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Tolerancia de peso en sorteo de pesaje aleatorio matutino'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P079-S096', 'SOR-2026-08-P082-S100', 'SOR-2026-08-P086-S102']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 05: Query='Tolerancia de peso en sorteo de pesaje aleatorio matutino' -> Expected='SOR-2026-08-P077-S090' -> Got=['SOR-2026-08-P079-S096', 'SOR-2026-08-P082-S100', 'SOR-2026-08-P086-S102'] -> Success=False
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Duraci¾n del combate en categorÝas senior y cadet'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P188-S196', 'SOR-2026-08-P103-S126', 'SOR-2026-08-P152-S179', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P152-S180', 'SOR-2026-08-P137-S176']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 06: Query='Duraci¾n del combate en categorÝas senior y cadet' -> Expected='SOR-2026-08-P152-S179' -> Got=['SOR-2026-08-P188-S196', 'SOR-2026-08-P103-S126', 'SOR-2026-08-P152-S179', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P152-S180', 'SOR-2026-08-P137-S176'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Medidas del judogi con el calibrador Sokuteiki'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P124-S165', 'SOR-2026-08-P117-S156', 'SOR-2026-08-P128-S168']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 07: Query='Medidas del judogi con el calibrador Sokuteiki' -> Expected='SOR-2026-08-P124-S165' -> Got=['SOR-2026-08-P124-S165', 'SOR-2026-08-P117-S156', 'SOR-2026-08-P128-S168'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Agarre Ushiro-sangaku con riesgo cervical en suelo'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P190-S197', 'SOR-2026-08-P180-S194', 'SOR-2026-08-P182-S194', 'SOR-2026-08-P176-S192', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P188-S196']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 08: Query='Agarre Ushiro-sangaku con riesgo cervical en suelo' -> Expected='SOR-2026-08-P180-S194' -> Got=['SOR-2026-08-P190-S197', 'SOR-2026-08-P180-S194', 'SOR-2026-08-P182-S194', 'SOR-2026-08-P176-S192', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P188-S196'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'LÝmite mßximo de intervenciones mÚdicas por combate'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P198-S208', 'SOR-2026-08-P196-S205', 'SOR-2026-08-P201-S215']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 09: Query='LÝmite mßximo de intervenciones mÚdicas por combate' -> Expected='SOR-2026-08-P196-S206' -> Got=['SOR-2026-08-P198-S208', 'SOR-2026-08-P196-S205', 'SOR-2026-08-P201-S215'] -> Success=False
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Proyecci¾n de seoi-nage inverso permitida en seniors'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P189-S196', 'SOR-2026-08-P151-S178', 'SOR-2026-08-P109-S137', 'SOR-2026-08-P196-S205']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 10: Query='Proyecci¾n de seoi-nage inverso permitida en seniors' -> Expected='SOR-2026-08-P189-S196' -> Got=['SOR-2026-08-P189-S196', 'SOR-2026-08-P151-S178', 'SOR-2026-08-P109-S137', 'SOR-2026-08-P196-S205'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Incorporaci¾n de uniformes inteligentes Smart Judogi NFC'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P118-S157', 'SOR-2026-08-P115-S149', 'SOR-2026-08-P117-S156']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 11: Query='Incorporaci¾n de uniformes inteligentes Smart Judogi NFC' -> Expected='SOR-2026-08-P115-S149' -> Got=['SOR-2026-08-P118-S157', 'SOR-2026-08-P115-S149', 'SOR-2026-08-P117-S156'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Uso de Inteligencia Artificial para arbitraje por la IJF'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P132-S172', 'SOR-2026-08-P200-S212', 'SOR-2026-08-P137-S176', 'SOR-2026-08-P137-S177']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 12: Query='Uso de Inteligencia Artificial para arbitraje por la IJF' -> Expected='SOR-2026-08-P132-S172' -> Got=['SOR-2026-08-P132-S172', 'SOR-2026-08-P200-S212', 'SOR-2026-08-P137-S176', 'SOR-2026-08-P137-S177'] -> Success=True
+
+Tasa de ╔xito del Buscador HÝbrido: 75.00% (9/12)
+Reporte de validaci¾n generado en: C:\PROYECTOS\IJF-SOR-Assistant\scratch\golden_validation_report.md
+_ TestHeadActionsRules.test_04_senior_junior_head_defence_no_automatic_cadet_shido _
+tests\test_head_actions_rules.py:134: in test_04_senior_junior_head_defence_no_automatic_cadet_shido
+    self.assertEqual(ada_res["status"], "SUCCESS")
+E   AssertionError: 'ABSTAIN' != 'SUCCESS'
+E   - ABSTAIN
+E   + SUCCESS
+_ TestMultiProviderLLM.test_ada_deterministic_offline_mode_does_not_hallucinate _
+tests\test_llm_provider.py:277: in test_ada_deterministic_offline_mode_does_not_hallucinate
+    self.assertEqual(res["status"], "SUCCESS")
+E   AssertionError: 'ABSTAIN' != 'SUCCESS'
+E   - ABSTAIN
+E   + SUCCESS
+_ TestMultiProviderLLM.test_ada_preserves_retrieved_evidence_through_fallback _
+tests\test_llm_provider.py:204: in test_ada_preserves_retrieved_evidence_through_fallback
+    self.assertEqual(res["status"], "SUCCESS")
+E   AssertionError: 'ABSTAIN' != 'SUCCESS'
+E   - ABSTAIN
+E   + SUCCESS
+_ TestP1BConfiguracionE2E.test_06_end_to_end_citation_traceability_physical_pages _
+tests\test_p1_b_configuracion_e2e.py:125: in test_06_end_to_end_citation_traceability_physical_pages
+    self.assertTrue(len(citations) > 0, "Debe retornar citas enriquecidas.")
+E   AssertionError: False is not true : Debe retornar citas enriquecidas.
+---------------------------- Captured stdout call -----------------------------
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: '┐Cußles son las medidas oficiales del ßrea de combate y el ßrea de seguridad del tatami?'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P096-S114', 'SOR-2026-08-P095-S112', 'SOR-2026-08-P097-S116', 'SOR-2026-08-P195-S202']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+___ TestP1BConfiguracionE2E.test_09_two_tier_response_presentation_contract ___
+tests\test_p1_b_configuracion_e2e.py:183: in test_09_two_tier_response_presentation_contract
+    self.assertTrue(len(normative_basis) > 0, "El Nivel 2 normative_basis debe contener artÝculos y citas.")
+E   AssertionError: False is not true : El Nivel 2 normative_basis debe contener artÝculos y citas.
+---------------------------- Captured stdout call -----------------------------
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: '┐Cußles son las medidas oficiales del ßrea de combate y el ßrea de seguridad del tatami?'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P096-S114', 'SOR-2026-08-P095-S112', 'SOR-2026-08-P097-S116', 'SOR-2026-08-P195-S202']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+_____ TestP1BConfiguracionE2E.test_10_canonical_k5_default_configuration ______
+tests\test_p1_b_configuracion_e2e.py:205: in test_10_canonical_k5_default_configuration
+    self.assertEqual(sig_ada.parameters["top_k"].default, 5, "ADA.analyze_situation debe tener top_k=5 por defecto.")
+E   KeyError: 'top_k'
+_ TestResponseStructurerTransversal.test_06_ada_analyze_situation_two_tier_contract _
+tests\test_response_structurer.py:139: in test_06_ada_analyze_situation_two_tier_contract
+    self.assertEqual(res["status"], "SUCCESS")
+E   AssertionError: 'ABSTAIN' != 'SUCCESS'
+E   - ABSTAIN
+E   + SUCCESS
+____ TestRREAndADAArchitecture.test_04_ada_arbitration_situation_analysis _____
+tests\test_rre_ada_architecture.py:92: in test_04_ada_arbitration_situation_analysis
+    self.assertEqual(res["status"], "SUCCESS")
+E   AssertionError: 'ABSTAIN' != 'SUCCESS'
+E   - ABSTAIN
+E   + SUCCESS
+_ TestRREAndADAArchitecture.test_07_llm_output_accepts_citation_from_retrieved_evidence _
+tests\test_rre_ada_architecture.py:139: in test_07_llm_output_accepts_citation_from_retrieved_evidence
+    self.assertEqual(result["status"], "SUCCESS")
+E   AssertionError: 'ABSTAIN' != 'SUCCESS'
+E   - ABSTAIN
+E   + SUCCESS
+_____ TestRREAndADAArchitecture.test_09_rag_engine_separation_for_2026_08 _____
+tests\test_rre_ada_architecture.py:177: in test_09_rag_engine_separation_for_2026_08
+    self.assertIn("SOR-2026-08", query_res["answer"])
+E   AssertionError: 'SOR-2026-08' not found in '\u26a0\ufe0f **Abstenci\xf3n Normativa Oficial (14 August 2026 (Official))**\\n\\nLa respuesta generada cita pasajes SOR certificados, pero no super\xf3 el control de integridad decisoria (DIG-05_PERTINENCIA_MINIMA). Una cita v\xe1lida no demuestra que la evidencia respalde la respuesta.\\n\\n*Los pasajes certificados recuperados se conservan solo como referencia de consulta; no constituyen dictamen.*'
+---------------------------- Captured stdout call -----------------------------
+[LOG] [RAG Engine] Activando Corpus Oficial ┌nico Vigente: 14 August 2026 (Official)
+[LOG] [KnowledgeGraph] Cargados 385 nodos y 68 aristas de agosto 2026.
+[LOG] [RAG Engine] Grafo oficial cargado para inspecci¾n UI (385 nodos).
+[LOG] [RAG Engine] Recuperaci¾n activa delegada Ýntegramente a RRE (HÝbrido Denso 384d + Sparse + RRF).
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: '┐Cußles son las dimensiones del tatami?'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P096-S114', 'SOR-2026-08-P095-S112', 'SOR-2026-08-P154-S182', 'SOR-2026-08-P097-S116', 'SOR-2026-08-P030-S029', 'SOR-2026-08-P195-S202', 'SOR-2026-08-P196-S205']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: '┐Cußles son las dimensiones del tatami?'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P096-S114', 'SOR-2026-08-P095-S112', 'SOR-2026-08-P154-S182', 'SOR-2026-08-P097-S116', 'SOR-2026-08-P030-S029', 'SOR-2026-08-P195-S202', 'SOR-2026-08-P196-S205']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+=========================== short test summary info ===========================
+FAILED tests/test_audit_critical_cases.py::test_critical_query_with_generator_cites_only_delivered_primary[Q09-En cadetes si un competidor se desmaya por estrangulacion puede continuar en la repesca]
+FAILED tests/test_evaluation_battery.py::test_generator_citation_integrity[D01]
+FAILED tests/test_evaluation_battery.py::test_generator_citation_integrity[D03]
+FAILED tests/test_evaluation_battery.py::test_generator_citation_integrity[D04]
+FAILED tests/test_evaluation_battery.py::test_generator_success_is_backed_by_pertinent_evidence[D01]
+FAILED tests/test_evaluation_battery.py::test_generator_success_is_backed_by_pertinent_evidence[D03]
+FAILED tests/test_evaluation_battery.py::test_generator_success_is_backed_by_pertinent_evidence[D04]
+FAILED tests/test_golden_dataset.py::TestGoldenDataset::test_golden_dataset_retrieval
+FAILED tests/test_head_actions_rules.py::TestHeadActionsRules::test_04_senior_junior_head_defence_no_automatic_cadet_shido
+FAILED tests/test_llm_provider.py::TestMultiProviderLLM::test_ada_deterministic_offline_mode_does_not_hallucinate
+FAILED tests/test_llm_provider.py::TestMultiProviderLLM::test_ada_preserves_retrieved_evidence_through_fallback
+FAILED tests/test_p1_b_configuracion_e2e.py::TestP1BConfiguracionE2E::test_06_end_to_end_citation_traceability_physical_pages
+FAILED tests/test_p1_b_configuracion_e2e.py::TestP1BConfiguracionE2E::test_09_two_tier_response_presentation_contract
+FAILED tests/test_p1_b_configuracion_e2e.py::TestP1BConfiguracionE2E::test_10_canonical_k5_default_configuration
+FAILED tests/test_response_structurer.py::TestResponseStructurerTransversal::test_06_ada_analyze_situation_two_tier_contract
+FAILED tests/test_rre_ada_architecture.py::TestRREAndADAArchitecture::test_04_ada_arbitration_situation_analysis
+FAILED tests/test_rre_ada_architecture.py::TestRREAndADAArchitecture::test_07_llm_output_accepts_citation_from_retrieved_evidence
+FAILED tests/test_rre_ada_architecture.py::TestRREAndADAArchitecture::test_09_rag_engine_separation_for_2026_08
+18 failed, 428 passed, 1 skipped in 52.80s

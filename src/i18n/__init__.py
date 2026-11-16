@@ -340,6 +340,11 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "usage_reset_success": "Metrics reset successfully.",
         "usage_response_badge": "📊 Tokens: {tokens} (Input: {prompt} | Output: {completion}) • Running Avg: {avg} tokens/query",
         "audit_tokens_title": "Token Usage & Running Avg",
+        "header_queries_badge": "📊 Processed Queries: {total} ({llm} AI • {local} Local)",
+        "admin_usage_management_title": "⚙️ Usage Statistics Management",
+        "admin_reset_metrics_warning": "⚠️ Danger Zone: This action will permanently reset the query counter and all token usage history to zero.",
+        "admin_reset_metrics_btn": "🗑️ Reset Usage Statistics to Zero",
+        "admin_reset_metrics_confirm": "Usage statistics have been successfully reset to zero.",
     },
     "es": {
         # App metadata & headers
@@ -664,6 +669,11 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "usage_reset_success": "Contadores de métricas reiniciados exitosamente.",
         "usage_response_badge": "📊 Consumo: {tokens} tokens (Entrada: {prompt} | Salida: {completion}) • Promedio acumulado: {avg} tokens/consulta",
         "audit_tokens_title": "Consumo de Tokens y Promedio",
+        "header_queries_badge": "📊 Consultas Atendidas: {total} ({llm} IA • {local} Local)",
+        "admin_usage_management_title": "⚙️ Gestión de Estadísticas de Uso",
+        "admin_reset_metrics_warning": "⚠️ Zona de Peligro: Esta acción reiniciará permanentemente a cero el contador de consultas y todo el historial de consumo de tokens.",
+        "admin_reset_metrics_btn": "🗑️ Reiniciar Estadísticas a Cero",
+        "admin_reset_metrics_confirm": "Las estadísticas de uso han sido reiniciadas a cero exitosamente.",
     }
 }
 

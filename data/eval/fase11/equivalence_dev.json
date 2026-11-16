@@ -1,0 +1,175 @@
+{
+  "dev_anchors": 56,
+  "dev_anchors_with_identical_duplicates": 30,
+  "fase10_baseline_dev_strict": {
+    "n": 31,
+    "R@5": 0.565,
+    "MRR": 0.403,
+    "bundle_complete": 0.548,
+    "bundle_precision": 0.108,
+    "R@5_by_language": {
+      "en": 0.706,
+      "es": 0.458,
+      "fr": 0.0,
+      "pt": 0.0
+    },
+    "distractor_delivered_without_evidence": 4
+  },
+  "fase10_baseline_dev_equivalent": {
+    "n": 31,
+    "R@5": 0.774,
+    "MRR": 0.527,
+    "bundle_complete": 0.774,
+    "bundle_precision": 0.155,
+    "R@5_by_language": {
+      "en": 0.824,
+      "es": 0.75,
+      "fr": 1.0,
+      "pt": 0.0
+    },
+    "distractor_delivered_without_evidence": 2
+  },
+  "diag_DICT_strict": {
+    "r0": {
+      "R@5": 0.565,
+      "MRR": 0.403,
+      "hit@10": 0.613,
+      "by_language": {
+        "en": 0.706,
+        "es": 0.458,
+        "fr": 0.0,
+        "pt": 0.0
+      }
+    },
+    "r1": {
+      "R@5": 0.629,
+      "MRR": 0.438,
+      "hit@10": 0.677,
+      "by_language": {
+        "en": 0.706,
+        "es": 0.625,
+        "fr": 0.0,
+        "pt": 0.0
+      }
+    },
+    "r1_gains": [
+      "B2-EXC-005",
+      "B2-SCO-022",
+      "B2-SCO-025",
+      "B2-SCO-026"
+    ],
+    "r1_losses": [
+      "B2-EXC-009",
+      "B2-REF-005"
+    ]
+  },
+  "diag_DICT_equivalent": {
+    "r0": {
+      "R@5": 0.774,
+      "MRR": 0.527,
+      "hit@10": 0.806,
+      "by_language": {
+        "en": 0.824,
+        "es": 0.75,
+        "fr": 1.0,
+        "pt": 0.0
+      }
+    },
+    "r1": {
+      "R@5": 0.677,
+      "MRR": 0.533,
+      "hit@10": 0.71,
+      "by_language": {
+        "en": 0.706,
+        "es": 0.667,
+        "fr": 1.0,
+        "pt": 0.0
+      }
+    },
+    "r1_gains": [],
+    "r1_losses": [
+      "B2-CAT-003",
+      "B2-EXC-009",
+      "B2-REF-005"
+    ]
+  },
+  "diag_LLM_strict": {
+    "r0": {
+      "R@5": 0.565,
+      "MRR": 0.413,
+      "hit@10": 0.645,
+      "by_language": {
+        "en": 0.706,
+        "es": 0.375,
+        "fr": 1.0,
+        "pt": 0.0
+      }
+    },
+    "r1": {
+      "R@5": 0.629,
+      "MRR": 0.454,
+      "hit@10": 0.774,
+      "by_language": {
+        "en": 0.706,
+        "es": 0.542,
+        "fr": 1.0,
+        "pt": 0.0
+      }
+    },
+    "r1_gains": [
+      "B2-CAT-001",
+      "B2-EXC-005",
+      "B2-SCO-010",
+      "B2-SCO-025",
+      "B2-SCO-026"
+    ],
+    "r1_losses": [
+      "B2-EXC-009",
+      "B2-REF-005",
+      "B2-SCO-024"
+    ]
+  },
+  "diag_LLM_equivalent": {
+    "r0": {
+      "R@5": 0.774,
+      "MRR": 0.573,
+      "hit@10": 0.871,
+      "by_language": {
+        "en": 0.824,
+        "es": 0.75,
+        "fr": 1.0,
+        "pt": 0.0
+      }
+    },
+    "r1": {
+      "R@5": 0.661,
+      "MRR": 0.567,
+      "hit@10": 0.774,
+      "by_language": {
+        "en": 0.706,
+        "es": 0.625,
+        "fr": 1.0,
+        "pt": 0.0
+      }
+    },
+    "r1_gains": [],
+    "r1_losses": [
+      "B2-EXC-009",
+      "B2-MUL-004",
+      "B2-REF-005",
+      "B2-SCO-024"
+    ]
+  },
+  "llm_bundle_complete::llm_shadow_dev_rescored.json": {
+    "equivalent_incompleto": 14,
+    "equivalent_completo": 48,
+    "strict_incompleto": 24,
+    "strict_completo": 38
+  },
+  "llm_bundle_complete::llm_dev_f11.json": {
+    "equivalent_incompleto": 14,
+    "equivalent_completo": 48,
+    "strict_incompleto": 27,
+    "strict_completo": 35
+  }
+}

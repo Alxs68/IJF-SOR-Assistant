@@ -1,0 +1,109 @@
+﻿python : C:\Users\User\AppData\Roaming\Python\Python312\site-packages\pytest_asyncio\plugin.py:208: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+En línea: 4 Carácter: 1
++ python -m pytest tests -p diag_record_dig -p no:cacheprovider -q -rf  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\User\A...cope" is unset.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", 
+"package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+.........s.............................................................. [ 15%]
+........................................................................ [ 31%]
+.................................................F...................... [ 47%]
+........................................................................ [ 63%]
+........................................................................ [ 79%]
+........................................................................ [ 95%]
+......................                                                   [100%]
+================================== FAILURES ===================================
+_______________ TestGoldenDataset.test_golden_dataset_retrieval _______________
+tests\test_golden_dataset.py:100: in test_golden_dataset_retrieval
+    self.assertTrue(success_rate >= 80.0, f"Tasa de Úxito {success_rate:.2f}% es inferior al 80% requerido.")
+E   AssertionError: False is not true : Tasa de Úxito 75.00% es inferior al 80% requerido.
+---------------------------- Captured stdout setup ----------------------------
+[LOG] [RAG Engine] Activando Corpus Oficial ┌nico Vigente: 14 August 2026 (Official)
+[LOG] [KnowledgeGraph] Cargados 385 nodos y 68 aristas de agosto 2026.
+[LOG] [RAG Engine] Grafo oficial cargado para inspecci¾n UI (385 nodos).
+[LOG] [RAG Engine] Recuperaci¾n activa delegada Ýntegramente a RRE (HÝbrido Denso 384d + Sparse + RRF).
+---------------------------- Captured stdout call -----------------------------
+
+=== EJECUTANDO VALIDACIËN DE DATASET DE ORO (GOLDEN DATASET) ===
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Defensa de cabeza hansoku-make'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P190-S197', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P167-S187', 'SOR-2026-08-P176-S192', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P188-S196']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 01: Query='Defensa de cabeza hansoku-make' -> Expected='SOR-2026-08-P190-S198' -> Got=['SOR-2026-08-P190-S197', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P167-S187', 'SOR-2026-08-P176-S192', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P188-S196'] -> Success=False
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Defensa de cabeza en categorÝa cadete penalizada con shido'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P188-S196', 'SOR-2026-08-P189-S196', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P196-S205']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 02: Query='Defensa de cabeza en categorÝa cadete penalizada con shido' -> Expected='SOR-2026-08-P188-S196' -> Got=['SOR-2026-08-P188-S196', 'SOR-2026-08-P189-S196', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P196-S205'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Video de defensa de cabeza durante seoi-nage'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P189-S196', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P167-S187', 'SOR-2026-08-P196-S205', 'SOR-2026-08-P163-S186']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 03: Query='Video de defensa de cabeza durante seoi-nage' -> Expected='SOR-2026-08-P189-S196' -> Got=['SOR-2026-08-P189-S196', 'SOR-2026-08-P166-S187', 'SOR-2026-08-P167-S187', 'SOR-2026-08-P196-S205', 'SOR-2026-08-P163-S186'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Dimensiones oficiales del tatami y ßrea de seguridad'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P096-S114', 'SOR-2026-08-P095-S112', 'SOR-2026-08-P030-S029', 'SOR-2026-08-P195-S202']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 04: Query='Dimensiones oficiales del tatami y ßrea de seguridad' -> Expected='SOR-2026-08-P096-S114' -> Got=['SOR-2026-08-P096-S114', 'SOR-2026-08-P095-S112', 'SOR-2026-08-P030-S029', 'SOR-2026-08-P195-S202'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Tolerancia de peso en sorteo de pesaje aleatorio matutino'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P079-S096', 'SOR-2026-08-P082-S100', 'SOR-2026-08-P086-S102']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 05: Query='Tolerancia de peso en sorteo de pesaje aleatorio matutino' -> Expected='SOR-2026-08-P077-S090' -> Got=['SOR-2026-08-P079-S096', 'SOR-2026-08-P082-S100', 'SOR-2026-08-P086-S102'] -> Success=False
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Duraci¾n del combate en categorÝas senior y cadet'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P188-S196', 'SOR-2026-08-P103-S126', 'SOR-2026-08-P152-S179', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P152-S180', 'SOR-2026-08-P137-S176']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 06: Query='Duraci¾n del combate en categorÝas senior y cadet' -> Expected='SOR-2026-08-P152-S179' -> Got=['SOR-2026-08-P188-S196', 'SOR-2026-08-P103-S126', 'SOR-2026-08-P152-S179', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P152-S180', 'SOR-2026-08-P137-S176'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Medidas del judogi con el calibrador Sokuteiki'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P124-S165', 'SOR-2026-08-P117-S156', 'SOR-2026-08-P128-S168']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 07: Query='Medidas del judogi con el calibrador Sokuteiki' -> Expected='SOR-2026-08-P124-S165' -> Got=['SOR-2026-08-P124-S165', 'SOR-2026-08-P117-S156', 'SOR-2026-08-P128-S168'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Agarre Ushiro-sangaku con riesgo cervical en suelo'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P190-S197', 'SOR-2026-08-P180-S194', 'SOR-2026-08-P182-S194', 'SOR-2026-08-P176-S192', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P188-S196']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 08: Query='Agarre Ushiro-sangaku con riesgo cervical en suelo' -> Expected='SOR-2026-08-P180-S194' -> Got=['SOR-2026-08-P190-S197', 'SOR-2026-08-P180-S194', 'SOR-2026-08-P182-S194', 'SOR-2026-08-P176-S192', 'SOR-2026-08-P175-S191', 'SOR-2026-08-P188-S196'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'LÝmite mßximo de intervenciones mÚdicas por combate'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P198-S208', 'SOR-2026-08-P196-S205', 'SOR-2026-08-P201-S215']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 09: Query='LÝmite mßximo de intervenciones mÚdicas por combate' -> Expected='SOR-2026-08-P196-S206' -> Got=['SOR-2026-08-P198-S208', 'SOR-2026-08-P196-S205', 'SOR-2026-08-P201-S215'] -> Success=False
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Proyecci¾n de seoi-nage inverso permitida en seniors'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P189-S196', 'SOR-2026-08-P151-S178', 'SOR-2026-08-P109-S137', 'SOR-2026-08-P196-S205']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 10: Query='Proyecci¾n de seoi-nage inverso permitida en seniors' -> Expected='SOR-2026-08-P189-S196' -> Got=['SOR-2026-08-P189-S196', 'SOR-2026-08-P151-S178', 'SOR-2026-08-P109-S137', 'SOR-2026-08-P196-S205'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Incorporaci¾n de uniformes inteligentes Smart Judogi NFC'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P118-S157', 'SOR-2026-08-P115-S149', 'SOR-2026-08-P117-S156']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 11: Query='Incorporaci¾n de uniformes inteligentes Smart Judogi NFC' -> Expected='SOR-2026-08-P115-S149' -> Got=['SOR-2026-08-P118-S157', 'SOR-2026-08-P115-S149', 'SOR-2026-08-P117-S156'] -> Success=True
+
+[LOG] [RAG Flow] --- INICIO DE CONSULTA ---
+[LOG] [RAG Flow] Consulta recibida: 'Uso de Inteligencia Artificial para arbitraje por la IJF'
+[LOG] [ADA/RRE Flow] Estado: ABSTAIN | Evidencias RRE: ['SOR-2026-08-P132-S172', 'SOR-2026-08-P200-S212', 'SOR-2026-08-P137-S176', 'SOR-2026-08-P137-S177']
+[LOG] [RAG Flow] --- FIN DE CONSULTA (ADA/RRE) ---
+Test 12: Query='Uso de Inteligencia Artificial para arbitraje por la IJF' -> Expected='SOR-2026-08-P132-S172' -> Got=['SOR-2026-08-P132-S172', 'SOR-2026-08-P200-S212', 'SOR-2026-08-P137-S176', 'SOR-2026-08-P137-S177'] -> Success=True
+
+Tasa de ╔xito del Buscador HÝbrido: 75.00% (9/12)
+Reporte de validaci¾n generado en: C:\PROYECTOS\IJF-SOR-Assistant\scratch\golden_validation_report.md
+=========================== short test summary info ===========================
+FAILED tests/test_golden_dataset.py::TestGoldenDataset::test_golden_dataset_retrieval
+1 failed, 452 passed, 1 skipped in 53.71s

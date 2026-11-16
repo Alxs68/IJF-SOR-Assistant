@@ -1,0 +1,47 @@
+﻿python : C:\Users\User\AppData\Roaming\Python\Python312\site-packages\pytest_asyncio\plugin.py:208: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+En línea: 6 Carácter: 1
++ python -m pytest tests -p diag_record_dig -p no:cacheprovider -q -rf  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\User\A...cope" is unset.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", 
+"package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+FFFFFF.FFs.............................................................. [ 16%]
+........................................................................ [ 32%]
+..........................................F............................. [ 48%]
+........F............................................................... [ 64%]
+.........................................................F..FF.......... [ 80%]
+........................................................................ [ 96%]
+...............                                                          [100%]
+================================== FAILURES ===================================
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_adversarial_integrity_ada.py:54: AssertionError: assert 'SUCCESS' == 'ABSTAIN'
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_adversarial_integrity_ada.py:54: AssertionError: assert 'SUCCESS' == 'ABSTAIN'
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_adversarial_integrity_ada.py:54: AssertionError: assert 'SUCCESS' == 'ABSTAIN'
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_adversarial_integrity_ada.py:63: AssertionError: assert 'SUCCESS' == 'ABSTAIN'
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_adversarial_integrity_ada.py:63: AssertionError: assert 'SUCCESS' == 'ABSTAIN'
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_adversarial_integrity_ada.py:63: AssertionError: assert 'SUCCESS' == 'ABSTAIN'
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_adversarial_integrity_ada.py:89: AssertionError: assert ('SUCCESS' == 'ABSTAIN'
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_adversarial_integrity_ada.py:113: AssertionError: assert 'SUCCESS' == 'ABSTAIN'
+C:\Program Files\Python312\Lib\unittest\case.py:727: AssertionError: False is not true : Tasa de Úxito 75.00% es inferior al 80% requerido.
+C:\Program Files\Python312\Lib\unittest\case.py:715: AssertionError: 'ABSTAIN' != 'SUCCESS'
+C:\Program Files\Python312\Lib\unittest\case.py:727: AssertionError: False is not true : Debe retornar citas enriquecidas.
+C:\Program Files\Python312\Lib\unittest\case.py:727: AssertionError: False is not true : El Nivel 2 normative_basis debe contener artÝculos y citas.
+C:\PROYECTOS\IJF-SOR-Assistant\tests\test_p1_b_configuracion_e2e.py:205: KeyError: 'top_k'
+=========================== short test summary info ===========================
+FAILED tests/test_adversarial_integrity_ada.py::test_citing_any_delivered_sor_passage_no_longer_succeeds[\xbfCu\xe1l es el plazo de prescripci\xf3n de las infracciones disciplinarias en la IJF?]
+FAILED tests/test_adversarial_integrity_ada.py::test_citing_any_delivered_sor_passage_no_longer_succeeds[What is the exact fine amount for match fixing?]
+FAILED tests/test_adversarial_integrity_ada.py::test_citing_any_delivered_sor_passage_no_longer_succeeds[What daily fee is paid to referees at a Grand Prix?]
+FAILED tests/test_adversarial_integrity_ada.py::test_fabricated_figure_with_literal_quote_abstains[\xbfCu\xe1l es el plazo de prescripci\xf3n de las infracciones disciplinarias en la IJF?]
+FAILED tests/test_adversarial_integrity_ada.py::test_fabricated_figure_with_literal_quote_abstains[What is the exact fine amount for match fixing?]
+FAILED tests/test_adversarial_integrity_ada.py::test_fabricated_figure_with_literal_quote_abstains[What daily fee is paid to referees at a Grand Prix?]
+FAILED tests/test_adversarial_integrity_ada.py::test_quote_taken_from_shadow_block_abstains
+FAILED tests/test_adversarial_integrity_ada.py::test_shadow_figures_in_answer_abstain
+FAILED tests/test_golden_dataset.py::TestGoldenDataset::test_golden_dataset_retrieval
+FAILED tests/test_llm_provider.py::TestMultiProviderLLM::test_ada_deterministic_offline_mode_does_not_hallucinate
+FAILED tests/test_p1_b_configuracion_e2e.py::TestP1BConfiguracionE2E::test_06_end_to_end_citation_traceability_physical_pages
+FAILED tests/test_p1_b_configuracion_e2e.py::TestP1BConfiguracionE2E::test_09_two_tier_response_presentation_contract
+FAILED tests/test_p1_b_configuracion_e2e.py::TestP1BConfiguracionE2E::test_10_canonical_k5_default_configuration
+13 failed, 433 passed, 1 skipped in 46.95s

@@ -1,0 +1,49 @@
+{
+  "benchmark_v2_sha256": "01759b58124fd874c2af660e9fe945c1827b35882890dbbba6b052e0295d4d44",
+  "build_errors": [],
+  "corpus_file_sha256": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b",
+  "counts": {
+    "by_label": {
+      "NOT_SUPPORTED": 110,
+      "SUPPORTED": 59
+    },
+    "by_language": {
+      "en": 82,
+      "es": 73,
+      "fr": 7,
+      "pt": 7
+    },
+    "by_split": {
+      "dev": 65,
+      "test_sealed": 104
+    },
+    "by_type": {
+      "NUMBER": 27,
+      "SCOPE_CLAIM": 42,
+      "SCOPE_PREMISE": 41,
+      "SUPPORT": 59
+    },
+    "items": 59,
+    "pairs": 169
+  },
+  "excluded_pairs": [
+    "B2-CAT-001: ventana del distractor p124 solapa la evidencia correcta",
+    "B2-CAT-002: ventana del distractor p119 solapa la evidencia correcta",
+    "B2-CAT-004: ventana del distractor p109 solapa la evidencia correcta",
+    "B2-CAT-007: ventana del distractor p55 solapa la evidencia correcta",
+    "B2-SCO-001: ventana del distractor p103 solapa la evidencia correcta",
+    "B2-SCO-009: ventana del distractor p79 solapa la evidencia correcta",
+    "B2-SCO-013: ventana del distractor p112 solapa la evidencia correcta",
+    "B2-SCO-014: ventana del distractor p112 solapa la evidencia correcta",
+    "B2-SCO-018: ventana del distractor p135 solapa la evidencia correcta",
+    "B2-SCO-019: ventana del distractor p75 solapa la evidencia correcta",
+    "B2-SCO-020: ventana del distractor p75 solapa la evidencia correcta",
+    "B2-SCO-027: ventana del distractor p105 solapa la evidencia correcta"
+  ],
+  "note": "afirmaciones de evaluacion PENDING_EXPERT_REVIEW; etiquetas binarias SUPPORTED/NOT_SUPPORTED; los pares de test_sealed no deben usarse para elegir umbral ni modelo",
+  "version": "nli_shadow_pairs_v1.0.0",
+  "window_chars": [
+    350,
+    200
+  ]
+}

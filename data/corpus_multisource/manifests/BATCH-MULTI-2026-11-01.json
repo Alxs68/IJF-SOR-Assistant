@@ -1,0 +1,35 @@
+{
+  "batch_id": "BATCH-MULTI-2026-11-01",
+  "created_at": "2026-11-06T00:03:53.688552+00:00",
+  "approved_by": "Alexis",
+  "curatorship_log": "docs/registro_documental_multifuente_ijf.csv",
+  "documents_ingested": [
+    {
+      "document_id": "KUN-PPT-002",
+      "staging_path": "C:\\PROYECTOS\\IJF-SOR-Assistant\\data\\corpus_multisource\\staging\\KUN-PPT-002_staged.md",
+      "staging_sha256": "05cce344311a93cd07d102bd4ea6e25c5ee60bac80aef61231f2a9f2c55d9427",
+      "chunks_count": 2,
+      "authority": "TIER_3_REFEREEING_INTERPRETATION",
+      "validity": "VIGENTE"
+    },
+    {
+      "document_id": "KUN-NEW-001",
+      "staging_path": "C:\\PROYECTOS\\IJF-SOR-Assistant\\data\\corpus_multisource\\staging\\KUN-NEW-001_staged.md",
+      "staging_sha256": "50a8fcb43b875884e6d7f53d66062c56f7a272fe720c7a9115ec1b97399d258a",
+      "chunks_count": 3,
+      "authority": "TIER_2_OFFICIAL_AMENDMENT",
+      "validity": "VIGENTE"
+    },
+    {
+      "document_id": "KUN-NEW-003",
+      "staging_path": "C:\\PROYECTOS\\IJF-SOR-Assistant\\data\\corpus_multisource\\staging\\KUN-NEW-003_staged.md",
+      "staging_sha256": "6b561b878aae7c608d808aa2ded24efd868e271e0a5cff35d4970e344973d2be",
+      "chunks_count": 3,
+      "authority": "TIER_2_OFFICIAL_AMENDMENT",
+      "validity": "VIGENTE"
+    }
+  ],
+  "total_chunks": 8,
+  "sidecar_passages_sha256": "a49337a20fbf95eb17788fb9ce73571a12abd8c716f5cb0ef91b459296a280bf",
+  "primary_sor_corpus_sha256": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b"
+}

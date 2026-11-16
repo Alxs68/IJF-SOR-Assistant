@@ -1,0 +1,1283 @@
+{
+  "benchmark": "benchmark_shadow_v1",
+  "mode": "completo",
+  "sidecar_eligible_chunks": 18,
+  "sidecar_summary": {
+    "n": 24,
+    "aux_hit@3": 0.929,
+    "aux_mrr@3": 0.857,
+    "aux_hit@3_by_class": {
+      "PRIMARIA_CON_AUXILIAR": 0.875,
+      "SOLO_AUXILIAR_SIN_PRIMARIA": 1
+    },
+    "aux_hit@3_by_language": {
+      "es": 0.857,
+      "en": 1
+    },
+    "forbidden_retrieved_rate": 0.833,
+    "sin_evidencia_false_positive": [
+      "SH-021",
+      "SH-023"
+    ],
+    "aux_misses": [
+      "SH-008"
+    ],
+    "latency_ms_mean": 0.14,
+    "combined_benchmark_v1_sidecar_noise": {
+      "AMBIGUA": "3/15",
+      "EXCEPCION_CONDICION_REFERENCIA": "9/30",
+      "FUERA_DE_DOMINIO": "1/15",
+      "ORDINARIA_EN": "8/30",
+      "ORDINARIA_ES": "11/60"
+    },
+    "combined_noise_ids": {
+      "B1-AMB-002": [
+        "CHK-KUN-QSY-001-004"
+      ],
+      "B1-AMB-006": [
+        "CHK-KUN-ETH-001-001",
+        "CHK-KUN-PPT-002-001"
+      ],
+      "B1-AMB-011": [
+        "CHK-KUN-PPT-002-001"
+      ],
+      "B1-EN-001": [
+        "CHK-KUN-DIS-001-002"
+      ],
+      "B1-EN-002": [
+        "CHK-KUN-QSY-001-003",
+        "CHK-KUN-QSY-001-001"
+      ],
+      "B1-EN-004": [
+        "CHK-KUN-QSY-001-003",
+        "CHK-KUN-QSY-001-001",
+        "CHK-KUN-QSY-001-004"
+      ],
+      "B1-EN-005": [
+        "CHK-KUN-NEW-001-001"
+      ],
+      "B1-EN-006": [
+        "CHK-KUN-ETH-001-003",
+        "CHK-KUN-QSY-001-004"
+      ],
+      "B1-EN-011": [
+        "CHK-KUN-NEW-003-001"
+      ],
+      "B1-EN-012": [
+        "CHK-KUN-PPT-002-002"
+      ],
+      "B1-EN-017": [
+        "CHK-KUN-DIS-001-002"
+      ],
+      "B1-ES-001": [
+        "CHK-KUN-QSY-001-002",
+        "CHK-KUN-DIS-001-002",
+        "CHK-KUN-DIS-001-001"
+      ],
+      "B1-ES-002": [
+        "CHK-KUN-NEW-001-001"
+      ],
+      "B1-ES-003": [
+        "CHK-KUN-ETH-001-002"
+      ],
+      "B1-ES-018": [
+        "CHK-KUN-QSY-001-003"
+      ],
+      "B1-ES-023": [
+        "CHK-KUN-QSY-001-002"
+      ],
+      "B1-ES-028": [
+        "CHK-KUN-NEW-001-001"
+      ],
+      "B1-ES-030": [
+        "CHK-KUN-QSY-001-004"
+      ],
+      "B1-ES-034": [
+        "CHK-KUN-ETH-001-002"
+      ],
+      "B1-ES-039": [
+        "CHK-KUN-QSY-001-001"
+      ],
+      "B1-ES-041": [
+        "CHK-KUN-ETH-001-002"
+      ],
+      "B1-ES-057": [
+        "CHK-KUN-PPT-002-002"
+      ],
+      "B1-EX-003": [
+        "CHK-KUN-PPT-002-001"
+      ],
+      "B1-EX-005": [
+        "CHK-KUN-PPT-002-001"
+      ],
+      "B1-EX-008": [
+        "CHK-KUN-QSY-001-003",
+        "CHK-KUN-QSY-001-001",
+        "CHK-KUN-QSY-001-004"
+      ],
+      "B1-EX-009": [
+        "CHK-KUN-QSY-001-003"
+      ],
+      "B1-EX-012": [
+        "CHK-KUN-PPT-002-001"
+      ],
+      "B1-EX-017": [
+        "CHK-KUN-PPT-002-001"
+      ],
+      "B1-EX-018": [
+        "CHK-KUN-PPT-002-002"
+      ],
+      "B1-EX-026": [
+        "CHK-KUN-NEW-001-002"
+      ],
+      "B1-EX-028": [
+        "CHK-KUN-QSY-001-003"
+      ],
+      "B1-OOD-014": [
+        "CHK-KUN-QSY-001-002",
+        "CHK-KUN-QSY-001-004"
+      ]
+    }
+  },
+  "sidecar_per_query": [
+    {
+      "id": "SH-001",
+      "language": "es",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "matches": [
+        "CHK-KUN-DIS-001-001",
+        "CHK-KUN-DIS-001-002"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 0.5,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.25
+    },
+    {
+      "id": "SH-002",
+      "language": "en",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "matches": [
+        "CHK-KUN-ETH-001-002"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.14
+    },
+    {
+      "id": "SH-003",
+      "language": "es",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "matches": [
+        "CHK-KUN-ETH-001-003"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.14
+    },
+    {
+      "id": "SH-004",
+      "language": "en",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "matches": [
+        "CHK-KUN-ETH-001-001",
+        "CHK-KUN-DIS-001-002",
+        "CHK-KUN-DIS-001-001"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.15
+    },
+    {
+      "id": "SH-005",
+      "language": "es",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "matches": [
+        "CHK-KUN-NEW-003-001"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.14
+    },
+    {
+      "id": "SH-006",
+      "language": "en",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "matches": [
+        "CHK-KUN-NEW-003-001"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.12
+    },
+    {
+      "id": "SH-007",
+      "language": "en",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "matches": [
+        "CHK-KUN-PPT-002-001",
+        "CHK-KUN-NEW-003-002"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.13
+    },
+    {
+      "id": "SH-008",
+      "language": "es",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "matches": [],
+      "aux_hit@3": false,
+      "aux_rr": 0.0,
+      "forbidden_retrieved": null,
+      "any_match": false,
+      "latency_ms": 0.13
+    },
+    {
+      "id": "SH-009",
+      "language": "es",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "matches": [
+        "CHK-KUN-QSY-001-001"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.14
+    },
+    {
+      "id": "SH-010",
+      "language": "en",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "matches": [
+        "CHK-KUN-QSY-001-002",
+        "CHK-KUN-QSY-001-001",
+        "CHK-KUN-QSY-001-004"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.17
+    },
+    {
+      "id": "SH-011",
+      "language": "es",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "matches": [
+        "CHK-KUN-DIS-001-003",
+        "CHK-KUN-DIS-001-002"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.15
+    },
+    {
+      "id": "SH-012",
+      "language": "en",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "matches": [
+        "CHK-KUN-QSY-001-002",
+        "CHK-KUN-QSY-001-004",
+        "CHK-KUN-NEW-001-001"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 0.5,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.14
+    },
+    {
+      "id": "SH-013",
+      "language": "es",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "matches": [
+        "CHK-KUN-QSY-001-003"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.16
+    },
+    {
+      "id": "SH-014",
+      "language": "en",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "matches": [
+        "CHK-KUN-NEW-001-001",
+        "CHK-KUN-QSY-001-002",
+        "CHK-KUN-QSY-001-003"
+      ],
+      "aux_hit@3": true,
+      "aux_rr": 1.0,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.15
+    },
+    {
+      "id": "SH-015",
+      "language": "es",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "matches": [
+        "CHK-KUN-NEW-001-003"
+      ],
+      "aux_hit@3": null,
+      "aux_rr": null,
+      "forbidden_retrieved": true,
+      "any_match": true,
+      "latency_ms": 0.13
+    },
+    {
+      "id": "SH-016",
+      "language": "en",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "matches": [
+        "CHK-KUN-NEW-001-002"
+      ],
+      "aux_hit@3": null,
+      "aux_rr": null,
+      "forbidden_retrieved": true,
+      "any_match": true,
+      "latency_ms": 0.12
+    },
+    {
+      "id": "SH-017",
+      "language": "es",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "matches": [
+        "CHK-KUN-NEW-003-003"
+      ],
+      "aux_hit@3": null,
+      "aux_rr": null,
+      "forbidden_retrieved": true,
+      "any_match": true,
+      "latency_ms": 0.14
+    },
+    {
+      "id": "SH-018",
+      "language": "en",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "matches": [
+        "CHK-KUN-QSY-001-003",
+        "CHK-KUN-QSY-001-004",
+        "CHK-KUN-QSY-001-002"
+      ],
+      "aux_hit@3": null,
+      "aux_rr": null,
+      "forbidden_retrieved": true,
+      "any_match": true,
+      "latency_ms": 0.16
+    },
+    {
+      "id": "SH-019",
+      "language": "es",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "matches": [
+        "CHK-KUN-NEW-003-002"
+      ],
+      "aux_hit@3": null,
+      "aux_rr": null,
+      "forbidden_retrieved": true,
+      "any_match": true,
+      "latency_ms": 0.13
+    },
+    {
+      "id": "SH-020",
+      "language": "es",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "matches": [],
+      "aux_hit@3": null,
+      "aux_rr": null,
+      "forbidden_retrieved": false,
+      "any_match": false,
+      "latency_ms": 0.13
+    },
+    {
+      "id": "SH-021",
+      "language": "es",
+      "evidence_class": "SIN_EVIDENCIA_SUFICIENTE",
+      "matches": [
+        "CHK-KUN-QSY-001-001"
+      ],
+      "aux_hit@3": null,
+      "aux_rr": null,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.14
+    },
+    {
+      "id": "SH-022",
+      "language": "en",
+      "evidence_class": "SIN_EVIDENCIA_SUFICIENTE",
+      "matches": [],
+      "aux_hit@3": null,
+      "aux_rr": null,
+      "forbidden_retrieved": null,
+      "any_match": false,
+      "latency_ms": 0.12
+    },
+    {
+      "id": "SH-023",
+      "language": "es",
+      "evidence_class": "SIN_EVIDENCIA_SUFICIENTE",
+      "matches": [
+        "CHK-KUN-NEW-001-001"
+      ],
+      "aux_hit@3": null,
+      "aux_rr": null,
+      "forbidden_retrieved": null,
+      "any_match": true,
+      "latency_ms": 0.13
+    },
+    {
+      "id": "SH-024",
+      "language": "en",
+      "evidence_class": "SIN_EVIDENCIA_SUFICIENTE",
+      "matches": [],
+      "aux_hit@3": null,
+      "aux_rr": null,
+      "forbidden_retrieved": null,
+      "any_match": false,
+      "latency_ms": 0.12
+    }
+  ],
+  "full_summary": {
+    "authority_checks": {
+      "AUTH1_no_shadow_in_primary": "24/24",
+      "AUTH2_supplementary_non_decisive": "24/24",
+      "AUTH3_supplementary_not_tier1": "24/24",
+      "AUTH4_shadow_only_citation_rejected": "24/24",
+      "AUTH5_citations_only_sor": "24/24"
+    },
+    "authority_all_pass": true,
+    "primary_anchor_recall_bundle": 0.643,
+    "aux_recall_in_supplementary_context": 0.571,
+    "forbidden_in_supplementary_context": [
+      "SH-015",
+      "SH-016",
+      "SH-017",
+      "SH-018",
+      "SH-019",
+      "SH-020"
+    ],
+    "probeA_with_shadow_delivered": 15,
+    "probeA_effective_ids": [
+      "SH-001",
+      "SH-002",
+      "SH-003",
+      "SH-004",
+      "SH-006",
+      "SH-007",
+      "SH-008",
+      "SH-011",
+      "SH-015",
+      "SH-016",
+      "SH-017",
+      "SH-018",
+      "SH-019",
+      "SH-020",
+      "SH-023"
+    ],
+    "probeA_effective_rejected": "15/15",
+    "probeB_success_without_primary_basis": [],
+    "offline_status": {
+      "ABSTAIN": 24
+    }
+  },
+  "full_per_query": [
+    {
+      "id": "SH-001",
+      "language": "es",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P014-S006",
+        "SOR-2026-08-P015-S007",
+        "SOR-2026-08-P013-S002",
+        "SOR-2026-08-P030-S029",
+        "SOR-2026-08-P150-S177",
+        "SOR-2026-08-P195-S202",
+        "SOR-2026-08-P175-S191"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-DIS-001-001",
+        "CHK-KUN-DIS-001-002"
+      ],
+      "primary_anchor_recall": 1.0,
+      "aux_in_supplementary_context": true,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-DIS-001-001",
+        "CHK-KUN-DIS-001-002"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-002",
+      "language": "en",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P121-S161",
+        "SOR-2026-08-P014-S003",
+        "SOR-2026-08-P200-S212",
+        "SOR-2026-08-P016-S008",
+        "SOR-2026-08-P175-S191",
+        "SOR-2026-08-P160-S184"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-ETH-001-002"
+      ],
+      "primary_anchor_recall": 0.0,
+      "aux_in_supplementary_context": true,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-ETH-001-002"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-003",
+      "language": "es",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P013-S002",
+        "SOR-2026-08-P015-S007",
+        "SOR-2026-08-P026-S024",
+        "SOR-2026-08-P030-S029",
+        "SOR-2026-08-P114-S148",
+        "SOR-2026-08-P195-S202"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-ETH-001-003"
+      ],
+      "primary_anchor_recall": 0.0,
+      "aux_in_supplementary_context": true,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-ETH-001-003"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-004",
+      "language": "en",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P014-S003",
+        "SOR-2026-08-P137-S176",
+        "SOR-2026-08-P114-S148",
+        "SOR-2026-08-P134-S173",
+        "SOR-2026-08-P135-S174",
+        "SOR-2026-08-P137-S177"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-ETH-001-001",
+        "CHK-KUN-DIS-001-002",
+        "CHK-KUN-DIS-001-001"
+      ],
+      "primary_anchor_recall": 1.0,
+      "aux_in_supplementary_context": true,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-ETH-001-001",
+        "CHK-KUN-DIS-001-002"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-005",
+      "language": "es",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [],
+      "supplementary_ids": [],
+      "primary_anchor_recall": 0.0,
+      "aux_in_supplementary_context": false,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": false,
+      "probeA_cited_shadow_ids": [],
+      "probeA_llm_called": false,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-006",
+      "language": "en",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P169-S188",
+        "SOR-2026-08-P168-S188",
+        "SOR-2026-08-P172-S189",
+        "SOR-2026-08-P171-S188",
+        "SOR-2026-08-P170-S188"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-NEW-003-001"
+      ],
+      "primary_anchor_recall": 1.0,
+      "aux_in_supplementary_context": true,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-NEW-003-001"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-007",
+      "language": "en",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P159-S183",
+        "SOR-2026-08-P155-S183",
+        "SOR-2026-08-P160-S184",
+        "SOR-2026-08-P157-S183",
+        "SOR-2026-08-P161-S184",
+        "SOR-2026-08-P175-S191",
+        "SOR-2026-08-P196-S205"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-PPT-002-001",
+        "CHK-KUN-NEW-003-002"
+      ],
+      "primary_anchor_recall": 1.0,
+      "aux_in_supplementary_context": true,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-PPT-002-001",
+        "CHK-KUN-NEW-003-002"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-008",
+      "language": "es",
+      "evidence_class": "PRIMARIA_CON_AUXILIAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P150-S177",
+        "SOR-2026-08-P149-S177",
+        "SOR-2026-08-P145-S177",
+        "SOR-2026-08-P165-S186",
+        "SOR-2026-08-P163-S186",
+        "SOR-2026-08-P175-S191",
+        "SOR-2026-08-P173-S190",
+        "SOR-2026-08-P160-S184"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-PPT-002-002"
+      ],
+      "primary_anchor_recall": 0.0,
+      "aux_in_supplementary_context": true,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-PPT-002-002"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-009",
+      "language": "es",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [],
+      "supplementary_ids": [],
+      "primary_anchor_recall": null,
+      "aux_in_supplementary_context": false,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": false,
+      "probeA_cited_shadow_ids": [],
+      "probeA_llm_called": false,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-010",
+      "language": "en",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [],
+      "supplementary_ids": [],
+      "primary_anchor_recall": null,
+      "aux_in_supplementary_context": false,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": false,
+      "probeA_cited_shadow_ids": [],
+      "probeA_llm_called": false,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-011",
+      "language": "es",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P114-S148",
+        "SOR-2026-08-P013-S002",
+        "SOR-2026-08-P060-S075",
+        "SOR-2026-08-P200-S212",
+        "SOR-2026-08-P030-S029",
+        "SOR-2026-08-P195-S202"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-DIS-001-003",
+        "CHK-KUN-DIS-001-002"
+      ],
+      "primary_anchor_recall": null,
+      "aux_in_supplementary_context": true,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-DIS-001-003",
+        "CHK-KUN-DIS-001-002"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-012",
+      "language": "en",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [],
+      "supplementary_ids": [],
+      "primary_anchor_recall": null,
+      "aux_in_supplementary_context": false,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": false,
+      "probeA_cited_shadow_ids": [],
+      "probeA_llm_called": false,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-013",
+      "language": "es",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [],
+      "supplementary_ids": [],
+      "primary_anchor_recall": null,
+      "aux_in_supplementary_context": false,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": false,
+      "probeA_cited_shadow_ids": [],
+      "probeA_llm_called": false,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-014",
+      "language": "en",
+      "evidence_class": "SOLO_AUXILIAR_SIN_PRIMARIA",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [],
+      "supplementary_ids": [],
+      "primary_anchor_recall": null,
+      "aux_in_supplementary_context": false,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": false,
+      "probeA_cited_shadow_ids": [],
+      "probeA_llm_called": false,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-015",
+      "language": "es",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P153-S181",
+        "SOR-2026-08-P152-S180",
+        "SOR-2026-08-P164-S186",
+        "SOR-2026-08-P245-S265",
+        "SOR-2026-08-P177-S193",
+        "SOR-2026-08-P153-S182",
+        "SOR-2026-08-P152-S179",
+        "SOR-2026-08-P137-S176"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-NEW-001-003"
+      ],
+      "primary_anchor_recall": 1.0,
+      "aux_in_supplementary_context": null,
+      "forbidden_in_supplementary_context": true,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-NEW-001-003"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-016",
+      "language": "en",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P189-S196",
+        "SOR-2026-08-P250-S267",
+        "SOR-2026-08-P151-S178",
+        "SOR-2026-08-P255-S269",
+        "SOR-2026-08-P109-S139",
+        "SOR-2026-08-P196-S205"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-NEW-001-002"
+      ],
+      "primary_anchor_recall": 1.0,
+      "aux_in_supplementary_context": null,
+      "forbidden_in_supplementary_context": true,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-NEW-001-002"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-017",
+      "language": "es",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P190-S197",
+        "SOR-2026-08-P188-S196",
+        "SOR-2026-08-P096-S114",
+        "SOR-2026-08-P095-S113",
+        "SOR-2026-08-P097-S116",
+        "SOR-2026-08-P176-S192",
+        "SOR-2026-08-P175-S191",
+        "SOR-2026-08-P195-S202"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-NEW-003-003"
+      ],
+      "primary_anchor_recall": 1.0,
+      "aux_in_supplementary_context": null,
+      "forbidden_in_supplementary_context": true,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-NEW-003-003"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-018",
+      "language": "en",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P083-S101",
+        "SOR-2026-08-P085-S102",
+        "SOR-2026-08-P081-S100"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-QSY-001-003",
+        "CHK-KUN-QSY-001-004",
+        "CHK-KUN-QSY-001-002"
+      ],
+      "primary_anchor_recall": 1.0,
+      "aux_in_supplementary_context": null,
+      "forbidden_in_supplementary_context": true,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-QSY-001-003",
+        "CHK-KUN-QSY-001-004"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-019",
+      "language": "es",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P149-S177",
+        "SOR-2026-08-P176-S192",
+        "SOR-2026-08-P154-S182",
+        "SOR-2026-08-P175-S191",
+        "SOR-2026-08-P254-S269",
+        "SOR-2026-08-P173-S190",
+        "SOR-2026-08-P196-S205",
+        "SOR-2026-08-P160-S184"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-NEW-003-002"
+      ],
+      "primary_anchor_recall": 0.0,
+      "aux_in_supplementary_context": null,
+      "forbidden_in_supplementary_context": true,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-NEW-003-002"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-020",
+      "language": "es",
+      "evidence_class": "AUXILIAR_NO_DEBE_FUNDAMENTAR",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P190-S198",
+        "SOR-2026-08-P194-S199",
+        "SOR-2026-08-P237-S260",
+        "SOR-2026-08-P193-S198",
+        "SOR-2026-08-P192-S198",
+        "SOR-2026-08-P176-S192",
+        "SOR-2026-08-P175-S191",
+        "SOR-2026-08-P188-S196"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-DIS-001-002",
+        "CHK-KUN-DIS-001-001"
+      ],
+      "primary_anchor_recall": 1.0,
+      "aux_in_supplementary_context": null,
+      "forbidden_in_supplementary_context": true,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-DIS-001-002",
+        "CHK-KUN-DIS-001-001"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-021",
+      "language": "es",
+      "evidence_class": "SIN_EVIDENCIA_SUFICIENTE",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [],
+      "supplementary_ids": [],
+      "primary_anchor_recall": null,
+      "aux_in_supplementary_context": null,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": false,
+      "probeA_cited_shadow_ids": [],
+      "probeA_llm_called": false,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-022",
+      "language": "en",
+      "evidence_class": "SIN_EVIDENCIA_SUFICIENTE",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P015-S007",
+        "SOR-2026-08-P235-S258",
+        "SOR-2026-08-P016-S008",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P148-S177"
+      ],
+      "supplementary_ids": [],
+      "primary_anchor_recall": null,
+      "aux_in_supplementary_context": null,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": false,
+      "probeA_cited_shadow_ids": [],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-023",
+      "language": "es",
+      "evidence_class": "SIN_EVIDENCIA_SUFICIENTE",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P210-S233",
+        "SOR-2026-08-P211-S234",
+        "SOR-2026-08-P208-S230",
+        "SOR-2026-08-P066-S079"
+      ],
+      "supplementary_ids": [
+        "CHK-KUN-NEW-001-001"
+      ],
+      "primary_anchor_recall": null,
+      "aux_in_supplementary_context": null,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": true,
+      "probeA_cited_shadow_ids": [
+        "CHK-KUN-NEW-001-001"
+      ],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    },
+    {
+      "id": "SH-024",
+      "language": "en",
+      "evidence_class": "SIN_EVIDENCIA_SUFICIENTE",
+      "offline_status": "ABSTAIN",
+      "primary_ids": [
+        "SOR-2026-08-P048-S059",
+        "SOR-2026-08-P031-S031",
+        "SOR-2026-08-P052-S065",
+        "SOR-2026-08-P068-S080",
+        "SOR-2026-08-P135-S174"
+      ],
+      "supplementary_ids": [],
+      "primary_anchor_recall": null,
+      "aux_in_supplementary_context": null,
+      "forbidden_in_supplementary_context": null,
+      "AUTH1_no_shadow_in_primary": true,
+      "AUTH2_supplementary_non_decisive": true,
+      "AUTH3_supplementary_not_tier1": true,
+      "probeA_shadow_in_supplementary_block": false,
+      "probeA_cited_shadow_ids": [],
+      "probeA_llm_called": true,
+      "probeA_status": "ABSTAIN",
+      "probeA_citations": [],
+      "AUTH4_shadow_only_citation_rejected": true,
+      "probeB_status": "ABSTAIN",
+      "probeB_citations": [],
+      "AUTH5_citations_only_sor": true,
+      "probeB_success_without_primary_basis": false
+    }
+  ],
+  "inputs_unchanged": true
+}

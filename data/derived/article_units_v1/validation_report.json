@@ -1,0 +1,609 @@
+{
+  "accepted": true,
+  "checks": [
+    "coverage",
+    "no_textual_loss",
+    "no_accidental_duplication",
+    "page_article_correspondence",
+    "id_integrity",
+    "exception_preservation",
+    "reference_integrity",
+    "hash_consistency"
+  ],
+  "error_count": 0,
+  "errors": [],
+  "info_count": 231,
+  "processor": "sor_article_unit_segmenter",
+  "processor_version": "1.0.0",
+  "warning_count": 84,
+  "warnings": [
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '1.2.1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 15,
+      "severity": "WARNING",
+      "unit_id": "AU1-P015-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '1.2.2' sin pasaje con ese article_id; relacion por pagina",
+      "page": 16,
+      "severity": "WARNING",
+      "unit_id": "AU1-P016-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '1.2.3' sin pasaje con ese article_id; relacion por pagina",
+      "page": 17,
+      "severity": "WARNING",
+      "unit_id": "AU1-P017-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '1.7.2.3' sin pasaje con ese article_id; relacion por pagina",
+      "page": 24,
+      "severity": "WARNING",
+      "unit_id": "AU1-P024-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '1.8' sin pasaje con ese article_id; relacion por pagina",
+      "page": 26,
+      "severity": "WARNING",
+      "unit_id": "AU1-P026-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '1.8.1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 27,
+      "severity": "WARNING",
+      "unit_id": "AU1-P027-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '1.8.2.1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 28,
+      "severity": "WARNING",
+      "unit_id": "AU1-P028-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '2.1.1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 32,
+      "severity": "WARNING",
+      "unit_id": "AU1-P032-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '2.5' sin pasaje con ese article_id; relacion por pagina",
+      "page": 38,
+      "severity": "WARNING",
+      "unit_id": "AU1-P038-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '2.6.1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 42,
+      "severity": "WARNING",
+      "unit_id": "AU1-P042-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '2.7.1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 45,
+      "severity": "WARNING",
+      "unit_id": "AU1-P045-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '2.7.2' sin pasaje con ese article_id; relacion por pagina",
+      "page": 47,
+      "severity": "WARNING",
+      "unit_id": "AU1-P047-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '3.2.2' sin pasaje con ese article_id; relacion por pagina",
+      "page": 54,
+      "severity": "WARNING",
+      "unit_id": "AU1-P054-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '3.2.3' sin pasaje con ese article_id; relacion por pagina",
+      "page": 55,
+      "severity": "WARNING",
+      "unit_id": "AU1-P055-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '3.3.1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 56,
+      "severity": "WARNING",
+      "unit_id": "AU1-P056-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '4.2' sin pasaje con ese article_id; relacion por pagina",
+      "page": 63,
+      "severity": "WARNING",
+      "unit_id": "AU1-P063-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '4.4' sin pasaje con ese article_id; relacion por pagina",
+      "page": 67,
+      "severity": "WARNING",
+      "unit_id": "AU1-P067-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '5.2' sin pasaje con ese article_id; relacion por pagina",
+      "page": 72,
+      "severity": "WARNING",
+      "unit_id": "AU1-P072-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '6.1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 76,
+      "severity": "WARNING",
+      "unit_id": "AU1-P076-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '6.2.4' sin pasaje con ese article_id; relacion por pagina",
+      "page": 78,
+      "severity": "WARNING",
+      "unit_id": "AU1-P078-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '6.2.5' sin pasaje con ese article_id; relacion por pagina",
+      "page": 79,
+      "severity": "WARNING",
+      "unit_id": "AU1-P079-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '6.3.4' sin pasaje con ese article_id; relacion por pagina",
+      "page": 80,
+      "severity": "WARNING",
+      "unit_id": "AU1-P080-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '8.4' sin pasaje con ese article_id; relacion por pagina",
+      "page": 95,
+      "severity": "WARNING",
+      "unit_id": "AU1-P095-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '8.6' sin pasaje con ese article_id; relacion por pagina",
+      "page": 96,
+      "severity": "WARNING",
+      "unit_id": "AU1-P096-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '8.7' sin pasaje con ese article_id; relacion por pagina",
+      "page": 97,
+      "severity": "WARNING",
+      "unit_id": "AU1-P097-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de '8.9' sin pasaje con ese article_id; relacion por pagina",
+      "page": 98,
+      "severity": "WARNING",
+      "unit_id": "AU1-P098-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'A1.3' sin pasaje con ese article_id; relacion por pagina",
+      "page": 102,
+      "severity": "WARNING",
+      "unit_id": "AU1-P102-001"
+    },
+    {
+      "code": "HEADING_NOT_IN_METADATA",
+      "detail": "encabezado 'B1 .7 Judges and the System of Judging' no figura en metadatos; metadatos NO corregidos",
+      "page": 111,
+      "severity": "WARNING",
+      "unit_id": null
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'B1.5' sin pasaje con ese article_id; relacion por pagina",
+      "page": 111,
+      "severity": "WARNING",
+      "unit_id": "AU1-P111-001"
+    },
+    {
+      "code": "ARTICLE_PAGE_METADATA_MISMATCH",
+      "detail": "articulo detectado 'B1.7' sin pasaje con ese article_id; relacion por pagina (article_id de metadatos: ['B1.6'])",
+      "page": 111,
+      "severity": "WARNING",
+      "unit_id": "AU1-P111-003"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'B1.7' sin pasaje con ese article_id; relacion por pagina",
+      "page": 112,
+      "severity": "WARNING",
+      "unit_id": "AU1-P112-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'C1.1.2.2' sin pasaje con ese article_id; relacion por pagina",
+      "page": 116,
+      "severity": "WARNING",
+      "unit_id": "AU1-P116-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'C1.1.4' sin pasaje con ese article_id; relacion por pagina",
+      "page": 117,
+      "severity": "WARNING",
+      "unit_id": "AU1-P117-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'C1.1.5' sin pasaje con ese article_id; relacion por pagina",
+      "page": 118,
+      "severity": "WARNING",
+      "unit_id": "AU1-P118-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'C1.3' sin pasaje con ese article_id; relacion por pagina",
+      "page": 120,
+      "severity": "WARNING",
+      "unit_id": "AU1-P120-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'C1.10' sin pasaje con ese article_id; relacion por pagina",
+      "page": 126,
+      "severity": "WARNING",
+      "unit_id": "AU1-P126-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'C1.12' sin pasaje con ese article_id; relacion por pagina",
+      "page": 127,
+      "severity": "WARNING",
+      "unit_id": "AU1-P127-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'C1.13' sin pasaje con ese article_id; relacion por pagina",
+      "page": 129,
+      "severity": "WARNING",
+      "unit_id": "AU1-P129-001"
+    },
+    {
+      "code": "EMPTY_PAGE_TEXT",
+      "detail": "texto original vacio; unidad EMPTY_PAGE",
+      "page": 131,
+      "severity": "WARNING",
+      "unit_id": null
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 136,
+      "severity": "WARNING",
+      "unit_id": "AU1-P136-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 4' sin pasaje con ese article_id; relacion por pagina",
+      "page": 151,
+      "severity": "WARNING",
+      "unit_id": "AU1-P151-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 5' sin pasaje con ese article_id; relacion por pagina",
+      "page": 152,
+      "severity": "WARNING",
+      "unit_id": "AU1-P152-001"
+    },
+    {
+      "code": "HEADING_NOT_IN_METADATA",
+      "detail": "encabezado 'Article 10 Transition from Tachi-waza into Ne-waza (A) and' no figura en metadatos; metadatos NO corregidos",
+      "page": 155,
+      "severity": "WARNING",
+      "unit_id": null
+    },
+    {
+      "code": "METADATA_HEADING_NOT_FOUND",
+      "detail": "heading de metadatos 'waza (B)' (SOR-2026-08-P155-S183) no localizado como encabezado",
+      "page": 155,
+      "severity": "WARNING",
+      "unit_id": null
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 9' sin pasaje con ese article_id; relacion por pagina",
+      "page": 155,
+      "severity": "WARNING",
+      "unit_id": "AU1-P155-001"
+    },
+    {
+      "code": "ARTICLE_PAGE_METADATA_MISMATCH",
+      "detail": "articulo detectado 'Article 10' sin pasaje con ese article_id; relacion por pagina (article_id de metadatos: ['GENERAL'])",
+      "page": 155,
+      "severity": "WARNING",
+      "unit_id": "AU1-P155-002"
+    },
+    {
+      "code": "METADATA_HEADING_NOT_FOUND",
+      "detail": "heading de metadatos 'waza (B)' (SOR-2026-08-P156-S183) no localizado como encabezado",
+      "page": 156,
+      "severity": "WARNING",
+      "unit_id": null
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 10' sin pasaje con ese article_id; relacion por pagina",
+      "page": 156,
+      "severity": "WARNING",
+      "unit_id": "AU1-P156-001"
+    },
+    {
+      "code": "METADATA_HEADING_NOT_FOUND",
+      "detail": "heading de metadatos 'waza (B)' (SOR-2026-08-P157-S183) no localizado como encabezado",
+      "page": 157,
+      "severity": "WARNING",
+      "unit_id": null
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 10' sin pasaje con ese article_id; relacion por pagina",
+      "page": 157,
+      "severity": "WARNING",
+      "unit_id": "AU1-P157-001"
+    },
+    {
+      "code": "METADATA_HEADING_NOT_FOUND",
+      "detail": "heading de metadatos 'waza (B)' (SOR-2026-08-P158-S183) no localizado como encabezado",
+      "page": 158,
+      "severity": "WARNING",
+      "unit_id": null
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 10' sin pasaje con ese article_id; relacion por pagina",
+      "page": 158,
+      "severity": "WARNING",
+      "unit_id": "AU1-P158-001"
+    },
+    {
+      "code": "METADATA_HEADING_NOT_FOUND",
+      "detail": "heading de metadatos 'waza (B)' (SOR-2026-08-P159-S183) no localizado como encabezado",
+      "page": 159,
+      "severity": "WARNING",
+      "unit_id": null
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 10' sin pasaje con ese article_id; relacion por pagina",
+      "page": 159,
+      "severity": "WARNING",
+      "unit_id": "AU1-P159-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 10' sin pasaje con ese article_id; relacion por pagina",
+      "page": 160,
+      "severity": "WARNING",
+      "unit_id": "AU1-P160-001"
+    },
+    {
+      "code": "CLAUSE_SEGMENTATION_UNSAFE",
+      "detail": "NUMERACION_IRREGULAR: LETTERED ['c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'a', 'b', 'c']",
+      "page": 161,
+      "severity": "WARNING",
+      "unit_id": "AU1-P161-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 11' sin pasaje con ese article_id; relacion por pagina",
+      "page": 162,
+      "severity": "WARNING",
+      "unit_id": "AU1-P162-001"
+    },
+    {
+      "code": "CLAUSE_SEGMENTATION_UNSAFE",
+      "detail": "NUMERACION_IRREGULAR: LETTERED ['b', 'c', 'd', 'a', 'b', 'c', 'd']",
+      "page": 164,
+      "severity": "WARNING",
+      "unit_id": "AU1-P164-001"
+    },
+    {
+      "code": "CLAUSE_SEGMENTATION_UNSAFE",
+      "detail": "NUMERACION_IRREGULAR: LETTERED ['a', 'b', 'c', 'a', 'b']",
+      "page": 167,
+      "severity": "WARNING",
+      "unit_id": "AU1-P167-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 15' sin pasaje con ese article_id; relacion por pagina",
+      "page": 172,
+      "severity": "WARNING",
+      "unit_id": "AU1-P172-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 17' sin pasaje con ese article_id; relacion por pagina",
+      "page": 175,
+      "severity": "WARNING",
+      "unit_id": "AU1-P175-001"
+    },
+    {
+      "code": "CLAUSE_SEGMENTATION_UNSAFE",
+      "detail": "NUMERACION_IRREGULAR: NUMBERED ['12', '13', '14', '15', '1']",
+      "page": 180,
+      "severity": "WARNING",
+      "unit_id": "AU1-P180-001"
+    },
+    {
+      "code": "CLAUSE_SEGMENTATION_UNSAFE",
+      "detail": "NUMERACION_IRREGULAR: NUMBERED ['2', '16', '17']",
+      "page": 182,
+      "severity": "WARNING",
+      "unit_id": "AU1-P182-001"
+    },
+    {
+      "code": "HEADING_NOT_IN_METADATA",
+      "detail": "encabezado 'Article 18 .2 Hansoku-make (Grave Infringements Group)' no figura en metadatos; metadatos NO corregidos",
+      "page": 190,
+      "severity": "WARNING",
+      "unit_id": null
+    },
+    {
+      "code": "ARTICLE_PAGE_METADATA_MISMATCH",
+      "detail": "articulo detectado 'Article 18.2' sin pasaje con ese article_id; relacion por pagina (article_id de metadatos: ['Article 18.2.1', 'Article 18.2.2'])",
+      "page": 190,
+      "severity": "WARNING",
+      "unit_id": "AU1-P190-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 20.1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 197,
+      "severity": "WARNING",
+      "unit_id": "AU1-P197-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'Article 20.3.2' sin pasaje con ese article_id; relacion por pagina",
+      "page": 199,
+      "severity": "WARNING",
+      "unit_id": "AU1-P199-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'E1.5' sin pasaje con ese article_id; relacion por pagina",
+      "page": 203,
+      "severity": "WARNING",
+      "unit_id": "AU1-P203-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.2' sin pasaje con ese article_id; relacion por pagina",
+      "page": 210,
+      "severity": "WARNING",
+      "unit_id": "AU1-P210-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.3' sin pasaje con ese article_id; relacion por pagina",
+      "page": 211,
+      "severity": "WARNING",
+      "unit_id": "AU1-P211-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.6' sin pasaje con ese article_id; relacion por pagina",
+      "page": 214,
+      "severity": "WARNING",
+      "unit_id": "AU1-P214-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.11' sin pasaje con ese article_id; relacion por pagina",
+      "page": 219,
+      "severity": "WARNING",
+      "unit_id": "AU1-P219-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.12' sin pasaje con ese article_id; relacion por pagina",
+      "page": 220,
+      "severity": "WARNING",
+      "unit_id": "AU1-P220-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.13' sin pasaje con ese article_id; relacion por pagina",
+      "page": 221,
+      "severity": "WARNING",
+      "unit_id": "AU1-P221-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.17' sin pasaje con ese article_id; relacion por pagina",
+      "page": 225,
+      "severity": "WARNING",
+      "unit_id": "AU1-P225-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.18' sin pasaje con ese article_id; relacion por pagina",
+      "page": 226,
+      "severity": "WARNING",
+      "unit_id": "AU1-P226-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.19' sin pasaje con ese article_id; relacion por pagina",
+      "page": 227,
+      "severity": "WARNING",
+      "unit_id": "AU1-P227-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.20' sin pasaje con ese article_id; relacion por pagina",
+      "page": 228,
+      "severity": "WARNING",
+      "unit_id": "AU1-P228-001"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'F1.3.23' sin pasaje con ese article_id; relacion por pagina",
+      "page": 231,
+      "severity": "WARNING",
+      "unit_id": "AU1-P231-001"
+    },
+    {
+      "code": "CLAUSE_SEGMENTATION_UNSAFE",
+      "detail": "NUMERACION_IRREGULAR: NUMBERED ['1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7']",
+      "page": 231,
+      "severity": "WARNING",
+      "unit_id": "AU1-P231-001"
+    },
+    {
+      "code": "CLAUSE_SEGMENTATION_UNSAFE",
+      "detail": "NUMERACION_IRREGULAR: NUMBERED ['1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7', '1', '2', '3', '3', '5', '5', '7', '7']",
+      "page": 231,
+      "severity": "WARNING",
+      "unit_id": "AU1-P231-002"
+    },
+    {
+      "code": "CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA",
+      "detail": "continuacion de 'G1.2.1' sin pasaje con ese article_id; relacion por pagina",
+      "page": 252,
+      "severity": "WARNING",
+      "unit_id": "AU1-P252-001"
+    },
+    {
+      "code": "CLAUSE_SEGMENTATION_UNSAFE",
+      "detail": "NUMERACION_IRREGULAR: NUMBERED ['32', '33', '4', '5']",
+      "page": 289,
+      "severity": "WARNING",
+      "unit_id": "AU1-P289-001"
+    },
+    {
+      "code": "CLAUSE_SEGMENTATION_UNSAFE",
+      "detail": "NUMERACION_IRREGULAR: LETTERED ['c', 'a', 'b', 'c']",
+      "page": 292,
+      "severity": "WARNING",
+      "unit_id": "AU1-P292-001"
+    }
+  ]
+}

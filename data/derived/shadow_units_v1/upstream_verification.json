@@ -1,0 +1,103 @@
+{
+  "pdfs": [
+    "IJF_Code_of_Ethics_2023_02_27.pdf",
+    "IJF_Disciplinary_Code_2023_05_04.pdf",
+    "IJF_LA28_Olympic_Qualification_FAQ_2026_06_12.pdf",
+    "IJF_LA28_Olympic_Qualification_System_2026_05_12.pdf"
+  ],
+  "pypdf_version": "6.21.2",
+  "status": "EJECUTADA",
+  "summary": {
+    "NO_LOCALIZADO_EN_PDF_LOCAL": 15,
+    "PREFIJO_60_CARACTERES": 3
+  },
+  "units": {
+    "SHU1-CHK-KUN-DIS-001-001": {
+      "locations": [
+        {
+          "file": "IJF_Disciplinary_Code_2023_05_04.pdf",
+          "page": 2
+        }
+      ],
+      "result": "PREFIJO_60_CARACTERES"
+    },
+    "SHU1-CHK-KUN-DIS-001-002": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-DIS-001-003": {
+      "locations": [
+        {
+          "file": "IJF_Disciplinary_Code_2023_05_04.pdf",
+          "page": 3
+        }
+      ],
+      "result": "PREFIJO_60_CARACTERES"
+    },
+    "SHU1-CHK-KUN-ETH-001-001": {
+      "locations": [
+        {
+          "file": "IJF_Code_of_Ethics_2023_02_27.pdf",
+          "page": 3
+        }
+      ],
+      "result": "PREFIJO_60_CARACTERES"
+    },
+    "SHU1-CHK-KUN-ETH-001-002": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-ETH-001-003": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-NEW-001-001": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-NEW-001-002": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-NEW-001-003": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-NEW-003-001": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-NEW-003-002": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-NEW-003-003": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-PPT-002-001": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-PPT-002-002": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-QSY-001-001": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-QSY-001-002": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-QSY-001-003": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    },
+    "SHU1-CHK-KUN-QSY-001-004": {
+      "locations": [],
+      "result": "NO_LOCALIZADO_EN_PDF_LOCAL"
+    }
+  }
+}

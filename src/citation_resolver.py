@@ -84,6 +84,42 @@ RESOURCE_DETAILS = {
     "IMG-001": {
         "name": "Diagrama Oficial del Área de Competencia y Tatami",
         "url": "https://www.ijf.org/ijf/documents"
+    },
+    "KUN-DIS-001": {
+        "name": "Código Disciplinario de la IJF",
+        "url": "https://www.ijf.org/ijf/documents/3"
+    },
+    "DOC-DIS-2023": {
+        "name": "Código Disciplinario de la IJF",
+        "url": "https://www.ijf.org/ijf/documents/3"
+    },
+    "KUN-ETH-001": {
+        "name": "Código de Ética y Salvaguardia de la IJF",
+        "url": "https://www.ijf.org/ijf/documents/3"
+    },
+    "DOC-ETH-2023": {
+        "name": "Código de Ética y Salvaguardia de la IJF",
+        "url": "https://www.ijf.org/ijf/documents/3"
+    },
+    "KUN-QSY-001": {
+        "name": "Sistema de Clasificación Olímpica Los Ángeles 2028 (IJF/COI)",
+        "url": "https://www.ijf.org/ijf/documents/26"
+    },
+    "DOC-QSY-2026": {
+        "name": "Sistema de Clasificación Olímpica Los Ángeles 2028 (IJF/COI)",
+        "url": "https://www.ijf.org/ijf/documents/26"
+    },
+    "KUN-PPT-002": {
+        "name": "Seminario Internacional de Arbitraje IJF 2026",
+        "url": "https://www.ijf.org/referee-commission"
+    },
+    "KUN-NEW-001": {
+        "name": "Comunicado Oficial: Reglas de Arbitraje Ciclo LA28",
+        "url": "https://www.ijf.org/news/show/the-new-refereeing-rules-point-by-point"
+    },
+    "KUN-NEW-003": {
+        "name": "Reglas Confirmadas Temporada 2026 - Puntuación Yuko",
+        "url": "https://www.ijf.org/news/show/rules-confirmed-ahead-of-the-2026-season"
     }
 }
 
@@ -135,5 +171,5 @@ def format_citations(answer, retrieved_kuns):
         return full_match
 
     # Reemplazar citas del tipo [KUN-xxxx] o [SOR-2026-08-Pxxx-Sxxx]
-    formatted = re.sub(r'\[(KUN-\d{4}|SOR-2026-08-P\d{3}-S\d{3})\]', replace_citation, answer)
+    formatted = re.sub(r'\[(KUN-[A-Za-z0-9_-]+|CHK-[A-Za-z0-9_-]+|SOR-2026-08-P\d{3}-S\d{3})\]', replace_citation, answer)
     return formatted

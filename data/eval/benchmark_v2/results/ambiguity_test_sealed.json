@@ -1,0 +1,1768 @@
+{
+  "benchmark": {
+    "benchmark_version": "benchmark_v2.0.0",
+    "split": "test_sealed",
+    "test_sealed_hash_ok": true,
+    "n": 64
+  },
+  "projection": "ada",
+  "params": {
+    "min_info": 2.0,
+    "ratio": 0.7,
+    "max_df_discriminative": 0.3
+  },
+  "index_build_ms": 53.7,
+  "metrics": {
+    "n": 64,
+    "confusion": {
+      "AMBIGUA": {
+        "CLARA": 2,
+        "AMBIGUA": 3,
+        "INCOMPLETA": 1
+      },
+      "INCOMPLETA": {
+        "INCOMPLETA": 1,
+        "CLARA": 1,
+        "AMBIGUA": 1
+      },
+      "CLARA": {
+        "CLARA": 18,
+        "AMBIGUA": 29
+      },
+      "NO_RESPONDIBLE": {
+        "CLARA": 6,
+        "AMBIGUA": 2
+      }
+    },
+    "clarification_precision": 0.171,
+    "clarification_recall": 0.667,
+    "unnecessary_clarification_rate": 0.617,
+    "unnecessary_clarification_rate_scope_items": 0.611,
+    "incomplete_vs_ambiguous_accuracy": 0.667,
+    "ambiguous_candidate_coverage_mean": 0.917,
+    "unanswerable_flagged": {
+      "CLARA": 6,
+      "AMBIGUA": 2
+    },
+    "false_clarifications": [
+      "B2-CAT-005",
+      "B2-CAT-006",
+      "B2-DIR-002",
+      "B2-DIR-003",
+      "B2-DIR-009",
+      "B2-DIR-010",
+      "B2-DIR-012",
+      "B2-DIR-013",
+      "B2-DIR-014",
+      "B2-DIR-016",
+      "B2-EXC-002",
+      "B2-EXC-004",
+      "B2-MLG-004",
+      "B2-MUL-001",
+      "B2-MUL-002",
+      "B2-REF-002",
+      "B2-REF-003",
+      "B2-REF-004",
+      "B2-SCO-004",
+      "B2-SCO-005",
+      "B2-SCO-006",
+      "B2-SCO-007",
+      "B2-SCO-008",
+      "B2-SCO-011",
+      "B2-SCO-016",
+      "B2-SCO-018",
+      "B2-SCO-027",
+      "B2-SCO-028",
+      "B2-SCO-030"
+    ],
+    "missed": [
+      "B2-AMB-001",
+      "B2-AMB-004",
+      "B2-INC-003"
+    ],
+    "latency_ms": {
+      "p50": 0.63,
+      "max": 1.22
+    }
+  },
+  "by_language": {
+    "en": {
+      "n": 31,
+      "confusion": {
+        "AMBIGUA": {
+          "AMBIGUA": 2,
+          "CLARA": 1
+        },
+        "INCOMPLETA": {
+          "INCOMPLETA": 1,
+          "AMBIGUA": 1
+        },
+        "CLARA": {
+          "CLARA": 11,
+          "AMBIGUA": 11
+        },
+        "NO_RESPONDIBLE": {
+          "CLARA": 3,
+          "AMBIGUA": 1
+        }
+      },
+      "clarification_precision": 0.267,
+      "clarification_recall": 0.8,
+      "unnecessary_clarification_rate": 0.5,
+      "unnecessary_clarification_rate_scope_items": 0.5,
+      "incomplete_vs_ambiguous_accuracy": 0.75,
+      "ambiguous_candidate_coverage_mean": 0.875,
+      "unanswerable_flagged": {
+        "CLARA": 3,
+        "AMBIGUA": 1
+      },
+      "false_clarifications": [
+        "B2-CAT-005",
+        "B2-DIR-003",
+        "B2-DIR-009",
+        "B2-DIR-013",
+        "B2-MUL-001",
+        "B2-REF-003",
+        "B2-SCO-005",
+        "B2-SCO-007",
+        "B2-SCO-011",
+        "B2-SCO-027",
+        "B2-SCO-030"
+      ],
+      "missed": [
+        "B2-AMB-004"
+      ],
+      "latency_ms": {
+        "p50": 0.68,
+        "max": 1.22
+      }
+    },
+    "es": {
+      "n": 31,
+      "confusion": {
+        "AMBIGUA": {
+          "CLARA": 1,
+          "INCOMPLETA": 1,
+          "AMBIGUA": 1
+        },
+        "INCOMPLETA": {
+          "CLARA": 1
+        },
+        "CLARA": {
+          "AMBIGUA": 17,
+          "CLARA": 6
+        },
+        "NO_RESPONDIBLE": {
+          "CLARA": 3,
+          "AMBIGUA": 1
+        }
+      },
+      "clarification_precision": 0.105,
+      "clarification_recall": 0.5,
+      "unnecessary_clarification_rate": 0.739,
+      "unnecessary_clarification_rate_scope_items": 0.75,
+      "incomplete_vs_ambiguous_accuracy": 0.5,
+      "ambiguous_candidate_coverage_mean": 1.0,
+      "unanswerable_flagged": {
+        "CLARA": 3,
+        "AMBIGUA": 1
+      },
+      "false_clarifications": [
+        "B2-CAT-006",
+        "B2-DIR-002",
+        "B2-DIR-010",
+        "B2-DIR-012",
+        "B2-DIR-014",
+        "B2-DIR-016",
+        "B2-EXC-002",
+        "B2-EXC-004",
+        "B2-MUL-002",
+        "B2-REF-002",
+        "B2-REF-004",
+        "B2-SCO-004",
+        "B2-SCO-006",
+        "B2-SCO-008",
+        "B2-SCO-016",
+        "B2-SCO-018",
+        "B2-SCO-028"
+      ],
+      "missed": [
+        "B2-AMB-001",
+        "B2-INC-003"
+      ],
+      "latency_ms": {
+        "p50": 0.54,
+        "max": 1.04
+      }
+    },
+    "fr": {
+      "n": 1,
+      "confusion": {
+        "AMBIGUA": {},
+        "INCOMPLETA": {},
+        "CLARA": {
+          "CLARA": 1
+        },
+        "NO_RESPONDIBLE": {}
+      },
+      "clarification_precision": null,
+      "clarification_recall": null,
+      "unnecessary_clarification_rate": 0.0,
+      "unnecessary_clarification_rate_scope_items": null,
+      "incomplete_vs_ambiguous_accuracy": null,
+      "ambiguous_candidate_coverage_mean": null,
+      "unanswerable_flagged": {},
+      "false_clarifications": [],
+      "missed": [],
+      "latency_ms": {
+        "p50": 0.83,
+        "max": 0.83
+      }
+    },
+    "pt": {
+      "n": 1,
+      "confusion": {
+        "AMBIGUA": {},
+        "INCOMPLETA": {},
+        "CLARA": {
+          "AMBIGUA": 1
+        },
+        "NO_RESPONDIBLE": {}
+      },
+      "clarification_precision": 0.0,
+      "clarification_recall": null,
+      "unnecessary_clarification_rate": 1.0,
+      "unnecessary_clarification_rate_scope_items": null,
+      "incomplete_vs_ambiguous_accuracy": null,
+      "ambiguous_candidate_coverage_mean": null,
+      "unanswerable_flagged": {},
+      "false_clarifications": [
+        "B2-MLG-004"
+      ],
+      "missed": [],
+      "latency_ms": {
+        "p50": 0.21,
+        "max": 0.21
+      }
+    }
+  },
+  "per_query": [
+    {
+      "id": "B2-AMB-001",
+      "category": "AMBIGUA",
+      "language": "es",
+      "gold": "AMBIGUA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "B1.9",
+        "2.5.4",
+        "Article 20.3.1",
+        "A1.15"
+      ],
+      "latency_ms": 0.47,
+      "reference_candidates": [
+        "2.6.2",
+        "A1.15",
+        "B1.9"
+      ],
+      "candidate_coverage": 0.667
+    },
+    {
+      "id": "B2-AMB-002",
+      "category": "AMBIGUA",
+      "language": "en",
+      "gold": "AMBIGUA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "DRAW",
+          "REGULATIONS FOR KATA"
+        ],
+        "headings": [
+          "B1 .4 Draw",
+          "5 .3 Seeding for Olympic Games",
+          "5 .2 Seeding for IJF WJT Events"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: B1 .4 Draw (B1.4), 5 .3 Seeding for Olympic Games (5.3) or 5 .2 Seeding for IJF WJT Events (5.2)?",
+      "candidates": [
+        "B1.4",
+        "5.3",
+        "5.2"
+      ],
+      "latency_ms": 0.18,
+      "reference_candidates": [
+        "5.2",
+        "5.3",
+        "A1.9",
+        "B1.4"
+      ],
+      "candidate_coverage": 0.75
+    },
+    {
+      "id": "B2-AMB-003",
+      "category": "AMBIGUA",
+      "language": "es",
+      "gold": "AMBIGUA",
+      "pred": "INCOMPLETA",
+      "dimension": {
+        "type": "OBJETO_O_CONTEXTO_AUSENTE"
+      },
+      "clarification": "Indique la regla o situación concreta y el ámbito (tipo de evento, grupo de edad o modalidad) al que se refiere.",
+      "candidates": [],
+      "latency_ms": 0.01,
+      "reference_candidates": [
+        "A1.11",
+        "B1.12"
+      ],
+      "candidate_coverage": 0.0
+    },
+    {
+      "id": "B2-AMB-004",
+      "category": "AMBIGUA",
+      "language": "en",
+      "gold": "AMBIGUA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "2.3",
+        "A1.6",
+        "A1.7"
+      ],
+      "latency_ms": 0.38,
+      "reference_candidates": [
+        "2.3",
+        "A1.4",
+        "Article 1",
+        "B1.1"
+      ],
+      "candidate_coverage": 0.25
+    },
+    {
+      "id": "B2-AMB-007",
+      "category": "AMBIGUA",
+      "language": "es",
+      "gold": "AMBIGUA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION VENUE",
+          "IJF REFEREEING RULES",
+          "REGULATIONS FOR KATA"
+        ],
+        "headings": [
+          "Article 5 Location (Valid Areas)",
+          "8 .4 Warm-Up Area",
+          "B1 .8 Competition Area",
+          "8 .7 Field of Play and Competition Area",
+          "Article 20 .2 Medical Examinations and Treatment Inside the Contest",
+          "8 .9 Media"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: Article 5 Location (Valid Areas) (Article 5), 8 .4 Warm-Up Area (8.4), B1 .8 Competition Area (B1.8), 8 .7 Field of Play and Competition Area (8.7), Article 20 .2 Medical Examinations and Treatment Inside the Contest (Article 20.2) o 8 .9 Media (8.9)?",
+      "candidates": [
+        "Article 5",
+        "8.4",
+        "B1.8",
+        "8.7",
+        "Article 20.2",
+        "8.9"
+      ],
+      "latency_ms": 0.26,
+      "reference_candidates": [
+        "8.7",
+        "B1.8"
+      ],
+      "candidate_coverage": 1.0
+    },
+    {
+      "id": "B2-AMB-008",
+      "category": "AMBIGUA",
+      "language": "en",
+      "gold": "AMBIGUA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION RULES",
+          "DRAW",
+          "REGULATIONS FOR KATA",
+          "REGULATIONS FOR VETERANS",
+          "WEIGH-IN"
+        ],
+        "headings": [
+          "5 .1 Draw Regulations",
+          "A1 .8 Draw for Veterans",
+          "6 .3 .1 Draw of the Athletes",
+          "B1 .4 Draw",
+          "2 .7 .1 Regulations for Mixed Team Events",
+          "5 .2 Seeding for IJF WJT Events"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: 5 .1 Draw Regulations (5.1), A1 .8 Draw for Veterans (A1.8), 6 .3 .1 Draw of the Athletes (6.3.1), B1 .4 Draw (B1.4), 2 .7 .1 Regulations for Mixed Team Events (2.7.1) or 5 .2 Seeding for IJF WJT Events (5.2)?",
+      "candidates": [
+        "5.1",
+        "A1.8",
+        "6.3.1",
+        "B1.4",
+        "2.7.1",
+        "5.2"
+      ],
+      "latency_ms": 0.23,
+      "reference_candidates": [
+        "5.1",
+        "A1.8"
+      ],
+      "candidate_coverage": 1.0
+    },
+    {
+      "id": "B2-CAT-002",
+      "category": "DISTINCION_CATEGORIA",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "C1.3"
+      ],
+      "latency_ms": 0.4
+    },
+    {
+      "id": "B2-CAT-004",
+      "category": "DISTINCION_CATEGORIA",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "B1.1",
+        "A1.3"
+      ],
+      "latency_ms": 0.58
+    },
+    {
+      "id": "B2-CAT-005",
+      "category": "DISTINCION_CATEGORIA",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION RULES",
+          "WEIGH-IN"
+        ],
+        "headings": [
+          "6 .4 .3 Olympic Games Mixed Team Weigh-in",
+          "2 .2 .3 Weight Categories Mixed Team Competitions Olympic Games",
+          "2 .2 .2 Weight Categories for Mixed Team Competitions",
+          "2 .7 .1 Regulations for Mixed Team Events"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: 6 .4 .3 Olympic Games Mixed Team Weigh-in (6.4.3), 2 .2 .3 Weight Categories Mixed Team Competitions Olympic Games (2.2.3), 2 .2 .2 Weight Categories for Mixed Team Competitions (2.2.2) or 2 .7 .1 Regulations for Mixed Team Events (2.7.1)?",
+      "candidates": [
+        "6.4.3",
+        "2.2.3",
+        "2.2.2",
+        "2.7.1"
+      ],
+      "latency_ms": 0.79
+    },
+    {
+      "id": "B2-CAT-006",
+      "category": "DISTINCION_CATEGORIA",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION RULES",
+          "DRAW",
+          "WEIGH-IN"
+        ],
+        "headings": [
+          "6 .4 .2 . Mixed Team Following an Individual Competition Weigh-in",
+          "6 .4 .3 Olympic Games Mixed Team Weigh-in",
+          "6 .5 Female and Male Teams Events Weigh-in",
+          "6 .4 Mixed Teams Events Weigh-in",
+          "5 .3 Seeding for Olympic Games",
+          "2 .7 .1 Regulations for Mixed Team Events"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: 6 .4 .2 . Mixed Team Following an Individual Competition Weigh-in (6.4.2), 6 .4 .3 Olympic Games Mixed Team Weigh-in (6.4.3), 6 .5 Female and Male Teams Events Weigh-in (6.5), 6 .4 Mixed Teams Events Weigh-in (6.4), 5 .3 Seeding for Olympic Games (5.3) o 2 .7 .1 Regulations for Mixed Team Events (2.7.1)?",
+      "candidates": [
+        "6.4.2",
+        "6.4.3",
+        "6.5",
+        "6.4",
+        "5.3",
+        "2.7.1"
+      ],
+      "latency_ms": 0.83
+    },
+    {
+      "id": "B2-DIR-001",
+      "category": "DIRECTA",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "Article 9"
+      ],
+      "latency_ms": 0.88
+    },
+    {
+      "id": "B2-DIR-002",
+      "category": "DIRECTA",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "IJF REFEREEING RULES"
+        ],
+        "headings": [
+          "Article 15 Waza-ari and Yuko",
+          "Article 16 Waza-ari-awasete-ippon",
+          "Article 4 Gestures",
+          "Article 18 .1 Shido (Slight Infringements Group)",
+          "Article 13 End of the Contest"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: Article 15 Waza-ari and Yuko (Article 15), Article 16 Waza-ari-awasete-ippon (Article 16), Article 4 Gestures (Article 4), Article 18 .1 Shido (Slight Infringements Group) (Article 18.1) o Article 13 End of the Contest (Article 13)?",
+      "candidates": [
+        "Article 15",
+        "Article 16",
+        "Article 4",
+        "Article 18.1",
+        "Article 13"
+      ],
+      "latency_ms": 0.39
+    },
+    {
+      "id": "B2-DIR-003",
+      "category": "DIRECTA",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION VENUE",
+          "IJF MEDICAL AND ANTI-DOPING HANDBOOK"
+        ],
+        "headings": [
+          "8 .7 Field of Play and Competition Area",
+          "8 .9 Media",
+          "8 .6 Entry to and Exit from Field of Play",
+          "E1 .1 .1 Decision Making on the Field of Play",
+          "E1 .1 .2 Decision Making off the Field of Play"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: 8 .7 Field of Play and Competition Area (8.7), 8 .9 Media (8.9), 8 .6 Entry to and Exit from Field of Play (8.6), E1 .1 .1 Decision Making on the Field of Play (E1.1.1) or E1 .1 .2 Decision Making off the Field of Play (E1.1.2)?",
+      "candidates": [
+        "8.7",
+        "8.9",
+        "8.6",
+        "E1.1.1",
+        "E1.1.2"
+      ],
+      "latency_ms": 0.42
+    },
+    {
+      "id": "B2-DIR-004",
+      "category": "DIRECTA",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "8.7"
+      ],
+      "latency_ms": 0.74
+    },
+    {
+      "id": "B2-DIR-006",
+      "category": "DIRECTA",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "Article 4",
+        "Article 18.1.1"
+      ],
+      "latency_ms": 0.15
+    },
+    {
+      "id": "B2-DIR-009",
+      "category": "DIRECTA",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "IJF JUDOGI RULES",
+          "IJF MEDICAL AND ANTI-DOPING HANDBOOK",
+          "IJF REFEREEING RULES"
+        ],
+        "headings": [
+          "E1 .3 Hygiene",
+          "C1 .1 .5 Judogi Control Procedure",
+          "Article 4 Gestures"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: E1 .3 Hygiene (E1.3), C1 .1 .5 Judogi Control Procedure (C1.1.5) or Article 4 Gestures (Article 4)?",
+      "candidates": [
+        "E1.3",
+        "C1.1.5",
+        "Article 4"
+      ],
+      "latency_ms": 0.63
+    },
+    {
+      "id": "B2-DIR-010",
+      "category": "DIRECTA",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "IJF MEDICAL AND ANTI-DOPING HANDBOOK",
+          "IJF REFEREEING RULES"
+        ],
+        "headings": [
+          "Article 20 .2 Medical Examinations and Treatment Inside the Contest",
+          "Article 20 .3 .1 Treatment of Bleeding",
+          "E1 .1 Medical Requirements",
+          "Article 20 .3 .2 Treatment of Minor Injuries",
+          "E1 .1 .1 Decision Making on the Field of Play",
+          "Article 20 .3 Medical Examination and Treatment Outside the Contest"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: Article 20 .2 Medical Examinations and Treatment Inside the Contest (Article 20.2), Article 20 .3 .1 Treatment of Bleeding (Article 20.3.1), E1 .1 Medical Requirements (E1.1), Article 20 .3 .2 Treatment of Minor Injuries (Article 20.3.2), E1 .1 .1 Decision Making on the Field of Play (E1.1.1) o Article 20 .3 Medical Examination and Treatment Outside the Contest (Article 20.3)?",
+      "candidates": [
+        "Article 20.2",
+        "Article 20.3.1",
+        "E1.1",
+        "Article 20.3.2",
+        "E1.1.1",
+        "Article 20.3"
+      ],
+      "latency_ms": 0.63
+    },
+    {
+      "id": "B2-DIR-012",
+      "category": "DIRECTA",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION RULES",
+          "DRAW",
+          "ENTRIES AND ACCREDITATION",
+          "WEIGH-IN"
+        ],
+        "headings": [
+          "2 .7 .1 Regulations for Mixed Team Events",
+          "4 .4 Number of Entries",
+          "2 .7 .2 Regulations for Female and Male Team Events",
+          "5 .3 Seeding for Olympic Games",
+          "6 .4 .2 . Mixed Team Following an Individual Competition Weigh-in",
+          "6 .4 .3 Olympic Games Mixed Team Weigh-in"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: 2 .7 .1 Regulations for Mixed Team Events (2.7.1), 4 .4 Number of Entries (4.4), 2 .7 .2 Regulations for Female and Male Team Events (2.7.2), 5 .3 Seeding for Olympic Games (5.3), 6 .4 .2 . Mixed Team Following an Individual Competition Weigh-in (6.4.2) o 6 .4 .3 Olympic Games Mixed Team Weigh-in (6.4.3)?",
+      "candidates": [
+        "2.7.1",
+        "4.4",
+        "2.7.2",
+        "5.3",
+        "6.4.2",
+        "6.4.3"
+      ],
+      "latency_ms": 0.66
+    },
+    {
+      "id": "B2-DIR-013",
+      "category": "DIRECTA",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "REGULATIONS FOR KATA"
+        ],
+        "headings": [
+          "B1 .6 Competition Formula",
+          "B1 .4 Draw"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: B1 .6 Competition Formula (B1.6) or B1 .4 Draw (B1.4)?",
+      "candidates": [
+        "B1.6",
+        "B1.4"
+      ],
+      "latency_ms": 1.19
+    },
+    {
+      "id": "B2-DIR-014",
+      "category": "DIRECTA",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "IJF WORLD RANKING LISTS"
+        ],
+        "headings": [
+          "3 .2 .2 IJF Juniors World Ranking List",
+          "3 .3 .2 IJF Juniors Mixed Teams World Ranking List",
+          "3 .4 IJF Nations World Ranking List",
+          "3 .1 IJF World Ranking Lists",
+          "3 .2 .1 IJF Seniors World Ranking List"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: 3 .2 .2 IJF Juniors World Ranking List (3.2.2), 3 .3 .2 IJF Juniors Mixed Teams World Ranking List (3.3.2), 3 .4 IJF Nations World Ranking List (3.4), 3 .1 IJF World Ranking Lists (3.1) o 3 .2 .1 IJF Seniors World Ranking List (3.2.1)?",
+      "candidates": [
+        "3.2.2",
+        "3.3.2",
+        "3.4",
+        "3.1",
+        "3.2.1"
+      ],
+      "latency_ms": 0.8
+    },
+    {
+      "id": "B2-DIR-016",
+      "category": "DIRECTA",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "COMPETITION VENUE"
+        ],
+        "headings": [
+          "8 .1 Venue",
+          "8 .2 Training Venue"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: 8 .1 Venue (8.1) o 8 .2 Training Venue (8.2)?",
+      "candidates": [
+        "8.1",
+        "8.2"
+      ],
+      "latency_ms": 0.64
+    },
+    {
+      "id": "B2-EXC-001",
+      "category": "EXCEPCION",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "2.7.1",
+        "2.7.2"
+      ],
+      "latency_ms": 0.51
+    },
+    {
+      "id": "B2-EXC-002",
+      "category": "EXCEPCION",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "IJF MEDICAL AND ANTI-DOPING HANDBOOK",
+          "IJF REFEREEING RULES"
+        ],
+        "headings": [
+          "Article 20 .1 Continuation of a Contest",
+          "Article 19 Default and Withdrawal",
+          "Article 19 .2 Withdrawal",
+          "E1 .3 Hygiene",
+          "Article 20 .3 .2 Treatment of Minor Injuries",
+          "Article 13 End of the Contest"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: Article 20 .1 Continuation of a Contest (Article 20.1), Article 19 Default and Withdrawal (Article 19), Article 19 .2 Withdrawal (Article 19.2), E1 .3 Hygiene (E1.3), Article 20 .3 .2 Treatment of Minor Injuries (Article 20.3.2) o Article 13 End of the Contest (Article 13)?",
+      "candidates": [
+        "Article 20.1",
+        "Article 19",
+        "Article 19.2",
+        "E1.3",
+        "Article 20.3.2",
+        "Article 13"
+      ],
+      "latency_ms": 0.25
+    },
+    {
+      "id": "B2-EXC-004",
+      "category": "EXCEPCION",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "IJF MEDICAL AND ANTI-DOPING HANDBOOK",
+          "IJF REFEREEING RULES"
+        ],
+        "headings": [
+          "Article 20 .2 Medical Examinations and Treatment Inside the Contest",
+          "Article 20 Injury, Illness or Accident",
+          "Article 5 Location (Valid Areas)",
+          "Article 20 .3 .1 Treatment of Bleeding",
+          "E1 .2 Medical Suspension Following Concussion",
+          "E1 .1 .3 Rights and Responsibilities"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: Article 20 .2 Medical Examinations and Treatment Inside the Contest (Article 20.2), Article 20 Injury, Illness or Accident (Article 20), Article 5 Location (Valid Areas) (Article 5), Article 20 .3 .1 Treatment of Bleeding (Article 20.3.1), E1 .2 Medical Suspension Following Concussion (E1.2) o E1 .1 .3 Rights and Responsibilities (E1.1.3)?",
+      "candidates": [
+        "Article 20.2",
+        "Article 20",
+        "Article 5",
+        "Article 20.3.1",
+        "E1.2",
+        "E1.1.3"
+      ],
+      "latency_ms": 0.69
+    },
+    {
+      "id": "B2-EXC-007",
+      "category": "EXCEPCION",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "A1.7",
+        "A1.15"
+      ],
+      "latency_ms": 0.55
+    },
+    {
+      "id": "B2-EXC-008",
+      "category": "EXCEPCION",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "8.7",
+        "8.4",
+        "Article 3",
+        "Article 20.2",
+        "Article 18.1.1",
+        "B1.8"
+      ],
+      "latency_ms": 0.9
+    },
+    {
+      "id": "B2-EXC-010",
+      "category": "EXCEPCION",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "2.1.1",
+        "6.3",
+        "D1.1",
+        "A1.3.1",
+        "Article 1",
+        "F1.3.5"
+      ],
+      "latency_ms": 0.63
+    },
+    {
+      "id": "B2-INC-002",
+      "category": "INCOMPLETA",
+      "language": "en",
+      "gold": "INCOMPLETA",
+      "pred": "INCOMPLETA",
+      "dimension": {
+        "type": "OBJETO_O_CONTEXTO_AUSENTE"
+      },
+      "clarification": "Please state the specific rule or situation and its scope (event type, age group or discipline).",
+      "candidates": [],
+      "latency_ms": 0.02
+    },
+    {
+      "id": "B2-INC-003",
+      "category": "INCOMPLETA",
+      "language": "es",
+      "gold": "INCOMPLETA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "6.5",
+        "6.4.2",
+        "6.1",
+        "4.4",
+        "6.3",
+        "2.3"
+      ],
+      "latency_ms": 0.22
+    },
+    {
+      "id": "B2-INC-004",
+      "category": "INCOMPLETA",
+      "language": "en",
+      "gold": "INCOMPLETA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION RULES",
+          "ENTRIES AND ACCREDITATION",
+          "IJF JUDOGI RULES",
+          "IJF REFEREEING RULES"
+        ],
+        "headings": [
+          "Article 18 .2 .2 Hansoku-make for Acts against the Spirit of Judo",
+          "2 .6 Regulations for Low Numbers of Athletes or Teams",
+          "Article 18 .1 .2 Shido for an Illegal Move",
+          "Article 17 Osaekomi-waza",
+          "4 .3 Cancellation of Athletes",
+          "C1.1.4 Judogi Control Verification Positions"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: Article 18 .2 .2 Hansoku-make for Acts against the Spirit of Judo (Article 18.2.2), 2 .6 Regulations for Low Numbers of Athletes or Teams (2.6), Article 18 .1 .2 Shido for an Illegal Move (Article 18.1.2), Article 17 Osaekomi-waza (Article 17), 4 .3 Cancellation of Athletes (4.3) or C1.1.4 Judogi Control Verification Positions (C1.1.4)?",
+      "candidates": [
+        "Article 18.2.2",
+        "2.6",
+        "Article 18.1.2",
+        "Article 17",
+        "4.3",
+        "C1.1.4"
+      ],
+      "latency_ms": 0.23
+    },
+    {
+      "id": "B2-INS-002",
+      "category": "INSUFICIENTE",
+      "language": "es",
+      "gold": "NO_RESPONDIBLE",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "B1.5",
+        "3.1",
+        "3.3.1",
+        "3.2.2",
+        "3.3.2",
+        "3.3.3"
+      ],
+      "latency_ms": 0.41
+    },
+    {
+      "id": "B2-INS-003",
+      "category": "INSUFICIENTE",
+      "language": "en",
+      "gold": "NO_RESPONDIBLE",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "2.8.3",
+        "4.5",
+        "8.10",
+        "Article 20.3.2",
+        "2.8.4",
+        "6.2.1"
+      ],
+      "latency_ms": 0.63
+    },
+    {
+      "id": "B2-INS-004",
+      "category": "INSUFICIENTE",
+      "language": "es",
+      "gold": "NO_RESPONDIBLE",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "8.7",
+        "8.9"
+      ],
+      "latency_ms": 0.66
+    },
+    {
+      "id": "B2-INS-005",
+      "category": "INSUFICIENTE",
+      "language": "en",
+      "gold": "NO_RESPONDIBLE",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "E1.6.2",
+        "E1.6",
+        "1.5",
+        "1.7.2.5",
+        "B1.7",
+        "2.8.4"
+      ],
+      "latency_ms": 0.79
+    },
+    {
+      "id": "B2-MLG-001",
+      "category": "MULTILINGUE",
+      "language": "fr",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "F1.3.5",
+        "A1.7",
+        "A1.15",
+        "A1.13",
+        "A1.2"
+      ],
+      "latency_ms": 0.83
+    },
+    {
+      "id": "B2-MLG-004",
+      "category": "MULTILINGUE",
+      "language": "pt",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "REGULATIONS FOR VETERANS"
+        ],
+        "headings": [
+          "A1 .9 Seeding for Veterans",
+          "A1 .10 Weigh-in for Veterans",
+          "A1 .12 Backnumbers for Veterans",
+          "A1 .5 Weight Categories for Veterans",
+          "A1 .11 Judogi Rules for Veterans",
+          "A1 .13 Competition System for Veterans"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: A1 .9 Seeding for Veterans (A1.9), A1 .10 Weigh-in for Veterans (A1.10), A1 .12 Backnumbers for Veterans (A1.12), A1 .5 Weight Categories for Veterans (A1.5), A1 .11 Judogi Rules for Veterans (A1.11) o A1 .13 Competition System for Veterans (A1.13)?",
+      "candidates": [
+        "A1.9",
+        "A1.10",
+        "A1.12",
+        "A1.5",
+        "A1.11",
+        "A1.13"
+      ],
+      "latency_ms": 0.21
+    },
+    {
+      "id": "B2-MUL-001",
+      "category": "MULTI_ARTICULO",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "IJF REFEREEING RULES",
+          "REGULATIONS FOR VETERANS"
+        ],
+        "headings": [
+          "A1 .6 Time Duration of Contests for Veterans",
+          "Article 6 Duration of the Contest",
+          "A1 .2 Competition Rules for Veterans"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: A1 .6 Time Duration of Contests for Veterans (A1.6), Article 6 Duration of the Contest (Article 6) or A1 .2 Competition Rules for Veterans (A1.2)?",
+      "candidates": [
+        "A1.6",
+        "Article 6",
+        "A1.2"
+      ],
+      "latency_ms": 1.22
+    },
+    {
+      "id": "B2-MUL-002",
+      "category": "MULTI_ARTICULO",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION RULES",
+          "ENTRIES AND ACCREDITATION",
+          "GENERAL INFORMATION",
+          "IJF WORLD RANKING LISTS"
+        ],
+        "headings": [
+          "2 .1 .1 Competition Format and Schedules for the IJF World Judo Tour",
+          "4 .1 Participation Rules for IJF WJT Events",
+          "3 .2 .1 IJF Seniors World Ranking List",
+          "2 .5 Competition Systems",
+          "1 .7 .1 Change of Athlete Nationality",
+          "1 .3 Insurance and Civil Liability"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: 2 .1 .1 Competition Format and Schedules for the IJF World Judo Tour (2.1.1), 4 .1 Participation Rules for IJF WJT Events (4.1), 3 .2 .1 IJF Seniors World Ranking List (3.2.1), 2 .5 Competition Systems (2.5), 1 .7 .1 Change of Athlete Nationality (1.7.1) o 1 .3 Insurance and Civil Liability (1.3)?",
+      "candidates": [
+        "2.1.1",
+        "4.1",
+        "3.2.1",
+        "2.5",
+        "1.7.1",
+        "1.3"
+      ],
+      "latency_ms": 0.54
+    },
+    {
+      "id": "B2-MUL-003",
+      "category": "MULTI_ARTICULO",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "5.2",
+        "2.5",
+        "A1.9",
+        "4.1",
+        "2.1.1",
+        "3.2.1"
+      ],
+      "latency_ms": 1.12
+    },
+    {
+      "id": "B2-OOD-001",
+      "category": "OOD",
+      "language": "en",
+      "gold": "NO_RESPONDIBLE",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "A1.14",
+        "Article 18.3.1",
+        "2.7.1"
+      ],
+      "latency_ms": 0.34
+    },
+    {
+      "id": "B2-OOD-002",
+      "category": "OOD",
+      "language": "es",
+      "gold": "NO_RESPONDIBLE",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION RULES",
+          "GENERAL INFORMATION",
+          "REGULATIONS FOR VETERANS",
+          "WEIGH-IN"
+        ],
+        "headings": [
+          "A1 .2 Competition Rules for Veterans",
+          "A1 .11 Judogi Rules for Veterans",
+          "1 .2 .2 Match Fixing and Competition Manipulation",
+          "6 .2 .5 Compliance Rules",
+          "2 .2 Weight Categories for IJF Events",
+          "2 .6 Regulations for Low Numbers of Athletes or Teams"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: A1 .2 Competition Rules for Veterans (A1.2), A1 .11 Judogi Rules for Veterans (A1.11), 1 .2 .2 Match Fixing and Competition Manipulation (1.2.2), 6 .2 .5 Compliance Rules (6.2.5), 2 .2 Weight Categories for IJF Events (2.2) o 2 .6 Regulations for Low Numbers of Athletes or Teams (2.6)?",
+      "candidates": [
+        "A1.2",
+        "A1.11",
+        "1.2.2",
+        "6.2.5",
+        "2.2",
+        "2.6"
+      ],
+      "latency_ms": 0.55
+    },
+    {
+      "id": "B2-OOD-003",
+      "category": "OOD",
+      "language": "en",
+      "gold": "NO_RESPONDIBLE",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION RULES",
+          "SPORT COMPETITION",
+          "WEIGH-IN"
+        ],
+        "headings": [
+          "F1 .1 IJF Event Phases",
+          "2 .2 .3 Weight Categories Mixed Team Competitions Olympic Games",
+          "6 .4 .3 Olympic Games Mixed Team Weigh-in",
+          "2 .6 .1 Low Numbers System for IJF WJT Events",
+          "2 .2 .2 Weight Categories for Mixed Team Competitions",
+          "2 .5 Competition Systems"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: F1 .1 IJF Event Phases (F1.1), 2 .2 .3 Weight Categories Mixed Team Competitions Olympic Games (2.2.3), 6 .4 .3 Olympic Games Mixed Team Weigh-in (6.4.3), 2 .6 .1 Low Numbers System for IJF WJT Events (2.6.1), 2 .2 .2 Weight Categories for Mixed Team Competitions (2.2.2) or 2 .5 Competition Systems (2.5)?",
+      "candidates": [
+        "F1.1",
+        "2.2.3",
+        "6.4.3",
+        "2.6.1",
+        "2.2.2",
+        "2.5"
+      ],
+      "latency_ms": 0.68
+    },
+    {
+      "id": "B2-OOD-004",
+      "category": "OOD",
+      "language": "es",
+      "gold": "NO_RESPONDIBLE",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "F1.3.24"
+      ],
+      "latency_ms": 0.15
+    },
+    {
+      "id": "B2-REF-002",
+      "category": "REFERENCIA_CRUZADA",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "REGULATIONS FOR KATA"
+        ],
+        "headings": [
+          "B1 .12 Judogi Control",
+          "B1 .1 Eligibility to Participate",
+          "B1 .2 Kata",
+          "B1 .7 Judges and the System of Judging",
+          "B1 .6 Competition Formula",
+          "B1 .5 Ranking Points"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: B1 .12 Judogi Control (B1.12), B1 .1 Eligibility to Participate (B1.1), B1 .2 Kata (B1.2), B1 .7 Judges and the System of Judging (B1.7), B1 .6 Competition Formula (B1.6) o B1 .5 Ranking Points (B1.5)?",
+      "candidates": [
+        "B1.12",
+        "B1.1",
+        "B1.2",
+        "B1.7",
+        "B1.6",
+        "B1.5"
+      ],
+      "latency_ms": 0.38
+    },
+    {
+      "id": "B2-REF-003",
+      "category": "REFERENCIA_CRUZADA",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "COMPETITION RULES",
+          "WEIGH-IN"
+        ],
+        "headings": [
+          "2 .7 .2 Regulations for Female and Male Team Events",
+          "6 .5 Female and Male Teams Events Weigh-in"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: 2 .7 .2 Regulations for Female and Male Team Events (2.7.2) or 6 .5 Female and Male Teams Events Weigh-in (6.5)?",
+      "candidates": [
+        "2.7.2",
+        "6.5"
+      ],
+      "latency_ms": 0.74
+    },
+    {
+      "id": "B2-REF-004",
+      "category": "REFERENCIA_CRUZADA",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "WEIGH-IN"
+        ],
+        "headings": [
+          "6 .3 Random Weigh-in",
+          "6 .1 Weight Categories and Limits for Individual Events"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: 6 .3 Random Weigh-in (6.3) o 6 .1 Weight Categories and Limits for Individual Events (6.1)?",
+      "candidates": [
+        "6.3",
+        "6.1",
+        "6.5",
+        "6.4.2"
+      ],
+      "latency_ms": 0.71
+    },
+    {
+      "id": "B2-SCO-001",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "A1.4",
+        "A1.7",
+        "A1.6",
+        "A1.2",
+        "A1.13"
+      ],
+      "latency_ms": 0.82
+    },
+    {
+      "id": "B2-SCO-002",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "Article 6",
+        "3.5",
+        "3.2.3",
+        "Article 18.1.1",
+        "3.3.3",
+        "Article 20.3.2"
+      ],
+      "latency_ms": 0.9
+    },
+    {
+      "id": "B2-SCO-003",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "2.1.1",
+        "6.5",
+        "5.1",
+        "6.3.1"
+      ],
+      "latency_ms": 0.62
+    },
+    {
+      "id": "B2-SCO-004",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "REGULATIONS FOR VETERANS"
+        ],
+        "headings": [
+          "A1 .9 Seeding for Veterans",
+          "A1 .10 Weigh-in for Veterans",
+          "A1 .12 Backnumbers for Veterans",
+          "A1 .5 Weight Categories for Veterans",
+          "A1 .11 Judogi Rules for Veterans",
+          "A1 .13 Competition System for Veterans"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: A1 .9 Seeding for Veterans (A1.9), A1 .10 Weigh-in for Veterans (A1.10), A1 .12 Backnumbers for Veterans (A1.12), A1 .5 Weight Categories for Veterans (A1.5), A1 .11 Judogi Rules for Veterans (A1.11) o A1 .13 Competition System for Veterans (A1.13)?",
+      "candidates": [
+        "A1.9",
+        "A1.10",
+        "A1.12",
+        "A1.5",
+        "A1.11",
+        "A1.13"
+      ],
+      "latency_ms": 0.21
+    },
+    {
+      "id": "B2-SCO-005",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "DRAW",
+          "ENTRIES AND ACCREDITATION",
+          "IJF WORLD RANKING LISTS"
+        ],
+        "headings": [
+          "5 .2 Seeding for IJF WJT Events",
+          "4 .4 Number of Entries",
+          "3 .2 .3 IJF Cadets World Ranking List",
+          "3 .2 .2 IJF Juniors World Ranking List"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: 5 .2 Seeding for IJF WJT Events (5.2), 4 .4 Number of Entries (4.4), 3 .2 .3 IJF Cadets World Ranking List (3.2.3) or 3 .2 .2 IJF Juniors World Ranking List (3.2.2)?",
+      "candidates": [
+        "5.2",
+        "4.4",
+        "3.2.3",
+        "3.2.2"
+      ],
+      "latency_ms": 0.91
+    },
+    {
+      "id": "B2-SCO-006",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "REGULATIONS FOR KATA",
+          "REGULATIONS FOR VETERANS"
+        ],
+        "headings": [
+          "A1 .9 Seeding for Veterans",
+          "A1 .10 Weigh-in for Veterans",
+          "B1 .5 Ranking Points",
+          "A1 .12 Backnumbers for Veterans",
+          "A1 .5 Weight Categories for Veterans",
+          "B1 .7 Judges and the System of Judging"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: A1 .9 Seeding for Veterans (A1.9), A1 .10 Weigh-in for Veterans (A1.10), B1 .5 Ranking Points (B1.5), A1 .12 Backnumbers for Veterans (A1.12), A1 .5 Weight Categories for Veterans (A1.5) o B1 .7 Judges and the System of Judging (B1.7)?",
+      "candidates": [
+        "A1.9",
+        "A1.10",
+        "B1.5",
+        "A1.12",
+        "A1.5",
+        "B1.7"
+      ],
+      "latency_ms": 0.25
+    },
+    {
+      "id": "B2-SCO-007",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "REGULATIONS FOR KATA"
+        ],
+        "headings": [
+          "B1 .6 Competition Formula",
+          "B1 .2 Kata",
+          "B1 .5 Ranking Points",
+          "B1 .7 Judges and the System of Judging"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: B1 .6 Competition Formula (B1.6), B1 .2 Kata (B1.2), B1 .5 Ranking Points (B1.5) or B1 .7 Judges and the System of Judging (B1.7)?",
+      "candidates": [
+        "B1.6",
+        "B1.2",
+        "B1.5",
+        "B1.7"
+      ],
+      "latency_ms": 0.71
+    },
+    {
+      "id": "B2-SCO-008",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "IJF WORLD RANKING LISTS",
+          "REGULATIONS FOR KATA"
+        ],
+        "headings": [
+          "B1 .5 Ranking Points",
+          "3 .3 .1 IJF Seniors Mixed Teams World Ranking List",
+          "B1 .11 Medical Situation",
+          "3 .2 IJF World Ranking Lists for Individuals",
+          "3 .1 IJF World Ranking Lists",
+          "3 .4 IJF Nations World Ranking List"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: B1 .5 Ranking Points (B1.5), 3 .3 .1 IJF Seniors Mixed Teams World Ranking List (3.3.1), B1 .11 Medical Situation (B1.11), 3 .2 IJF World Ranking Lists for Individuals (3.2), 3 .1 IJF World Ranking Lists (3.1) o 3 .4 IJF Nations World Ranking List (3.4)?",
+      "candidates": [
+        "B1.5",
+        "3.3.1",
+        "B1.11",
+        "3.2",
+        "3.1",
+        "3.4"
+      ],
+      "latency_ms": 0.25
+    },
+    {
+      "id": "B2-SCO-011",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "IJF JUDOGI RULES",
+          "REGULATIONS FOR VETERANS"
+        ],
+        "headings": [
+          "C1 .9 Judogi Colour",
+          "A1 .11 Judogi Rules for Veterans"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: C1 .9 Judogi Colour (C1.9) or A1 .11 Judogi Rules for Veterans (A1.11)?",
+      "candidates": [
+        "C1.12",
+        "C1.13",
+        "C1.1",
+        "C1.9",
+        "A1.11",
+        "C1.1.2.1"
+      ],
+      "latency_ms": 0.78
+    },
+    {
+      "id": "B2-SCO-012",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "C1.9",
+        "B1.8",
+        "B1.12",
+        "C1.12",
+        "C1.1",
+        "C1.1.2.2"
+      ],
+      "latency_ms": 0.65
+    },
+    {
+      "id": "B2-SCO-015",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "A1.15"
+      ],
+      "latency_ms": 1.17
+    },
+    {
+      "id": "B2-SCO-016",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "REGULATIONS FOR KATA",
+          "REGULATIONS FOR VETERANS"
+        ],
+        "headings": [
+          "B1 .1 Eligibility to Participate",
+          "A1 .15 Awarding of Medals for Veterans"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: B1 .1 Eligibility to Participate (B1.1) o A1 .15 Awarding of Medals for Veterans (A1.15)?",
+      "candidates": [
+        "B1.9",
+        "B1.1",
+        "B1.7",
+        "B1.2",
+        "A1.15",
+        "B1.11"
+      ],
+      "latency_ms": 0.39
+    },
+    {
+      "id": "B2-SCO-017",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "A1.8",
+        "A1.4",
+        "A1.3",
+        "A1.13"
+      ],
+      "latency_ms": 0.74
+    },
+    {
+      "id": "B2-SCO-018",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SECCION/AMBITO",
+        "parts": [
+          "GENERAL INFORMATION",
+          "IJF REFEREEING RULES",
+          "SPORT COMPETITION"
+        ],
+        "headings": [
+          "Article 17 Osaekomi-waza",
+          "1 .1 .1 Behaviour at IJF Events",
+          "Article 19 .1 Default",
+          "Article 11 Application of Mate",
+          "Article 1 Referees and Officials",
+          "F1 .3 .29 Coach Suspension Form"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: Article 17 Osaekomi-waza (Article 17), 1 .1 .1 Behaviour at IJF Events (1.1.1), Article 19 .1 Default (Article 19.1), Article 11 Application of Mate (Article 11), Article 1 Referees and Officials (Article 1) o F1 .3 .29 Coach Suspension Form (F1.3.29)?",
+      "candidates": [
+        "Article 17",
+        "1.1.1",
+        "Article 19.1",
+        "Article 11",
+        "Article 1",
+        "F1.3.29"
+      ],
+      "latency_ms": 1.04
+    },
+    {
+      "id": "B2-SCO-027",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "REGULATIONS FOR VETERANS"
+        ],
+        "headings": [
+          "A1 .13 Competition System for Veterans",
+          "A1 .7 Category Combining for Veterans"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: A1 .13 Competition System for Veterans (A1.13) or A1 .7 Category Combining for Veterans (A1.7)?",
+      "candidates": [
+        "A1.13",
+        "A1.7"
+      ],
+      "latency_ms": 0.78
+    },
+    {
+      "id": "B2-SCO-028",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "es",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "REGULATIONS FOR VETERANS"
+        ],
+        "headings": [
+          "A1 .13 Competition System for Veterans",
+          "A1 .15 Awarding of Medals for Veterans"
+        ]
+      },
+      "clarification": "¿A cuál de estos supuestos se refiere: A1 .13 Competition System for Veterans (A1.13) o A1 .15 Awarding of Medals for Veterans (A1.15)?",
+      "candidates": [
+        "A1.13",
+        "A1.15"
+      ],
+      "latency_ms": 0.5
+    },
+    {
+      "id": "B2-SCO-029",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "CLARA",
+      "dimension": null,
+      "clarification": null,
+      "candidates": [
+        "2.7.1",
+        "6.4",
+        "6.4.2",
+        "3.1"
+      ],
+      "latency_ms": 1.08
+    },
+    {
+      "id": "B2-SCO-030",
+      "category": "AMBITO_DISTRACTOR",
+      "language": "en",
+      "gold": "CLARA",
+      "pred": "AMBIGUA",
+      "dimension": {
+        "type": "SUBAPARTADO",
+        "parts": [
+          "REGULATIONS FOR KATA"
+        ],
+        "headings": [
+          "B1 .1 Eligibility to Participate",
+          "B1 .11 Medical Situation",
+          "B1 .9 Awarding Ceremony",
+          "B1 .2 Kata"
+        ]
+      },
+      "clarification": "Which of these cases do you mean: B1 .1 Eligibility to Participate (B1.1), B1 .11 Medical Situation (B1.11), B1 .9 Awarding Ceremony (B1.9) or B1 .2 Kata (B1.2)?",
+      "candidates": [
+        "B1.1",
+        "B1.11",
+        "B1.9",
+        "B1.2"
+      ],
+      "latency_ms": 0.35
+    }
+  ]
+}

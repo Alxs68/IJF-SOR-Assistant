@@ -30,6 +30,7 @@ from response_structurer import (
     build_deterministic_structured_answer
 )
 from normative_validator import NormativeValidator
+from decision_integrity import DecisionIntegrityGate
 try:
     from src.document_validator import DocumentValidator
     from src.document_governance import (
@@ -50,6 +51,16 @@ except ImportError:
         EligibilityStatus,
         EvidenceBundle
     )
+
+# AUD-04.2: role of a supplementary item is derived from its catalogue authority only.
+# Tier 1 is never assigned here: supplementary material can never become primary norm.
+_SUPPLEMENTARY_ROLE_BY_AUTHORITY = {
+    DocumentAuthority.TIER_2_OFFICIAL_AMENDMENT: EvidenceRole.COMPLEMENTO_INTERPRETATIVO,
+    DocumentAuthority.TIER_3_REFEREEING_INTERPRETATION: EvidenceRole.COMPLEMENTO_INTERPRETATIVO,
+    DocumentAuthority.TIER_4_EDUCATIONAL_CONTEXT: EvidenceRole.MATERIAL_DIDACTICO,
+    DocumentAuthority.TIER_5_AUDIOVISUAL_EVIDENCE: EvidenceRole.EVIDENCIA_AUDIOVISUAL,
+}
+
 
 class ArbitrationDecisionAssistant:
     """
@@ -126,18 +137,19 @@ class ArbitrationDecisionAssistant:
             "1. Strictly preserve all official Japanese judo terminology exactly as spelled (e.g. Ippon, Waza-ari, Shido, Hansoku-make, Osaekomi, Tori, Uke, Tatami, Matte, Hajime, Shime-waza, Kansetsu-waza, Toketa, Seoi-nage, Reverse seoi-nage, etc.).\n"
             "2. Map colloquial, descriptive, or informal actions to official IJF SOR normative phrases:\n"
             "   - insult / insulta / ofensa verbal -> derogatory remarks, calls or gestures to opponent or referee\n"
-            "   - agredir / agresión física / golpe -> action against the spirit of judo, deliberate action causing injury, direct hansoku-make\n"
-            "   - falta de respeto / conducta antideportiva -> acts against the spirit of judo, direct hansoku-make\n"
-            "   - cadetes reverse seoi-nage -> cadet reverse seoi-nage shido penalty\n"
-            "   - defensa con la cabeza -> head defense bridge uke cadet restriction\n"
-            "   - entrenador / coach vestimenta / dress code -> coaches' dress code preliminaries final block formal suit track suit\n"
+            "   - agredir / agresión física / golpe -> action against the spirit of judo, deliberate action causing injury\n"
+            "   - falta de respeto / conducta antideportiva -> acts against the spirit of judo\n"
+            "   - cadetes reverse seoi-nage -> cadet reverse seoi-nage\n"
+            "   - defensa con la cabeza -> head defence uke\n"
+            "   - entrenador / coach vestimenta / dress code -> coaches' dress code\n"
             "   - veteranos / master / categoría de edad -> regulations for veterans age divisions contest duration category combining\n"
             "   - antidopaje / control dopaje -> medical and anti-doping handbook doping control selection procedure\n"
-            "   - accion simultanea / ambos caen / ataque simultaneo -> simultaneous action both athletes fall tatami no score Article 14 Article 13 golden score\n"
-            "   - saludo / saludo equipos / equipos mixtos / reverencia -> Article 9 Start of the Contest bowing ceremony team competition mixed team encounter rei otagai-ni technical table\n"
-            "   - tiempo de tolerancia / presentarse en el tatami / comparecer / incomparecencia -> Article 19.1 Default 30-second rule failure to appear countdown scoreboard fusen-gachi\n"
+            "   - accion simultanea / ambos caen / ataque simultaneo -> simultaneous action both athletes fall tatami\n"
+            "   - saludo / saludo equipos / equipos mixtos / reverencia -> bowing ceremony team competition mixed team encounter rei otagai-ni technical table\n"
+            "   - tiempo de tolerancia / presentarse en el tatami / comparecer / incomparecencia -> failure to appear\n"
             "   - disciplinario / comite disciplinario -> IJF Disciplinary Committee Disciplinary Code sports integrity betting sanctions\n"
-            "3. Output ONLY the translated technical English query without any explanation, markdown formatting, quotes, or trailing notes.\n\n"
+            "3. Translate terminology only: do NOT add penalties, scores, outcomes, article numbers or numeric values that are not present in the user query.\n"
+            "4. Output ONLY the translated technical English query without any explanation, markdown formatting, quotes, or trailing notes.\n\n"
             f"Query to translate: {q_clean}\n"
             "English translation:"
         )
@@ -166,10 +178,21 @@ class ArbitrationDecisionAssistant:
         except Exception:
             pass
 
-        # Robust offline deterministic dictionary projection fallback
+        # Robust offline deterministic dictionary projection fallback.
+        # Phase 6 (C2): tokens are read with accented letters intact (\w is Unicode-aware) so that words
+        # such as "cómo" or "dimensión" are not split into fragments, and only pure Spanish function words
+        # are dropped. No word carries normative meaning here; content words are kept as before.
+        spanish_function_words = {
+            "como", "cual", "cuales", "cuando", "donde", "que", "quien", "quienes", "cuanto", "cuantos",
+            "lo", "le", "les", "me", "nos", "pero", "sobre", "hasta", "durante", "desde", "hacia",
+            "este", "esta", "estos", "estas", "ese", "esa", "esos", "esas", "eso", "esto",
+            "y", "o", "u", "e", "ni", "a", "ante", "tras", "segun", "mediante", "cuya", "cuyo",
+        }
         proj_parts = []
-        for w in re.findall(r"\b[a-zA-Z0-9_\-]{2,}\b", q_lower):
-            clean_w = w.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u").replace("ñ", "n")
+        for w in re.findall(r"[\w\-]{2,}", q_lower):
+            clean_w = w.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u").replace("ñ", "n").replace("ü", "u")
+            if clean_w in spanish_function_words:
+                continue
             if clean_w in self.rre.SPANISH_TO_ENGLISH_SYNONYMS:
                 proj_parts.append(self.rre.SPANISH_TO_ENGLISH_SYNONYMS[clean_w])
             elif clean_w in {"saludo", "saludos", "saludar"}:
@@ -179,13 +202,20 @@ class ArbitrationDecisionAssistant:
             elif clean_w in {"mixtos", "mixto", "mixtas", "mixta"}:
                 proj_parts.append("mixed")
             elif clean_w in {"tolerancia"}:
-                proj_parts.append("tolerance 30-second rule countdown scoreboard fusen-gachi")
+                proj_parts.append("tolerance")
             elif clean_w in {"presentarse", "presenta", "comparecer", "comparecencia"}:
-                proj_parts.append("appear appearance failure to appear 30-second fusen-gachi")
+                proj_parts.append("appear appearance failure to appear")
             elif clean_w not in {"en", "la", "de", "del", "por", "para", "con", "el", "los", "las", "un", "una", "al", "es", "son", "se", "su", "sus", "cual", "que"}:
-                proj_parts.append(w)
+                proj_parts.append(clean_w)
         if proj_parts:
-            return " ".join(proj_parts)
+            # Deduplicate repeated tokens produced by overlapping dictionary expansions, keeping order.
+            seen_tokens = set()
+            unique_tokens = []
+            for token in " ".join(proj_parts).split():
+                if token not in seen_tokens:
+                    seen_tokens.add(token)
+                    unique_tokens.append(token)
+            return " ".join(unique_tokens)
 
         return q_clean
 
@@ -204,6 +234,7 @@ class ArbitrationDecisionAssistant:
             neg_check = NegativeDomainAnchorScorer.score_negative_domain(situation_query)
             if neg_check.is_ood:
                 retrieval_res = self.rre.retrieve(situation_query, top_k=top_k, expand_graph=False)
+                # AUD-04.1: supplementary documents never turn an out-of-domain query into a normative one.
                 if retrieval_res.get("status") == "ABSTAIN":
                     abstain_msg = (
                         f"⚠️ **Abstención Normativa Oficial ({self.config['version_label']})**\n\n"
@@ -236,9 +267,22 @@ class ArbitrationDecisionAssistant:
             pass
 
         search_query_en = self._translate_to_technical_english(situation_query)
-        retrieval_res = self.rre.retrieve(search_query_en, top_k=top_k, expand_graph=True)
+        retrieval_res = self.rre.retrieve(search_query_en, top_k=top_k, expand_graph=True, domain_query=situation_query)
 
-        if retrieval_res["status"] == "ABSTAIN":
+        # Retrieve authorized supplementary official sources (Shadow / Sidecars TIER_2 / TIER_3)
+        supp_results = []
+        try:
+            supp_results = self.rre.retrieve_supplementary(situation_query, min_score=2.0)
+            if not supp_results and search_query_en != situation_query:
+                supp_results = self.rre.retrieve_supplementary(search_query_en, min_score=2.0)
+        except Exception:
+            supp_results = []
+
+        evidence = retrieval_res.get("evidence", []) if retrieval_res.get("status") != "ABSTAIN" else []
+        related = retrieval_res.get("related_passages", []) if retrieval_res.get("status") != "ABSTAIN" else []
+
+        # AUD-04.1: without primary SOR evidence, supplementary material cannot keep the query open.
+        if not evidence:
             abstain_msg = (
                 f"⚠️ **Abstención Normativa Oficial ({self.config['version_label']})**\n\n"
                 "La situación o consulta planteada no encuentra respaldo ni evidencia suficiente en los artículos "
@@ -267,12 +311,11 @@ class ArbitrationDecisionAssistant:
                 "token_usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
             }
 
-        evidence = retrieval_res["evidence"]
-        related = retrieval_res.get("related_passages", [])
-
         # Document Authority & Validity Gate via DocumentValidator
         candidate_items = []
-        for ev in evidence:
+        # Primary and cross-referenced SOR passages must traverse the same
+        # certification path before they can be placed in the reasoning context.
+        for ev in [*evidence, *related]:
             candidate_items.append(
                 EvidenceItem(
                     evidence_id=ev.get("passage_id", "UNKNOWN"),
@@ -287,6 +330,34 @@ class ArbitrationDecisionAssistant:
                     page_number=ev.get("page"),
                     paragraph_or_section=ev.get("title"),
                     url_reference=ev.get("source_url")
+                )
+            )
+
+        # AUD-04.2: authority, validity and eligibility of supplementary material are read
+        # only from the document catalogue. Unregistered documents are discarded.
+        supp_catalog = {}
+        for supp in supp_results:
+            supp_id = supp.get("chunk_id") or supp.get("passage_id")
+            supp_text = (supp.get("content_text") or supp.get("text") or "").strip()
+            doc_meta = self.doc_validator.get_document(supp.get("document_id") or "")
+            role = _SUPPLEMENTARY_ROLE_BY_AUTHORITY.get(doc_meta.authority) if doc_meta else None
+            if not supp_id or not supp_text or role is None:
+                continue
+            supp_catalog[supp_id] = doc_meta
+            candidate_items.append(
+                EvidenceItem(
+                    evidence_id=supp_id,
+                    document_id=doc_meta.document_id,
+                    content_text=supp_text,
+                    role=role,
+                    authority=doc_meta.authority,
+                    validity=doc_meta.validity,
+                    eligibility=doc_meta.determine_eligibility(),
+                    semantic_relevance_score=min(1.0, max(0.0, float(supp.get("confidence_score") or 0.0))),
+                    article_number=supp.get("article_id"),
+                    page_number=supp.get("page"),
+                    paragraph_or_section=supp.get("title"),
+                    url_reference=supp.get("source_url")
                 )
             )
 
@@ -326,6 +397,44 @@ class ArbitrationDecisionAssistant:
                 "certified_bundle": certified_bundle.model_dump()
             }
 
+        # The EvidenceBundle is the sole source of evidence eligible for the
+        # reasoning context and citations.  Retrieval output is only a
+        # candidate until it has survived this gate.
+        evidence, related, supp_results = self._filter_certified_evidence(
+            evidence, related, supp_results, certified_bundle
+        )
+
+        # A certified decision must retain at least one direct Tier 1 passage.
+        # Do not turn related or supplementary material into a decisive answer.
+        if not evidence:
+            reason_text = "Abstención por ausencia de evidencia primaria certificada directa para la decisión."
+            abstain_msg = (
+                f"⚠️ **Abstención Normativa Oficial ({self.config['version_label']})**\n\n"
+                f"{reason_text}\n\n"
+                "*Por gobernanza documental, el asistente no emite dictámenes sin respaldo de la norma primaria vigente.*"
+            )
+            return {
+                "status": "ABSTAIN",
+                "query": situation_query,
+                "analysis": abstain_msg,
+                "structured_answer": {
+                    "summary": abstain_msg,
+                    "normative_basis": "",
+                    "citations": [],
+                    "conditions_and_exceptions": "",
+                    "extended_analysis": "",
+                    "limitations": reason_text,
+                    "is_structured": True,
+                },
+                "evidence": [],
+                "related_passages": [],
+                "engine": "ADA-RRE-v2",
+                "rre_operating_mode": retrieval_res.get("operating_mode", "UNKNOWN"),
+                "degradation_reason": retrieval_res.get("degradation_reason"),
+                "source_sha256_verified": retrieval_res.get("source_sha256_verified", False),
+                "certified_bundle": certified_bundle.model_dump(),
+            }
+
         # Build context for reasoning
         context_blocks = []
         for ev in evidence:
@@ -339,14 +448,45 @@ class ArbitrationDecisionAssistant:
                 f"{rel['text_original'].strip()}"
             )
 
+        # AUD-04.3: supplementary material goes in a separate block, explicitly non-decisive and
+        # without citable identifiers; it is never part of the certified normative context.
+        supp_blocks = []
+        supplementary_context = []
+        for idx, supp in enumerate(supp_results, 1):
+            supp_id = supp.get("chunk_id") or supp.get("passage_id")
+            doc_meta = supp_catalog.get(supp_id)
+            if doc_meta is None:
+                continue
+            supp_text = (supp.get("content_text") or supp.get("text") or "").strip()
+            if len(supp_text) > 1500:
+                supp_text = supp_text[:1497].rsplit(" ", 1)[0] + "..."
+            supp_blocks.append(
+                f"[COMPLEMENTO-{idx}] {supp.get('title', '')} "
+                f"(documento complementario {doc_meta.authority.value}; NO DECISORIO):\n{supp_text}"
+            )
+            supplementary_context.append({
+                "chunk_id": supp_id,
+                "document_id": doc_meta.document_id,
+                "title": supp.get("title", ""),
+                "authority": doc_meta.authority.value,
+                "validity": doc_meta.validity.value,
+                "decisive": False,
+            })
+        supp_context = "\n\n---\n\n".join(supp_blocks)
+
         full_context = "\n\n---\n\n".join(context_blocks)
 
         prompt = (
             "Eres el Asistente de Decisión Arbitral (ADA) oficial de la Federación Internacional de Judo (IJF).\n"
             f"Edición normativa aplicable: {self.config['version_label']} (14 de agosto de 2026).\n\n"
             "Tu tarea es responder la consulta del usuario aplicando rigurosamente los artículos oficiales adjuntos.\n\n"
-            "CONTEXTO NORMATIVO CERTIFICADO:\n"
+            "CONTEXTO NORMATIVO CERTIFICADO (NORMA PRIMARIA SOR 2026; única fuente decisoria y citable):\n"
             f"{full_context}\n\n"
+            + (
+                "CONTEXTO DOCUMENTAL COMPLEMENTARIO — INFORMATIVO Y NO DECISORIO (no es norma; no citable):\n"
+                f"{supp_context}\n\n" if supp_context else ""
+            )
+            +
             "CONTRATO OBLIGATORIO DE RESPUESTA EN DOS NIVELES:\n"
             "Debes responder estructuradamente devolviendo EXCLUSIVAMENTE un objeto JSON válido (sin texto antes ni después) con las siguientes claves:\n"
             "{\n"
@@ -355,7 +495,10 @@ class ArbitrationDecisionAssistant:
             '  "citations": ["Lista de identificadores citados, ej: SOR-2026-08-Pxxx-Sxxx"],\n'
             '  "conditions_and_exceptions": "Condiciones específicas, excepciones reglamentarias, restricciones por categoría (ej. cadetes/juniors) y notas técnicas. Si la consulta es simple o fáctica y no existen excepciones reglamentarias aplicables, responde exactamente: \\"No aplica\\".",\n'
             '  "extended_analysis": "Explicación detallada de cómo se aplica la norma al caso planteado, procedimiento arbitral paso a paso y aplicación práctica. Para preguntas fácticas directas (ej. duración del combate, dimensiones del tatami), responde exactamente: \\"No aplica\\".",\n'
-            '  "limitations": "Límites de la evidencia disponible y aspectos no expresamente contemplados en los extractos adjuntos. Si el texto normativo primario certificado responde de manera completa, indubitable y autosuficiente a la consulta, responde exactamente: \\"Ninguna\\"."\n'
+            '  "limitations": "Límites de la evidencia disponible y aspectos no expresamente contemplados en los extractos adjuntos. Si el texto normativo primario certificado responde de manera completa, indubitable y autosuficiente a la consulta, responde exactamente: \\"Ninguna\\".",\n'
+            '  "answerability": "RESPALDADA si los pasajes SOR certificados responden la consulta; EVIDENCIA_INSUFICIENTE en caso contrario (entonces no formules dictamen).",\n'
+            '  "evidence_quotes": [{"passage_id": "SOR-2026-08-Pxxx-Sxxx", "quote": "fragmento LITERAL copiado del pasaje SOR certificado que respalda una afirmación (mínimo 6 palabras)", "supports": "afirmación respaldada"}],\n'
+            '  "evidence_conflicts": ["Contradicciones detectadas entre pasajes certificados; lista vacía si no hay"]\n'
             "}\n\n"
             "POLÍTICA TRANSVERSAL DE RAZONAMIENTO REGLAMENTARIO:\n"
             "1. Fidelidad Normativa y Distinción en Tres Niveles: Distingue rigurosamente entre:\n"
@@ -370,17 +513,17 @@ class ArbitrationDecisionAssistant:
             "7. Enfoque Directo en Consulta Simple: Si la consulta es concreta y unívoca, entrega una respuesta inmediata, concisa y operativa en Nivel 1 (summary), respaldada por su referencia rectora y proporcional a la consulta.\n"
             "8. Tratamiento de Ambigüedad Normativa o Fáctica: Si la norma no determina unívocamente la solución o la consulta carece de datos fácticos determinantes, expón las disposiciones aplicables, reconoce lo que el texto no determina e indica qué precisiones de hecho se requieren para emitir una resolución definitiva.\n"
             "9. Transparencia sobre Evidencia Insuficiente: Si los pasajes certificados no contienen la respuesta o resultan insuficientes para confirmar una regla, declara con total franqueza la limitación en 'summary' y 'limitations', sin formular dictámenes categóricos infundados.\n"
-            "10. Criterios Especiales Prevalentes:\n"
-            "   - Equipamiento y Judogi: Contesta de inmediato la especificación técnica consultada (ej. colores permitidos blanco y azul según Regla C1.9, pág. 124). Segrega requisitos conexos (marcas, parches, solapas) en 'conditions_and_exceptions' o 'extended_analysis' sin mezclarlos como si fueran reglas de color.\n"
-            "   - Puente y Criterio de Ippon (Art. 14.2, págs. 166-167): Reproduce con total fidelidad el texto oficial: (1) toda situación donde un atleta proyectado haga voluntariamente un 'puente' (cabeza y uno o ambos pies en contacto con el tatami) tras ser proyectado es Ippon para el rival por seguridad cervical; (2) Excepción textual: no se otorgará puntuación ni penalización si la caída de Uke ocurre sobre el cuerpo de Tori, de modo que no todas las partes del cuerpo involucradas en el puente (cabeza, pie o pies) toquen el tatami. PROHIBIDO agregar condiciones geométricas, temporales o de observación que el texto no establezca, y prohibido afirmar que el árbitro debe esperar una evolución determinada de la caída salvo que exista respaldo reglamentario específico.\n"
-            "   - Acciones con la Cabeza (Integración Sistemática de Reglas Generales y Especiales):\n"
-            "     * Rol Atacante (Tori): (1) Head Diving al intentar o ejecutar cualquier técnica de proyección es Hansoku-make directo por técnica peligrosa para CUALQUIER categoría (Art. 18.2.1, pág. 190); Tori SÍ puede continuar en la competición si clasifica; (2) en eventos de Cadetes, el uso intencional de la cabeza por Tori para proyectar que no constituya la zambullida peligrosa de head diving se sanciona con Shido (Art. 18.1.4, punto 33, pág. 188 / concordancia con pág. 190); (3) en Cadetes el reverse seoi-nage no puntúa y es Shido para Tori (Art. 18.1.4, punto 35, pág. 189).\n"
-            "     * Rol Defensor (Uke): (1) En CUALQUIER categoría (Seniors, Juniors, Cadetes), si Uke hace voluntariamente un puente (cabeza y uno o ambos pies en contacto con el tatami) tras ser proyectado para evitar caer de espaldas, la consecuencia reglamentaria es IPPON a favor de Tori por seguridad de la columna cervical (Art. 14.2, pág. 166), con la excepción textual de aterrizaje sobre el cuerpo de Tori (pág. 167); (2) Específicamente en la categoría Cadetes, se prohíbe taxativamente a Uke usar la cabeza para defenderse del lance; uke es penalizado con Shido y se concede a Tori la puntuación técnica generada (Art. 18.1.4, punto 34, pág. 188); (3) No equipares automáticamente todo puente con cualquier defensa ni viceversa: el puente voluntario en vuelo/caída produce Ippon en todas las categorías, mientras que la infracción explícita de Shido a Uke por defenderse con la cabeza es una regla específica de Cadetes.\n"
-            "     * Prohibición de Lagunas Infundadas: PROHIBIDO afirmar que 'no existe regulación o disposición explícita para seniors/juniors' ante preguntas sobre defensa o uso de la cabeza. Expón con claridad las consecuencias aplicables según el rol (Tori -> Head Diving / Uke -> Puente e Ippon) y la regla particular de Cadetes.\n"
+            "10. Criterios Generales de Presentación (no constituyen fuente normativa):\n"
+            "   - Especificaciones Técnicas (equipamiento, judogi, medidas, tiempos): Responde primero la especificación concreta consultada tal como figura en los pasajes certificados, con su cita. Segrega los requisitos conexos en 'conditions_and_exceptions' o 'extended_analysis' sin mezclarlos con la especificación consultada.\n"
+            "   - Reglas Generales y Reglas Especiales: Si los pasajes certificados contienen una regla general y otra especial (por categoría de edad, rol tori/uke u otra circunstancia), expón cada una con su propia cita y su ámbito de aplicación, sin equipararlas ni extender una al ámbito de la otra.\n"
+            "   - Fidelidad Textual: No agregues condiciones geométricas, temporales, de observación ni consecuencias que el texto certificado no establezca. Si los pasajes no resuelven la consulta, aplica la política 9.\n"
             "   - Diagramas y Cuadros: Si la consulta refiere a una plantilla de diagrama/cuadro (págs. 213-230), explica las reglas sustantivas de sorteo aplicables e indica que la geometría espacial debe consultarse en el PDF oficial.\n"
-            "10. Language Policy: Detect the language of the user query and requested output language. "
+            "11. Contexto Complementario No Decisorio: Los bloques [COMPLEMENTO-n] solo pueden aclarar terminología o contexto de aplicación. No son norma: no fundamentan la conclusión, no se incluyen en 'citations' ni en 'normative_basis' y no se presentan como fuente de una regla. Toda conclusión debe apoyarse en pasajes SOR primarios citados por su identificador. Si un complemento contradice o excede el texto SOR, prevalece el SOR.\n"
+            "13. Respaldo Literal Verificable: Cada pasaje SOR citado debe tener en 'evidence_quotes' al menos un fragmento copiado LITERALMENTE de ese pasaje. Toda cifra, plazo, medida o sanción de 'summary', 'normative_basis' o 'conditions_and_exceptions' debe aparecer en esos fragmentos. Si el fragmento citado tiene cerca una excepción o condición (except, unless, however, although, only...) o una remisión a otro artículo, cita también esa excepción literalmente. Nunca cites texto de los bloques [COMPLEMENTO-n] como respaldo. Si no puedes respaldar literalmente la respuesta con los pasajes certificados, usa answerability = EVIDENCIA_INSUFICIENTE.\n"
+            "12. Language Policy: Detect the language of the user query and requested output language. "
             + ("Write the entire JSON response (summary, normative_basis, conditions_and_exceptions, extended_analysis, limitations) in fluent, precise ENGLISH using official IJF terminology (e.g. 'Hansoku-make', 'Osaekomi', 'Shido', 'Direct Hansoku-make', 'Contest Area', 'Safety Area').\n\n" if language == "en" else "Write the entire JSON response in clear, rigorous SPANISH using official IJF terminology, unless the user query explicitly demands another language.\n\n" if language == "es" else "If the query is in English, write the entire JSON response in fluent, precise ENGLISH using official IJF terminology. If the query is in Spanish, write the response in SPANISH.\n\n")
             + f"Consulta del usuario / User query: {situation_query}\n"
+            + f"Consulta técnica normalizada (EN; usada para verificar la pertinencia de las citas): {search_query_en}\n"
             + "Respuesta JSON:"
         )
 
@@ -409,6 +552,17 @@ class ArbitrationDecisionAssistant:
 
         citations_valid = self._validate_llm_citations(llm_answer, evidence, related)
 
+        # Fase 9 - control de integridad decisoria (DIG). Una cita SOR valida (nivel A) no implica
+        # pertinencia (B), suficiencia (C) ni respaldo efectivo (D). DIG aplica controles genericos y
+        # conservadores; si alguno falla se abstiene. Nunca certifica entailment (D = NO_VERIFICADO).
+        decision_integrity = None
+        if llm_answer and citations_valid:
+            decision_integrity = self._decision_integrity_gate().evaluate(
+                llm_answer, situation_query, search_query_en, evidence, related,
+                # Titles are delivered to the model too, so they are part of the SHADOW footprint.
+                supplementary_texts=[f"{s.get('title') or ''} {s.get('content_text') or s.get('text') or ''}" for s in supp_results],
+            )
+
         # Build citation passage data for resolution
         all_passages_data = []
         for e in evidence:
@@ -426,29 +580,74 @@ class ArbitrationDecisionAssistant:
                 "source_url": r["source_url"].split("#")[0]
             })
 
-        if llm_answer and citations_valid:
-            succ_prov = llm_meta.get("successful_provider", "LLM")
-            succ_model = llm_meta.get("successful_model", "")
-            if succ_model:
-                mode_label = f"Síntesis Analítica IA ({succ_prov} / {succ_model}; citas verificadas)"
-                header = f"⚖️ **Síntesis Analítica IA ({succ_prov} — {succ_model})**"
+        integrity_ok = bool(decision_integrity) and decision_integrity.get("decision") == "PERMITIR"
+        if not (llm_answer and citations_valid and integrity_ok):
+            # AUD-03 (option A): without a generated answer whose citations validate against
+            # the certified primary evidence, nothing in this system can establish that the
+            # retrieved passages support the query.  The certified passages are returned only
+            # for consultation; no summary, conclusion or normative citation is produced.
+            if llm_answer and citations_valid and not integrity_ok:
+                failed = ", ".join((decision_integrity or {}).get("failed_checks", [])) or "control no ejecutado"
+                mode_label = "Abstención (control de integridad decisoria: respaldo no verificable)"
+                reason_text = (
+                    "La respuesta generada cita pasajes SOR certificados, pero no superó el control de integridad "
+                    f"decisoria ({failed}). Una cita válida no demuestra que la evidencia respalde la respuesta."
+                )
+            elif llm_answer and not citations_valid:
+                mode_label = "Abstención (la respuesta IA no superó la validación de citas SOR primarias)"
+                reason_text = (
+                    "La respuesta generada no cita al menos un pasaje SOR primario certificado entregado al modelo, "
+                    "o cita identificadores, artículos o códigos ajenos a la evidencia certificada."
+                )
             else:
-                mode_label = "Síntesis Analítica IA (Conectado; citas verificadas)"
-                header = "⚖️ **Síntesis Analítica IA (Conectado; citas verificadas)**"
-            structured = parse_structured_response(llm_answer, evidence)
-        else:
-            if llm_answer and not citations_valid:
-                mode_label = "Resumen de Evidencias Normativas (Fallback: citas IA no verificables)"
-                header = f"📋 **Resumen de Evidencias Normativas — Fallback: Citas IA no verificables ({self.config['version_label']})**"
-            else:
-                mode_label = "Resumen de Evidencias Normativas (Modo Local Desconectado)"
-                header = f"📋 **Resumen de Evidencias Normativas — Modo Local Desconectado ({self.config['version_label']})**"
-            structured = build_deterministic_structured_answer(
-                query=situation_query,
-                evidence=evidence,
-                related=related,
-                version_label=self.config["version_label"]
+                mode_label = "Abstención (modo local sin modelo generativo)"
+                reason_text = (
+                    "Sin modelo generativo disponible no es posible establecer que los pasajes recuperados "
+                    "respalden la consulta."
+                )
+            abstain_msg = (
+                f"⚠️ **Abstención Normativa Oficial ({self.config['version_label']})**\n\n"
+                f"{reason_text}\n\n"
+                "*Los pasajes certificados recuperados se conservan solo como referencia de consulta; no constituyen dictamen.*"
             )
+            return {
+                "status": "ABSTAIN",
+                "query": situation_query,
+                "mode": mode_label,
+                "analysis": abstain_msg,
+                "structured_answer": {
+                    "summary": abstain_msg,
+                    "normative_basis": "",
+                    "citations": [],
+                    "conditions_and_exceptions": "",
+                    "extended_analysis": "",
+                    "limitations": reason_text,
+                    "is_structured": True,
+                },
+                "evidence": evidence,
+                "related_passages": related,
+                "engine": "ADA-RRE-v2",
+                "rre_operating_mode": retrieval_res.get("operating_mode", "UNKNOWN"),
+                "degradation_reason": retrieval_res.get("degradation_reason"),
+                "source_sha256_verified": retrieval_res.get("source_sha256_verified", False),
+                "certified_bundle": certified_bundle.model_dump(),
+                "llm_meta": llm_meta,
+                "token_usage": query_token_usage,
+                "supplementary_context": supplementary_context,
+                "decision_integrity": decision_integrity,
+            }
+
+        # Citation validation checks identifiers, articles and codes against the certified
+        # evidence.  It is NOT a semantic entailment check of the generated claims.
+        succ_prov = llm_meta.get("successful_provider", "LLM")
+        succ_model = llm_meta.get("successful_model", "")
+        if succ_model:
+            mode_label = f"Síntesis Analítica IA ({succ_prov} / {succ_model}; citas SOR validadas; respaldo literal verificado, sin entailment)"
+            header = f"⚖️ **Síntesis Analítica IA ({succ_prov} — {succ_model})**"
+        else:
+            mode_label = "Síntesis Analítica IA (Conectado; citas SOR validadas; respaldo literal verificado, sin entailment)"
+            header = "⚖️ **Síntesis Analítica IA (Conectado; citas SOR validadas)**"
+        structured = parse_structured_response(llm_answer, evidence)
 
         # Rigor Normativo: Validar afirmaciones, códigos de penalización y artículos contra evidencia oficial
         validator = NormativeValidator(evidence_passages=evidence, related_passages=related)
@@ -490,26 +689,25 @@ class ArbitrationDecisionAssistant:
         raw_cits = structured.citations if isinstance(structured.citations, list) else []
         for c in raw_cits:
             if isinstance(c, str):
-                match_id = re.search(r"((?:SOR-[A-Za-z0-9-]+)|KUN-\d{4})", c)
+                match_id = re.search(r"((?:SOR-[A-Za-z0-9-]+)|(?:KUN-[A-Za-z0-9_-]+)|(?:CHK-[A-Za-z0-9_-]+))", c)
                 cid = match_id.group(1) if match_id else c
             elif isinstance(c, dict):
                 cid = c.get("passage_id")
             else:
                 cid = None
 
+            # AUD-04.4: only certified primary passages delivered to the model are kept.
             if cid and cid in rich_citations_map and cid not in seen_pids:
                 enriched_citations.append(rich_citations_map[cid])
                 seen_pids.add(cid)
-            elif isinstance(c, dict):
-                enriched_citations.append(c)
 
-        # If no explicit citations were captured (e.g. deterministic brief), include relevant seed evidence (max 3)
+        # If the 'citations' field was empty, use the primary IDs the model cited in its text
+        # (never passages it did not cite).
         if not enriched_citations:
-            for e in evidence[:3]:
-                eid = e.get("passage_id")
-                if eid and eid in rich_citations_map and eid not in seen_pids:
-                    enriched_citations.append(rich_citations_map[eid])
-                    seen_pids.add(eid)
+            for cid in re.findall(r"SOR-[A-Za-z0-9]+-[A-Za-z0-9]+-P\d+-S\d+", llm_answer or ""):
+                if cid in rich_citations_map and cid not in seen_pids:
+                    enriched_citations.append(rich_citations_map[cid])
+                    seen_pids.add(cid)
 
         structured.citations = enriched_citations
 
@@ -537,28 +735,67 @@ class ArbitrationDecisionAssistant:
             "source_sha256_verified": retrieval_res.get("source_sha256_verified", False),
             "certified_bundle": certified_bundle.model_dump(),
             "llm_meta": llm_meta,
-            "token_usage": query_token_usage
+            "token_usage": query_token_usage,
+            "supplementary_context": supplementary_context,
+            "decision_integrity": decision_integrity,
         }
 
+    def _decision_integrity_gate(self) -> DecisionIntegrityGate:
+        """Lazily built DIG gate over the primary SOR corpus loaded by the RRE (read-only)."""
+        gate = getattr(self, "_dig_gate", None)
+        if gate is None:
+            passages = list(getattr(self.rre, "passages_by_id", {}).values()) or list(getattr(self.rre, "passages", []) or [])
+            gate = DecisionIntegrityGate(passages)
+            self._dig_gate = gate
+        return gate
+
+    @staticmethod
+    def _filter_certified_evidence(evidence: list, related: list, supplementary: list, bundle: EvidenceBundle) -> tuple[list, list, list]:
+        """Keep only retrieved items that are present in the applicable bundle lane."""
+        primary_ids = {item.evidence_id for item in bundle.primary_normative_evidence}
+        interpretive_ids = {item.evidence_id for item in bundle.interpretive_evidence}
+        certified_evidence = [ev for ev in evidence if ev.get("passage_id") in primary_ids]
+        certified_related = [rel for rel in related if rel.get("passage_id") in primary_ids]
+        certified_supplementary = [
+            item for item in supplementary
+            if (item.get("chunk_id") or item.get("passage_id") or item.get("document_id"))
+            in interpretive_ids
+        ]
+        return certified_evidence, certified_related, certified_supplementary
+
     def _validate_llm_citations(self, answer: str | None, evidence: list, related: list) -> bool:
-        """Accept generated analysis only when it cites retrieved official passage IDs
-        and does not introduce hallucinated articles or penalty codes."""
+        """Accept generated analysis only when it cites at least one certified primary SOR passage
+        delivered to the model, cites nothing outside the delivered evidence, and does not introduce
+        articles or penalty codes absent from that evidence.
+
+        Limitation: this validates identifiers and references only. It does not verify that the
+        cited passages semantically support the generated claims (no entailment check)."""
         if not isinstance(answer, str) or not answer.strip():
             return False
 
-        allowed_ids = {
+        # Certified primary SOR passages that were delivered to the model (direct + related,
+        # both already filtered through the EvidenceBundle primary lane).
+        primary_ids = {
             item.get("passage_id")
             for item in [*evidence, *related]
             if isinstance(item, dict) and item.get("passage_id")
         }
-        # Strict regex to extract official passage IDs without matching edition strings like 'SOR-2026-08'
-        raw_found = re.findall(r"(?:SOR-[A-Za-z0-9]+-[A-Za-z0-9]+-P\d+-S\d+|KUN-\d{4})", answer)
+
+        # AUD-04.4: supplementary chunk IDs and document IDs are never valid normative citations.
+        allowed_ids = set(primary_ids)
+
+        # Detect SOR, KUN and CHK identifiers; any identifier outside allowed_ids rejects the answer.
+        raw_found = re.findall(r"(?:SOR-[A-Za-z0-9]+-[A-Za-z0-9]+-P\d+-S\d+|KUN-[A-Za-z0-9_-]+|CHK-[A-Za-z0-9_-]+)", answer)
         cited_ids = set(raw_found)
-        # If passage IDs were cited, verify all of them belong to allowed_ids
-        if cited_ids and not all(citation in allowed_ids for citation in cited_ids):
+        # AUD-03: at least one certified primary SOR passage delivered to the model must be cited.
+        # An answer without citations, or citing only supplementary material, is rejected.
+        if not (cited_ids & primary_ids):
+            return False
+        # Every cited identifier must belong to the evidence delivered to the model.
+        if not all(citation in allowed_ids for citation in cited_ids):
             return False
 
-        # Additional semantic and normative validation check
+        # Reference check (lexical): articles and penalty codes must appear in the delivered evidence.
         validator = NormativeValidator(evidence_passages=evidence, related_passages=related)
         res = validator.validate_text(answer)
         if res.hallucinated_codes or res.hallucinated_articles:

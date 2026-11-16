@@ -28,6 +28,9 @@ if src_dir not in sys.path:
 from rag_engine import RagEngine
 from llm_provider import MultiProviderLLMManager
 from corpus_config import get_active_corpus_config, ACTIVE_EDITION
+from unittest.mock import patch
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _ada_contract_helpers import StubLLM, cite_best_delivered  # noqa: E402
 from document_validator import DocumentAuthority, ValidityStatus
 
 
@@ -118,8 +121,10 @@ class TestP1BConfiguracionE2E(unittest.TestCase):
     def test_06_end_to_end_citation_traceability_physical_pages(self):
         """Verifica que las citas generadas tengan trazabilidad física a las 298 páginas del PDF oficial."""
         query = "¿Cuáles son las medidas oficiales del área de combate y el área de seguridad del tatami?"
-        res = self.engine.query(query, k=3)
-        
+        # Fase 9.1: generador determinista conforme al contrato (sin depender de red/.env).
+        with patch.object(self.engine.ada, "_call_llm", StubLLM(cite_best_delivered)):
+            res = self.engine.query(query, k=3)
+
         struct = res.get("structured_answer", {})
         citations = struct.get("citations", [])
         self.assertTrue(len(citations) > 0, "Debe retornar citas enriquecidas.")
@@ -167,7 +172,8 @@ class TestP1BConfiguracionE2E(unittest.TestCase):
     def test_09_two_tier_response_presentation_contract(self):
         """Verifica el contrato de dos niveles: Nivel 1 (summary operativo) y Nivel 2 (fundamentación)."""
         query = "¿Cuáles son las medidas oficiales del área de combate y el área de seguridad del tatami?"
-        res = self.engine.query(query, k=3)
+        with patch.object(self.engine.ada, "_call_llm", StubLLM(cite_best_delivered)):
+            res = self.engine.query(query, k=3)
 
         struct = res.get("structured_answer", {})
         self.assertTrue(struct.get("is_structured"), "La respuesta debe ser estructurada.")
@@ -216,8 +222,9 @@ class TestP1BConfiguracionE2E(unittest.TestCase):
         self.assertLessEqual(len(res_rre["evidence"]), 5)
         self.assertGreaterEqual(len(res_rre["evidence"]), 1)
 
-        # Ejecución por defecto en ADA
-        res_ada = self.engine.ada.analyze_situation(query)
+        # Ejecución por defecto en ADA (Fase 9.1: generador determinista conforme al contrato)
+        with patch.object(self.engine.ada, "_call_llm", StubLLM(cite_best_delivered)):
+            res_ada = self.engine.ada.analyze_situation(query)
         self.assertEqual(res_ada["status"], "SUCCESS")
         self.assertLessEqual(len(res_ada["evidence"]), 5)
 
