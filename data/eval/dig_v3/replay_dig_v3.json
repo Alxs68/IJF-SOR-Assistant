@@ -1,0 +1,1515 @@
+{
+ "summary": {
+  "cases": 39,
+  "changed": 1,
+  "unblocked": [
+   {
+    "id": "B2-REF-005",
+    "src": "llm_dev_original.json",
+    "category": "REFERENCIA_CRUZADA",
+    "expected_behavior": "RESPONDER",
+    "base": {
+     "decision": "ABSTENER",
+     "failed": [
+      "DIG-05_PERTINENCIA_MINIMA"
+     ]
+    },
+    "per_fix_decision": {
+     "FIX_PERTINENCE_HEADING": "PERMITIR",
+     "FIX_HYPHEN_TERMS": "ABSTENER",
+     "FIX_DIG08_LANGUAGE": "ABSTENER"
+    },
+    "quotes_hit_expected_evidence": true,
+    "quotes_hit_scope_distractor": false
+   }
+  ],
+  "newly_blocked": [],
+  "failed_rules_base": {
+   "DIG-02_CITAS_CON_CITA_LITERAL": 3,
+   "DIG-05_PERTINENCIA_MINIMA": 15,
+   "DIG-06_CIFRAS_RESPALDADAS": 18,
+   "DIG-08_SIN_INFLUENCIA_SHADOW": 6,
+   "DIG-09_EXCEPCIONES_CITADAS": 3,
+   "DIG-03_CITA_LITERAL": 11,
+   "DIG-07_TERMINOS_RESPALDADOS": 2,
+   "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 5,
+   "DIG-01_SUFICIENCIA_DECLARADA": 2,
+   "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 1
+  },
+  "failed_rules_v3": {
+   "DIG-02_CITAS_CON_CITA_LITERAL": 3,
+   "DIG-05_PERTINENCIA_MINIMA": 13,
+   "DIG-06_CIFRAS_RESPALDADAS": 18,
+   "DIG-09_EXCEPCIONES_CITADAS": 3,
+   "DIG-03_CITA_LITERAL": 11,
+   "DIG-07_TERMINOS_RESPALDADOS": 2,
+   "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 5,
+   "DIG-01_SUFICIENCIA_DECLARADA": 2,
+   "DIG-08_SIN_INFLUENCIA_SHADOW": 4,
+   "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 1
+  },
+  "adversarial": {
+   "A1_SUSTITUIR_CIFRA_RESPALDADA|base|detectado": 19,
+   "A1_SUSTITUIR_CIFRA_RESPALDADA|v3|detectado": 19,
+   "A2_CIFRA_NUEVA|base|detectado": 39,
+   "A2_CIFRA_NUEVA|v3|detectado": 39,
+   "A3_CIFRA_EN_LISTA|base|detectado": 39,
+   "A3_CIFRA_EN_LISTA|v3|detectado": 39,
+   "A4_DECIMAL_TRAS_CAPITULO|base|NO_detectado": 1,
+   "A4_DECIMAL_TRAS_CAPITULO|base|detectado": 38,
+   "A4_DECIMAL_TRAS_CAPITULO|v3|NO_detectado": 1,
+   "A4_DECIMAL_TRAS_CAPITULO|v3|detectado": 38,
+   "A4b_ETIQUETA_REAL_CON_OTRO_TITULO|base|NO_detectado": 1,
+   "A4b_ETIQUETA_REAL_CON_OTRO_TITULO|base|detectado": 38,
+   "A4b_ETIQUETA_REAL_CON_OTRO_TITULO|v3|NO_detectado": 1,
+   "A4b_ETIQUETA_REAL_CON_OTRO_TITULO|v3|detectado": 38,
+   "A5_FECHA_DISTINTA_DE_LA_EDICION|base|detectado": 39,
+   "A5_FECHA_DISTINTA_DE_LA_EDICION|v3|detectado": 39,
+   "A6_ID_SOR_UNICODE_MAS_CIFRA|base|detectado": 39,
+   "A6_ID_SOR_UNICODE_MAS_CIFRA|v3|detectado": 39,
+   "T1_TERMINO_DISTINTIVO_INVENTADO|base|detectado": 39,
+   "T1_TERMINO_DISTINTIVO_INVENTADO|v3|detectado": 39,
+   "T2_CIFRA_SOLO_SHADOW|base|detectado": 39,
+   "T2_CIFRA_SOLO_SHADOW|v3|detectado": 39
+  },
+  "adversarial_regressions_v3": []
+ },
+ "rows": [
+  {
+   "id": "B2-AMB-005",
+   "src": "llm_dev_f11_capture.json",
+   "category": "AMBIGUA",
+   "expected_behavior": "SOLICITAR_ACLARACION",
+   "base": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "v3": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "PERMITIR",
+    "FIX_HYPHEN_TERMS": "PERMITIR",
+    "FIX_DIG08_LANGUAGE": "PERMITIR"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P065-S079",
+     "The top 36 athletes in the IJF Seniors WRL in each weight category will be invited. No reserve athletes will be invited."
+    ]
+   ]
+  },
+  {
+   "id": "B2-AMB-006",
+   "src": "llm_dev_f11_capture.json",
+   "category": "AMBIGUA",
+   "expected_behavior": "SOLICITAR_ACLARACION",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-02_CITAS_CON_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-08_SIN_INFLUENCIA_SHADOW"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-02_CITAS_CON_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P081-S100",
+     "A +5% tolerance applies only to the minus weight categories. No tolerance applies to the plus weight categories because they do not have an upper weight limit"
+    ],
+    [
+     "SOR-2026-08-P085-S102",
+     "A +5% tolerance applies only to the minus weight categories. No tolerance applies to the plus weight categories because they do not have an upper weight limit"
+    ]
+   ]
+  },
+  {
+   "id": "B2-AMB-009",
+   "src": "llm_dev_f11_capture.json",
+   "category": "AMBIGUA",
+   "expected_behavior": "SOLICITAR_ACLARACION",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-09_EXCEPCIONES_CITADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-09_EXCEPCIONES_CITADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P056-S071",
+     "Placing Continental Championship points World Championship points 1st place 700 2000"
+    ],
+    [
+     "SOR-2026-08-P057-S073",
+     "Placing Continental Championship points World Championship points 1st place 700 2000"
+    ],
+    [
+     "SOR-2026-08-P053-S067",
+     "Placing Continental Cups Continental Championships Grand Prix World Championships 1st place 100 300 400 700"
+    ],
+    [
+     "SOR-2026-08-P110-S141",
+     "Placing Continental Open Kata World Series Continental Championships World Championships 1st place 350 700 1000 1500"
+    ]
+   ]
+  },
+  {
+   "id": "B2-AMB-010",
+   "src": "llm_dev_f11_capture.json",
+   "category": "AMBIGUA",
+   "expected_behavior": "SOLICITAR_ACLARACION",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-02_CITAS_CON_CITA_LITERAL",
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-07_TERMINOS_RESPALDADOS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-02_CITAS_CON_CITA_LITERAL",
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-07_TERMINOS_RESPALDADOS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P198-S210",
+     "A minor injury may be treated by the athlete himself. For example, in the case of a dislocated finger or toe, the referee shall stop the contest (by calling “Mate!” or “Sono-mama!”) and allow the athl"
+    ],
+    [
+     "SOR-2026-08-P198-S210",
+     "The same finger or toe is allowed to be reset on two (2) occasions. If the same dislocation occurs a third time, the athlete is declared unable to continue in the contest. The referee, after consultat"
+    ],
+    [
+     "SOR-2026-08-P198-S210",
+     "Except for the situations above, any medical treatment administered by a doctor shall result in the athlete being declared unable to continue, and the opponent shall be declared the winner by kiken-ga"
+    ]
+   ]
+  },
+  {
+   "id": "B2-CAT-001",
+   "src": "llm_dev_f11_capture.json",
+   "category": "DISTINCION_CATEGORIA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P124-S165",
+     "The length of the jacket skirt, below the belt (to be worn on the waist above the hip bone and be tied very tightly) must measure as follows:\n• All athletes -73 kg*: a minimum of 20 cm"
+    ]
+   ]
+  },
+  {
+   "id": "B2-CAT-003",
+   "src": "llm_dev_f11_capture.json",
+   "category": "DISTINCION_CATEGORIA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "v3": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "PERMITIR",
+    "FIX_HYPHEN_TERMS": "PERMITIR",
+    "FIX_DIG08_LANGUAGE": "PERMITIR"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P109-S138",
+     "For the U18 age group both tori and uke must be under 18 years old in the calendar year of the competition and shall have a minimum of 3rd kyu (green belt)."
+    ],
+    [
+     "SOR-2026-08-P113-S147",
+     "A green, blue or brown belt without an IJF label is authorised for the U18 age group."
+    ]
+   ]
+  },
+  {
+   "id": "B2-CAT-007",
+   "src": "llm_dev_f11_capture.json",
+   "category": "DISTINCION_CATEGORIA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "v3": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "PERMITIR",
+    "FIX_HYPHEN_TERMS": "PERMITIR",
+    "FIX_DIG08_LANGUAGE": "PERMITIR"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P055-S069",
+     "At Grand Prix Cadets events only the two (2) best domestic athletes per weight category can obtain points for the IJF Cadets WRL."
+    ],
+    [
+     "SOR-2026-08-P055-S069",
+     "In case of equality the points will be automatically given to the highest ranked athlete. If still equal, the domestic national federation will decide."
+    ]
+   ]
+  },
+  {
+   "id": "B2-DIR-005",
+   "src": "llm_dev_f11_capture.json",
+   "category": "DIRECTA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P129-S170",
+     "There should be a space of 0.5 cm - 2 cm between each star."
+    ],
+    [
+     "SOR-2026-08-P129-S170",
+     "Space between two stars: From 1.5 cm to 2 cm."
+    ]
+   ]
+  },
+  {
+   "id": "B2-DIR-017",
+   "src": "llm_dev_f11_capture.json",
+   "category": "DIRECTA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "v3": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "PERMITIR",
+    "FIX_HYPHEN_TERMS": "PERMITIR",
+    "FIX_DIG08_LANGUAGE": "PERMITIR"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P098-S117",
+     "Prize money will be given to the athletes who are then responsible to give 20% to their coach."
+    ]
+   ]
+  },
+  {
+   "id": "B2-MLG-003",
+   "src": "llm_dev_f11_capture.json",
+   "category": "MULTILINGUE",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P105-S130",
+     "The weigh‑in will take place the day before the competition as indicated in the outlines. There is no random weigh‑in for veterans."
+    ],
+    [
+     "SOR-2026-08-P079-S093",
+     "Random weigh‑in is carried out for individual events only, there will be no random weigh‑in for IJF Mixed Team events."
+    ]
+   ]
+  },
+  {
+   "id": "B2-OOD-006",
+   "src": "llm_dev_f11_capture.json",
+   "category": "OOD",
+   "expected_behavior": "ABSTENER_FUERA_DE_DOMINIO",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-01_SUFICIENCIA_DECLARADA",
+     "DIG-02_CITAS_CON_CITA_LITERAL",
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-01_SUFICIENCIA_DECLARADA",
+     "DIG-02_CITAS_CON_CITA_LITERAL",
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": []
+  },
+  {
+   "id": "B2-SCO-009",
+   "src": "llm_dev_f11_capture.json",
+   "category": "AMBITO_DISTRACTOR",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P079-S093",
+     "Random weigh-in is carried out for individual events only, there will be no random weigh-in for IJF Mixed Team events."
+    ]
+   ]
+  },
+  {
+   "id": "B2-SCO-022",
+   "src": "llm_dev_f11_capture.json",
+   "category": "AMBITO_DISTRACTOR",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "v3": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "PERMITIR",
+    "FIX_HYPHEN_TERMS": "PERMITIR",
+    "FIX_DIG08_LANGUAGE": "PERMITIR"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P043-S054",
+     "Each mixed team must consist of six (6) athletes (3 women and 3 men) and has the possibility to have up to six (6) reserves (3 women and 3 men)."
+    ]
+   ]
+  },
+  {
+   "id": "B2-AMB-009",
+   "src": "llm_dev_f11_capture.json",
+   "category": "AMBIGUA",
+   "expected_behavior": "SOLICITAR_ACLARACION",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-09_EXCEPCIONES_CITADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-09_EXCEPCIONES_CITADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P056-S071",
+     "Placing Continental Championship points World Championship points 1st place 700 2000"
+    ],
+    [
+     "SOR-2026-08-P057-S073",
+     "Placing Continental Championship points World Championship points 1st place 700 2000"
+    ],
+    [
+     "SOR-2026-08-P053-S067",
+     "Placing Continental Cups Continental Championships Grand Prix World Championships 1st place 100 300 400 700"
+    ],
+    [
+     "SOR-2026-08-P110-S141",
+     "Ranking points for kata pairs Placing Continental Open Kata World Series Continental Championships World Championships 1st place 350 700 1000 1500"
+    ]
+   ]
+  },
+  {
+   "id": "B2-DIR-005",
+   "src": "llm_dev_f11_capture.json",
+   "category": "DIRECTA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P129-S170",
+     "There should be a space of 0.5 cm - 2 cm between each star."
+    ],
+    [
+     "SOR-2026-08-P129-S170",
+     "Space between two stars: From 1.5 cm to 2 cm."
+    ]
+   ]
+  },
+  {
+   "id": "B2-DIR-017",
+   "src": "llm_dev_f11_capture.json",
+   "category": "DIRECTA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P098-S117",
+     "Prize money will be given to the athletes who are then responsible to give 20% to their coach."
+    ]
+   ]
+  },
+  {
+   "id": "B2-EXC-009",
+   "src": "llm_dev_f11_capture.json",
+   "category": "EXCEPCION",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P098-S117",
+     "Each athlete who has won a medal must be present at the ceremony to receive their medal personally."
+    ],
+    [
+     "SOR-2026-08-P098-S117",
+     "Any athlete who is absent from the awards ceremony without a good reason may forfeit the medal and prize money."
+    ]
+   ]
+  },
+  {
+   "id": "B2-MUL-004",
+   "src": "llm_dev_f11_capture.json",
+   "category": "MULTI_ARTICULO",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-08_SIN_INFLUENCIA_SHADOW"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P042-S053",
+     "Each mixed team must consist of six (6) athletes (3 women and 3 men) and has the possibility to have up to six (6) reserves (3 women and 3 men)."
+    ],
+    [
+     "SOR-2026-08-P045-S055",
+     "Each team will consist of up to five (5) athletes and has the possibility to have up to five (5) reserves. A team must consist of a minimum of three (3) athletes."
+    ],
+    [
+     "SOR-2026-08-P046-S055",
+     "Each team will consist of up to five (5) athletes and has the possibility to have up to five (5) reserves. A team must consist of a minimum of three (3) athletes."
+    ]
+   ]
+  },
+  {
+   "id": "B2-SCO-010",
+   "src": "llm_dev_f11_capture.json",
+   "category": "AMBITO_DISTRACTOR",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P105-S130",
+     "There is no random weigh‑in for veterans."
+    ],
+    [
+     "SOR-2026-08-P079-S096",
+     "Random weigh‑in is carried out for individual events only, there will be no random weigh‑in for IJF Mixed Team events."
+    ]
+   ]
+  },
+  {
+   "id": "B2-SCO-023",
+   "src": "llm_dev_f11_capture.json",
+   "category": "AMBITO_DISTRACTOR",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P053-S067",
+     "Athletes can earn points for the IJF Juniors WRL by competing in Continental Cups Juniors, Continental Championships Juniors, Grand Prix Juniors and World Championships Juniors."
+    ],
+    [
+     "SOR-2026-08-P053-S067",
+     "Participation points will be given for all juniors events. Other ranking points will be given when there is at least one (1) contest won."
+    ],
+    [
+     "SOR-2026-08-P053-S067",
+     "At Grand Prix Juniors events only the two (2) best domestic athletes per weight category can obtain points for the IJF Juniors WRL."
+    ],
+    [
+     "SOR-2026-08-P053-S067",
+     "At World Championships Juniors only the nine (9) best domestic male and nine (9) best domestic female athletes from the host country will be considered for the IJF Juniors WRL."
+    ]
+   ]
+  },
+  {
+   "id": "B2-AMB-006",
+   "src": "llm_dev_original.json",
+   "category": "AMBIGUA",
+   "expected_behavior": "SOLICITAR_ACLARACION",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-08_SIN_INFLUENCIA_SHADOW"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-08_SIN_INFLUENCIA_SHADOW"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P081-S100",
+     "A +5% tolerance applies only to the minus weight categories. No tolerance applies to the plus weight categories because they do not have an upper weight limit"
+    ],
+    [
+     "SOR-2026-08-P081-S100",
+     "+0 .2 kg allowed for underwear"
+    ],
+    [
+     "SOR-2026-08-P083-S101",
+     "An athlete, who was inscribed for both the Olympic Games individual and mixed team competitions but for any reason was unable to take part in the individual competition, must be within the weight limi"
+    ],
+    [
+     "SOR-2026-08-P085-S102",
+     "A +5% tolerance applies only to the minus weight categories. No tolerance applies to the plus weight categories because they do not have an upper weight limit"
+    ]
+   ]
+  },
+  {
+   "id": "B2-AMB-009",
+   "src": "llm_dev_original.json",
+   "category": "AMBIGUA",
+   "expected_behavior": "SOLICITAR_ACLARACION",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-07_TERMINOS_RESPALDADOS",
+     "DIG-09_EXCEPCIONES_CITADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-07_TERMINOS_RESPALDADOS",
+     "DIG-09_EXCEPCIONES_CITADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P053-S067",
+     "1st place 100 300 400 700"
+    ],
+    [
+     "SOR-2026-08-P056-S071",
+     "1st place 700 2000"
+    ],
+    [
+     "SOR-2026-08-P057-S073",
+     "1st place 700 2000"
+    ],
+    [
+     "SOR-2026-08-P110-S141",
+     "1st place 350 700 1000 1500"
+    ]
+   ]
+  },
+  {
+   "id": "B2-AMB-010",
+   "src": "llm_dev_original.json",
+   "category": "AMBIGUA",
+   "expected_behavior": "SOLICITAR_ACLARACION",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P198-S210",
+     "A minor injury may be treated by the athlete himself."
+    ],
+    [
+     "SOR-2026-08-P198-S210",
+     "the referee shall stop the contest (by calling “Mate!” or “Sono-mama!”) and allow the athlete to reset the dislocated finger or toe."
+    ],
+    [
+     "SOR-2026-08-P198-S210",
+     "This action should be done immediately, upon the request of the athlete with the assistance of the doctor, outside the tatami, and the athlete can continue the contest."
+    ],
+    [
+     "SOR-2026-08-P198-S210",
+     "The same finger or toe is allowed to be reset on two (2) occasions."
+    ],
+    [
+     "SOR-2026-08-P198-S210",
+     "If the same dislocation occurs a third time, the athlete is declared unable to continue in the contest."
+    ],
+    [
+     "SOR-2026-08-P198-S210",
+     "Any medical treatment administered by a doctor shall result in the athlete being declared unable to continue, and the opponent shall be declared the winner by kiken-gachi."
+    ],
+    [
+     "SOR-2026-08-P113-S146",
+     "In case of a minor injury like bloody wound, broken nails or a problem with contact lenses etc., and according to the decision of the judges, the kata performance will be stopped, and the athlete will"
+    ],
+    [
+     "SOR-2026-08-P113-S146",
+     "The competition will continue, and the pair will repeat entirely the kata after the last pair has performed."
+    ]
+   ]
+  },
+  {
+   "id": "B2-CAT-001",
+   "src": "llm_dev_original.json",
+   "category": "DISTINCION_CATEGORIA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P124-S164",
+     "All athletes -73 kg*: a minimum of 20 cm"
+    ]
+   ]
+  },
+  {
+   "id": "B2-CAT-003",
+   "src": "llm_dev_original.json",
+   "category": "DISTINCION_CATEGORIA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P113-S145",
+     "A green, blue or brown belt without an IJF label is authorised for the U18 age group."
+    ]
+   ]
+  },
+  {
+   "id": "B2-DIR-005",
+   "src": "llm_dev_original.json",
+   "category": "DIRECTA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-01_SUFICIENCIA_DECLARADA",
+     "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-01_SUFICIENCIA_DECLARADA",
+     "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P129-S170",
+     "There should be a space of 0.5 cm - 2 cm between each star."
+    ],
+    [
+     "SOR-2026-08-P129-S170",
+     "Space between two stars: From 1.5 cm to 2 cm."
+    ]
+   ]
+  },
+  {
+   "id": "B2-DIR-011",
+   "src": "llm_dev_original.json",
+   "category": "DIRECTA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P079-S093",
+     "For IJF World Judo Tour (WJT) events the random weigh-in will open one hour before the start of the competition each day. The time limit to arrive to the random weigh-in is 30 minutes or 6 contests be"
+    ]
+   ]
+  },
+  {
+   "id": "B2-EXC-003",
+   "src": "llm_dev_original.json",
+   "category": "EXCEPCION",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-08_SIN_INFLUENCIA_SHADOW"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-08_SIN_INFLUENCIA_SHADOW"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P021-S017",
+     "For events organised by the IJF or under its auspices, the IJF Executive Committee, to protect the interest of the athlete, can authorise that the athlete can compete under the IJF or a neutral flag f"
+    ]
+   ]
+  },
+  {
+   "id": "B2-MLG-003",
+   "src": "llm_dev_original.json",
+   "category": "MULTILINGUE",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P105-S130",
+     "The weigh‑in will take place the day before the competition as indicated in the outlines. There is no random weigh‑in for veterans."
+    ]
+   ]
+  },
+  {
+   "id": "B2-REF-005",
+   "src": "llm_dev_original.json",
+   "category": "REFERENCIA_CRUZADA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-05_PERTINENCIA_MINIMA"
+    ]
+   },
+   "v3": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "PERMITIR",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": true,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P103-S125",
+     "The weight categories are the same as those for senior men and women."
+    ]
+   ]
+  },
+  {
+   "id": "B2-SCO-013",
+   "src": "llm_dev_original.json",
+   "category": "AMBITO_DISTRACTOR",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-08_SIN_INFLUENCIA_SHADOW"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-08_SIN_INFLUENCIA_SHADOW"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P096-S114",
+     "For Masters, World Championships Seniors and Olympic Games, the contest area shall be 10 m x 10 m with a minimum common safety area of 4 m and a minimum exterior safety area of 4 m."
+    ]
+   ]
+  },
+  {
+   "id": "B2-SCO-023",
+   "src": "llm_dev_original.json",
+   "category": "AMBITO_DISTRACTOR",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P053-S067",
+     "Athletes can earn points for the IJF Juniors WRL by competing in Continental Cups Juniors, Continental Championships Juniors, Grand Prix Juniors and World Championships Juniors."
+    ],
+    [
+     "SOR-2026-08-P053-S067",
+     "Participation points will be given for all juniors events. Other ranking points will be given when there is at least one (1) contest won."
+    ]
+   ]
+  },
+  {
+   "id": "B2-AMB-005",
+   "src": "llm_dev_experimental.json",
+   "category": "AMBIGUA",
+   "expected_behavior": "SOLICITAR_ACLARACION",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-03_CITA_LITERAL",
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-06_CIFRAS_RESPALDADAS",
+     "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P065-S079",
+     "Up to 20 wild cards will be allocated by the IJF Executive Committee. The national federation must submit the wild card request, by email to president@ijf.org, with a copy to gs@ijf.org, no later than"
+    ]
+   ]
+  },
+  {
+   "id": "B2-DIR-005",
+   "src": "llm_dev_experimental.json",
+   "category": "DIRECTA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P129-S170",
+     "There should be a space of 0.5 cm - 2 cm between each star."
+    ],
+    [
+     "SOR-2026-08-P129-S170",
+     "Space between two stars: From 1.5 cm to 2 cm."
+    ]
+   ]
+  },
+  {
+   "id": "B2-DIR-007",
+   "src": "llm_dev_experimental.json",
+   "category": "DIRECTA",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "v3": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "PERMITIR",
+    "FIX_HYPHEN_TERMS": "PERMITIR",
+    "FIX_DIG08_LANGUAGE": "PERMITIR"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P098-S117",
+     "Athletes must attend the medal ceremony barefoot, without any hat, cap or any similar head covering and wearing their IJF approved white judogi"
+    ]
+   ]
+  },
+  {
+   "id": "B2-EXC-003",
+   "src": "llm_dev_experimental.json",
+   "category": "EXCEPCION",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-08_SIN_INFLUENCIA_SHADOW"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-05_PERTINENCIA_MINIMA",
+     "DIG-08_SIN_INFLUENCIA_SHADOW"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": false,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P021-S017",
+     "the IJF Executive Committee, to protect the interest of the athlete, can authorise that the athlete can compete under the IJF or a neutral flag for any reason"
+    ],
+    [
+     "SOR-2026-08-P021-S017",
+     "Detailed requests, clearly stating the facts of the situation, should be sent to the IJF General Secretariat, by email (gs@ijf .org)."
+    ]
+   ]
+  },
+  {
+   "id": "B2-MLG-003",
+   "src": "llm_dev_experimental.json",
+   "category": "MULTILINGUE",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "v3": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "PERMITIR",
+    "FIX_HYPHEN_TERMS": "PERMITIR",
+    "FIX_DIG08_LANGUAGE": "PERMITIR"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P105-S130",
+     "The weigh-in will take place the day before the competition as indicated in the outlines. There is no random weigh-in for veterans."
+    ],
+    [
+     "SOR-2026-08-P079-S093",
+     "Random weight checks for athletes will be organised and are the responsibility of the IJF Education and Coaching Commission."
+    ]
+   ]
+  },
+  {
+   "id": "B2-SCO-010",
+   "src": "llm_dev_experimental.json",
+   "category": "AMBITO_DISTRACTOR",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "v3": {
+    "decision": "PERMITIR",
+    "failed": []
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "PERMITIR",
+    "FIX_HYPHEN_TERMS": "PERMITIR",
+    "FIX_DIG08_LANGUAGE": "PERMITIR"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P105-S130",
+     "There is no random weigh-in for veterans."
+    ]
+   ]
+  },
+  {
+   "id": "B2-SCO-023",
+   "src": "llm_dev_experimental.json",
+   "category": "AMBITO_DISTRACTOR",
+   "expected_behavior": "RESPONDER",
+   "base": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "v3": {
+    "decision": "ABSTENER",
+    "failed": [
+     "DIG-06_CIFRAS_RESPALDADAS"
+    ]
+   },
+   "per_fix_decision": {
+    "FIX_PERTINENCE_HEADING": "ABSTENER",
+    "FIX_HYPHEN_TERMS": "ABSTENER",
+    "FIX_DIG08_LANGUAGE": "ABSTENER"
+   },
+   "changed": false,
+   "quotes_hit_expected_evidence": true,
+   "quotes_hit_scope_distractor": false,
+   "quotes": [
+    [
+     "SOR-2026-08-P053-S067",
+     "Athletes can earn points for the IJF Juniors WRL by competing in Continental Cups Juniors, Continental Championships Juniors, Grand Prix Juniors and World Championships Juniors."
+    ],
+    [
+     "SOR-2026-08-P053-S067",
+     "Participation points will be given for all juniors events. Other ranking points will be given when there is at least one (1) contest won."
+    ]
+   ]
+  }
+ ]
+}

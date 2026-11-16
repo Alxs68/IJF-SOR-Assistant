@@ -88,7 +88,12 @@ class ArbitrationDecisionAssistant:
         self.doc_validator = DocumentValidator()
 
     def _call_llm(self, prompt: str) -> Tuple[Optional[str], Dict[str, Any]]:
-        """Invokes active LLM provider (Gemini/Groq) with fallback according to configured policy."""
+        """Invokes active LLM provider (Gemini/Groq) with fallback according to configured policy.
+
+        Con LLM_JSON_MODE=1 (desactivado por defecto) la llamada de ANALISIS -la que lleva el contrato
+        JSON con "evidence_quotes"- pide al proveedor salida JSON garantizada; la traduccion no cambia."""
+        if os.environ.get("LLM_JSON_MODE", "").strip() == "1" and '"evidence_quotes"' in (prompt or ""):
+            return self.llm_manager.generate_with_fallback(prompt, json_mode=True)
         return self.llm_manager.generate_with_fallback(prompt)
 
     def _translate_to_technical_english(self, query: str) -> str:

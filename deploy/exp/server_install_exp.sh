@@ -16,7 +16,9 @@ PROD_DIR="${PROD_DIR:-/home/ubuntu/IJF-SOR-Assistant}"
 PROD_CT="${PROD_CT:-ijf-sor-assistant}"
 EXP_ROOT="/home/ubuntu/IJF-SOR-Assistant-exp"
 EXP_CT="ijf-sor-assistant-exp"
-EXP_PORT="${EXP_PORT:-8502}"
+EXP_PORT="${EXP_PORT:-8510}"
+EXP_DIG_V3="${EXP_DIG_V3:-1}"
+EXP_LLM_JSON="${EXP_LLM_JSON:-1}"
 MEM_LIMIT="${MEM_LIMIT:-2500m}"
 LOG="$EXP_ROOT/install_$(date +%Y%m%d_%H%M%S).log"
 if docker compose version >/dev/null 2>&1; then DC="docker compose"; else DC="docker-compose"; fi
@@ -68,7 +70,9 @@ services:
       RRE_ENABLE_SCOPE_PREFERENCE: "1"
       RRE_SCOPE_BETA: "0.2"
       DIG_NUMBER_NORMALIZATION: "v2"
-      IJF_DEPLOY_LABEL: "Instancia EXPERIMENTAL ${SHA7} (R3 + DIG v2). No es la version publicada; resultados no certificados."
+      DIG_V3: "${EXP_DIG_V3}"
+      LLM_JSON_MODE: "${EXP_LLM_JSON}"
+      IJF_DEPLOY_LABEL: "Instancia EXPERIMENTAL ${SHA7} (R3 + DIG v2 + correcciones v3). No es la version publicada; resultados no certificados."
     mem_limit: ${MEM_LIMIT}
     restart: unless-stopped
     volumes:
@@ -96,7 +100,7 @@ echo "Produccion salud antes=$PROD_HTTP_BEFORE despues=$PROD_HTTP_AFTER commit=$
 docker exec "$EXP_CT" sh -c 'cd /app && python - <<PY
 import hashlib, os
 print("corpus_sha256", hashlib.sha256(open("data/processed/rebuild_2026_08_corrected/passages_candidate.json","rb").read()).hexdigest())
-print("flags", {k: os.environ.get(k) for k in ("RRE_ENABLE_SCOPE_PREFERENCE","RRE_SCOPE_BETA","DIG_NUMBER_NORMALIZATION")})
+print("flags", {k: os.environ.get(k) for k in ("RRE_ENABLE_SCOPE_PREFERENCE","RRE_SCOPE_BETA","DIG_NUMBER_NORMALIZATION","DIG_V3","LLM_JSON_MODE")})
 import sys; sys.path.insert(0, "src")
 import decision_integrity as d; print("DIG", d.DIG_VERSION)
 from src.scope_preference import ScopePreference; print("R3 indicadores", sorted(ScopePreference().indicator))

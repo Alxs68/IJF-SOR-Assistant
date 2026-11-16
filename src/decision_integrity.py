@@ -62,7 +62,28 @@ DIG_BASE_VERSION = "DIG-1.3"
 NUMBER_NORMALIZATION = os.environ.get("DIG_NUMBER_NORMALIZATION", "v1").strip().lower()
 if NUMBER_NORMALIZATION not in ("v1", "v2"):
     NUMBER_NORMALIZATION = "v1"
-DIG_VERSION = DIG_BASE_VERSION if NUMBER_NORMALIZATION == "v1" else DIG_BASE_VERSION + "+NUM-v2"
+# Correcciones v3 (2026-11-16), desactivadas por defecto (DIG_V3=1 las activa). Cada una corrige un falso
+# positivo observado en la instancia experimental sin aceptar cifras ni citas no literales:
+#   FIX_PERTINENCE_HEADING  DIG-05: el titulo de la unidad derivada (article_units_v1) que contiene la cita
+#                           literal cuenta como contexto de pertinencia (p. ej. "Judogi Rules for Veterans").
+#   FIX_HYPHEN_TERMS        DIG-07: las partes de un termino con guion citado respaldan el termino suelto
+#                           ("osaekomi-waza" en la cita respalda "waza" en la respuesta); no al reves.
+#   FIX_DIG08_LANGUAGE      DIG-08: si la respuesta no esta en ingles (idioma del SOR), las palabras
+#                           ordinarias no se comparan con SHADOW (el solapamiento lexico entre idiomas no
+#                           indica influencia); se siguen comprobando cifras y terminos con guion.
+_V3 = os.environ.get("DIG_V3", "").strip() == "1"
+FIX_PERTINENCE_HEADING = _V3
+FIX_HYPHEN_TERMS = _V3
+FIX_DIG08_LANGUAGE = _V3
+
+
+def dig_version():
+    v = DIG_BASE_VERSION + ("" if NUMBER_NORMALIZATION == "v1" else "+NUM-v2")
+    fixes = [n for n, on in (("H", FIX_PERTINENCE_HEADING), ("G", FIX_HYPHEN_TERMS), ("L", FIX_DIG08_LANGUAGE)) if on]
+    return v + ("+FIX-v3" + ("" if len(fixes) == 3 else "-" + "".join(fixes)) if fixes else "")
+
+
+DIG_VERSION = dig_version()
 DISTINCTIVE_MAX_DF = 0.15
 # Regla de ">=2 terminos especificos (<=30 %)" EVALUADA y DESCARTADA en Fase 9.1: en dev anadia 2 falsos
 # positivos y 5 SUCCESS con cita fuera de la evidencia minima frente a 2 aciertos (eval_decision_integrity,
@@ -382,6 +403,26 @@ class DecisionIntegrityGate:
         lo, hi = max(0, hit[0] - WINDOW_SENTENCES), min(len(sents), hit[-1] + WINDOW_SENTENCES + 1)
         return unit, sents[lo:hi]
 
+    def _heading_of_quote(self, quote_n, passage):
+        """Titulo de la unidad derivada que contiene la cita literal en el texto canonico de su pagina
+        (o el de su unidad padre). Solo si la unidad se corto de ese mismo texto. None si no hay."""
+        if not self.units.available:
+            return None
+        canon = self._canonical(quote_n, passage)
+        if canon is None:
+            return None
+        page, text, raw_start, _raw_end = canon
+        unit = self.units.leaf_at(page, raw_start)
+        if unit is None or unit.get("source_text_sha256") != hashlib.sha256(text.encode("utf-8")).hexdigest():
+            return None
+        seen = 0
+        while unit is not None and seen < 4:
+            if unit.get("heading"):
+                return unit["heading"]
+            unit = self.units.by_id.get(unit.get("parent_unit_id")) if unit.get("parent_unit_id") else None
+            seen += 1
+        return None
+
     # ------------------------------------------------------------------ main
     def evaluate(self, answer, query, search_query_en, evidence, related, supplementary_texts=()):
         checks = []
@@ -424,6 +465,10 @@ class DecisionIntegrityGate:
                 continue
             if self.pertinent(content_stems(qt), query_stems):
                 pertinent_by_pid[pid] = True
+            elif FIX_PERTINENCE_HEADING:
+                heading = self._heading_of_quote(qn, delivered[pid])
+                if heading and self.pertinent(content_stems(heading), query_stems):
+                    pertinent_by_pid[pid] = True
             located.append((pid, qt, loc))
             quote_texts.append(qt)
         check("DIG-03_CITA_LITERAL", bool(located) and not bad_literal, f"no_literales={bad_literal}")
@@ -438,6 +483,8 @@ class DecisionIntegrityGate:
         check("DIG-06_CIFRAS_RESPALDADAS", not nums_missing, f"cifras_sin_respaldo={nums_missing}")
         q_terms = {t for t in re.findall(r"[a-z][a-z\-]{3,}", strip_accents(norm(quotes_join + " " + query + " " + (search_query_en or ""))))}
         c_terms = {t for t in re.findall(r"[a-z][a-z\-]{3,}", strip_accents(norm(SOR_ID.sub(" ", claims))))}
+        if FIX_HYPHEN_TERMS:
+            q_terms |= {part for t in q_terms if "-" in t for part in t.split("-") if len(part) >= 4}
         terms_missing = sorted(t for t in c_terms & self.distinctive if t not in q_terms)
         check("DIG-07_TERMINOS_RESPALDADOS", not terms_missing, f"terminos_sin_respaldo={terms_missing[:12]}")
         all_answer = SOR_ID.sub(" ", " ".join(str(obj.get(k) or "") for k in (*CLAIM_FIELDS, "extended_analysis")))
@@ -453,6 +500,8 @@ class DecisionIntegrityGate:
         leak_nums += [w for w in leak if any(ch.isdigit() for ch in w) and w not in leak_nums]
         leak_words = [w for w in leak if not any(ch.isdigit() for ch in w) and len(w) >= 4]
         leak_words = [w for w in leak_words if len(w) >= 5]
+        if FIX_DIG08_LANGUAGE and query_language(all_answer) != "en":
+            leak_words = [w for w in leak_words if "-" in w]
         check("DIG-08_SIN_INFLUENCIA_SHADOW", not leak_nums and not leak_words,
               f"presentes_solo_en_SHADOW: cifras={leak_nums} terminos={leak_words}")
         missing_exc, missing_refs, no_unit = [], [], []
@@ -500,7 +549,7 @@ class DecisionIntegrityGate:
         by = {c["code"]: c["passed"] for c in checks}
         lvl = lambda codes: ("SUPERADO" if all(by.get(c, False) for c in codes) else "FALLIDO")
         return {
-            "version": DIG_VERSION,
+            "version": dig_version(),
             "number_normalization": NUMBER_NORMALIZATION,
             "decision": "PERMITIR" if not failed else "ABSTENER",
             "failed_checks": failed,

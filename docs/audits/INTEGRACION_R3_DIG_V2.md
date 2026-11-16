@@ -76,3 +76,18 @@ git diff --stat <commit_produccion> exp/r3-dig-v2 -- src app.py requirements.txt
 * Funcional: apagar `RRE_ENABLE_SCOPE_PREFERENCE` y poner `DIG_NUMBER_NORMALIZATION=v1` (o quitarlas). El código vuelve a comportarse como el original.
 * Instancia OCI: `bash ~/server_rollback_exp.sh` (solo baja `ijf-sor-assistant-exp`; `--purge` borra también la carpeta experimental). Producción, su contenedor, su volumen HF, Nginx y DNS no se tocan.
 * Código local: la rama `exp/r3-dig-v2` es local (sin push). `git switch main` devuelve al estado anterior.
+
+## 8. Correcciones v3 (2026-11-16, autorizadas por el responsable; desactivadas por defecto)
+
+Origen: diagnóstico en la instancia experimental (`deploy/exp/diag_consultas_exp.py`). Con cuota disponible, 5 de 7 preguntas respondibles produjeron una respuesta correcta con citas literales; solo 1 se emitió.
+
+| Corrección | Variable | Falso positivo que corrige | Qué NO cambia |
+|---|---|---|---|
+| Modo JSON del proveedor (solo la llamada de análisis) | `LLM_JSON_MODE=1` | DIG-00: respuestas correctas con JSON mal formado (ippon, duración del combate) | El DIG completo sigue evaluando la respuesta |
+| DIG-05: título de la unidad derivada que contiene la cita literal | `DIG_V3=1` | Cita correcta del art. A1.11 "Judogi Rules for Veterans" sin la palabra *veteran* en la frase | Requiere cita literal localizada; no cuenta títulos de otras unidades |
+| DIG-07: partes de términos con guion citados | `DIG_V3=1` | "waza" en la respuesta con "osaekomi-waza" en la cita | No al revés: un término con guion no citado sigue sin respaldo |
+| DIG-08: palabras ordinarias en respuestas no inglesas | `DIG_V3=1` | "reglas" marcada como influencia SHADOW (SOR en inglés, respuesta en español) | Cifras y términos con guion se siguen comparando con SHADOW; respuestas en inglés sin cambios |
+
+**Reejecución offline** (`scripts/replay_dig_v3.py`, 39 entradas capturadas de Fase 11 e integración; resultado en `data/eval/dig_v3/replay_dig_v3.json`): cambia 1 decisión (B2-REF-005 pasa a PERMITIR, con la cita en la evidencia esperada y sin distractor); ninguna pasa a bloquearse. **Ataques adversariales:** 9 tipos (cifras inventadas A1–A6, término distintivo inventado, cifra solo en SHADOW); v3 detecta exactamente lo mismo que el DIG actual y no hay ninguna regresión. El punto ciego conocido A4/A4b (1 caso) sigue igual en ambos.
+
+**No resuelto por v3:** tatami (DIG-05: *tatami* no es término distintivo, aparece en > 15 % de páginas; DIG-06 detectó correctamente "50 cm" sin cita), sanción por cabeza en cadetes y ne-waza (límites del proveedor).

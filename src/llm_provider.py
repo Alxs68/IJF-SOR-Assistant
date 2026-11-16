@@ -53,7 +53,7 @@ class BaseLLMClient:
         self.last_usage: Dict[str, int] = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
         self.last_finish_reason: str = "UNKNOWN"
 
-    def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
+    def generate(self, prompt: str, system_prompt: Optional[str] = None, json_mode: bool = False) -> str:
         raise NotImplementedError
 
 
@@ -69,7 +69,7 @@ class GeminiClient(BaseLLMClient):
         mod = model or os.environ.get("GEMINI_MODEL") or self.DEFAULT_MODEL
         super().__init__(api_key=key, model=mod)
 
-    def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
+    def generate(self, prompt: str, system_prompt: Optional[str] = None, json_mode: bool = False) -> str:
         if not self.api_key:
             raise LLMProviderError("Clave GEMINI_API_KEY ausente o no configurada.", error_type="AUTH")
 
@@ -89,6 +89,9 @@ class GeminiClient(BaseLLMClient):
                 "maxOutputTokens": 4096
             }
         }
+        if json_mode:
+            # Salida JSON garantizada por el proveedor (LLM_JSON_MODE=1, solo llamadas de analisis).
+            payload["generationConfig"]["responseMimeType"] = "application/json"
         headers = {"Content-Type": "application/json"}
 
         try:
@@ -169,7 +172,7 @@ class GroqClient(BaseLLMClient):
         mod = model or os.environ.get("GROQ_MODEL") or self.DEFAULT_MODEL
         super().__init__(api_key=key, model=mod)
 
-    def generate(self, prompt: str, system_prompt: Optional[str] = None) -> str:
+    def generate(self, prompt: str, system_prompt: Optional[str] = None, json_mode: bool = False) -> str:
         if not self.api_key:
             raise LLMProviderError("Clave GROQ_API_KEY ausente o no configurada.", error_type="AUTH")
 
@@ -186,6 +189,8 @@ class GroqClient(BaseLLMClient):
             "temperature": 0.1,
             "max_tokens": 4096
         }
+        if json_mode:
+            payload["response_format"] = {"type": "json_object"}
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}",
@@ -353,7 +358,8 @@ class MultiProviderLLMManager:
     def generate_with_fallback(
         self,
         prompt: str,
-        system_prompt: Optional[str] = None
+        system_prompt: Optional[str] = None,
+        json_mode: bool = False
     ) -> Tuple[Optional[str], Dict[str, Any]]:
         """
         Executes generation following the configured provider and fallback policy.
@@ -394,7 +400,8 @@ class MultiProviderLLMManager:
                     break
 
             try:
-                text = client.generate(prompt=prompt, system_prompt=system_prompt)
+                text = (client.generate(prompt=prompt, system_prompt=system_prompt, json_mode=True) if json_mode
+                        else client.generate(prompt=prompt, system_prompt=system_prompt))
                 if text:
                     meta["successful_provider"] = prov
                     meta["successful_model"] = client.model
