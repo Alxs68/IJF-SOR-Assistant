@@ -17,7 +17,8 @@
     "per_fix_decision": {
      "FIX_PERTINENCE_HEADING": "PERMITIR",
      "FIX_HYPHEN_TERMS": "ABSTENER",
-     "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+     "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+     "FIX_LINEBREAK_HYPHEN": "ABSTENER"
     },
     "quotes_hit_expected_evidence": true,
     "quotes_hit_scope_distractor": false
@@ -42,10 +43,10 @@
    "DIG-06_CIFRAS_RESPALDADAS": 18,
    "DIG-08_SIN_INFLUENCIA_SHADOW": 6,
    "DIG-09_EXCEPCIONES_CITADAS": 3,
-   "DIG-03_CITA_LITERAL": 11,
-   "DIG-07_TERMINOS_RESPALDADOS": 2,
    "DIG-11_TERMINOS_DE_CONSULTA_EN_SOR": 5,
+   "DIG-03_CITA_LITERAL": 9,
    "DIG-01_SUFICIENCIA_DECLARADA": 2,
+   "DIG-07_TERMINOS_RESPALDADOS": 1,
    "DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA": 1
   },
   "adversarial": {
@@ -91,7 +92,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "PERMITIR",
     "FIX_HYPHEN_TERMS": "PERMITIR",
-    "FIX_DIG08_INSTRUCTIONS": "PERMITIR"
+    "FIX_DIG08_INSTRUCTIONS": "PERMITIR",
+    "FIX_LINEBREAK_HYPHEN": "PERMITIR"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -129,7 +131,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -167,7 +170,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -209,15 +213,14 @@
     "decision": "ABSTENER",
     "failed": [
      "DIG-02_CITAS_CON_CITA_LITERAL",
-     "DIG-03_CITA_LITERAL",
-     "DIG-05_PERTINENCIA_MINIMA",
-     "DIG-07_TERMINOS_RESPALDADOS"
+     "DIG-05_PERTINENCIA_MINIMA"
     ]
    },
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -257,7 +260,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -285,7 +289,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "PERMITIR",
     "FIX_HYPHEN_TERMS": "PERMITIR",
-    "FIX_DIG08_INSTRUCTIONS": "PERMITIR"
+    "FIX_DIG08_INSTRUCTIONS": "PERMITIR",
+    "FIX_LINEBREAK_HYPHEN": "PERMITIR"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -317,7 +322,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "PERMITIR",
     "FIX_HYPHEN_TERMS": "PERMITIR",
-    "FIX_DIG08_INSTRUCTIONS": "PERMITIR"
+    "FIX_DIG08_INSTRUCTIONS": "PERMITIR",
+    "FIX_LINEBREAK_HYPHEN": "PERMITIR"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -353,7 +359,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -385,7 +392,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "PERMITIR",
     "FIX_HYPHEN_TERMS": "PERMITIR",
-    "FIX_DIG08_INSTRUCTIONS": "PERMITIR"
+    "FIX_DIG08_INSTRUCTIONS": "PERMITIR",
+    "FIX_LINEBREAK_HYPHEN": "PERMITIR"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -419,7 +427,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -463,7 +472,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -490,7 +500,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -518,7 +529,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "PERMITIR",
     "FIX_HYPHEN_TERMS": "PERMITIR",
-    "FIX_DIG08_INSTRUCTIONS": "PERMITIR"
+    "FIX_DIG08_INSTRUCTIONS": "PERMITIR",
+    "FIX_LINEBREAK_HYPHEN": "PERMITIR"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -554,7 +566,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -598,7 +611,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -634,7 +648,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -666,7 +681,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -705,7 +721,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -747,7 +764,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -783,7 +801,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -831,7 +850,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -883,7 +903,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -922,14 +943,14 @@
    "v3": {
     "decision": "ABSTENER",
     "failed": [
-     "DIG-03_CITA_LITERAL",
      "DIG-06_CIFRAS_RESPALDADAS"
     ]
    },
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -989,7 +1010,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -1021,7 +1043,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -1055,7 +1078,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -1091,7 +1115,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -1129,7 +1154,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -1163,7 +1189,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -1193,7 +1220,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "PERMITIR",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": true,
    "quotes_hit_expected_evidence": true,
@@ -1229,7 +1257,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -1261,7 +1290,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -1303,7 +1333,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -1335,7 +1366,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -1367,7 +1399,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "PERMITIR",
     "FIX_HYPHEN_TERMS": "PERMITIR",
-    "FIX_DIG08_INSTRUCTIONS": "PERMITIR"
+    "FIX_DIG08_INSTRUCTIONS": "PERMITIR",
+    "FIX_LINEBREAK_HYPHEN": "PERMITIR"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -1401,7 +1434,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": false,
@@ -1433,7 +1467,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "PERMITIR",
     "FIX_HYPHEN_TERMS": "PERMITIR",
-    "FIX_DIG08_INSTRUCTIONS": "PERMITIR"
+    "FIX_DIG08_INSTRUCTIONS": "PERMITIR",
+    "FIX_LINEBREAK_HYPHEN": "PERMITIR"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -1465,7 +1500,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "PERMITIR",
     "FIX_HYPHEN_TERMS": "PERMITIR",
-    "FIX_DIG08_INSTRUCTIONS": "PERMITIR"
+    "FIX_DIG08_INSTRUCTIONS": "PERMITIR",
+    "FIX_LINEBREAK_HYPHEN": "PERMITIR"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,
@@ -1497,7 +1533,8 @@
    "per_fix_decision": {
     "FIX_PERTINENCE_HEADING": "ABSTENER",
     "FIX_HYPHEN_TERMS": "ABSTENER",
-    "FIX_DIG08_INSTRUCTIONS": "ABSTENER"
+    "FIX_DIG08_INSTRUCTIONS": "ABSTENER",
+    "FIX_LINEBREAK_HYPHEN": "ABSTENER"
    },
    "changed": false,
    "quotes_hit_expected_evidence": true,

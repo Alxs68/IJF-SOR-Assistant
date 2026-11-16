@@ -14,7 +14,7 @@ CORPUS = os.path.join(ROOT, "data/processed/rebuild_2026_08_corrected/passages_c
 PS = json.load(open(CORPUS, encoding="utf-8"))
 BY = {p["passage_id"]: p for p in PS}
 GATE = D.DecisionIntegrityGate(PS)
-FLAGS = ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_INSTRUCTIONS")
+FLAGS = ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_INSTRUCTIONS", "FIX_LINEBREAK_HYPHEN")
 
 
 @contextmanager
@@ -192,3 +192,19 @@ def test_provider_payloads_json_mode():
     assert "json_mode" in inspect.signature(L.GeminiClient.generate).parameters
     assert "json_mode" in inspect.signature(L.GroqClient.generate).parameters
     assert "json_mode" in inspect.signature(L.MultiProviderLLMManager.generate_with_fallback).parameters
+
+
+TAP = ('b) When an athlete gives up by tapping twice (2) or more with his hand or foot or says \u201cMaitta!\u201d '
+       '(I give up!) generally because of osaekomi-waza, shime-waza or kansetsu-waza.')
+
+
+def test_linebreak_hyphen_quote_is_literal_only_with_fix():
+    p = dict(BY["SOR-2026-08-P167-S187"], page=167)
+    with fixes(False):
+        base = GATE._locate(D.norm(TAP), p)
+    with fixes(True):
+        new = GATE._locate(D.norm(TAP), p)
+        altered = GATE._locate(D.norm(TAP.replace("kansetsu-waza", "kansetsu-wazas")), p)
+        changed = GATE._locate(D.norm(TAP.replace("twice (2)", "three times (3)")), p)
+    assert base is None and new is not None
+    assert altered is None and changed is None

@@ -71,16 +71,20 @@ if NUMBER_NORMALIZATION not in ("v1", "v2"):
 #   FIX_DIG08_INSTRUCTIONS  DIG-08: las palabras que el modelo recibio en el TEXTO DE INSTRUCCIONES del prompt
 #                           (sin evidencia SOR ni bloques SHADOW; lo entrega ADA en instruction_text) no
 #                           cuentan como huella SHADOW (p. ej. "reglas"). Cifras y demas terminos, sin cambios.
+#   FIX_LINEBREAK_HYPHEN    Normalizacion (DIG-03 y demas): "kansetsu-\nwaza" del PDF se lee "kansetsu-waza"
+#                           (guion de corte de linea entre letras); se aplica igual a cita y pasaje.
 _V3 = os.environ.get("DIG_V3", "").strip() == "1"
 FIX_PERTINENCE_HEADING = _V3
 FIX_HYPHEN_TERMS = _V3
 FIX_DIG08_INSTRUCTIONS = _V3
+FIX_LINEBREAK_HYPHEN = _V3
 
 
 def dig_version():
     v = DIG_BASE_VERSION + ("" if NUMBER_NORMALIZATION == "v1" else "+NUM-v2")
-    fixes = [n for n, on in (("H", FIX_PERTINENCE_HEADING), ("G", FIX_HYPHEN_TERMS), ("I", FIX_DIG08_INSTRUCTIONS)) if on]
-    return v + ("+FIX-v3" + ("" if len(fixes) == 3 else "-" + "".join(fixes)) if fixes else "")
+    fixes = [n for n, on in (("H", FIX_PERTINENCE_HEADING), ("G", FIX_HYPHEN_TERMS), ("I", FIX_DIG08_INSTRUCTIONS),
+                                          ("B", FIX_LINEBREAK_HYPHEN)) if on]
+    return v + ("+FIX-v3" + ("" if len(fixes) == 4 else "-" + "".join(fixes)) if fixes else "")
 
 
 DIG_VERSION = dig_version()
@@ -130,6 +134,10 @@ def normalize_with_map(text):
                 j += 1
             nxt = text[j] if j < n else ""
             prev = out[-1] if out else ""
+            if (FIX_LINEBREAK_HYPHEN and prev == "-" and len(out) >= 2 and out[-2].isalpha()
+                    and j < n and text[j].isalpha()):
+                i = j  # guion de corte de linea (o espaciado) entre letras: se une
+                continue
             if (prev.isdigit() or prev.isalpha()) and nxt == "." and j + 1 < n and text[j + 1].isdigit():
                 i = j
                 continue

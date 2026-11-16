@@ -52,7 +52,8 @@ def main(queries):
             kind = "ANALISIS" if c.get("is_analysis") else "traduccion/aux"
             print(f"  llamada {i} [{kind}] prompt_chars={c.get('prompt_chars')} ms={c.get('latency_ms')}"
                   f" respondio={meta.get('successful_provider')}/{meta.get('successful_model')}"
-                  f" texto={'si' if c.get('text') else 'NO'}")
+                  f" texto={'si' if c.get('text') else 'NO'} chars_respuesta={len(c.get('text') or '')}"
+                  f" fin={meta.get('finish_reason')} tokens={meta.get('token_usage')}")
             for prov, err in (meta.get("errors") or {}).items():
                 print(f"     error {prov}: {err.get('error_type')} - {str(sanitize(err.get('message')))[:220]}")
             if c.get("exception"):
@@ -71,6 +72,7 @@ def main(queries):
             o = D.parse_answer(raw)
             if not o:
                 print("  respuesta LLM (no JSON, primeros 600):", raw[:600].replace("\n", " "))
+                print("  ... ultimos 400:", raw[-400:].replace("\n", " "))
             else:
                 for k in ("summary", "normative_basis", "conditions_and_exceptions"):
                     if o.get(k):
