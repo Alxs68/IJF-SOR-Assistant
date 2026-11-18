@@ -1,0 +1,154 @@
+{
+ "unidades": 342,
+ "por_tipo": {
+  "PORTADA": 16,
+  "APARTADO": 258,
+  "TABLA": 68
+ },
+ "apartados_multipagina": 80,
+ "max_paginas_por_apartado": 40,
+ "tablas": 68,
+ "tablas_con_titulo": 57,
+ "tokens_por_unidad": {
+  "mediana": 166.5,
+  "p90": 646.4000000000002,
+  "max": 16368,
+  "superan_256": 124,
+  "pct_superan_256": 36.3
+ },
+ "ventanas": 730,
+ "aristas_grafo": {
+  "references_article": 61,
+  "has_table": 68,
+  "table_of": 68,
+  "references_table": 12
+ },
+ "validacion": {
+  "spans_literales_verificados": true,
+  "solapes_entre_unidades": 0,
+  "cobertura_caracteres_cuerpo_vs_article_units": 1.0,
+  "pasajes_originales_con_unidad_precisa": 364,
+  "pasajes_sin_unidad_precisa(solo por pagina)": 21,
+  "todos_los_pasajes_trazables_por_pagina": false,
+  "rotulos_de_apartado_duplicados": [],
+  "apartados_en_toc_pdf": "256/258",
+  "apartados_con_pagina_inicial_igual_toc": 256,
+  "entradas_toc_numeradas_sin_apartado": [],
+  "n_entradas_toc_numeradas_sin_apartado": 0,
+  "referencias_a_tabla": 39,
+  "referencias_resueltas": 31,
+  "referencias_no_resueltas": [
+   {
+    "from": "SEC-0100",
+    "ref": "see table: Weight Categories ",
+    "resolved": []
+   },
+   {
+    "from": "SEC-0101",
+    "ref": "see table: Weight ",
+    "resolved": []
+   },
+   {
+    "from": "SEC-0101",
+    "ref": "see table: Weight ",
+    "resolved": []
+   },
+   {
+    "from": "SEC-0102",
+    "ref": "see table: Weight Categories for ",
+    "resolved": []
+   },
+   {
+    "from": "SEC-0274",
+    "ref": "see table: Weight Categories ",
+    "resolved": []
+   },
+   {
+    "from": "SEC-0274",
+    "ref": "see table: Weight ",
+    "resolved": []
+   },
+   {
+    "from": "SEC-0274",
+    "ref": "see table: Weight ",
+    "resolved": []
+   },
+   {
+    "from": "SEC-0274",
+    "ref": "see table: Weight Categories for ",
+    "resolved": []
+   }
+  ]
+ },
+ "fidelidad_tfidf": {
+  "stoplist_inferida": [
+   "an",
+   "and",
+   "are",
+   "as",
+   "at",
+   "be",
+   "by",
+   "como",
+   "de",
+   "es",
+   "for",
+   "from",
+   "has",
+   "he",
+   "in",
+   "is",
+   "it",
+   "its",
+   "la",
+   "los",
+   "of",
+   "on",
+   "que",
+   "son",
+   "su",
+   "that",
+   "the",
+   "to",
+   "una",
+   "was",
+   "were",
+   "will",
+   "with"
+  ],
+  "idf_rel_err_mediana": 0.0,
+  "vector_max_err_mediana": 0.00146161269610523,
+  "vector_max_err_p95": 0.17369441484665188,
+  "solape_top10_terminos_medio": 0.976,
+  "vocab_jaccard": 0.9998
+ },
+ "tiempo_s": {
+  "segmentacion_e_indices": 16.2,
+  "embeddings": 43.5
+ },
+ "memoria_MB": {
+  "denso": 0.5,
+  "ventanas": 1.07
+ },
+ "integridad": {
+  "sha256_antes": {
+   "data\\processed\\rebuild_2026_08_corrected\\passages_candidate.json": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b",
+   "data\\processed\\rebuild_2026_08_corrected\\dense_embeddings_candidate.npy": "124ced95fb9e152ce586dec9f30a1eb98dc14ee385c0bc335a2055357f73a617",
+   "data\\processed\\rebuild_2026_08_corrected\\vector_index_candidate.json": "e182c77e0775472eb73d22ab92b15d026d067cbf6264fb8b25b207479c4668eb",
+   "data\\processed\\rebuild_2026_08_corrected\\knowledge_graph_candidate.json": "95d5a67936cf48d3bc79b69bf370bb1a83a255f938a7322e0dae256450dde215",
+   "data\\processed\\rebuild_2026_08_corrected\\dense_embeddings_meta.json": "c96b214bc14801ad903d58e0245d48c008d65ac051d339fd4e6b65e30709160e",
+   "data\\derived\\article_units_v1\\units.jsonl": "9c54a9fd8194d9c0895ee457cce7460db5d9ec24d3b5169ac13efdccc945f5f1",
+   "data\\raw\\sor_2026_08_rebuild\\IJF_Sport_and_Organisation_Rules_2026_08_14.pdf": "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620"
+  },
+  "sha256_despues": {
+   "data\\processed\\rebuild_2026_08_corrected\\passages_candidate.json": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b",
+   "data\\processed\\rebuild_2026_08_corrected\\dense_embeddings_candidate.npy": "124ced95fb9e152ce586dec9f30a1eb98dc14ee385c0bc335a2055357f73a617",
+   "data\\processed\\rebuild_2026_08_corrected\\vector_index_candidate.json": "e182c77e0775472eb73d22ab92b15d026d067cbf6264fb8b25b207479c4668eb",
+   "data\\processed\\rebuild_2026_08_corrected\\knowledge_graph_candidate.json": "95d5a67936cf48d3bc79b69bf370bb1a83a255f938a7322e0dae256450dde215",
+   "data\\processed\\rebuild_2026_08_corrected\\dense_embeddings_meta.json": "c96b214bc14801ad903d58e0245d48c008d65ac051d339fd4e6b65e30709160e",
+   "data\\derived\\article_units_v1\\units.jsonl": "9c54a9fd8194d9c0895ee457cce7460db5d9ec24d3b5169ac13efdccc945f5f1",
+   "data\\raw\\sor_2026_08_rebuild\\IJF_Sport_and_Organisation_Rules_2026_08_14.pdf": "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620"
+  },
+  "identicos": true
+ }
+}

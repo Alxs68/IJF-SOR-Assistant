@@ -1,0 +1,5935 @@
+{
+ "consulta": "Explícame cómo se desarrolla una competencia de judo por equipos, desde la organización inicial hasta la finalización de los encuentros. Describe el sistema de competición, la composición de los equipos, el orden de los combates, las categorías de peso, cómo se determina el equipo ganador y qué sucede en caso de empate, de acuerdo con el SOR 2026",
+ "consulta_recuperacion": "explicame desarrolla competencia judo team teams encounter organizacion inicial finalizacion encuentros describe system competition composicion orden combates categories weight determina ganador sucede caso empate acuerdo sor 2026",
+ "ancla_negativa_is_ood": false,
+ "referencia": [
+  {
+   "id": "SIS-1",
+   "faceta": "sistema",
+   "apartado": "2.7",
+   "pagina": 42,
+   "nucleo": true,
+   "fragmento": "The system of competition for IJF Mixed Teams events will be the elimination system with quarter-final repechage",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0053"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "SIS-2",
+   "faceta": "sistema",
+   "apartado": "2.7",
+   "pagina": 42,
+   "nucleo": true,
+   "fragmento": "For other team events, different types of systems can be used such as double repechage, full repechage, or direct knockout",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0053"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "SIS-3",
+   "faceta": "sistema",
+   "apartado": "2.7",
+   "pagina": 42,
+   "nucleo": true,
+   "fragmento": "Match is used to define the competition between both teams",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0053"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    257
+   ]
+  },
+  {
+   "id": "SIS-4",
+   "faceta": "sistema",
+   "apartado": "2.5.2",
+   "pagina": 38,
+   "nucleo": true,
+   "fragmento": "repechage contests will compete in bronze medal contests against the loser of the",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0043"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "SIS-5",
+   "faceta": "sistema",
+   "apartado": "2.5",
+   "pagina": 37,
+   "nucleo": true,
+   "fragmento": "Gold, silver and two (2) bronze medals will be awarded except in the case of low numbers",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0041"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    42
+   ]
+  },
+  {
+   "id": "SIS-6",
+   "faceta": "sistema",
+   "apartado": "2.6",
+   "pagina": 41,
+   "nucleo": false,
+   "fragmento": "If there are one (1) to five (5) athletes or teams the low numbers competition systems",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0050"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "SIS-7",
+   "faceta": "sistema",
+   "apartado": "2.6.2",
+   "pagina": 42,
+   "nucleo": false,
+   "fragmento": "For other individual and team events, the organiser can choose the competition system",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0052"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "COMP-1",
+   "faceta": "composicion",
+   "apartado": "2.7.1",
+   "pagina": 42,
+   "nucleo": true,
+   "fragmento": "Each mixed team must consist of six (6) athletes (3 women and 3 men)",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "COMP-2",
+   "faceta": "composicion",
+   "apartado": "2.7.1",
+   "pagina": 42,
+   "nucleo": true,
+   "fragmento": "A maximum of 12 athletes can be entered, with a maximum of two (2) athletes per mixed team weight category",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "COMP-3",
+   "faceta": "composicion",
+   "apartado": "2.7.1",
+   "pagina": 42,
+   "nucleo": true,
+   "fragmento": "a mixed team will be allowed to compete with a minimum of four (4) athletes",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "COMP-4",
+   "faceta": "composicion",
+   "apartado": "2.7.2",
+   "pagina": 45,
+   "nucleo": true,
+   "fragmento": "Each team will consist of up to five (5) athletes and has the possibility to have up to five",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "COMP-5",
+   "faceta": "composicion",
+   "apartado": "2.7.2",
+   "pagina": 45,
+   "nucleo": true,
+   "fragmento": "A team must consist of a minimum of three (3) athletes",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "COMP-6",
+   "faceta": "composicion",
+   "apartado": "2.7.2",
+   "pagina": 45,
+   "nucleo": true,
+   "fragmento": "A total of 10 athletes can be inscribed with a maximum of two (2) athletes per category",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "ORD-1",
+   "faceta": "orden",
+   "apartado": "2.7.1",
+   "pagina": 43,
+   "nucleo": true,
+   "fragmento": "After the draw of the mixed team event, a further draw will decide the starting category",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "ORD-2",
+   "faceta": "orden",
+   "apartado": "2.7.1",
+   "pagina": 43,
+   "nucleo": true,
+   "fragmento": "The following rounds will start with the next category in the sequence",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "ORD-3",
+   "faceta": "orden",
+   "apartado": "2.7.1 (tabla)",
+   "pagina": 43,
+   "nucleo": true,
+   "fragmento": "1st round: -73 kg, -70 kg, -90 kg, +70 kg, +90 kg, -57 kg",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "TAB-0016"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "ORD-4",
+   "faceta": "orden",
+   "apartado": "2.7.2",
+   "pagina": 46,
+   "nucleo": true,
+   "fragmento": "The contests in female and male team matches will be fought from the lightest weight to the highest weight",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "ORD-5",
+   "faceta": "orden",
+   "apartado": "2.7.1",
+   "pagina": 43,
+   "nucleo": true,
+   "fragmento": "Before each match the team leader must select the athletes for each contest",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    46
+   ]
+  },
+  {
+   "id": "ORD-6",
+   "faceta": "orden",
+   "apartado": "2.7.2",
+   "pagina": 46,
+   "nucleo": true,
+   "fragmento": "Before each match the team leader must select the athletes for each contest",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    43
+   ]
+  },
+  {
+   "id": "ORD-7",
+   "faceta": "orden",
+   "apartado": "2.7.1",
+   "pagina": 43,
+   "nucleo": true,
+   "fragmento": "For the first round the lists must be returned at least 30 minutes before the start of the",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    46
+   ]
+  },
+  {
+   "id": "ORD-8",
+   "faceta": "orden",
+   "apartado": "art. 9",
+   "pagina": 153,
+   "nucleo": true,
+   "fragmento": "in order according to the draw of categories, and will stand face-to-face",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0183"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "CAT-1",
+   "faceta": "categorias",
+   "apartado": "2.2.2",
+   "pagina": 34,
+   "nucleo": true,
+   "fragmento": "Over 57.0 kg up to and including 70.0 kg",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "TAB-0006"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    81,
+    83,
+    277,
+    278,
+    280
+   ]
+  },
+  {
+   "id": "CAT-2",
+   "faceta": "categorias",
+   "apartado": "2.2.2/2.2.3",
+   "pagina": 34,
+   "nucleo": true,
+   "fragmento": "Athletes qualified only in these individual categories can take part in the mixed team",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0037"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    83,
+    265,
+    278,
+    280
+   ]
+  },
+  {
+   "id": "CAT-3",
+   "faceta": "categorias",
+   "apartado": "2.2.2 (cadetes)",
+   "pagina": 34,
+   "nucleo": true,
+   "fragmento": "Over 48 kg up to and including 63.0 kg",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "TAB-0008"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    81,
+    277,
+    278
+   ]
+  },
+  {
+   "id": "CAT-4",
+   "faceta": "categorias",
+   "apartado": "2.2.4",
+   "pagina": 35,
+   "nucleo": true,
+   "fragmento": "+70 kg Half-heavyweight Over 70.0 kg",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "TAB-0010"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "CAT-5",
+   "faceta": "categorias",
+   "apartado": "2.2.4",
+   "pagina": 35,
+   "nucleo": true,
+   "fragmento": "+90 kg Half-heavyweight Over 90.0 kg",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "TAB-0011"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "CAT-6",
+   "faceta": "categorias",
+   "apartado": "2.7.1",
+   "pagina": 42,
+   "nucleo": true,
+   "fragmento": "each athlete is entitled to compete in their own mixed team weight category or in the next higher mixed team",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "CAT-7",
+   "faceta": "categorias",
+   "apartado": "2.7.2",
+   "pagina": 45,
+   "nucleo": true,
+   "fragmento": "each athlete is entitled to compete in their own weight category or in the next higher category",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "GAN-1",
+   "faceta": "ganador",
+   "apartado": "2.7.1",
+   "pagina": 44,
+   "nucleo": true,
+   "fragmento": "The first mixed team to win the majority of contests is declared the winner",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "GAN-2",
+   "faceta": "ganador",
+   "apartado": "2.7.2",
+   "pagina": 46,
+   "nucleo": true,
+   "fragmento": "The first team to win the majority of contests is declared the winner",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "GAN-3",
+   "faceta": "ganador",
+   "apartado": "2.7.1",
+   "pagina": 43,
+   "nucleo": true,
+   "fragmento": "After the team bow the byes are displayed on the scoreboard and wins are given",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    46
+   ]
+  },
+  {
+   "id": "GAN-4",
+   "faceta": "ganador",
+   "apartado": "2.7.1",
+   "pagina": 44,
+   "nucleo": true,
+   "fragmento": "In IJF events the remaining contests will not be fought except in case of small numbers",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "GAN-5",
+   "faceta": "ganador",
+   "apartado": "2.7.1",
+   "pagina": 44,
+   "nucleo": true,
+   "fragmento": "If one (1) mixed team does not arrive for a match, the other mixed team will be declared",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "GAN-6",
+   "faceta": "ganador",
+   "apartado": "2.5.5.2",
+   "pagina": 40,
+   "nucleo": false,
+   "fragmento": "Rule 1. Number of matches won: Team with more matches won is placed higher",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0048"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "GAN-7",
+   "faceta": "ganador",
+   "apartado": "2.5.5.2",
+   "pagina": 40,
+   "nucleo": false,
+   "fragmento": "Rule 3. Sum of all points",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0048"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "EMP-1",
+   "faceta": "empate",
+   "apartado": "2.7.1",
+   "pagina": 44,
+   "nucleo": true,
+   "fragmento": "If there are an equal number of wins at the end of the match, there is a draw for the",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "EMP-2",
+   "faceta": "empate",
+   "apartado": "2.7.1",
+   "pagina": 44,
+   "nucleo": true,
+   "fragmento": "mixed team weight category that will compete in a golden score contest",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "EMP-3",
+   "faceta": "empate",
+   "apartado": "2.7.1",
+   "pagina": 44,
+   "nucleo": true,
+   "fragmento": "The draw is done by computer and displayed on the athlete and public",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "EMP-4",
+   "faceta": "empate",
+   "apartado": "2.7.1",
+   "pagina": 45,
+   "nucleo": true,
+   "fragmento": "If there is a double hansoku-make during the golden score contest the following rules",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "EMP-5",
+   "faceta": "empate",
+   "apartado": "2.7.2",
+   "pagina": 46,
+   "nucleo": true,
+   "fragmento": "If there are an equal number of wins at the end of the match see Section 2.7.1 for the",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "EMP-6",
+   "faceta": "empate",
+   "apartado": "2.5.5.2",
+   "pagina": 40,
+   "nucleo": false,
+   "fragmento": "Rule 7. Equal placing/decision contest",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0048"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    267
+   ]
+  },
+  {
+   "id": "EMP-7",
+   "faceta": "empate",
+   "apartado": "art. 9",
+   "pagina": 154,
+   "nucleo": true,
+   "fragmento": "In case of equal wins after finishing the last contest of the match, the referee will order",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0183"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "DES-1",
+   "faceta": "desarrollo",
+   "apartado": "art. 9",
+   "pagina": 153,
+   "nucleo": true,
+   "fragmento": "In team competitions, before the start of the contests from every encounter, it shall",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0183"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "DES-2",
+   "faceta": "desarrollo",
+   "apartado": "art. 9",
+   "pagina": 153,
+   "nucleo": true,
+   "fragmento": "Each one of the three allocated referees will referee two consecutive contests",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0183"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "DES-3",
+   "faceta": "desarrollo",
+   "apartado": "art. 9",
+   "pagina": 154,
+   "nucleo": true,
+   "fragmento": "After finishing the last contest of the match, the referee will order the teams to",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0183"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "DES-4",
+   "faceta": "desarrollo",
+   "apartado": "2.7.1",
+   "pagina": 43,
+   "nucleo": true,
+   "fragmento": "Duration of each contest: women four (4) minutes and men four (4) minutes",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    46
+   ]
+  },
+  {
+   "id": "DES-5",
+   "faceta": "desarrollo",
+   "apartado": "2.7.1",
+   "pagina": 43,
+   "nucleo": true,
+   "fragmento": "Two (2) coaches and one (1) doctor per team will be allowed to enter the field of play",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "DES-6",
+   "faceta": "desarrollo",
+   "apartado": "2.7.2",
+   "pagina": 46,
+   "nucleo": true,
+   "fragmento": "One (1) coach and one (1) doctor per team will be allowed to enter the field of play",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "DES-7",
+   "faceta": "desarrollo",
+   "apartado": "2.7.1",
+   "pagina": 44,
+   "nucleo": true,
+   "fragmento": "athlete enters the tatami and refuses to compete",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    46
+   ]
+  },
+  {
+   "id": "DES-8",
+   "faceta": "desarrollo",
+   "apartado": "2.7.1",
+   "pagina": 45,
+   "nucleo": true,
+   "fragmento": "The result of the match depends on the rules used",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054",
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    47,
+    268,
+    269
+   ]
+  },
+  {
+   "id": "DES-9",
+   "faceta": "desarrollo",
+   "apartado": "2.7.2",
+   "pagina": 47,
+   "nucleo": true,
+   "fragmento": "team cannot compete in a match, the other team must submit the lineup for the match",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    268
+   ]
+  },
+  {
+   "id": "ORG-1",
+   "faceta": "organizacion",
+   "apartado": "2.7.1",
+   "pagina": 42,
+   "nucleo": true,
+   "fragmento": "At the time of mixed team confirmation at the accreditation, the delegation must have",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "ORG-2",
+   "faceta": "organizacion",
+   "apartado": "2.7.1",
+   "pagina": 43,
+   "nucleo": true,
+   "fragmento": "the composition of the mixed team must be confirmed by the delegation to the IJF Sport Commission by 13:00",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0054"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "ORG-3",
+   "faceta": "organizacion",
+   "apartado": "2.7.2",
+   "pagina": 45,
+   "nucleo": true,
+   "fragmento": "Before the start of the official weigh-in the coach can update the team list",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0055"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": []
+  },
+  {
+   "id": "ORG-4",
+   "faceta": "organizacion",
+   "apartado": "6.4",
+   "pagina": 80,
+   "nucleo": false,
+   "fragmento": "There are two scenarios for mixed team competitions: a standalone mixed team",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0098"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    277
+   ]
+  },
+  {
+   "id": "ORG-5",
+   "faceta": "organizacion",
+   "apartado": "6.5",
+   "pagina": 84,
+   "nucleo": false,
+   "fragmento": "There are two scenarios for team competitions: a standalone team competition and a",
+   "en_pdf": true,
+   "en_corpus_paginas": true,
+   "unidades_que_lo_contienen": [
+    "SEC-0102"
+   ],
+   "otras_paginas_pdf_con_el_fragmento": [
+    281
+   ]
+  }
+ ],
+ "configs": {
+  "A-prod": {
+   "status": "SUCCESS",
+   "reason": null,
+   "operating_mode": "HYBRID",
+   "tiempo_ms": 49.4,
+   "canal_tfidf_top25": [
+    [
+     "SOR-2026-08-P086-S102",
+     "p86 6.5 Female and Male Teams Events Weigh-in",
+     0.1973
+    ],
+    [
+     "SOR-2026-08-P042-S053",
+     "p42 2.7 Competition System for Mixed Team and Team Events",
+     0.1956
+    ],
+    [
+     "SOR-2026-08-P042-S052",
+     "p42 2.6.2 Low Numbers System for Other Events",
+     0.191
+    ],
+    [
+     "SOR-2026-08-P042-S054",
+     "p42 2.7.1 Regulations for Mixed Team Events",
+     0.1862
+    ],
+    [
+     "SOR-2026-08-P082-S100",
+     "p82 6.4.2. Mixed Team Following an Individual Competition W",
+     0.1843
+    ],
+    [
+     "SOR-2026-08-P045-S055",
+     "p45 2.7.2 Regulations for Female and Male Team Events",
+     0.1201
+    ],
+    [
+     "SOR-2026-08-P105-S133",
+     "p105 A1.13 Competition System for Veterans",
+     0.1161
+    ],
+    [
+     "SOR-2026-08-P041-S051",
+     "p41 2.6.1 Low Numbers System for IJF WJT Events",
+     0.1133
+    ],
+    [
+     "SOR-2026-08-P041-S050",
+     "p41 2.6 Regulations for Low Numbers of Athletes or Teams",
+     0.1113
+    ],
+    [
+     "SOR-2026-08-P044-S054",
+     "p44 2.7.1 Regulations for Mixed Team Events",
+     0.1111
+    ],
+    [
+     "SOR-2026-08-P083-S101",
+     "p83 6.4.3 Olympic Games Mixed Team Weigh-in",
+     0.1068
+    ],
+    [
+     "SOR-2026-08-P105-S134",
+     "p105 A1.14 Round Robin Golden Score",
+     0.1055
+    ],
+    [
+     "SOR-2026-08-P105-S129",
+     "p105 A1.9 Seeding for Veterans",
+     0.1048
+    ],
+    [
+     "SOR-2026-08-P105-S128",
+     "p105 A1.8 Draw for Veterans",
+     0.1047
+    ],
+    [
+     "SOR-2026-08-P105-S131",
+     "p105 A1.11 Judogi Rules for Veterans",
+     0.1047
+    ],
+    [
+     "SOR-2026-08-P105-S132",
+     "p105 A1.12 Backnumbers for Veterans",
+     0.1047
+    ],
+    [
+     "SOR-2026-08-P105-S130",
+     "p105 A1.10 Weigh-in for Veterans",
+     0.1043
+    ],
+    [
+     "SOR-2026-08-P040-S048",
+     "p40 2.5.5.2 Round Robin Rules for Team Events",
+     0.0931
+    ],
+    [
+     "SOR-2026-08-P051-S064",
+     "p51 3.1 IJF World Ranking Lists",
+     0.09
+    ],
+    [
+     "SOR-2026-08-P040-S049",
+     "p40 2.5.6 Best of Three",
+     0.0895
+    ]
+   ],
+   "canal_denso_top25": [
+    [
+     "SOR-2026-08-P091-S106",
+     "p91 7.3 Contest Review Process",
+     0.7041
+    ],
+    [
+     "SOR-2026-08-P231-S254",
+     "p231 F1.3.24 Example of Winners’ List",
+     0.6734
+    ],
+    [
+     "SOR-2026-08-P087-S102",
+     "p87 6.5 Female and Male Teams Events Weigh-in",
+     0.6722
+    ],
+    [
+     "SOR-2026-08-P104-S127",
+     "p104 A1.7 Category Combining for Veterans",
+     0.6637
+    ],
+    [
+     "SOR-2026-08-P042-S053",
+     "p42 2.7 Competition System for Mixed Team and Team Events",
+     0.6547
+    ],
+    [
+     "SOR-2026-08-P249-S265",
+     "p249 G1.1 Glossary of Japanese Terms",
+     0.6459
+    ],
+    [
+     "SOR-2026-08-P212-S235",
+     "p212 F1.3.5 Contest Sheet",
+     0.6454
+    ],
+    [
+     "SOR-2026-08-P214-S237",
+     "p214 F1.3.7 Quarter-Final Repechage",
+     0.6423
+    ],
+    [
+     "SOR-2026-08-P069-S080",
+     "p69 4.5 Accreditation",
+     0.6421
+    ],
+    [
+     "SOR-2026-08-P042-S054",
+     "p42 2.7.1 Regulations for Mixed Team Events",
+     0.6401
+    ],
+    [
+     "SOR-2026-08-P038-S042",
+     "p38 2.5.1 Direct Knockout",
+     0.6346
+    ],
+    [
+     "SOR-2026-08-P210-S233",
+     "p210 F1.3.3 Contest Order",
+     0.6299
+    ],
+    [
+     "SOR-2026-08-P038-S045",
+     "p38 2.5.4 Full Repechage",
+     0.6297
+    ],
+    [
+     "SOR-2026-08-P086-S102",
+     "p86 6.5 Female and Male Teams Events Weigh-in",
+     0.6295
+    ],
+    [
+     "SOR-2026-08-P042-S052",
+     "p42 2.6.2 Low Numbers System for Other Events",
+     0.6281
+    ],
+    [
+     "SOR-2026-08-P038-S044",
+     "p38 2.5.3 Double Repechage",
+     0.6249
+    ],
+    [
+     "SOR-2026-08-P213-S236",
+     "p213 F1.3.6 Direct Knockout",
+     0.622
+    ],
+    [
+     "SOR-2026-08-P036-S040",
+     "p36 2.4 Time Duration of Contests",
+     0.6184
+    ],
+    [
+     "SOR-2026-08-P038-S043",
+     "p38 2.5.2 Quarter-final Repechage",
+     0.6178
+    ],
+    [
+     "SOR-2026-08-P090-S106",
+     "p90 7.3 Contest Review Process",
+     0.6144
+    ],
+    [
+     "SOR-2026-08-P218-S241",
+     "p218 F1.3.11 Quarter-Final Repechage up to 8 Athletes or Tea",
+     0.6129
+    ]
+   ],
+   "fusion_top40": [
+    [
+     "SOR-2026-08-P042-S053",
+     "p42 2.7 Competition System for Mixed Team and Team Events",
+     0.0941
+    ],
+    [
+     "SOR-2026-08-P086-S102",
+     "p86 6.5 Female and Male Teams Events Weigh-in",
+     0.0921
+    ],
+    [
+     "SOR-2026-08-P082-S100",
+     "p82 6.4.2. Mixed Team Following an Individual Competition W",
+     0.0185
+    ],
+    [
+     "SOR-2026-08-P045-S055",
+     "p45 2.7.2 Regulations for Female and Male Team Events",
+     0.0182
+    ],
+    [
+     "SOR-2026-08-P105-S133",
+     "p105 A1.13 Competition System for Veterans",
+     0.0179
+    ],
+    [
+     "SOR-2026-08-P041-S051",
+     "p41 2.6.1 Low Numbers System for IJF WJT Events",
+     0.0176
+    ],
+    [
+     "SOR-2026-08-P044-S054",
+     "p44 2.7.1 Regulations for Mixed Team Events",
+     0.0171
+    ],
+    [
+     "SOR-2026-08-P083-S101",
+     "p83 6.4.3 Olympic Games Mixed Team Weigh-in",
+     0.0169
+    ],
+    [
+     "SOR-2026-08-P091-S106",
+     "p91 7.3 Contest Review Process",
+     0.0164
+    ],
+    [
+     "SOR-2026-08-P231-S254",
+     "p231 F1.3.24 Example of Winners’ List",
+     0.0161
+    ],
+    [
+     "SOR-2026-08-P087-S102",
+     "p87 6.5 Female and Male Teams Events Weigh-in",
+     0.0159
+    ],
+    [
+     "SOR-2026-08-P104-S127",
+     "p104 A1.7 Category Combining for Veterans",
+     0.0156
+    ],
+    [
+     "SOR-2026-08-P040-S048",
+     "p40 2.5.5.2 Round Robin Rules for Team Events",
+     0.0154
+    ],
+    [
+     "SOR-2026-08-P051-S064",
+     "p51 3.1 IJF World Ranking Lists",
+     0.0152
+    ]
+   ],
+   "evidencia_top5": [
+    {
+     "passage_id": "SOR-2026-08-P042-S053",
+     "etiqueta": "p42 2.7 Competition System for Mixed Team and Team Events",
+     "score": 0.0941,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SOR-2026-08-P042-S053"
+     ],
+     "paginas": [
+      42
+     ],
+     "chars": 2816
+    },
+    {
+     "passage_id": "SOR-2026-08-P086-S102",
+     "etiqueta": "p86 6.5 Female and Male Teams Events Weigh-in",
+     "score": 0.0921,
+     "is_stitched": true,
+     "stitched_kuns": [
+      "SOR-2026-08-P084-S102",
+      "SOR-2026-08-P085-S102",
+      "SOR-2026-08-P086-S102",
+      "SOR-2026-08-P087-S102"
+     ],
+     "paginas": [
+      84,
+      85,
+      86,
+      87
+     ],
+     "chars": 7159
+    },
+    {
+     "passage_id": "SOR-2026-08-P082-S100",
+     "etiqueta": "p82 6.4.2. Mixed Team Following an Individual Competition W",
+     "score": 0.0185,
+     "is_stitched": true,
+     "stitched_kuns": [
+      "SOR-2026-08-P081-S100",
+      "SOR-2026-08-P082-S100"
+     ],
+     "paginas": [
+      81,
+      82
+     ],
+     "chars": 5066
+    },
+    {
+     "passage_id": "SOR-2026-08-P045-S055",
+     "etiqueta": "p45 2.7.2 Regulations for Female and Male Team Events",
+     "score": 0.0182,
+     "is_stitched": true,
+     "stitched_kuns": [
+      "SOR-2026-08-P045-S055",
+      "SOR-2026-08-P046-S055"
+     ],
+     "paginas": [
+      45,
+      46
+     ],
+     "chars": 5493
+    },
+    {
+     "passage_id": "SOR-2026-08-P105-S133",
+     "etiqueta": "p105 A1.13 Competition System for Veterans",
+     "score": 0.0179,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SOR-2026-08-P105-S133"
+     ],
+     "paginas": [
+      105
+     ],
+     "chars": 2306
+    }
+   ],
+   "relacionados": [],
+   "campeones_R1": null,
+   "preferencia_ambito": null,
+   "suplementarios": [
+    {
+     "title": "Cuota Total y Estructura de Plazas de Judo para los Juegos Olímpicos LA28"
+    },
+    {
+     "title": "Requisitos de Elegibilidad y Conformación del Equipo Mixto Olímpico LA28"
+    },
+    {
+     "title": "Período de Calificación Olímpica LA28, Tolerancia de Peso y Cuotas Continentales"
+    }
+   ],
+   "paquete_chars": 22840,
+   "clasificacion_referencia": {
+    "SIS-1": "ENTREGADA",
+    "SIS-2": "ENTREGADA",
+    "SIS-3": "ENTREGADA",
+    "SIS-4": "EN CANAL, PERDIDA EN LA FUSION",
+    "SIS-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "SIS-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "SIS-7": "ENTREGADA",
+    "COMP-1": "ENTREGADA",
+    "COMP-2": "ENTREGADA",
+    "COMP-3": "ENTREGADA",
+    "COMP-4": "ENTREGADA",
+    "COMP-5": "ENTREGADA",
+    "COMP-6": "ENTREGADA",
+    "ORD-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-4": "ENTREGADA",
+    "ORD-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-6": "ENTREGADA",
+    "ORD-7": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-8": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-4": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-6": "ENTREGADA",
+    "CAT-7": "ENTREGADA",
+    "GAN-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-2": "ENTREGADA",
+    "GAN-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "GAN-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-4": "ENTREGADA",
+    "EMP-5": "ENTREGADA",
+    "EMP-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-7": "NUNCA RECUPERADA (top-60)",
+    "DES-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-3": "NUNCA RECUPERADA (top-60)",
+    "DES-4": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-6": "ENTREGADA",
+    "DES-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-8": "ENTREGADA",
+    "DES-9": "NUNCA RECUPERADA (top-60)",
+    "ORG-1": "ENTREGADA",
+    "ORG-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORG-3": "ENTREGADA",
+    "ORG-4": "NUNCA RECUPERADA (top-60)",
+    "ORG-5": "ENTREGADA"
+   },
+   "rangos_normativos": {
+    "34": {
+     "etiqueta": "p34",
+     "tfidf_top60": null,
+     "denso_top60": 28,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "35": {
+     "etiqueta": "p35",
+     "tfidf_top60": null,
+     "denso_top60": 59,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "37": {
+     "etiqueta": "p37",
+     "tfidf_top60": 32,
+     "denso_top60": 51,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "38": {
+     "etiqueta": "p38",
+     "tfidf_top60": null,
+     "denso_top60": 13,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "40": {
+     "etiqueta": "p40",
+     "tfidf_top60": 23,
+     "denso_top60": null,
+     "fusion_top40": 13,
+     "paquete": false
+    },
+    "41": {
+     "etiqueta": "p41",
+     "tfidf_top60": 13,
+     "denso_top60": null,
+     "fusion_top40": 6,
+     "paquete": false
+    },
+    "42": {
+     "etiqueta": "p42",
+     "tfidf_top60": 2,
+     "denso_top60": 5,
+     "fusion_top40": 1,
+     "paquete": true
+    },
+    "43": {
+     "etiqueta": "p43",
+     "tfidf_top60": 27,
+     "denso_top60": 60,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "44": {
+     "etiqueta": "p44",
+     "tfidf_top60": 15,
+     "denso_top60": null,
+     "fusion_top40": 7,
+     "paquete": false
+    },
+    "45": {
+     "etiqueta": "p45",
+     "tfidf_top60": 8,
+     "denso_top60": null,
+     "fusion_top40": 4,
+     "paquete": true
+    },
+    "46": {
+     "etiqueta": "p46",
+     "tfidf_top60": 26,
+     "denso_top60": 26,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "47": {
+     "etiqueta": "p47",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "80": {
+     "etiqueta": "p80",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "84": {
+     "etiqueta": "p84",
+     "tfidf_top60": null,
+     "denso_top60": 45,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "153": {
+     "etiqueta": "p153",
+     "tfidf_top60": 37,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "154": {
+     "etiqueta": "p154",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    }
+   }
+  },
+  "A-ref": {
+   "status": "SUCCESS",
+   "reason": null,
+   "operating_mode": "HYBRID",
+   "tiempo_ms": 53.6,
+   "canal_tfidf_top25": [
+    [
+     "SOR-2026-08-P086-S102",
+     "p86 6.5 Female and Male Teams Events Weigh-in",
+     0.1973
+    ],
+    [
+     "SOR-2026-08-P042-S053",
+     "p42 2.7 Competition System for Mixed Team and Team Events",
+     0.1956
+    ],
+    [
+     "SOR-2026-08-P042-S052",
+     "p42 2.6.2 Low Numbers System for Other Events",
+     0.191
+    ],
+    [
+     "SOR-2026-08-P042-S054",
+     "p42 2.7.1 Regulations for Mixed Team Events",
+     0.1862
+    ],
+    [
+     "SOR-2026-08-P082-S100",
+     "p82 6.4.2. Mixed Team Following an Individual Competition W",
+     0.1843
+    ],
+    [
+     "SOR-2026-08-P045-S055",
+     "p45 2.7.2 Regulations for Female and Male Team Events",
+     0.1201
+    ],
+    [
+     "SOR-2026-08-P105-S133",
+     "p105 A1.13 Competition System for Veterans",
+     0.1161
+    ],
+    [
+     "SOR-2026-08-P041-S051",
+     "p41 2.6.1 Low Numbers System for IJF WJT Events",
+     0.1133
+    ],
+    [
+     "SOR-2026-08-P041-S050",
+     "p41 2.6 Regulations for Low Numbers of Athletes or Teams",
+     0.1113
+    ],
+    [
+     "SOR-2026-08-P044-S054",
+     "p44 2.7.1 Regulations for Mixed Team Events",
+     0.1111
+    ],
+    [
+     "SOR-2026-08-P083-S101",
+     "p83 6.4.3 Olympic Games Mixed Team Weigh-in",
+     0.1068
+    ],
+    [
+     "SOR-2026-08-P105-S134",
+     "p105 A1.14 Round Robin Golden Score",
+     0.1055
+    ],
+    [
+     "SOR-2026-08-P105-S129",
+     "p105 A1.9 Seeding for Veterans",
+     0.1048
+    ],
+    [
+     "SOR-2026-08-P105-S128",
+     "p105 A1.8 Draw for Veterans",
+     0.1047
+    ],
+    [
+     "SOR-2026-08-P105-S131",
+     "p105 A1.11 Judogi Rules for Veterans",
+     0.1047
+    ],
+    [
+     "SOR-2026-08-P105-S132",
+     "p105 A1.12 Backnumbers for Veterans",
+     0.1047
+    ],
+    [
+     "SOR-2026-08-P105-S130",
+     "p105 A1.10 Weigh-in for Veterans",
+     0.1043
+    ],
+    [
+     "SOR-2026-08-P040-S048",
+     "p40 2.5.5.2 Round Robin Rules for Team Events",
+     0.0931
+    ],
+    [
+     "SOR-2026-08-P051-S064",
+     "p51 3.1 IJF World Ranking Lists",
+     0.09
+    ],
+    [
+     "SOR-2026-08-P040-S049",
+     "p40 2.5.6 Best of Three",
+     0.0895
+    ]
+   ],
+   "canal_denso_top25": [
+    [
+     "SOR-2026-08-P091-S106",
+     "p91 7.3 Contest Review Process",
+     0.7041
+    ],
+    [
+     "SOR-2026-08-P231-S254",
+     "p231 F1.3.24 Example of Winners’ List",
+     0.6734
+    ],
+    [
+     "SOR-2026-08-P087-S102",
+     "p87 6.5 Female and Male Teams Events Weigh-in",
+     0.6722
+    ],
+    [
+     "SOR-2026-08-P104-S127",
+     "p104 A1.7 Category Combining for Veterans",
+     0.6637
+    ],
+    [
+     "SOR-2026-08-P042-S053",
+     "p42 2.7 Competition System for Mixed Team and Team Events",
+     0.6547
+    ],
+    [
+     "SOR-2026-08-P249-S265",
+     "p249 G1.1 Glossary of Japanese Terms",
+     0.6459
+    ],
+    [
+     "SOR-2026-08-P212-S235",
+     "p212 F1.3.5 Contest Sheet",
+     0.6454
+    ],
+    [
+     "SOR-2026-08-P214-S237",
+     "p214 F1.3.7 Quarter-Final Repechage",
+     0.6423
+    ],
+    [
+     "SOR-2026-08-P069-S080",
+     "p69 4.5 Accreditation",
+     0.6421
+    ],
+    [
+     "SOR-2026-08-P042-S054",
+     "p42 2.7.1 Regulations for Mixed Team Events",
+     0.6401
+    ],
+    [
+     "SOR-2026-08-P038-S042",
+     "p38 2.5.1 Direct Knockout",
+     0.6346
+    ],
+    [
+     "SOR-2026-08-P210-S233",
+     "p210 F1.3.3 Contest Order",
+     0.6299
+    ],
+    [
+     "SOR-2026-08-P038-S045",
+     "p38 2.5.4 Full Repechage",
+     0.6297
+    ],
+    [
+     "SOR-2026-08-P086-S102",
+     "p86 6.5 Female and Male Teams Events Weigh-in",
+     0.6295
+    ],
+    [
+     "SOR-2026-08-P042-S052",
+     "p42 2.6.2 Low Numbers System for Other Events",
+     0.6281
+    ],
+    [
+     "SOR-2026-08-P038-S044",
+     "p38 2.5.3 Double Repechage",
+     0.6249
+    ],
+    [
+     "SOR-2026-08-P213-S236",
+     "p213 F1.3.6 Direct Knockout",
+     0.622
+    ],
+    [
+     "SOR-2026-08-P036-S040",
+     "p36 2.4 Time Duration of Contests",
+     0.6184
+    ],
+    [
+     "SOR-2026-08-P038-S043",
+     "p38 2.5.2 Quarter-final Repechage",
+     0.6178
+    ],
+    [
+     "SOR-2026-08-P090-S106",
+     "p90 7.3 Contest Review Process",
+     0.6144
+    ],
+    [
+     "SOR-2026-08-P218-S241",
+     "p218 F1.3.11 Quarter-Final Repechage up to 8 Athletes or Tea",
+     0.6129
+    ]
+   ],
+   "fusion_top40": [
+    [
+     "SOR-2026-08-P042-S053",
+     "p42 2.7 Competition System for Mixed Team and Team Events",
+     0.0941
+    ],
+    [
+     "SOR-2026-08-P086-S102",
+     "p86 6.5 Female and Male Teams Events Weigh-in",
+     0.0921
+    ],
+    [
+     "SOR-2026-08-P082-S100",
+     "p82 6.4.2. Mixed Team Following an Individual Competition W",
+     0.0185
+    ],
+    [
+     "SOR-2026-08-P045-S055",
+     "p45 2.7.2 Regulations for Female and Male Team Events",
+     0.0182
+    ],
+    [
+     "SOR-2026-08-P105-S133",
+     "p105 A1.13 Competition System for Veterans",
+     0.0179
+    ],
+    [
+     "SOR-2026-08-P041-S051",
+     "p41 2.6.1 Low Numbers System for IJF WJT Events",
+     0.0176
+    ],
+    [
+     "SOR-2026-08-P044-S054",
+     "p44 2.7.1 Regulations for Mixed Team Events",
+     0.0171
+    ],
+    [
+     "SOR-2026-08-P083-S101",
+     "p83 6.4.3 Olympic Games Mixed Team Weigh-in",
+     0.0169
+    ],
+    [
+     "SOR-2026-08-P091-S106",
+     "p91 7.3 Contest Review Process",
+     0.0164
+    ],
+    [
+     "SOR-2026-08-P231-S254",
+     "p231 F1.3.24 Example of Winners’ List",
+     0.0161
+    ],
+    [
+     "SOR-2026-08-P087-S102",
+     "p87 6.5 Female and Male Teams Events Weigh-in",
+     0.0159
+    ],
+    [
+     "SOR-2026-08-P104-S127",
+     "p104 A1.7 Category Combining for Veterans",
+     0.0156
+    ],
+    [
+     "SOR-2026-08-P040-S048",
+     "p40 2.5.5.2 Round Robin Rules for Team Events",
+     0.0154
+    ],
+    [
+     "SOR-2026-08-P051-S064",
+     "p51 3.1 IJF World Ranking Lists",
+     0.0152
+    ]
+   ],
+   "evidencia_top5": [
+    {
+     "passage_id": "SOR-2026-08-P042-S053",
+     "etiqueta": "p42 2.7 Competition System for Mixed Team and Team Events",
+     "score": 0.0941,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SOR-2026-08-P042-S053"
+     ],
+     "paginas": [
+      42
+     ],
+     "chars": 2816
+    },
+    {
+     "passage_id": "SOR-2026-08-P086-S102",
+     "etiqueta": "p86 6.5 Female and Male Teams Events Weigh-in",
+     "score": 0.0921,
+     "is_stitched": true,
+     "stitched_kuns": [
+      "SOR-2026-08-P084-S102",
+      "SOR-2026-08-P085-S102",
+      "SOR-2026-08-P086-S102",
+      "SOR-2026-08-P087-S102"
+     ],
+     "paginas": [
+      84,
+      85,
+      86,
+      87
+     ],
+     "chars": 7159
+    },
+    {
+     "passage_id": "SOR-2026-08-P082-S100",
+     "etiqueta": "p82 6.4.2. Mixed Team Following an Individual Competition W",
+     "score": 0.0185,
+     "is_stitched": true,
+     "stitched_kuns": [
+      "SOR-2026-08-P081-S100",
+      "SOR-2026-08-P082-S100"
+     ],
+     "paginas": [
+      81,
+      82
+     ],
+     "chars": 5066
+    },
+    {
+     "passage_id": "SOR-2026-08-P091-S106",
+     "etiqueta": "p91 7.3 Contest Review Process",
+     "score": 0.0164,
+     "is_stitched": true,
+     "stitched_kuns": [
+      "SOR-2026-08-P090-S106",
+      "SOR-2026-08-P091-S106"
+     ],
+     "paginas": [
+      90,
+      91
+     ],
+     "chars": 538
+    },
+    {
+     "passage_id": "SOR-2026-08-P231-S254",
+     "etiqueta": "p231 F1.3.24 Example of Winners’ List",
+     "score": 0.0161,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SOR-2026-08-P231-S254"
+     ],
+     "paginas": [
+      231
+     ],
+     "chars": 3114
+    }
+   ],
+   "relacionados": [],
+   "campeones_R1": {
+    "champions": [
+     "SOR-2026-08-P091-S106",
+     "SOR-2026-08-P231-S254",
+     "SOR-2026-08-P086-S102"
+    ],
+    "added": [
+     "SOR-2026-08-P091-S106",
+     "SOR-2026-08-P231-S254"
+    ],
+    "replaced": [
+     "SOR-2026-08-P105-S133",
+     "SOR-2026-08-P045-S055"
+    ]
+   },
+   "preferencia_ambito": null,
+   "suplementarios": [],
+   "paquete_chars": 18693,
+   "clasificacion_referencia": {
+    "SIS-1": "ENTREGADA",
+    "SIS-2": "ENTREGADA",
+    "SIS-3": "ENTREGADA",
+    "SIS-4": "EN CANAL, PERDIDA EN LA FUSION",
+    "SIS-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "SIS-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "SIS-7": "ENTREGADA",
+    "COMP-1": "ENTREGADA",
+    "COMP-2": "ENTREGADA",
+    "COMP-3": "ENTREGADA",
+    "COMP-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-4": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-7": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-8": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-4": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-6": "ENTREGADA",
+    "CAT-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "GAN-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "GAN-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "EMP-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-7": "NUNCA RECUPERADA (top-60)",
+    "DES-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-3": "NUNCA RECUPERADA (top-60)",
+    "DES-4": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-8": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-9": "NUNCA RECUPERADA (top-60)",
+    "ORG-1": "ENTREGADA",
+    "ORG-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORG-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-4": "NUNCA RECUPERADA (top-60)",
+    "ORG-5": "ENTREGADA"
+   },
+   "rangos_normativos": {
+    "34": {
+     "etiqueta": "p34",
+     "tfidf_top60": null,
+     "denso_top60": 28,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "35": {
+     "etiqueta": "p35",
+     "tfidf_top60": null,
+     "denso_top60": 59,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "37": {
+     "etiqueta": "p37",
+     "tfidf_top60": 32,
+     "denso_top60": 51,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "38": {
+     "etiqueta": "p38",
+     "tfidf_top60": null,
+     "denso_top60": 13,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "40": {
+     "etiqueta": "p40",
+     "tfidf_top60": 23,
+     "denso_top60": null,
+     "fusion_top40": 13,
+     "paquete": false
+    },
+    "41": {
+     "etiqueta": "p41",
+     "tfidf_top60": 13,
+     "denso_top60": null,
+     "fusion_top40": 6,
+     "paquete": false
+    },
+    "42": {
+     "etiqueta": "p42",
+     "tfidf_top60": 2,
+     "denso_top60": 5,
+     "fusion_top40": 1,
+     "paquete": true
+    },
+    "43": {
+     "etiqueta": "p43",
+     "tfidf_top60": 27,
+     "denso_top60": 60,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "44": {
+     "etiqueta": "p44",
+     "tfidf_top60": 15,
+     "denso_top60": null,
+     "fusion_top40": 7,
+     "paquete": false
+    },
+    "45": {
+     "etiqueta": "p45",
+     "tfidf_top60": 8,
+     "denso_top60": null,
+     "fusion_top40": 4,
+     "paquete": false
+    },
+    "46": {
+     "etiqueta": "p46",
+     "tfidf_top60": 26,
+     "denso_top60": 26,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "47": {
+     "etiqueta": "p47",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "80": {
+     "etiqueta": "p80",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "84": {
+     "etiqueta": "p84",
+     "tfidf_top60": null,
+     "denso_top60": 45,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "153": {
+     "etiqueta": "p153",
+     "tfidf_top60": 37,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "154": {
+     "etiqueta": "p154",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    }
+   }
+  },
+  "B": {
+   "status": "SUCCESS",
+   "reason": null,
+   "operating_mode": "HYBRID",
+   "tiempo_ms": 47.2,
+   "canal_tfidf_top25": [
+    [
+     "SEC-0038",
+     "APARTADO 2.2.4 p35-35",
+     0.295
+    ],
+    [
+     "SEC-0102",
+     "APARTADO 6.5 p84-87",
+     0.2381
+    ],
+    [
+     "SEC-0053",
+     "APARTADO 2.7 p42-42",
+     0.2116
+    ],
+    [
+     "SEC-0036",
+     "APARTADO 2.2.2 p34-34",
+     0.211
+    ],
+    [
+     "SEC-0100",
+     "APARTADO 6.4.2 p81-82",
+     0.2083
+    ],
+    [
+     "SEC-0125",
+     "APARTADO a1.5 p103-103",
+     0.2006
+    ],
+    [
+     "SEC-0037",
+     "APARTADO 2.2.3 p34-34",
+     0.1924
+    ],
+    [
+     "SEC-0101",
+     "APARTADO 6.4.3 p83-83",
+     0.1858
+    ],
+    [
+     "SEC-0034",
+     "APARTADO 2.2 p33-33",
+     0.1847
+    ],
+    [
+     "SEC-0133",
+     "APARTADO a1.13 p105-105",
+     0.1727
+    ],
+    [
+     "SEC-0099",
+     "APARTADO 6.4.1 p81-81",
+     0.1653
+    ],
+    [
+     "SEC-0052",
+     "APARTADO 2.6.2 p42-42",
+     0.157
+    ],
+    [
+     "SEC-0035",
+     "APARTADO 2.2.1 p33-33",
+     0.1504
+    ],
+    [
+     "SEC-0054",
+     "APARTADO 2.7.1 p42-45",
+     0.1466
+    ],
+    [
+     "SEC-0098",
+     "APARTADO 6.4 p80-80",
+     0.1359
+    ],
+    [
+     "SEC-0055",
+     "APARTADO 2.7.2 p45-47",
+     0.111
+    ],
+    [
+     "SEC-0069",
+     "APARTADO 3.3 p55-55",
+     0.1032
+    ],
+    [
+     "SEC-0046",
+     "APARTADO 2.5.5 p39-39",
+     0.1029
+    ],
+    [
+     "SEC-0051",
+     "APARTADO 2.6.1 p41-42",
+     0.1017
+    ],
+    [
+     "SEC-0072",
+     "APARTADO 3.3.3 p57-57",
+     0.1015
+    ],
+    [
+     "SEC-0120",
+     "APARTADO a1.1 p101-101",
+     0.1014
+    ],
+    [
+     "SEC-0071",
+     "APARTADO 3.3.2 p56-56",
+     0.1012
+    ],
+    [
+     "SEC-0029",
+     "PORTADA competitionrules p30-30",
+     0.0999
+    ],
+    [
+     "SEC-0031",
+     "APARTADO 2.1.1 p31-32",
+     0.0966
+    ]
+   ],
+   "canal_denso_top25": [
+    [
+     "SEC-0038",
+     "APARTADO 2.2.4 p35-35",
+     0.632
+    ],
+    [
+     "SEC-0255",
+     "APARTADO f1.3.23 p230-231",
+     0.6261
+    ],
+    [
+     "TAB-0043",
+     "TABLA f1.3.1 p208-208",
+     0.5912
+    ],
+    [
+     "SEC-0235",
+     "APARTADO f1.3.3 p210-211",
+     0.5842
+    ],
+    [
+     "SEC-0106",
+     "APARTADO 7.3 p90-91",
+     0.5773
+    ],
+    [
+     "SEC-0120",
+     "APARTADO a1.1 p101-101",
+     0.5769
+    ],
+    [
+     "SEC-0263",
+     "APARTADO f1.3.31 p238-238",
+     0.5759
+    ],
+    [
+     "SEC-0257",
+     "APARTADO f1.3.25 p232-232",
+     0.5756
+    ],
+    [
+     "SEC-0272",
+     "APARTADO g1.4 p257-257",
+     0.5741
+    ],
+    [
+     "SEC-0036",
+     "APARTADO 2.2.2 p34-34",
+     0.5695
+    ],
+    [
+     "SEC-0053",
+     "APARTADO 2.7 p42-42",
+     0.5653
+    ],
+    [
+     "SEC-0002",
+     "APARTADO 1.1 p13-13",
+     0.5612
+    ],
+    [
+     "SEC-0174",
+     "APARTADO d1.1 p133-134",
+     0.5579
+    ],
+    [
+     "SEC-0170",
+     "APARTADO c1.14 p129-129",
+     0.5526
+    ],
+    [
+     "SEC-0064",
+     "APARTADO 3.1 p51-51",
+     0.55
+    ],
+    [
+     "SEC-0084",
+     "APARTADO 5.3 p72-73",
+     0.5489
+    ],
+    [
+     "SEC-0168",
+     "APARTADO c1.12 p126-127",
+     0.5481
+    ],
+    [
+     "TAB-0039",
+     "TABLA c1.10 p124-124",
+     0.5412
+    ],
+    [
+     "SEC-0258",
+     "APARTADO f1.3.26 p233-233",
+     0.5395
+    ],
+    [
+     "TAB-0046",
+     "TABLA f1.3.24 p231-231",
+     0.5238
+    ],
+    [
+     "SEC-0224",
+     "APARTADO e1.6.1 p203-203",
+     0.5214
+    ],
+    [
+     "SEC-0133",
+     "APARTADO a1.13 p105-105",
+     0.5175
+    ],
+    [
+     "SEC-0035",
+     "APARTADO 2.2.1 p33-33",
+     0.5172
+    ],
+    [
+     "SEC-0031",
+     "APARTADO 2.1.1 p31-32",
+     0.5168
+    ],
+    [
+     "SEC-0166",
+     "APARTADO c1.10 p124-126",
+     0.5164
+    ]
+   ],
+   "fusion_top40": [
+    [
+     "SEC-0038",
+     "APARTADO 2.2.4 p35-35",
+     0.0959
+    ],
+    [
+     "SEC-0053",
+     "APARTADO 2.7 p42-42",
+     0.092
+    ],
+    [
+     "SEC-0036",
+     "APARTADO 2.2.2 p34-34",
+     0.0918
+    ],
+    [
+     "SEC-0120",
+     "APARTADO a1.1 p101-101",
+     0.0877
+    ],
+    [
+     "SEC-0133",
+     "APARTADO a1.13 p105-105",
+     0.0869
+    ],
+    [
+     "SEC-0035",
+     "APARTADO 2.2.1 p33-33",
+     0.0857
+    ],
+    [
+     "SEC-0031",
+     "APARTADO 2.1.1 p31-32",
+     0.0826
+    ],
+    [
+     "SEC-0102",
+     "APARTADO 6.5 p84-87",
+     0.0544
+    ],
+    [
+     "SEC-0100",
+     "APARTADO 6.4.2 p81-82",
+     0.0535
+    ],
+    [
+     "SEC-0125",
+     "APARTADO a1.5 p103-103",
+     0.0532
+    ],
+    [
+     "SEC-0037",
+     "APARTADO 2.2.3 p34-34",
+     0.0179
+    ],
+    [
+     "SEC-0101",
+     "APARTADO 6.4.3 p83-83",
+     0.0176
+    ],
+    [
+     "SEC-0034",
+     "APARTADO 2.2 p33-33",
+     0.0174
+    ],
+    [
+     "SEC-0099",
+     "APARTADO 6.4.1 p81-81",
+     0.0169
+    ],
+    [
+     "SEC-0052",
+     "APARTADO 2.6.2 p42-42",
+     0.0167
+    ],
+    [
+     "SEC-0054",
+     "APARTADO 2.7.1 p42-45",
+     0.0162
+    ],
+    [
+     "SEC-0255",
+     "APARTADO f1.3.23 p230-231",
+     0.0161
+    ],
+    [
+     "SEC-0098",
+     "APARTADO 6.4 p80-80",
+     0.016
+    ],
+    [
+     "TAB-0043",
+     "TABLA f1.3.1 p208-208",
+     0.0159
+    ],
+    [
+     "SEC-0055",
+     "APARTADO 2.7.2 p45-47",
+     0.0158
+    ],
+    [
+     "SEC-0235",
+     "APARTADO f1.3.3 p210-211",
+     0.0156
+    ],
+    [
+     "SEC-0069",
+     "APARTADO 3.3 p55-55",
+     0.0156
+    ],
+    [
+     "SEC-0106",
+     "APARTADO 7.3 p90-91",
+     0.0154
+    ],
+    [
+     "SEC-0046",
+     "APARTADO 2.5.5 p39-39",
+     0.0154
+    ],
+    [
+     "SEC-0051",
+     "APARTADO 2.6.1 p41-42",
+     0.0152
+    ],
+    [
+     "SEC-0072",
+     "APARTADO 3.3.3 p57-57",
+     0.015
+    ]
+   ],
+   "evidencia_top5": [
+    {
+     "passage_id": "SEC-0038",
+     "etiqueta": "APARTADO 2.2.4 p35-35",
+     "score": 0.0959,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SEC-0038"
+     ],
+     "paginas": [
+      35
+     ],
+     "chars": 47
+    },
+    {
+     "passage_id": "SEC-0053",
+     "etiqueta": "APARTADO 2.7 p42-42",
+     "score": 0.092,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SEC-0053"
+     ],
+     "paginas": [
+      42
+     ],
+     "chars": 570
+    },
+    {
+     "passage_id": "SEC-0036",
+     "etiqueta": "APARTADO 2.2.2 p34-34",
+     "score": 0.0918,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SEC-0036"
+     ],
+     "paginas": [
+      34
+     ],
+     "chars": 76
+    },
+    {
+     "passage_id": "SEC-0120",
+     "etiqueta": "APARTADO a1.1 p101-101",
+     "score": 0.0877,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SEC-0120"
+     ],
+     "paginas": [
+      101
+     ],
+     "chars": 1121
+    },
+    {
+     "passage_id": "SEC-0255",
+     "etiqueta": "APARTADO f1.3.23 p230-231",
+     "score": 0.0161,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SEC-0255"
+     ],
+     "paginas": [
+      230,
+      231
+     ],
+     "chars": 1620
+    }
+   ],
+   "relacionados": [
+    {
+     "passage_id": "TAB-0010",
+     "etiqueta": "TABLA 2.2.4 p35-35",
+     "desde": "SEC-0038",
+     "relacion": "has_table"
+    },
+    {
+     "passage_id": "TAB-0011",
+     "etiqueta": "TABLA 2.2.4 p35-35",
+     "desde": "SEC-0038",
+     "relacion": "has_table"
+    },
+    {
+     "passage_id": "TAB-0006",
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "desde": "SEC-0036",
+     "relacion": "has_table"
+    }
+   ],
+   "campeones_R1": {
+    "champions": [
+     "SEC-0038",
+     "SEC-0255"
+    ],
+    "added": [
+     "SEC-0255"
+    ],
+    "replaced": [
+     "SEC-0133"
+    ]
+   },
+   "preferencia_ambito": null,
+   "suplementarios": [],
+   "paquete_chars": 4891,
+   "clasificacion_referencia": {
+    "SIS-1": "ENTREGADA",
+    "SIS-2": "ENTREGADA",
+    "SIS-3": "ENTREGADA",
+    "SIS-4": "NUNCA RECUPERADA (top-60)",
+    "SIS-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "SIS-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "SIS-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-3": "NUNCA RECUPERADA (top-60)",
+    "ORD-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-8": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-1": "ENTREGADA",
+    "CAT-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "CAT-3": "NUNCA RECUPERADA (top-60)",
+    "CAT-4": "ENTREGADA",
+    "CAT-5": "ENTREGADA",
+    "CAT-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "CAT-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "GAN-7": "FUERA DEL CORTE DE CANAL (26-60)",
+    "EMP-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "EMP-7": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-8": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-9": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-5": "DESPLAZADA (en la fusion, fuera del paquete)"
+   },
+   "rangos_normativos": {
+    "SEC-0053": {
+     "etiqueta": "APARTADO 2.7 p42-42",
+     "tfidf_top60": 3,
+     "denso_top60": 11,
+     "fusion_top40": 2,
+     "paquete": true
+    },
+    "SEC-0054": {
+     "etiqueta": "APARTADO 2.7.1 p42-45",
+     "tfidf_top60": 15,
+     "denso_top60": null,
+     "fusion_top40": 16,
+     "paquete": false
+    },
+    "SEC-0055": {
+     "etiqueta": "APARTADO 2.7.2 p45-47",
+     "tfidf_top60": 17,
+     "denso_top60": 60,
+     "fusion_top40": 20,
+     "paquete": false
+    },
+    "SEC-0036": {
+     "etiqueta": "APARTADO 2.2.2 p34-34",
+     "tfidf_top60": 4,
+     "denso_top60": 10,
+     "fusion_top40": 3,
+     "paquete": true
+    },
+    "SEC-0037": {
+     "etiqueta": "APARTADO 2.2.3 p34-34",
+     "tfidf_top60": 7,
+     "denso_top60": 57,
+     "fusion_top40": 11,
+     "paquete": false
+    },
+    "SEC-0038": {
+     "etiqueta": "APARTADO 2.2.4 p35-35",
+     "tfidf_top60": 1,
+     "denso_top60": 1,
+     "fusion_top40": 1,
+     "paquete": true
+    },
+    "TAB-0006": {
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0007": {
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "TAB-0008": {
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "TAB-0009": {
+     "etiqueta": "TABLA 2.2.3 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "TAB-0010": {
+     "etiqueta": "TABLA 2.2.4 p35-35",
+     "tfidf_top60": null,
+     "denso_top60": 58,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0011": {
+     "etiqueta": "TABLA 2.2.4 p35-35",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0016": {
+     "etiqueta": "TABLA 2.7.1 p43-43",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0041": {
+     "etiqueta": "APARTADO 2.5 p37-38",
+     "tfidf_top60": 29,
+     "denso_top60": 47,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0043": {
+     "etiqueta": "APARTADO 2.5.2 p38-38",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0183": {
+     "etiqueta": "APARTADO article9 p153-155",
+     "tfidf_top60": 40,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0048": {
+     "etiqueta": "APARTADO 2.5.5.2 p40-40",
+     "tfidf_top60": 26,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0050": {
+     "etiqueta": "APARTADO 2.6 p41-41",
+     "tfidf_top60": 34,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0051": {
+     "etiqueta": "APARTADO 2.6.1 p41-42",
+     "tfidf_top60": 20,
+     "denso_top60": null,
+     "fusion_top40": 25,
+     "paquete": false
+    },
+    "SEC-0052": {
+     "etiqueta": "APARTADO 2.6.2 p42-42",
+     "tfidf_top60": 13,
+     "denso_top60": null,
+     "fusion_top40": 15,
+     "paquete": false
+    },
+    "SEC-0098": {
+     "etiqueta": "APARTADO 6.4 p80-80",
+     "tfidf_top60": 16,
+     "denso_top60": 40,
+     "fusion_top40": 18,
+     "paquete": false
+    },
+    "SEC-0102": {
+     "etiqueta": "APARTADO 6.5 p84-87",
+     "tfidf_top60": 2,
+     "denso_top60": 48,
+     "fusion_top40": 8,
+     "paquete": false
+    }
+   }
+  },
+  "C1": {
+   "status": "SUCCESS",
+   "reason": null,
+   "operating_mode": "HYBRID",
+   "tiempo_ms": 50.4,
+   "canal_tfidf_top25": [
+    [
+     "SOR-2026-08-P086-S102",
+     "p86 6.5 Female and Male Teams Events Weigh-in",
+     0.1973
+    ],
+    [
+     "SOR-2026-08-P042-S053",
+     "p42 2.7 Competition System for Mixed Team and Team Events",
+     0.1956
+    ],
+    [
+     "SOR-2026-08-P042-S052",
+     "p42 2.6.2 Low Numbers System for Other Events",
+     0.191
+    ],
+    [
+     "SOR-2026-08-P042-S054",
+     "p42 2.7.1 Regulations for Mixed Team Events",
+     0.1862
+    ],
+    [
+     "SOR-2026-08-P082-S100",
+     "p82 6.4.2. Mixed Team Following an Individual Competition W",
+     0.1843
+    ],
+    [
+     "SOR-2026-08-P045-S055",
+     "p45 2.7.2 Regulations for Female and Male Team Events",
+     0.1201
+    ],
+    [
+     "SOR-2026-08-P105-S133",
+     "p105 A1.13 Competition System for Veterans",
+     0.1161
+    ],
+    [
+     "SOR-2026-08-P041-S051",
+     "p41 2.6.1 Low Numbers System for IJF WJT Events",
+     0.1133
+    ],
+    [
+     "SOR-2026-08-P041-S050",
+     "p41 2.6 Regulations for Low Numbers of Athletes or Teams",
+     0.1113
+    ],
+    [
+     "SOR-2026-08-P044-S054",
+     "p44 2.7.1 Regulations for Mixed Team Events",
+     0.1111
+    ],
+    [
+     "SOR-2026-08-P083-S101",
+     "p83 6.4.3 Olympic Games Mixed Team Weigh-in",
+     0.1068
+    ],
+    [
+     "SOR-2026-08-P105-S134",
+     "p105 A1.14 Round Robin Golden Score",
+     0.1055
+    ],
+    [
+     "SOR-2026-08-P105-S129",
+     "p105 A1.9 Seeding for Veterans",
+     0.1048
+    ],
+    [
+     "SOR-2026-08-P105-S128",
+     "p105 A1.8 Draw for Veterans",
+     0.1047
+    ],
+    [
+     "SOR-2026-08-P105-S131",
+     "p105 A1.11 Judogi Rules for Veterans",
+     0.1047
+    ],
+    [
+     "SOR-2026-08-P105-S132",
+     "p105 A1.12 Backnumbers for Veterans",
+     0.1047
+    ],
+    [
+     "SOR-2026-08-P105-S130",
+     "p105 A1.10 Weigh-in for Veterans",
+     0.1043
+    ],
+    [
+     "SOR-2026-08-P040-S048",
+     "p40 2.5.5.2 Round Robin Rules for Team Events",
+     0.0931
+    ],
+    [
+     "SOR-2026-08-P051-S064",
+     "p51 3.1 IJF World Ranking Lists",
+     0.09
+    ],
+    [
+     "SOR-2026-08-P040-S049",
+     "p40 2.5.6 Best of Three",
+     0.0895
+    ]
+   ],
+   "canal_denso_top25": [
+    [
+     "SOR-2026-08-P091-S106",
+     "p91 7.3 Contest Review Process",
+     0.7041
+    ],
+    [
+     "SOR-2026-08-P105-S133",
+     "p105 A1.13 Competition System for Veterans",
+     0.6881
+    ],
+    [
+     "SOR-2026-08-P104-S127",
+     "p104 A1.7 Category Combining for Veterans",
+     0.6758
+    ],
+    [
+     "SOR-2026-08-P087-S102",
+     "p87 6.5 Female and Male Teams Events Weigh-in",
+     0.6722
+    ],
+    [
+     "SOR-2026-08-P105-S130",
+     "p105 A1.10 Weigh-in for Veterans",
+     0.6704
+    ],
+    [
+     "SOR-2026-08-P105-S128",
+     "p105 A1.8 Draw for Veterans",
+     0.663
+    ],
+    [
+     "SOR-2026-08-P231-S254",
+     "p231 F1.3.24 Example of Winners’ List",
+     0.6617
+    ],
+    [
+     "SOR-2026-08-P232-S255",
+     "p232 F1.3.25 Example of Teams Line Up Confirmation",
+     0.6607
+    ],
+    [
+     "SOR-2026-08-P105-S131",
+     "p105 A1.11 Judogi Rules for Veterans",
+     0.6514
+    ],
+    [
+     "SOR-2026-08-P249-S265",
+     "p249 G1.1 Glossary of Japanese Terms",
+     0.6459
+    ],
+    [
+     "SOR-2026-08-P212-S235",
+     "p212 F1.3.5 Contest Sheet",
+     0.6454
+    ],
+    [
+     "SOR-2026-08-P214-S237",
+     "p214 F1.3.7 Quarter-Final Repechage",
+     0.6423
+    ],
+    [
+     "SOR-2026-08-P069-S080",
+     "p69 4.5 Accreditation",
+     0.6421
+    ],
+    [
+     "SOR-2026-08-P042-S053",
+     "p42 2.7 Competition System for Mixed Team and Team Events",
+     0.6421
+    ],
+    [
+     "SOR-2026-08-P105-S129",
+     "p105 A1.9 Seeding for Veterans",
+     0.6378
+    ],
+    [
+     "SOR-2026-08-P105-S134",
+     "p105 A1.14 Round Robin Golden Score",
+     0.6373
+    ],
+    [
+     "SOR-2026-08-P233-S256",
+     "p233 F1.3.26 Example of Mixed Teams Line Up Confirmation",
+     0.6369
+    ],
+    [
+     "SOR-2026-08-P105-S132",
+     "p105 A1.12 Backnumbers for Veterans",
+     0.6347
+    ],
+    [
+     "SOR-2026-08-P210-S233",
+     "p210 F1.3.3 Contest Order",
+     0.631
+    ],
+    [
+     "SOR-2026-08-P086-S102",
+     "p86 6.5 Female and Male Teams Events Weigh-in",
+     0.6283
+    ],
+    [
+     "SOR-2026-08-P038-S045",
+     "p38 2.5.4 Full Repechage",
+     0.6276
+    ]
+   ],
+   "fusion_top40": [
+    [
+     "SOR-2026-08-P105-S133",
+     "p105 A1.13 Competition System for Veterans",
+     0.0932
+    ],
+    [
+     "SOR-2026-08-P042-S053",
+     "p42 2.7 Competition System for Mixed Team and Team Events",
+     0.0916
+    ],
+    [
+     "SOR-2026-08-P086-S102",
+     "p86 6.5 Female and Male Teams Events Weigh-in",
+     0.0907
+    ],
+    [
+     "SOR-2026-08-P082-S100",
+     "p82 6.4.2. Mixed Team Following an Individual Competition W",
+     0.0185
+    ],
+    [
+     "SOR-2026-08-P045-S055",
+     "p45 2.7.2 Regulations for Female and Male Team Events",
+     0.0182
+    ],
+    [
+     "SOR-2026-08-P041-S051",
+     "p41 2.6.1 Low Numbers System for IJF WJT Events",
+     0.0176
+    ],
+    [
+     "SOR-2026-08-P044-S054",
+     "p44 2.7.1 Regulations for Mixed Team Events",
+     0.0171
+    ],
+    [
+     "SOR-2026-08-P083-S101",
+     "p83 6.4.3 Olympic Games Mixed Team Weigh-in",
+     0.0169
+    ],
+    [
+     "SOR-2026-08-P091-S106",
+     "p91 7.3 Contest Review Process",
+     0.0164
+    ],
+    [
+     "SOR-2026-08-P104-S127",
+     "p104 A1.7 Category Combining for Veterans",
+     0.0159
+    ],
+    [
+     "SOR-2026-08-P087-S102",
+     "p87 6.5 Female and Male Teams Events Weigh-in",
+     0.0156
+    ],
+    [
+     "SOR-2026-08-P040-S048",
+     "p40 2.5.5.2 Round Robin Rules for Team Events",
+     0.0154
+    ],
+    [
+     "SOR-2026-08-P051-S064",
+     "p51 3.1 IJF World Ranking Lists",
+     0.0152
+    ]
+   ],
+   "evidencia_top5": [
+    {
+     "passage_id": "SOR-2026-08-P105-S133",
+     "etiqueta": "p105 A1.13 Competition System for Veterans",
+     "score": 0.0932,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SOR-2026-08-P105-S133"
+     ],
+     "paginas": [
+      105
+     ],
+     "chars": 2306
+    },
+    {
+     "passage_id": "SOR-2026-08-P042-S053",
+     "etiqueta": "p42 2.7 Competition System for Mixed Team and Team Events",
+     "score": 0.0916,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SOR-2026-08-P042-S053"
+     ],
+     "paginas": [
+      42
+     ],
+     "chars": 2816
+    },
+    {
+     "passage_id": "SOR-2026-08-P086-S102",
+     "etiqueta": "p86 6.5 Female and Male Teams Events Weigh-in",
+     "score": 0.0907,
+     "is_stitched": true,
+     "stitched_kuns": [
+      "SOR-2026-08-P084-S102",
+      "SOR-2026-08-P085-S102",
+      "SOR-2026-08-P086-S102",
+      "SOR-2026-08-P087-S102"
+     ],
+     "paginas": [
+      84,
+      85,
+      86,
+      87
+     ],
+     "chars": 7159
+    },
+    {
+     "passage_id": "SOR-2026-08-P082-S100",
+     "etiqueta": "p82 6.4.2. Mixed Team Following an Individual Competition W",
+     "score": 0.0185,
+     "is_stitched": true,
+     "stitched_kuns": [
+      "SOR-2026-08-P081-S100",
+      "SOR-2026-08-P082-S100"
+     ],
+     "paginas": [
+      81,
+      82
+     ],
+     "chars": 5066
+    },
+    {
+     "passage_id": "SOR-2026-08-P091-S106",
+     "etiqueta": "p91 7.3 Contest Review Process",
+     "score": 0.0164,
+     "is_stitched": true,
+     "stitched_kuns": [
+      "SOR-2026-08-P090-S106",
+      "SOR-2026-08-P091-S106"
+     ],
+     "paginas": [
+      90,
+      91
+     ],
+     "chars": 538
+    }
+   ],
+   "relacionados": [],
+   "campeones_R1": {
+    "champions": [
+     "SOR-2026-08-P091-S106",
+     "SOR-2026-08-P105-S133",
+     "SOR-2026-08-P086-S102"
+    ],
+    "added": [
+     "SOR-2026-08-P091-S106"
+    ],
+    "replaced": [
+     "SOR-2026-08-P045-S055"
+    ]
+   },
+   "preferencia_ambito": null,
+   "suplementarios": [],
+   "paquete_chars": 17885,
+   "clasificacion_referencia": {
+    "SIS-1": "ENTREGADA",
+    "SIS-2": "ENTREGADA",
+    "SIS-3": "ENTREGADA",
+    "SIS-4": "EN CANAL, PERDIDA EN LA FUSION",
+    "SIS-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "SIS-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "SIS-7": "ENTREGADA",
+    "COMP-1": "ENTREGADA",
+    "COMP-2": "ENTREGADA",
+    "COMP-3": "ENTREGADA",
+    "COMP-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-4": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-7": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORD-8": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-4": "NUNCA RECUPERADA (top-60)",
+    "CAT-5": "NUNCA RECUPERADA (top-60)",
+    "CAT-6": "ENTREGADA",
+    "CAT-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "GAN-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "GAN-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "EMP-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-7": "NUNCA RECUPERADA (top-60)",
+    "DES-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-3": "NUNCA RECUPERADA (top-60)",
+    "DES-4": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-8": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-9": "NUNCA RECUPERADA (top-60)",
+    "ORG-1": "ENTREGADA",
+    "ORG-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "ORG-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-4": "NUNCA RECUPERADA (top-60)",
+    "ORG-5": "ENTREGADA"
+   },
+   "rangos_normativos": {
+    "34": {
+     "etiqueta": "p34",
+     "tfidf_top60": null,
+     "denso_top60": 46,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "35": {
+     "etiqueta": "p35",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "37": {
+     "etiqueta": "p37",
+     "tfidf_top60": 32,
+     "denso_top60": 35,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "38": {
+     "etiqueta": "p38",
+     "tfidf_top60": null,
+     "denso_top60": 25,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "40": {
+     "etiqueta": "p40",
+     "tfidf_top60": 23,
+     "denso_top60": null,
+     "fusion_top40": 12,
+     "paquete": false
+    },
+    "41": {
+     "etiqueta": "p41",
+     "tfidf_top60": 13,
+     "denso_top60": null,
+     "fusion_top40": 6,
+     "paquete": false
+    },
+    "42": {
+     "etiqueta": "p42",
+     "tfidf_top60": 2,
+     "denso_top60": 16,
+     "fusion_top40": 2,
+     "paquete": true
+    },
+    "43": {
+     "etiqueta": "p43",
+     "tfidf_top60": 27,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "44": {
+     "etiqueta": "p44",
+     "tfidf_top60": 15,
+     "denso_top60": null,
+     "fusion_top40": 7,
+     "paquete": false
+    },
+    "45": {
+     "etiqueta": "p45",
+     "tfidf_top60": 8,
+     "denso_top60": null,
+     "fusion_top40": 5,
+     "paquete": false
+    },
+    "46": {
+     "etiqueta": "p46",
+     "tfidf_top60": 26,
+     "denso_top60": 38,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "47": {
+     "etiqueta": "p47",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "80": {
+     "etiqueta": "p80",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "84": {
+     "etiqueta": "p84",
+     "tfidf_top60": null,
+     "denso_top60": 32,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "153": {
+     "etiqueta": "p153",
+     "tfidf_top60": 37,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "154": {
+     "etiqueta": "p154",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    }
+   }
+  },
+  "C2": {
+   "status": "SUCCESS",
+   "reason": null,
+   "operating_mode": "HYBRID",
+   "tiempo_ms": 45.3,
+   "canal_tfidf_top25": [
+    [
+     "SEC-0038",
+     "APARTADO 2.2.4 p35-35",
+     0.295
+    ],
+    [
+     "SEC-0102",
+     "APARTADO 6.5 p84-87",
+     0.2381
+    ],
+    [
+     "SEC-0053",
+     "APARTADO 2.7 p42-42",
+     0.2116
+    ],
+    [
+     "SEC-0036",
+     "APARTADO 2.2.2 p34-34",
+     0.211
+    ],
+    [
+     "SEC-0100",
+     "APARTADO 6.4.2 p81-82",
+     0.2083
+    ],
+    [
+     "SEC-0125",
+     "APARTADO a1.5 p103-103",
+     0.2006
+    ],
+    [
+     "SEC-0037",
+     "APARTADO 2.2.3 p34-34",
+     0.1924
+    ],
+    [
+     "SEC-0101",
+     "APARTADO 6.4.3 p83-83",
+     0.1858
+    ],
+    [
+     "SEC-0034",
+     "APARTADO 2.2 p33-33",
+     0.1847
+    ],
+    [
+     "SEC-0133",
+     "APARTADO a1.13 p105-105",
+     0.1727
+    ],
+    [
+     "SEC-0099",
+     "APARTADO 6.4.1 p81-81",
+     0.1653
+    ],
+    [
+     "SEC-0052",
+     "APARTADO 2.6.2 p42-42",
+     0.157
+    ],
+    [
+     "SEC-0035",
+     "APARTADO 2.2.1 p33-33",
+     0.1504
+    ],
+    [
+     "SEC-0054",
+     "APARTADO 2.7.1 p42-45",
+     0.1466
+    ],
+    [
+     "SEC-0098",
+     "APARTADO 6.4 p80-80",
+     0.1359
+    ],
+    [
+     "SEC-0055",
+     "APARTADO 2.7.2 p45-47",
+     0.111
+    ],
+    [
+     "SEC-0069",
+     "APARTADO 3.3 p55-55",
+     0.1032
+    ],
+    [
+     "SEC-0046",
+     "APARTADO 2.5.5 p39-39",
+     0.1029
+    ],
+    [
+     "SEC-0051",
+     "APARTADO 2.6.1 p41-42",
+     0.1017
+    ],
+    [
+     "SEC-0072",
+     "APARTADO 3.3.3 p57-57",
+     0.1015
+    ],
+    [
+     "SEC-0120",
+     "APARTADO a1.1 p101-101",
+     0.1014
+    ],
+    [
+     "SEC-0071",
+     "APARTADO 3.3.2 p56-56",
+     0.1012
+    ],
+    [
+     "SEC-0029",
+     "PORTADA competitionrules p30-30",
+     0.0999
+    ],
+    [
+     "SEC-0031",
+     "APARTADO 2.1.1 p31-32",
+     0.0966
+    ]
+   ],
+   "canal_denso_top25": [
+    [
+     "SEC-0258",
+     "APARTADO f1.3.26 p233-233",
+     0.6432
+    ],
+    [
+     "SEC-0038",
+     "APARTADO 2.2.4 p35-35",
+     0.632
+    ],
+    [
+     "SEC-0255",
+     "APARTADO f1.3.23 p230-231",
+     0.6289
+    ],
+    [
+     "SEC-0102",
+     "APARTADO 6.5 p84-87",
+     0.6274
+    ],
+    [
+     "SEC-0257",
+     "APARTADO f1.3.25 p232-232",
+     0.609
+    ],
+    [
+     "TAB-0043",
+     "TABLA f1.3.1 p208-208",
+     0.5975
+    ],
+    [
+     "SEC-0235",
+     "APARTADO f1.3.3 p210-211",
+     0.5907
+    ],
+    [
+     "SEC-0002",
+     "APARTADO 1.1 p13-13",
+     0.5875
+    ],
+    [
+     "SEC-0120",
+     "APARTADO a1.1 p101-101",
+     0.5849
+    ],
+    [
+     "SEC-0267",
+     "APARTADO g1.1 p243-249",
+     0.5836
+    ],
+    [
+     "SEC-0174",
+     "APARTADO d1.1 p133-134",
+     0.5808
+    ],
+    [
+     "SEC-0106",
+     "APARTADO 7.3 p90-91",
+     0.5773
+    ],
+    [
+     "SEC-0263",
+     "APARTADO f1.3.31 p238-238",
+     0.5759
+    ],
+    [
+     "SEC-0036",
+     "APARTADO 2.2.2 p34-34",
+     0.5695
+    ],
+    [
+     "SEC-0053",
+     "APARTADO 2.7 p42-42",
+     0.5653
+    ],
+    [
+     "SEC-0168",
+     "APARTADO c1.12 p126-127",
+     0.5596
+    ],
+    [
+     "SEC-0170",
+     "APARTADO c1.14 p129-129",
+     0.5526
+    ],
+    [
+     "TAB-0002",
+     "TABLA 2.1.1 p32-32",
+     0.5523
+    ],
+    [
+     "SEC-0272",
+     "APARTADO g1.4 p257-257",
+     0.5502
+    ],
+    [
+     "SEC-0084",
+     "APARTADO 5.3 p72-73",
+     0.5489
+    ],
+    [
+     "SEC-0074",
+     "APARTADO 3.5 p57-59",
+     0.5476
+    ],
+    [
+     "SEC-0064",
+     "APARTADO 3.1 p51-51",
+     0.5472
+    ],
+    [
+     "SEC-0157",
+     "APARTADO c1.1.5 p117-118",
+     0.5422
+    ],
+    [
+     "TAB-0039",
+     "TABLA c1.10 p124-124",
+     0.5412
+    ]
+   ],
+   "fusion_top40": [
+    [
+     "SEC-0038",
+     "APARTADO 2.2.4 p35-35",
+     0.0956
+    ],
+    [
+     "SEC-0102",
+     "APARTADO 6.5 p84-87",
+     0.0945
+    ],
+    [
+     "SEC-0053",
+     "APARTADO 2.7 p42-42",
+     0.091
+    ],
+    [
+     "SEC-0036",
+     "APARTADO 2.2.2 p34-34",
+     0.0908
+    ],
+    [
+     "SEC-0120",
+     "APARTADO a1.1 p101-101",
+     0.0868
+    ],
+    [
+     "SEC-0100",
+     "APARTADO 6.4.2 p81-82",
+     0.0535
+    ],
+    [
+     "SEC-0125",
+     "APARTADO a1.5 p103-103",
+     0.0532
+    ],
+    [
+     "SEC-0037",
+     "APARTADO 2.2.3 p34-34",
+     0.0179
+    ],
+    [
+     "SEC-0101",
+     "APARTADO 6.4.3 p83-83",
+     0.0176
+    ],
+    [
+     "SEC-0034",
+     "APARTADO 2.2 p33-33",
+     0.0174
+    ],
+    [
+     "SEC-0133",
+     "APARTADO a1.13 p105-105",
+     0.0171
+    ],
+    [
+     "SEC-0099",
+     "APARTADO 6.4.1 p81-81",
+     0.0169
+    ],
+    [
+     "SEC-0052",
+     "APARTADO 2.6.2 p42-42",
+     0.0167
+    ],
+    [
+     "SEC-0035",
+     "APARTADO 2.2.1 p33-33",
+     0.0164
+    ],
+    [
+     "SEC-0258",
+     "APARTADO f1.3.26 p233-233",
+     0.0164
+    ],
+    [
+     "SEC-0054",
+     "APARTADO 2.7.1 p42-45",
+     0.0162
+    ],
+    [
+     "SEC-0098",
+     "APARTADO 6.4 p80-80",
+     0.016
+    ],
+    [
+     "SEC-0255",
+     "APARTADO f1.3.23 p230-231",
+     0.0159
+    ],
+    [
+     "SEC-0055",
+     "APARTADO 2.7.2 p45-47",
+     0.0158
+    ],
+    [
+     "SEC-0069",
+     "APARTADO 3.3 p55-55",
+     0.0156
+    ],
+    [
+     "SEC-0257",
+     "APARTADO f1.3.25 p232-232",
+     0.0154
+    ],
+    [
+     "SEC-0046",
+     "APARTADO 2.5.5 p39-39",
+     0.0154
+    ],
+    [
+     "SEC-0051",
+     "APARTADO 2.6.1 p41-42",
+     0.0152
+    ],
+    [
+     "TAB-0043",
+     "TABLA f1.3.1 p208-208",
+     0.0152
+    ],
+    [
+     "SEC-0072",
+     "APARTADO 3.3.3 p57-57",
+     0.015
+    ]
+   ],
+   "evidencia_top5": [
+    {
+     "passage_id": "SEC-0038",
+     "etiqueta": "APARTADO 2.2.4 p35-35",
+     "score": 0.0956,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SEC-0038"
+     ],
+     "paginas": [
+      35
+     ],
+     "chars": 47
+    },
+    {
+     "passage_id": "SEC-0102",
+     "etiqueta": "APARTADO 6.5 p84-87",
+     "score": 0.0945,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SEC-0102"
+     ],
+     "paginas": [
+      84,
+      85,
+      86,
+      87
+     ],
+     "chars": 3628
+    },
+    {
+     "passage_id": "SEC-0053",
+     "etiqueta": "APARTADO 2.7 p42-42",
+     "score": 0.091,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SEC-0053"
+     ],
+     "paginas": [
+      42
+     ],
+     "chars": 570
+    },
+    {
+     "passage_id": "SEC-0036",
+     "etiqueta": "APARTADO 2.2.2 p34-34",
+     "score": 0.0908,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SEC-0036"
+     ],
+     "paginas": [
+      34
+     ],
+     "chars": 76
+    },
+    {
+     "passage_id": "SEC-0258",
+     "etiqueta": "APARTADO f1.3.26 p233-233",
+     "score": 0.0164,
+     "is_stitched": false,
+     "stitched_kuns": [
+      "SEC-0258"
+     ],
+     "paginas": [
+      233
+     ],
+     "chars": 2542
+    }
+   ],
+   "relacionados": [
+    {
+     "passage_id": "TAB-0010",
+     "etiqueta": "TABLA 2.2.4 p35-35",
+     "desde": "SEC-0038",
+     "relacion": "has_table"
+    },
+    {
+     "passage_id": "TAB-0011",
+     "etiqueta": "TABLA 2.2.4 p35-35",
+     "desde": "SEC-0038",
+     "relacion": "has_table"
+    },
+    {
+     "passage_id": "TAB-0034",
+     "etiqueta": "TABLA 6.5 p84-84",
+     "desde": "SEC-0102",
+     "relacion": "has_table"
+    }
+   ],
+   "campeones_R1": {
+    "champions": [
+     "SEC-0258",
+     "SEC-0038"
+    ],
+    "added": [
+     "SEC-0258"
+    ],
+    "replaced": [
+     "SEC-0120"
+    ]
+   },
+   "preferencia_ambito": null,
+   "suplementarios": [],
+   "paquete_chars": 9375,
+   "clasificacion_referencia": {
+    "SIS-1": "ENTREGADA",
+    "SIS-2": "ENTREGADA",
+    "SIS-3": "ENTREGADA",
+    "SIS-4": "NUNCA RECUPERADA (top-60)",
+    "SIS-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "SIS-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "SIS-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-3": "NUNCA RECUPERADA (top-60)",
+    "ORD-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-8": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-1": "NUNCA RECUPERADA (top-60)",
+    "CAT-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "CAT-3": "NUNCA RECUPERADA (top-60)",
+    "CAT-4": "ENTREGADA",
+    "CAT-5": "ENTREGADA",
+    "CAT-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "CAT-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "GAN-7": "FUERA DEL CORTE DE CANAL (26-60)",
+    "EMP-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "EMP-7": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-8": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-9": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-5": "ENTREGADA"
+   },
+   "rangos_normativos": {
+    "SEC-0053": {
+     "etiqueta": "APARTADO 2.7 p42-42",
+     "tfidf_top60": 3,
+     "denso_top60": 16,
+     "fusion_top40": 3,
+     "paquete": true
+    },
+    "SEC-0054": {
+     "etiqueta": "APARTADO 2.7.1 p42-45",
+     "tfidf_top60": 15,
+     "denso_top60": null,
+     "fusion_top40": 16,
+     "paquete": false
+    },
+    "SEC-0055": {
+     "etiqueta": "APARTADO 2.7.2 p45-47",
+     "tfidf_top60": 17,
+     "denso_top60": null,
+     "fusion_top40": 19,
+     "paquete": false
+    },
+    "SEC-0036": {
+     "etiqueta": "APARTADO 2.2.2 p34-34",
+     "tfidf_top60": 4,
+     "denso_top60": 15,
+     "fusion_top40": 4,
+     "paquete": true
+    },
+    "SEC-0037": {
+     "etiqueta": "APARTADO 2.2.3 p34-34",
+     "tfidf_top60": 7,
+     "denso_top60": null,
+     "fusion_top40": 8,
+     "paquete": false
+    },
+    "SEC-0038": {
+     "etiqueta": "APARTADO 2.2.4 p35-35",
+     "tfidf_top60": 1,
+     "denso_top60": 2,
+     "fusion_top40": 1,
+     "paquete": true
+    },
+    "TAB-0006": {
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "TAB-0007": {
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "TAB-0008": {
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "TAB-0009": {
+     "etiqueta": "TABLA 2.2.3 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "TAB-0010": {
+     "etiqueta": "TABLA 2.2.4 p35-35",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0011": {
+     "etiqueta": "TABLA 2.2.4 p35-35",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0016": {
+     "etiqueta": "TABLA 2.7.1 p43-43",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0041": {
+     "etiqueta": "APARTADO 2.5 p37-38",
+     "tfidf_top60": 29,
+     "denso_top60": 33,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0043": {
+     "etiqueta": "APARTADO 2.5.2 p38-38",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0183": {
+     "etiqueta": "APARTADO article9 p153-155",
+     "tfidf_top60": 40,
+     "denso_top60": 27,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0048": {
+     "etiqueta": "APARTADO 2.5.5.2 p40-40",
+     "tfidf_top60": 26,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0050": {
+     "etiqueta": "APARTADO 2.6 p41-41",
+     "tfidf_top60": 34,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0051": {
+     "etiqueta": "APARTADO 2.6.1 p41-42",
+     "tfidf_top60": 20,
+     "denso_top60": null,
+     "fusion_top40": 23,
+     "paquete": false
+    },
+    "SEC-0052": {
+     "etiqueta": "APARTADO 2.6.2 p42-42",
+     "tfidf_top60": 13,
+     "denso_top60": null,
+     "fusion_top40": 13,
+     "paquete": false
+    },
+    "SEC-0098": {
+     "etiqueta": "APARTADO 6.4 p80-80",
+     "tfidf_top60": 16,
+     "denso_top60": 52,
+     "fusion_top40": 17,
+     "paquete": false
+    },
+    "SEC-0102": {
+     "etiqueta": "APARTADO 6.5 p84-87",
+     "tfidf_top60": 2,
+     "denso_top60": 4,
+     "fusion_top40": 2,
+     "paquete": true
+    }
+   }
+  },
+  "D": {
+   "base": "C2",
+   "limites": {
+    "nivel": 4,
+    "S": 2,
+    "MAX_ADD": 8,
+    "filtro_top20": false
+   },
+   "anadidas": [
+    {
+     "unidad": "SEC-0034",
+     "etiqueta": "APARTADO 2.2 p33-33",
+     "semilla": "SEC-0038",
+     "via": "padre (parent_unit_id)"
+    },
+    {
+     "unidad": "SEC-0037",
+     "etiqueta": "APARTADO 2.2.3 p34-34",
+     "semilla": "SEC-0038",
+     "via": "hermano #1"
+    },
+    {
+     "unidad": "TAB-0009",
+     "etiqueta": "TABLA 2.2.3 p34-34",
+     "semilla": "SEC-0038",
+     "via": "tabla contenida en SEC-0037"
+    },
+    {
+     "unidad": "TAB-0006",
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "semilla": "SEC-0038",
+     "via": "tabla contenida en SEC-0036"
+    },
+    {
+     "unidad": "TAB-0007",
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "semilla": "SEC-0038",
+     "via": "tabla contenida en SEC-0036"
+    },
+    {
+     "unidad": "TAB-0008",
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "semilla": "SEC-0038",
+     "via": "tabla contenida en SEC-0036"
+    },
+    {
+     "unidad": "SEC-0085",
+     "etiqueta": "PORTADA weigh-in p74-74",
+     "semilla": "SEC-0102",
+     "via": "padre (portada)"
+    },
+    {
+     "unidad": "SEC-0098",
+     "etiqueta": "APARTADO 6.4 p80-80",
+     "semilla": "SEC-0102",
+     "via": "hermano #1"
+    }
+   ],
+   "descartadas": [
+    {
+     "unidad": "SEC-0035",
+     "etiqueta": "APARTADO 2.2.1",
+     "semilla": "SEC-0038",
+     "via": "hermano #3",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "TAB-0003",
+     "etiqueta": "TABLA 2.2.1",
+     "semilla": "SEC-0038",
+     "via": "tabla contenida en SEC-0035",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "TAB-0004",
+     "etiqueta": "TABLA 2.2.1",
+     "semilla": "SEC-0038",
+     "via": "tabla contenida en SEC-0035",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "TAB-0005",
+     "etiqueta": "TABLA 2.2.1",
+     "semilla": "SEC-0038",
+     "via": "tabla contenida en SEC-0035",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "SEC-0093",
+     "etiqueta": "APARTADO 6.3",
+     "semilla": "SEC-0102",
+     "via": "hermano #2",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "SEC-0087",
+     "etiqueta": "APARTADO 6.2",
+     "semilla": "SEC-0102",
+     "via": "hermano #3",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0086",
+     "etiqueta": "APARTADO 6.1",
+     "semilla": "SEC-0102",
+     "via": "hermano #4",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0035",
+     "etiqueta": "TABLA 6.5",
+     "semilla": "SEC-0102",
+     "via": "tabla contenida en SEC-0102",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "TAB-0028",
+     "etiqueta": "TABLA 6.1",
+     "semilla": "SEC-0102",
+     "via": "tabla contenida en SEC-0086",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0029",
+     "etiqueta": "TABLA 6.1",
+     "semilla": "SEC-0102",
+     "via": "tabla contenida en SEC-0086",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0030",
+     "etiqueta": "TABLA 6.3.4",
+     "semilla": "SEC-0102",
+     "via": "tabla referida por SEC-0093",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "SEC-0029",
+     "etiqueta": "PORTADA competitionrules",
+     "semilla": "SEC-0053",
+     "via": "padre (portada)",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "SEC-0050",
+     "etiqueta": "APARTADO 2.6",
+     "semilla": "SEC-0053",
+     "via": "hermano #1",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "SEC-0056",
+     "etiqueta": "APARTADO 2.8",
+     "semilla": "SEC-0053",
+     "via": "hermano #2",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "SEC-0062",
+     "etiqueta": "APARTADO 2.9",
+     "semilla": "SEC-0053",
+     "via": "hermano #3",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0041",
+     "etiqueta": "APARTADO 2.5",
+     "semilla": "SEC-0053",
+     "via": "hermano #4",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0040",
+     "etiqueta": "APARTADO 2.4",
+     "semilla": "SEC-0053",
+     "via": "hermano #5",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0039",
+     "etiqueta": "APARTADO 2.3",
+     "semilla": "SEC-0053",
+     "via": "hermano #6",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0030",
+     "etiqueta": "APARTADO 2.1",
+     "semilla": "SEC-0053",
+     "via": "hermano #8",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0012",
+     "etiqueta": "TABLA 2.4",
+     "semilla": "SEC-0053",
+     "via": "tabla contenida en SEC-0040",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0013",
+     "etiqueta": "TABLA 2.4",
+     "semilla": "SEC-0053",
+     "via": "tabla contenida en SEC-0040",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0014",
+     "etiqueta": "TABLA 2.4",
+     "semilla": "SEC-0053",
+     "via": "tabla contenida en SEC-0040",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0015",
+     "etiqueta": "TABLA 2.4",
+     "semilla": "SEC-0053",
+     "via": "tabla contenida en SEC-0040",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0232",
+     "etiqueta": "APARTADO f1.3",
+     "semilla": "SEC-0258",
+     "via": "padre (parent_unit_id)",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "SEC-0257",
+     "etiqueta": "APARTADO f1.3.25",
+     "semilla": "SEC-0258",
+     "via": "hermano #1",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "SEC-0259",
+     "etiqueta": "APARTADO f1.3.27",
+     "semilla": "SEC-0258",
+     "via": "hermano #2",
+     "motivo": "limite MAX_ADD=8 alcanzado"
+    },
+    {
+     "unidad": "SEC-0256",
+     "etiqueta": "APARTADO f1.3.24",
+     "semilla": "SEC-0258",
+     "via": "hermano #3",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0260",
+     "etiqueta": "APARTADO f1.3.28",
+     "semilla": "SEC-0258",
+     "via": "hermano #4",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0255",
+     "etiqueta": "APARTADO f1.3.23",
+     "semilla": "SEC-0258",
+     "via": "hermano #5",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0261",
+     "etiqueta": "APARTADO f1.3.29",
+     "semilla": "SEC-0258",
+     "via": "hermano #6",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0254",
+     "etiqueta": "APARTADO f1.3.22",
+     "semilla": "SEC-0258",
+     "via": "hermano #7",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0262",
+     "etiqueta": "APARTADO f1.3.30",
+     "semilla": "SEC-0258",
+     "via": "hermano #8",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0253",
+     "etiqueta": "APARTADO f1.3.21",
+     "semilla": "SEC-0258",
+     "via": "hermano #9",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0263",
+     "etiqueta": "APARTADO f1.3.31",
+     "semilla": "SEC-0258",
+     "via": "hermano #10",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0252",
+     "etiqueta": "APARTADO f1.3.20",
+     "semilla": "SEC-0258",
+     "via": "hermano #11",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0264",
+     "etiqueta": "APARTADO f1.3.32",
+     "semilla": "SEC-0258",
+     "via": "hermano #12",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0251",
+     "etiqueta": "APARTADO f1.3.19",
+     "semilla": "SEC-0258",
+     "via": "hermano #13",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0265",
+     "etiqueta": "APARTADO f1.3.33",
+     "semilla": "SEC-0258",
+     "via": "hermano #14",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0250",
+     "etiqueta": "APARTADO f1.3.18",
+     "semilla": "SEC-0258",
+     "via": "hermano #15",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0249",
+     "etiqueta": "APARTADO f1.3.17",
+     "semilla": "SEC-0258",
+     "via": "hermano #16",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0248",
+     "etiqueta": "APARTADO f1.3.16",
+     "semilla": "SEC-0258",
+     "via": "hermano #17",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0247",
+     "etiqueta": "APARTADO f1.3.15",
+     "semilla": "SEC-0258",
+     "via": "hermano #18",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0246",
+     "etiqueta": "APARTADO f1.3.14",
+     "semilla": "SEC-0258",
+     "via": "hermano #19",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0245",
+     "etiqueta": "APARTADO f1.3.13",
+     "semilla": "SEC-0258",
+     "via": "hermano #20",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0244",
+     "etiqueta": "APARTADO f1.3.12",
+     "semilla": "SEC-0258",
+     "via": "hermano #21",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0243",
+     "etiqueta": "APARTADO f1.3.11",
+     "semilla": "SEC-0258",
+     "via": "hermano #22",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0242",
+     "etiqueta": "APARTADO f1.3.10",
+     "semilla": "SEC-0258",
+     "via": "hermano #23",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0241",
+     "etiqueta": "APARTADO f1.3.9",
+     "semilla": "SEC-0258",
+     "via": "hermano #24",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0240",
+     "etiqueta": "APARTADO f1.3.8",
+     "semilla": "SEC-0258",
+     "via": "hermano #25",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0239",
+     "etiqueta": "APARTADO f1.3.7",
+     "semilla": "SEC-0258",
+     "via": "hermano #26",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0238",
+     "etiqueta": "APARTADO f1.3.6",
+     "semilla": "SEC-0258",
+     "via": "hermano #27",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0237",
+     "etiqueta": "APARTADO f1.3.5",
+     "semilla": "SEC-0258",
+     "via": "hermano #28",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0236",
+     "etiqueta": "APARTADO f1.3.4",
+     "semilla": "SEC-0258",
+     "via": "hermano #29",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0235",
+     "etiqueta": "APARTADO f1.3.3",
+     "semilla": "SEC-0258",
+     "via": "hermano #30",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0234",
+     "etiqueta": "APARTADO f1.3.2",
+     "semilla": "SEC-0258",
+     "via": "hermano #31",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "SEC-0233",
+     "etiqueta": "APARTADO f1.3.1",
+     "semilla": "SEC-0258",
+     "via": "hermano #32",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0046",
+     "etiqueta": "TABLA f1.3.24",
+     "semilla": "SEC-0258",
+     "via": "tabla contenida en SEC-0256",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0044",
+     "etiqueta": "TABLA f1.3.2",
+     "semilla": "SEC-0258",
+     "via": "tabla contenida en SEC-0234",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0045",
+     "etiqueta": "TABLA f1.3.2",
+     "semilla": "SEC-0258",
+     "via": "tabla contenida en SEC-0234",
+     "motivo": "limite de hermanos S=2"
+    },
+    {
+     "unidad": "TAB-0043",
+     "etiqueta": "TABLA f1.3.1",
+     "semilla": "SEC-0258",
+     "via": "tabla contenida en SEC-0233",
+     "motivo": "limite de hermanos S=2"
+    }
+   ],
+   "ya_en_paquete_no_se_anaden": [
+    "SEC-0038",
+    "SEC-0102",
+    "SEC-0053",
+    "SEC-0036",
+    "SEC-0258",
+    "TAB-0010",
+    "TAB-0011",
+    "TAB-0034"
+   ],
+   "paquete": [
+    "SEC-0038",
+    "SEC-0102",
+    "SEC-0053",
+    "SEC-0036",
+    "SEC-0258",
+    "TAB-0010",
+    "TAB-0011",
+    "TAB-0034",
+    "SEC-0034",
+    "SEC-0037",
+    "TAB-0009",
+    "TAB-0006",
+    "TAB-0007",
+    "TAB-0008",
+    "SEC-0085",
+    "SEC-0098"
+   ],
+   "paquete_chars": 11686,
+   "clasificacion_referencia": {
+    "SIS-1": "ENTREGADA",
+    "SIS-2": "ENTREGADA",
+    "SIS-3": "ENTREGADA",
+    "SIS-4": "NUNCA RECUPERADA (top-60)",
+    "SIS-5": "FUERA DEL CORTE DE CANAL (26-60)",
+    "SIS-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "SIS-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "COMP-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-3": "NUNCA RECUPERADA (top-60)",
+    "ORD-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORD-8": "FUERA DEL CORTE DE CANAL (26-60)",
+    "CAT-1": "ENTREGADA",
+    "CAT-2": "ENTREGADA",
+    "CAT-3": "ENTREGADA",
+    "CAT-4": "ENTREGADA",
+    "CAT-5": "ENTREGADA",
+    "CAT-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "CAT-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "GAN-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "GAN-7": "FUERA DEL CORTE DE CANAL (26-60)",
+    "EMP-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "EMP-6": "FUERA DEL CORTE DE CANAL (26-60)",
+    "EMP-7": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-1": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-2": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-3": "FUERA DEL CORTE DE CANAL (26-60)",
+    "DES-4": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-5": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-6": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-7": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-8": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "DES-9": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-1": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-2": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-3": "DESPLAZADA (en la fusion, fuera del paquete)",
+    "ORG-4": "ENTREGADA",
+    "ORG-5": "ENTREGADA"
+   },
+   "rangos_normativos": {
+    "SEC-0053": {
+     "etiqueta": "APARTADO 2.7 p42-42",
+     "tfidf_top60": 3,
+     "denso_top60": 16,
+     "fusion_top40": 3,
+     "paquete": true
+    },
+    "SEC-0054": {
+     "etiqueta": "APARTADO 2.7.1 p42-45",
+     "tfidf_top60": 15,
+     "denso_top60": null,
+     "fusion_top40": 16,
+     "paquete": false
+    },
+    "SEC-0055": {
+     "etiqueta": "APARTADO 2.7.2 p45-47",
+     "tfidf_top60": 17,
+     "denso_top60": null,
+     "fusion_top40": 19,
+     "paquete": false
+    },
+    "SEC-0036": {
+     "etiqueta": "APARTADO 2.2.2 p34-34",
+     "tfidf_top60": 4,
+     "denso_top60": 15,
+     "fusion_top40": 4,
+     "paquete": true
+    },
+    "SEC-0037": {
+     "etiqueta": "APARTADO 2.2.3 p34-34",
+     "tfidf_top60": 7,
+     "denso_top60": null,
+     "fusion_top40": 8,
+     "paquete": true
+    },
+    "SEC-0038": {
+     "etiqueta": "APARTADO 2.2.4 p35-35",
+     "tfidf_top60": 1,
+     "denso_top60": 2,
+     "fusion_top40": 1,
+     "paquete": true
+    },
+    "TAB-0006": {
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0007": {
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0008": {
+     "etiqueta": "TABLA 2.2.2 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0009": {
+     "etiqueta": "TABLA 2.2.3 p34-34",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0010": {
+     "etiqueta": "TABLA 2.2.4 p35-35",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0011": {
+     "etiqueta": "TABLA 2.2.4 p35-35",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": true
+    },
+    "TAB-0016": {
+     "etiqueta": "TABLA 2.7.1 p43-43",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0041": {
+     "etiqueta": "APARTADO 2.5 p37-38",
+     "tfidf_top60": 29,
+     "denso_top60": 33,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0043": {
+     "etiqueta": "APARTADO 2.5.2 p38-38",
+     "tfidf_top60": null,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0183": {
+     "etiqueta": "APARTADO article9 p153-155",
+     "tfidf_top60": 40,
+     "denso_top60": 27,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0048": {
+     "etiqueta": "APARTADO 2.5.5.2 p40-40",
+     "tfidf_top60": 26,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0050": {
+     "etiqueta": "APARTADO 2.6 p41-41",
+     "tfidf_top60": 34,
+     "denso_top60": null,
+     "fusion_top40": null,
+     "paquete": false
+    },
+    "SEC-0051": {
+     "etiqueta": "APARTADO 2.6.1 p41-42",
+     "tfidf_top60": 20,
+     "denso_top60": null,
+     "fusion_top40": 23,
+     "paquete": false
+    },
+    "SEC-0052": {
+     "etiqueta": "APARTADO 2.6.2 p42-42",
+     "tfidf_top60": 13,
+     "denso_top60": null,
+     "fusion_top40": 13,
+     "paquete": false
+    },
+    "SEC-0098": {
+     "etiqueta": "APARTADO 6.4 p80-80",
+     "tfidf_top60": 16,
+     "denso_top60": 52,
+     "fusion_top40": 17,
+     "paquete": true
+    },
+    "SEC-0102": {
+     "etiqueta": "APARTADO 6.5 p84-87",
+     "tfidf_top60": 2,
+     "denso_top60": 4,
+     "fusion_top40": 2,
+     "paquete": true
+    }
+   }
+  }
+ },
+ "t_init_s": 15.18,
+ "ventanas": {
+  "C1": [
+   {
+    "ventana": 363,
+    "unidad": "SOR-2026-08-P091-S106",
+    "etiqueta": "p91 7.3 Contest Review Process",
+    "tokens": [
+     0,
+     12
+    ],
+    "chars": [
+     0,
+     75
+    ],
+    "sim": 0.7041,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 91"
+   },
+   {
+    "ventana": 449,
+    "unidad": "SOR-2026-08-P105-S133",
+    "etiqueta": "p105 A1.13 Competition System for Veterans",
+    "tokens": [
+     190,
+     410
+    ],
+    "chars": [
+     1005,
+     1999
+    ],
+    "sim": 0.6881,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Veterans The weigh-in will take place the day before the competition as indicated in the o"
+   },
+   {
+    "ventana": 428,
+    "unidad": "SOR-2026-08-P104-S127",
+    "etiqueta": "p104 A1.7 Category Combining for Veterans",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     1219
+    ],
+    "sim": 0.6758,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 104 Category comb"
+   },
+   {
+    "ventana": 354,
+    "unidad": "SOR-2026-08-P087-S102",
+    "etiqueta": "p87 6.5 Female and Male Teams Events Weigh-in",
+    "tokens": [
+     0,
+     12
+    ],
+    "chars": [
+     0,
+     75
+    ],
+    "sim": 0.6722,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "page - 87 Sport and Organisation Rules of the International Judo Federation"
+   },
+   {
+    "ventana": 440,
+    "unidad": "SOR-2026-08-P105-S130",
+    "etiqueta": "p105 A1.10 Weigh-in for Veterans",
+    "tokens": [
+     190,
+     410
+    ],
+    "chars": [
+     1005,
+     1999
+    ],
+    "sim": 0.6704,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Veterans The weigh-in will take place the day before the competition as indicated in the o"
+   },
+   {
+    "ventana": 434,
+    "unidad": "SOR-2026-08-P105-S128",
+    "etiqueta": "p105 A1.8 Draw for Veterans",
+    "tokens": [
+     190,
+     410
+    ],
+    "chars": [
+     1005,
+     1999
+    ],
+    "sim": 0.663,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Veterans The weigh-in will take place the day before the competition as indicated in the o"
+   },
+   {
+    "ventana": 820,
+    "unidad": "SOR-2026-08-P231-S254",
+    "etiqueta": "p231 F1.3.24 Example of Winners’ List",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     628
+    ],
+    "sim": 0.6617,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 231 Grand-Slam To"
+   },
+   {
+    "ventana": 829,
+    "unidad": "SOR-2026-08-P232-S255",
+    "etiqueta": "p232 F1.3.25 Example of Teams Line Up Confirmation",
+    "tokens": [
+     380,
+     600
+    ],
+    "chars": [
+     1545,
+     2264
+    ],
+    "sim": 0.6607,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "los competidores así como los datos de siembra son correctos y completos x Signature team "
+   },
+   {
+    "ventana": 443,
+    "unidad": "SOR-2026-08-P105-S131",
+    "etiqueta": "p105 A1.11 Judogi Rules for Veterans",
+    "tokens": [
+     190,
+     410
+    ],
+    "chars": [
+     1005,
+     1999
+    ],
+    "sim": 0.6514,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Veterans The weigh-in will take place the day before the competition as indicated in the o"
+   },
+   {
+    "ventana": 977,
+    "unidad": "SOR-2026-08-P283-S272",
+    "etiqueta": "p283 H1.1 Document Version History",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     1115
+    ],
+    "sim": 0.6495,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 283 If the athlet"
+   },
+   {
+    "ventana": 871,
+    "unidad": "SOR-2026-08-P249-S265",
+    "etiqueta": "p249 G1.1 Glossary of Japanese Terms",
+    "tokens": [
+     0,
+     59
+    ],
+    "chars": [
+     0,
+     195
+    ],
+    "sim": 0.6459,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 249 Yusei-gachi Y"
+   },
+   {
+    "ventana": 800,
+    "unidad": "SOR-2026-08-P212-S235",
+    "etiqueta": "p212 F1.3.5 Contest Sheet",
+    "tokens": [
+     0,
+     209
+    ],
+    "chars": [
+     0,
+     731
+    ],
+    "sim": 0.6454,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 212 F1 .3 .5 Cont"
+   },
+   {
+    "ventana": 896,
+    "unidad": "SOR-2026-08-P258-S271",
+    "etiqueta": "p258 DOCUMENT CONTROL",
+    "tokens": [
+     0,
+     14
+    ],
+    "chars": [
+     0,
+     94
+    ],
+    "sim": 0.6452,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 258 DOCUMENT  CON"
+   },
+   {
+    "ventana": 802,
+    "unidad": "SOR-2026-08-P214-S237",
+    "etiqueta": "p214 F1.3.7 Quarter-Final Repechage",
+    "tokens": [
+     0,
+     95
+    ],
+    "chars": [
+     0,
+     365
+    ],
+    "sim": 0.6423,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 214 1 2 3 4 5 6 7"
+   },
+   {
+    "ventana": 273,
+    "unidad": "SOR-2026-08-P069-S080",
+    "etiqueta": "p69 4.5 Accreditation",
+    "tokens": [
+     0,
+     12
+    ],
+    "chars": [
+     0,
+     75
+    ],
+    "sim": 0.6421,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "page - 69 Sport and Organisation Rules of the International Judo Federation"
+   },
+   {
+    "ventana": 168,
+    "unidad": "SOR-2026-08-P042-S053",
+    "etiqueta": "p42 2.7 Competition System for Mixed Team and Team Eve",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     987
+    ],
+    "sim": 0.6421,
+    "fragmentos_referencia_en_ventana": [
+     "SIS-7"
+    ],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 42 The 4th place "
+   },
+   {
+    "ventana": 437,
+    "unidad": "SOR-2026-08-P105-S129",
+    "etiqueta": "p105 A1.9 Seeding for Veterans",
+    "tokens": [
+     190,
+     410
+    ],
+    "chars": [
+     1005,
+     1999
+    ],
+    "sim": 0.6378,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Veterans The weigh-in will take place the day before the competition as indicated in the o"
+   },
+   {
+    "ventana": 452,
+    "unidad": "SOR-2026-08-P105-S134",
+    "etiqueta": "p105 A1.14 Round Robin Golden Score",
+    "tokens": [
+     190,
+     410
+    ],
+    "chars": [
+     1005,
+     1999
+    ],
+    "sim": 0.6373,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Veterans The weigh-in will take place the day before the competition as indicated in the o"
+   },
+   {
+    "ventana": 833,
+    "unidad": "SOR-2026-08-P233-S256",
+    "etiqueta": "p233 F1.3.26 Example of Mixed Teams Line Up Confirmatio",
+    "tokens": [
+     380,
+     600
+    ],
+    "chars": [
+     1494,
+     2249
+    ],
+    "sim": 0.6369,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "categories are correct and complete Veuillez verifier et confirmer que les noms et les poi"
+   },
+   {
+    "ventana": 969,
+    "unidad": "SOR-2026-08-P281-S272",
+    "etiqueta": "p281 H1.1 Document Version History",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     1019
+    ],
+    "sim": 0.6364,
+    "fragmentos_referencia_en_ventana": [
+     "ORG-5"
+    ],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 281 For more deta"
+   },
+   {
+    "ventana": 446,
+    "unidad": "SOR-2026-08-P105-S132",
+    "etiqueta": "p105 A1.12 Backnumbers for Veterans",
+    "tokens": [
+     190,
+     410
+    ],
+    "chars": [
+     1005,
+     1999
+    ],
+    "sim": 0.6347,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Veterans The weigh-in will take place the day before the competition as indicated in the o"
+   },
+   {
+    "ventana": 955,
+    "unidad": "SOR-2026-08-P277-S272",
+    "etiqueta": "p277 H1.1 Document Version History",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     1064
+    ],
+    "sim": 0.6317,
+    "fragmentos_referencia_en_ventana": [
+     "CAT-1",
+     "ORG-4"
+    ],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 277 For more deta"
+   },
+   {
+    "ventana": 796,
+    "unidad": "SOR-2026-08-P210-S233",
+    "etiqueta": "p210 F1.3.3 Contest Order",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     688
+    ],
+    "sim": 0.631,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 210 09-Mar-2010 -"
+   },
+   {
+    "ventana": 352,
+    "unidad": "SOR-2026-08-P086-S102",
+    "etiqueta": "p86 6.5 Female and Male Teams Events Weigh-in",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     1082
+    ],
+    "sim": 0.6283,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 86 6 .5 .2 .1 Ath"
+   },
+   {
+    "ventana": 143,
+    "unidad": "SOR-2026-08-P038-S045",
+    "etiqueta": "p38 2.5.4 Full Repechage",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     1002
+    ],
+    "sim": 0.6276,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Sport and Organisation Rules of the International Judo Federation page - 38 For all events"
+   }
+  ],
+  "C2": [
+   {
+    "ventana": 498,
+    "unidad": "SEC-0258",
+    "etiqueta": "APARTADO f1.3.26",
+    "tokens": [
+     380,
+     600
+    ],
+    "chars": [
+     1471,
+     2209
+    ],
+    "sim": 0.6432,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "et confirmer que les noms et les poids sont corrects et completes Favor confirmar que la i"
+   },
+   {
+    "ventana": 71,
+    "unidad": "SEC-0038",
+    "etiqueta": "APARTADO 2.2.4",
+    "tokens": [
+     0,
+     10
+    ],
+    "chars": [
+     0,
+     47
+    ],
+    "sim": 0.632,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "2 .2 .4 Weight Categories for Team Competitions"
+   },
+   {
+    "ventana": 485,
+    "unidad": "SEC-0255",
+    "etiqueta": "APARTADO f1.3.23",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     596
+    ],
+    "sim": 0.6289,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "F1 .3 .23 Three (3) Athletes or Teams - Option 2 11 2 1 2 3 1 2 3 21 3 32 3 Grand-Slam Tok"
+   },
+   {
+    "ventana": 195,
+    "unidad": "SEC-0102",
+    "etiqueta": "APARTADO 6.5",
+    "tokens": [
+     570,
+     709
+    ],
+    "chars": [
+     2940,
+     3628
+    ],
+    "sim": 0.6274,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "do NOT need to weigh in. If the athlete, in the individual competition, was NOT within the"
+   },
+   {
+    "ventana": 494,
+    "unidad": "SEC-0257",
+    "etiqueta": "APARTADO f1.3.25",
+    "tokens": [
+     380,
+     600
+    ],
+    "chars": [
+     1507,
+     2213
+    ],
+    "sim": 0.609,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "siembra son correctos y completos x Signature team leader Submission time Official Validat"
+   },
+   {
+    "ventana": 688,
+    "unidad": "TAB-0043",
+    "etiqueta": "TABLA f1.3.1",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     610
+    ],
+    "sim": 0.5975,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "x Signature team leader Delegation checked Finances checked Coach eMail Page 1/1 ippon.org"
+   },
+   {
+    "ventana": 464,
+    "unidad": "SEC-0235",
+    "etiqueta": "APARTADO f1.3.3",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     715
+    ],
+    "sim": 0.5907,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "F1 .3 .3 Contest Order Referee List Grand Slam Tokyo 2017 REF 01.12.2017 01-Dec-2017 - 06:"
+   },
+   {
+    "ventana": 3,
+    "unidad": "SEC-0002",
+    "etiqueta": "APARTADO 1.1",
+    "tokens": [
+     380,
+     562
+    ],
+    "chars": [
+     1869,
+     2859
+    ],
+    "sim": 0.5875,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "regulations and procedures may be issued for judo competitions  within the framework of th"
+   },
+   {
+    "ventana": 228,
+    "unidad": "SEC-0120",
+    "etiqueta": "APARTADO a1.1",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     1064
+    ],
+    "sim": 0.5849,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "A1 .1 Organisation The Veteran Championships should be a sport festival, a sport competiti"
+   },
+   {
+    "ventana": 520,
+    "unidad": "SEC-0267",
+    "etiqueta": "APARTADO g1.1",
+    "tokens": [
+     760,
+     980
+    ],
+    "chars": [
+     2640,
+     3457
+    ],
+    "sim": 0.5836,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "-i 上衣 じょうい Jacket Jo-nai Jōnai 場内 じょうない Inside contest area Area interior Jo-seki Jōseki 上"
+   },
+   {
+    "ventana": 2,
+    "unidad": "SEC-0002",
+    "etiqueta": "APARTADO 1.1",
+    "tokens": [
+     190,
+     410
+    ],
+    "chars": [
+     884,
+     2050
+    ],
+    "sim": 0.5823,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "Statutes. The IJF shall retain final appellate authority and jurisdiction over all dispute"
+   },
+   {
+    "ventana": 316,
+    "unidad": "SEC-0174",
+    "etiqueta": "APARTADO d1.1",
+    "tokens": [
+     190,
+     410
+    ],
+    "chars": [
+     900,
+     1999
+    ],
+    "sim": 0.5808,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "technical wealth, finesse and intelligence. The  confrontation in jujutsu didn’t allow rea"
+   },
+   {
+    "ventana": 200,
+    "unidad": "SEC-0106",
+    "etiqueta": "APARTADO 7.3",
+    "tokens": [
+     0,
+     76
+    ],
+    "chars": [
+     0,
+     373
+    ],
+    "sim": 0.5773,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "7 .3 Contest Review Process A coach can request to review a contest at the end of the prel"
+   },
+   {
+    "ventana": 551,
+    "unidad": "SEC-0274",
+    "etiqueta": "APARTADO h1.1",
+    "tokens": [
+     760,
+     980
+    ],
+    "chars": [
+     2917,
+     3990
+    ],
+    "sim": 0.5769,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "JF World Judo Tour (WJT). For all  events on the WJT the IJF has final appellate jurisdict"
+   },
+   {
+    "ventana": 509,
+    "unidad": "SEC-0263",
+    "etiqueta": "APARTADO f1.3.31",
+    "tokens": [
+     0,
+     213
+    ],
+    "chars": [
+     0,
+     773
+    ],
+    "sim": 0.5759,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "F1 .3 .31 Coaches Request to Review Action   INTERNATIONAL JUDO FEDERATION    THE REFEREE "
+   },
+   {
+    "ventana": 319,
+    "unidad": "SEC-0174",
+    "etiqueta": "APARTADO d1.1",
+    "tokens": [
+     760,
+     980
+    ],
+    "chars": [
+     3724,
+     4725
+    ],
+    "sim": 0.5738,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "word or gesture, his opponent, the referee, the coach, the organisers, the  public or any "
+   },
+   {
+    "ventana": 492,
+    "unidad": "SEC-0257",
+    "etiqueta": "APARTADO f1.3.25",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     848
+    ],
+    "sim": 0.5722,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "F1.3.25 Example of Teams Line Up Confirmation Line-up confirmation Team World Championship"
+   },
+   {
+    "ventana": 69,
+    "unidad": "SEC-0036",
+    "etiqueta": "APARTADO 2.2.2",
+    "tokens": [
+     0,
+     14
+    ],
+    "chars": [
+     0,
+     75
+    ],
+    "sim": 0.5695,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "2 .2 .2 Weight Categories for Mixed Team Competitions Senior  Senior  Mixed"
+   },
+   {
+    "ventana": 92,
+    "unidad": "SEC-0053",
+    "etiqueta": "APARTADO 2.7",
+    "tokens": [
+     0,
+     125
+    ],
+    "chars": [
+     0,
+     570
+    ],
+    "sim": 0.5653,
+    "fragmentos_referencia_en_ventana": [
+     "SIS-1",
+     "SIS-2",
+     "SIS-3",
+     "SIS-5"
+    ],
+    "inicio": "2 .7 Competition System for Mixed Team and Team Events The system of competition for IJF M"
+   },
+   {
+    "ventana": 552,
+    "unidad": "SEC-0274",
+    "etiqueta": "APARTADO h1.1",
+    "tokens": [
+     950,
+     1170
+    ],
+    "chars": [
+     3843,
+     5047
+    ],
+    "sim": 0.565,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "energy) and jita kyoei (mutual welfare and benefit). All participants are  expected to uph"
+   },
+   {
+    "ventana": 302,
+    "unidad": "SEC-0168",
+    "etiqueta": "APARTADO c1.12",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     1006
+    ],
+    "sim": 0.5596,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "C1 .12 Reserve Judogi Supply During the competitions organised by the IJF, the LOC will su"
+   },
+   {
+    "ventana": 311,
+    "unidad": "SEC-0170",
+    "etiqueta": "APARTADO c1.14",
+    "tokens": [
+     0,
+     103
+    ],
+    "chars": [
+     0,
+     489
+    ],
+    "sim": 0.5526,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "C1 .14 World Champion and/or Olympic Champion Titles  Enhancement The International Judo F"
+   },
+   {
+    "ventana": 637,
+    "unidad": "TAB-0002",
+    "etiqueta": "TABLA 2.1.1",
+    "tokens": [
+     190,
+     298
+    ],
+    "chars": [
+     549,
+     854
+    ],
+    "sim": 0.5523,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "-73 kg Day 3 -63 kg -81 kg Day 4 -70 kg, -78 kg -90 kg Day 5 +78 kg -100 kg, +100 kg Day 6"
+   },
+   {
+    "ventana": 318,
+    "unidad": "SEC-0174",
+    "etiqueta": "APARTADO d1.1",
+    "tokens": [
+     570,
+     790
+    ],
+    "chars": [
+     2790,
+     3858
+    ],
+    "sim": 0.5518,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "in danger  their own health or that of their opponents, those who refuse to contest, those"
+   },
+   {
+    "ventana": 315,
+    "unidad": "SEC-0174",
+    "etiqueta": "APARTADO d1.1",
+    "tokens": [
+     0,
+     220
+    ],
+    "chars": [
+     0,
+     1057
+    ],
+    "sim": 0.5513,
+    "fragmentos_referencia_en_ventana": [],
+    "inicio": "D1 .1 Refereeing - Culture, History and Principles Jujutsu is the generic term that regrou"
+   }
+  ]
+ },
+ "perfil_denso": {
+  "A (paginas, truncado)": {
+   "sim_puesto_25": 0.6129,
+   "sim_puesto_1": 0.7041,
+   "unidades": {
+    "SOR-2026-08-P042-S054": {
+     "etiqueta": "p42 2.7.1 Regulations for Mixed Team Events (2816 car.)",
+     "rango": 12,
+     "sim": 0.6401
+    },
+    "SOR-2026-08-P043-S054": {
+     "etiqueta": "p43 2.7.1 Regulations for Mixed Team Events (2862 car.)",
+     "rango": 60,
+     "sim": 0.5837
+    },
+    "SOR-2026-08-P044-S054": {
+     "etiqueta": "p44 2.7.1 Regulations for Mixed Team Events (2276 car.)",
+     "rango": 117,
+     "sim": 0.5316
+    },
+    "SOR-2026-08-P045-S055": {
+     "etiqueta": "p45 2.7.2 Regulations for Female and Male Te (2797 car.)",
+     "rango": 134,
+     "sim": 0.5196
+    },
+    "SOR-2026-08-P046-S055": {
+     "etiqueta": "p46 2.7.2 Regulations for Female and Male Te (2606 car.)",
+     "rango": 26,
+     "sim": 0.6125
+    },
+    "SOR-2026-08-P153-S182": {
+     "etiqueta": "p153 Article 9 Start of the Contest (2960 car.)",
+     "rango": 227,
+     "sim": 0.4733
+    },
+    "SOR-2026-08-P154-S182": {
+     "etiqueta": "p154 Article 9 Start of the Contest (2791 car.)",
+     "rango": 123,
+     "sim": 0.5257
+    },
+    "SOR-2026-08-P091-S106": {
+     "etiqueta": "p91 7.3 Contest Review Process (75 car.)",
+     "rango": 1,
+     "sim": 0.7041
+    }
+   }
+  },
+  "C1 (ventanas sobre paginas)": {
+   "sim_puesto_25": 0.6276,
+   "sim_puesto_1": 0.7041,
+   "unidades": {
+    "SOR-2026-08-P042-S054": {
+     "etiqueta": "p42 2.7.1 Regulations for Mixed Team Events (2816 car.)",
+     "rango": 28,
+     "sim": 0.6253
+    },
+    "SOR-2026-08-P043-S054": {
+     "etiqueta": "p43 2.7.1 Regulations for Mixed Team Events (2862 car.)",
+     "rango": 75,
+     "sim": 0.5833
+    },
+    "SOR-2026-08-P044-S054": {
+     "etiqueta": "p44 2.7.1 Regulations for Mixed Team Events (2276 car.)",
+     "rango": 178,
+     "sim": 0.506
+    },
+    "SOR-2026-08-P045-S055": {
+     "etiqueta": "p45 2.7.2 Regulations for Female and Male Te (2797 car.)",
+     "rango": 171,
+     "sim": 0.5085
+    },
+    "SOR-2026-08-P046-S055": {
+     "etiqueta": "p46 2.7.2 Regulations for Female and Male Te (2606 car.)",
+     "rango": 38,
+     "sim": 0.616
+    },
+    "SOR-2026-08-P153-S182": {
+     "etiqueta": "p153 Article 9 Start of the Contest (2960 car.)",
+     "rango": 269,
+     "sim": 0.4634
+    },
+    "SOR-2026-08-P154-S182": {
+     "etiqueta": "p154 Article 9 Start of the Contest (2791 car.)",
+     "rango": 97,
+     "sim": 0.5614
+    },
+    "SOR-2026-08-P091-S106": {
+     "etiqueta": "p91 7.3 Contest Review Process (75 car.)",
+     "rango": 1,
+     "sim": 0.7041
+    }
+   }
+  },
+  "B (apartados, truncado)": {
+   "sim_puesto_25": 0.5164,
+   "sim_puesto_1": 0.632,
+   "unidades": {
+    "SEC-0053": {
+     "etiqueta": "APARTADO 2.7 (570 car.)",
+     "rango": 11,
+     "sim": 0.5653
+    },
+    "SEC-0054": {
+     "etiqueta": "APARTADO 2.7.1 (7849 car.)",
+     "rango": 85,
+     "sim": 0.4426
+    },
+    "SEC-0055": {
+     "etiqueta": "APARTADO 2.7.2 (4144 car.)",
+     "rango": 60,
+     "sim": 0.4663
+    },
+    "SEC-0036": {
+     "etiqueta": "APARTADO 2.2.2 (76 car.)",
+     "rango": 10,
+     "sim": 0.5695
+    },
+    "SEC-0037": {
+     "etiqueta": "APARTADO 2.2.3 (177 car.)",
+     "rango": 57,
+     "sim": 0.4684
+    },
+    "SEC-0038": {
+     "etiqueta": "APARTADO 2.2.4 (47 car.)",
+     "rango": 1,
+     "sim": 0.632
+    },
+    "TAB-0006": {
+     "etiqueta": "TABLA 2.2.2 (260 car.)",
+     "rango": 92,
+     "sim": 0.4356
+    },
+    "TAB-0007": {
+     "etiqueta": "TABLA 2.2.2 (373 car.)",
+     "rango": 72,
+     "sim": 0.4578
+    },
+    "TAB-0008": {
+     "etiqueta": "TABLA 2.2.2 (250 car.)",
+     "rango": 71,
+     "sim": 0.4605
+    },
+    "TAB-0009": {
+     "etiqueta": "TABLA 2.2.3 (373 car.)",
+     "rango": 90,
+     "sim": 0.4377
+    },
+    "TAB-0010": {
+     "etiqueta": "TABLA 2.2.4 (601 car.)",
+     "rango": 58,
+     "sim": 0.4679
+    },
+    "TAB-0011": {
+     "etiqueta": "TABLA 2.2.4 (596 car.)",
+     "rango": 77,
+     "sim": 0.4498
+    },
+    "TAB-0016": {
+     "etiqueta": "TABLA 2.7.1 (378 car.)",
+     "rango": 102,
+     "sim": 0.4282
+    },
+    "SEC-0041": {
+     "etiqueta": "APARTADO 2.5 (1857 car.)",
+     "rango": 47,
+     "sim": 0.4785
+    },
+    "SEC-0043": {
+     "etiqueta": "APARTADO 2.5.2 (661 car.)",
+     "rango": 98,
+     "sim": 0.4309
+    },
+    "SEC-0183": {
+     "etiqueta": "APARTADO article9 (4733 car.)",
+     "rango": 150,
+     "sim": 0.3787
+    },
+    "SEC-0048": {
+     "etiqueta": "APARTADO 2.5.5.2 (2097 car.)",
+     "rango": 201,
+     "sim": 0.3274
+    },
+    "SEC-0050": {
+     "etiqueta": "APARTADO 2.6 (158 car.)",
+     "rango": 198,
+     "sim": 0.3294
+    },
+    "SEC-0051": {
+     "etiqueta": "APARTADO 2.6.1 (2336 car.)",
+     "rango": 109,
+     "sim": 0.4204
+    },
+    "SEC-0052": {
+     "etiqueta": "APARTADO 2.6.2 (232 car.)",
+     "rango": 138,
+     "sim": 0.3885
+    },
+    "SEC-0098": {
+     "etiqueta": "APARTADO 6.4 (531 car.)",
+     "rango": 40,
+     "sim": 0.4894
+    },
+    "SEC-0102": {
+     "etiqueta": "APARTADO 6.5 (3628 car.)",
+     "rango": 48,
+     "sim": 0.4783
+    }
+   }
+  },
+  "C2 (ventanas sobre apartados)": {
+   "sim_puesto_25": 0.5412,
+   "sim_puesto_1": 0.6432,
+   "unidades": {
+    "SEC-0053": {
+     "etiqueta": "APARTADO 2.7 (570 car.)",
+     "rango": 16,
+     "sim": 0.5653
+    },
+    "SEC-0054": {
+     "etiqueta": "APARTADO 2.7.1 (7849 car.)",
+     "rango": 63,
+     "sim": 0.4815
+    },
+    "SEC-0055": {
+     "etiqueta": "APARTADO 2.7.2 (4144 car.)",
+     "rango": 81,
+     "sim": 0.4626
+    },
+    "SEC-0036": {
+     "etiqueta": "APARTADO 2.2.2 (76 car.)",
+     "rango": 15,
+     "sim": 0.5695
+    },
+    "SEC-0037": {
+     "etiqueta": "APARTADO 2.2.3 (177 car.)",
+     "rango": 72,
+     "sim": 0.4684
+    },
+    "SEC-0038": {
+     "etiqueta": "APARTADO 2.2.4 (47 car.)",
+     "rango": 2,
+     "sim": 0.632
+    },
+    "TAB-0006": {
+     "etiqueta": "TABLA 2.2.2 (260 car.)",
+     "rango": 108,
+     "sim": 0.4356
+    },
+    "TAB-0007": {
+     "etiqueta": "TABLA 2.2.2 (373 car.)",
+     "rango": 89,
+     "sim": 0.4578
+    },
+    "TAB-0008": {
+     "etiqueta": "TABLA 2.2.2 (250 car.)",
+     "rango": 85,
+     "sim": 0.4605
+    },
+    "TAB-0009": {
+     "etiqueta": "TABLA 2.2.3 (373 car.)",
+     "rango": 107,
+     "sim": 0.4377
+    },
+    "TAB-0010": {
+     "etiqueta": "TABLA 2.2.4 (601 car.)",
+     "rango": 73,
+     "sim": 0.4679
+    },
+    "TAB-0011": {
+     "etiqueta": "TABLA 2.2.4 (596 car.)",
+     "rango": 97,
+     "sim": 0.4498
+    },
+    "TAB-0016": {
+     "etiqueta": "TABLA 2.7.1 (378 car.)",
+     "rango": 116,
+     "sim": 0.4282
+    },
+    "SEC-0041": {
+     "etiqueta": "APARTADO 2.5 (1857 car.)",
+     "rango": 33,
+     "sim": 0.5221
+    },
+    "SEC-0043": {
+     "etiqueta": "APARTADO 2.5.2 (661 car.)",
+     "rango": 114,
+     "sim": 0.4309
+    },
+    "SEC-0183": {
+     "etiqueta": "APARTADO article9 (4733 car.)",
+     "rango": 27,
+     "sim": 0.5359
+    },
+    "SEC-0048": {
+     "etiqueta": "APARTADO 2.5.5.2 (2097 car.)",
+     "rango": 177,
+     "sim": 0.3641
+    },
+    "SEC-0050": {
+     "etiqueta": "APARTADO 2.6 (158 car.)",
+     "rango": 214,
+     "sim": 0.3294
+    },
+    "SEC-0051": {
+     "etiqueta": "APARTADO 2.6.1 (2336 car.)",
+     "rango": 94,
+     "sim": 0.4517
+    },
+    "SEC-0052": {
+     "etiqueta": "APARTADO 2.6.2 (232 car.)",
+     "rango": 151,
+     "sim": 0.3885
+    },
+    "SEC-0098": {
+     "etiqueta": "APARTADO 6.4 (531 car.)",
+     "rango": 52,
+     "sim": 0.4894
+    },
+    "SEC-0102": {
+     "etiqueta": "APARTADO 6.5 (3628 car.)",
+     "rango": 4,
+     "sim": 0.6274
+    }
+   }
+  }
+ },
+ "fidelidad_copia_B4": {
+  "n": 82,
+  "iguales": 82,
+  "difs": []
+ },
+ "resumen": {
+  "A-prod": {
+   "nucleo_entregado": 20,
+   "nucleo_total": 49,
+   "todos_entregado": 22,
+   "todos_total": 56,
+   "por_clase": {
+    "ENTREGADA": 22,
+    "EN CANAL, PERDIDA EN LA FUSION": 1,
+    "FUERA DEL CORTE DE CANAL (26-60)": 18,
+    "DESPLAZADA (en la fusion, fuera del paquete)": 11,
+    "NUNCA RECUPERADA (top-60)": 4
+   },
+   "por_faceta_nucleo": {
+    "sistema": "3/5",
+    "composicion": "6/6",
+    "orden": "2/8",
+    "categorias": "2/7",
+    "ganador": "1/5",
+    "empate": "2/6",
+    "desarrollo": "2/9",
+    "organizacion": "2/3"
+   },
+   "paquete_chars": 22840
+  },
+  "A-ref": {
+   "nucleo_entregado": 8,
+   "nucleo_total": 49,
+   "todos_entregado": 10,
+   "todos_total": 56,
+   "por_clase": {
+    "ENTREGADA": 10,
+    "EN CANAL, PERDIDA EN LA FUSION": 1,
+    "FUERA DEL CORTE DE CANAL (26-60)": 23,
+    "DESPLAZADA (en la fusion, fuera del paquete)": 18,
+    "NUNCA RECUPERADA (top-60)": 4
+   },
+   "por_faceta_nucleo": {
+    "sistema": "3/5",
+    "composicion": "3/6",
+    "orden": "0/8",
+    "categorias": "1/7",
+    "ganador": "0/5",
+    "empate": "0/6",
+    "desarrollo": "0/9",
+    "organizacion": "1/3"
+   },
+   "paquete_chars": 18693
+  },
+  "B": {
+   "nucleo_entregado": 6,
+   "nucleo_total": 49,
+   "todos_entregado": 6,
+   "todos_total": 56,
+   "por_clase": {
+    "ENTREGADA": 6,
+    "NUNCA RECUPERADA (top-60)": 3,
+    "FUERA DEL CORTE DE CANAL (26-60)": 10,
+    "DESPLAZADA (en la fusion, fuera del paquete)": 37
+   },
+   "por_faceta_nucleo": {
+    "sistema": "3/5",
+    "composicion": "0/6",
+    "orden": "0/8",
+    "categorias": "3/7",
+    "ganador": "0/5",
+    "empate": "0/6",
+    "desarrollo": "0/9",
+    "organizacion": "0/3"
+   },
+   "paquete_chars": 4891
+  },
+  "C1": {
+   "nucleo_entregado": 8,
+   "nucleo_total": 49,
+   "todos_entregado": 10,
+   "todos_total": 56,
+   "por_clase": {
+    "ENTREGADA": 10,
+    "EN CANAL, PERDIDA EN LA FUSION": 1,
+    "FUERA DEL CORTE DE CANAL (26-60)": 21,
+    "DESPLAZADA (en la fusion, fuera del paquete)": 18,
+    "NUNCA RECUPERADA (top-60)": 6
+   },
+   "por_faceta_nucleo": {
+    "sistema": "3/5",
+    "composicion": "3/6",
+    "orden": "0/8",
+    "categorias": "1/7",
+    "ganador": "0/5",
+    "empate": "0/6",
+    "desarrollo": "0/9",
+    "organizacion": "1/3"
+   },
+   "paquete_chars": 17885
+  },
+  "C2": {
+   "nucleo_entregado": 5,
+   "nucleo_total": 49,
+   "todos_entregado": 6,
+   "todos_total": 56,
+   "por_clase": {
+    "ENTREGADA": 6,
+    "NUNCA RECUPERADA (top-60)": 4,
+    "FUERA DEL CORTE DE CANAL (26-60)": 10,
+    "DESPLAZADA (en la fusion, fuera del paquete)": 36
+   },
+   "por_faceta_nucleo": {
+    "sistema": "3/5",
+    "composicion": "0/6",
+    "orden": "0/8",
+    "categorias": "2/7",
+    "ganador": "0/5",
+    "empate": "0/6",
+    "desarrollo": "0/9",
+    "organizacion": "0/3"
+   },
+   "paquete_chars": 9375
+  },
+  "D": {
+   "nucleo_entregado": 8,
+   "nucleo_total": 49,
+   "todos_entregado": 10,
+   "todos_total": 56,
+   "por_clase": {
+    "ENTREGADA": 10,
+    "NUNCA RECUPERADA (top-60)": 2,
+    "FUERA DEL CORTE DE CANAL (26-60)": 10,
+    "DESPLAZADA (en la fusion, fuera del paquete)": 34
+   },
+   "por_faceta_nucleo": {
+    "sistema": "3/5",
+    "composicion": "0/6",
+    "orden": "0/8",
+    "categorias": "5/7",
+    "ganador": "0/5",
+    "empate": "0/6",
+    "desarrollo": "0/9",
+    "organizacion": "0/3"
+   },
+   "paquete_chars": 11686
+  }
+ },
+ "integridad": {
+  "archivos": 20,
+  "identicos": true,
+  "cambiados": [],
+  "sha_antes": {
+   "data\\processed\\rebuild_2026_08_corrected\\passages_candidate.json": "7d4634288997404278e26a5885e5eeedfa707742072b9fa4178e3f56ccc1167b",
+   "data\\processed\\rebuild_2026_08_corrected\\dense_embeddings_candidate.npy": "124ced95fb9e152ce586dec9f30a1eb98dc14ee385c0bc335a2055357f73a617",
+   "data\\processed\\rebuild_2026_08_corrected\\vector_index_candidate.json": "e182c77e0775472eb73d22ab92b15d026d067cbf6264fb8b25b207479c4668eb",
+   "data\\processed\\rebuild_2026_08_corrected\\knowledge_graph_candidate.json": "95d5a67936cf48d3bc79b69bf370bb1a83a255f938a7322e0dae256450dde215",
+   "data\\processed\\rebuild_2026_08_corrected\\dense_embeddings_meta.json": "c96b214bc14801ad903d58e0245d48c008d65ac051d339fd4e6b65e30709160e",
+   "experiments\\segmentacion_apartados_2026\\index\\dense_embeddings_candidate.npy": "48e89704bedbcc383434814090dbb92e75a2bb6ead98819d97ec012b93ada52a",
+   "experiments\\segmentacion_apartados_2026\\index\\dense_embeddings_meta.json": "f72b5beb3b1aea7d9e7ab74c7febd5fcd56052d1bbb350e6550761da76238c76",
+   "experiments\\segmentacion_apartados_2026\\index\\knowledge_graph_candidate.json": "eea04fa789d0e2ab1090eac5f340e98f78022cff3f2a376f13c64f0516642928",
+   "experiments\\segmentacion_apartados_2026\\index\\passages_candidate.json": "71cdb47ac80febbe66bfa8547be071978c586278012243c351b1fccdcec8f942",
+   "experiments\\segmentacion_apartados_2026\\index\\vector_index_candidate.json": "b8832c3cefcc20614141bd60fb99e29ce3d60395ab691768c37f7bf76a6ae812",
+   "experiments\\segmentacion_apartados_2026\\index\\windows_emb.npy": "5bde28a548da33d30c89295f8be43730cad7f86aca9203a7d872c9226d44d206",
+   "experiments\\segmentacion_apartados_2026\\index\\windows_meta.json": "3a2618f1f5d97320199ec210d29e5da114aef719ea0b9ee67d3fe37be13a81e4",
+   "experiments\\segmentacion_apartados_2026\\units.jsonl": "812aa19d1838c9ba96b761194e0ef9ff7e7818ddae2324d554928c7de920f515",
+   "experiments\\ventanas_2026\\windows_emb.npy": "362d035234651efe46c1b42650b25a6d98d08d57561f949c5cf21f8777951e4a",
+   "experiments\\ventanas_2026\\windows_meta.json": "18e21015f2a6b540a860cd2a40c8bbb08453e9a40be45f834727b22ff90f69a3",
+   "experiments\\reglas_rre_expansion_2026\\results.json": "8fbc52ed73f8951321dd4742526cb9d419f980fd608f56d3c1123e7e2e7f8631",
+   "src\\rre_engine.py": "a0318e88b4e98b271a38710c8b99768ad4cab2bdbe5ec0434f7333fce2841c78",
+   "src\\ada_assistant.py": "876b6ef5041798ea47741c62f50cec47236024794950557decd845e3ca85a368",
+   "app.py": "86c020a0b0120048e2b432a6440535be731e58c95943984e4d27b7e021c34ec8",
+   "data\\raw\\sor_2026_08_rebuild\\IJF_Sport_and_Organisation_Rules_2026_08_14.pdf": "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620"
+  }
+ }
+}

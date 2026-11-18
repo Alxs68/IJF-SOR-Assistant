@@ -1,0 +1,311 @@
+{
+ "query": "Do senior athletes get any weight tolerance at the official weigh-in of an individual event?",
+ "targets": {
+  "6.1": "SEC-0086",
+  "6.2.3": "SEC-0090",
+  "6.3": "SEC-0093",
+  "6.3.4": "SEC-0097",
+  "tabla 6.3.4": "TAB-0030",
+  "6.4.2": "SEC-0100"
+ },
+ "tfidf": {
+  "top8": [
+   [
+    "SEC-0102",
+    "6.5 Female and Male Teams Events Weigh-in",
+    0.4353
+   ],
+   [
+    "SEC-0100",
+    "6.4.2 . Mixed Team Following an Individual Competition Weigh-in",
+    0.4136
+   ],
+   [
+    "SEC-0089",
+    "6.2.2 Unofficial Weigh-in",
+    0.3628
+   ],
+   [
+    "SEC-0091",
+    "6.2.4 Official Weigh-in Procedure",
+    0.3617
+   ],
+   [
+    "SEC-0092",
+    "6.2.5 Compliance Rules",
+    0.3606
+   ],
+   [
+    "SEC-0101",
+    "6.4.3 Olympic Games Mixed Team Weigh-in",
+    0.354
+   ],
+   [
+    "SEC-0085",
+    "WEIGH-IN",
+    0.3302
+   ],
+   [
+    "SEC-0090",
+    "6.2.3 Official Weigh-in",
+    0.3253
+   ]
+  ],
+  "rangos": {
+   "6.1": 21,
+   "6.2.3": 8,
+   "6.3": 9,
+   "6.3.4": 15,
+   "tabla 6.3.4": null,
+   "6.4.2": 2
+  },
+  "scores": {
+   "6.1": 0.1906,
+   "6.2.3": 0.3253,
+   "6.3": 0.3092,
+   "6.3.4": 0.2356,
+   "tabla 6.3.4": null,
+   "6.4.2": 0.4136
+  }
+ },
+ "denso_truncado": {
+  "top8": [
+   [
+    "SEC-0086",
+    "6.1 Weight Categories and Limits for Individual Events",
+    0.689
+   ],
+   [
+    "SEC-0102",
+    "6.5 Female and Male Teams Events Weigh-in",
+    0.6257
+   ],
+   [
+    "SEC-0098",
+    "6.4 Mixed Teams Events Weigh-in",
+    0.6185
+   ],
+   [
+    "SEC-0101",
+    "6.4.3 Olympic Games Mixed Team Weigh-in",
+    0.5791
+   ],
+   [
+    "SEC-0092",
+    "6.2.5 Compliance Rules",
+    0.5586
+   ],
+   [
+    "SEC-0100",
+    "6.4.2 . Mixed Team Following an Individual Competition Weigh-in",
+    0.547
+   ],
+   [
+    "SEC-0091",
+    "6.2.4 Official Weigh-in Procedure",
+    0.5454
+   ],
+   [
+    "TAB-0033",
+    "Table: Tolerance [6.4.3 Olympic Games Mixed Team Weigh-in]",
+    0.5332
+   ]
+  ],
+  "rangos": {
+   "6.1": 1,
+   "6.2.3": 15,
+   "6.3": 18,
+   "6.3.4": 57,
+   "tabla 6.3.4": 9,
+   "6.4.2": 6
+  },
+  "scores": {
+   "6.1": 0.689,
+   "6.2.3": 0.5021,
+   "6.3": 0.495,
+   "6.3.4": 0.3737,
+   "tabla 6.3.4": 0.5301,
+   "6.4.2": 0.547
+  }
+ },
+ "denso_ventanas": {
+  "top8": [
+   [
+    "SEC-0086",
+    "6.1 Weight Categories and Limits for Individual Events",
+    0.689
+   ],
+   [
+    "SEC-0102",
+    "6.5 Female and Male Teams Events Weigh-in",
+    0.6461
+   ],
+   [
+    "SEC-0274",
+    "H1.1 Document Version History",
+    0.6459
+   ],
+   [
+    "SEC-0101",
+    "6.4.3 Olympic Games Mixed Team Weigh-in",
+    0.6309
+   ],
+   [
+    "SEC-0098",
+    "6.4 Mixed Teams Events Weigh-in",
+    0.6185
+   ],
+   [
+    "SEC-0100",
+    "6.4.2 . Mixed Team Following an Individual Competition Weigh-in",
+    0.6049
+   ],
+   [
+    "SEC-0091",
+    "6.2.4 Official Weigh-in Procedure",
+    0.5913
+   ],
+   [
+    "SEC-0092",
+    "6.2.5 Compliance Rules",
+    0.5541
+   ]
+  ],
+  "rangos": {
+   "6.1": 1,
+   "6.2.3": 20,
+   "6.3": 21,
+   "6.3.4": 57,
+   "tabla 6.3.4": 10,
+   "6.4.2": 6
+  },
+  "scores": {
+   "6.1": 0.689,
+   "6.2.3": 0.4975,
+   "6.3": 0.495,
+   "6.3.4": 0.3737,
+   "tabla 6.3.4": 0.531,
+   "6.4.2": 0.6049
+  }
+ },
+ "final_S": {
+  "top10": [
+   [
+    "SEC-0102",
+    "6.5 Female and Male Teams Events Weigh-in"
+   ],
+   [
+    "SEC-0100",
+    "6.4.2 . Mixed Team Following an Individual Competition Weigh-in"
+   ],
+   [
+    "SEC-0092",
+    "6.2.5 Compliance Rules"
+   ],
+   [
+    "SEC-0101",
+    "6.4.3 Olympic Games Mixed Team Weigh-in"
+   ],
+   [
+    "SEC-0091",
+    "6.2.4 Official Weigh-in Procedure"
+   ],
+   [
+    "SEC-0089",
+    "6.2.2 Unofficial Weigh-in"
+   ],
+   [
+    "SEC-0098",
+    "6.4 Mixed Teams Events Weigh-in"
+   ],
+   [
+    "SEC-0086",
+    "6.1 Weight Categories and Limits for Individual Events"
+   ],
+   [
+    "SEC-0090",
+    "6.2.3 Official Weigh-in"
+   ],
+   [
+    "SEC-0093",
+    "6.3 Random Weigh-in"
+   ]
+  ],
+  "rangos": {
+   "6.1": 8,
+   "6.2.3": 9,
+   "6.3": 10,
+   "6.3.4": null,
+   "tabla 6.3.4": null,
+   "6.4.2": 2
+  },
+  "campeones_R1": {
+   "champions": [
+    "SEC-0086",
+    "SEC-0102"
+   ],
+   "added": [],
+   "replaced": []
+  }
+ },
+ "final_SW": {
+  "top10": [
+   [
+    "SEC-0102",
+    "6.5 Female and Male Teams Events Weigh-in"
+   ],
+   [
+    "SEC-0100",
+    "6.4.2 . Mixed Team Following an Individual Competition Weigh-in"
+   ],
+   [
+    "SEC-0101",
+    "6.4.3 Olympic Games Mixed Team Weigh-in"
+   ],
+   [
+    "SEC-0091",
+    "6.2.4 Official Weigh-in Procedure"
+   ],
+   [
+    "SEC-0092",
+    "6.2.5 Compliance Rules"
+   ],
+   [
+    "SEC-0089",
+    "6.2.2 Unofficial Weigh-in"
+   ],
+   [
+    "SEC-0098",
+    "6.4 Mixed Teams Events Weigh-in"
+   ],
+   [
+    "SEC-0086",
+    "6.1 Weight Categories and Limits for Individual Events"
+   ],
+   [
+    "SEC-0090",
+    "6.2.3 Official Weigh-in"
+   ],
+   [
+    "SEC-0093",
+    "6.3 Random Weigh-in"
+   ]
+  ],
+  "rangos": {
+   "6.1": 8,
+   "6.2.3": 9,
+   "6.3": 10,
+   "6.3.4": null,
+   "tabla 6.3.4": null,
+   "6.4.2": 2
+  },
+  "campeones_R1": {
+   "champions": [
+    "SEC-0086",
+    "SEC-0102"
+   ],
+   "added": [],
+   "replaced": []
+  }
+ }
+}

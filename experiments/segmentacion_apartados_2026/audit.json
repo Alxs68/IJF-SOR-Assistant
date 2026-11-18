@@ -1,0 +1,66 @@
+{
+ "pdf": {
+  "paginas": 298,
+  "entradas_toc": 272,
+  "sha256": "9426b10d11c21a4cb9eb23150c2c4fc95bfcd463511e66ba451d2cff005ae620"
+ },
+ "corpus": {
+  "pasajes": 385,
+  "paginas_con_texto": 287,
+  "paginas_pdf_sin_pasaje": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "pasajes_por_pagina": {
+   "1": 227,
+   "2": 39,
+   "3": 11,
+   "4": 6,
+   "5": 2,
+   "6": 1,
+   "7": 1
+  },
+  "pasajes_que_comparten_texto_de_pagina": 158,
+  "review_status": {
+   "extracted": 385
+  },
+  "approved_by_no_nulo": 0,
+  "article_id_vs_heading_incoherente": 0,
+  "unidad_real_del_pasaje": "pagina completa (text_original = texto de la pagina; los pasajes de una pagina solo difieren en metadatos)"
+ },
+ "article_units_v1": {
+  "unidades": 851,
+  "nivel1_por_tipo": {
+   "COVER": 16,
+   "PAGE_HEADER": 264,
+   "ARTICLE": 258,
+   "CONTINUATION": 171,
+   "EMPTY_PAGE": 1
+  },
+  "relacion_continuacion": {
+   "PAGE_FALLBACK": 63,
+   "ARTICLE_METADATA": 108
+  },
+  "avisos_fase8": {
+   "INFO:NO_PAGE_HEADER": 22,
+   "WARNING:CONTINUATION_ARTICLE_NOT_IN_PAGE_METADATA": 63,
+   "INFO:METADATA_LABEL_NOT_HEADING_ON_PAGE": 108,
+   "INFO:HEADING_LIKE_LINE_REJECTED": 99,
+   "WARNING:HEADING_NOT_IN_METADATA": 3,
+   "WARNING:ARTICLE_PAGE_METADATA_MISMATCH": 3,
+   "WARNING:EMPTY_PAGE_TEXT": 1,
+   "INFO:EXCEPTION_CLAUSE_MERGED": 2,
+   "WARNING:METADATA_HEADING_NOT_FOUND": 5,
+   "WARNING:CLAUSE_SEGMENTATION_UNSAFE": 9
+  }
+ }
+}

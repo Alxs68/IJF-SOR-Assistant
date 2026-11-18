@@ -1,0 +1,312 @@
+--- src/rre_engine.py
++++ <rre_engine_abl>
+@@ -1034,16 +1034,20 @@
+ 
+-        if has_boundary_term and has_osaekomi_term:
+-            # Art. 17 P174 establece taxativamente Ippon Sore-Made cuando osaekomi sobrepasa el área de seguridad
+-            if "SOR-2026-08-P174-S190" in rrf_scores:
+-                rrf_scores["SOR-2026-08-P174-S190"] += 0.12
+-        elif has_boundary_term and has_newaza_term:
+-            # Art. 5(d) P152 establece el protocolo para kansetsu/shime fuera de seguridad
+-            if "SOR-2026-08-P152-S179" in rrf_scores:
+-                rrf_scores["SOR-2026-08-P152-S179"] += 0.08
+-            elif "SOR-2026-08-P151-S178" in rrf_scores:
+-                rrf_scores["SOR-2026-08-P151-S178"] += 0.08
+-        elif has_outside_contest and has_newaza_term:
+-            # Art. 5(b)/(c) P151 regula la validez de ne-waza continuado fuera del área de combate
+-            if "SOR-2026-08-P151-S178" in rrf_scores:
+-                rrf_scores["SOR-2026-08-P151-S178"] += 0.10
++        if not _ABL.get("FRONTERA"):
++            if has_boundary_term and has_osaekomi_term:
++                _FIRED.add("FRONTERA")
++                # Art. 17 P174 establece taxativamente Ippon Sore-Made cuando osaekomi sobrepasa el área de seguridad
++                if "SOR-2026-08-P174-S190" in rrf_scores:
++                    rrf_scores["SOR-2026-08-P174-S190"] += 0.12
++            elif has_boundary_term and has_newaza_term:
++                _FIRED.add("FRONTERA")
++                # Art. 5(d) P152 establece el protocolo para kansetsu/shime fuera de seguridad
++                if "SOR-2026-08-P152-S179" in rrf_scores:
++                    rrf_scores["SOR-2026-08-P152-S179"] += 0.08
++                elif "SOR-2026-08-P151-S178" in rrf_scores:
++                    rrf_scores["SOR-2026-08-P151-S178"] += 0.08
++            elif has_outside_contest and has_newaza_term:
++                _FIRED.add("FRONTERA")
++                # Art. 5(b)/(c) P151 regula la validez de ne-waza continuado fuera del área de combate
++                if "SOR-2026-08-P151-S178" in rrf_scores:
++                    rrf_scores["SOR-2026-08-P151-S178"] += 0.10
+ 
+@@ -1118,30 +1122,52 @@
+             # 1. Regla General de Puente de Uke (Art. 14.2, Págs. 166-167): evaluado como Ippon por seguridad cervical
+-            if is_bridge_specific or is_defense_specific:
+-                for bridge_pid in ("SOR-2026-08-P166-S187", "SOR-2026-08-P167-S187"):
+-                    if bridge_pid in self.passages_by_id and bridge_pid not in rrf_scores:
+-                        rrf_scores[bridge_pid] = 0.025
+-                for pid in list(rrf_scores):
+-                    p = self.passages_by_id.get(pid)
+-                    if p and p.get("pdf_page_index") in (166, 167):
+-                        text_p = p.get("text_original", "").lower()
+-                        if "bridge" in text_p or "voluntarily makes a" in text_p or "cervical" in text_p:
+-                            rrf_scores[pid] += 0.12 if not is_cadet_specific else 0.07
++            if not _ABL.get("PUENTE"):
++                if is_bridge_specific or is_defense_specific:
++                    _FIRED.add("PUENTE")
++                    for bridge_pid in ("SOR-2026-08-P166-S187", "SOR-2026-08-P167-S187"):
++                        if bridge_pid in self.passages_by_id and bridge_pid not in rrf_scores:
++                            rrf_scores[bridge_pid] = 0.025
++                    for pid in list(rrf_scores):
++                        p = self.passages_by_id.get(pid)
++                        if p and p.get("pdf_page_index") in (166, 167):
++                            text_p = p.get("text_original", "").lower()
++                            if "bridge" in text_p or "voluntarily makes a" in text_p or "cervical" in text_p:
++                                rrf_scores[pid] += 0.12 if not is_cadet_specific else 0.07
+ 
+             # 2. Regla de Head Diving / Hansoku-make por técnica de cabeza (Art. 18.2.1 / 18.2.2, Pág. 190)
+-            if is_dive_specific or is_throw_by_tori or has_hansoku_term or (not is_defense_specific and not is_concussion_specific):
+-                for h_pid in ("SOR-2026-08-P190-S197", "SOR-2026-08-P190-S198"):
+-                    if h_pid in self.passages_by_id and h_pid not in rrf_scores:
+-                        rrf_scores[h_pid] = 0.025
+-                for pid in list(rrf_scores):
+-                    p = self.passages_by_id.get(pid)
+-                    if p and p.get("pdf_page_index") == 190:
+-                        text_p = p.get("text_original", "").lower()
+-                        if "head diving" in text_p or "article 18 .2 .1" in text_p or "hansoku-make" in text_p:
+-                            bonus = 0.14 if has_hansoku_term else (0.11 if not is_cadet_specific else 0.06)
+-                            if pid == 'SOR-2026-08-P190-S197' or str(p.get('article_id')) == 'Article 18.2.1':
+-                                bonus += 0.03
+-                            rrf_scores[pid] += bonus
++            if not _ABL.get("HEAD_DIVING"):
++                if is_dive_specific or is_throw_by_tori or has_hansoku_term or (not is_defense_specific and not is_concussion_specific):
++                    _FIRED.add("HEAD_DIVING")
++                    for h_pid in ("SOR-2026-08-P190-S197", "SOR-2026-08-P190-S198"):
++                        if h_pid in self.passages_by_id and h_pid not in rrf_scores:
++                            rrf_scores[h_pid] = 0.025
++                    for pid in list(rrf_scores):
++                        p = self.passages_by_id.get(pid)
++                        if p and p.get("pdf_page_index") == 190:
++                            text_p = p.get("text_original", "").lower()
++                            if "head diving" in text_p or "article 18 .2 .1" in text_p or "hansoku-make" in text_p:
++                                bonus = 0.14 if has_hansoku_term else (0.11 if not is_cadet_specific else 0.06)
++                                if pid == 'SOR-2026-08-P190-S197' or str(p.get('article_id')) == 'Article 18.2.1':
++                                    bonus += 0.03
++                                rrf_scores[pid] += bonus
+ 
+             # 4. Atenuación de pasajes irrelevantes cuando se indaga sobre arbitraje de cabeza en combate
+-            if not is_concussion_specific:
++            if not _ABL.get("CABEZA_ATEN"):
++                if not is_concussion_specific:
++                    _FIRED.add("CABEZA_ATEN")
++                    for pid in list(rrf_scores):
++                        p = self.passages_by_id.get(pid)
++                        if p:
++                            if p.get("pdf_page_index") == 202 and not is_concussion_specific:
++                                rrf_scores[pid] *= 0.65
++                            elif p.get("pdf_page_index") in (138, 149, 150) and not any(w in clean_q_lower for w in ["gesto", "gesture", "senal", "señal"]):
++                                rrf_scores[pid] *= 0.70
++
++        # Reglas Específicas de Cadetes (Art. 18.1.4, Págs. 188-189): evaluadas independientemente de mención de cabeza
++        if not _ABL.get("CADETE"):
++            if is_cadet_specific or ((is_defense_specific or is_throw_by_tori or is_senior_junior_specific) and has_head_term):
++                _FIRED.add("CADETE")
++                is_reverse_seoi = any(w in clean_q_lower for w in ["reverse", "seoi-nage", "seoi", "inversa"])
++                cadet_target_pid = "SOR-2026-08-P189-S196" if is_reverse_seoi else "SOR-2026-08-P188-S196"
++                if cadet_target_pid in self.passages_by_id and cadet_target_pid not in rrf_scores:
++                    rrf_scores[cadet_target_pid] = 0.035
+                 for pid in list(rrf_scores):
+@@ -1149,31 +1175,17 @@
+                     if p:
+-                        if p.get("pdf_page_index") == 202 and not is_concussion_specific:
+-                            rrf_scores[pid] *= 0.65
+-                        elif p.get("pdf_page_index") in (138, 149, 150) and not any(w in clean_q_lower for w in ["gesto", "gesture", "senal", "señal"]):
+-                            rrf_scores[pid] *= 0.70
+-
+-        # Reglas Específicas de Cadetes (Art. 18.1.4, Págs. 188-189): evaluadas independientemente de mención de cabeza
+-        if is_cadet_specific or ((is_defense_specific or is_throw_by_tori or is_senior_junior_specific) and has_head_term):
+-            is_reverse_seoi = any(w in clean_q_lower for w in ["reverse", "seoi-nage", "seoi", "inversa"])
+-            cadet_target_pid = "SOR-2026-08-P189-S196" if is_reverse_seoi else "SOR-2026-08-P188-S196"
+-            if cadet_target_pid in self.passages_by_id and cadet_target_pid not in rrf_scores:
+-                rrf_scores[cadet_target_pid] = 0.035
+-            for pid in list(rrf_scores):
+-                p = self.passages_by_id.get(pid)
+-                if p:
+-                    if p.get("pdf_page_index") == 188 and "18.1.4" in str(p.get("article_id", "")):
+-                        rrf_scores[pid] += 0.18 if (is_cadet_specific and not is_reverse_seoi) else 0.08
+-                    elif p.get("pdf_page_index") == 189 and "18.1.4" in str(p.get("article_id", "")):
+-                        rrf_scores[pid] += 0.22 if is_reverse_seoi else 0.04
+-
+-            # Dampen general contest area (Art. 5) when querying cadet technique restrictions (never dampen contest duration Art. 6 or osaekomi Art. 7)
+-            is_duration_or_time_query = any(w in clean_q_lower for w in ["dura", "duration", "tiempo", "time", "minuto", "minute", "osaekomi", "segundo", "second"])
+-            if not is_duration_or_time_query and not any(w in clean_q_lower for w in ["area", "área", "zona", "fuera", "outside", "border"]):
+-                for pid in list(rrf_scores):
+-                    p = self.passages_by_id.get(pid)
+-                    if p:
+-                        art = str(p.get("article_id", "")).lower()
+-                        # Only dampen Article 5 (Contest area), never Article 6 (Duration) or Article 7 (Osaekomi)
+-                        if "article 5" in art:
+-                            rrf_scores[pid] *= 0.20
++                        if p.get("pdf_page_index") == 188 and "18.1.4" in str(p.get("article_id", "")):
++                            rrf_scores[pid] += 0.18 if (is_cadet_specific and not is_reverse_seoi) else 0.08
++                        elif p.get("pdf_page_index") == 189 and "18.1.4" in str(p.get("article_id", "")):
++                            rrf_scores[pid] += 0.22 if is_reverse_seoi else 0.04
++
++                # Dampen general contest area (Art. 5) when querying cadet technique restrictions (never dampen contest duration Art. 6 or osaekomi Art. 7)
++                is_duration_or_time_query = any(w in clean_q_lower for w in ["dura", "duration", "tiempo", "time", "minuto", "minute", "osaekomi", "segundo", "second"])
++                if not is_duration_or_time_query and not any(w in clean_q_lower for w in ["area", "área", "zona", "fuera", "outside", "border"]):
++                    for pid in list(rrf_scores):
++                        p = self.passages_by_id.get(pid)
++                        if p:
++                            art = str(p.get("article_id", "")).lower()
++                            # Only dampen Article 5 (Contest area), never Article 6 (Duration) or Article 7 (Osaekomi)
++                            if "article 5" in art:
++                                rrf_scores[pid] *= 0.20
+ 
+@@ -1185,61 +1197,65 @@
+         ])
+-        if has_conduct_term:
+-            for conduct_pid in ("SOR-2026-08-P193-S198", "SOR-2026-08-P190-S198"):
+-                if conduct_pid in self.passages_by_id:
+-                    if conduct_pid not in rrf_scores:
+-                        rrf_scores[conduct_pid] = 0.040
+-                    rrf_scores[conduct_pid] += 0.22
+-            # Atenuar gestos arbitrales de judogi/cabello, inmovilizaciones y shidos ordinarios
+-            for pid in list(rrf_scores):
+-                p = self.passages_by_id.get(pid)
+-                if not p:
+-                    continue
+-                art = str(p.get("article_id", "")).lower()
+-                page = p.get("pdf_page_index", 0)
+-                if page in (137, 138, 147, 148, 149, 150, 151, 160, 161, 173, 175) or "article 4" in art or "gestures" in str(p.get("heading_path", "")).lower():
+-                    rrf_scores[pid] *= 0.10
++        if not _ABL.get("CONDUCTA"):
++            if has_conduct_term:
++                _FIRED.add("CONDUCTA")
++                for conduct_pid in ("SOR-2026-08-P193-S198", "SOR-2026-08-P190-S198"):
++                    if conduct_pid in self.passages_by_id:
++                        if conduct_pid not in rrf_scores:
++                            rrf_scores[conduct_pid] = 0.040
++                        rrf_scores[conduct_pid] += 0.22
++                # Atenuar gestos arbitrales de judogi/cabello, inmovilizaciones y shidos ordinarios
++                for pid in list(rrf_scores):
++                    p = self.passages_by_id.get(pid)
++                    if not p:
++                        continue
++                    art = str(p.get("article_id", "")).lower()
++                    page = p.get("pdf_page_index", 0)
++                    if page in (137, 138, 147, 148, 149, 150, 151, 160, 161, 173, 175) or "article 4" in art or "gestures" in str(p.get("heading_path", "")).lower():
++                        rrf_scores[pid] *= 0.10
+ 
+         # Controlled topical alignment for kumikata and illegal moves (Article 18.1.2, Págs. 178-185)
+-        if is_kumikata_grip_query:
+-            is_pocket_pistol = any(w in clean_q_lower for w in ["pocket", "pistol"])
+-            is_cross_grip = any(w in clean_q_lower for w in ["cross", "cruzado"])
+-            is_bending_or_blocking = any(w in clean_q_lower for w in ["encorvada", "bloqueo", "rigido", "rígido", "rigidos", "rígidos", "bending", "blocking"])
+-            is_under_belt = any(w in clean_q_lower for w in ["muslo", "cinturon", "cinturón"]) and not any(w in clean_q_lower for w in ["manga", "sleeve", "bocamanga"])
+-            is_leg_grabbing = any(w in clean_q_lower for w in ["pierna", "pantalon", "pantalón"]) and any(w in clean_q_lower for w in ["agarrar", "tocar", "sancion", "sanción", "falta", "grabbing"])
+-            is_breaking_grips = any(w in clean_q_lower for w in ["romper", "ruptura", "soltando", "liberando", "conservando", "dos manos"])
+-            is_inside_sleeve_or_trouser = any(w in clean_q_lower for w in ["bocamanga", "sleeve", "trouser", "pantalon", "pantalón", "dentro"]) and any(w in clean_q_lower for w in ["dentro", "inside", "bocamanga"])
+-            is_interlocking = any(w in clean_q_lower for w in ["interlocking", "entrelazados", "entrelazar"]) or ("dedos" in clean_q_lower and any(w in clean_q_lower for w in ["continuamente", "sanciona", "sanción", "interlocking"]))
+-
+-            for pid in list(rrf_scores):
+-                p = self.passages_by_id.get(pid)
+-                if not p:
+-                    continue
+-                art = str(p.get("article_id", "")).lower()
+-                page = p.get("pdf_page_index", 0)
+-
+-                # Dampen referee gestures when asking about substantive illegal moves
+-                if ("article 4" in art or "gestures" in str(p.get("heading_path", "")).lower() or 137 <= page <= 151) and not any(w in clean_q_lower for w in ["gesto", "gesture", "senal", "señal"]):
+-                    rrf_scores[pid] *= 0.20
+-
+-                # Dampen equipment sizing / sokuteiki when asking about combat grips
+-                if ("c1.10" in art or "size" in str(p.get("heading_path", "")).lower() or 115 <= page <= 127) and not any(w in clean_q_lower for w in ["sokuteiki", "tamano", "tamaño", "medida", "medidas", "calibrador"]):
+-                    rrf_scores[pid] *= 0.20
+-
+-                # Dampen exam / education appendix
+-                if 250 <= page <= 275:
+-                    rrf_scores[pid] *= 0.20
+-
+-                # Boost Article 18.1.2
+-                if "18.1.2" in art or (178 <= page <= 185):
+-                    rrf_scores[pid] *= 1.40
+-
+-                    # Fine-grained page affinity for substantive rules
+-                    if (is_pocket_pistol or is_cross_grip or is_bending_or_blocking) and page == 178:
+-                        rrf_scores[pid] += 0.25
+-                    elif is_under_belt and page == 179:
+-                        rrf_scores[pid] += 0.25
+-                    elif is_leg_grabbing and page in (179, 180, 183):
+-                        rrf_scores[pid] += 0.18
+-                    elif (is_breaking_grips or is_inside_sleeve_or_trouser or is_interlocking) and page == 180:
+-                        rrf_scores[pid] += 0.25
++        if not _ABL.get("KUMIKATA"):
++            if is_kumikata_grip_query:
++                _FIRED.add("KUMIKATA")
++                is_pocket_pistol = any(w in clean_q_lower for w in ["pocket", "pistol"])
++                is_cross_grip = any(w in clean_q_lower for w in ["cross", "cruzado"])
++                is_bending_or_blocking = any(w in clean_q_lower for w in ["encorvada", "bloqueo", "rigido", "rígido", "rigidos", "rígidos", "bending", "blocking"])
++                is_under_belt = any(w in clean_q_lower for w in ["muslo", "cinturon", "cinturón"]) and not any(w in clean_q_lower for w in ["manga", "sleeve", "bocamanga"])
++                is_leg_grabbing = any(w in clean_q_lower for w in ["pierna", "pantalon", "pantalón"]) and any(w in clean_q_lower for w in ["agarrar", "tocar", "sancion", "sanción", "falta", "grabbing"])
++                is_breaking_grips = any(w in clean_q_lower for w in ["romper", "ruptura", "soltando", "liberando", "conservando", "dos manos"])
++                is_inside_sleeve_or_trouser = any(w in clean_q_lower for w in ["bocamanga", "sleeve", "trouser", "pantalon", "pantalón", "dentro"]) and any(w in clean_q_lower for w in ["dentro", "inside", "bocamanga"])
++                is_interlocking = any(w in clean_q_lower for w in ["interlocking", "entrelazados", "entrelazar"]) or ("dedos" in clean_q_lower and any(w in clean_q_lower for w in ["continuamente", "sanciona", "sanción", "interlocking"]))
++
++                for pid in list(rrf_scores):
++                    p = self.passages_by_id.get(pid)
++                    if not p:
++                        continue
++                    art = str(p.get("article_id", "")).lower()
++                    page = p.get("pdf_page_index", 0)
++
++                    # Dampen referee gestures when asking about substantive illegal moves
++                    if ("article 4" in art or "gestures" in str(p.get("heading_path", "")).lower() or 137 <= page <= 151) and not any(w in clean_q_lower for w in ["gesto", "gesture", "senal", "señal"]):
++                        rrf_scores[pid] *= 0.20
++
++                    # Dampen equipment sizing / sokuteiki when asking about combat grips
++                    if ("c1.10" in art or "size" in str(p.get("heading_path", "")).lower() or 115 <= page <= 127) and not any(w in clean_q_lower for w in ["sokuteiki", "tamano", "tamaño", "medida", "medidas", "calibrador"]):
++                        rrf_scores[pid] *= 0.20
++
++                    # Dampen exam / education appendix
++                    if 250 <= page <= 275:
++                        rrf_scores[pid] *= 0.20
++
++                    # Boost Article 18.1.2
++                    if "18.1.2" in art or (178 <= page <= 185):
++                        rrf_scores[pid] *= 1.40
++
++                        # Fine-grained page affinity for substantive rules
++                        if (is_pocket_pistol or is_cross_grip or is_bending_or_blocking) and page == 178:
++                            rrf_scores[pid] += 0.25
++                        elif is_under_belt and page == 179:
++                            rrf_scores[pid] += 0.25
++                        elif is_leg_grabbing and page in (179, 180, 183):
++                            rrf_scores[pid] += 0.18
++                        elif (is_breaking_grips or is_inside_sleeve_or_trouser or is_interlocking) and page == 180:
++                            rrf_scores[pid] += 0.25
+ 
+@@ -1299,7 +1315,9 @@
+                     p_art = str(p.get("article_id", "")).lower()
+-                    if p_art in f1_to_sec2:
+-                        for sub_pid in f1_to_sec2[p_art]:
+-                            if sub_pid in self.passages_by_id:
+-                                # Substantive rule gets high score to accompany the visual template
+-                                rrf_scores[sub_pid] = rrf_scores.get(sub_pid, 0.0) + 0.08
++                    if not _ABL.get("F1_SEC2"):
++                        if p_art in f1_to_sec2:
++                            _FIRED.add("F1_SEC2")
++                            for sub_pid in f1_to_sec2[p_art]:
++                                if sub_pid in self.passages_by_id:
++                                    # Substantive rule gets high score to accompany the visual template
++                                    rrf_scores[sub_pid] = rrf_scores.get(sub_pid, 0.0) + 0.08
+ 
+@@ -1337,6 +1355,8 @@
+             is_lateral_scoring = any(w in clean_q for w in ["costado", "perpendicular", "lateral", "90"]) and any(w in clean_q for w in ["puntuacion", "puntuación", "score", "valoracion", "valora", "cae", "caida"])
+-            if is_lateral_scoring:
+-                for pid in ("SOR-2026-08-P168-S188", "SOR-2026-08-P169-S188"):
+-                    if pid in self.passages_by_id:
+-                        rrf_scores[pid] = rrf_scores.get(pid, 0.0) + 0.12
++            if not _ABL.get("LATERAL"):
++                if is_lateral_scoring:
++                    _FIRED.add("LATERAL")
++                    for pid in ("SOR-2026-08-P168-S188", "SOR-2026-08-P169-S188"):
++                        if pid in self.passages_by_id:
++                            rrf_scores[pid] = rrf_scores.get(pid, 0.0) + 0.12
+ 
