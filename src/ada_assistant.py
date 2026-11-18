@@ -30,7 +30,54 @@ from response_structurer import (
     build_deterministic_structured_answer
 )
 from normative_validator import NormativeValidator
-from decision_integrity import DecisionIntegrityGate
+from decision_integrity import DecisionIntegrityGate, parse_answer as _parse_answer
+
+# Contrato JSON de la llamada de analisis (claves y tipos). Lo usa la validacion de LLM_JSON_SCHEMA=1.
+CONTRACT_STR_KEYS = ("summary", "normative_basis", "conditions_and_exceptions", "extended_analysis",
+                     "limitations", "answerability")
+CONTRACT_LIST_KEYS = ("citations", "evidence_quotes", "evidence_conflicts")
+
+
+def contract_problems(text):
+    """Lista de incumplimientos de FORMATO del contrato (vacia si es valido). No juzga el contenido."""
+    obj = _parse_answer(text)
+    if not isinstance(obj, dict):
+        return ["json_invalido"]
+    probs = [f"falta:{k}" for k in CONTRACT_STR_KEYS + CONTRACT_LIST_KEYS if k not in obj]
+    probs += [f"tipo:{k}" for k in CONTRACT_STR_KEYS if k in obj and not isinstance(obj[k], str)]
+    probs += [f"tipo:{k}" for k in CONTRACT_LIST_KEYS if k in obj and not isinstance(obj[k], list)]
+    for i, q in enumerate(obj.get("evidence_quotes") or []):
+        if not isinstance(q, dict) or not all(isinstance(q.get(f), str) for f in ("passage_id", "quote")):
+            probs.append(f"cita_mal_formada:{i}")
+    return probs
+# Respuesta unica y validacion integral (ADA_UNIFIED_ANSWER=1). Reglas que la poda de frases accesorias puede
+# resolver: solo cifras o terminos sin respaldo literal; cualquier otro fallo del DIG mantiene la abstencion.
+PRUNABLE_CHECKS = {"DIG-06_CIFRAS_RESPALDADAS", "DIG-07_TERMINOS_RESPALDADOS"}
+VISIBLE_FIELDS = ("summary", "normative_basis", "conditions_and_exceptions", "extended_analysis", "limitations")
+PRUNE_NOTE = {
+    "es": "Se omitió de esta respuesta información complementaria que no pudo verificarse literalmente en los pasajes del SOR citados.",
+    "en": "Supplementary information that could not be verified literally in the cited SOR passages was omitted from this answer.",
+}
+CLARIFY_TEXT = {
+    "es": ("La consulta admite interpretaciones con respuestas normativas distintas. Precise la consulta "
+           "(por ejemplo, la competición, la categoría o la situación concreta) para obtener un dictamen fundamentado."),
+    "en": ("The query admits interpretations with different normative answers. Please specify it "
+           "(for example, the event, the category or the specific situation) to obtain a grounded ruling."),
+}
+_LINKED_ID = re.compile(r"\[((?:SOR|KUN|CHK)-[^\]\s]+)\]\([^)]*\)")
+_STRUCK_ID = re.compile(r"~~\[((?:SOR|KUN|CHK)-[^\]\s]+)\]~~")
+
+
+def visible_text_for_validation(text, system_notes=()):
+    """Texto visible tal como lo vera el usuario, devuelto a la forma que verifica el DIG: los enlaces de cita
+    que anade format_citations vuelven a [ID] y se retiran las notas generadas por el sistema (no por el modelo)."""
+    t = _STRUCK_ID.sub(r"[\1]", _LINKED_ID.sub(r"[\1]", text or ""))
+    for note in system_notes:
+        if note:
+            t = t.replace(note, " ")
+    return re.sub(r"[ \t]+\n", "\n", t).strip()
+
+
 try:
     from src.document_validator import DocumentValidator
     from src.document_governance import (
@@ -93,8 +140,83 @@ class ArbitrationDecisionAssistant:
         Con LLM_JSON_MODE=1 (desactivado por defecto) la llamada de ANALISIS -la que lleva el contrato
         JSON con "evidence_quotes"- pide al proveedor salida JSON garantizada; la traduccion no cambia."""
         if os.environ.get("LLM_JSON_MODE", "").strip() == "1" and '"evidence_quotes"' in (prompt or ""):
-            return self.llm_manager.generate_with_fallback(prompt, json_mode=True)
+            if os.environ.get("LLM_JSON_SCHEMA", "").strip() != "1":
+                return self.llm_manager.generate_with_fallback(prompt, json_mode=True)
+            # LLM_JSON_SCHEMA=1: esquema estructurado obligatorio (Gemini) + validacion del contrato y
+            # UN reintento controlado si la respuesta no es JSON valido o no cumple el contrato. El DIG
+            # evalua despues la respuesta igual que siempre; esto no relaja ningun control.
+            text, meta = self.llm_manager.generate_with_fallback(prompt, json_mode=True, json_schema=True)
+            problems = contract_problems(text) if text else ["sin_texto"]
+            attempts = [{"provider": (meta or {}).get("successful_provider"), "problems": problems}]
+            all_metas = [meta or {}]
+            if text and problems:
+                text2, meta2 = self.llm_manager.generate_with_fallback(prompt, json_mode=True, json_schema=True)
+                problems2 = contract_problems(text2) if text2 else ["sin_texto"]
+                attempts.append({"provider": (meta2 or {}).get("successful_provider"), "problems": problems2})
+                all_metas.append(meta2 or {})
+                if text2:
+                    text, meta = text2, meta2
+            meta = dict(meta or {})
+            meta["json_contract"] = {"attempts": attempts, "valid": not attempts[-1]["problems"]}
+            if len(all_metas) > 1:
+                # Consumo real: el reintento tambien se factura; se suman los tokens de TODOS los intentos.
+                usage = {}
+                for m in all_metas:
+                    for k, v in (m.get("token_usage") or {}).items():
+                        usage[k] = usage.get(k, 0) + (v or 0)
+                meta["attempts_token_usage"] = [m.get("token_usage") for m in all_metas]
+                meta["token_usage"] = usage
+                meta["model_versions"] = [m.get("model_version") for m in all_metas]
+            return text, meta
         return self.llm_manager.generate_with_fallback(prompt)
+
+    @staticmethod
+    def _contract_texts(unified: bool) -> dict:
+        """Textos del contrato de respuesta. unified=False devuelve los textos ANTERIORES sin cambios (respuesta en
+        dos niveles); unified=True (ADA_UNIFIED_ANSWER=1) el contrato de respuesta unica, completa y verificada."""
+        if not unified:
+            return {
+                'title': "CONTRATO OBLIGATORIO DE RESPUESTA EN DOS NIVELES:\n",
+                'summary': '  "summary": "Nivel 1: RESPUESTA DIRECTA Y OPERATIVA, concisa y proporcional a la consulta. Debe responder de inmediato qué establece la norma, especificando cifras exactas, límites, tolerancias, sanciones o decisiones según corresponda y su referencia normativa rectora ([Regla X / Art. Y / Pág. Z]). PROHIBIDO iniciar con introducciones, saludos o frases meta como \'A continuación se expone el razonamiento\', \'El análisis arbitral determina\', \'En este documento\'. La primera palabra debe ser la respuesta concreta.",\n',
+                'normative_basis': '  "normative_basis": "Nivel 2: Artículos, reglas y apartados aplicables con citas exactas de los identificadores entre corchetes [SOR-2026-08-Pxxx-Sxxx] y números de página.",\n',
+                'conditions': '  "conditions_and_exceptions": "Condiciones específicas, excepciones reglamentarias, restricciones por categoría (ej. cadetes/juniors) y notas técnicas. Si la consulta es simple o fáctica y no existen excepciones reglamentarias aplicables, responde exactamente: \\"No aplica\\".",\n',
+                'extended': '  "extended_analysis": "Explicación detallada de cómo se aplica la norma al caso planteado, procedimiento arbitral paso a paso y aplicación práctica. Para preguntas fácticas directas (ej. duración del combate, dimensiones del tatami), responde exactamente: \\"No aplica\\".",\n',
+                'limitations': '  "limitations": "Límites de la evidencia disponible y aspectos no expresamente contemplados en los extractos adjuntos. Si el texto normativo primario certificado responde de manera completa, indubitable y autosuficiente a la consulta, responde exactamente: \\"Ninguna\\".",\n',
+                'answerability': '  "answerability": "RESPALDADA si los pasajes SOR certificados responden la consulta; EVIDENCIA_INSUFICIENTE en caso contrario (entonces no formules dictamen).",\n',
+                'rule7': "7. Enfoque Directo en Consulta Simple: Si la consulta es concreta y unívoca, entrega una respuesta inmediata, concisa y operativa en Nivel 1 (summary), respaldada por su referencia rectora y proporcional a la consulta.\n",
+                'rule10_spec': "   - Especificaciones Técnicas (equipamiento, judogi, medidas, tiempos): Responde primero la especificación concreta consultada tal como figura en los pasajes certificados, con su cita. Segrega los requisitos conexos en 'conditions_and_exceptions' o 'extended_analysis' sin mezclarlos con la especificación consultada.\n",
+                'rule13': "13. Respaldo Literal Verificable: Cada pasaje SOR citado debe tener en 'evidence_quotes' al menos un fragmento copiado LITERALMENTE de ese pasaje. Toda cifra, plazo, medida o sanción de 'summary', 'normative_basis' o 'conditions_and_exceptions' debe aparecer en esos fragmentos. Si el fragmento citado tiene cerca una excepción o condición (except, unless, however, although, only...) o una remisión a otro artículo, cita también esa excepción literalmente. Nunca cites texto de los bloques [COMPLEMENTO-n] como respaldo. Si no puedes respaldar literalmente la respuesta con los pasajes certificados, usa answerability = EVIDENCIA_INSUFICIENTE.\n",
+            }
+        return {
+            'title': "CONTRATO OBLIGATORIO DE RESPUESTA ÚNICA Y COMPLETA (todo lo que escribas se muestra al usuario en una sola respuesta y se verifica contra tus citas literales; no habrá ampliación posterior):\n",
+            'summary': '  "summary": "RESPUESTA DIRECTA Y COMPLETA a la consulta, proporcional a su complejidad. La primera frase responde concretamente (cifras exactas, límites, tolerancias, sanciones o decisiones) con su referencia [SOR-2026-08-Pxxx-Sxxx]. Si la consulta tiene varias partes, respóndelas todas. Si la consulta no es un dato simple, termina con una conclusión breve. PROHIBIDO iniciar con introducciones, saludos o frases meta.",\n',
+            'normative_basis': '  "normative_basis": "Regla normativa aplicable: artículos y apartados que fundamentan la respuesta, con sus identificadores entre corchetes [SOR-2026-08-Pxxx-Sxxx] y números de página.",\n',
+            'conditions': '  "conditions_and_exceptions": "SOLO condiciones, requisitos, excepciones o diferencias entre categorías o modalidades que CAMBIAN la respuesta a esta consulta, cada una con su identificador [SOR-...] y con su fragmento literal en evidence_quotes. No incluyas requisitos conexos, notas técnicas ni datos que no se hayan preguntado. Si no existen, responde exactamente: \\"No aplica\\".",\n',
+            'extended': '  "extended_analysis": "Solo si la consulta plantea un caso, una situación o un procedimiento: aplicación de la norma al caso, escenarios y consecuencias normativas, sin cifras ni datos que no figuren en tus citas literales; identifica toda interpretación con \\"Interpretación normativa:\\". Para preguntas fácticas directas responde exactamente: \\"No aplica\\".",\n',
+            'limitations': '  "limitations": "Lo que los pasajes certificados no determinan y que sea relevante para la consulta (evidencia parcial, aspectos no regulados expresamente). Si los pasajes responden de manera completa e indubitable, responde exactamente: \\"Ninguna\\".",\n',
+            'answerability': '  "answerability": "RESPALDADA si los pasajes SOR certificados responden la consulta; REQUIERE_ACLARACION si la consulta admite interpretaciones con respuestas normativas distintas y no puede responderse responsablemente sin precisarla; en particular, si la consulta NO indica la modalidad, el tipo de evento, la categoría o la situación y los pasajes contienen reglas DISTINTAS para distintas modalidades, eventos, categorías o situaciones (entonces escribe en summary SOLO la pregunta de aclaración con las alternativas posibles, sin cifras ni reglas); EVIDENCIA_INSUFICIENTE en caso contrario (entonces no formules dictamen).",\n',
+            'rule7': "7. Respuesta Única, Completa y Proporcional: Entrega en esta única respuesta todo lo necesario para resolver la consulta (respuesta directa, regla aplicable y, solo si son pertinentes, condiciones, excepciones, diferencias entre categorías y consecuencias). No habrá ampliación posterior. No añadas información complementaria que no ayude a responder; una consulta concreta recibe una respuesta concreta.\n",
+            'rule10_spec': "   - Especificaciones Técnicas (equipamiento, judogi, medidas, tiempos): Responde la especificación concreta consultada tal como figura en los pasajes certificados, con su cita. No añadas requisitos conexos que no se hayan preguntado.\n",
+            'rule13': "13. Respaldo Literal Verificable: Cada pasaje SOR citado debe tener en 'evidence_quotes' al menos un fragmento copiado LITERALMENTE de ese pasaje. Toda cifra, plazo, medida, sanción, condición o excepción de CUALQUIER campo de texto ('summary', 'normative_basis', 'conditions_and_exceptions', 'extended_analysis' y 'limitations') debe aparecer en esos fragmentos; si no puedes citarla literalmente, no la escribas. Si el fragmento citado tiene cerca una excepción o condición (except, unless, however, although, only...) o una remisión a otro artículo, cita también esa excepción literalmente. Nunca cites texto de los bloques [COMPLEMENTO-n] como respaldo. Si no puedes respaldar literalmente la respuesta con los pasajes certificados, usa answerability = EVIDENCIA_INSUFICIENTE. Ausencias: no afirmes que el SOR «no establece», «no especifica» o «no regula» algo; si los pasajes entregados no lo contienen, indícalo solo en 'limitations' como «los pasajes entregados no contienen…». No generalices una regla de un evento, modalidad o categoría a otros.\n",
+        }
+
+    @staticmethod
+    def _rigor_rule() -> str:
+        """Regla 14 del prompt (ADA_PROMPT_RIGOR=1; desactivada por defecto). Generica: no menciona
+        consultas, articulos ni casos concretos."""
+        if os.environ.get("ADA_PROMPT_RIGOR", "").strip() != "1":
+            return ""
+        return (
+            "14. Correspondencia Estricta entre Afirmaciones y Citas: "
+            "(a) Toda cifra (números, plazos, medidas, edades, rangos o cantidades) que escribas en 'summary', "
+            "'normative_basis' o 'conditions_and_exceptions' debe figurar textualmente en al menos uno de tus "
+            "'evidence_quotes'; si no puedes citarla literalmente, no la escribas. "
+            "(b) Toda excepción, condición, salvedad o restricción normativa que menciones debe tener su propia cita "
+            "literal en 'evidence_quotes'; si no puedes citarla, no la menciones. "
+            "(c) No agregues datos, condiciones, categorías ni interpretaciones que no estén en los pasajes que citas. "
+            "(d) Cada elemento de 'evidence_quotes' debe respaldar específicamente la afirmación indicada en su campo "
+            "'supports'; no uses una cita para respaldar una afirmación distinta de la que contiene.\n"
+        )
 
     def _translate_to_technical_english(self, query: str) -> str:
         """
@@ -132,12 +254,22 @@ class ArbitrationDecisionAssistant:
         tokens = set(re.findall(r"\b[a-zA-Záéíóúüñ]{2,}\b", q_lower))
         has_spanish_keywords = bool(tokens & spanish_keywords)
 
-        if not has_spanish_chars and not has_spanish_keywords:
+        # R2 (auditoria de trazabilidad; ADA_TRANSLATE_ANY_LANG=1, desactivado por defecto): toda consulta que no
+        # este en ingles se traduce (portugues, frances...), no solo la espanola, y la traduccion debe ser fiel.
+        any_lang = os.environ.get("ADA_TRANSLATE_ANY_LANG", "").strip() == "1"
+        if any_lang:
+            from decision_integrity import query_language as _qlang
+            if _qlang(q_clean) == "en" and not has_spanish_chars:
+                return q_clean
+        elif not has_spanish_chars and not has_spanish_keywords:
             return q_clean
 
         prompt = (
             "You are an expert official IJF (International Judo Federation) translator and terminology specialist.\n"
-            "Translate the following judo inquiry from Spanish into concise, precise technical English for retrieval against the official IJF Sport and Organisation Rules (SOR 2026).\n"
+            + ("Translate the following judo inquiry from its original language (Spanish, Portuguese, French or any other) into concise, precise technical English for retrieval against the official IJF Sport and Organisation Rules (SOR 2026).\n"
+               if any_lang else
+               "Translate the following judo inquiry from Spanish into concise, precise technical English for retrieval against the official IJF Sport and Organisation Rules (SOR 2026).\n")
+            +
             "CRITICAL RULES:\n"
             "1. Strictly preserve all official Japanese judo terminology exactly as spelled (e.g. Ippon, Waza-ari, Shido, Hansoku-make, Osaekomi, Tori, Uke, Tatami, Matte, Hajime, Shime-waza, Kansetsu-waza, Toketa, Seoi-nage, Reverse seoi-nage, etc.).\n"
             "2. Map colloquial, descriptive, or informal actions to official IJF SOR normative phrases:\n"
@@ -154,7 +286,11 @@ class ArbitrationDecisionAssistant:
             "   - tiempo de tolerancia / presentarse en el tatami / comparecer / incomparecencia -> failure to appear\n"
             "   - disciplinario / comite disciplinario -> IJF Disciplinary Committee Disciplinary Code sports integrity betting sanctions\n"
             "3. Translate terminology only: do NOT add penalties, scores, outcomes, article numbers or numeric values that are not present in the user query.\n"
-            "4. Output ONLY the translated technical English query without any explanation, markdown formatting, quotes, or trailing notes.\n\n"
+            "4. Output ONLY the translated technical English query without any explanation, markdown formatting, quotes, or trailing notes.\n"
+            + ("5. Faithful translation: apart from the mappings in rule 2, do not add words or concepts that are not in the query "
+               "(no other sports, systems, bodies, procedures or judo topics). If the query is not about judo, translate it literally.\n"
+               if any_lang else "")
+            + "\n"
             f"Query to translate: {q_clean}\n"
             "English translation:"
         )
@@ -481,6 +617,9 @@ class ArbitrationDecisionAssistant:
 
         full_context = "\n\n---\n\n".join(context_blocks)
 
+        import decision_integrity as _dig_mod
+        unified = bool(_dig_mod.FIX_ALL_VISIBLE_FIELDS)
+        T = self._contract_texts(unified)
         prompt = (
             "Eres el Asistente de Decisión Arbitral (ADA) oficial de la Federación Internacional de Judo (IJF).\n"
             f"Edición normativa aplicable: {self.config['version_label']} (14 de agosto de 2026).\n\n"
@@ -492,16 +631,16 @@ class ArbitrationDecisionAssistant:
                 f"{supp_context}\n\n" if supp_context else ""
             )
             +
-            "CONTRATO OBLIGATORIO DE RESPUESTA EN DOS NIVELES:\n"
+            f"{T['title']}"
             "Debes responder estructuradamente devolviendo EXCLUSIVAMENTE un objeto JSON válido (sin texto antes ni después) con las siguientes claves:\n"
             "{\n"
-            '  "summary": "Nivel 1: RESPUESTA DIRECTA Y OPERATIVA, concisa y proporcional a la consulta. Debe responder de inmediato qué establece la norma, especificando cifras exactas, límites, tolerancias, sanciones o decisiones según corresponda y su referencia normativa rectora ([Regla X / Art. Y / Pág. Z]). PROHIBIDO iniciar con introducciones, saludos o frases meta como \'A continuación se expone el razonamiento\', \'El análisis arbitral determina\', \'En este documento\'. La primera palabra debe ser la respuesta concreta.",\n'
-            '  "normative_basis": "Nivel 2: Artículos, reglas y apartados aplicables con citas exactas de los identificadores entre corchetes [SOR-2026-08-Pxxx-Sxxx] y números de página.",\n'
+            f"{T['summary']}"
+            f"{T['normative_basis']}"
             '  "citations": ["Lista de identificadores citados, ej: SOR-2026-08-Pxxx-Sxxx"],\n'
-            '  "conditions_and_exceptions": "Condiciones específicas, excepciones reglamentarias, restricciones por categoría (ej. cadetes/juniors) y notas técnicas. Si la consulta es simple o fáctica y no existen excepciones reglamentarias aplicables, responde exactamente: \\"No aplica\\".",\n'
-            '  "extended_analysis": "Explicación detallada de cómo se aplica la norma al caso planteado, procedimiento arbitral paso a paso y aplicación práctica. Para preguntas fácticas directas (ej. duración del combate, dimensiones del tatami), responde exactamente: \\"No aplica\\".",\n'
-            '  "limitations": "Límites de la evidencia disponible y aspectos no expresamente contemplados en los extractos adjuntos. Si el texto normativo primario certificado responde de manera completa, indubitable y autosuficiente a la consulta, responde exactamente: \\"Ninguna\\".",\n'
-            '  "answerability": "RESPALDADA si los pasajes SOR certificados responden la consulta; EVIDENCIA_INSUFICIENTE en caso contrario (entonces no formules dictamen).",\n'
+            f"{T['conditions']}"
+            f"{T['extended']}"
+            f"{T['limitations']}"
+            f"{T['answerability']}"
             '  "evidence_quotes": [{"passage_id": "SOR-2026-08-Pxxx-Sxxx", "quote": "fragmento LITERAL copiado del pasaje SOR certificado que respalda una afirmación (mínimo 6 palabras)", "supports": "afirmación respaldada"}],\n'
             '  "evidence_conflicts": ["Contradicciones detectadas entre pasajes certificados; lista vacía si no hay"]\n'
             "}\n\n"
@@ -515,16 +654,17 @@ class ArbitrationDecisionAssistant:
             "4. Prohibición de Extrapolación Automática: PROHIBIDO extrapolar sanciones, restricciones, tolerancias o autorizaciones entre categorías de edad (ej. cadetes vs. juniors/séniors), roles (tori vs. uke) o circunstancias de combate, a menos que el texto oficial lo ordene expresamente.\n"
             "5. No Asunción de Hechos: No asumas hechos, intenciones ni datos fácticos que el usuario no haya especificado en su consulta.\n"
             "6. Análisis Diferenciado por Escenarios: Si la situación fáctica consultada admite ramificaciones o consecuencias reglamentarias distintas según variables determinantes (acción técnica deliberada vs. accidental/fortuita; rol atacante tori vs. defensor uke; categoría cadete vs. adulto; área de combate vs. seguridad), analiza separadamente cada escenario relevante en 'summary' y 'extended_analysis' ('Escenario A: ..., Escenario B: ...').\n"
-            "7. Enfoque Directo en Consulta Simple: Si la consulta es concreta y unívoca, entrega una respuesta inmediata, concisa y operativa en Nivel 1 (summary), respaldada por su referencia rectora y proporcional a la consulta.\n"
+            f"{T['rule7']}"
             "8. Tratamiento de Ambigüedad Normativa o Fáctica: Si la norma no determina unívocamente la solución o la consulta carece de datos fácticos determinantes, expón las disposiciones aplicables, reconoce lo que el texto no determina e indica qué precisiones de hecho se requieren para emitir una resolución definitiva.\n"
             "9. Transparencia sobre Evidencia Insuficiente: Si los pasajes certificados no contienen la respuesta o resultan insuficientes para confirmar una regla, declara con total franqueza la limitación en 'summary' y 'limitations', sin formular dictámenes categóricos infundados.\n"
             "10. Criterios Generales de Presentación (no constituyen fuente normativa):\n"
-            "   - Especificaciones Técnicas (equipamiento, judogi, medidas, tiempos): Responde primero la especificación concreta consultada tal como figura en los pasajes certificados, con su cita. Segrega los requisitos conexos en 'conditions_and_exceptions' o 'extended_analysis' sin mezclarlos con la especificación consultada.\n"
+            f"{T['rule10_spec']}"
             "   - Reglas Generales y Reglas Especiales: Si los pasajes certificados contienen una regla general y otra especial (por categoría de edad, rol tori/uke u otra circunstancia), expón cada una con su propia cita y su ámbito de aplicación, sin equipararlas ni extender una al ámbito de la otra.\n"
             "   - Fidelidad Textual: No agregues condiciones geométricas, temporales, de observación ni consecuencias que el texto certificado no establezca. Si los pasajes no resuelven la consulta, aplica la política 9.\n"
             "   - Diagramas y Cuadros: Si la consulta refiere a una plantilla de diagrama/cuadro (págs. 213-230), explica las reglas sustantivas de sorteo aplicables e indica que la geometría espacial debe consultarse en el PDF oficial.\n"
             "11. Contexto Complementario No Decisorio: Los bloques [COMPLEMENTO-n] solo pueden aclarar terminología o contexto de aplicación. No son norma: no fundamentan la conclusión, no se incluyen en 'citations' ni en 'normative_basis' y no se presentan como fuente de una regla. Toda conclusión debe apoyarse en pasajes SOR primarios citados por su identificador. Si un complemento contradice o excede el texto SOR, prevalece el SOR.\n"
-            "13. Respaldo Literal Verificable: Cada pasaje SOR citado debe tener en 'evidence_quotes' al menos un fragmento copiado LITERALMENTE de ese pasaje. Toda cifra, plazo, medida o sanción de 'summary', 'normative_basis' o 'conditions_and_exceptions' debe aparecer en esos fragmentos. Si el fragmento citado tiene cerca una excepción o condición (except, unless, however, although, only...) o una remisión a otro artículo, cita también esa excepción literalmente. Nunca cites texto de los bloques [COMPLEMENTO-n] como respaldo. Si no puedes respaldar literalmente la respuesta con los pasajes certificados, usa answerability = EVIDENCIA_INSUFICIENTE.\n"
+            f"{T['rule13']}"
+            f"{self._rigor_rule()}"
             "12. Language Policy: Detect the language of the user query and requested output language. "
             + ("Write the entire JSON response (summary, normative_basis, conditions_and_exceptions, extended_analysis, limitations) in fluent, precise ENGLISH using official IJF terminology (e.g. 'Hansoku-make', 'Osaekomi', 'Shido', 'Direct Hansoku-make', 'Contest Area', 'Safety Area').\n\n" if language == "en" else "Write the entire JSON response in clear, rigorous SPANISH using official IJF terminology, unless the user query explicitly demands another language.\n\n" if language == "es" else "If the query is in English, write the entire JSON response in fluent, precise ENGLISH using official IJF terminology. If the query is in Spanish, write the response in SPANISH.\n\n")
             + f"Consulta del usuario / User query: {situation_query}\n"
@@ -554,6 +694,45 @@ class ArbitrationDecisionAssistant:
             "analysis_tokens": main_usage
         }
         llm_meta["token_usage"] = query_token_usage
+        lang_key = "en" if language == "en" else "es"
+
+        def _result(status, mode_label, analysis, structured_dict, dig):
+            return {
+                "status": status, "query": situation_query, "mode": mode_label, "analysis": analysis,
+                "structured_answer": structured_dict, "evidence": evidence, "related_passages": related,
+                "engine": "ADA-RRE-v2", "rre_operating_mode": retrieval_res.get("operating_mode", "UNKNOWN"),
+                "degradation_reason": retrieval_res.get("degradation_reason"),
+                "source_sha256_verified": retrieval_res.get("source_sha256_verified", False),
+                "certified_bundle": certified_bundle.model_dump(), "llm_meta": llm_meta,
+                "token_usage": query_token_usage, "supplementary_context": supplementary_context,
+                "decision_integrity": dig,
+            }
+
+        def _unified_abstention(reason_text, dig):
+            msg = (f"⚠️ **Abstención Normativa Oficial ({self.config['version_label']})**\n\n{reason_text}\n\n"
+                   "*Los pasajes certificados recuperados se conservan solo como referencia de consulta; no constituyen dictamen.*")
+            return _result("ABSTAIN", "Abstención (validación integral del contenido visible)", msg, {
+                "summary": msg, "normative_basis": "", "citations": [], "conditions_and_exceptions": "",
+                "extended_analysis": "", "limitations": reason_text, "is_structured": True,
+                "answer_mode": "UNIFIED", "response_status": "ABSTAIN"}, dig)
+
+        # Respuesta unica: solicitud de aclaracion declarada por el modelo (no es un dictamen). Solo se muestra su
+        # texto si no afirma cifras ni terminos ajenos a la consulta o a sus citas literales; si no, texto generico.
+        if unified and llm_answer:
+            _obj = _parse_answer(llm_answer)
+            if isinstance(_obj, dict) and str(_obj.get("answerability", "")).strip().upper() == "REQUIERE_ACLARACION":
+                delivered_map = {p.get("passage_id"): p for p in [*evidence, *related] if p.get("passage_id")}
+                ok, why = self._decision_integrity_gate().verify_clarification(
+                    llm_answer, situation_query, search_query_en, delivered_map)
+                text = str(_obj.get("summary") or "").strip() if ok else ""
+                text = text or CLARIFY_TEXT[lang_key]
+                clar = {"decision": "SOLICITAR_ACLARACION", "verified_text": ok, "detail": why,
+                        "version": _dig_mod.dig_version()}
+                return _result("CLARIFICATION_REQUIRED", "Solicitud de aclaración (consulta con interpretaciones normativas distintas)",
+                               text, {"summary": text, "normative_basis": "", "citations": [],
+                                      "conditions_and_exceptions": "", "extended_analysis": "",
+                                      "limitations": CLARIFY_TEXT[lang_key], "is_structured": True,
+                                      "answer_mode": "UNIFIED", "response_status": "CLARIFICATION_REQUIRED"}, clar)
 
         citations_valid = self._validate_llm_citations(llm_answer, evidence, related)
 
@@ -561,6 +740,8 @@ class ArbitrationDecisionAssistant:
         # pertinencia (B), suficiencia (C) ni respaldo efectivo (D). DIG aplica controles genericos y
         # conservadores; si alguno falla se abstiene. Nunca certifica entailment (D = NO_VERIFICADO).
         decision_integrity = None
+        pruning_info = None
+        _dig_eval = None
         if llm_answer and citations_valid:
             import decision_integrity as _dig
             extra = {}
@@ -570,12 +751,27 @@ class ArbitrationDecisionAssistant:
                 if supp_context:
                     instr = instr.replace(supp_context, " ")
                 extra["instruction_text"] = instr
-            decision_integrity = self._decision_integrity_gate().evaluate(
-                llm_answer, situation_query, search_query_en, evidence, related,
-                # Titles are delivered to the model too, so they are part of the SHADOW footprint.
-                supplementary_texts=[f"{s.get('title') or ''} {s.get('content_text') or s.get('text') or ''}" for s in supp_results],
-                **extra,
-            )
+            # Titles are delivered to the model too, so they are part of the SHADOW footprint.
+            supp_texts = [f"{s.get('title') or ''} {s.get('content_text') or s.get('text') or ''}" for s in supp_results]
+
+            def _dig_eval(answer_text):
+                return self._decision_integrity_gate().evaluate(
+                    answer_text, situation_query, search_query_en, evidence, related,
+                    supplementary_texts=supp_texts, **extra)
+
+            decision_integrity = _dig_eval(llm_answer)
+            # Respuesta unica: si el DIG solo rechaza cifras o terminos sin respaldo, se retiran las frases
+            # ACCESORIAS que los contienen (nunca summary ni normative_basis) y la respuesta resultante se evalua
+            # de nuevo con TODOS los controles. Si no supera la nueva evaluacion, se mantiene la abstencion.
+            failed0 = set(decision_integrity.get("failed_checks") or [])
+            if unified and decision_integrity.get("decision") != "PERMITIR" and failed0 and failed0 <= PRUNABLE_CHECKS:
+                cand, removed = self._decision_integrity_gate().prune_unsupported(llm_answer, situation_query, search_query_en)
+                if removed and self._validate_llm_citations(cand, evidence, related):
+                    re_dig = _dig_eval(cand)
+                    if re_dig.get("decision") == "PERMITIR":
+                        pruning_info = {"initial_failed_checks": sorted(failed0), "removed": removed}
+                        llm_answer = cand
+                        decision_integrity = dict(re_dig, pruning=pruning_info)
 
         # Build citation passage data for resolution
         all_passages_data = []
@@ -637,6 +833,7 @@ class ArbitrationDecisionAssistant:
                     "extended_analysis": "",
                     "limitations": reason_text,
                     "is_structured": True,
+                    **({"answer_mode": "UNIFIED", "response_status": "ABSTAIN"} if unified else {}),
                 },
                 "evidence": evidence,
                 "related_passages": related,
@@ -665,7 +862,13 @@ class ArbitrationDecisionAssistant:
 
         # Rigor Normativo: Validar afirmaciones, códigos de penalización y artículos contra evidencia oficial
         validator = NormativeValidator(evidence_passages=evidence, related_passages=related)
+        limitations_before_sanitize = structured.limitations
         structured = validator.sanitize_structured_answer(structured)
+        sanitizer_fired = structured.limitations != limitations_before_sanitize
+        prune_note = PRUNE_NOTE[lang_key] if (unified and pruning_info) else ""
+        if prune_note:
+            lim = (structured.limitations or "").strip()
+            structured.limitations = prune_note if lim.lower().rstrip(".") in ("", "ninguna", "none") else f"{lim}\n\n{prune_note}"
 
         # Build rich citation objects map for interactive PDF viewer and highlighting
         rich_citations_map = {}
@@ -732,15 +935,39 @@ class ArbitrationDecisionAssistant:
         structured.extended_analysis = format_citations(structured.extended_analysis, all_passages_data)
         structured.limitations = format_citations(structured.limitations, all_passages_data)
 
+        # Respuesta unica: validacion FINAL sobre el contenido que vera el usuario, despues de todas las
+        # transformaciones (sanitizador normativo, nota de poda y formateo de citas). Se vuelve a ejecutar el DIG
+        # completo sobre los campos visibles; si el sanitizador tuvo que neutralizar algo, no se emite dictamen.
+        if unified:
+            if sanitizer_fired:
+                return _unified_abstention(
+                    "La respuesta generada contenía referencias o afirmaciones que el control normativo no pudo "
+                    "certificar con los pasajes SOR entregados; no se emite dictamen.",
+                    dict(decision_integrity or {}, final_visible_check={"decision": "ABSTENER", "reason": "sanitizador_normativo"}))
+            final_obj = dict(_parse_answer(llm_answer) or {})
+            for k in VISIBLE_FIELDS:
+                final_obj[k] = visible_text_for_validation(getattr(structured, k, "") or "", system_notes=(prune_note,))
+            final_dig = _dig_eval(json.dumps(final_obj, ensure_ascii=False)) if _dig_eval else {"decision": "ABSTENER", "failed_checks": ["sin_dig"]}
+            decision_integrity = dict(decision_integrity or {}, final_visible_check={
+                "decision": final_dig.get("decision"), "failed_checks": final_dig.get("failed_checks", [])},
+                validated_answer=final_obj)
+            if final_dig.get("decision") != "PERMITIR":
+                return _unified_abstention(
+                    "El contenido final de la respuesta no superó la validación integral del control de integridad "
+                    f"decisoria ({', '.join(final_dig.get('failed_checks', []))}).", decision_integrity)
+
         # Build backward-compatible flat analysis text with Level 1 first, Level 2 details attached
         flat_analysis = structured.to_legacy_text(header=header)
 
+        structured_dict = structured.to_dict()
+        if unified:
+            structured_dict.update(answer_mode="UNIFIED", response_status="SUCCESS")
         return {
             "status": "SUCCESS",
             "query": situation_query,
             "mode": mode_label,
             "analysis": flat_analysis,
-            "structured_answer": structured.to_dict(),
+            "structured_answer": structured_dict,
             "evidence": evidence,
             "related_passages": related,
             "engine": "ADA-RRE-v2",

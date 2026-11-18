@@ -78,13 +78,45 @@ FIX_PERTINENCE_HEADING = _V3
 FIX_HYPHEN_TERMS = _V3
 FIX_DIG08_INSTRUCTIONS = _V3
 FIX_LINEBREAK_HYPHEN = _V3
+#   FIX_UNICODE_TYPO        Normalizacion: guiones tipograficos (U+2010/2011/2012/2013/2212...) = "-", espacios
+#                           finos = " ", invisibles (guion blando, ancho cero) omitidos. Igual en cita y pasaje.
+#   FIX_DIG08_CROSSLANG     DIG-08, solo en respuestas NO inglesas: una palabra no cuenta como huella SHADOW si
+#                           el MISMO concepto esta en la evidencia SOR primaria: su traduccion en el diccionario
+#                           ES->EN del proyecto (rre_engine.SPANISH_TO_ENGLISH_SYNONYMS) o su cognado ortografico
+#                           (mismo prefijo de 6 letras, y->i) figura en el texto primario entregado.
+FIX_UNICODE_TYPO = _V3
+FIX_DIG08_CROSSLANG = _V3
+# Respuesta unica y validacion integral (ADA_UNIFIED_ANSWER=1; desactivada por defecto). Cuando esta activa:
+#   - DIG-02, DIG-06, DIG-07 y DIG-08 verifican TODOS los campos visibles (tambien 'extended_analysis' y
+#     'limitations'); en 'limitations' una cifra puede proceder de la propia consulta (se describe que falta).
+#   - DIG-05, DIG-09 y DIG-11 NO cambian (DIG-05 sigue usando las citas de summary/normative_basis/citations).
+#   - prune_unsupported() retira frases accesorias sin respaldo literal y verify_clarification() controla la
+#     solicitud de aclaracion; ninguna de las dos decide por si sola: la respuesta podada se vuelve a evaluar.
+FIX_ALL_VISIBLE_FIELDS = os.environ.get("ADA_UNIFIED_ANSWER", "").strip() == "1"
+# R5a (auditoria de trazabilidad; DIG_11_SUBORDINATE=1, desactivado por defecto): DIG-11 solo rechaza cuando
+# ninguna cita es pertinente (DIG-05 fallido). Si una cita literal pertinente respalda la respuesta, que una palabra
+# de la PREGUNTA no figure en el SOR (sinonimo, variante morfologica) no invalida la respuesta.
+FIX_DIG11_SUBORDINATE = os.environ.get("DIG_11_SUBORDINATE", "").strip() == "1"
+# R5b (DIG06_REFS=1, desactivado por defecto): DIG-06 no cuenta como cifra afirmada (a) los numeros que forman parte
+# de una referencia documental (articulo, seccion, regla, apendice, pagina) ni (b) los identificadores de categoria
+# que el usuario escribio en su consulta (-66 kg, +100 kg, U18). Cualquier otra cifra sigue exigiendo cita literal.
+FIX_DIG06_REFS = os.environ.get("DIG06_REFS", "").strip() == "1"
+_REF_NUM = re.compile(
+    r"(?:\b(?:art(?:[ií]culo|icle)?s?|secci[oó]n(?:es)?|sections?|apartados?|reglas?|rules?|cap[ií]tulos?|chapters?|"
+    r"ap[eé]ndices?|appendix|appendices|p[aá]g(?:ina)?s?|pages?)\b\.?\s*|(?<![\w\-‐‑–])pp?\.\s*)"
+    r"[A-Z]?\d+(?:\.\d+)*\.?(?:\s*(?:-|–|y|and|,|/)\s*[A-Z]?\d+(?:\.\d+)*)*", re.IGNORECASE)
+_CATEGORY_ID = re.compile(r"(?:[-+]\s?\d+(?:[.,]\d+)?\s?kg\b|\bU\s?\d{2}\b)", re.IGNORECASE)
 
 
 def dig_version():
     v = DIG_BASE_VERSION + ("" if NUMBER_NORMALIZATION == "v1" else "+NUM-v2")
     fixes = [n for n, on in (("H", FIX_PERTINENCE_HEADING), ("G", FIX_HYPHEN_TERMS), ("I", FIX_DIG08_INSTRUCTIONS),
-                                          ("B", FIX_LINEBREAK_HYPHEN)) if on]
-    return v + ("+FIX-v3" + ("" if len(fixes) == 4 else "-" + "".join(fixes)) if fixes else "")
+                                          ("B", FIX_LINEBREAK_HYPHEN), ("U", FIX_UNICODE_TYPO),
+                                          ("X", FIX_DIG08_CROSSLANG)) if on]
+    v += ("+FIX-v3" + ("" if len(fixes) == 6 else "-" + "".join(fixes)) if fixes else "")
+    v += "+ALL" if FIX_ALL_VISIBLE_FIELDS else ""
+    v += "+D11S" if FIX_DIG11_SUBORDINATE else ""
+    return v + ("+D06R" if FIX_DIG06_REFS else "")
 
 
 DIG_VERSION = dig_version()
@@ -110,6 +142,13 @@ the of and in to is are for on by with at as from an or be it this that these th
 what when where which who how does do did has have had not no any all may must shall will its their there
 than then into out also such other only more most very being been was were""".split())
 CLAIM_FIELDS = ("summary", "normative_basis", "conditions_and_exceptions")
+# Campos visibles adicionales que solo se verifican con FIX_ALL_VISIBLE_FIELDS.
+EXTRA_CLAIM_FIELDS = ("extended_analysis",)
+LIMITATION_FIELD = "limitations"
+# Campos accesorios de los que se pueden retirar frases sin respaldo (nunca summary ni normative_basis).
+PRUNABLE_FIELDS = ("conditions_and_exceptions", "extended_analysis")
+NOT_APPLICABLE = {"no aplica", "no aplica.", "not applicable", "not applicable.", "n/a", "ninguna", "ninguna.",
+                  "none", "none.", ""}
 
 
 def strip_accents(s):
@@ -120,6 +159,25 @@ def _clean_char(c):
     return {"’": "'", "‘": "'", "“": '"', "”": '"', " ": " "}.get(c, c)
 
 
+# Correccion v3-U (FIX_UNICODE_TYPO): variantes tipograficas EQUIVALENTES de guiones y espacios. Solo
+# afecta a la comparacion (cita y pasaje se normalizan igual); el texto mostrado no cambia. No incluye la
+# raya (U+2014) ni signos con otro valor. Los invisibles (guion blando, espacios de ancho cero) se omiten.
+_TYPO_DASHES = {"\u2010", "\u2011", "\u2012", "\u2013", "\u2212", "\ufe63", "\uff0d"}
+_TYPO_SPACES = {"\u2007", "\u2009", "\u200a", "\u202f", "\u205f", "\u3000"}
+_TYPO_INVISIBLE = {"\u00ad", "\u200b", "\u200c", "\u200d", "\ufeff"}
+
+
+def _typo_char(c):
+    """'' = omitir; si no, el caracter equivalente."""
+    if c in _TYPO_INVISIBLE:
+        return ""
+    if c in _TYPO_DASHES:
+        return "-"
+    if c in _TYPO_SPACES:
+        return " "
+    return c
+
+
 def normalize_with_map(text):
     """Lowercase, typographic quotes -> ASCII, whitespace collapsed, 'N .N' -> 'N.N'.
     Returns (normalized, index_map) with index_map[i] = raw offset of normalized char i."""
@@ -128,6 +186,11 @@ def normalize_with_map(text):
     i = 0
     while i < n:
         c = _clean_char(text[i])
+        if FIX_UNICODE_TYPO:
+            c = _typo_char(c)
+            if c == "":
+                i += 1
+                continue
         if c.isspace():
             j = i
             while j < n and text[j].isspace():
@@ -228,6 +291,37 @@ _QUANTITY = re.compile(
     r"cu[aá]l\s+es\s+(?:el|la)\s+(?:\w+\s+){0,2}(?:n[uú]mero|importe|monto|edad|cantidad))\b", re.IGNORECASE)
 
 
+_ABBREV = {"pág", "pag", "p", "pp", "art", "arts", "no", "nº", "núm", "num", "ej", "e.g", "i.e", "etc", "vs", "cf",
+           "sr", "sra", "fig", "approx", "aprox"}  # sin unidades (cm, kg): suelen cerrar frase
+
+
+def prune_units(text):
+    """Frases completas para la poda: no corta dentro de [...] ni (...), ni tras abreviaturas (pág., Art.,
+    e.g.), ni entre cifras (1.5). Separa en '.', '!', '?' seguidos de espacio y en saltos de linea."""
+    units, buf, depth, i, n = [], [], 0, 0, len(text or "")
+    while i < n:
+        c = text[i]
+        buf.append(c)
+        if c in "[(":
+            depth += 1
+        elif c in "])":
+            depth = max(0, depth - 1)
+        elif c == "\n" and depth == 0:
+            if "".join(buf).strip():
+                units.append("".join(buf).strip())
+            buf = []
+        elif c in ".!?" and depth == 0 and (i + 1 >= n or text[i + 1].isspace()):
+            word = re.findall(r"[\w\.º]+$", "".join(buf[:-1]))
+            prev = (word[-1] if word else "").lower().rstrip(".")
+            if prev not in _ABBREV and not (c == "." and len(prev) == 1 and prev.isalpha()):
+                units.append("".join(buf).strip())
+                buf = []
+        i += 1
+    if "".join(buf).strip():
+        units.append("".join(buf).strip())
+    return units
+
+
 def query_language(query):
     w = re.findall(r"[a-záéíóúñ]+", (query or "").lower())
     return "en" if sum(x in _EN_FUNC for x in w) > sum(x in _ES_FUNC for x in w) else "es"
@@ -247,6 +341,38 @@ def parse_answer(answer):
         return obj if isinstance(obj, dict) else None
     except Exception:
         return None
+
+
+_ES_EN = None
+
+
+def _es_en_dictionary():
+    """Diccionario ES->EN del proyecto, leido del codigo fuente de rre_engine SIN importarlo (evita cargar
+    el modelo denso). Solo lectura; si no esta disponible se usa un diccionario vacio (solo cognados)."""
+    global _ES_EN
+    if _ES_EN is None:
+        _ES_EN = {}
+        try:
+            import ast
+            src = open(os.path.join(ROOT, "src", "rre_engine.py"), encoding="utf-8").read()
+            i = src.index("SPANISH_TO_ENGLISH_SYNONYMS = {")
+            j = src.index("}", i)
+            raw = ast.literal_eval(src[src.index("{", i):j + 1])
+            _ES_EN = {strip_accents(k.lower()): set(strip_accents(v.lower()).split()) for k, v in raw.items()}
+        except Exception:
+            _ES_EN = {}
+    return _ES_EN
+
+
+def concept_in_primary(word, prim_words):
+    """True si la evidencia SOR primaria contiene el mismo concepto que `word` (palabra no inglesa):
+    traduccion del diccionario del proyecto o cognado ortografico (prefijo comun de 6 letras, y->i)."""
+    if set(_es_en_dictionary().get(word, ())) & prim_words:
+        return True
+    if len(word) < 6:
+        return False
+    pre = word[:6]
+    return any(len(e) >= 6 and e.replace("y", "i")[:6] == pre for e in prim_words)
 
 
 class _UnitIndex:
@@ -453,8 +579,14 @@ class DecisionIntegrityGate:
         cited = set(SOR_ID.findall(json.dumps({k: obj.get(k) for k in ("summary", "normative_basis", "citations")}, ensure_ascii=False)))
         cited &= set(delivered)
         q_ids = {q.get("passage_id") for q in quotes if isinstance(q, dict)}
-        check("DIG-02_CITAS_CON_CITA_LITERAL", bool(cited) and cited <= q_ids,
-              f"citados={sorted(cited)} sin_cita_literal={sorted(cited - q_ids)}")
+        cited_visible = set(cited)
+        if FIX_ALL_VISIBLE_FIELDS:
+            # Todo pasaje mencionado en cualquier campo visible debe tener cita literal (DIG-05 no cambia: usa 'cited').
+            cited_visible |= set(SOR_ID.findall(json.dumps({k: obj.get(k) for k in (*EXTRA_CLAIM_FIELDS, LIMITATION_FIELD,
+                                                                                  "conditions_and_exceptions")},
+                                                           ensure_ascii=False))) & set(delivered)
+        check("DIG-02_CITAS_CON_CITA_LITERAL", bool(cited) and cited_visible <= q_ids,
+              f"citados={sorted(cited_visible)} sin_cita_literal={sorted(cited_visible - q_ids)}")
         supp_norm = [norm(s) for s in supplementary_texts if s]
         query_stems = content_stems(query) | content_stems(search_query_en or "")
         located, quote_texts, bad_literal, bad_shadow = [], [], [], []
@@ -485,17 +617,20 @@ class DecisionIntegrityGate:
         check("DIG-05_PERTINENCIA_MINIMA", bool(located) and not no_pert and any(pertinent_by_pid.get(pid) for pid in direct_ids),
               f"terminos_distintivos_consulta={sorted(self.distinctive_stems(query_stems))[:10]} pasajes_citados_sin_cita_pertinente={no_pert}; "
               "heuristica necesaria, no suficiente")
-        claims = " ".join(str(obj.get(k) or "") for k in CLAIM_FIELDS)
+        claims = " ".join(str(obj.get(k) or "") for k in self.claim_fields())
         quotes_join = " ".join(quote_texts)
-        nums_missing = sorted(numbers_in(claims) - numbers_in(quotes_join))
+        nums_missing = sorted(self.claim_numbers(claims, query) - numbers_in(quotes_join))
+        limitations = str(obj.get(LIMITATION_FIELD) or "") if FIX_ALL_VISIBLE_FIELDS else ""
+        if limitations:
+            nums_missing = sorted(set(nums_missing) | (self.claim_numbers(limitations, query) - numbers_in(quotes_join)
+                                                       - numbers_in(query + " " + (search_query_en or ""))))
         check("DIG-06_CIFRAS_RESPALDADAS", not nums_missing, f"cifras_sin_respaldo={nums_missing}")
-        q_terms = {t for t in re.findall(r"[a-z][a-z\-]{3,}", strip_accents(norm(quotes_join + " " + query + " " + (search_query_en or ""))))}
-        c_terms = {t for t in re.findall(r"[a-z][a-z\-]{3,}", strip_accents(norm(SOR_ID.sub(" ", claims))))}
-        if FIX_HYPHEN_TERMS:
-            q_terms |= {part for t in q_terms if "-" in t for part in t.split("-") if len(part) >= 4}
+        q_terms = self.support_terms(quotes_join, query, search_query_en)
+        c_terms = {t for t in re.findall(r"[a-z][a-z\-]{3,}", strip_accents(norm(SOR_ID.sub(" ", claims + " " + limitations))))}
         terms_missing = sorted(t for t in c_terms & self.distinctive if t not in q_terms)
         check("DIG-07_TERMINOS_RESPALDADOS", not terms_missing, f"terminos_sin_respaldo={terms_missing[:12]}")
-        all_answer = SOR_ID.sub(" ", " ".join(str(obj.get(k) or "") for k in (*CLAIM_FIELDS, "extended_analysis")))
+        all_answer = SOR_ID.sub(" ", " ".join(str(obj.get(k) or "") for k in (*CLAIM_FIELDS, "extended_analysis"))
+                                + (" " + limitations if limitations else ""))
         prim_text = " ".join(p.get("text_original") or "" for p in delivered.values())
         prim_words = set(re.findall(r"[a-z0-9][a-z0-9\-]{2,}", strip_accents(norm(prim_text))))
         qwords = set(re.findall(r"[a-z0-9][a-z0-9\-]{2,}", strip_accents(norm(query + " " + (search_query_en or "")))))
@@ -504,6 +639,8 @@ class DecisionIntegrityGate:
         instr_words = (set(re.findall(r"[a-z0-9][a-z0-9\-]{2,}", strip_accents(norm(instruction_text or ""))))
                        if FIX_DIG08_INSTRUCTIONS else set())
         leak = sorted(w for w in (ans_words & supp_words) - prim_words - qwords - STOP - instr_words)
+        if FIX_DIG08_CROSSLANG and query_language(all_answer) != "en":
+            leak = [w for w in leak if any(ch.isdigit() for ch in w) or not concept_in_primary(w, prim_words)]
         supp_join = " ".join(supplementary_texts or ())
         leak_nums = sorted((numbers_in(all_answer) & numbers_in(supp_join)) - numbers_in(prim_text)
                            - numbers_in(query + " " + (search_query_en or "")))
@@ -543,13 +680,112 @@ class DecisionIntegrityGate:
               f"referencias_citadas_no_entregadas={sorted(set(missing_refs))}")
         if self.n_pages and query_language(query) == "en":
             absent = sorted(s for s in content_stems(query) if self.stem_df.get(s, 0) == 0)
-            check("DIG-11_TERMINOS_DE_CONSULTA_EN_SOR", not absent, f"terminos_ausentes_del_SOR={absent}")
+            dig05_ok = next((c["passed"] for c in checks if c["code"] == "DIG-05_PERTINENCIA_MINIMA"), False)
+            if FIX_DIG11_SUBORDINATE and absent and dig05_ok:
+                check("DIG-11_TERMINOS_DE_CONSULTA_EN_SOR", True,
+                      f"no bloquea: hay cita pertinente (DIG-05 superado); terminos_ausentes_del_SOR={absent}")
+            else:
+                check("DIG-11_TERMINOS_DE_CONSULTA_EN_SOR", not absent, f"terminos_ausentes_del_SOR={absent}")
         else:
             check("DIG-11_TERMINOS_DE_CONSULTA_EN_SOR", True, "no evaluado (consulta no inglesa o sin corpus)")
         quantity = bool(_QUANTITY.search(query or ""))
         check("DIG-12_CIFRA_PARA_PREGUNTA_CUANTITATIVA", not quantity or bool(numbers_in(quotes_join)),
               f"pregunta_cuantitativa={quantity} cifras_en_citas={sorted(numbers_in(quotes_join))[:8]}")
         return self._result(checks)
+
+    @staticmethod
+    def claim_fields():
+        return CLAIM_FIELDS + (EXTRA_CLAIM_FIELDS if FIX_ALL_VISIBLE_FIELDS else ())
+
+    @staticmethod
+    def support_terms(quotes_join, query, search_query_en):
+        """Terminos que respaldan una afirmacion (DIG-07): los de las citas literales y los de la consulta."""
+        q_terms = {t for t in re.findall(r"[a-z][a-z\-]{3,}", strip_accents(norm(quotes_join + " " + query + " " + (search_query_en or ""))))}
+        if FIX_HYPHEN_TERMS:
+            q_terms |= {part for t in q_terms if "-" in t for part in t.split("-") if len(part) >= 4}
+        return q_terms
+
+    @staticmethod
+    def claim_numbers(text, query=""):
+        """Cifras que 'text' AFIRMA (DIG-06). Con FIX_DIG06_REFS se excluyen las referencias documentales y los
+        identificadores de categoria escritos por el usuario en la consulta; sin el, equivale a numbers_in(text)."""
+        if not FIX_DIG06_REFS:
+            return set(numbers_in(text))
+        cats = {m.group(0) for m in _CATEGORY_ID.finditer(query or "")}
+        allowed = set(numbers_in(" ".join(cats))) if cats else set()
+        if NUMBER_NORMALIZATION == "v2":
+            try:
+                from dig_number_normalization import normalize_formatting
+            except ImportError:  # pragma: no cover
+                from src.dig_number_normalization import normalize_formatting
+            base = normalize_formatting(text or "", SOR_ID)
+        else:
+            base = SOR_ID.sub(" ", text or "")
+        return set(numbers_in(_REF_NUM.sub(" ", base))) - allowed
+
+    def _unsupported(self, text, quote_nums, q_terms, extra_nums=frozenset(), query=""):
+        """Cifras y terminos distintivos de 'text' sin respaldo (mismo criterio que DIG-06 y DIG-07)."""
+        nums = self.claim_numbers(text, query) - set(quote_nums) - set(extra_nums)
+        terms = {t for t in re.findall(r"[a-z][a-z\-]{3,}", strip_accents(norm(SOR_ID.sub(" ", text))))}
+        return sorted(nums), sorted(t for t in terms & self.distinctive if t not in q_terms)
+
+    def _quote_support(self, obj, query, search_query_en):
+        quotes = obj.get("evidence_quotes") if isinstance(obj.get("evidence_quotes"), list) else []
+        qj = " ".join(str(q.get("quote") or "") for q in quotes if isinstance(q, dict))
+        return numbers_in(qj), self.support_terms(qj, query, search_query_en)
+
+    def prune_unsupported(self, answer, query, search_query_en):
+        """Retira de los campos ACCESORIOS (PRUNABLE_FIELDS) las frases con cifras o terminos distintivos sin
+        respaldo literal en evidence_quotes. No toca summary, normative_basis, limitations ni las citas.
+        Devuelve (respuesta_json, retiradas). No decide: la respuesta podada debe volver a pasar evaluate().
+        Respaldo = citas que el propio modelo declaro (no se comprueba aqui que sean literales: eso es DIG-03)."""
+        obj = parse_answer(answer)
+        if obj is None:
+            return answer, []
+        quote_nums, q_terms = self._quote_support(obj, query, search_query_en)
+        removed = []
+        for field in PRUNABLE_FIELDS:
+            text = str(obj.get(field) or "")
+            if text.strip().lower() in NOT_APPLICABLE:
+                continue
+            kept = []
+            units = prune_units(text) or [text]
+            for sent in units:
+                nums, terms = self._unsupported(sent, quote_nums, q_terms, query=query)
+                if nums or terms:
+                    removed.append({"field": field, "sentence": sent, "numbers": nums, "terms": terms})
+                else:
+                    kept.append(sent)
+            if len(kept) != len(units):
+                obj[field] = " ".join(kept).strip() or "No aplica"
+        if not removed:
+            return answer, []
+        return json.dumps(obj, ensure_ascii=False), removed
+
+    def verify_clarification(self, answer, query, search_query_en, delivered=()):
+        """Controla una solicitud de aclaracion (answerability=REQUIERE_ACLARACION). No es un dictamen: solo se
+        muestra su texto si no afirma nada que no este en la consulta o en citas del propio modelo LOCALIZADAS
+        LITERALMENTE en los pasajes entregados (cifras y terminos distintivos), ni menciona pasajes no entregados.
+        'delivered': {passage_id: pasaje} (se comprueba la literalidad) o solo los identificadores (entonces
+        ninguna cita cuenta como respaldo). Devuelve (ok, motivo)."""
+        obj = parse_answer(answer)
+        if obj is None:
+            return False, "respuesta no es JSON"
+        passages = delivered if isinstance(delivered, dict) else {}
+        delivered_ids = set(passages) if passages else set(delivered)
+        text = " ".join(str(obj.get(k) or "") for k in (*CLAIM_FIELDS, *EXTRA_CLAIM_FIELDS, LIMITATION_FIELD))
+        ids = set(SOR_ID.findall(text))
+        if ids - delivered_ids:
+            return False, f"pasajes_no_entregados={sorted(ids - delivered_ids)}"
+        literal = [q for q in obj.get("evidence_quotes") or [] if isinstance(q, dict)
+                   and q.get("passage_id") in passages
+                   and self._locate(norm(str(q.get("quote") or "")), passages[q["passage_id"]]) is not None]
+        quote_nums, q_terms = self._quote_support(dict(obj, evidence_quotes=literal), query, search_query_en)
+        nums, terms = self._unsupported(text, quote_nums, q_terms,
+                                        extra_nums=numbers_in(query + " " + (search_query_en or "")), query=query)
+        if nums or terms:
+            return False, f"cifras_sin_respaldo={nums} terminos_sin_respaldo={terms[:8]}"
+        return True, ""
 
     @staticmethod
     def _result(checks):

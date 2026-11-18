@@ -20,7 +20,8 @@ sys.path[:0] = [ROOT, os.path.join(ROOT, "src"), os.path.join(ROOT, "scripts")]
 import decision_integrity as D  # noqa: E402
 import replay_dig_f11 as R  # noqa: E402
 
-FLAGS = ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_INSTRUCTIONS", "FIX_LINEBREAK_HYPHEN")
+FLAGS = ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_INSTRUCTIONS", "FIX_LINEBREAK_HYPHEN",
+          "FIX_UNICODE_TYPO", "FIX_DIG08_CROSSLANG")
 
 
 @contextmanager

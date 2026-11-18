@@ -14,7 +14,8 @@ CORPUS = os.path.join(ROOT, "data/processed/rebuild_2026_08_corrected/passages_c
 PS = json.load(open(CORPUS, encoding="utf-8"))
 BY = {p["passage_id"]: p for p in PS}
 GATE = D.DecisionIntegrityGate(PS)
-FLAGS = ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_INSTRUCTIONS", "FIX_LINEBREAK_HYPHEN")
+FLAGS = ("FIX_PERTINENCE_HEADING", "FIX_HYPHEN_TERMS", "FIX_DIG08_INSTRUCTIONS", "FIX_LINEBREAK_HYPHEN",
+         "FIX_UNICODE_TYPO", "FIX_DIG08_CROSSLANG")
 
 
 @contextmanager
@@ -144,6 +145,7 @@ def test_dig08_instruction_vocabulary_is_not_shadow_footprint():
         base = _dig08("Segun las reglas oficiales del combate.", "", supp, INSTR)
     with fixes(True):
         new = _dig08("Segun las reglas oficiales del combate.", "", supp, INSTR)
+        D.FIX_DIG08_CROSSLANG = False  # aqui se aisla la correccion por texto de instrucciones
         no_instr = _dig08("Segun las reglas oficiales del combate.", "", supp, "")
     assert failed(base, "DIG-08")
     assert not failed(new, "DIG-08"), new["checks"]
@@ -172,6 +174,7 @@ def test_json_mode_only_for_analysis_calls(monkeypatch=None):
     ada = A.ArbitrationDecisionAssistant.__new__(A.ArbitrationDecisionAssistant)
     ada.llm_manager = Mgr()
     old = os.environ.get("LLM_JSON_MODE")
+    old_schema = os.environ.pop("LLM_JSON_SCHEMA", None)  # este test cubre solo el modo JSON simple
     try:
         os.environ.pop("LLM_JSON_MODE", None)
         ada._call_llm('{"evidence_quotes": []}')
@@ -183,6 +186,8 @@ def test_json_mode_only_for_analysis_calls(monkeypatch=None):
             os.environ.pop("LLM_JSON_MODE", None)
         else:
             os.environ["LLM_JSON_MODE"] = old
+        if old_schema is not None:
+            os.environ["LLM_JSON_SCHEMA"] = old_schema
     assert calls == [{}, {}, {"json_mode": True}]
 
 

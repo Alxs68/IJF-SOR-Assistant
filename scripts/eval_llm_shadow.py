@@ -91,14 +91,26 @@ class Recorder:
 
 
 def span_hit(page_text, quote, anchor):
-    """El fragmento citado solapa el ancla (misma pagina): ambos localizados en el texto de la pagina."""
+    """El fragmento citado solapa el ancla (misma pagina): ambos localizados en el texto de la pagina.
+
+    Usa la MISMA normalizacion que el DIG (decision_integrity.norm, con las correcciones activas en la
+    corrida: comillas, espacios, 'N .N', guion de corte de linea, variantes tipograficas) y, como DIG-09,
+    divide la cita por el marcador de salto de pagina del texto cosido. No relaja nada: la cita debe seguir
+    apareciendo en el texto de la pagina y solapar el ancla."""
     if not quote or not page_text:
         return False
-    pt, q, a = norm(page_text), norm(quote), norm(anchor["snippet"])
-    i, j = pt.find(q), pt.find(a)
-    if i < 0 or j < 0:
+    import decision_integrity as D
+    pt, a = D.norm(page_text), D.norm(anchor["snippet"])
+    j = pt.find(a)
+    if j < 0:
         return False
-    return i < j + len(a) and j < i + len(q)
+    qn = D.norm(quote)
+    segments = [x.strip() for x in D.PAGE_BREAK.split(qn) if len(x.split()) >= 3] or [qn]
+    for q in segments:
+        i = pt.find(q)
+        if i >= 0 and i < j + len(a) and j < i + len(q):
+            return True
+    return False
 
 
 def score_run(item, out, rec_calls, page_text, numbers_in):
@@ -112,6 +124,11 @@ def score_run(item, out, rec_calls, page_text, numbers_in):
     meta = (llm or {}).get("meta") or {}
     from decision_integrity import parse_answer
     parsed = parse_answer(raw) or {}
+    # Respuesta unica: se puntua el contenido que vio el usuario (tras la poda y la validacion final), no el crudo.
+    if isinstance(di.get("validated_answer"), dict):
+        parsed = dict(parsed, **{k: v for k, v in di["validated_answer"].items()
+                                 if k in ("summary", "normative_basis", "conditions_and_exceptions",
+                                          "extended_analysis", "limitations")})
     quotes = [q for q in (parsed.get("evidence_quotes") or []) if isinstance(q, dict)]
     pages_of = {}
     for e in (out.get("evidence") or []) + (out.get("related_passages") or []):
@@ -131,6 +148,21 @@ def score_run(item, out, rec_calls, page_text, numbers_in):
          "n_quotes": len(quotes), "quotes": [{"passage_id": q.get("passage_id"), "quote": (q.get("quote") or "")[:400]} for q in quotes],
          "bundle": bundle, "auxiliary_llm_calls": len(rec_calls) - len(analysis),
          "summary": ((out.get("structured_answer") or {}).get("summary") or "")[:1500] if st == "SUCCESS" else None}
+    # Registro por llamada (traduccion y analisis): proveedor, version real del modelo, tokens medidos y errores.
+    # Los tokens son los que devolvio el proveedor (medidos); el coste se ESTIMA aparte (scripts/llm_cost.py).
+    r["calls"] = []
+    for c in rec_calls:
+        cm = c.get("meta") or {}
+        r["calls"].append({
+            "kind": "analisis" if c.get("is_analysis") else "traduccion",
+            "provider": cm.get("successful_provider"), "model": cm.get("successful_model"),
+            "model_version": cm.get("model_version"), "model_versions_intentos": cm.get("model_versions"),
+            "tokens": cm.get("token_usage"), "tokens_intentos": cm.get("attempts_token_usage"),
+            "errors": {p: {"type": (e or {}).get("error_type"), "status": (e or {}).get("status_code")}
+                       for p, e in (cm.get("errors") or {}).items()},
+            "latency_ms": c.get("latency_ms"), "exception": c.get("exception")})
+    r["model_versions"] = sorted({v for c in r["calls"] for v in [c["model_version"], *(c["model_versions_intentos"] or [])] if v})
+    r["providers_used"] = sorted({c["provider"] for c in r["calls"] if c["provider"]})
     # Fase 11A: datos completos para el diagnostico de abstenciones (no cambian la clasificacion)
     aux = [c for c in rec_calls if not c.get("is_analysis")]
     r["translation"] = ((aux[0].get("text") or "")[:400]) if aux else None
@@ -161,6 +193,11 @@ def score_run(item, out, rec_calls, page_text, numbers_in):
         # ya formateado por ADA, que anade enlaces al PDF, paginas e identificadores (falso positivo v1).
         r["llm_fields"] = {k: str(parsed.get(k) or "")[:2000] for k in ("summary", "normative_basis", "conditions_and_exceptions")}
         r["numbers_not_in_quotes"] = unsupported_numbers(r["llm_fields"], quotes, numbers_in)
+        # Control independiente sobre TODO lo visible (incluye extended_analysis y limitations); no cambia la clasificacion.
+        r["visible_numbers_not_in_quotes"] = unsupported_numbers(
+            {k: str(parsed.get(k) or "")[:3000] for k in ("summary", "normative_basis", "conditions_and_exceptions",
+                                                          "extended_analysis")}, quotes, numbers_in)
+        r["pruned_sentences"] = len((di.get("pruning") or {}).get("removed") or [])
         allowed = expand({p for a in ev + exc + xr for p in a["passage_ids"]})
         cited = [c.get("passage_id") for c in (sa.get("citations") or []) if isinstance(c, dict)]
         r["cited"] = cited
@@ -182,6 +219,12 @@ def unsupported_numbers(fields, quotes, numbers_in):
 def classify(r, beh):
     """Clasificacion del resultado y atribucion (reutilizable en --rescore)."""
     st = r["status"]
+    if st == "CLARIFICATION_REQUIRED":  # respuesta unica: el asistente pidio precisar la consulta (no es dictamen)
+        r["outcome"], r["attribution"] = {
+            "SOLICITAR_ACLARACION": ("ACLARACION_SOLICITADA", None),
+            "RESPONDER": ("ACLARACION_EN_PREGUNTA_RESPONDIBLE", "GENERACION"),
+        }.get(beh, ("ACLARACION_EN_LUGAR_DE_ABSTENCION", "GENERACION"))
+        return r
     if beh == "RESPONDER":
         if st == "SUCCESS":
             if r["scope_error"]:

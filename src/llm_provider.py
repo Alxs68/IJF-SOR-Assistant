@@ -36,6 +36,27 @@ def _load_env_fallback():
 
 _load_env_fallback()
 
+# Esquema de la respuesta de analisis de ADA (subconjunto OpenAPI que acepta Gemini). Solo FORMATO:
+# el contenido lo sigue evaluando el DIG.
+_STR = {"type": "STRING"}
+ANALYSIS_RESPONSE_SCHEMA = {
+    "type": "OBJECT",
+    "properties": {
+        "summary": _STR, "normative_basis": _STR,
+        "citations": {"type": "ARRAY", "items": _STR},
+        "conditions_and_exceptions": _STR, "extended_analysis": _STR, "limitations": _STR,
+        "answerability": _STR,
+        "evidence_quotes": {"type": "ARRAY", "items": {
+            "type": "OBJECT",
+            "properties": {"passage_id": _STR, "quote": _STR, "supports": _STR},
+            "required": ["passage_id", "quote", "supports"]}},
+        "evidence_conflicts": {"type": "ARRAY", "items": _STR},
+    },
+    "required": ["summary", "normative_basis", "citations", "conditions_and_exceptions", "extended_analysis",
+                 "limitations", "answerability", "evidence_quotes", "evidence_conflicts"],
+}
+
+
 class LLMProviderError(Exception):
     """Base exception for LLM provider errors."""
     def __init__(self, message: str, error_type: str, retry_after: Optional[int] = None, status_code: Optional[int] = None):
@@ -52,8 +73,10 @@ class BaseLLMClient:
         self.model = model
         self.last_usage: Dict[str, int] = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
         self.last_finish_reason: str = "UNKNOWN"
+        self.last_model_version: Optional[str] = None
 
-    def generate(self, prompt: str, system_prompt: Optional[str] = None, json_mode: bool = False) -> str:
+    def generate(self, prompt: str, system_prompt: Optional[str] = None, json_mode: bool = False,
+                 json_schema: bool = False) -> str:
         raise NotImplementedError
 
 
@@ -69,10 +92,12 @@ class GeminiClient(BaseLLMClient):
         mod = model or os.environ.get("GEMINI_MODEL") or self.DEFAULT_MODEL
         super().__init__(api_key=key, model=mod)
 
-    def generate(self, prompt: str, system_prompt: Optional[str] = None, json_mode: bool = False) -> str:
+    def generate(self, prompt: str, system_prompt: Optional[str] = None, json_mode: bool = False,
+                 json_schema: bool = False) -> str:
         if not self.api_key:
             raise LLMProviderError("Clave GEMINI_API_KEY ausente o no configurada.", error_type="AUTH")
 
+        self.last_model_version = None
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent?key={self.api_key}"
         
         full_text = prompt
@@ -92,6 +117,9 @@ class GeminiClient(BaseLLMClient):
         if json_mode:
             # Salida JSON garantizada por el proveedor (LLM_JSON_MODE=1, solo llamadas de analisis).
             payload["generationConfig"]["responseMimeType"] = "application/json"
+            if json_schema:
+                # Esquema estructurado obligatorio (LLM_JSON_SCHEMA=1): mismas claves que el contrato de ADA.
+                payload["generationConfig"]["responseSchema"] = ANALYSIS_RESPONSE_SCHEMA
         headers = {"Content-Type": "application/json"}
 
         try:
@@ -109,8 +137,13 @@ class GeminiClient(BaseLLMClient):
                 self.last_usage = {
                     "prompt_tokens": p_tok,
                     "completion_tokens": c_tok,
-                    "total_tokens": t_tok
+                    "total_tokens": t_tok,
+                    # Tokens de razonamiento: Google los factura como salida (no estan en candidatesTokenCount).
+                    "thoughts_tokens": int(usage_meta.get('thoughtsTokenCount', 0) or 0),
+                    "cached_tokens": int(usage_meta.get('cachedContentTokenCount', 0) or 0),
                 }
+                # Version concreta que respondio (el alias '...-latest' puede apuntar a versiones distintas).
+                self.last_model_version = res_data.get('modelVersion')
 
                 candidates = res_data.get('candidates', [])
                 if candidates:
@@ -172,10 +205,12 @@ class GroqClient(BaseLLMClient):
         mod = model or os.environ.get("GROQ_MODEL") or self.DEFAULT_MODEL
         super().__init__(api_key=key, model=mod)
 
-    def generate(self, prompt: str, system_prompt: Optional[str] = None, json_mode: bool = False) -> str:
+    def generate(self, prompt: str, system_prompt: Optional[str] = None, json_mode: bool = False,
+                 json_schema: bool = False) -> str:
         if not self.api_key:
             raise LLMProviderError("Clave GROQ_API_KEY ausente o no configurada.", error_type="AUTH")
 
+        self.last_model_version = None
         url = "https://api.groq.com/openai/v1/chat/completions"
         
         messages = []
@@ -203,6 +238,7 @@ class GroqClient(BaseLLMClient):
                 res_data = json.loads(response.read().decode('utf-8'))
 
                 # Extract token usage metadata from Groq response
+                self.last_model_version = res_data.get('model')
                 usage_meta = res_data.get('usage', {})
                 p_tok = int(usage_meta.get('prompt_tokens', 0))
                 c_tok = int(usage_meta.get('completion_tokens', 0))
@@ -359,7 +395,8 @@ class MultiProviderLLMManager:
         self,
         prompt: str,
         system_prompt: Optional[str] = None,
-        json_mode: bool = False
+        json_mode: bool = False,
+        json_schema: bool = False
     ) -> Tuple[Optional[str], Dict[str, Any]]:
         """
         Executes generation following the configured provider and fallback policy.
@@ -400,11 +437,13 @@ class MultiProviderLLMManager:
                     break
 
             try:
-                text = (client.generate(prompt=prompt, system_prompt=system_prompt, json_mode=True) if json_mode
+                text = (client.generate(prompt=prompt, system_prompt=system_prompt, json_mode=True,
+                                        **({"json_schema": True} if json_schema else {})) if json_mode
                         else client.generate(prompt=prompt, system_prompt=system_prompt))
                 if text:
                     meta["successful_provider"] = prov
                     meta["successful_model"] = client.model
+                    meta["model_version"] = getattr(client, "last_model_version", None)
                     meta["finish_reason"] = getattr(client, "last_finish_reason", "STOP")
                     meta["token_usage"] = getattr(client, "last_usage", {
                         "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0

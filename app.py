@@ -32,6 +32,7 @@ from feedback_manager import (
 )
 from i18n import t
 from response_structurer import clean_presentation_text, sanitize_presentation_html
+import answer_presentation as _ap
 from usage_tracker import get_usage_tracker
 
 usage_tracker = get_usage_tracker()
@@ -2843,7 +2844,17 @@ if st.session_state.active_index >= 0:
                     st.caption(f"ℹ️ Cuota de {prim_prov} alcanzada. Respuesta generada automáticamente mediante {succ_prov}.")
 
                 # 2. RESPUESTA DIRECTA (Nivel 1 - Visible por defecto)
-                if clean_summary:
+                # Respuesta unica (ADA_UNIFIED_ANSWER=1): todo el contenido generado y verificado por el DIG se
+                # muestra en un solo bloque; no hay desplegable de "ampliar respuesta" ni segunda generacion.
+                unified_view = isinstance(struct, dict) and bool(struct) and _ap.unified_enabled(struct)
+                if unified_view:
+                    with st.container(border=True):
+                        st.markdown(f"**{html.escape(_ap.unified_header(struct, lang))}**")
+                        for _field, _title, _text in _ap.unified_sections(struct, lang):
+                            if _title:
+                                st.markdown(f"##### {html.escape(_title)}")
+                            st.markdown(sanitize_presentation_html(clean_presentation_text(_text)), unsafe_allow_html=True)
+                elif clean_summary:
                     safe_summary = sanitize_presentation_html(clean_summary)
                     box_title = t("tier1_box_header", lang)
                     safe_title = html.escape(box_title)
@@ -2902,7 +2913,13 @@ if st.session_state.active_index >= 0:
                 # 3. VER FUNDAMENTACIÓN NORMATIVA Y ANÁLISIS COMPLETO (Colapsado por defecto)
                 has_details = False
                 has_graph = bool(item.get('dot_code') and "->" in item.get('dot_code', ''))
-                if struct and isinstance(struct, dict):
+                if unified_view:
+                    # Sin ampliacion: solo el grafo de relaciones entre los pasajes recuperados (no es texto generado).
+                    if has_graph:
+                        with st.expander(t("sec_graph_relations", lang), expanded=False):
+                            st.caption(t('graph_caption_relations', lang))
+                            st.graphviz_chart(item['dot_code'])
+                elif struct and isinstance(struct, dict):
                     has_details = bool(
                         struct.get("normative_basis") or
                         struct.get("conditions_and_exceptions") or

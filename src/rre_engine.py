@@ -28,6 +28,19 @@ from src.ood_detector import OODDetector
 from src.negative_domain_anchor_scoring import NegativeDomainAnchorScorer, NegativeDomainResult
 
 # Domain-specific stopwords (English & Spanish functional words)
+# R1 (auditoria de trazabilidad): reserva de los mejores pasajes de cada canal. Desactivada por defecto
+# (RRE_CHANNEL_CHAMPIONS=1). Cuando la fusion RRF y los ajustes posteriores dejan fuera del paquete final el
+# pasaje que un canal situa en cabeza (denso 1.o-2.o con similitud >= CH_DENSE_MIN, o TF-IDF 1.o), se incorpora
+# sustituyendo a los ultimos del paquete (como maximo CH_MAX_ADD). Generica: no depende de la pregunta ni del pasaje.
+CH_DENSE_TOP = 2
+CH_DENSE_MIN = 0.55
+CH_MAX_ADD = 2
+
+
+def channel_champions_enabled():
+    return os.environ.get("RRE_CHANNEL_CHAMPIONS", "").strip() == "1"
+
+
 STOPWORDS = {
     "de", "la", "el", "en", "y", "a", "los", "las", "un", "una", "por", "con", "para", "o",
     "the", "of", "and", "in", "to", "is", "for", "on", "by", "with", "at", "as", "from", "an",
@@ -1373,6 +1386,10 @@ class ReasoningRetrievalEngine:
             scope_info = {"applied": bool(parts), "parts": sorted(parts), "beta": self.scope_preference.beta,
                           "changed_top_k": before != top_seeds}
 
+        champions_info = None
+        if channel_champions_enabled() and top_seeds:
+            top_seeds, champions_info = self._reserve_channel_champions(top_seeds, sparse_hits, dense_hits, top_k)
+
         if not top_seeds:
             return {
                 "status": "ABSTAIN",
@@ -1464,4 +1481,32 @@ class ReasoningRetrievalEngine:
             "degradation_reason": self.degradation_reason,
             "source_sha256_verified": self.source_sha256_verified,
             "scope_preference": scope_info,
+            "channel_champions": champions_info,
         }
+
+    def _reserve_channel_champions(self, seeds, sparse_hits, dense_hits, top_k):
+        """R1: garantiza que el paquete final contenga el pasaje que cada canal situa en cabeza. Sustituye a los
+        ultimos del paquete (nunca a otro campeon) y omite textos duplicados. Devuelve (semillas, informe)."""
+        champions = [pid for pid, sc in dense_hits[:CH_DENSE_TOP] if sc >= CH_DENSE_MIN]
+        if sparse_hits:
+            champions.append(sparse_hits[0][0])
+        champions = list(dict.fromkeys(c for c in champions if c in self.passages_by_id))
+        seeds = list(seeds)
+        added, replaced = [], []
+        texts = {self.passages_by_id[x].get("text_original", "").strip() for x in seeds if x in self.passages_by_id}
+        for pid in champions:
+            if pid in seeds or len(added) >= CH_MAX_ADD:
+                continue
+            txt = self.passages_by_id[pid].get("text_original", "").strip()
+            if txt in texts:
+                continue
+            if len(seeds) >= top_k:
+                victim = next((seeds[j] for j in range(len(seeds) - 1, 0, -1) if seeds[j] not in champions), None)
+                if victim is None:
+                    break
+                seeds.remove(victim)
+                replaced.append(victim)
+            seeds.append(pid)
+            texts.add(txt)
+            added.append(pid)
+        return seeds[:top_k], {"champions": champions, "added": added, "replaced": replaced}

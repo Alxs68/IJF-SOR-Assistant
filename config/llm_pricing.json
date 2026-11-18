@@ -1,0 +1,25 @@
+{
+  "_descripcion": "Tarifas para ESTIMAR el coste de las evaluaciones (USD por 1 millón de tokens, nivel de pago estándar). El coste real solo se conoce en Google AI Studio > Usage / Billing. Editar aquí si la tarifa cambia; si un modelo no figura o su tarifa es null, el coste se informa como 'no calculable'.",
+  "_salida_incluye_razonamiento": "Google factura los tokens de razonamiento (thoughtsTokenCount) como salida.",
+  "moneda": "USD",
+  "usd_a_cop": null,
+  "modelos": {
+    "gemini-3.5-flash-lite": {
+      "entrada_usd_por_millon": 0.30,
+      "salida_usd_por_millon": 2.50,
+      "estado": "NO_CONFIRMADA_EN_PAGINA_OFICIAL",
+      "fuentes": [
+        "https://www.developersdigest.tech/models/gemini-3-5-flash-lite (dice verificar en ai.google.dev, 2026-10-17)",
+        "https://getdeploying.com/llms/gemini-3.5-flash-lite (precio de lista de Google Cloud)",
+        "https://pricepertoken.com/pricing-page/model/google-gemini-3.5-flash-lite"
+      ],
+      "comprobado": "2026-11-17: la copia de https://ai.google.dev/gemini-api/docs/pricing obtenida ese día no lista aún gemini-3.5-flash-lite (solo hasta 3.1 Flash-Lite: 0.25 / 1.50)."
+    },
+    "gemini-3.1-flash-lite": {
+      "entrada_usd_por_millon": 0.25,
+      "salida_usd_por_millon": 1.50,
+      "estado": "OFICIAL",
+      "fuentes": ["https://ai.google.dev/gemini-api/docs/pricing (consultada 2026-11-17)"]
+    }
+  }
+}
