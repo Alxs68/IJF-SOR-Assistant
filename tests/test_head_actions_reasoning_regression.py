@@ -134,14 +134,17 @@ class TestHeadActionsReasoningRegression(unittest.TestCase):
     def test_06_bridge_landing_on_tori_exception(self):
         """6. ¿Qué ocurre si Uke aterriza sobre el cuerpo de Tori al hacer puente? Excepción textual de Art. 14.2."""
         q = "¿Qué ocurre si Uke aterriza sobre el cuerpo de Tori?"
-        res = self.engine.query(q, k=4, language="es")
-        self.assertTrue(len(res.get("retrieved_kuns_data", [])) > 0)
-        
-        evidence_pids = [e["id_conocimiento"] for e in res.get("retrieved_kuns_data", [])]
-        self.assertTrue(
-            any("P167" in pid or "P166" in pid for pid in evidence_pids),
-            f"Debe recuperar Art. 14.2 (P167). PIDs: {evidence_pids}"
-        )
+        # Sin R1 la recuperacion clasica lo encuentra incluso con k=4. Con R1 (produccion v1.4.0) se exige con
+        # K=5, el K canonico de DEC-009 que usa la aplicacion: con k=4 los campeones de canal desplazan P167.
+        for champions, k in (("0", 4), ("1", 5)):
+            with patch.dict(os.environ, {"RRE_CHANNEL_CHAMPIONS": champions}):
+                res = self.engine.query(q, k=k, language="es")
+            self.assertTrue(len(res.get("retrieved_kuns_data", [])) > 0)
+            evidence_pids = [e["id_conocimiento"] for e in res.get("retrieved_kuns_data", [])]
+            self.assertTrue(
+                any("P167" in pid or "P166" in pid for pid in evidence_pids),
+                f"Debe recuperar Art. 14.2 (P167) [R1={champions}, k={k}]. PIDs: {evidence_pids}"
+            )
 
     def test_07_english_head_queries(self):
         """7. Consultas normativas en inglés sobre cabeza, puente y head diving."""

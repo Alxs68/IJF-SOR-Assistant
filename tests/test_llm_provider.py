@@ -184,6 +184,8 @@ class TestMultiProviderLLM(unittest.TestCase):
         self.assertEqual(meta["errors"]["Gemini"]["error_type"], "QUOTA")
         self.assertEqual(meta["errors"]["Groq"]["error_type"], "TEMPORARY")
 
+    # La secuencia simulada tiene exactamente dos llamadas HTTP (Gemini 429 -> Groq); R2 anadiria la de traduccion.
+    @patch.dict(os.environ, {"ADA_TRANSLATE_ANY_LANG": "0"})
     @patch("urllib.request.urlopen")
     def test_ada_preserves_retrieved_evidence_through_fallback(self, mock_urlopen):
         # Gemini fails (429), Groq succeeds with synthesis

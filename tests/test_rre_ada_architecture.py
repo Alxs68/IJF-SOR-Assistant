@@ -128,7 +128,10 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         query = "¿Cuáles son las dimensiones del tatami?"
         # Fase 9.1: el stub responde con el contrato vigente (JSON + citas literales del pasaje citado);
         # una frase libre con un ID ya no es una respuesta normativa aceptable (DIG-00).
-        stub = StubLLM(lambda prompt, delivered: grounded_answer(prompt, delivered[:1]) if delivered else "Sin evidencia.")
+        stub = StubLLM(
+            lambda prompt, delivered: grounded_answer(prompt, delivered[:1]) if delivered else "Sin evidencia.",
+            translation="What are the official contest area and safety area measurements of the tatami?",
+        )
         with patch.object(self.ada, "_call_llm", stub):
             result = self.ada.analyze_situation(query)
         self.assertEqual(len(stub.translation_prompts), 1)
@@ -174,7 +177,11 @@ class TestRREAndADAArchitecture(unittest.TestCase):
         self.assertEqual(query_res.get("rre_operating_mode"), "HYBRID")
 
         # Delegation with a generator citing a delivered passage: the answer carries the SOR citation
-        with patch.object(engine.ada, "_call_llm", StubLLM(cite_first_delivered)):
+        stub_gen = StubLLM(
+            cite_first_delivered,
+            translation="What are the official contest area and safety area measurements of the tatami?",
+        )
+        with patch.object(engine.ada, "_call_llm", stub_gen):
             query_res = engine.query("¿Cuáles son las dimensiones del tatami?")
         self.assertIn("SOR-2026-08", query_res["answer"])
         self.assertNotIn(ABSTENTION_MARKER, query_res["answer"])

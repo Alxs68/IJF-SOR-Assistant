@@ -132,7 +132,10 @@ Suspensión del evento si reincide."""
         self.assertIn(ABSTENTION_MARKER, offline["structured_answer"]["summary"])
         self.assertIn(tatami_pid, delivered_ids_in_result(offline))
 
-        stub = StubLLM(answer_citing(lambda delivered: [tatami_pid] if tatami_pid in delivered else []))
+        stub = StubLLM(
+            answer_citing(lambda delivered: [tatami_pid] if tatami_pid in delivered else []),
+            translation="What are the official contest area and safety area measurements of the tatami?",
+        )
         with patch.object(ada, "_call_llm", stub):
             res = ada.analyze_situation(query)
         self.assertIn(tatami_pid, delivered_primary_ids(stub.analysis_prompts[0]))

@@ -8,6 +8,19 @@ services:
       - "8501:8501"
     env_file:
       - .env
+    # Mejoras validadas incorporadas a produccion (v1.4.0). Cada una se desactiva poniendo "0".
+    # Excluidas expresamente: preferencia de ambito R3 (regresion en remisiones) y regla 14 (ADA_PROMPT_RIGOR).
+    environment:
+      RRE_ENABLE_SCOPE_PREFERENCE: "0"
+      RRE_CHANNEL_CHAMPIONS: "1"        # R1: campeones por canal (articulos/apartados)
+      DIG_NUMBER_NORMALIZATION: "v2"    # DIG v2: normalizacion de numeros
+      DIG_V3: "1"                       # DIG v3: evidencia normativa y atribucion
+      DIG_11_SUBORDINATE: "1"           # R5a: apartados subordinados
+      DIG06_REFS: "1"                   # R5b: remisiones/relaciones
+      LLM_JSON_MODE: "1"                # salida JSON estructurada
+      LLM_JSON_SCHEMA: "1"
+      ADA_UNIFIED_ANSWER: "1"           # respuesta unica con contexto consolidado
+      ADA_TRANSLATE_ANY_LANG: "1"       # R2: traduccion de consultas en cualquier idioma
     restart: unless-stopped
     volumes:
       - .:/app

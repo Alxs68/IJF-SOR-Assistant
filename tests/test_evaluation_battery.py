@@ -60,17 +60,20 @@ class Case:
     articles: tuple = ()           # lower-case substrings of article_id
     min_pertinent: int = 1
     language: str = None
+    translation: str = None
 
 
 CASES = [
     Case("D01", "Direct factual", "¿Cuáles son las dimensiones del tatami de competición?",
-         "answerable", pages=(96,), articles=("8.7",)),
+         "answerable", pages=(96,), articles=("8.7",),
+         translation="What are the official contest area and safety area measurements of the competition tatami?"),
     Case("D02", "Complex scenario", "Durante un combate, se aplica osaekomi-waza y la acción continúa desplazándose hasta sobrepasar completamente el área de seguridad. ¿Qué debe señalar el árbitro?",
          "answerable", pages=(174,), articles=("article 17",)),
     Case("D03", "Cadets vs adults", "En un combate de cadetes (17 años), Tori intenta una proyección y en la acción apoya la cabeza en el tatami de forma voluntaria. ¿Qué sanción corresponde y qué artículo lo regula?",
          "answerable", pages=(188,), articles=("18.1.4",)),
     Case("D04", "Spanish diacritics", "¿Qué sanción se aplica a un judoka de 15 años en categoría cadete si usa la cabeza para lanzar?",
-         "answerable", pages=(188,), articles=("18.1.4",)),
+         "answerable", pages=(188,), articles=("18.1.4",),
+         translation="What penalty applies to a 15-year-old judoka in cadet category if they use the head to throw?"),
     Case("D05", "Japanese terminology", "¿Cuál es la definición reglamentaria de osaekomi-waza y en qué condiciones se anuncia Osaekomi y Toketa?",
          "answerable", pages=(173, 174), articles=("article 17",)),
     Case("D06", "Underspecified", "El judoka cometió una falta con el agarre.", "underspecified"),
@@ -153,7 +156,7 @@ def runs(ada):
         run.rre_status, run.rre_reason = rre_res.get("status"), rre_res.get("reason")
         run.delivered = run.offline.get("evidence", []) + run.offline.get("related_passages", [])
         run.pertinent_ids = [p["passage_id"] for p in run.delivered if _is_pertinent(case, p)]
-        stub = StubLLM(cite_first_delivered)
+        stub = StubLLM(cite_first_delivered, translation=case.translation)
         with patch.object(ada, "_call_llm", stub):
             run.generator = ada.analyze_situation(case.query, language=case.language)
         run.generator_prompts = stub.analysis_prompts

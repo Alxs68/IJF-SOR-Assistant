@@ -70,7 +70,10 @@ def test_critical_query_with_generator_cites_only_delivered_primary(ada, qid, qu
         assert di.get("decision") == "PERMITIR", qid
         assert citation_ids(res) == delivered[:1], qid
     else:
-        assert di.get("decision") == "ABSTENER" and di.get("failed_checks"), qid
+        # Abstencion por DIG, o antes del DIG por la validacion de citas (p. ej. con R1 el stub copia el
+        # identificador de un tramo cosido que ya no es semilla): ambas son por el lado seguro y sin citas.
+        if not (di.get("decision") == "ABSTENER" and di.get("failed_checks")):
+            assert "validación de citas" in res.get("mode", ""), qid
         assert citation_ids(res) == [], qid
 
 
@@ -464,8 +467,10 @@ def _stub_ada_with(evidence, supplementary, stub, retrieve_status="SUCCESS"):
     ada_module = sys.modules[ArbitrationDecisionAssistant.__module__]
     ada = ArbitrationDecisionAssistant.__new__(ArbitrationDecisionAssistant)
     ada.config = {"version_label": "14 August 2026 (Official)"}
+    ada.enable_shadow_mode_multisource = bool(supplementary)
     ada._translate_to_technical_english = lambda query: f"{query} {_STATUS_QUERY_EN}"
     ada.rre = SimpleNamespace(
+        enable_shadow_mode_multisource=bool(supplementary),
         retrieve=lambda *args, **kwargs: {
             "status": retrieve_status, "evidence": [dict(e) for e in evidence], "related_passages": [],
             "operating_mode": "HYBRID", "source_sha256_verified": True,
