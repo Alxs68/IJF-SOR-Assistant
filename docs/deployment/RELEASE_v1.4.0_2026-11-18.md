@@ -51,3 +51,27 @@ docker compose up -d          # recrea el contenedor con la misma imagen
 ```
 
 Reversión total: detener el contenedor y restaurar `/home/ubuntu/backups_ijf/prod_bb1d32d_20261118_195345`.
+
+## Despliegue y verificación (18-11-2026)
+
+- Producción actualizada a `96906bd` (tag `v1.4.0`) con `git merge --ff-only origin/main` y `docker compose up -d`
+  (misma imagen). El CSV no versionado `docs/registro_documental_multifuente_ijf.csv` de producción, que chocaba
+  con el versionado, se apartó junto al respaldo (`…_195345.registro_documental_multifuente_ijf.untracked.csv`).
+- Salud `/_stcore/health` 200 a los ~10 s; `https://sor.alxol.com` 200; 0 reinicios; ~620 MiB; sin errores en logs.
+  Flags activos verificados en el contenedor; `DIG-1.3+NUM-v2+FIX-v3+ALL+D11S+D06R`; corpus sin cambios. Puerto 8502
+  (NuevaMente) e instancia experimental 8510 sin tocar.
+- UI pública: consulta de cadetes y defensa con la cabeza → respuesta única verificada, Art. 18.1.4 (p. 188).
+
+Consultas reales (Gemini) en v1.4.0 frente a la versión anterior `bb1d32d` (contenedor temporal aislado del respaldo):
+
+| Consulta | `bb1d32d` (sin DIG) | `v1.4.0` |
+|---|---|---|
+| Tolerancia en pesaje aleatorio | Responde, cita P079 (5 %) | Responde, cita P079 (5 %) |
+| Portugués: cabeza para defender | Responde (P166, P188) | Responde (P188, cadetes) |
+| Uke aterriza sobre Tori (Art. 14.2) | Responde (P167) | Recupera P167; abstiene por DIG-07 |
+| ¿Existe el yuko en 2026? | Responde (P168) | Abstiene por DIG-06/DIG-07 |
+| Fuera de dominio (paella) | Abstiene | Abstiene |
+
+`bb1d32d` no tenía el control de integridad decisoria (`src/decision_integrity.py` entra en `main` con esta
+versión): v1.4.0 solo acepta respuestas cuyo respaldo verifica el DIG, por lo que abstiene en casos que la versión
+anterior respondía sin verificar. El DIG no se ha relajado.
