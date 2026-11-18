@@ -1,7 +1,7 @@
 # Despliegue experimental R3 + DIG v2 en OCI (sin tocar producción)
 
 ## Qué es
-* **Instancia separada:** se llama `ijf-sor-assistant-exp` y escucha en `127.0.0.1:8502` del mismo servidor OCI. Producción (`ijf-sor-assistant`, `127.0.0.1:8501`, `https://sor.alxol.com`) no se toca: ni su contenedor, ni su directorio, ni su `.env`, ni Nginx, ni el DNS.
+* **Instancia separada:** se llama `ijf-sor-assistant-exp` y escucha en `127.0.0.1:8510` del mismo servidor OCI. Producción (`ijf-sor-assistant`, `127.0.0.1:8501`, `https://sor.alxol.com`) no se toca: ni su contenedor, ni su directorio, ni su `.env`, ni Nginx, ni el DNS.
 * **Mismo código, distintas opciones:** la imagen Docker de producción (no se construye nada ni se instalan dependencias) y el código del commit experimental, montado desde `/home/ubuntu/IJF-SOR-Assistant-exp/releases/<sha7>`.
 * **Opciones activadas solo aquí:**
   * `RRE_ENABLE_SCOPE_PREFERENCE=1` y `RRE_SCOPE_BETA=0.2` (R3);
@@ -31,9 +31,9 @@
    El script comprueba primero la RAM, el disco, el estado y el commit de producción, y lo registra en `install_*.log`.
 5. **Abrir desde el navegador del PC:**
    ```powershell
-   ssh -i <clave> -N -L 8502:127.0.0.1:8502 ubuntu@<IP_OCI>
+   ssh -i <clave> -N -L 8510:127.0.0.1:8510 ubuntu@<IP_OCI>
    ```
-   Con la ventana de SSH abierta, entrar en **http://localhost:8502**.
+   Con la ventana de SSH abierta, entrar en **http://localhost:8510**.
 
 ## Subdominio (opcional, no aplicado)
 `nginx_exp_subdomain.conf.example` permite publicar `exp.sor.alxol.com` con contraseña. Requiere tres cosas, todas aditivas y reversibles, que no modifican el bloque ni el registro DNS de producción:
