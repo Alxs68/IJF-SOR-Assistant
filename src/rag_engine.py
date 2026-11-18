@@ -251,7 +251,14 @@ class RagEngine:
                 'source_sha256_verified': ada_res.get('source_sha256_verified', False),
                 'certified_bundle': ada_res.get('certified_bundle'),
                 'llm_meta': ada_res.get('llm_meta', {}),
-                'token_usage': ada_res.get('token_usage', ada_res.get('llm_meta', {}).get('token_usage', {'prompt_tokens': 0, 'completion_tokens': 0, 'total_tokens': 0}))
+                'token_usage': ada_res.get('token_usage', ada_res.get('llm_meta', {}).get('token_usage', {'prompt_tokens': 0, 'completion_tokens': 0, 'total_tokens': 0})),
+                # Estado y origen reales del flujo (la interfaz no debe deducirlos del contenido).
+                'status': ada_res.get('status'),
+                'mode': ada_res.get('mode'),
+                'response_origin': ada_res.get('response_origin'),
+                'decision_integrity': {k: (ada_res.get('decision_integrity') or {}).get(k)
+                                       for k in ('decision', 'failed_checks', 'version', 'pruning', 'partial')}
+                                      if ada_res.get('decision_integrity') else None,
             }
 
         # 2. Legacy RAG Flow for 2026-01

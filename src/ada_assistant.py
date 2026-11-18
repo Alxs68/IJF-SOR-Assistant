@@ -31,6 +31,9 @@ from response_structurer import (
 )
 from normative_validator import NormativeValidator
 from decision_integrity import DecisionIntegrityGate, parse_answer as _parse_answer
+from answer_presentation import response_origin
+import evidence_attribution as _attr
+import evidence_reassembly as _reasm
 
 # Contrato JSON de la llamada de analisis (claves y tipos). Lo usa la validacion de LLM_JSON_SCHEMA=1.
 CONTRACT_STR_KEYS = ("summary", "normative_basis", "conditions_and_exceptions", "extended_analysis",
@@ -211,6 +214,8 @@ class ArbitrationDecisionAssistant:
                 'rule10_spec': "   - Especificaciones Técnicas (equipamiento, judogi, medidas, tiempos): Responde primero la especificación concreta consultada tal como figura en los pasajes certificados, con su cita. Segrega los requisitos conexos en 'conditions_and_exceptions' o 'extended_analysis' sin mezclarlos con la especificación consultada.\n",
                 'rule13': "13. Respaldo Literal Verificable: Cada pasaje SOR citado debe tener en 'evidence_quotes' al menos un fragmento copiado LITERALMENTE de ese pasaje. Toda cifra, plazo, medida o sanción de 'summary', 'normative_basis' o 'conditions_and_exceptions' debe aparecer en esos fragmentos. Si el fragmento citado tiene cerca una excepción o condición (except, unless, however, although, only...) o una remisión a otro artículo, cita también esa excepción literalmente. Nunca cites texto de los bloques [COMPLEMENTO-n] como respaldo. Si no puedes respaldar literalmente la respuesta con los pasajes certificados, usa answerability = EVIDENCIA_INSUFICIENTE.\n",
             }
+        if os.environ.get("ADA_ADAPTIVE_ANSWER", "").strip() == "1":
+            return ArbitrationDecisionAssistant._adaptive_contract_texts()
         return {
             'title': "CONTRATO OBLIGATORIO DE RESPUESTA ÚNICA Y COMPLETA (todo lo que escribas se muestra al usuario en una sola respuesta y se verifica contra tus citas literales; no habrá ampliación posterior):\n",
             'summary': '  "summary": "RESPUESTA DIRECTA Y COMPLETA a la consulta, proporcional a su complejidad. La primera frase responde concretamente (cifras exactas, límites, tolerancias, sanciones o decisiones) con su referencia [SOR-2026-08-Pxxx-Sxxx]. Si la consulta tiene varias partes, respóndelas todas. Si la consulta no es un dato simple, termina con una conclusión breve. PROHIBIDO iniciar con introducciones, saludos o frases meta.",\n',
@@ -222,6 +227,24 @@ class ArbitrationDecisionAssistant:
             'rule7': "7. Respuesta Única, Completa y Proporcional: Entrega en esta única respuesta todo lo necesario para resolver la consulta (respuesta directa, regla aplicable y, solo si son pertinentes, condiciones, excepciones, diferencias entre categorías y consecuencias). No habrá ampliación posterior. No añadas información complementaria que no ayude a responder; una consulta concreta recibe una respuesta concreta.\n",
             'rule10_spec': "   - Especificaciones Técnicas (equipamiento, judogi, medidas, tiempos): Responde la especificación concreta consultada tal como figura en los pasajes certificados, con su cita. No añadas requisitos conexos que no se hayan preguntado.\n",
             'rule13': "13. Respaldo Literal Verificable: Cada pasaje SOR citado debe tener en 'evidence_quotes' al menos un fragmento copiado LITERALMENTE de ese pasaje. Toda cifra, plazo, medida, sanción, condición o excepción de CUALQUIER campo de texto ('summary', 'normative_basis', 'conditions_and_exceptions', 'extended_analysis' y 'limitations') debe aparecer en esos fragmentos; si no puedes citarla literalmente, no la escribas. Si el fragmento citado tiene cerca una excepción o condición (except, unless, however, although, only...) o una remisión a otro artículo, cita también esa excepción literalmente. Nunca cites texto de los bloques [COMPLEMENTO-n] como respaldo. Si no puedes respaldar literalmente la respuesta con los pasajes certificados, usa answerability = EVIDENCIA_INSUFICIENTE. Ausencias: no afirmes que el SOR «no establece», «no especifica» o «no regula» algo; si los pasajes entregados no lo contienen, indícalo solo en 'limitations' como «los pasajes entregados no contienen…». No generalices una regla de un evento, modalidad o categoría a otros.\n",
+        }
+
+    @staticmethod
+    def _adaptive_contract_texts() -> dict:
+        """Respuesta unica ADAPTATIVA (ADA_ADAPTIVE_ANSWER=1, con ADA_UNIFIED_ANSWER=1). Mismas claves JSON y mismo
+        control literal que el contrato unificado; cambia la extension segun el tipo de consulta (puntual, general,
+        caso, varias facetas) y admite la respuesta PARCIAL. No relaja ninguna exigencia de citas."""
+        return {
+            'title': "CONTRATO OBLIGATORIO DE RESPUESTA ÚNICA Y COMPLETA, ADAPTADA A LA CONSULTA (todo lo que escribas se muestra al usuario en una sola respuesta y se verifica contra tus citas literales; no habrá ampliación posterior):\n",
+            'summary': '  "summary": "RESPUESTA DIRECTA. La primera frase responde concretamente la consulta con su referencia [SOR-2026-08-Pxxx-Sxxx]. Ajusta la extensión al TIPO de consulta: (a) DATO PUNTUAL (una cifra, un plazo, una medida, si algo está permitido): respuesta breve con solo las condiciones imprescindibles para que sea correcta; (b) CONSULTA GENERAL sobre un tema (cómo debe ser, cómo funciona, qué reglas aplican): explicación integral de TODAS las disposiciones pertinentes de los pasajes certificados, organizada en apartados breves (requisitos generales, especificaciones y medidas, diferencias por categoría o sexo, control y verificación, consecuencias), sin limitarte al primer pasaje; (c) CASO o SITUACIÓN: decisión normativa y su fundamento; (d) VARIAS FACETAS o varias preguntas: responde cada una. No repitas en summary lo que pondrás en otros campos. PROHIBIDO iniciar con introducciones, saludos o frases meta.",\n',
+            'normative_basis': '  "normative_basis": "Regla normativa aplicable: artículos y apartados que fundamentan la respuesta, con sus identificadores entre corchetes [SOR-2026-08-Pxxx-Sxxx] y números de página; si intervienen varios artículos, indica cómo se relacionan (regla general, regla especial, remisión).",\n',
+            'conditions': '  "conditions_and_exceptions": "Condiciones, EXCEPCIONES, PROHIBICIONES y RESTRICCIONES de los pasajes certificados pertinentes para la consulta, cada una con su identificador [SOR-...] y su fragmento literal en evidence_quotes, diferenciando la regla general de sus excepciones. En una consulta puntual, solo las que cambian la respuesta; en una consulta general o un caso, todas las pertinentes al tema preguntado. Si no existen, responde exactamente: \\"No aplica\\".",\n',
+            'extended': '  "extended_analysis": "Solo si la consulta plantea un caso, una situación o un procedimiento: aplicación de la norma al caso, escenarios y consecuencias normativas, sin cifras ni datos que no figuren en tus citas literales; identifica toda interpretación con \\"Interpretación normativa:\\". En los demás casos responde exactamente: \\"No aplica\\".",\n',
+            'limitations': '  "limitations": "Lo que los pasajes certificados no determinan y que sea relevante para la consulta. Si una PARTE de la consulta no está en los pasajes, indícalo aquí como «los pasajes entregados no contienen…» y responde igualmente las partes respaldadas. Si los pasajes responden de manera completa, responde exactamente: \\"Ninguna\\".",\n',
+            'answerability': '  "answerability": "RESPALDADA si los pasajes SOR certificados responden la consulta o al menos una parte sustancial de ella (las partes no respaldadas se declaran en limitations); REQUIERE_ACLARACION si la consulta admite interpretaciones con respuestas normativas distintas y no puede responderse responsablemente sin precisarla; en particular, si la consulta NO indica la modalidad, el tipo de evento, la categoría o la situación y los pasajes contienen reglas DISTINTAS para distintas modalidades, eventos, categorías o situaciones (entonces escribe en summary SOLO la pregunta de aclaración con las alternativas posibles, sin cifras ni reglas); EVIDENCIA_INSUFICIENTE si los pasajes no responden ninguna parte de la consulta (entonces no formules dictamen).",\n',
+            'rule7': "7. Respuesta Única, Completa y Proporcional: Entrega en esta única respuesta todo lo necesario para resolver la consulta. Una consulta puntual recibe una respuesta puntual; una consulta general recibe una explicación integral que incluya las relaciones entre artículos, condiciones, excepciones, restricciones y prohibiciones pertinentes que figuren en los pasajes. No resumas omitiendo condiciones importantes. No conviertas recomendaciones ni inferencias en reglas oficiales.\n",
+            'rule10_spec': "   - Especificaciones Técnicas (equipamiento, judogi, medidas, tiempos): Responde la especificación consultada tal como figura en los pasajes certificados, con su cita. Si la consulta es general sobre el equipamiento, expón todas las especificaciones, controles y consecuencias pertinentes que contengan los pasajes.\n",
+            'rule13': "13. Respaldo Literal Verificable: Cada pasaje SOR citado debe tener en 'evidence_quotes' al menos un fragmento copiado LITERALMENTE de ese pasaje. Toda cifra, plazo, medida, sanción, condición o excepción de CUALQUIER campo de texto ('summary', 'normative_basis', 'conditions_and_exceptions', 'extended_analysis' y 'limitations') debe aparecer en esos fragmentos: incluye en evidence_quotes un fragmento literal por cada cifra y por cada término técnico japonés que escribas; si no puedes citarlo literalmente, no lo escribas. Si el fragmento citado tiene cerca una excepción o condición (except, unless, however, although, only...) o una remisión a otro artículo, cita también esa excepción literalmente. Nunca cites texto de los bloques [COMPLEMENTO-n] como respaldo. Si no puedes respaldar literalmente ninguna parte de la respuesta con los pasajes certificados, usa answerability = EVIDENCIA_INSUFICIENTE. Ausencias: no afirmes que el SOR «no establece», «no especifica» o «no regula» algo; si los pasajes entregados no lo contienen, indícalo solo en 'limitations' como «los pasajes entregados no contienen…». No generalices una regla de un evento, modalidad o categoría a otros. Formato de las citas: copia cada fragmento EXACTAMENTE como aparece, sin «...» ni omisiones internas (si necesitas dos partes separadas, usa dos elementos de evidence_quotes); escribe cada número de artículo o apartado precedido de «Art.» (p. ej. «Art. X.Y»); no repitas cifras de la pregunta (años, edades, pesos) que no figuren en tus citas.\n",
         }
 
     @staticmethod
@@ -314,6 +337,12 @@ class ArbitrationDecisionAssistant:
             + ("5. Faithful translation: apart from the mappings in rule 2, do not add words or concepts that are not in the query "
                "(no other sports, systems, bodies, procedures or judo topics). If the query is not about judo, translate it literally.\n"
                if any_lang else "")
+            # ADA_TRANSLATE_FAITHFUL=1: la traduccion se usa para recuperar y para verificar la pertinencia (DIG-05);
+            # una lista de palabras clave pierde elementos de la pregunta y anade otros ("regulations").
+            + ("6. Write ONE complete English question, not a list of keywords. Keep every element of the original "
+               "question (subject, category, object, condition and what is asked: amount, consequence, permission...) "
+               "and nothing else. Do not replace a specific element by generic words such as 'regulations' or 'rules'.\n"
+               if os.environ.get("ADA_TRANSLATE_FAITHFUL", "").strip() == "1" else "")
             + "\n"
             f"Query to translate: {q_clean}\n"
             "English translation:"
@@ -385,6 +414,30 @@ class ArbitrationDecisionAssistant:
         return q_clean
 
     def analyze_situation(self, situation_query: str, top_k: int = 5, language: Optional[str] = None):
+        """Ciclo ADA completo; anade 'response_origin' (origen real de la respuesta: LLM, LOCAL, ACLARACION o
+        SIN_RESPUESTA) derivado del flujo ejecutado."""
+        self._last_search_query_en = None
+        res = self._analyze_situation_core(situation_query, top_k=top_k, language=language)
+        targets = res.pop("_reassembly_targets", None) if isinstance(res, dict) else None
+        if targets and _reasm.reassembly_enabled():
+            # Re-ensamblado dirigido (un solo intento): se entregan ademas los pasajes reales que la respuesta o el
+            # DIG senalaron como necesarios; la nueva respuesta pasa de nuevo TODAS las validaciones.
+            first = {"status": res.get("status"), "mode": res.get("mode"),
+                     "failed_checks": ((res.get("decision_integrity") or {}).get("failed_checks"))}
+            res2 = self._analyze_situation_core(situation_query, top_k=top_k, language=language,
+                                                extra_related=targets,
+                                                search_query_en_override=self._last_search_query_en)
+            if isinstance(res2, dict):
+                res2.pop("_reassembly_targets", None)
+                res2["reassembly"] = {"added": [t["passage_id"] for t in targets],
+                                      "reasons": [t["relation"] for t in targets], "first_attempt": first}
+                res = res2
+        if isinstance(res, dict):
+            res["response_origin"] = response_origin(res)
+        return res
+
+    def _analyze_situation_core(self, situation_query: str, top_k: int = 5, language: Optional[str] = None,
+                                extra_related=None, search_query_en_override=None):
         """
         Executes complete ADA arbitration reasoning cycle:
         1. Retrieval of evidence via RRE.
@@ -431,7 +484,8 @@ class ArbitrationDecisionAssistant:
         except Exception:
             pass
 
-        search_query_en = self._translate_to_technical_english(situation_query)
+        search_query_en = search_query_en_override or self._translate_to_technical_english(situation_query)
+        self._last_search_query_en = search_query_en
         retrieval_res = self.rre.retrieve(search_query_en, top_k=top_k, expand_graph=True, domain_query=situation_query)
 
         # Retrieve authorized supplementary official sources (Shadow / Sidecars TIER_2 / TIER_3)
@@ -446,6 +500,9 @@ class ArbitrationDecisionAssistant:
 
         evidence = retrieval_res.get("evidence", []) if retrieval_res.get("status") != "ABSTAIN" else []
         related = retrieval_res.get("related_passages", []) if retrieval_res.get("status") != "ABSTAIN" else []
+        if evidence and extra_related:
+            have = {p.get("passage_id") for p in [*evidence, *related]}
+            related = related + [r for r in extra_related if r.get("passage_id") not in have]
 
         # AUD-04.1: without primary SOR evidence, supplementary material cannot keep the query open.
         if not evidence:
@@ -762,7 +819,19 @@ class ArbitrationDecisionAssistant:
                                       "limitations": CLARIFY_TEXT[lang_key], "is_structured": True,
                                       "answer_mode": "UNIFIED", "response_status": "CLARIFICATION_REQUIRED"}, clar)
 
+        citation_repairs = quote_repairs = None
+        if llm_answer and _reasm.citation_repair_enabled():
+            _delivered = {p.get("passage_id"): p for p in [*evidence, *related] if p.get("passage_id")}
+            _fixed, citation_repairs = _reasm.repair_citation_ids(llm_answer, _delivered,
+                                                                  getattr(self.rre, "passages_by_id", {}) or {})
+            if citation_repairs:
+                llm_answer = _fixed
         citations_valid = self._validate_llm_citations(llm_answer, evidence, related)
+        if llm_answer and citations_valid and _reasm.quote_repair_enabled():
+            _delivered = {p.get("passage_id"): p for p in [*evidence, *related] if p.get("passage_id")}
+            _fixed, quote_repairs = _reasm.repair_quotes(llm_answer, _delivered, self._decision_integrity_gate())
+            if quote_repairs:
+                llm_answer = _fixed
 
         # Fase 9 - control de integridad decisoria (DIG). Una cita SOR valida (nivel A) no implica
         # pertinencia (B), suficiencia (C) ni respaldo efectivo (D). DIG aplica controles genericos y
@@ -787,6 +856,17 @@ class ArbitrationDecisionAssistant:
                     answer_text, situation_query, search_query_en, evidence, related,
                     supplementary_texts=supp_texts, **extra)
 
+            # Completado de la atribucion literal (ADA_EVIDENCE_COMPLETION=1): anade como citas frases LITERALES de
+            # pasajes que la propia respuesta cita y que contienen cifras/terminos usados sin cita. El DIG evalua
+            # despues la respuesta completada con todos sus controles (ver evidence_attribution).
+            completion_info = None
+            if _attr.enabled():
+                delivered_map = {p.get("passage_id"): p for p in [*evidence, *related] if p.get("passage_id")}
+                completed, completion_info = _attr.complete_quotes(
+                    llm_answer, delivered_map, self._decision_integrity_gate(), situation_query, search_query_en,
+                    unified=unified)
+                if completion_info:
+                    llm_answer = completed
             decision_integrity = _dig_eval(llm_answer)
             # Respuesta unica: si el DIG solo rechaza cifras o terminos sin respaldo, se retiran las frases
             # ACCESORIAS que los contienen (nunca summary ni normative_basis) y la respuesta resultante se evalua
@@ -800,6 +880,11 @@ class ArbitrationDecisionAssistant:
                         pruning_info = {"initial_failed_checks": sorted(failed0), "removed": removed}
                         llm_answer = cand
                         decision_integrity = dict(re_dig, pruning=pruning_info)
+            if completion_info:
+                decision_integrity = dict(decision_integrity, attribution_completion=completion_info)
+            if citation_repairs or quote_repairs:
+                decision_integrity = dict(decision_integrity, attribution_repairs={
+                    "identificadores": citation_repairs or [], "citas": quote_repairs or []})
 
         # Build citation passage data for resolution
         all_passages_data = []
@@ -848,7 +933,17 @@ class ArbitrationDecisionAssistant:
                 f"{reason_text}\n\n"
                 "*Los pasajes certificados recuperados se conservan solo como referencia de consulta; no constituyen dictamen.*"
             )
+            reassembly_targets = []
+            if llm_answer and not extra_related and _reasm.reassembly_enabled():
+                try:
+                    reassembly_targets = _reasm.reassembly_targets(
+                        llm_answer, decision_integrity,
+                        {p.get("passage_id"): p for p in [*evidence, *related] if p.get("passage_id")},
+                        getattr(self.rre, "passages_by_id", {}) or {}, self._decision_integrity_gate())
+                except Exception:
+                    reassembly_targets = []
             return {
+                "_reassembly_targets": reassembly_targets,
                 "status": "ABSTAIN",
                 "query": situation_query,
                 "mode": mode_label,

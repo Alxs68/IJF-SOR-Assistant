@@ -1064,6 +1064,11 @@ class ReasoningRetrievalEngine:
                 if p and 259 <= p.get("pdf_page_index", 0) <= 298:
                     rrf_scores[pid] *= 0.40
 
+        # RRE_TOPIC_BOOSTS=0 (auditoria de generalizacion): el bloque siguiente, hasta "Controlled exact normative
+        # code", ajusta puntuaciones por palabras clave de la consulta hacia pasajes y paginas FIJOS (reglas
+        # particulares). Con el flag a 0 se anula su efecto para medir la recuperacion general sin ellas.
+        _scores_before_topic_rules = dict(rrf_scores)
+
         # Recompensa específica de frontera normativa (osaekomi / ne-waza sobrepasando área de seguridad o fuera del área de combate)
         clean_q_lower = query.lower()
         has_boundary_term = any(w in clean_q_lower for w in ["seguridad", "safety", "limite", "limit", "sobrepasa", "beyond", "exterior"])
@@ -1281,6 +1286,9 @@ class ReasoningRetrievalEngine:
                         rrf_scores[pid] += 0.18
                     elif (is_breaking_grips or is_inside_sleeve_or_trouser or is_interlocking) and page == 180:
                         rrf_scores[pid] += 0.25
+
+        if os.environ.get("RRE_TOPIC_BOOSTS", "1").strip() == "0":
+            rrf_scores = _scores_before_topic_rules
 
         # Controlled exact normative code and title alignment signal
         if self.enable_code_matching:

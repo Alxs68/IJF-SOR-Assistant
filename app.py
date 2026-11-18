@@ -1076,6 +1076,18 @@ st.markdown("""
         color: var(--ijf-subtitle-color);
         font-size: 0.75rem;
     }
+    .origin-badge {
+        border-radius: 6px;
+        padding: 0.45rem 0.8rem;
+        margin-bottom: 0.6rem;
+        font-size: 0.8rem;
+        border: 1px solid var(--status-off-border);
+        border-left-width: 4px;
+    }
+    .origin-badge.origin-llm { border-left-color: #3B82F6; }
+    .origin-badge.origin-local { border-left-color: #10B981; }
+    .origin-badge.origin-aclaracion { border-left-color: #F59E0B; }
+    .origin-badge.origin-sin_respuesta { border-left-color: #EF4444; }
     .local-fallback-banner {
         background-color: var(--status-off-bg);
         border: 1px solid var(--status-off-border);
@@ -2613,8 +2625,9 @@ if query_to_run:
         dot_code += "}"
 
         q_tok_usage = res.get("token_usage") or res.get("llm_meta", {}).get("token_usage", {})
-        q_prov = res.get("llm_meta", {}).get("successful_provider") or ("Gemini" if is_connected else "Local")
-        q_mod = res.get("llm_meta", {}).get("successful_model") or ("gemini-flash-lite-latest" if is_connected else "deterministic")
+        # Proveedor real de la llamada de analisis; sin llamada al modelo la consulta cuenta como local.
+        q_prov = res.get("llm_meta", {}).get("successful_provider") or "Local"
+        q_mod = res.get("llm_meta", {}).get("successful_model") or "deterministic"
         usage_tracker.record_query(
             query_text=query_to_run,
             token_usage=q_tok_usage,
@@ -2629,6 +2642,8 @@ if query_to_run:
             "trazabilidad": retrieved_kuns,
             "dot_code": dot_code,
             "llm_meta": res.get("llm_meta", {}),
+            "response_origin": res.get("response_origin"),
+            "status": res.get("status"),
             "token_usage": q_tok_usage,
             "rre_operating_mode": res.get("rre_operating_mode", getattr(engine.rre, "operating_mode", "UNKNOWN")),
             "degradation_reason": res.get("degradation_reason"),
@@ -2828,8 +2843,19 @@ if st.session_state.active_index >= 0:
                                 st.session_state.pdf_visible = True
                                 st.rerun()
 
-                # Aviso de Modo Alternativo Local o Conmutación de Cuota IA
-                if not succ_prov:
+                # Origen real de la respuesta (derivado del flujo ejecutado, independiente de su exactitud).
+                _origin = item.get("response_origin")
+                if _origin:
+                    _o_tipo, _o_title, _o_desc = _ap.origin_badge(_origin, lang)
+                    _o_icon = {"LLM": "🤖", "LOCAL": "📚", "MIXTA": "🔀", "ACLARACION": "❓"}.get(_o_tipo, "⛔")
+                    st.markdown(
+                        f'<div class="origin-badge origin-{_o_tipo.lower()}"><strong>{_o_icon} '
+                        f'{html.escape(_o_title)}</strong> · {html.escape(_o_desc)}</div>',
+                        unsafe_allow_html=True)
+
+                # Aviso de Modo Alternativo Local o Conmutación de Cuota IA (solo si el modelo no estaba disponible:
+                # una abstencion sin llamada al modelo, p. ej. fuera de dominio, no es "modo local").
+                if not succ_prov and not (_origin and _origin.get("tipo") in ("SIN_RESPUESTA", "ACLARACION")):
                     st.markdown(f"""
 <div class="local-fallback-banner">
     <div class="local-fallback-header">
@@ -2979,8 +3005,9 @@ if st.session_state.active_index >= 0:
                     deg_reason = f" ({item.get('degradation_reason')})" if item.get('degradation_reason') else ""
                     audit_sha = t("pdf_source_caption", lang) if item.get("source_sha256_verified", False) else t("pdf_source_unverified_caption", lang)
 
-                    prov_name = item_llm_meta.get("successful_provider") or ("Gemini" if is_connected else "Modo Local Desconectado")
-                    model_name = item_llm_meta.get("successful_model") or ("gemini-2.5-flash" if is_connected else "Deterministic Brief")
+                    # Solo lo que realmente se ejecuto: sin llamada de analisis no se atribuye ningun modelo.
+                    prov_name = item_llm_meta.get("successful_provider") or "—"
+                    model_name = item_llm_meta.get("successful_model") or ("modelo no utilizado" if lang != "en" else "model not used")
 
                     st.markdown(f"""
 <div class="audit-panel-grid">
