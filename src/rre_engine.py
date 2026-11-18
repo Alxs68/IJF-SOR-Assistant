@@ -35,6 +35,27 @@ from src.negative_domain_anchor_scoring import NegativeDomainAnchorScorer, Negat
 CH_DENSE_TOP = 2
 CH_DENSE_MIN = 0.55
 CH_MAX_ADD = 2
+CH_MIN_NET_CHARS = 100
+
+_PDF_HEADER_ELEMENT_RE = re.compile(
+    r"(?i)(?:sport\s+and\s+organisation\s+rules\s+of\s+the\s+international\s+judo\s+federation|\bpage\s*[-–—]\s*\d+\b)"
+)
+
+# Fragmentos KUN del sidecar desactivados en recuperación suplementaria por contradicción con el SOR 2026-08
+DEACTIVATED_SUPPLEMENTARY_CHUNK_IDS = frozenset({
+    "CHK-KUN-NEW-001-003",  # source_kun_id: KUN-0075 (KUN-NEW-001)
+    "CHK-KUN-NEW-003-003",  # source_kun_id: KUN-0003 (KUN-NEW-003)
+})
+DEACTIVATED_SUPPLEMENTARY_KUN_IDS = frozenset({
+    "KUN-0075",
+    "KUN-0003",
+})
+
+
+def champion_net_text(text: str) -> str:
+    """Devuelve el contenido neto de un fragmento descontando cabeceras repetidas y elementos del encabezado PDF."""
+    cleaned = _PDF_HEADER_ELEMENT_RE.sub("", text or "")
+    return re.sub(r"\s+", " ", cleaned).strip()
 
 
 def channel_champions_enabled():
@@ -152,15 +173,33 @@ class ReasoningRetrievalEngine:
             self.sidecar_retriever = None
 
 
+    def _is_supplementary_enabled(self) -> bool:
+        """Verifica si la recuperación suplementaria está explícitamente activada por el flag canónico."""
+        env_val = os.environ.get("RRE_ENABLE_SHADOW_MODE_MULTISOURCE")
+        if env_val is not None:
+            return env_val.strip().lower() in {"1", "true", "yes", "on"}
+        return bool(getattr(self, "enable_shadow_mode_multisource", False))
+
     def retrieve_supplementary(self, query: str, top_k: int = 3, min_score: float = 2.0) -> list:
-        """Safely retrieves supplementary passages from multisource sidecar if available."""
+        """Safely retrieves supplementary passages from multisource sidecar only when explicitly enabled."""
+        if not self._is_supplementary_enabled():
+            return []
         try:
             if self.sidecar_retriever is None:
                 from src.multisource_retriever import MultisourceRetriever
                 self.sidecar_retriever = MultisourceRetriever()
-            res = self.sidecar_retriever.search(query, top_k=top_k, min_score=min_score)
-            if res.get("status") == "SUCCESS":
-                return res.get("matches", [])
+            if hasattr(self.sidecar_retriever, "retrieve_supplementary"):
+                matches = self.sidecar_retriever.retrieve_supplementary(query, top_k=top_k, min_score=min_score)
+            else:
+                fetch_k = max(top_k + len(DEACTIVATED_SUPPLEMENTARY_CHUNK_IDS), top_k)
+                res = self.sidecar_retriever.search(query, top_k=fetch_k, min_score=min_score)
+                matches = res.get("matches", []) if res.get("status") == "SUCCESS" else []
+            filtered = [
+                m for m in matches
+                if m.get("chunk_id") not in DEACTIVATED_SUPPLEMENTARY_CHUNK_IDS
+                and (m.get("source_kun_id") or (m.get("metadata") or {}).get("source_kun_id")) not in DEACTIVATED_SUPPLEMENTARY_KUN_IDS
+            ]
+            return filtered[:top_k]
         except Exception:
             pass
         return []
@@ -1484,13 +1523,27 @@ class ReasoningRetrievalEngine:
             "channel_champions": champions_info,
         }
 
+    def _is_eligible_channel_champion(self, passage_id: str) -> bool:
+        """Verifica que un candidato a campeón supere el umbral mínimo de caracteres netos (>= CH_MIN_NET_CHARS)."""
+        p = self.passages_by_id.get(passage_id)
+        if not p:
+            return False
+        raw = p.get("text_original", "") or p.get("text", "")
+        return len(champion_net_text(raw)) >= CH_MIN_NET_CHARS
+
     def _reserve_channel_champions(self, seeds, sparse_hits, dense_hits, top_k):
         """R1: garantiza que el paquete final contenga el pasaje que cada canal situa en cabeza. Sustituye a los
-        ultimos del paquete (nunca a otro campeon) y omite textos duplicados. Devuelve (semillas, informe)."""
+        ultimos del paquete (nunca a otro campeon) y omite textos duplicados o fragmentos con menos de
+        CH_MIN_NET_CHARS caracteres netos tras descontar cabeceras PDF. Devuelve (semillas, informe)."""
         champions = [pid for pid, sc in dense_hits[:CH_DENSE_TOP] if sc >= CH_DENSE_MIN]
         if sparse_hits:
             champions.append(sparse_hits[0][0])
-        champions = list(dict.fromkeys(c for c in champions if c in self.passages_by_id))
+        champions = list(
+            dict.fromkeys(
+                c for c in champions
+                if c in self.passages_by_id and self._is_eligible_channel_champion(c)
+            )
+        )
         seeds = list(seeds)
         added, replaced = [], []
         texts = {self.passages_by_id[x].get("text_original", "").strip() for x in seeds if x in self.passages_by_id}

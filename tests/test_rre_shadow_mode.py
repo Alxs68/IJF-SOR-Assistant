@@ -178,3 +178,73 @@ def test_sor_invariants_preserved():
     assert sha256_file(os.path.join(base_dir, "vector_index_candidate.json")) == SOR_HASHES["vector_index"]
     assert sha256_file(os.path.join(base_dir, "dense_embeddings_meta.json")) == SOR_HASHES["dense_meta"]
     assert sha256_file(os.path.join(base_dir, "knowledge_graph_candidate.json")) == SOR_HASHES["knowledge_graph"]
+
+
+def test_supplementary_retrieval_disabled_by_default(monkeypatch):
+    """Verifica que retrieve_supplementary() está desactivado por defecto en RRE y ADA."""
+    from src.ada_assistant import ArbitrationDecisionAssistant
+    monkeypatch.delenv("RRE_ENABLE_SHADOW_MODE_MULTISOURCE", raising=False)
+    engine = ReasoningRetrievalEngine(allow_degraded=True)
+    assert engine.enable_shadow_mode_multisource is False
+    assert engine.retrieve_supplementary("¿Está permitido el reverse seoi-nage en senior?", min_score=0.5) == []
+
+    called = []
+    ada = ArbitrationDecisionAssistant.__new__(ArbitrationDecisionAssistant)
+    ada.enable_shadow_mode_multisource = False
+    ada.rre = engine
+    assert ada._is_supplementary_retrieval_enabled() is False
+    monkeypatch.setattr(engine, "retrieve_supplementary", lambda *a, **kw: called.append(a) or [])
+    if ada._is_supplementary_retrieval_enabled():
+        ada.rre.retrieve_supplementary("query")
+    assert called == []
+
+
+def test_supplementary_retrieval_enabled_only_with_flag(monkeypatch):
+    """Verifica que retrieve_supplementary() se activa únicamente con el flag canónico RRE_ENABLE_SHADOW_MODE_MULTISOURCE."""
+    from src.ada_assistant import ArbitrationDecisionAssistant
+    monkeypatch.setenv("RRE_ENABLE_SHADOW_MODE_MULTISOURCE", "1")
+    engine = ReasoningRetrievalEngine(allow_degraded=True)
+    assert engine.enable_shadow_mode_multisource is True
+    matches = engine.retrieve_supplementary("¿Está permitido el reverse seoi-nage en senior?", min_score=0.5)
+    assert len(matches) > 0
+    assert matches[0]["chunk_id"] == "CHK-KUN-NEW-001-002"
+
+    ada = ArbitrationDecisionAssistant.__new__(ArbitrationDecisionAssistant)
+    ada.rre = engine
+    assert ada._is_supplementary_retrieval_enabled() is True
+
+
+def test_contradictory_kun_fragments_excluded_and_official_sor_preserved(monkeypatch):
+    """Verifica ausencia de inyección de CHK-KUN-NEW-001-003 (KUN-0075) y CHK-KUN-NEW-003-003 (KUN-0003)
+    tanto con el modo desactivado como activado, preservando la recuperación oficial SOR."""
+    forbidden_chunks = {"CHK-KUN-NEW-001-003", "CHK-KUN-NEW-003-003"}
+    forbidden_kuns = {"KUN-0075", "KUN-0003"}
+    queries = [
+        "límite de tiempo kumi-kata 30 segundos",
+        "¿Cuál es el límite máximo de disputa de kumi-kata sin ataque?",
+        "excepción de contacto involuntario de cabeza en transición",
+        "¿Se sanciona el contacto de cabeza si es producto de la inercia de caída?",
+    ]
+
+    # 1. Modo desactivado por defecto
+    monkeypatch.delenv("RRE_ENABLE_SHADOW_MODE_MULTISOURCE", raising=False)
+    eng_off = ReasoningRetrievalEngine(allow_degraded=True, enable_shadow_mode_multisource=False)
+    for q in queries:
+        assert eng_off.retrieve_supplementary(q, top_k=10, min_score=0.1) == []
+
+    # 2. Modo activado explícitamente: los fragmentos contradictorios siguen excluidos en la capa suplementaria
+    monkeypatch.setenv("RRE_ENABLE_SHADOW_MODE_MULTISOURCE", "1")
+    eng_on = ReasoningRetrievalEngine(allow_degraded=True, enable_shadow_mode_multisource=True)
+    for q in queries:
+        supp = eng_on.retrieve_supplementary(q, top_k=10, min_score=0.1)
+        returned_ids = {m.get("chunk_id") for m in supp}
+        returned_kuns = {m.get("source_kun_id") or (m.get("metadata") or {}).get("source_kun_id") for m in supp}
+        assert not (returned_ids & forbidden_chunks), f"Fragmento KUN contradictorio devuelto: {returned_ids & forbidden_chunks}"
+        assert not (returned_kuns & forbidden_kuns), f"ID KUN contradictorio devuelto: {returned_kuns & forbidden_kuns}"
+
+    # 3. Preservación de la recuperación oficial SOR primaria
+    sor_off = eng_off.retrieve("kumi-kata time limit attack shido", top_k=5)
+    sor_on = eng_on.retrieve("kumi-kata time limit attack shido", top_k=5)
+    assert sor_off["status"] == sor_on["status"] == "SUCCESS"
+    assert [e["passage_id"] for e in sor_off["evidence"]] == [e["passage_id"] for e in sor_on["evidence"]]
+    assert all(e["passage_id"].startswith("SOR-2026-08-") for e in sor_on["evidence"])

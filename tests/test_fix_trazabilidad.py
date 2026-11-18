@@ -147,7 +147,15 @@ def test_clarification_figures_need_literal_quote():
 def _engine():
     from rre_engine import ReasoningRetrievalEngine
     eng = ReasoningRetrievalEngine.__new__(ReasoningRetrievalEngine)
-    eng.passages_by_id = {k: {"text_original": f"texto {k}"} for k in "ABCDEFGH"}
+    eng.passages_by_id = {
+        k: {
+            "text_original": (
+                f"Section 2.{i + 1} Normative content for passage {k}: each team or athlete must respect the "
+                f"official competition regulations of the International Judo Federation ({k * 20})."
+            )
+        }
+        for i, k in enumerate("ABCDEFGH")
+    }
     return eng
 
 
@@ -161,7 +169,7 @@ def test_channel_champions_reserves_dense_and_sparse_heads():
 
 def test_channel_champions_noop_when_present_or_duplicate():
     eng = _engine()
-    eng.passages_by_id["F"]["text_original"] = "texto B"          # mismo texto que B
+    eng.passages_by_id["F"]["text_original"] = eng.passages_by_id["B"]["text_original"]  # mismo texto que B
     seeds, info = eng._reserve_channel_champions(["A", "B", "C"], [("A", 2.0)], [("F", 0.9)], 5)
     assert seeds == ["A", "B", "C"] and info["added"] == []
 
@@ -172,6 +180,72 @@ def test_channel_champions_off_by_default():
         assert rre_engine.channel_champions_enabled() is False
     with env(RRE_CHANNEL_CHAMPIONS="1"):
         assert rre_engine.channel_champions_enabled() is True
+
+
+def test_channel_champions_excludes_fragments_below_min_net_chars():
+    import rre_engine
+    eng = _engine()
+    eng.passages_by_id["SHORT_RAW"] = {"text_original": "DOCUMENT CONTROL"}
+    eng.passages_by_id["SHORT_WITH_HDR"] = {
+        "text_original": (
+            "Sport and Organisation Rules of the International Judo Federation\n"
+            "page - 158\n"
+            "Picture 10 .7\nPicture 10 .8"
+        )
+    }
+    assert len(rre_engine.champion_net_text(eng.passages_by_id["SHORT_RAW"]["text_original"])) < 100
+    assert len(rre_engine.champion_net_text(eng.passages_by_id["SHORT_WITH_HDR"]["text_original"])) < 100
+    seeds, info = eng._reserve_channel_champions(
+        ["A", "B", "C", "D", "E"],
+        [("SHORT_RAW", 4.0)],
+        [("SHORT_WITH_HDR", 0.85)],
+        5,
+    )
+    assert seeds == ["A", "B", "C", "D", "E"]
+    assert info["champions"] == [] and info["added"] == [] and info["replaced"] == []
+
+
+def test_channel_champions_excludes_p091_s106_and_preserves_p045_s055():
+    from rre_engine import ReasoningRetrievalEngine, champion_net_text
+    eng = ReasoningRetrievalEngine.__new__(ReasoningRetrievalEngine)
+    eng.passages_by_id = dict(BY)
+    assert len(champion_net_text(BY["SOR-2026-08-P091-S106"]["text_original"])) == 0
+    assert len(champion_net_text(BY["SOR-2026-08-P045-S055"]["text_original"])) >= 100
+    initial_seeds = [
+        "SOR-2026-08-P042-S053",
+        "SOR-2026-08-P086-S102",
+        "SOR-2026-08-P082-S100",
+        "SOR-2026-08-P045-S055",
+        "SOR-2026-08-P105-S133",
+    ]
+    sparse_hits = [("SOR-2026-08-P086-S102", 0.1973), ("SOR-2026-08-P042-S053", 0.1956)]
+    dense_hits = [("SOR-2026-08-P091-S106", 0.7041), ("SOR-2026-08-P231-S254", 0.6734)]
+    seeds, info = eng._reserve_channel_champions(initial_seeds, sparse_hits, dense_hits, 5)
+    assert "SOR-2026-08-P091-S106" not in seeds
+    assert "SOR-2026-08-P091-S106" not in info["champions"]
+    assert "SOR-2026-08-P045-S055" in seeds
+
+
+def test_channel_champions_includes_substantive_and_no_collateral_effect_between_channels():
+    eng = _engine()
+    eng.passages_by_id["SOR-2026-08-P091-S106"] = dict(BY["SOR-2026-08-P091-S106"])
+    eng.passages_by_id["VALID_REF"] = {
+        "text_original": (
+            "Sport and Organisation Rules of the International Judo Federation\npage - 44\n"
+            "2.7.1 Mixed Teams: see Section 2.7.1 (page 44) for tie-break rules when there is an equal "
+            "number of wins at the end of the match and a golden score contest is drawn."
+        )
+    }
+    # Canal denso trae cabecera defectuosa P091-S106; canal disperso trae pasaje sustantivo con referencias y numeración
+    seeds, info = eng._reserve_channel_champions(
+        ["A", "B", "C", "D", "E"],
+        [("VALID_REF", 3.5)],
+        [("SOR-2026-08-P091-S106", 0.75)],
+        5,
+    )
+    assert "SOR-2026-08-P091-S106" not in seeds
+    assert "VALID_REF" in seeds
+    assert info["added"] == ["VALID_REF"] and info["replaced"] == ["E"]
 
 
 # ---------------- R2 traduccion de cualquier idioma ----------------

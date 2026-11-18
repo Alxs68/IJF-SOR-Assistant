@@ -114,11 +114,21 @@ class ArbitrationDecisionAssistant:
     ADA: Dedicated judicial reasoning and arbitration assistant for the IJF SOR.
     """
 
+    DEACTIVATED_SUPPLEMENTARY_CHUNK_IDS = frozenset({
+        "CHK-KUN-NEW-001-003",  # source_kun_id: KUN-0075 (KUN-NEW-001)
+        "CHK-KUN-NEW-003-003",  # source_kun_id: KUN-0003 (KUN-NEW-003)
+    })
+    DEACTIVATED_SUPPLEMENTARY_KUN_IDS = frozenset({
+        "KUN-0075",
+        "KUN-0003",
+    })
+
     def __init__(
         self,
         base_dir="data/processed/rebuild_2026_08_corrected",
         allow_degraded: bool | None = None,
-        llm_manager: Optional[MultiProviderLLMManager] = None
+        llm_manager: Optional[MultiProviderLLMManager] = None,
+        enable_shadow_mode_multisource: bool = False
     ):
         self.base_dir = base_dir
         self.rre = ReasoningRetrievalEngine(
@@ -127,12 +137,26 @@ class ArbitrationDecisionAssistant:
             enable_semantic_ranker=True,
             enable_referee_disambiguation=True,
             enable_ood_detector=True,
-            enable_negative_domain_anchors=True
+            enable_negative_domain_anchors=True,
+            enable_shadow_mode_multisource=enable_shadow_mode_multisource
         )
+        self.enable_shadow_mode_multisource = bool(self.rre.enable_shadow_mode_multisource)
         self.config = get_active_corpus_config()
         self.llm_manager = llm_manager or MultiProviderLLMManager()
         self.api_key = self.llm_manager.gemini_api_key
         self.doc_validator = DocumentValidator()
+
+    def _is_supplementary_retrieval_enabled(self) -> bool:
+        """Verifica si la recuperación suplementaria está explícitamente activada por RRE_ENABLE_SHADOW_MODE_MULTISOURCE."""
+        env_val = os.environ.get("RRE_ENABLE_SHADOW_MODE_MULTISOURCE")
+        if env_val is not None:
+            return env_val.strip().lower() in {"1", "true", "yes", "on"}
+        if hasattr(self, "enable_shadow_mode_multisource"):
+            return bool(self.enable_shadow_mode_multisource)
+        rre_obj = getattr(self, "rre", None)
+        if hasattr(rre_obj, "enable_shadow_mode_multisource"):
+            return bool(rre_obj.enable_shadow_mode_multisource)
+        return False
 
     def _call_llm(self, prompt: str) -> Tuple[Optional[str], Dict[str, Any]]:
         """Invokes active LLM provider (Gemini/Groq) with fallback according to configured policy.
@@ -412,12 +436,13 @@ class ArbitrationDecisionAssistant:
 
         # Retrieve authorized supplementary official sources (Shadow / Sidecars TIER_2 / TIER_3)
         supp_results = []
-        try:
-            supp_results = self.rre.retrieve_supplementary(situation_query, min_score=2.0)
-            if not supp_results and search_query_en != situation_query:
-                supp_results = self.rre.retrieve_supplementary(search_query_en, min_score=2.0)
-        except Exception:
-            supp_results = []
+        if self._is_supplementary_retrieval_enabled():
+            try:
+                supp_results = self.rre.retrieve_supplementary(situation_query, min_score=2.0)
+                if not supp_results and search_query_en != situation_query:
+                    supp_results = self.rre.retrieve_supplementary(search_query_en, min_score=2.0)
+            except Exception:
+                supp_results = []
 
         evidence = retrieval_res.get("evidence", []) if retrieval_res.get("status") != "ABSTAIN" else []
         related = retrieval_res.get("related_passages", []) if retrieval_res.get("status") != "ABSTAIN" else []
@@ -479,6 +504,9 @@ class ArbitrationDecisionAssistant:
         supp_catalog = {}
         for supp in supp_results:
             supp_id = supp.get("chunk_id") or supp.get("passage_id")
+            supp_kun_id = supp.get("source_kun_id") or (supp.get("metadata") or {}).get("source_kun_id")
+            if supp_id in self.DEACTIVATED_SUPPLEMENTARY_CHUNK_IDS or supp_kun_id in self.DEACTIVATED_SUPPLEMENTARY_KUN_IDS:
+                continue
             supp_text = (supp.get("content_text") or supp.get("text") or "").strip()
             doc_meta = self.doc_validator.get_document(supp.get("document_id") or "")
             role = _SUPPLEMENTARY_ROLE_BY_AUTHORITY.get(doc_meta.authority) if doc_meta else None

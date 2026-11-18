@@ -49,6 +49,18 @@ def tokenize(text: str) -> List[str]:
     words = re.findall(r'\b[a-zA-Z0-9_\-]+\b', clean)
     return [w for w in words if len(w) > 2 and w not in STOPWORDS]
 
+# Fragmentos KUN desactivados en la capa suplementaria por contradicción con el SOR 2026-08 vigente
+# (Art. 18.1.1: 45s vs 30s; Art. 18.2.1/18.1.4: contacto de cabeza) y falta de PDF primario local verificable.
+DEACTIVATED_SUPPLEMENTARY_CHUNK_IDS = frozenset({
+    "CHK-KUN-NEW-001-003",  # source_kun_id: KUN-0075 (KUN-NEW-001)
+    "CHK-KUN-NEW-003-003",  # source_kun_id: KUN-0003 (KUN-NEW-003)
+})
+DEACTIVATED_SUPPLEMENTARY_KUN_IDS = frozenset({
+    "KUN-0075",
+    "KUN-0003",
+})
+
+
 class MultisourceRetriever:
     """
     Recuperador complementario calibrado para fragmentos Sidecar.
@@ -261,7 +273,8 @@ class MultisourceRetriever:
                 "raw_score": round(raw_s, 4),
                 "confidence_score": norm_conf,
                 "overlap_ratio": round(overlap_ratio, 3),
-                "staging_sha256": p.get("staging_sha256")
+                "staging_sha256": p.get("staging_sha256"),
+                "source_kun_id": (p.get("metadata") or {}).get("source_kun_id"),
             })
 
         elapsed_ms = (time.perf_counter() - start_time) * 1000.0
@@ -271,3 +284,19 @@ class MultisourceRetriever:
             "total_candidates": len(ranked),
             "elapsed_ms": round(elapsed_ms, 3)
         }
+
+    def retrieve_supplementary(self, query: str, top_k: int = 3, min_score: float = 2.0) -> List[Dict[str, Any]]:
+        """
+        Recuperación suplementaria controlada sobre el sidecar multifuente.
+        Excluye fragmentos KUN desactivados por contradicción con el SOR 2026-08 vigente.
+        """
+        fetch_k = max(top_k + len(DEACTIVATED_SUPPLEMENTARY_CHUNK_IDS), top_k)
+        res = self.search(query, top_k=fetch_k, min_score=min_score)
+        if res.get("status") != "SUCCESS":
+            return []
+        matches = [
+            m for m in res.get("matches", [])
+            if m.get("chunk_id") not in DEACTIVATED_SUPPLEMENTARY_CHUNK_IDS
+            and (m.get("source_kun_id") or (m.get("metadata") or {}).get("source_kun_id")) not in DEACTIVATED_SUPPLEMENTARY_KUN_IDS
+        ]
+        return matches[:top_k]

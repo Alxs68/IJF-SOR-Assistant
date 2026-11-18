@@ -123,6 +123,7 @@ def test_successful_install_replaces_previous_and_keeps_it(env):
     compose = open(os.path.join(new, "docker-compose.exp.yml")).read()
     for flag in ("ADA_UNIFIED_ANSWER", "RRE_CHANNEL_CHAMPIONS", "ADA_TRANSLATE_ANY_LANG", "DIG_11_SUBORDINATE", "DIG06_REFS"):
         assert f'{flag}: "1"' in compose                               # interruptores solo en el compose experimental
+    assert 'RRE_ENABLE_SCOPE_PREFERENCE: "0"' in compose
     assert '"127.0.0.1:8510:8501"' in compose and "ijf-sor-assistant-exp" in compose
 
 

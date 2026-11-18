@@ -26,6 +26,15 @@ def test_flags_are_off_by_default():
         assert D.NUMBER_NORMALIZATION == "v1" and D.DIG_VERSION == "DIG-1.3" and D.numbers_in is D.numbers_in_v1
 
 
+def test_scope_preference_disabled_by_default_in_exp_installer():
+    from src.scope_preference import flag_enabled
+    installer_path = os.path.join(ROOT, "deploy", "exp", "server_install_exp.sh")
+    installer_text = open(installer_path, encoding="utf-8").read()
+    assert 'RRE_ENABLE_SCOPE_PREFERENCE: "0"' in installer_text
+    assert 'RRE_ENABLE_SCOPE_PREFERENCE: "1"' not in installer_text
+    assert flag_enabled(None) is False
+
+
 # ------------------------------------------------------------------ R3: equivalencia con lo evaluado
 def test_scope_preference_equals_experimental_r3():
     from experimental.retrieval_variants import ScopeModel, UnitCorpus, scope_rerank

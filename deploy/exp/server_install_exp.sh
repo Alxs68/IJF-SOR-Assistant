@@ -119,7 +119,7 @@ services:
     env_file:
       - .env
     environment:
-      RRE_ENABLE_SCOPE_PREFERENCE: "1"
+      RRE_ENABLE_SCOPE_PREFERENCE: "0"
       RRE_SCOPE_BETA: "0.2"
       DIG_NUMBER_NORMALIZATION: "v2"
       DIG_V3: "${EXP_DIG_V3}"
