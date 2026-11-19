@@ -181,3 +181,26 @@ def citation_ids(result):
 
 def delivered_ids_in_result(result):
     return [e["passage_id"] for e in result.get("evidence", []) + result.get("related_passages", [])]
+
+
+# ---- Verificacion V4 (ADA_VERIFICATION_V4=1): mismos invariantes, distinto registro --------------------------------
+def v4_enabled():
+    """True si el flujo usa la verificacion V4 (sustituye la decision del DIG; ver src/answer_verification.py)."""
+    try:
+        import answer_verification as _v4
+    except ImportError:  # pragma: no cover
+        return False
+    return _v4.enabled()
+
+
+def assert_success_not_labelled_as_semantically_verified(di):
+    """Una respuesta mecanica de prueba aceptada no puede presentarse como verificada semanticamente.
+    DIG: nivel D 'NO_VERIFICADO'. V4 en pruebas (verificador LLM bloqueado): modo reducido, nunca 'LLM'."""
+    if v4_enabled():
+        assert di["version"] == "V4" and di["verification"]["mode"] != "LLM"
+    else:
+        assert di["levels"]["D_respaldo_efectivo"].startswith("NO_VERIFICADO")
+
+
+def v4_removed_reasons(res):
+    return [r.get("reason", "") for r in ((res.get("decision_integrity") or {}).get("verification") or {}).get("removed") or []]

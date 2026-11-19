@@ -21,7 +21,8 @@ for _k in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "GROQ_API_KEY"):
 
 import answer_presentation as AP  # noqa: E402
 import decision_integrity as D  # noqa: E402
-from _ada_contract_helpers import StubLLM, citation_ids, delivered_ids_in_result, grounded_answer  # noqa: E402
+from _ada_contract_helpers import (  # noqa: E402
+    StubLLM, citation_ids, delivered_ids_in_result, grounded_answer, v4_enabled, v4_removed_reasons)
 
 # Consultas respondibles candidatas: se usa la primera cuya respuesta mecanica de prueba supera el DIG en el modo
 # anterior (la recuperacion difiere entre modo HYBRID y modo lexico degradado).
@@ -111,7 +112,7 @@ def test_final_validation_covers_all_visible_fields(ada, unified):
     di = res["decision_integrity"]
     assert di["final_visible_check"]["decision"] == "PERMITIR"
     assert set(VISIBLE) <= set(di["validated_answer"])
-    assert "+ALL" in di["version"]
+    assert di["version"] == "V4" if v4_enabled() else "+ALL" in di["version"]
 
 
 # 3. extended_analysis no puede introducir contenido sin verificar
@@ -134,7 +135,11 @@ def test_previous_behaviour_let_extended_analysis_through(ada, legacy):
 def test_limitations_cannot_add_unverified_figures(ada, unified):
     _base_success(ada)
     res, _ = _run(ada, ANSWERABLE, _with(limitations="El reglamento añade 987 segundos en finales."))
-    assert res["status"] == "ABSTAIN" and "987" not in _visible(res)
+    assert "987" not in _visible(res)
+    if v4_enabled():   # V4 retira la frase en lugar de abstenerse (registrado)
+        assert res["status"] == "ABSTAIN" or any("cifras sin respaldo" in r for r in v4_removed_reasons(res))
+    else:
+        assert res["status"] == "ABSTAIN"
 
 
 # 4. Cifras y excepciones con respaldo
@@ -146,6 +151,10 @@ def test_unsupported_figure_in_main_answer_abstains(ada, unified):
         obj["summary"] += " Se requieren 987 segundos."
         return json.dumps(obj, ensure_ascii=False)
     res, _ = _run(ada, ANSWERABLE, analysis)
+    if v4_enabled():   # V4: la frase con la cifra sin respaldo se retira; nunca queda visible
+        assert "987" not in _visible(res)
+        assert res["status"] == "ABSTAIN" or any("cifras sin respaldo" in r for r in v4_removed_reasons(res))
+        return
     assert res["status"] == "ABSTAIN"
     assert "DIG-06_CIFRAS_RESPALDADAS" in res["decision_integrity"]["failed_checks"]
 
@@ -158,7 +167,9 @@ def test_unsupported_exception_in_conditions_is_removed_and_flagged(ada, unified
         assert "987" not in _visible(res) and AP.is_placeholder(sa["conditions_and_exceptions"])
         assert any(note in sa["limitations"] for note in (
             "Se omitió de esta respuesta información complementaria",
-            "Supplementary information that could not be verified"))
+            "Supplementary information that could not be verified",
+            "Se retiró de esta respuesta contenido que no estaba respaldado",
+            "Content not supported by the cited SOR passages was removed"))
     else:
         assert res["status"] == "ABSTAIN"
 
@@ -238,8 +249,11 @@ def test_app_has_no_expand_answer_in_unified_branch():
     src = open(os.path.join(ROOT, "app.py"), encoding="utf-8").read()
     ast.parse(src)
     assert "import answer_presentation as _ap" in src
-    start = src.index("                if unified_view:\n                    # Sin ampliacion")
-    end = src.index("                elif struct and isinstance(struct, dict):", start)
+    # Independiente de la sangria (el bloque vive ahora en una funcion compartida por consulta e historial).
+    m = re.search(r"\n( +)if unified_view:\n +# Sin ampliacion", src)
+    assert m
+    start = m.start()
+    end = src.index("\n" + m.group(1) + "elif struct and isinstance(struct, dict):", start)
     branch = src[start:end]
     assert "view_details_expander" not in branch and "extended_analysis" not in branch
     assert re.search(r"if unified_view:\n\s+with st\.container\(border=True\):", src)

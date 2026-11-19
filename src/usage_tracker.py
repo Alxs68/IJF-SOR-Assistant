@@ -51,6 +51,8 @@ class UsageTracker:
             "total_queries": 0,
             "queries_with_llm": 0,
             "queries_local": 0,
+            # Consultas cuyos tokens informo el proveedor (> 0): denominador de los promedios de tokens.
+            "queries_with_token_data": 0,
             "total_prompt_tokens": 0,
             "total_completion_tokens": 0,
             "total_tokens": 0,
@@ -73,6 +75,9 @@ class UsageTracker:
                     data = json.load(f)
                     base = self._default_data()
                     base.update(data)
+                    if "queries_with_token_data" not in data:
+                        # Archivo anterior al campo: la mejor aproximacion disponible son las consultas con modelo.
+                        base["queries_with_token_data"] = int(data.get("queries_with_llm", 0))
                     return base
             except Exception:
                 pass
@@ -112,6 +117,8 @@ class UsageTracker:
         is_llm = (t_tok > 0) or (provider.lower() not in ("local", "none", "offline"))
 
         self._data["total_queries"] += 1
+        if t_tok > 0:
+            self._data["queries_with_token_data"] = self._data.get("queries_with_token_data", 0) + 1
         if is_llm:
             self._data["queries_with_llm"] += 1
             self._data["total_prompt_tokens"] += p_tok
@@ -119,6 +126,20 @@ class UsageTracker:
             self._data["total_tokens"] += t_tok
         else:
             self._data["queries_local"] += 1
+
+        # Coste por modelo: si la consulta usa varios modelos (p. ej. analisis + verificador V4), 'by_model' desglosa
+        # sus tokens y el coste de esa consulta se calcula con la tarifa de cada uno. Sin desglose, el calculo
+        # agregado de get_metrics (tarifa del ultimo modelo) no cambia.
+        by_model = token_usage.get("by_model") if is_llm else None
+        if isinstance(by_model, dict) and by_model:
+            cost = 0.0
+            for m, u in by_model.items():
+                r = PRICING_TABLE.get(m, PRICING_TABLE["default"])
+                cost += (int(u.get("prompt_tokens", 0)) / 1_000_000) * r["input_per_m"]
+                cost += (int(u.get("completion_tokens", 0)) / 1_000_000) * r["output_per_m"]
+            self._data["costed_cost_usd"] = self._data.get("costed_cost_usd", 0.0) + cost
+            self._data["costed_prompt_tokens"] = self._data.get("costed_prompt_tokens", 0) + p_tok
+            self._data["costed_completion_tokens"] = self._data.get("costed_completion_tokens", 0) + c_tok
 
         query_preview = (query_text[:60] + "...") if len(query_text) > 60 else query_text
 
@@ -151,19 +172,25 @@ class UsageTracker:
         tot_c_tok = self._data["total_completion_tokens"]
         tot_tok = self._data["total_tokens"]
 
-        avg_total_tokens = round(tot_tok / tot_q, 1) if tot_q > 0 else 0.0
-        avg_llm_tokens = round(tot_tok / llm_q, 1) if llm_q > 0 else 0.0
-        avg_prompt_tokens = round(tot_p_tok / llm_q, 1) if llm_q > 0 else 0.0
-        avg_completion_tokens = round(tot_c_tok / llm_q, 1) if llm_q > 0 else 0.0
+        # Promedio acumulado = tokens contabilizados / consultas con tokens informados por el proveedor. Las consultas
+        # sin llamada al modelo o cuyo proveedor no informo tokens no entran en el denominador (no hay dato, no es 0).
+        tok_q = self._data.get("queries_with_token_data", 0)
+        avg_total_tokens = round(tot_tok / tok_q, 1) if tok_q > 0 else 0.0
+        avg_llm_tokens = avg_total_tokens
+        avg_prompt_tokens = round(tot_p_tok / tok_q, 1) if tok_q > 0 else 0.0
+        avg_completion_tokens = round(tot_c_tok / tok_q, 1) if tok_q > 0 else 0.0
 
         last_q = self._data.get("last_query", {})
         last_model = last_q.get("model", "default")
         rates = PRICING_TABLE.get(last_model, PRICING_TABLE["default"])
 
-        # Cost calculations in USD
-        cost_prompt = (tot_p_tok / 1_000_000) * rates["input_per_m"]
-        cost_completion = (tot_c_tok / 1_000_000) * rates["output_per_m"]
-        total_cost_usd = cost_prompt + cost_completion
+        # Cost calculations in USD: queries with a per-model breakdown are costed exactly; the rest of the tokens
+        # keep the aggregated estimate with the last model's rates (previous behaviour).
+        rest_p = tot_p_tok - self._data.get("costed_prompt_tokens", 0)
+        rest_c = tot_c_tok - self._data.get("costed_completion_tokens", 0)
+        cost_prompt = (rest_p / 1_000_000) * rates["input_per_m"]
+        cost_completion = (rest_c / 1_000_000) * rates["output_per_m"]
+        total_cost_usd = cost_prompt + cost_completion + self._data.get("costed_cost_usd", 0.0)
 
         avg_cost_per_query = (total_cost_usd / tot_q) if tot_q > 0 else (
             ((avg_prompt_tokens / 1_000_000) * rates["input_per_m"]) +
@@ -182,6 +209,7 @@ class UsageTracker:
             "total_queries": tot_q,
             "queries_with_llm": llm_q,
             "queries_local": loc_q,
+            "queries_with_token_data": tok_q,
             "total_tokens": tot_tok,
             "total_prompt_tokens": tot_p_tok,
             "total_completion_tokens": tot_c_tok,
@@ -208,6 +236,18 @@ class UsageTracker:
         self._data = self._default_data()
         self._save()
         return self.get_metrics()
+
+
+def record_user_query(tracker: "UsageTracker", query_text: str, res: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    """UNA consulta enviada por el usuario = UN incremento del contador. Las llamadas internas de esa consulta
+    (traduccion, analisis, reintentos, verificacion) no cuentan como consultas: sus tokens ya vienen sumados en
+    res['token_usage']. Proveedor/modelo = los de la llamada de analisis; sin llamada al modelo, consulta local."""
+    res = res or {}
+    meta = res.get("llm_meta") or {}
+    usage = res.get("token_usage") or meta.get("token_usage") or {}
+    return tracker.record_query(query_text=query_text, token_usage=usage,
+                                provider=meta.get("successful_provider") or "Local",
+                                model=meta.get("successful_model") or "deterministic")
 
 
 # Global module singleton instance

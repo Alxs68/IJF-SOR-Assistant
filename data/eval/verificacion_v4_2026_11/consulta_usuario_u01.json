@@ -1,0 +1,13 @@
+{
+ "descripcion": "Consulta adicional pedida por el usuario durante la revision humana (2026-11-18). No forma parte de los conjuntos de evaluacion.",
+ "consultas": [
+  {
+   "id": "U01",
+   "cat": "usuario",
+   "lang": "es",
+   "respondible": "SIN_CLASIFICAR",
+   "q": "que prohibiciones tienen los entrenadores en la competencia?",
+   "esperado": []
+  }
+ ]
+}

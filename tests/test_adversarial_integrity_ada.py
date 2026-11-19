@@ -17,6 +17,7 @@ for _k in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "GROQ_API_KEY"):
     os.environ[_k] = ""
 
 from _ada_contract_helpers import (  # noqa: E402
+    v4_enabled, v4_removed_reasons, assert_success_not_labelled_as_semantically_verified,
     StubLLM, json_answer, grounded_answer, supplementary_block, citation_ids, primary_passages)
 
 
@@ -62,7 +63,11 @@ def test_fabricated_figure_with_literal_quote_abstains(ada, query):
     res, stub = _run(ada, query, lambda p, d: grounded_answer(p, d[:1], extra_text=" Importe: 987 unidades."))
     assert res["status"] == "ABSTAIN"
     if stub.analysis_prompts and res.get("decision_integrity"):
-        assert "DIG-06_CIFRAS_RESPALDADAS" in res["decision_integrity"]["failed_checks"]
+        if v4_enabled():   # V4 retira primero la frase con la cifra; la abstencion la decide el resto de controles
+            assert any("cifras sin respaldo" in r for r in v4_removed_reasons(res))
+            assert res["decision_integrity"]["failed_checks"] and "987" not in json.dumps(res["structured_answer"])
+        else:
+            assert "DIG-06_CIFRAS_RESPALDADAS" in res["decision_integrity"]["failed_checks"]
 
 
 def test_declared_insufficient_evidence_abstains(ada):
@@ -119,7 +124,8 @@ def test_grounded_answer_success_is_labelled_without_entailment(ada):
     if res["status"] != "SUCCESS":
         pytest.skip(f"respuesta mecanica no supera DIG: {res.get('decision_integrity', {}).get('failed_checks')}")
     di = res["decision_integrity"]
-    assert di["decision"] == "PERMITIR" and di["levels"]["D_respaldo_efectivo"].startswith("NO_VERIFICADO")
+    assert di["decision"] == "PERMITIR"
+    assert_success_not_labelled_as_semantically_verified(di)
     assert "sin entailment" in res["mode"]
     assert _no_shadow_citation(res)
     assert all(s.get("decisive") is False for s in res.get("supplementary_context") or [])

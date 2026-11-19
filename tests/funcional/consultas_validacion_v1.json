@@ -1,0 +1,30 @@
+{
+  "version": "validacion-v1",
+  "fecha": "2026-11-18",
+  "descripcion": "Conjunto de VALIDACION independiente (no usado para diagnosticar ni para disenar correcciones). Temas del SOR distintos de los del conjunto funcional-v1, para comprobar que las mejoras generalizan. No deriva de test_sealed. Mismo formato y criterio de coincidencia por PAGINA que consultas_funcionales_v1.json.",
+  "consultas": [
+    {"id": "V01", "cat": "B_general", "lang": "es", "respondible": "SI", "q": "¿Qué ocurre si al final del tiempo reglamentario los atletas están empatados?", "esperado": ["P163-S186", "P164-S186"]},
+    {"id": "V02", "cat": "A_puntual", "lang": "es", "respondible": "SI", "q": "¿Qué medidas debe tener el área de competición y la zona de seguridad?", "esperado": ["P112-S143", "P136-S175"]},
+    {"id": "V03", "cat": "C_excepcion", "lang": "es", "respondible": "SI", "q": "¿Puede un atleta seguir combatiendo si está sangrando?", "esperado": ["P198-S208"]},
+    {"id": "V04", "cat": "H_multilingue", "lang": "en", "respondible": "SI", "q": "When can the referee announce sono-mama?", "esperado": ["P162-S185", "P142-S177"]},
+    {"id": "V05", "cat": "B_general", "lang": "es", "respondible": "SI", "q": "¿Cómo deben llevarse el pelo y las uñas en competición?", "esperado": ["P118-S157", "P128-S168"]},
+    {"id": "V06", "cat": "H_multilingue", "lang": "pt", "respondible": "SI", "q": "Um atleta pode competir com uma tatuagem visível?", "esperado": ["P126-S166", "P128-S168"]},
+    {"id": "V07", "cat": "C_excepcion", "lang": "es", "respondible": "SI", "q": "¿En qué casos se entrega un judogi de reserva durante el combate?", "esperado": ["P127-S168"]},
+    {"id": "V08", "cat": "G_multifaceta", "lang": "es", "respondible": "SI", "q": "¿Quién puede sentarse en la silla del entrenador y qué puede hacer durante el combate?", "esperado": ["P089-S104"]},
+    {"id": "V09", "cat": "A_puntual", "lang": "en", "respondible": "SI", "q": "What are the weight categories for junior women?", "esperado": ["P033-S034"]},
+    {"id": "V10", "cat": "A_puntual", "lang": "es", "respondible": "SI", "q": "¿Qué sucede si ambos atletas reciben tres shido?", "esperado": ["P194-S199"]},
+    {"id": "V11", "cat": "B_general", "lang": "es", "respondible": "SI", "q": "¿Cómo se atiende médicamente a un atleta dentro del área de competición?", "esperado": ["P197-S207"]},
+    {"id": "V12", "cat": "B_general", "lang": "es", "respondible": "SI", "q": "¿Qué formatos de competición con repesca existen?", "esperado": ["P037-S041", "P038-S042"]},
+    {"id": "V13", "cat": "H_multilingue", "lang": "pt", "respondible": "SI", "q": "Qual é a duração do combate para juniores?", "esperado": ["P036-S040", "P152-S179"]},
+    {"id": "V14", "cat": "D_prohibicion", "lang": "es", "respondible": "SI", "q": "¿Qué está prohibido llevar en la cabeza o en el cuerpo durante el combate?", "esperado": ["P118-S157"]},
+    {"id": "V15", "cat": "C_excepcion", "lang": "en", "respondible": "SI", "q": "What happens in golden score if one athlete has more shido than the other?", "esperado": ["P163-S186", "P164-S186"]},
+    {"id": "V16", "cat": "D_prohibicion", "lang": "es", "respondible": "SI", "q": "¿A qué articulaciones se puede aplicar kansetsu-waza?", "esperado": ["P191-S198"]},
+    {"id": "V17", "cat": "J_no_respondible", "lang": "es", "respondible": "NO", "q": "¿Cuánto cuesta una entrada para ver el Campeonato del Mundo?", "esperado": []},
+    {"id": "V18", "cat": "J_no_respondible", "lang": "en", "respondible": "NO", "q": "Who is the current president of the Spanish judo federation?", "esperado": []},
+    {"id": "V19", "cat": "J_no_respondible", "lang": "es", "respondible": "NO", "q": "¿Qué dieta se recomienda para bajar de peso antes del pesaje?", "esperado": []},
+    {"id": "V20", "cat": "K_parcial", "lang": "es", "respondible": "PARCIAL", "q": "¿Qué pasa si un atleta sangra y quién paga el tratamiento médico?", "esperado": ["P198-S208"]},
+    {"id": "V21", "cat": "K_parcial", "lang": "es", "respondible": "PARCIAL", "q": "¿Cómo deben ser las uñas del atleta y qué marca de cortaúñas es la mejor?", "esperado": ["P118-S157"]},
+    {"id": "V22", "cat": "L_ambigua", "lang": "es", "respondible": "AMBIGUA", "q": "¿Cuándo es el pesaje?", "esperado": ["P077-S091", "P079-S093"]},
+    {"id": "V23", "cat": "L_ambigua", "lang": "es", "respondible": "AMBIGUA", "q": "¿Cuáles son las categorías de peso?", "esperado": ["P033-S034", "P034-S036"]}
+  ]
+}

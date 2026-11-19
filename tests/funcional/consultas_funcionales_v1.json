@@ -1,0 +1,406 @@
+{
+  "version": "funcional-v1",
+  "fecha": "2026-11-18",
+  "descripcion": "Conjunto funcional para comparar versiones del asistente (no es el benchmark sellado; no deriva de test_sealed). 'esperado' = pasajes SOR (pagina-seccion) que contienen la evidencia necesaria; basta uno para responder salvo que 'requiere_todos' sea true. 'respondible': SI | NO | PARCIAL | AMBIGUA. La coincidencia de evidencia se mide por PAGINA (Pxxx): los pasajes del corpus son por pagina y comparten su texto.",
+  "consultas": [
+    {
+      "id": "A01",
+      "cat": "A_puntual",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Cuánto dura un combate de categoría sénior?",
+      "esperado": [
+        "P036-S040",
+        "P152-S179"
+      ]
+    },
+    {
+      "id": "A02",
+      "cat": "A_puntual",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Cuál es la tolerancia de peso en el pesaje aleatorio?",
+      "esperado": [
+        "P079-S096"
+      ]
+    },
+    {
+      "id": "A03",
+      "cat": "A_puntual",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Cuántos segundos de inmovilización se necesitan para conseguir ippon?",
+      "esperado": [
+        "P152-S180",
+        "P173-S190",
+        "P174-S190"
+      ]
+    },
+    {
+      "id": "A04",
+      "cat": "A_puntual",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "existe la puntuacion de yuko en judo actualmente en la temporada 2026",
+      "esperado": [
+        "P168-S188",
+        "P169-S188",
+        "P170-S188",
+        "P171-S188"
+      ]
+    },
+    {
+      "id": "A05",
+      "cat": "A_puntual",
+      "lang": "en",
+      "respondible": "SI",
+      "q": "How many seconds of osaekomi are needed for waza-ari?",
+      "esperado": [
+        "P152-S180",
+        "P173-S190",
+        "P174-S190"
+      ]
+    },
+    {
+      "id": "A06",
+      "cat": "A_puntual",
+      "lang": "pt",
+      "respondible": "SI",
+      "q": "Qual é a duração de um combate na categoria cadete?",
+      "esperado": [
+        "P036-S040",
+        "P152-S179"
+      ]
+    },
+    {
+      "id": "B01",
+      "cat": "B_general",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Cómo deben ser los judogis para competir?",
+      "esperado": [
+        "P115-S149",
+        "P124-S164",
+        "P124-S165",
+        "P125-S165",
+        "P122-S162",
+        "P115-S152"
+      ]
+    },
+    {
+      "id": "B02",
+      "cat": "B_general",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Cómo funciona el pesaje oficial?",
+      "esperado": [
+        "P077-S090",
+        "P077-S091",
+        "P078-S092"
+      ]
+    },
+    {
+      "id": "B03",
+      "cat": "B_general",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Qué normas deben cumplir los entrenadores durante la competición?",
+      "esperado": [
+        "P089-S104",
+        "P089-S105"
+      ]
+    },
+    {
+      "id": "B04",
+      "cat": "B_general",
+      "lang": "en",
+      "respondible": "SI",
+      "q": "What are the rules for the random weigh-in?",
+      "esperado": [
+        "P079-S093",
+        "P079-S094",
+        "P079-S095",
+        "P079-S096",
+        "P079-S097"
+      ]
+    },
+    {
+      "id": "C01",
+      "cat": "C_excepcion",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Qué ocurre si Uke aterriza sobre el cuerpo de Tori al hacer puente?",
+      "esperado": [
+        "P167-S187"
+      ]
+    },
+    {
+      "id": "C02",
+      "cat": "C_excepcion",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Se puede llevar camiseta debajo del judogi?",
+      "esperado": [
+        "P126-S166"
+      ]
+    },
+    {
+      "id": "C03",
+      "cat": "C_excepcion",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Cuándo es válida una técnica aunque los atletas salgan del área de competición?",
+      "esperado": [
+        "P151-S178"
+      ]
+    },
+    {
+      "id": "D01",
+      "cat": "D_prohibicion",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Qué acciones están prohibidas en las competiciones de cadetes?",
+      "esperado": [
+        "P188-S196",
+        "P189-S196"
+      ]
+    },
+    {
+      "id": "D02",
+      "cat": "D_prohibicion",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Qué acciones se sancionan con hansoku-make directo?",
+      "esperado": [
+        "P190-S197",
+        "P190-S198",
+        "P191-S198"
+      ]
+    },
+    {
+      "id": "D03",
+      "cat": "D_prohibicion",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Está prohibido el head diving?",
+      "esperado": [
+        "P190-S197"
+      ]
+    },
+    {
+      "id": "E01",
+      "cat": "E_varios_articulos",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Qué ocurre si un competidor no cumple las condiciones del judogi durante el control?",
+      "esperado": [
+        "P116-S154",
+        "P094-S110",
+        "P188-S195",
+        "P115-S152",
+        "P117-S156",
+        "P127-S168"
+      ]
+    },
+    {
+      "id": "E02",
+      "cat": "E_varios_articulos",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Qué pasa si un atleta no se presenta a su combate?",
+      "esperado": [
+        "P195-S202",
+        "P195-S203"
+      ]
+    },
+    {
+      "id": "E03",
+      "cat": "E_varios_articulos",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Qué sucede si un atleta no da el peso en el pesaje oficial?",
+      "esperado": [
+        "P078-S092",
+        "P077-S091"
+      ]
+    },
+    {
+      "id": "F01",
+      "cat": "F_referencia_cruzada",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Qué establece el artículo 18.1.3 sobre el atuendo desordenado?",
+      "esperado": [
+        "P188-S195"
+      ]
+    },
+    {
+      "id": "F02",
+      "cat": "F_referencia_cruzada",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Cómo puede un entrenador pedir la revisión de una acción (contest review)?",
+      "esperado": [
+        "P090-S106",
+        "P091-S106",
+        "P238-S261"
+      ]
+    },
+    {
+      "id": "G01",
+      "cat": "G_multifaceta",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Cómo funciona la competición por equipos mixtos?",
+      "esperado": [
+        "P042-S054",
+        "P043-S054",
+        "P044-S054",
+        "P034-S036"
+      ]
+    },
+    {
+      "id": "G02",
+      "cat": "G_multifaceta",
+      "lang": "es",
+      "respondible": "SI",
+      "q": "¿Qué reglas aplican a los veteranos en edades, pesos y duración de los combates?",
+      "esperado": [
+        "P103-S124",
+        "P103-S125",
+        "P103-S126"
+      ]
+    },
+    {
+      "id": "H01",
+      "cat": "H_multilingue",
+      "lang": "en",
+      "respondible": "SI",
+      "q": "Can a cadet use the head to defend against a throw?",
+      "esperado": [
+        "P188-S196"
+      ]
+    },
+    {
+      "id": "H02",
+      "cat": "H_multilingue",
+      "lang": "pt",
+      "respondible": "SI",
+      "q": "O que acontece se o atleta usa a cabeça para defender um arremesso?",
+      "esperado": [
+        "P188-S196",
+        "P190-S197"
+      ]
+    },
+    {
+      "id": "H03",
+      "cat": "H_multilingue",
+      "lang": "pt",
+      "respondible": "SI",
+      "q": "Quais são as cores permitidas para o judogi?",
+      "esperado": [
+        "P124-S164",
+        "P115-S149"
+      ]
+    },
+    {
+      "id": "H04",
+      "cat": "H_multilingue",
+      "lang": "en",
+      "respondible": "SI",
+      "q": "What happens if an athlete is injured and cannot continue the contest?",
+      "esperado": [
+        "P196-S205",
+        "P196-S206",
+        "P197-S207"
+      ]
+    },
+    {
+      "id": "J01",
+      "cat": "J_no_respondible",
+      "lang": "es",
+      "respondible": "NO",
+      "q": "¿Cuál es la receta tradicional de la paella valenciana?",
+      "esperado": []
+    },
+    {
+      "id": "J02",
+      "cat": "J_no_respondible",
+      "lang": "es",
+      "respondible": "NO",
+      "q": "¿Cuánto cobra un árbitro internacional por cada torneo?",
+      "esperado": []
+    },
+    {
+      "id": "J03",
+      "cat": "J_no_respondible",
+      "lang": "en",
+      "respondible": "NO",
+      "q": "Who won the Olympic gold medal in the -73 kg category in 2024?",
+      "esperado": []
+    },
+    {
+      "id": "J04",
+      "cat": "J_no_respondible",
+      "lang": "es",
+      "respondible": "NO",
+      "q": "¿Qué marca de tatami es obligatoria en los Juegos Olímpicos?",
+      "esperado": []
+    },
+    {
+      "id": "K01",
+      "cat": "K_parcial",
+      "lang": "es",
+      "respondible": "PARCIAL",
+      "q": "¿Cuánto dura un combate sénior y cuánto cobra el árbitro?",
+      "esperado": [
+        "P036-S040",
+        "P152-S179"
+      ]
+    },
+    {
+      "id": "K02",
+      "cat": "K_parcial",
+      "lang": "es",
+      "respondible": "PARCIAL",
+      "q": "¿De qué color debe ser el judogi y cuánto cuesta uno homologado?",
+      "esperado": [
+        "P124-S164"
+      ]
+    },
+    {
+      "id": "L01",
+      "cat": "L_ambigua",
+      "lang": "es",
+      "respondible": "AMBIGUA",
+      "q": "¿Cuánto dura un combate?",
+      "esperado": [
+        "P036-S040",
+        "P152-S179",
+        "P103-S126"
+      ]
+    },
+    {
+      "id": "L02",
+      "cat": "L_ambigua",
+      "lang": "es",
+      "respondible": "AMBIGUA",
+      "q": "¿Cuántos atletas forman un equipo?",
+      "esperado": [
+        "P042-S054",
+        "P045-S055"
+      ]
+    },
+    {
+      "id": "L03",
+      "cat": "L_ambigua",
+      "lang": "es",
+      "respondible": "AMBIGUA",
+      "q": "¿Cuál es el límite de peso?",
+      "esperado": [
+        "P075-S086",
+        "P033-S035"
+      ]
+    }
+  ]
+}

@@ -277,7 +277,8 @@ def test_translation_any_language_and_faithful():
 # ---------------- R6 contrato unificado ----------------
 def test_unified_contract_has_clarification_criterion_and_absence_rule():
     import ada_assistant as A
-    T = A.ArbitrationDecisionAssistant._contract_texts(True)
+    with env(ADA_VERIFICATION_V4="0"):   # contrato R6; el contrato V4 se prueba en test_answer_verification
+        T = A.ArbitrationDecisionAssistant._contract_texts(True)
     assert "NO indica la modalidad, el tipo de evento, la categoría o la situación" in T["answerability"]
     assert "Ausencias: no afirmes que el SOR" in T["rule13"]
     old = A.ArbitrationDecisionAssistant._contract_texts(False)
