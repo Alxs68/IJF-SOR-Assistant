@@ -128,3 +128,49 @@ def unified_sections(struct, lang="es"):
             continue  # el motivo ya figura en el mensaje principal
         out.append((field, "" if field == "summary" else t[field], text))
     return out
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# EXPERIMENTAL (ADA_EVIDENCE_USED_ONLY; "0" lo desactiva): normas de soporte = pasajes que SUSTENTAN la respuesta.
+# Cada frase visible de la respuesta lleva el identificador [SOR-...] del pasaje que la respalda (contrato de
+# respuesta; V4 retira las frases sin respaldo y anade las excepciones con su identificador). Las tarjetas de
+# evidencia se limitan a esos pasajes, en orden de aparicion: regla, relaciones, excepciones y condiciones que la
+# respuesta explica. Los pasajes recuperados o declarados por el modelo que el texto no usa no se muestran. Sin
+# llamadas al modelo: solo se lee la respuesta final.
+# ---------------------------------------------------------------------------------------------------------------
+import re as _re
+
+_SOR_ID = _re.compile(r"SOR-[A-Za-z0-9]+-[A-Za-z0-9]+-P\d+-S\d+")
+
+
+def evidence_used_enabled():
+    return os.environ.get("ADA_EVIDENCE_USED_ONLY", "1").strip() != "0"
+
+
+def used_passage_ids(texts):
+    """Identificadores SOR citados en los textos visibles, en orden de primera aparicion."""
+    out = []
+    for text in texts:
+        for pid in _SOR_ID.findall(str(text or "")):
+            if pid not in out:
+                out.append(pid)
+    return out
+
+
+def select_used_evidence(rich_by_id, visible_texts):
+    """Fichas de evidencia de los pasajes ENTREGADOS citados en el texto visible. Se omite una ficha identica a otra
+    ya incluida (misma pagina y mismo fragmento). None si el texto no cita ningun pasaje entregado: entonces se
+    conserva el comportamiento anterior (citas declaradas por el modelo)."""
+    ids = [pid for pid in used_passage_ids(visible_texts) if pid in rich_by_id]
+    if not ids:
+        return None
+    out, seen = [], set()
+    for pid in ids:
+        card = rich_by_id[pid]
+        fragment = str(card.get("text_snippet") or card.get("exact_quote") or "").strip()
+        key = (card.get("page_number"), fragment)
+        if fragment and key in seen:
+            continue
+        seen.add(key)
+        out.append(card)
+    return out

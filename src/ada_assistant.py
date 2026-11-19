@@ -32,6 +32,7 @@ from response_structurer import (
 from normative_validator import NormativeValidator
 from decision_integrity import DecisionIntegrityGate, parse_answer as _parse_answer
 from answer_presentation import response_origin
+from answer_presentation import evidence_used_enabled as _evidence_used_enabled, select_used_evidence as _select_used_evidence
 import evidence_attribution as _attr
 import evidence_reassembly as _reasm
 import answer_verification as _v4
@@ -1140,6 +1141,14 @@ class ArbitrationDecisionAssistant:
                 if cid in rich_citations_map and cid not in seen_pids:
                     enriched_citations.append(rich_citations_map[cid])
                     seen_pids.add(cid)
+
+        # EXPERIMENTAL (ADA_EVIDENCE_USED_ONLY): las normas de soporte son los pasajes citados en el texto visible
+        # de la respuesta final, no todos los que el modelo declara en 'citations'. Sin cita en el texto: lo anterior.
+        if _evidence_used_enabled():
+            _used = _select_used_evidence(rich_citations_map,
+                                          [getattr(structured, k, "") or "" for k in VISIBLE_FIELDS])
+            if _used is not None:
+                enriched_citations = _used
 
         structured.citations = enriched_citations
 

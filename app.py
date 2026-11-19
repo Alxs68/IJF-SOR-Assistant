@@ -2946,7 +2946,8 @@ def _prepare_item_view(item):
                     "exact_quote": exact_q
                 })
 
-    if len(evidence_entries) < 2 and item.get("trazabilidad"):
+    # EXPERIMENTAL (ADA_EVIDENCE_USED_ONLY): si la respuesta cita sus pasajes, no se completa con los recuperados.
+    if len(evidence_entries) < 2 and item.get("trazabilidad") and not (evidence_entries and _ap.evidence_used_enabled()):
         for kun in item["trazabilidad"]:
             kid = kun.get("id_conocimiento")
             if kid and kid in seen_evidence_keys:
