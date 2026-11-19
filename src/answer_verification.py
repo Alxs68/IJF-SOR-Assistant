@@ -188,6 +188,21 @@ def _parse_json(text):
     return obj if isinstance(obj, dict) else None
 
 
+def _verdict_complete(verdict, n_sentences):
+    """El veredicto juzga CADA frase de la respuesta (n = 1..N). Un JSON vacio, de error o parcial no cuenta como
+    verificacion: sin este control, una frase sin juicio se conservaria y se emitiria como verificada."""
+    items = verdict.get("sentences")
+    if not isinstance(items, list):
+        return False
+    seen = set()
+    for x in items:
+        try:
+            seen.add(int(x.get("n", 0)))
+        except (AttributeError, TypeError, ValueError):
+            continue
+    return set(range(1, n_sentences + 1)) <= seen
+
+
 def build_prompt(question, passages, quotes, exceptions, sentences):
     return PROMPT.format(
         question=question,
@@ -262,8 +277,11 @@ def verify(answer, query, search_query_en, evidence, related, gate, llm_call=Non
         try:
             text, usage, model = llm_call(prompt)
             verdict = _parse_json(text)
+            parsed = verdict is not None
+            if parsed and not _verdict_complete(verdict, len(sentences)):
+                verdict = None   # veredicto vacio o parcial: modo reducido (decide el DIG completo)
             rec["verifier"] = {"model": model, "usage": usage or {}, "secs": round(time.time() - t0, 2),
-                               "parsed": verdict is not None}
+                               "parsed": parsed, "complete": verdict is not None}
         except Exception as e:  # noqa: BLE001 - cualquier fallo del proveedor activa el modo degradado
             rec["verifier"] = {"model": None, "usage": {}, "secs": round(time.time() - t0, 2),
                                "error": re.sub(r"key=[^&\s'\"]+", "key=REDACTED", f"{type(e).__name__}: {e}")[:200]}

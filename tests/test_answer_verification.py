@@ -142,6 +142,27 @@ def test_verifier_failure_activates_reduced_mode_and_dig_decides(gate, monkeypat
     assert rec["verification"]["dig_fallback"] == ["DIG-05_PERTINENCIA"]
 
 
+@pytest.mark.parametrize("payload", ["{}", '{"error": "quota"}', '{"sentences": [{"n": 1, "supported": true}]}',
+                                     '{"sentences": "all supported"}'])
+def test_empty_or_partial_verdict_falls_back_to_reduced_mode(gate, monkeypatch, payload):
+    """Un veredicto vacio, de error o que no juzga cada frase no cuenta como verificacion: decide el DIG completo
+    (H-1). Sin este control, la frase sin juicio se emitia como verificada."""
+    ans = answer(f"Ippon requires 20 seconds [{PA}]. Only the referee may stop the hold [{PA}].",
+                 [(PA, "a) Ippon:  20 seconds.")])
+    dig_says(gate, monkeypatch, failed=("DIG-05_PERTINENCIA",))
+    _out, rec = run(gate, ans, lambda p: (payload, {}, "stub-verifier"))
+    v = rec["verification"]
+    assert rec["decision"] == "ABSTENER" and v["mode"] == "REDUCIDA"
+    assert v["verifier"]["complete"] is False and v["dig_fallback"] == ["DIG-05_PERTINENCIA"]
+
+
+def test_complete_verdict_is_still_used(gate):
+    ans = answer(f"Ippon requires 20 seconds [{PA}].", [(PA, "a) Ippon:  20 seconds.")])
+    _out, rec = run(gate, ans, verdict())
+    assert rec["decision"] == "PERMITIR" and rec["verification"]["mode"] == "LLM"
+    assert rec["verification"]["verifier"]["complete"] is True
+
+
 def test_reduced_mode_never_relaxes_the_dig(gate, monkeypatch):
     """Sin verificador, una respuesta que el DIG rechaza no se emite (aunque la capa 1 no encuentre nada)."""
     dig_says(gate, monkeypatch, failed=("DIG-05_PERTINENCIA",))
