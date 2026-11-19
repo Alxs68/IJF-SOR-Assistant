@@ -111,6 +111,7 @@ light_theme_vars = """
         --surface-input-bg: #F1F5F9;
         --surface-input-color: #0f172a;
         --surface-input-border: #cbd5e1;
+        --surface-numinput-border: #64748b;
         --surface-expander-bg: #F8FAFC;
         --surface-expander-border: #E2E8F0;
         --background-color: #ffffff;
@@ -162,6 +163,7 @@ dark_theme_vars = """
         --surface-input-bg: #1e293b;
         --surface-input-color: #f8fafc;
         --surface-input-border: #475569;
+        --surface-numinput-border: #475569;
         --surface-expander-bg: #1e293b;
         --surface-expander-border: #334155;
         --background-color: #0e1117;
@@ -268,6 +270,34 @@ st.markdown(f"""
     [data-testid="stNumberInputStepDown"]:disabled,
     [data-testid="stNumberInputStepUp"]:disabled {{
         color: var(--surface-disabled-color) !important;
+    }}
+    /* Campo numerico (pagina del visor PDF): todas las capas del widget toman el fondo del tema ACTIVO de la app.
+       Sin esto, la capa interna de Streamlit conserva el fondo del tema del sistema y, si no coincide con el de
+       la app, el texto queda ilegible (claro sobre claro u oscuro sobre oscuro). */
+    [data-testid="stNumberInputContainer"],
+    [data-testid="stNumberInput"] div[data-baseweb="input"],
+    [data-testid="stNumberInput"] div[data-baseweb="base-input"],
+    [data-testid="stNumberInput"] input {{
+        background-color: var(--surface-input-bg) !important;
+        color: var(--surface-input-color) !important;
+        -webkit-text-fill-color: var(--surface-input-color) !important;
+        caret-color: var(--surface-input-color) !important;
+    }}
+    [data-testid="stNumberInputContainer"] {{
+        /* Borde propio del campo de pagina: en claro el gris de los demas campos queda en 1.48:1 sobre blanco. */
+        border: 1.5px solid var(--surface-numinput-border) !important;
+        border-radius: 8px !important;
+    }}
+    [data-testid="stNumberInputContainer"]:hover {{
+        border-color: var(--ijf-blue-accent) !important;
+    }}
+    [data-testid="stNumberInputContainer"]:focus-within {{
+        border-color: var(--ijf-blue-accent) !important;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35) !important;
+    }}
+    [data-testid="stNumberInput"] input::placeholder {{
+        color: var(--ijf-subtitle-color) !important;
+        -webkit-text-fill-color: var(--ijf-subtitle-color) !important;
     }}
     /* Contenedores con borde (st.container(border=True)): el borde base de Streamlit es casi invisible en oscuro.
        Solo cambia el color; los bloques sin borde no se ven afectados. */
@@ -2369,71 +2399,11 @@ if "pdf_visible" not in st.session_state:
 if "pdf_zoom" not in st.session_state:
     st.session_state.pdf_zoom = 1.0
 
-def load_example():
-    sel = st.session_state.get("example_select_widget")
-    if sel and sel not in ("Elige una pregunta para consultar...", "Choose an example query..."):
-        st.session_state.auto_run_query = sel
-
-# Sidebar
+# Sidebar: 1) Informacion y documentacion del proyecto, 2) Idioma, 3) Tema, 4) Cuotas de IA, 5) Administracion.
 with st.sidebar:
-    # Language Selection Widget (Español | English, Spanish as Default)
-    lang_options = [("🇪🇸 Español", "es"), ("🇬🇧 English", "en")]
-    cur_lang_idx = 0 if st.session_state.ui_lang == "es" else 1
-    selected_lang_tuple = st.selectbox(
-        t("lang_selector_label", st.session_state.ui_lang),
-        options=lang_options,
-        index=cur_lang_idx,
-        format_func=lambda x: x[0],
-        key="ui_language_selectbox",
-        help="Selecciona el idioma de la interfaz / Select user interface language."
-    )
-    if selected_lang_tuple[1] != st.session_state.ui_lang:
-        st.session_state.ui_lang = selected_lang_tuple[1]
-        st.rerun()
-
     lang = st.session_state.ui_lang
 
-    # Theme Selection Widget (Automático / Claro / Oscuro)
-    theme_options = [
-        ("Automático (Sistema)", "auto") if lang == "es" else ("Automatic (System)", "auto"),
-        ("Claro", "light") if lang == "es" else ("Light", "light"),
-        ("Oscuro", "dark") if lang == "es" else ("Dark", "dark")
-    ]
-    cur_theme_code = st.session_state.get("app_theme", "auto")
-    theme_indices = {"auto": 0, "light": 1, "dark": 2}
-    cur_theme_idx = theme_indices.get(cur_theme_code, 0)
-    selected_theme_tuple = st.selectbox(
-        "🎨 " + ("Tema / Theme:" if lang == "es" else "Theme / Tema:"),
-        options=theme_options,
-        index=cur_theme_idx,
-        format_func=lambda x: x[0],
-        help="Selecciona la apariencia visual: Automático (Sistema), Claro u Oscuro." if lang == "es" else "Select visual theme: Automatic (System), Light or Dark."
-    )
-    if selected_theme_tuple[1] != st.session_state.get("app_theme", "auto"):
-        st.session_state.app_theme = selected_theme_tuple[1]
-        st.rerun()
-
-    # 3. Preguntas Sugeridas (Visible por defecto en la parte superior)
-    st.markdown(f"**💡 {t('quick_suggestions_title', lang)}**")
-    example_list = t("example_queries", lang)
-    st.selectbox(
-        t("example_select_placeholder", lang),
-        example_list,
-        key="example_select_widget",
-        on_change=load_example,
-        label_visibility="collapsed",
-        help=t("example_select_help", lang)
-    )
-
-    # 4. Nota Informativa de Cuotas de IA y Continuidad
-    st.markdown(f"""<div class="quota-info-card">
-<div class="quota-info-title">{t('quota_info_title', lang)}</div>
-<div class="quota-info-body">{t('quota_info_desc', lang)}</div>
-</div>""", unsafe_allow_html=True)
-
-    st.write("---")
-
-    # 5. EXPANDER: Información y Documentación del Proyecto (Colapsado con subtemas exclusivos)
+    # 1. EXPANDER: Información y Documentación del Proyecto (Colapsado con subtemas exclusivos)
     with st.expander(t("sidebar_docs_expander_title", lang), expanded=False):
         guide_pdf_path = os.path.join(
             os.path.dirname(os.path.abspath(__file__)),
@@ -2495,155 +2465,53 @@ with st.sidebar:
 </details>
 """, unsafe_allow_html=True)
 
-    # 6. EXPANDER: Configuración del Asistente (IA) (Colapsado)
-    with st.expander(t("sidebar_llm_expander_title", lang), expanded=False):
-        prov_options = ["Gemini", "Groq"]
-        cur_prov_idx = prov_options.index(st.session_state.llm_provider) if st.session_state.llm_provider in prov_options else 0
-        selected_prov = st.selectbox(
-            t("primary_provider_label", lang),
-            prov_options,
-            index=cur_prov_idx,
-            help=t("primary_provider_help", lang)
-        )
-        if selected_prov != st.session_state.llm_provider:
-            st.session_state.llm_provider = selected_prov
-            st.rerun()
+    # 2. Language Selection Widget (Español | English, Spanish as Default)
+    lang_options = [("🇪🇸 Español", "es"), ("🇬🇧 English", "en")]
+    cur_lang_idx = 0 if st.session_state.ui_lang == "es" else 1
+    selected_lang_tuple = st.selectbox(
+        t("lang_selector_label", st.session_state.ui_lang),
+        options=lang_options,
+        index=cur_lang_idx,
+        format_func=lambda x: x[0],
+        key="ui_language_selectbox",
+        help="Selecciona el idioma de la interfaz / Select user interface language."
+    )
+    if selected_lang_tuple[1] != st.session_state.ui_lang:
+        st.session_state.ui_lang = selected_lang_tuple[1]
+        st.rerun()
 
-        models_available = MultiProviderLLMManager.SUPPORTED_PROVIDERS[selected_prov]["models"]
-        cur_model = st.session_state.gemini_model if selected_prov == "Gemini" else st.session_state.groq_model
-        cur_model_idx = models_available.index(cur_model) if cur_model in models_available else 0
-        selected_model = st.selectbox(
-            t("model_label", lang, provider=selected_prov),
-            models_available,
-            index=cur_model_idx,
-            help=t("model_help", lang, provider=selected_prov)
-        )
-        if selected_prov == "Gemini" and selected_model != st.session_state.gemini_model:
-            st.session_state.gemini_model = selected_model
-            st.rerun()
-        elif selected_prov == "Groq" and selected_model != st.session_state.groq_model:
-            st.session_state.groq_model = selected_model
-            st.rerun()
+    lang = st.session_state.ui_lang
 
-        fb_options = [t("fallback_opt_auto", lang), t("fallback_opt_manual", lang)]
-        cur_fb_idx = 0 if st.session_state.fallback_policy in ("Automatic", "Automático") else 1
-        selected_fb = st.selectbox(
-            t("fallback_policy_label", lang),
-            fb_options,
-            index=cur_fb_idx,
-            help=t("fallback_policy_help", lang)
-        )
-        canonical_fb = "Automatic" if selected_fb in ("Automatic", "Automático") else "Manual"
-        if canonical_fb != st.session_state.fallback_policy:
-            st.session_state.fallback_policy = canonical_fb
-            st.rerun()
+    # Theme Selection Widget (Automático / Claro / Oscuro)
+    theme_options = [
+        ("Automático (Sistema)", "auto") if lang == "es" else ("Automatic (System)", "auto"),
+        ("Claro", "light") if lang == "es" else ("Light", "light"),
+        ("Oscuro", "dark") if lang == "es" else ("Dark", "dark")
+    ]
+    cur_theme_code = st.session_state.get("app_theme", "auto")
+    theme_indices = {"auto": 0, "light": 1, "dark": 2}
+    cur_theme_idx = theme_indices.get(cur_theme_code, 0)
+    selected_theme_tuple = st.selectbox(
+        "🎨 " + ("Tema / Theme:" if lang == "es" else "Theme / Tema:"),
+        options=theme_options,
+        index=cur_theme_idx,
+        format_func=lambda x: x[0],
+        help="Selecciona la apariencia visual: Automático (Sistema), Claro u Oscuro." if lang == "es" else "Select visual theme: Automatic (System), Light or Dark."
+    )
+    if selected_theme_tuple[1] != st.session_state.get("app_theme", "auto"):
+        st.session_state.app_theme = selected_theme_tuple[1]
+        st.rerun()
 
-        p_info = provider_status["providers"].get(selected_prov, {})
-        if p_info.get("available"):
-            st.caption(t("key_active", lang, provider=selected_prov, masked_key=p_info.get('masked_key')))
-        else:
-            env_var_name = MultiProviderLLMManager.SUPPORTED_PROVIDERS[selected_prov]["env_key"]
-            st.caption(t("key_missing", lang, env_var=env_var_name))
+    # 4. Nota Informativa de Cuotas de IA y Continuidad
+    st.markdown(f"""<div class="quota-info-card">
+<div class="quota-info-title">{t('quota_info_title', lang)}</div>
+<div class="quota-info-body">{t('quota_info_desc', lang)}</div>
+</div>""", unsafe_allow_html=True)
 
-    # 7. EXPANDER: Consumo de Tokens y Métricas API (Colapsado)
-    with st.expander(t("usage_metrics_expander_title", lang), expanded=False):
-        u_metrics = usage_tracker.get_metrics()
-        
-        st.markdown(f"**{t('usage_metrics_card_title', lang)}**")
-        
-        ucol1, ucol2 = st.columns(2)
-        with ucol1:
-            st.metric(
-                t("usage_total_queries", lang),
-                f"{u_metrics['total_queries']:,}",
-                delta=f"{u_metrics['queries_with_llm']} IA | {u_metrics['queries_local']} Loc" if u_metrics['total_queries'] > 0 else None,
-                help="Total acumulado de consultas formuladas al asistente."
-            )
-            st.metric(
-                t("usage_avg_tokens", lang),
-                f"{u_metrics['avg_tokens_per_query']:,}",
-                delta=f"E: {u_metrics['avg_prompt_tokens']:,} | S: {u_metrics['avg_completion_tokens']:,}" if u_metrics['queries_with_llm'] > 0 else None,
-                help="Promedio histórico de tokens por consulta (entrada y salida)."
-            )
-        with ucol2:
-            st.metric(
-                t("usage_last_tokens", lang),
-                f"{u_metrics['last_query']['total_tokens']:,}",
-                delta=f"E: {u_metrics['last_query']['prompt_tokens']:,} | S: {u_metrics['last_query']['completion_tokens']:,}" if u_metrics['last_query']['total_tokens'] > 0 else None,
-                help="Tokens consumidos en la última consulta ejecutada."
-            )
-            st.metric(
-                t("usage_est_cost", lang),
-                f"${u_metrics['total_cost_usd']:.4f} USD",
-                delta=f"~${u_metrics['avg_cost_per_query_usd']:.5f} / q" if u_metrics['total_queries'] > 0 else None,
-                help="Costo total estimado acumulado según tarifas oficiales de Google Gemini."
-            )
+    st.write("---")
 
-        # Tarjeta de Viabilidad Económica de Renta de API Key
-        proj = u_metrics["projections"]
-        q_per_dlr = u_metrics["queries_per_dollar"]
-        st.markdown(f"""
-<div class="token-usage-card">
-    <div class="token-viability-badge">✓ {t('usage_viability_title', lang)}</div>
-    <div>{t('usage_viability_verdict', lang)}</div>
-    <div style="margin-top:0.45rem; font-weight:600; color:var(--ijf-title-color);">
-        ⚡ {t('usage_queries_per_usd', lang)}: <span style="color:#10b981; font-size:0.9rem;">~{q_per_dlr:,} consultas</span>
-    </div>
-    <table class="token-projection-table">
-        <thead>
-            <tr>
-                <th>Volumen</th>
-                <th>Costo estimado (USD)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>500 consultas</td><td>~${proj['queries_500_usd']:.3f} USD</td></tr>
-            <tr><td>1,000 consultas</td><td>~${proj['queries_1000_usd']:.3f} USD</td></tr>
-            <tr><td>5,000 consultas</td><td>~${proj['queries_5000_usd']:.2f} USD</td></tr>
-            <tr><td>10,000 consultas</td><td>~${proj['queries_10000_usd']:.2f} USD</td></tr>
-        </tbody>
-    </table>
-    <div style="margin-top:0.4rem; font-size:0.72rem; color:var(--ijf-subtitle-color);">
-        *Estimación basada en tarifas de Google AI Studio / Gemini API.
-    </div>
-</div>
-""", unsafe_allow_html=True)
-
-    # 8. EXPANDER: Historial de Consultas (Colapsado)
-    if len(st.session_state.history) > 0:
-        with st.expander(t("sidebar_history_expander_title", lang), expanded=False):
-            options = [f"#{i+1}: {item['query'][:15]}..." for i, item in enumerate(st.session_state.history)]
-            selected_option = st.selectbox(
-                t("history_select_label", lang),
-                options,
-                index=st.session_state.active_index,
-                help=t("history_select_help", lang)
-            )
-            new_active = options.index(selected_option)
-            if new_active != st.session_state.active_index:
-                st.session_state.active_index = new_active
-                st.rerun()
-
-    # 8. EXPANDER: Grafo de Conocimiento (KG) (Colapsado)
-    with st.expander(t("sidebar_kg_expander_title", lang), expanded=False):
-        if is_connected:
-            st.markdown(f'<span class="status-badge-connected">{t("badge_connected", lang, provider=st.session_state.llm_provider)}</span>', unsafe_allow_html=True)
-        else:
-            st.markdown(f'<span class="status-badge-offline">{t("badge_offline", lang)}</span>', unsafe_allow_html=True)
-
-        st.markdown(f"**{t('kg_modules_title', lang)}**")
-        mcol1, mcol2 = st.columns(2)
-        with mcol1:
-            st.metric(t("kg_total_kuns", lang), kg_metrics['nodes_count'])
-        with mcol2:
-            st.metric(t("kg_relations", lang), kg_metrics['edges_count'])
-        st.metric(t("kg_avg_degree", lang), f"{kg_metrics['avg_degree']:.2f}")
-
-        st.markdown(f"**{t('kg_hubs_title', lang)}**")
-        for node, deg in kg_metrics['hubs'][:2]:
-            st.markdown(f"- `{node}` ({deg} {t('kg_links_suffix', lang)})", unsafe_allow_html=True)
-
-    # 9. EXPANDER: Administración y Novedades (Colapsado)
+    # 5. EXPANDER: Administración y Novedades (Colapsado). El historial de consultas vive en la pestaña
+    # "Historial de consultas" del área principal, no en la barra lateral.
     with st.expander(t("sidebar_admin_title", lang), expanded=False):
         if not is_admin_configured():
             st.warning(t("admin_not_configured", lang))
@@ -2788,7 +2656,8 @@ with st.sidebar:
         }
 
         // Outer expanders mutual exclusion
-        const expanders = sidebar.querySelectorAll(':scope > div > div > div > details, [data-testid="stExpander"] > details');
+        // Solo expanders de primer nivel: los anidados (p. ej. Reiniciar Estadisticas dentro de Administracion) no deben cerrar a su contenedor.
+        const expanders = [...sidebar.querySelectorAll(':scope > div > div > div > details, [data-testid="stExpander"] > details')].filter((d) => !d.parentElement.closest('details'));
         expanders.forEach((targetExp) => {
             if (targetExp.dataset.hasAccordionListener) return;
             targetExp.dataset.hasAccordionListener = "true";
