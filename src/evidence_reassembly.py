@@ -8,7 +8,15 @@ validacion de citas y TODOS los controles del DIG.
 ADA_CITATION_REPAIR=1   Identificador gemelo: el modelo cita SOR-...-P042-S054 y se le entrego SOR-...-P042-S053,
                         de la MISMA pagina y con el MISMO texto en el corpus (los pasajes son por pagina). El
                         identificador se sustituye por el entregado solo si cada cita literal atribuida a el se
-                        localiza en el texto entregado.
+                        localiza en el texto entregado. Tambien pagina COSIDA: el pasaje entregado contiene el texto
+                        de otra pagina de la seccion y muestra su identificador (marcador de salto de pagina); ese
+                        identificador se sustituye por el del pasaje entregado si cada cita es literal en el.
+                        Identificador INEXISTENTE en el corpus (ningun pasaje tiene ese identificador): (A) si tiene
+                        citas literales (>= MIN_QUOTE_WORDS palabras) que estan todas en UN UNICO pasaje entregado, se
+                        reasigna a ese pasaje; (B) si no tiene citas y cada aparicion suya esta en una lista de
+                        identificadores junto a otro identificador entregado, se retira solo el inexistente. En
+                        cualquier otro caso (unico respaldo, cita no literal, varios pasajes posibles) no se toca y la
+                        validacion de citas lo rechaza. Nunca se usa la semejanza entre identificadores.
 ADA_QUOTE_REPAIR=1      Cita con diferencias solo tipograficas (vinetas, saltos de linea, puntuacion) o con
                         elipsis ("..."): se sustituye por el/los fragmento(s) LITERALES del pasaje que contienen
                         exactamente las mismas palabras en el mismo orden. Si algun fragmento no se localiza, la
@@ -71,28 +79,104 @@ def repair_citation_ids(answer, delivered, corpus):
         return answer, []
     raw = json.dumps(obj, ensure_ascii=False)
     cited = set(SOR_ID.findall(raw))
-    changes = []
+    changes, removed = [], []
     for pid in sorted(cited - set(delivered)):
-        src = corpus.get(pid)
-        if not src:
-            continue
-        twins = [d for d in delivered if _page(d) == _page(pid) and d in corpus
-                 and (corpus[d].get("text_original") or "") == (src.get("text_original") or "")]
-        if len(twins) != 1:
-            continue
-        twin = twins[0]
         quotes = [q for q in obj.get("evidence_quotes") or [] if isinstance(q, dict) and q.get("passage_id") == pid]
-        if not all(_literal_in(str(q.get("quote") or ""), delivered[twin].get("text_original") or "") for q in quotes):
+
+        def literal(d):
+            return all(_literal_in(str(q.get("quote") or ""), delivered[d].get("text_original") or "") for q in quotes)
+        if corpus and pid not in corpus:
+            # Identificador inexistente en el corpus: no hay pasaje real al que pueda referirse.
+            if quotes:
+                hosts = [d for d in delivered if literal(d)]
+                if len(hosts) == 1 and all(len(norm(str(q.get("quote") or "")).split()) >= MIN_QUOTE_WORDS
+                                           for q in quotes):
+                    changes.append({"de": pid, "a": hosts[0], "estado": "Reasignado",
+                                    "motivo": "identificador inexistente en el corpus; citas literales en un unico "
+                                              "pasaje entregado"})
+            else:
+                stripped, ok = _drop_identifier(obj, pid, set(delivered))
+                if ok:
+                    obj = stripped
+                    removed.append({"de": pid, "a": None, "estado": "Retirado",
+                                    "motivo": "Identificador inexistente en el corpus"})
             continue
-        changes.append({"de": pid, "a": twin, "motivo": "misma pagina y mismo texto de corpus"})
-    if not changes:
+        src = corpus.get(pid)
+        twins = [d for d in delivered if src and _page(d) == _page(pid) and d in corpus
+                 and (corpus[d].get("text_original") or "") == (src.get("text_original") or "")]
+        if len(twins) == 1 and literal(twins[0]):
+            changes.append({"de": pid, "a": twins[0], "motivo": "misma pagina y mismo texto de corpus"})
+            continue
+        if twins or not quotes:
+            continue
+        # Pagina cosida: un pasaje entregado incluye el texto de la pagina 'pid' y muestra su identificador (marcador
+        # de salto de pagina del PassageStitcher o 'stitched_kuns'). Se atribuye al pasaje entregado que contiene
+        # literalmente todas sus citas (el de pagina mas proxima si hay varios: el texto citado es el mismo).
+        hosts = [d for d, p in delivered.items()
+                 if (pid in (p.get("stitched_kuns") or []) or pid in (p.get("text_original") or "")) and literal(d)]
+        if hosts:
+            host = min(hosts, key=lambda d: (abs((_page(d) or 0) - (_page(pid) or 0)), d))
+            changes.append({"de": pid, "a": host, "motivo": "pagina incluida en el pasaje cosido entregado"})
+    if not changes and not removed:
         return answer, []
+    raw = json.dumps(obj, ensure_ascii=False)
     for c in changes:
         raw = raw.replace(c["de"], c["a"])
     obj = json.loads(raw)
     if isinstance(obj.get("citations"), list):
         obj["citations"] = list(dict.fromkeys(obj["citations"]))
-    return json.dumps(obj, ensure_ascii=False), changes
+    return json.dumps(obj, ensure_ascii=False), changes + removed
+
+
+_GROUP = re.compile(r"\[([^\[\]]*)\]")
+_ID_LIST = re.compile(r"\s*{0}(?:\s*[,;]\s*{0})*\s*".format(SOR_ID.pattern))
+
+
+def _strip_from_groups(text, pid, delivered):
+    """Quita 'pid' de las listas [ID, ID, ...] del texto. ok=False si alguna aparicion de 'pid' no esta en una
+    lista formada solo por identificadores que contenga ademas otro identificador entregado."""
+    state = {"handled": 0, "ok": True}
+
+    def sub(m):
+        body = m.group(1)
+        if pid not in body:
+            return m.group(0)
+        ids = SOR_ID.findall(body)
+        if not _ID_LIST.fullmatch(body) or not any(i != pid and i in delivered for i in ids):
+            state["ok"] = False
+            return m.group(0)
+        state["handled"] += ids.count(pid)
+        return "[" + ", ".join(i for i in ids if i != pid) + "]"
+
+    new = _GROUP.sub(sub, text)
+    if not state["ok"] or state["handled"] != text.count(pid):
+        return text, False
+    return new, True
+
+
+def _drop_identifier(obj, pid, delivered):
+    """Retira 'pid' de todos los campos de la respuesta si en CADA aparicion acompana a otro identificador
+    entregado (lista [..] en el texto o lista de 'citations'). Si alguna aparicion es su unico respaldo, no cambia
+    nada. Devuelve (respuesta, ok)."""
+    state = {"ok": True}
+
+    def walk(v):
+        if isinstance(v, dict):
+            return {k: walk(x) for k, x in v.items()}
+        if isinstance(v, list):
+            if pid in v:
+                if not any(isinstance(x, str) and x != pid and x in delivered for x in v):
+                    state["ok"] = False
+                v = [x for x in v if x != pid]
+            return [walk(x) for x in v]
+        if isinstance(v, str) and pid in v:
+            new, ok = _strip_from_groups(v, pid, delivered)
+            state["ok"] = state["ok"] and ok
+            return new
+        return v
+
+    out = walk(obj)
+    return (out, True) if state["ok"] else (obj, False)
 
 
 # ---------------------------------------------------------------------------------------------------- citas

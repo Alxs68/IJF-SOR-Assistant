@@ -121,6 +121,125 @@ def test_non_twin_identifier_is_never_mapped(corpus):
     assert ch == [] and out == ans
 
 
+def _stitched(corpus):
+    """Un pasaje cosido real (PassageStitcher sobre el corpus) y una pagina miembro distinta de la semilla."""
+    from passage_stitcher import PassageStitcher
+    st = PassageStitcher(corpus)
+    for pid, p in sorted(corpus.items()):
+        rec = st.stitch_evidence(p)
+        members = [m for m in rec.get("stitched_kuns") or [] if m != pid]
+        if rec.get("is_stitched") and members:
+            return pid, rec, members[0]
+    pytest.skip("sin pasajes cosidos en el corpus")
+
+
+def test_stitched_member_identifier_is_mapped_to_the_delivered_passage(corpus):
+    seed, rec, member = _stitched(corpus)
+    assert member in rec["text_original"]          # el identificador de la pagina miembro se muestra al modelo
+    x = next(s for s in D.sentences(corpus[member]["text_original"]) if len(s.split()) >= 8)
+    out, ch = R.repair_citation_ids(_ans(member, [(member, x)]), {seed: rec}, corpus)
+    assert ch and ch[0]["de"] == member and ch[0]["a"] == seed and "cosido" in ch[0]["motivo"]
+    assert member not in out and seed in out
+
+
+def test_stitched_member_is_not_mapped_without_a_literal_quote(corpus):
+    seed, rec, member = _stitched(corpus)
+    for quotes in ([(member, "frase que no existe en ningun pasaje del corpus")], []):
+        ans = _ans(member, quotes)
+        out, ch = R.repair_citation_ids(ans, {seed: rec}, corpus)
+        assert ch == [] and member in out
+
+
+# ------------------------------------------------------------- identificadores inexistentes en el corpus (sinteticos)
+_A, _B, _C = "SOR-2026-08-P010-S010", "SOR-2026-08-P011-S011", "SOR-2026-08-P012-S012"
+_X = "SOR-2026-08-P099-S099"   # no existe en el corpus sintetico
+_TA = "The athlete shall bow before stepping onto the competition area at every contest."
+_TB = "The referee shall announce the result after both athletes return to their starting marks."
+_SHARED = " Officials must wear the uniform approved by the organising committee for the event."
+
+
+def _syn_corpus(shared=False):
+    extra = _SHARED if shared else ""
+    return {_A: {"passage_id": _A, "page": 10, "text_original": _TA + extra},
+            _B: {"passage_id": _B, "page": 11, "text_original": _TB + extra},
+            _C: {"passage_id": _C, "page": 12, "text_original": "Coaches may sit only on the chair provided for them."}}
+
+
+def _syn_answer(fields, citations, quotes=()):
+    return json.dumps(dict(fields, citations=list(citations), answerability="RESPALDADA",
+                           evidence_quotes=[{"passage_id": p, "quote": q, "supports": "x"} for p, q in quotes]),
+                      ensure_ascii=False)
+
+
+def test_nonexistent_id_cocited_with_delivered_ids_is_removed():
+    corpus = _syn_corpus()
+    delivered = {_A: corpus[_A], _B: corpus[_B]}
+    ans = _syn_answer({"summary": f"Texto [{_A}].", "normative_basis": f"Base [{_A}, {_B}, {_X}]."}, [_A, _B, _X])
+    out, ch = R.repair_citation_ids(ans, delivered, corpus)
+    obj = json.loads(out)
+    assert _X not in out
+    assert obj["normative_basis"] == f"Base [{_A}, {_B}]." and obj["citations"] == [_A, _B]
+    assert obj["summary"] == f"Texto [{_A}]."
+    assert ch == [{"de": _X, "a": None, "estado": "Retirado", "motivo": "Identificador inexistente en el corpus"}]
+
+
+def test_nonexistent_id_as_sole_support_is_not_touched():
+    corpus = _syn_corpus()
+    delivered = {_A: corpus[_A]}
+    for fields in ({"summary": f"Texto [{_A}].", "conditions_and_exceptions": f"Otra regla [{_X}]."},
+                   {"summary": f"Texto [{_A}] y ademas {_X} en el texto."}):
+        ans = _syn_answer(fields, [_A, _X])
+        out, ch = R.repair_citation_ids(ans, delivered, corpus)
+        assert ch == [] and out == ans
+    ans = _syn_answer({"summary": f"Texto [{_A}]."}, [_X])          # unico elemento de la lista de citas
+    out, ch = R.repair_citation_ids(ans, delivered, corpus)
+    assert ch == [] and out == ans
+
+
+def test_existing_undelivered_id_is_not_modified_by_the_nonexistent_rule():
+    corpus = _syn_corpus()
+    delivered = {_A: corpus[_A]}
+    for quotes in ([(_C, _TA)], []):    # aunque su cita sea literal en el pasaje entregado
+        ans = _syn_answer({"summary": f"Texto [{_A}, {_C}]."}, [_A, _C], quotes)
+        out, ch = R.repair_citation_ids(ans, delivered, corpus)
+        assert ch == [] and out == ans
+
+
+def test_nonexistent_id_with_non_literal_quote_is_not_reassigned():
+    corpus = _syn_corpus()
+    delivered = {_A: corpus[_A], _B: corpus[_B]}
+    ans = _syn_answer({"summary": f"Texto [{_A}, {_X}]."}, [_A, _X],
+                      [(_X, "The athlete must always bow twice before entering the mat area.")])
+    out, ch = R.repair_citation_ids(ans, delivered, corpus)
+    assert ch == [] and out == ans
+
+
+def test_nonexistent_id_with_literal_quote_in_one_delivered_passage_is_reassigned():
+    corpus = _syn_corpus()
+    delivered = {_A: corpus[_A], _B: corpus[_B]}
+    ans = _syn_answer({"summary": f"Texto [{_X}].", "normative_basis": f"[{_B}]"}, [_X, _B], [(_X, _TA)])
+    out, ch = R.repair_citation_ids(ans, delivered, corpus)
+    obj = json.loads(out)
+    assert _X not in out and obj["summary"] == f"Texto [{_A}]."
+    assert obj["evidence_quotes"][0]["passage_id"] == _A and obj["citations"] == [_A, _B]
+    assert len(ch) == 1 and ch[0]["de"] == _X and ch[0]["a"] == _A and ch[0]["estado"] == "Reasignado"
+
+
+def test_nonexistent_id_with_quote_in_several_delivered_passages_is_not_reassigned():
+    corpus = _syn_corpus(shared=True)
+    delivered = {_A: corpus[_A], _B: corpus[_B]}
+    ans = _syn_answer({"summary": f"Texto [{_X}]."}, [_X], [(_X, _SHARED.strip())])
+    out, ch = R.repair_citation_ids(ans, delivered, corpus)
+    assert ch == [] and out == ans
+
+
+def test_nonexistent_rule_needs_a_corpus():
+    corpus = _syn_corpus()
+    ans = _syn_answer({"summary": f"Texto [{_A}, {_X}]."}, [_A, _X])
+    out, ch = R.repair_citation_ids(ans, {_A: corpus[_A]}, {})
+    assert ch == [] and out == ans
+
+
 def test_reassembly_targets_only_contiguous_same_section(corpus, gate):
     by_sec = {}
     for pid in corpus:

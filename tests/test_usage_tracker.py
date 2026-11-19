@@ -113,5 +113,27 @@ class TestUsageTracker(unittest.TestCase):
         self.assertEqual(m["avg_tokens_per_query"], 0.0)
 
 
+    def test_average_uses_only_queries_with_reported_tokens(self):
+        """Promedio = tokens / consultas con tokens informados: ni las locales ni las del proveedor sin datos lo diluyen."""
+        self.tracker.record_query("IA", {"prompt_tokens": 800, "completion_tokens": 200, "total_tokens": 1000},
+                                  "Gemini", "gemini-flash-lite-latest")
+        self.tracker.record_query("Local", {}, provider="Local", model="deterministic")
+        m = self.tracker.record_query("IA sin datos", {}, provider="Gemini", model="gemini-flash-lite-latest")
+        self.assertEqual(m["total_queries"], 3)
+        self.assertEqual(m["queries_with_llm"], 2)
+        self.assertEqual(m["queries_local"], 1)
+        self.assertEqual(m["queries_with_token_data"], 1)
+        self.assertEqual(m["avg_tokens_per_query"], 1000.0)
+        self.assertEqual(m["avg_prompt_tokens"], 800.0)
+        self.assertEqual(m["avg_completion_tokens"], 200.0)
+
+    def test_legacy_file_without_token_data_field(self):
+        with open(self.metrics_file, "w", encoding="utf-8") as f:
+            json.dump({"total_queries": 4, "queries_with_llm": 2, "queries_local": 2,
+                       "total_prompt_tokens": 1500, "total_completion_tokens": 500, "total_tokens": 2000}, f)
+        m = UsageTracker(filepath=self.metrics_file).get_metrics()
+        self.assertEqual(m["queries_with_token_data"], 2)
+        self.assertEqual(m["avg_tokens_per_query"], 1000.0)
+
 if __name__ == "__main__":
     unittest.main()

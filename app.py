@@ -6,6 +6,8 @@ import base64
 import re
 import html
 import io
+import time
+import unicodedata
 import pypdf
 
 from dotenv import load_dotenv
@@ -33,7 +35,7 @@ from feedback_manager import (
 from i18n import t
 from response_structurer import clean_presentation_text, sanitize_presentation_html
 import answer_presentation as _ap
-from usage_tracker import get_usage_tracker
+from usage_tracker import get_usage_tracker, record_user_query
 
 usage_tracker = get_usage_tracker()
 
@@ -81,6 +83,11 @@ light_theme_vars = """
         --ijf-btn-hover-color: #003399;
         --ijf-btn-hover-bg: rgba(0, 51, 153, 0.08);
         --ijf-tier1-bg: rgba(37, 99, 235, 0.06);
+        --surface-hover-bg: #e6eefc;
+        --surface-hover-color: #1d4ed8;
+        --surface-selected-bg: #dbe7fd;
+        --surface-selected-color: #1e3a8a;
+        --surface-disabled-color: #64748b;
         --ijf-tier1-border: #2563eb;
         --ijf-tier1-outline: rgba(37, 99, 235, 0.15);
         --ijf-title-color: #1d4ed8;
@@ -127,6 +134,11 @@ dark_theme_vars = """
         --ijf-btn-hover-color: #93c5fd;
         --ijf-btn-hover-bg: rgba(59, 130, 246, 0.16);
         --ijf-tier1-bg: rgba(59, 130, 246, 0.14);
+        --surface-hover-bg: #1f3a60;
+        --surface-hover-color: #dbeafe;
+        --surface-selected-bg: #1e40af;
+        --surface-selected-color: #ffffff;
+        --surface-disabled-color: #94a3b8;
         --ijf-tier1-border: #3b82f6;
         --ijf-tier1-outline: rgba(59, 130, 246, 0.25);
         --ijf-title-color: #60a5fa;
@@ -234,17 +246,44 @@ st.markdown(f"""
 
     .stTextInput input,
     [data-testid="stTextInputField"],
+    .stNumberInput input,
+    [data-testid="stNumberInputField"],
     .stTextArea textarea {{
         background-color: transparent !important;
         color: var(--surface-input-color) !important;
+        -webkit-text-fill-color: var(--surface-input-color) !important;
         border: none !important;
+    }}
+    /* Botones -/+ del campo numerico: mismo texto que el campo; hover con los tokens opacos del tema */
+    [data-testid="stNumberInputStepDown"],
+    [data-testid="stNumberInputStepUp"] {{
+        background-color: var(--surface-input-bg) !important;
+        color: var(--surface-input-color) !important;
+    }}
+    [data-testid="stNumberInputStepDown"]:hover:not(:disabled),
+    [data-testid="stNumberInputStepUp"]:hover:not(:disabled) {{
+        background-color: var(--surface-hover-bg) !important;
+        color: var(--surface-hover-color) !important;
+    }}
+    [data-testid="stNumberInputStepDown"]:disabled,
+    [data-testid="stNumberInputStepUp"]:disabled {{
+        color: var(--surface-disabled-color) !important;
+    }}
+    /* Contenedores con borde (st.container(border=True)): el borde base de Streamlit es casi invisible en oscuro.
+       Solo cambia el color; los bloques sin borde no se ven afectados. */
+    [data-testid="stVerticalBlock"] {{
+        border-color: var(--surface-input-border) !important;
+    }}
+    /* Interruptor (st.toggle) apagado: pista visible en ambos temas; encendido conserva el color primario. */
+    [data-testid="stCheckbox"] label[data-baseweb="checkbox"]:has(input[aria-checked="false"]) > div:first-child {{
+        background-color: var(--ijf-subtitle-color) !important;
     }}
 
     [data-testid="stTextInputRootElement"]:hover,
     div[data-baseweb="input"]:hover,
     [data-testid="stTextAreaRootElement"]:hover,
     div[data-baseweb="textarea"]:hover {{
-        background-color: var(--ijf-tier1-bg) !important;
+        background-color: var(--surface-hover-bg) !important;
         border-color: var(--ijf-blue-accent) !important;
     }}
 
@@ -342,16 +381,22 @@ st.markdown(f"""
 
     div[data-testid="stButton"] button:hover,
     button[data-testid="baseButton-secondary"]:hover {{
-        background-color: var(--ijf-tier1-bg) !important;
+        background-color: var(--surface-hover-bg) !important;
         border-color: var(--ijf-blue-accent) !important;
-        color: var(--ijf-blue-accent) !important;
+        color: var(--surface-hover-color) !important;
         transform: translateY(-1px) !important;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important;
     }}
 
     div[data-testid="stButton"] button:hover p,
     div[data-testid="stButton"] button:hover span {{
-        color: var(--ijf-blue-accent) !important;
+        color: var(--surface-hover-color) !important;
+    }}
+    div[data-testid="stButton"] button:disabled,
+    div[data-testid="stButton"] button:disabled p {{
+        color: var(--surface-disabled-color) !important;
+        opacity: 0.75 !important;
+        cursor: not-allowed !important;
     }}
 
     /* Botones de Descarga (stDownloadButton) - Sin fondos blancos */
@@ -372,7 +417,7 @@ st.markdown(f"""
     }}
 
     [data-testid="stDownloadButton"] button:hover {{
-        background-color: var(--ijf-tier1-bg) !important;
+        background-color: var(--surface-hover-bg) !important;
         border-color: var(--ijf-blue-accent) !important;
         transform: translateY(-1px) !important;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important;
@@ -423,9 +468,9 @@ st.markdown(f"""
     button[aria-label*="Expand sidebar" i]:hover,
     [data-testid="stSidebarCollapsedControl"]:hover,
     [data-testid="collapsedControl"]:hover {{
-        background: var(--ijf-tier1-bg) !important;
+        background: var(--surface-hover-bg) !important;
         border-color: var(--ijf-title-color) !important;
-        color: var(--ijf-blue-accent) !important;
+        color: var(--surface-hover-color) !important;
         transform: translateY(-1px) !important;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35) !important;
     }}
@@ -569,9 +614,14 @@ st.markdown(f"""
     }}
     
     [data-testid="stSelectbox"] div[data-rac][role="group"]:hover,
-    .react-aria-ComboBox div[data-rac][role="group"]:hover {{
+    .react-aria-ComboBox div[data-rac][role="group"]:hover,
+    .stSelectbox div[data-baseweb="select"] > div:hover {{
         border-color: var(--ijf-blue-accent) !important;
-        background-color: var(--ijf-tier1-bg) !important;
+        background-color: var(--surface-hover-bg) !important;
+    }}
+    .stSelectbox div[data-baseweb="select"] *,
+    [data-testid="stSelectbox"] div[data-baseweb="select"] div {{
+        color: var(--ijf-text-color) !important;
     }}
     
     [data-testid="stSelectbox"] input,
@@ -594,10 +644,13 @@ st.markdown(f"""
         fill: currentColor !important;
     }}
     
-    /* Popover desplegable de opciones */
+    /* Popover desplegable de opciones. La lista de BaseWeb se monta fuera de .stApp con el tema base de
+       Streamlit (claro): se cubren el popover y TODOS sus contenedores para que nunca quede un fondo ajeno. */
     div[data-rac][role="listbox"],
     ul[role="listbox"],
     div[data-baseweb="popover"],
+    div[data-baseweb="popover"] > div,
+    div[data-baseweb="popover"] ul,
     div[data-baseweb="menu"] {{
         background-color: var(--surface-card-bg) !important;
         color: var(--ijf-text-color) !important;
@@ -608,19 +661,29 @@ st.markdown(f"""
     
     div[data-rac][role="option"],
     li[role="option"] {{
-        background-color: var(--surface-card-bg) !important;
-        color: var(--ijf-text-color) !important;
         padding: 0.5rem 0.75rem !important;
         transition: background 0.15s ease !important;
+    }}
+    div[data-rac][role="option"],
+    li[role="option"],
+    li[role="option"] * {{
+        background-color: var(--surface-card-bg) !important;
+        color: var(--ijf-text-color) !important;
     }}
     
     div[data-rac][role="option"]:hover,
     div[data-rac][role="option"][data-focused="true"],
     div[data-rac][role="option"][aria-selected="true"],
     li[role="option"]:hover,
-    li[aria-selected="true"] {{
-        background-color: var(--ijf-tier1-bg) !important;
-        color: var(--ijf-blue-accent) !important;
+    li[role="option"]:hover *,
+    li[aria-selected="true"],
+    li[aria-selected="true"] * {{
+        background-color: var(--surface-selected-bg) !important;
+        color: var(--surface-selected-color) !important;
+    }}
+    li[role="option"][aria-disabled="true"],
+    div[data-rac][role="option"][aria-disabled="true"] {{
+        color: var(--surface-disabled-color) !important;
     }}
 
     [data-testid="stExpander"],
@@ -700,12 +763,12 @@ st.markdown(f"""
         display: none !important;
     }}
     .subtopic-summary:hover {{
-        background-color: var(--ijf-tier1-bg) !important;
-        color: var(--ijf-blue-accent) !important;
+        background-color: var(--surface-hover-bg) !important;
+        color: var(--surface-hover-color) !important;
     }}
     .subtopic-accordion[open] > .subtopic-summary {{
-        background-color: var(--ijf-tier1-bg) !important;
-        color: var(--ijf-blue-accent) !important;
+        background-color: var(--surface-hover-bg) !important;
+        color: var(--surface-hover-color) !important;
         border-bottom: 1px solid var(--surface-card-border) !important;
     }}
     .subtopic-body {{
@@ -743,7 +806,7 @@ st.markdown(f"""
         transition: background-color 0.2s ease !important;
     }}
     .subtopic-download-btn:hover {{
-        background-color: var(--ijf-tier1-bg) !important;
+        background-color: var(--surface-hover-bg) !important;
     }}
     [data-testid="stChatMessage"] {{
         background-color: transparent !important;
@@ -804,9 +867,9 @@ st.markdown(f"""
     [data-testid="stDownloadButton"] button:hover,
     [data-testid="stBaseButton-secondary"]:hover,
     button[kind="secondary"]:hover {{
-        background-color: var(--ijf-tier1-bg) !important;
+        background-color: var(--surface-hover-bg) !important;
         border-color: var(--ijf-blue-accent) !important;
-        color: var(--ijf-blue-accent) !important;
+        color: var(--surface-hover-color) !important;
     }}
     [data-testid="stDownloadButton"] button p,
     [data-testid="stDownloadButton"] button span,
@@ -1308,13 +1371,11 @@ st.markdown("""
         text-align: center !important;
     }
     div[data-testid="stButton"] button:hover {
-        border-color: var(--ijf-btn-hover-border) !important;
-        color: var(--ijf-btn-hover-color) !important;
-        background-color: var(--ijf-btn-hover-bg) !important;
         opacity: 1;
     }
     div[data-testid="stButton"] button:active {
-        background-color: rgba(37, 99, 235, 0.20) !important;
+        background-color: var(--surface-selected-bg) !important;
+        color: var(--surface-selected-color) !important;
     }
     /* Estilos específicos para píldoras interactivas de citas normativas */
     .citation-container {
@@ -1376,6 +1437,41 @@ st.markdown("""
     .stMarkdown h1 { font-size: 1.4rem !important; }
     .stMarkdown h2 { font-size: 1.2rem !important; }
     .stMarkdown h3 { font-size: 1.05rem !important; }
+
+    /* Historial de consultas: tarjetas por registro (texto y fondo siempre con tokens del tema activo) */
+    .history-card-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.25rem 0.75rem;
+        margin-bottom: 0.35rem;
+    }
+    /* Mas especificas que "[data-testid=stMarkdownContainer] span", que fija el color de texto general */
+    [data-testid="stMarkdownContainer"] span.history-card-title {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--ijf-title-color) !important;
+    }
+    [data-testid="stMarkdownContainer"] span.history-card-meta {
+        font-size: 0.76rem;
+        color: var(--ijf-subtitle-color) !important;
+    }
+    .history-section-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ijf-subtitle-color) !important;
+        margin: 0.55rem 0 0.2rem 0;
+    }
+    .history-question {
+        color: var(--ijf-text-color) !important;
+        font-size: 0.92rem;
+        line-height: 1.45;
+        margin-bottom: 0.4rem;
+        overflow-wrap: anywhere;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -1410,7 +1506,151 @@ def get_pdf_page_base64(page_number: int) -> str:
         print(f"Error extracting PDF page {page_number}: {e}")
         return ""
 
-def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "", zoom_level: float = 1.0, height: int = 820, page_b64: str = "", lang: str = "es"):
+
+# --- Busqueda en todo el documento -------------------------------------------------------------------------------
+# El visor carga una sola pagina (base64) porque el PDF del CDN no admite CORS; por eso la busqueda en el documento
+# completo se resuelve aqui, sobre el texto del PDF local, y el visor solo resalta la coincidencia en la pagina actual.
+def _norm_search(s: str) -> str:
+    """Minusculas, sin acentos (NFKD) y con espacios colapsados. Debe coincidir con normTxt() del visor."""
+    s = unicodedata.normalize("NFKD", s or "")
+    s = "".join(ch for ch in s if not unicodedata.combining(ch))
+    return re.sub(r"\s+", " ", s).lower().strip()
+
+
+@st.cache_data(show_spinner=False)
+def _pdf_page_texts() -> list:
+    try:
+        if not os.path.exists(LOCAL_PDF_PATH):
+            return []
+        reader = pypdf.PdfReader(LOCAL_PDF_PATH)
+        return [_norm_search(p.extract_text() or "") for p in reader.pages]
+    except Exception as e:
+        print(f"Error extracting PDF text: {e}")
+        return []
+
+
+def _pdf_page_count() -> int:
+    return len(_pdf_page_texts())
+
+
+def _pdf_reset_search(clear_input: bool = False):
+    st.session_state.pdf_search_term = ""
+    st.session_state.pdf_matches = []
+    st.session_state.pdf_match_idx = 0
+    st.session_state.pdf_search_status = ""
+    st.session_state.pdf_active_match = 0
+    if clear_input:
+        st.session_state.pdf_search_input = ""
+
+
+def _pdf_goto_match(idx: int):
+    matches = st.session_state.get("pdf_matches") or []
+    if not matches:
+        return
+    idx %= len(matches)
+    page, k = matches[idx]
+    st.session_state.pdf_match_idx = idx
+    st.session_state.pdf_page = page
+    st.session_state.pdf_active_match = k
+    st.session_state.pdf_article = ""  # la pagina ya no es la de una norma citada
+    st.session_state.pdf_visible = True
+
+
+def _pdf_search_submit():
+    q = (st.session_state.get("pdf_search_input") or "").strip()
+    _pdf_reset_search()
+    if not q:
+        return
+    nq = _norm_search(q)
+    st.session_state.pdf_search_term = q
+    if len(nq) < 2:
+        st.session_state.pdf_search_status = "short"
+        return
+    texts = _pdf_page_texts()
+    if not texts:
+        st.session_state.pdf_search_status = "unavailable"
+        return
+    matches = []
+    for pi, txt in enumerate(texts):
+        matches.extend((pi + 1, k) for k in range(txt.count(nq)))
+    st.session_state.pdf_matches = matches
+    if matches:
+        st.session_state.pdf_search_status = "ok"
+        st.session_state.pdf_quote = ""
+        _pdf_goto_match(0)
+    else:
+        st.session_state.pdf_search_status = "none"
+
+
+def _pdf_search_step(delta: int):
+    _pdf_goto_match(st.session_state.get("pdf_match_idx", 0) + delta)
+
+
+def _pdf_set_page(page: int):
+    total = _pdf_page_count() or 1
+    new_page = max(1, min(total, int(page)))
+    if new_page != st.session_state.get("pdf_page"):
+        # Navegacion manual: se sale de la pagina de la norma citada (su etiqueta y su cita dejan de aplicar).
+        st.session_state.pdf_article = ""
+        st.session_state.pdf_quote = ""
+    st.session_state.pdf_page = new_page
+    st.session_state.pdf_active_match = 0
+
+
+def _pdf_page_input_changed():
+    _pdf_set_page(st.session_state.get("pdf_page_input") or 1)
+
+
+def _render_pdf_search_panel():
+    """Busqueda en todo el documento (Enter o boton), navegacion entre coincidencias y entre paginas."""
+    with st.form("pdf_search_form", clear_on_submit=False, border=False):
+        st.text_input(t("pdf_doc_search_placeholder", lang), key="pdf_search_input",
+                      placeholder=t("pdf_doc_search_placeholder", lang), label_visibility="collapsed")
+        c_go, c_clr = st.columns(2)
+        with c_go:
+            st.form_submit_button(t("pdf_doc_search_btn", lang), on_click=_pdf_search_submit, use_container_width=True)
+        with c_clr:
+            st.form_submit_button(t("pdf_doc_search_clear", lang), on_click=_pdf_reset_search, args=(True,),
+                                  use_container_width=True)
+
+    status = st.session_state.get("pdf_search_status", "")
+    matches = st.session_state.get("pdf_matches") or []
+    if status == "ok" and matches:
+        idx = st.session_state.get("pdf_match_idx", 0)
+        st.caption(t("pdf_doc_search_results", lang, total=len(matches), pages=len({p for p, _ in matches}),
+                     cur=idx + 1, page=matches[idx][0]))
+        c_prev, c_next = st.columns(2)
+        with c_prev:
+            st.button(t("pdf_doc_search_prev", lang), key="pdf_match_prev", on_click=_pdf_search_step, args=(-1,),
+                      use_container_width=True, disabled=len(matches) < 2)
+        with c_next:
+            st.button(t("pdf_doc_search_next", lang), key="pdf_match_next", on_click=_pdf_search_step, args=(1,),
+                      use_container_width=True, disabled=len(matches) < 2)
+    elif status == "none":
+        st.warning(t("pdf_doc_search_none", lang, q=st.session_state.get("pdf_search_term", "")))
+    elif status == "short":
+        st.caption(t("pdf_doc_search_short", lang))
+    elif status == "unavailable":
+        st.warning(t("pdf_doc_search_unavailable", lang))
+
+    total = _pdf_page_count()
+    if total:
+        cur = max(1, min(total, int(st.session_state.pdf_page or 1)))
+        st.session_state.pdf_page_input = cur
+        n_prev, n_in, n_next = st.columns([0.34, 0.32, 0.34], vertical_alignment="bottom")
+        with n_prev:
+            st.button(t("pdf_nav_prev_page", lang), key="pdf_page_prev", on_click=_pdf_set_page, args=(cur - 1,),
+                      use_container_width=True, disabled=cur <= 1)
+        with n_in:
+            st.number_input(t("pdf_nav_page_label", lang), key="pdf_page_input", min_value=1, max_value=total,
+                            step=1, on_change=_pdf_page_input_changed, label_visibility="collapsed")
+        with n_next:
+            st.button(t("pdf_nav_next_page", lang), key="pdf_page_next", on_click=_pdf_set_page, args=(cur + 1,),
+                      use_container_width=True, disabled=cur >= total)
+
+
+def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "", zoom_level: float = 1.0, height: int = 820, page_b64: str = "", lang: str = "es",
+                      active_match: int = 0, total_pages: int = 0, search_mode: str = "quote"):
     """
     Renders an interactive embedded PDF viewer using PDF.js CDN with range streaming,
     canvas rendering, text layer selection, and automated citation query highlighting.
@@ -1434,6 +1674,9 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
     open_tab_btn = t("pdf_open_tab_btn", lang)
     open_tab_title = t("pdf_open_tab_title", lang)
     loading_text = t("pdf_loading_text", lang)
+    badge_no_matches = t("pdf_badge_no_matches", lang).replace("'", "\\'")
+    badge_matches_tpl = t("pdf_badge_matches", lang, matches="__N__").replace("'", "\\'")
+    search_mode = "term" if search_mode == "term" else "quote"
     load_error_template = t("pdf_load_error", lang, url=pdf_url, num="'+pageNum+'").replace("'", "\\'")
 
     cur_theme = st.session_state.get("app_theme", "auto")
@@ -1634,6 +1877,11 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           border-radius: 2px;
           color: transparent;
         }}
+        .highlight.current {{
+          background-color: rgba(249, 115, 22, 0.55) !important;
+          outline: 2px solid #c2410c;
+          border-bottom-color: #c2410c;
+        }}
         #loading-overlay {{
           position: absolute;
           top: 0; left: 0; right: 0; bottom: 0;
@@ -1663,7 +1911,7 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
     <body>
       <div id="toolbar">
         <button class="btn" id="prev-btn" title="{prev_btn_title}">{prev_btn_label}</button>
-        <span>{page_prefix}</span>
+        <span id="page-prefix">{page_prefix}</span>
         <input type="number" id="page-num" class="input-page" value="{initial_page}" min="1">
         <span id="page-count">/ ...</span>
         <button class="btn" id="next-btn" title="{next_btn_title}">{next_btn_label}</button>
@@ -1701,6 +1949,10 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
         let pageNumPending = null;
         let scale = {zoom_level};
         let currentSearch = '{safe_quote}'.trim();
+        const searchMode = '{search_mode}';
+        const activeMatch = {int(active_match or 0)};
+        const totalPages = {int(total_pages or 0)};
+        const externalPage = {int(initial_page or 1)};
 
         const canvas = document.getElementById('the-canvas');
         const ctx = canvas.getContext('2d');
@@ -1739,6 +1991,7 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
             canvasWrapper.style.height = viewport.height + 'px';
 
             textLayerDiv.innerHTML = '';
+            textLayerDiv.style.setProperty('--scale-factor', viewport.scale);
             textLayerDiv.style.width = viewport.width + 'px';
             textLayerDiv.style.height = viewport.height + 'px';
 
@@ -1799,10 +2052,87 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           queueRenderPage(pageNum);
         }}
 
+        // Normalizacion equivalente a _norm_search() en Python (minusculas, sin acentos, espacios colapsados),
+        // conservando el indice del caracter original para resaltar exactamente el texto encontrado.
+        function normWithMap(str) {{
+          let out = '';
+          const map = [];
+          for (let i = 0; i < str.length; i++) {{
+            let n = str[i].normalize('NFKD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase();
+            if (/\\s/.test(n)) n = ' ';
+            for (const ch of n) {{
+              if (ch === ' ' && (out.length === 0 || out.endsWith(' '))) continue;
+              out += ch;
+              map.push(i);
+            }}
+          }}
+          return {{ out: out, map: map }};
+        }}
+
+        function clearHighlights() {{
+          textLayerDiv.querySelectorAll('span.hl-wrap').forEach(sp => {{
+            sp.textContent = sp.dataset.orig || sp.textContent;
+            sp.classList.remove('hl-wrap');
+          }});
+          textLayerDiv.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight', 'current'));
+        }}
+
+        function showBadge(count) {{
+          highlightBadge.style.display = 'inline-block';
+          highlightBadge.textContent = count > 0 ? '{badge_matches_tpl}'.replace('__N__', count) : '{badge_no_matches}';
+        }}
+
+        function highlightTerm(query) {{
+          const nq = normWithMap(query).out.trim();
+          const hits = [];
+          if (nq.length < 2) return hits;
+          textLayerDiv.querySelectorAll('span').forEach(span => {{
+            if (span.children.length) return;
+            const orig = span.textContent || '';
+            const nm = normWithMap(orig);
+            const ranges = [];
+            let from = 0;
+            while (true) {{
+              const j = nm.out.indexOf(nq, from);
+              if (j < 0) break;
+              ranges.push([nm.map[j], nm.map[j + nq.length - 1] + 1]);
+              from = j + nq.length;
+            }}
+            if (!ranges.length) return;
+            span.dataset.orig = orig;
+            span.classList.add('hl-wrap');
+            span.textContent = '';
+            let last = 0;
+            ranges.forEach(r => {{
+              if (r[0] > last) span.appendChild(document.createTextNode(orig.slice(last, r[0])));
+              const m = document.createElement('span');
+              m.className = 'highlight';
+              m.textContent = orig.slice(r[0], r[1]);
+              span.appendChild(m);
+              hits.push(m);
+              last = r[1];
+            }});
+            if (last < orig.length) span.appendChild(document.createTextNode(orig.slice(last)));
+          }});
+          return hits;
+        }}
+
         function highlightText() {{
+          clearHighlights();
           const query = (document.getElementById('search-box').value || '').trim();
           if (!query) {{
             highlightBadge.style.display = 'none';
+            return;
+          }}
+
+          if (searchMode === 'term') {{
+            const hits = highlightTerm(query);
+            showBadge(hits.length);
+            if (hits.length) {{
+              const cur = hits[Math.max(0, Math.min(activeMatch, hits.length - 1))];
+              cur.classList.add('current');
+              cur.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+            }}
             return;
           }}
 
@@ -1810,7 +2140,10 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
           const cleanQuery = query.toLowerCase().replace(/[-.,/#!$%^&*;:{{}}=_`~()]/g, " ").replace(/\\s+/g, " ").trim();
           const tokens = cleanQuery.split(" ").filter(t => t.length >= 3);
 
-          if (tokens.length === 0) return;
+          if (tokens.length === 0) {{
+            showBadge(0);
+            return;
+          }}
 
           let matchesFound = 0;
           const spans = textLayerDiv.querySelectorAll('span');
@@ -1843,15 +2176,12 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
             }}
           }});
 
+          showBadge(matchesFound);
           if (matchesFound > 0) {{
-            highlightBadge.style.display = 'inline-block';
-            highlightBadge.textContent = '{t("pdf_badge_matches", lang, matches="").strip()}' + ' ' + matchesFound;
             const firstMatch = textLayerDiv.querySelector('.highlight');
             if (firstMatch) {{
               firstMatch.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
             }}
-          }} else {{
-            highlightBadge.style.display = 'none';
           }}
         }}
 
@@ -1947,7 +2277,17 @@ def render_pdf_viewer(pdf_url: str, initial_page: int = 1, search_quote: str = "
 
         loadingTask.promise.then(function(pdf) {{
           pdfDoc = pdf;
-          pageCountSpan.textContent = '/ 298';
+          // Modo de una sola pagina extraida: la navegacion y la busqueda en el documento se hacen con los
+          // controles de la aplicacion (sobre todo el PDF); aqui solo se informa la pagina real mostrada.
+          if (pdfDoc.numPages === 1 && totalPages > 1) {{
+            ['prev-btn', 'next-btn', 'page-num', 'page-prefix', 'search-box', 'search-btn'].forEach(function(id) {{
+              const el = document.getElementById(id);
+              if (el) el.style.display = 'none';
+            }});
+            pageCountSpan.textContent = '{page_prefix} ' + externalPage + ' / ' + totalPages;
+          }} else {{
+            pageCountSpan.textContent = '/ ' + pdfDoc.numPages;
+          }}
           updateZoomLabel();
           // Si estamos usando un PDF de una sola página extraída, renderizamos página 1 internamente
           const targetInternalPage = (pdfDoc.numPages === 1) ? 1 : pageNum;
@@ -2486,79 +2826,86 @@ with st.sidebar:
 
 
 
-# Header
-base64_logo = get_base64_logo(logo_path)
-cur_usage = usage_tracker.get_metrics()
-tot_q_display = f"{cur_usage['total_queries']:,}"
-llm_q_display = f"{cur_usage['queries_with_llm']:,}"
-loc_q_display = f"{cur_usage['queries_local']:,}"
-header_badge_html = f"""<div class="app-header-counter-badge">
-    <span class="counter-badge-icon">📊</span>
-    <span class="counter-badge-text">{t('header_queries_badge', lang, total=tot_q_display, llm=llm_q_display, local=loc_q_display)}</span>
-</div>"""
+# Header (en un hueco reservado: se vuelve a dibujar tras registrar una consulta, sin rerun ni doble conteo)
+_header_slot = st.empty()
 
-if base64_logo:
-    render_custom_html(f"""<style>
-.ijf-tooltip {{
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    cursor: default;
-}}
-.ijf-tooltip .ijf-tooltiptext {{
-    visibility: hidden;
-    background-color: var(--ijf-tooltip-bg);
-    color: var(--ijf-tooltip-color);
-    border: 1px solid var(--ijf-tooltip-border);
-    text-align: left;
-    padding: 0.5rem 0.8rem;
-    border-radius: 6px;
-    font-size: 0.78rem;
-    font-family: 'Inter', sans-serif;
-    white-space: nowrap;
-    position: absolute;
-    z-index: 999;
-    top: 130%;
-    left: 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}}
-.ijf-tooltip:hover .ijf-tooltiptext {{
-    visibility: visible;
-}}
-.ijf-help-icon {{
-    width: 16px; height: 16px;
-    background: var(--ijf-help-bg);
-    border: 1px solid var(--ijf-title-color);
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.65rem;
-    color: var(--ijf-title-color);
-    font-weight: 700;
-    margin-left: 0.5rem;
-    font-family: 'Inter', sans-serif;
-    flex-shrink: 0;
-}}
-</style>
-<div class="app-header-banner">
-    <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="data:image/svg+xml;base64,{base64_logo}" class="app-header-logo" alt="IJF Logo" />
-    </div>
-    <div style="position: relative; display: inline-flex; align-items: center; justify-content: center; max-width: 100%;">
-        <h2 class="app-main-title">{t('app_title', lang)}</h2>
-        <div class="ijf-tooltip" style="position: absolute; right: -28px; top: 50%; transform: translateY(-50%);">
-            <div class="ijf-help-icon" style="margin-left: 0;">?</div>
-            <div class="ijf-tooltiptext" style="left: 50%; transform: translateX(-50%); top: 130%;">{t('header_tooltip', lang)}</div>
-        </div>
-    </div>
-    {header_badge_html}
-</div>""")
-else:
-    render_custom_html(f"""<div class="app-header-banner">
-    <h2 class="app-main-title">{t('app_title', lang)}</h2>
-    {header_badge_html}
-</div>""")
+
+def _render_header():
+    with _header_slot.container():
+        base64_logo = get_base64_logo(logo_path)
+        cur_usage = usage_tracker.get_metrics()
+        tot_q_display = f"{cur_usage['total_queries']:,}"
+        llm_q_display = f"{cur_usage['queries_with_llm']:,}"
+        loc_q_display = f"{cur_usage['queries_local']:,}"
+        header_badge_html = f"""<div class="app-header-counter-badge">
+            <span class="counter-badge-text">{t('header_queries_badge', lang, total=tot_q_display, llm=llm_q_display, local=loc_q_display)}</span>
+        </div>"""
+
+        if base64_logo:
+            render_custom_html(f"""<style>
+        .ijf-tooltip {{
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            cursor: default;
+        }}
+        .ijf-tooltip .ijf-tooltiptext {{
+            visibility: hidden;
+            background-color: var(--ijf-tooltip-bg);
+            color: var(--ijf-tooltip-color);
+            border: 1px solid var(--ijf-tooltip-border);
+            text-align: left;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            position: absolute;
+            z-index: 999;
+            top: 130%;
+            left: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }}
+        .ijf-tooltip:hover .ijf-tooltiptext {{
+            visibility: visible;
+        }}
+        .ijf-help-icon {{
+            width: 16px; height: 16px;
+            background: var(--ijf-help-bg);
+            border: 1px solid var(--ijf-title-color);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            color: var(--ijf-title-color);
+            font-weight: 700;
+            margin-left: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            flex-shrink: 0;
+        }}
+        </style>
+        <div class="app-header-banner">
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <img src="data:image/svg+xml;base64,{base64_logo}" class="app-header-logo" alt="IJF Logo" />
+            </div>
+            <div style="position: relative; display: inline-flex; align-items: center; justify-content: center; max-width: 100%;">
+                <h2 class="app-main-title">{t('app_title', lang)}</h2>
+                <div class="ijf-tooltip" style="position: absolute; right: -28px; top: 50%; transform: translateY(-50%);">
+                    <div class="ijf-help-icon" style="margin-left: 0;">?</div>
+                    <div class="ijf-tooltiptext" style="left: 50%; transform: translateX(-50%); top: 130%;">{t('header_tooltip', lang)}</div>
+                </div>
+            </div>
+            {header_badge_html}
+        </div>""")
+        else:
+            render_custom_html(f"""<div class="app-header-banner">
+            <h2 class="app-main-title">{t('app_title', lang)}</h2>
+            {header_badge_html}
+        </div>""")
+
+
+_render_header()
 
 # Handle user input
 query_to_run = None
@@ -2625,15 +2972,8 @@ if query_to_run:
         dot_code += "}"
 
         q_tok_usage = res.get("token_usage") or res.get("llm_meta", {}).get("token_usage", {})
-        # Proveedor real de la llamada de analisis; sin llamada al modelo la consulta cuenta como local.
-        q_prov = res.get("llm_meta", {}).get("successful_provider") or "Local"
-        q_mod = res.get("llm_meta", {}).get("successful_model") or "deterministic"
-        usage_tracker.record_query(
-            query_text=query_to_run,
-            token_usage=q_tok_usage,
-            provider=q_prov,
-            model=q_mod
-        )
+        # Una consulta del usuario = un incremento; las llamadas internas solo suman tokens (ver record_user_query).
+        record_user_query(usage_tracker, query_to_run, res)
 
         st.session_state.history.append({
             "query": query_to_run,
@@ -2647,18 +2987,574 @@ if query_to_run:
             "token_usage": q_tok_usage,
             "rre_operating_mode": res.get("rre_operating_mode", getattr(engine.rre, "operating_mode", "UNKNOWN")),
             "degradation_reason": res.get("degradation_reason"),
-            "source_sha256_verified": res.get("source_sha256_verified", False)
+            "source_sha256_verified": res.get("source_sha256_verified", False),
+            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "query_id": len(st.session_state.history) + 1
         })
         st.session_state.active_index = len(st.session_state.history) - 1
         status.update(label=t("status_done", lang), state="complete", expanded=False)
+        _render_header()
+
+# ---------------------------------------------------------------------------------------------------------------
+# Presentacion de una consulta (compartida por "Consulta actual" e "Historial de consultas")
+# ---------------------------------------------------------------------------------------------------------------
+official_pdf_url = "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/08/IJF_Sport_and_Organisation_Rul-1787430903.pdf"
+
+
+def _prepare_item_view(item):
+    """Estructura, citas, resumen limpio y normas de soporte (tarjetas) de un registro del historial."""
+    # 1. PREPARACIÓN DE DATOS (Estructura, Citas y Evidencias)
+    struct = item.get("structured_answer")
+    citations_list = []
+    if struct and isinstance(struct, dict):
+        citations_list = struct.get("citations", [])
+
+    clean_summary = ""
+    if struct and isinstance(struct, dict) and struct.get("summary"):
+        raw_summary = struct["summary"]
+        clean_summary = struct.get("clean_summary") or clean_presentation_text(raw_summary)
+
+    # Construir catálogo de evidencias normativas certificadas
+    evidence_entries = []
+    seen_evidence_keys = set()
+    is_source_verified = bool(item.get("source_sha256_verified", False))
+
+    if citations_list:
+        for c in citations_list:
+            if isinstance(c, dict):
+                pid = c.get("passage_id") or c.get("article_id")
+                if pid and pid in seen_evidence_keys:
+                    continue
+                if pid:
+                    seen_evidence_keys.add(pid)
+
+                raw_art = str(c.get("article_id") or c.get("title") or "Norma Oficial").strip()
+                clean_art = re.sub(r"^(?:art\.?\s*)+article\s*", "Art. ", raw_art, flags=re.IGNORECASE)
+                clean_art = re.sub(r"^article\s+", "Art. ", clean_art, flags=re.IGNORECASE)
+                art_label = clean_art
+                title = c.get("title") or art_label
+
+                raw_page = c.get("page_number") if c.get("page_number") is not None else c.get("page")
+                page_num = None
+                if raw_page is not None:
+                    try:
+                        val = int(raw_page)
+                        if val > 0:
+                            page_num = val
+                    except (ValueError, TypeError):
+                        page_num = None
+
+                exact_q = (c.get("exact_quote") or "").strip()
+                text_snip = (c.get("text_snippet") or "").strip()
+                has_exact = bool(exact_q)
+                raw_q = (c.get("quote") or "").strip()
+                if text_snip:
+                    quote_str = text_snip
+                    has_exact = True
+                elif exact_q:
+                    quote_str = exact_q
+                    has_exact = True
+                elif raw_q:
+                    quote_str = raw_q
+                    has_exact = False
+                else:
+                    quote_str = ""
+                    has_exact = False
+
+                source_url = c.get("source_url") or official_pdf_url
+                is_cit_verified = is_source_verified and bool(c.get("verified", True if is_source_verified else False))
+
+                evidence_entries.append({
+                    "passage_id": pid or "",
+                    "article_label": art_label,
+                    "title": title,
+                    "page_number": page_num,
+                    "edition": "IJF SOR 2026-08",
+                    "verified": is_cit_verified,
+                    "quote": quote_str,
+                    "has_exact_quote": has_exact,
+                    "source_url": source_url,
+                    "exact_quote": exact_q
+                })
+
+    if len(evidence_entries) < 2 and item.get("trazabilidad"):
+        for kun in item["trazabilidad"]:
+            kid = kun.get("id_conocimiento")
+            if kid and kid in seen_evidence_keys:
+                continue
+            if kid:
+                seen_evidence_keys.add(kid)
+
+            art_num = kun.get("article_id") or kun.get("referencia_especifica", "").split("(")[0].strip()
+            raw_art = f"Art. {art_num}" if art_num and not str(art_num).lower().startswith("art") else (art_num or "Norma")
+            art_label = re.sub(r"^(?:art\.?\s*)+article\s*", "Art. ", raw_art, flags=re.IGNORECASE)
+            art_label = re.sub(r"^article\s+", "Art. ", art_label, flags=re.IGNORECASE)
+            title = kun.get("titulo") or "Disposición Oficial"
+
+            raw_page = kun.get("pdf_page_index") if kun.get("pdf_page_index") is not None else kun.get("page")
+            page_num = None
+            if raw_page is not None:
+                try:
+                    val = int(raw_page)
+                    if val > 0:
+                        page_num = val
+                except (ValueError, TypeError):
+                    page_num = None
+
+            raw_quote = kun.get("contenido_traduccion") or kun.get("contenido_original") or ""
+            if len(raw_quote) > 280:
+                raw_quote = raw_quote[:277].rsplit(" ", 1)[0] + "..."
+
+            is_kun_verified = is_source_verified and bool(kun.get("verified", True if is_source_verified else False))
+            exact_q = (kun.get("exact_quote") or "").strip()
+            has_exact = bool(exact_q)
+            quote_str = exact_q if has_exact else raw_quote.strip()
+
+            evidence_entries.append({
+                "passage_id": kid or "",
+                "article_label": art_label,
+                "title": title,
+                "page_number": page_num,
+                "edition": "IJF SOR 2026-08",
+                "verified": is_kun_verified,
+                "quote": quote_str,
+                "has_exact_quote": has_exact,
+                "source_url": kun.get("source_url") or official_pdf_url,
+                "exact_quote": exact_q
+            })
+
+    return struct, citations_list, clean_summary, evidence_entries
+
+
+def _render_evidence_card(ev_item, btn_key):
+    badge_ver = f'<span class="evidence-badge-verified">✓ {t("evidence_verified_badge", lang)}</span>' if ev_item["verified"] else ''
+    p_label = t("evidence_page_label", lang)
+    badge_page = f'<span class="evidence-badge-page">📄 {p_label} {ev_item["page_number"]}</span>' if ev_item["page_number"] is not None else ''
+
+    quote_html = ''
+    if ev_item["quote"]:
+        escaped_q = html.escape(ev_item["quote"])
+        if ev_item.get("has_exact_quote"):
+            q_label = t("evidence_quote_label", lang)
+            quote_html = f'<div class="normative-quote-box"><div class="quote-type-label">📌 {q_label}</div>“{escaped_q}”</div>'
+        else:
+            ctx_label = t("evidence_context_label", lang)
+            quote_html = f'<div class="normative-context-box"><div class="quote-type-label">📖 {ctx_label}</div>{escaped_q}</div>'
+
+    st.markdown(f"""
+<div class="normative-evidence-card">
+    <div class="evidence-card-header">
+        <span class="evidence-badge-art">📌 {html.escape(str(ev_item["article_label"]))}</span>
+        {badge_page}
+        {badge_ver}
+    </div>
+    <div class="evidence-card-title">{html.escape(str(ev_item["title"]))}</div>
+    {quote_html}
+</div>
+""", unsafe_allow_html=True)
+
+    if ev_item["page_number"] is not None:
+        btn_col, _ = st.columns([0.48, 0.52])
+        with btn_col:
+            btn_label = t("evidence_view_pdf_btn", lang, page=ev_item["page_number"])
+            if st.button(f"🔍 {btn_label}", key=btn_key, use_container_width=True):
+                _pdf_reset_search(clear_input=True)
+                st.session_state.pdf_page = int(ev_item["page_number"])
+                if ev_item.get("exact_quote"):
+                    st.session_state.pdf_quote = ev_item["exact_quote"]
+                st.session_state.pdf_article = str(ev_item["article_label"])
+                st.session_state.pdf_visible = True
+                st.rerun()
+
+
+
+def _render_answer_block(item, struct, clean_summary):
+    """Origen de la respuesta, avisos de modo y respuesta visible. Devuelve el resumen limpio mostrado."""
+    item_llm_meta = item.get("llm_meta", {})
+    succ_prov = item_llm_meta.get("successful_provider")
+    prim_prov = item_llm_meta.get("primary_provider", "")
+    # Origen real de la respuesta (derivado del flujo ejecutado, independiente de su exactitud).
+    _origin = item.get("response_origin")
+    if _origin:
+        _o_tipo, _o_title, _o_desc = _ap.origin_badge(_origin, lang)
+        _o_icon = {"LLM": "🤖", "LOCAL": "📚", "MIXTA": "🔀", "ACLARACION": "❓"}.get(_o_tipo, "⛔")
+        st.markdown(
+            f'<div class="origin-badge origin-{_o_tipo.lower()}"><strong>{_o_icon} '
+            f'{html.escape(_o_title)}</strong> · {html.escape(_o_desc)}</div>',
+            unsafe_allow_html=True)
+
+    # Aviso de Modo Alternativo Local o Conmutación de Cuota IA (solo si el modelo no estaba disponible:
+    # una abstencion sin llamada al modelo, p. ej. fuera de dominio, no es "modo local").
+    if not succ_prov and not (_origin and _origin.get("tipo") in ("SIN_RESPUESTA", "ACLARACION")):
+        st.markdown(f"""
+<div class="local-fallback-banner">
+    <div class="local-fallback-header">
+        <span>{t('local_fallback_banner_title', lang)}</span>
+    </div>
+    <div class="local-fallback-desc">
+        {t('local_fallback_banner_desc', lang)}
+    </div>
+</div>
+""", unsafe_allow_html=True)
+    elif item_llm_meta.get("fallback_triggered"):
+        st.caption(f"ℹ️ Cuota de {prim_prov} alcanzada. Respuesta generada automáticamente mediante {succ_prov}.")
+
+    # 2. RESPUESTA DIRECTA (Nivel 1 - Visible por defecto)
+    # Respuesta unica (ADA_UNIFIED_ANSWER=1): todo el contenido generado y verificado por el DIG se
+    # muestra en un solo bloque; no hay desplegable de "ampliar respuesta" ni segunda generacion.
+    unified_view = isinstance(struct, dict) and bool(struct) and _ap.unified_enabled(struct)
+    if unified_view:
+        with st.container(border=True):
+            st.markdown(f"**{html.escape(_ap.unified_header(struct, lang))}**")
+            for _field, _title, _text in _ap.unified_sections(struct, lang):
+                if _title:
+                    st.markdown(f"##### {html.escape(_title)}")
+                st.markdown(sanitize_presentation_html(clean_presentation_text(_text)), unsafe_allow_html=True)
+    elif clean_summary:
+        safe_summary = sanitize_presentation_html(clean_summary)
+        box_title = t("tier1_box_header", lang)
+        safe_title = html.escape(box_title)
+        st.markdown(
+            f"""<div class="tier1-box">
+<div class="tier1-title"><strong>{safe_title}</strong></div>
+{safe_summary}
+</div>""",
+            unsafe_allow_html=True
+        )
+
+        if "Control de Rigor Normativo" in str(struct.get("limitations", "")) or "Normative Rigor Control" in str(struct.get("limitations", "")):
+            st.warning(t("normative_rigor_warning", lang))
+
+    else:
+        # Compatibilidad con entradas planas
+        raw_ans = item.get('answer', '')
+        clean_ans = clean_presentation_text(raw_ans)
+        box_title = t("tier1_box_header", lang)
+        safe_title = html.escape(box_title)
+        if "\n\n---\n\n" in clean_ans:
+            parts = clean_ans.split("\n\n---\n\n", 1)
+            safe_part0 = sanitize_presentation_html(parts[0])
+            st.markdown(
+                f"""<div class="tier1-box">
+<div class="tier1-title"><strong>{safe_title}</strong></div>
+{safe_part0}
+</div>""",
+                unsafe_allow_html=True
+            )
+            clean_summary = safe_part0
+        else:
+            safe_ans = sanitize_presentation_html(clean_ans)
+            st.markdown(
+                f"""<div class="tier1-box">
+<div class="tier1-title"><strong>{safe_title}</strong></div>
+{safe_ans}
+</div>""",
+                unsafe_allow_html=True
+            )
+            clean_summary = safe_ans
+
+    return clean_summary
+
+
+def _item_token_usage(item):
+    """Tokens de la consulta informados por el proveedor. Estado: 'real' (hay cifras), 'nd' (hubo llamada al modelo
+    pero el proveedor no informo tokens) o 'local' (sin llamada al modelo). Nunca se estiman."""
+    meta = item.get("llm_meta") or {}
+    u = item.get("token_usage") or meta.get("token_usage") or {}
+    p_tok = int(u.get("prompt_tokens", 0) or 0)
+    c_tok = int(u.get("completion_tokens", 0) or 0)
+    t_tok = int(u.get("total_tokens", 0) or 0)
+    if t_tok == 0 and (p_tok > 0 or c_tok > 0):
+        t_tok = p_tok + c_tok
+    if t_tok > 0:
+        state = "real"
+    elif meta.get("successful_provider"):
+        state = "nd"
+    else:
+        state = "local"
+    return p_tok, c_tok, t_tok, state
+
+
+def _render_token_pill(p_tok, c_tok, t_tok, tok_state, live_avg):
+    if tok_state == "real":
+        badge_str = t("usage_response_badge", lang, tokens=f"{t_tok:,}", prompt=f"{p_tok:,}",
+                      completion=f"{c_tok:,}", avg=f"{live_avg:,}")
+    elif tok_state == "nd":
+        badge_str = t("usage_response_badge_nd", lang, avg=f"{live_avg:,}")
+    else:
+        badge_str = t("usage_response_badge_local", lang, avg=f"{live_avg:,}")
+    st.markdown(f'<div class="token-usage-pill">{html.escape(badge_str)}</div>', unsafe_allow_html=True)
+
+
+def _render_query_item(original_i, item):
+    """Consulta actual: pregunta, respuesta, consumo, fundamentacion, normas de soporte, auditoria y observaciones."""
+    with st.chat_message("user", avatar="👤"):
+        st.markdown(item['query'])
+    with st.chat_message("assistant", avatar="⚖️"):
+        item_llm_meta = item.get("llm_meta", {})
+        succ_prov = item_llm_meta.get("successful_provider")
+        prim_prov = item_llm_meta.get("primary_provider", "")
+        struct, citations_list, clean_summary, evidence_entries = _prepare_item_view(item)
+        clean_summary = _render_answer_block(item, struct, clean_summary)
+        unified_view = isinstance(struct, dict) and bool(struct) and _ap.unified_enabled(struct)
+        p_tok, c_tok, t_tok, tok_state = _item_token_usage(item)
+        live_avg = usage_tracker.get_metrics()["avg_tokens_per_query"]
+        _render_token_pill(p_tok, c_tok, t_tok, tok_state, live_avg)
+
+        # 3. VER FUNDAMENTACIÓN NORMATIVA Y ANÁLISIS COMPLETO (Colapsado por defecto)
+        has_details = False
+        has_graph = bool(item.get('dot_code') and "->" in item.get('dot_code', ''))
+        if unified_view:
+            # Sin ampliacion: solo el grafo de relaciones entre los pasajes recuperados (no es texto generado).
+            if has_graph:
+                with st.expander(t("sec_graph_relations", lang), expanded=False):
+                    st.caption(t('graph_caption_relations', lang))
+                    st.graphviz_chart(item['dot_code'])
+        elif struct and isinstance(struct, dict):
+            has_details = bool(
+                struct.get("normative_basis") or
+                struct.get("conditions_and_exceptions") or
+                struct.get("extended_analysis") or
+                struct.get("limitations") or
+                has_graph
+            )
+            if has_details:
+                with st.expander(t("view_details_expander", lang), expanded=False):
+                    if struct.get("extended_analysis"):
+                        st.markdown(f"#### {t('sec_extended', lang)}")
+                        st.markdown(struct["extended_analysis"])
+                    if struct.get("normative_basis"):
+                        st.markdown(f"#### {t('sec_normative_basis', lang)}")
+                        st.markdown(struct["normative_basis"])
+                    if struct.get("conditions_and_exceptions"):
+                        st.markdown(f"#### {t('sec_conditions', lang)}")
+                        st.markdown(struct["conditions_and_exceptions"])
+                    if has_graph:
+                        st.markdown(f"#### {t('sec_graph_relations', lang)}")
+                        st.caption(t('graph_caption_relations', lang))
+                        st.graphviz_chart(item['dot_code'])
+                    if struct.get("limitations"):
+                        st.markdown(f"#### {t('sec_limitations', lang)}")
+                        st.markdown(struct["limitations"])
+        elif "\n\n---\n\n" in item.get('answer', ''):
+            parts = item.get('answer', '').split("\n\n---\n\n", 1)
+            with st.expander(t("view_details_expander", lang), expanded=False):
+                st.markdown(parts[1])
+                if has_graph:
+                    st.markdown(f"#### {t('sec_graph_relations', lang)}")
+                    st.caption(t('graph_caption_relations', lang))
+                    st.graphviz_chart(item['dot_code'])
+        elif has_graph:
+            with st.expander(t("view_details_expander", lang), expanded=False):
+                st.markdown(f"#### {t('sec_graph_relations', lang)}")
+                st.caption(t('graph_caption_relations', lang))
+                st.graphviz_chart(item['dot_code'])
+
+        # 4. EVIDENCIAS NORMATIVAS CERTIFICADAS (Colapsado por defecto)
+        if evidence_entries:
+            with st.expander(f"⚖️ {t('evidences_section_title', lang)}", expanded=False):
+                st.markdown(f"""
+<div class="evidence-section-header">
+    <span class="evidence-section-title">⚖️ {t('evidences_section_title', lang)}</span>
+    <span class="evidence-badge-edition">IJF SOR 2026-08</span>
+</div>
+<div class="evidence-section-subtitle">{t('evidences_section_subtitle', lang)}</div>
+""", unsafe_allow_html=True)
+                for ev_idx, ev in enumerate(evidence_entries):
+                    _render_evidence_card(ev, f"ev_pdf_{original_i}_{ev_idx}")
+
+        # 5. PANEL DE AUDITORÍA TÉCNICA Y TRAZABILIDAD (Colapsado por defecto)
+        is_fallback = "lo siento" in item.get('answer', '').lower() or "sorry" in item.get('answer', '').lower()
+        with st.expander(t("expander_audit_metadata", lang), expanded=False):
+            audit_mode = item.get("rre_operating_mode", getattr(engine.rre, "operating_mode", "HYBRID"))
+            deg_reason = f" ({item.get('degradation_reason')})" if item.get('degradation_reason') else ""
+            _audit_tokens = (f"{t_tok:,} (P: {p_tok:,} | R: {c_tok:,}) • Prom: {live_avg:,}" if tok_state == "real"
+                             else ("N/D" if tok_state == "nd" else "0") + f" • Prom: {live_avg:,}")
+            audit_sha = t("pdf_source_caption", lang) if item.get("source_sha256_verified", False) else t("pdf_source_unverified_caption", lang)
+
+            # Solo lo que realmente se ejecuto: sin llamada de analisis no se atribuye ningun modelo.
+            prov_name = item_llm_meta.get("successful_provider") or "—"
+            model_name = item_llm_meta.get("successful_model") or ("modelo no utilizado" if lang != "en" else "model not used")
+
+            st.markdown(f"""
+<div class="audit-panel-grid">
+    <div class="audit-panel-item">
+<div class="audit-panel-label">{t('audit_rre_title', lang)}</div>
+<div class="audit-panel-value">⚙️ {audit_mode}{deg_reason}</div>
+    </div>
+    <div class="audit-panel-item">
+<div class="audit-panel-label">{t('audit_sha_title', lang)}</div>
+<div class="audit-panel-value">🔒 {audit_sha}</div>
+    </div>
+    <div class="audit-panel-item">
+<div class="audit-panel-label">{t('audit_provider_title', lang)}</div>
+<div class="audit-panel-value">🤖 {prov_name} ({model_name})</div>
+    </div>
+    <div class="audit-panel-item">
+<div class="audit-panel-label">{t('audit_tokens_title', lang)}</div>
+<div class="audit-panel-value">🔢 {_audit_tokens}</div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+            if item_llm_meta.get("fallback_triggered") and succ_prov:
+                st.info(t("fallback_badge_notice", lang, primary=prim_prov, secondary=succ_prov))
+            elif item_llm_meta.get("fallback_attempted") and not succ_prov:
+                st.warning(t("fallback_all_failed_notice", lang))
+
+            tab_cite, tab_graph = st.tabs([t("tab_traceability", lang), t("tab_graph", lang)])
+
+            with tab_cite:
+                with st.expander(t("sidebar_sources_title", lang), expanded=False):
+                    st.markdown(t("source_availability_notice", lang), unsafe_allow_html=True)
+
+                if not is_fallback and item.get('trazabilidad'):
+                    for kun in item['trazabilidad']:
+                        res_rrm = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
+                        url = res_rrm.get("url")
+                        is_clickable = res_rrm.get("is_clickable", True)
+                        op_status = res_rrm.get("operational_status", "AVAILABLE")
+
+                        source_id = kun['fuente_origen']
+                        ref_spec = kun.get('referencia_especifica', 'Rules')
+                        name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Official Source"
+
+                        if is_clickable and url:
+                            source_link = f"[{name} ({ref_spec})]({url})"
+                        elif op_status == "DELETED":
+                            source_link = f"~~{name} ({ref_spec})~~"
+                        else:
+                            source_link = f"{name} ({ref_spec})"
+
+                        badge_emoji = "🟢"
+                        if op_status == "MIGRATED":
+                            badge_emoji = "🟡"
+                        elif op_status == "FALLBACK_GENERAL":
+                            badge_emoji = "🔵"
+                        elif op_status == "DELETED":
+                            badge_emoji = "🔴"
+
+                        st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res_rrm.get('ux_message', '')}*")
+                        st.markdown(f"* **{t('source_label', lang)}** {source_link}")
+                        st.write(f"* {t('original_text_label', lang)} *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
+                        st.write(f"* {t('interpretation_label', lang)} {kun['interpretacion']}")
+                        st.write("---")
+                else:
+                    st.info(t("no_traceability_msg", lang))
+
+            with tab_graph:
+                if item.get('dot_code'):
+                    st.graphviz_chart(item['dot_code'])
+                else:
+                    st.info(t("no_graph_msg", lang))
+
+        # 6. CANAL DE OBSERVACIONES Y FEEDBACK (RESALTADO DESTACADO)
+        st.markdown(f"""
+<div class="feedback-highlight-banner">
+    <div class="feedback-highlight-badge">💬 {t('feedback_expander', lang)}</div>
+    <div class="feedback-highlight-text">{t('feedback_caption', lang)}</div>
+</div>
+""", unsafe_allow_html=True)
+
+        with st.expander(f"{t('feedback_expander', lang)} — Reportar novedad o sugerencia", expanded=False):
+            with st.form(key=f"feedback_form_{original_i}", clear_on_submit=True):
+                tipo_novedad_sel = st.selectbox(
+                    t("feedback_type_label", lang),
+                    options=TIPOS_NOVEDAD,
+                    key=f"feedback_type_{original_i}"
+                )
+                comentario_user = st.text_area(
+                    t("feedback_comment_label", lang),
+                    placeholder=t("feedback_comment_placeholder", lang),
+                    height=90,
+                    key=f"feedback_comment_{original_i}"
+                )
+                uploaded_evidence = st.file_uploader(
+                    t("feedback_attachment_label", lang),
+                    type=["png", "jpg", "jpeg", "pdf"],
+                    key=f"feedback_file_{original_i}"
+                )
+                submit_obs = st.form_submit_button(t("feedback_submit_btn", lang), use_container_width=True)
+
+                if submit_obs:
+                    att_bytes = None
+                    att_name = None
+                    att_mime = None
+                    if uploaded_evidence is not None:
+                        att_bytes = uploaded_evidence.getvalue()
+                        att_name = uploaded_evidence.name
+                        att_mime = uploaded_evidence.type
+
+                    res_obs = record_observation(
+                        tipo_novedad=tipo_novedad_sel,
+                        comentario=comentario_user,
+                        query=item.get("query"),
+                        response_summary=clean_summary or item.get("answer"),
+                        citations=citations_list,
+                        edition="2026-08 (Official)" if engine.is_2026_08 else "2026-01 (Historical)",
+                        session_id=st.session_state.get("session_id", "session_anonymous"),
+                        extra_metadata={
+                            "lang": lang,
+                            "ui_section": "response_card",
+                            "app_version": "3.2.0"
+                        },
+                        attachment_bytes=att_bytes,
+                        attachment_filename=att_name,
+                        attachment_mime=att_mime
+                    )
+                    if res_obs.get("success"):
+                        st.success(t("feedback_success", lang, message=res_obs.get('message'), obs_id=res_obs.get('observation_id')))
+                    else:
+                        st.error(t("feedback_error", lang, message=res_obs.get('message')))
+
+
+
+def _render_history_tab():
+    """Consultas anteriores de la sesion (todas menos la actual), en orden cronologico inverso. Cada registro es una
+    tarjeta independiente con CONSULTA, RESPUESTA y NORMAS DE SOPORTE; no recalcula ni contabiliza nada."""
+    hist = st.session_state.history
+    cur = st.session_state.active_index
+    records = [(i, it) for i, it in enumerate(hist) if i != cur]
+    if not records:
+        st.info(t("history_empty", lang))
+        return
+    for i, it in reversed(records):
+        p_tok, c_tok, t_tok, tok_state = _item_token_usage(it)
+        meta = it.get("llm_meta") or {}
+        tok_txt = f"{t_tok:,} tokens" if tok_state == "real" else (
+            t("history_tokens_nd", lang) if tok_state == "nd" else "0 tokens")
+        meta_txt = " · ".join(x for x in (it.get("timestamp") or "", it.get("status") or "",
+                                          meta.get("successful_model") or "", tok_txt) if x)
+        with st.container(border=True):
+            st.markdown(
+                f'<div class="history-card-header"><span class="history-card-title">'
+                f'{html.escape(t("history_record_title", lang, n=it.get("query_id") or i + 1))}</span>'
+                f'<span class="history-card-meta">{html.escape(meta_txt)}</span></div>'
+                f'<div class="history-section-label">{html.escape(t("history_question_label", lang))}</div>'
+                f'<div class="history-question">{html.escape(it.get("query") or "")}</div>',
+                unsafe_allow_html=True)
+            if st.toggle(t("history_show_record", lang), key=f"hist_open_{i}", value=False):
+                struct, _cits, clean_summary, evidence_entries = _prepare_item_view(it)
+                st.markdown(f'<div class="history-section-label">{html.escape(t("history_answer_label", lang))}</div>',
+                            unsafe_allow_html=True)
+                _render_answer_block(it, struct, clean_summary)
+                st.markdown(f'<div class="history-section-label">{html.escape(t("history_norms_label", lang))}</div>',
+                            unsafe_allow_html=True)
+                if evidence_entries:
+                    for k, ev in enumerate(evidence_entries):
+                        _render_evidence_card(ev, f"hist_ev_pdf_{i}_{k}")
+                else:
+                    st.caption(t("history_no_norms", lang))
+            if st.button(t("history_make_current", lang), key=f"hist_make_current_{i}"):
+                st.session_state.active_index = i
+                st.rerun()
+
 
 if st.session_state.active_index >= 0:
-    history_to_show = st.session_state.history[:st.session_state.active_index + 1]
 
     st.write("---")
 
     # Layout Dividido: Chat interactivo (izquierda) + Visor PDF Oficial (derecha)
-    official_pdf_url = "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/08/IJF_Sport_and_Organisation_Rul-1787430903.pdf"
 
     # Barra de control de layout (toggle para expandir/ocultar visor)
     col_t1, col_t2 = st.columns([0.7, 0.3])
@@ -2675,474 +3571,17 @@ if st.session_state.active_index >= 0:
         col_viewer = None
 
     with col_chat:
-        for original_i, item in reversed(list(enumerate(history_to_show))):
-            with st.chat_message("user", avatar="👤"):
-                st.markdown(item['query'])
-            with st.chat_message("assistant", avatar="⚖️"):
-                item_llm_meta = item.get("llm_meta", {})
-                succ_prov = item_llm_meta.get("successful_provider")
-                prim_prov = item_llm_meta.get("primary_provider", "")
-
-                # 1. PREPARACIÓN DE DATOS (Estructura, Citas y Evidencias)
-                struct = item.get("structured_answer")
-                citations_list = []
-                if struct and isinstance(struct, dict):
-                    citations_list = struct.get("citations", [])
-
-                clean_summary = ""
-                if struct and isinstance(struct, dict) and struct.get("summary"):
-                    raw_summary = struct["summary"]
-                    clean_summary = struct.get("clean_summary") or clean_presentation_text(raw_summary)
-
-                # Construir catálogo de evidencias normativas certificadas
-                evidence_entries = []
-                seen_evidence_keys = set()
-                is_source_verified = bool(item.get("source_sha256_verified", False))
-
-                if citations_list:
-                    for c in citations_list:
-                        if isinstance(c, dict):
-                            pid = c.get("passage_id") or c.get("article_id")
-                            if pid and pid in seen_evidence_keys:
-                                continue
-                            if pid:
-                                seen_evidence_keys.add(pid)
-
-                            raw_art = str(c.get("article_id") or c.get("title") or "Norma Oficial").strip()
-                            clean_art = re.sub(r"^(?:art\.?\s*)+article\s*", "Art. ", raw_art, flags=re.IGNORECASE)
-                            clean_art = re.sub(r"^article\s+", "Art. ", clean_art, flags=re.IGNORECASE)
-                            art_label = clean_art
-                            title = c.get("title") or art_label
-
-                            raw_page = c.get("page_number") if c.get("page_number") is not None else c.get("page")
-                            page_num = None
-                            if raw_page is not None:
-                                try:
-                                    val = int(raw_page)
-                                    if val > 0:
-                                        page_num = val
-                                except (ValueError, TypeError):
-                                    page_num = None
-
-                            exact_q = (c.get("exact_quote") or "").strip()
-                            text_snip = (c.get("text_snippet") or "").strip()
-                            has_exact = bool(exact_q)
-                            raw_q = (c.get("quote") or "").strip()
-                            if text_snip:
-                                quote_str = text_snip
-                                has_exact = True
-                            elif exact_q:
-                                quote_str = exact_q
-                                has_exact = True
-                            elif raw_q:
-                                quote_str = raw_q
-                                has_exact = False
-                            else:
-                                quote_str = ""
-                                has_exact = False
-
-                            source_url = c.get("source_url") or official_pdf_url
-                            is_cit_verified = is_source_verified and bool(c.get("verified", True if is_source_verified else False))
-
-                            evidence_entries.append({
-                                "passage_id": pid or "",
-                                "article_label": art_label,
-                                "title": title,
-                                "page_number": page_num,
-                                "edition": "IJF SOR 2026-08",
-                                "verified": is_cit_verified,
-                                "quote": quote_str,
-                                "has_exact_quote": has_exact,
-                                "source_url": source_url,
-                                "exact_quote": exact_q
-                            })
-
-                if len(evidence_entries) < 2 and item.get("trazabilidad"):
-                    for kun in item["trazabilidad"]:
-                        kid = kun.get("id_conocimiento")
-                        if kid and kid in seen_evidence_keys:
-                            continue
-                        if kid:
-                            seen_evidence_keys.add(kid)
-
-                        art_num = kun.get("article_id") or kun.get("referencia_especifica", "").split("(")[0].strip()
-                        raw_art = f"Art. {art_num}" if art_num and not str(art_num).lower().startswith("art") else (art_num or "Norma")
-                        art_label = re.sub(r"^(?:art\.?\s*)+article\s*", "Art. ", raw_art, flags=re.IGNORECASE)
-                        art_label = re.sub(r"^article\s+", "Art. ", art_label, flags=re.IGNORECASE)
-                        title = kun.get("titulo") or "Disposición Oficial"
-
-                        raw_page = kun.get("pdf_page_index") if kun.get("pdf_page_index") is not None else kun.get("page")
-                        page_num = None
-                        if raw_page is not None:
-                            try:
-                                val = int(raw_page)
-                                if val > 0:
-                                    page_num = val
-                            except (ValueError, TypeError):
-                                page_num = None
-
-                        raw_quote = kun.get("contenido_traduccion") or kun.get("contenido_original") or ""
-                        if len(raw_quote) > 280:
-                            raw_quote = raw_quote[:277].rsplit(" ", 1)[0] + "..."
-
-                        is_kun_verified = is_source_verified and bool(kun.get("verified", True if is_source_verified else False))
-                        exact_q = (kun.get("exact_quote") or "").strip()
-                        has_exact = bool(exact_q)
-                        quote_str = exact_q if has_exact else raw_quote.strip()
-
-                        evidence_entries.append({
-                            "passage_id": kid or "",
-                            "article_label": art_label,
-                            "title": title,
-                            "page_number": page_num,
-                            "edition": "IJF SOR 2026-08",
-                            "verified": is_kun_verified,
-                            "quote": quote_str,
-                            "has_exact_quote": has_exact,
-                            "source_url": kun.get("source_url") or official_pdf_url,
-                            "exact_quote": exact_q
-                        })
-
-                # Helper para renderizar cada tarjeta de evidencia con badges y enlace a visor PDF
-                def _render_evidence_card(ev_item, orig_idx, card_idx):
-                    badge_ver = f'<span class="evidence-badge-verified">✓ {t("evidence_verified_badge", lang)}</span>' if ev_item["verified"] else ''
-                    p_label = t("evidence_page_label", lang)
-                    badge_page = f'<span class="evidence-badge-page">📄 {p_label} {ev_item["page_number"]}</span>' if ev_item["page_number"] is not None else ''
-
-                    quote_html = ''
-                    if ev_item["quote"]:
-                        escaped_q = html.escape(ev_item["quote"])
-                        if ev_item.get("has_exact_quote"):
-                            q_label = t("evidence_quote_label", lang)
-                            quote_html = f'<div class="normative-quote-box"><div class="quote-type-label">📌 {q_label}</div>“{escaped_q}”</div>'
-                        else:
-                            ctx_label = t("evidence_context_label", lang)
-                            quote_html = f'<div class="normative-context-box"><div class="quote-type-label">📖 {ctx_label}</div>{escaped_q}</div>'
-
-                    st.markdown(f"""
-<div class="normative-evidence-card">
-    <div class="evidence-card-header">
-        <span class="evidence-badge-art">📌 {html.escape(str(ev_item["article_label"]))}</span>
-        {badge_page}
-        {badge_ver}
-    </div>
-    <div class="evidence-card-title">{html.escape(str(ev_item["title"]))}</div>
-    {quote_html}
-</div>
-""", unsafe_allow_html=True)
-
-                    if ev_item["page_number"] is not None:
-                        btn_col, _ = st.columns([0.48, 0.52])
-                        with btn_col:
-                            btn_label = t("evidence_view_pdf_btn", lang, page=ev_item["page_number"])
-                            if st.button(f"🔍 {btn_label}", key=f"ev_pdf_{orig_idx}_{card_idx}", use_container_width=True):
-                                st.session_state.pdf_page = int(ev_item["page_number"])
-                                if ev_item.get("exact_quote"):
-                                    st.session_state.pdf_quote = ev_item["exact_quote"]
-                                st.session_state.pdf_article = str(ev_item["article_label"])
-                                st.session_state.pdf_visible = True
-                                st.rerun()
-
-                # Origen real de la respuesta (derivado del flujo ejecutado, independiente de su exactitud).
-                _origin = item.get("response_origin")
-                if _origin:
-                    _o_tipo, _o_title, _o_desc = _ap.origin_badge(_origin, lang)
-                    _o_icon = {"LLM": "🤖", "LOCAL": "📚", "MIXTA": "🔀", "ACLARACION": "❓"}.get(_o_tipo, "⛔")
-                    st.markdown(
-                        f'<div class="origin-badge origin-{_o_tipo.lower()}"><strong>{_o_icon} '
-                        f'{html.escape(_o_title)}</strong> · {html.escape(_o_desc)}</div>',
-                        unsafe_allow_html=True)
-
-                # Aviso de Modo Alternativo Local o Conmutación de Cuota IA (solo si el modelo no estaba disponible:
-                # una abstencion sin llamada al modelo, p. ej. fuera de dominio, no es "modo local").
-                if not succ_prov and not (_origin and _origin.get("tipo") in ("SIN_RESPUESTA", "ACLARACION")):
-                    st.markdown(f"""
-<div class="local-fallback-banner">
-    <div class="local-fallback-header">
-        <span>{t('local_fallback_banner_title', lang)}</span>
-    </div>
-    <div class="local-fallback-desc">
-        {t('local_fallback_banner_desc', lang)}
-    </div>
-</div>
-""", unsafe_allow_html=True)
-                elif item_llm_meta.get("fallback_triggered"):
-                    st.caption(f"ℹ️ Cuota de {prim_prov} alcanzada. Respuesta generada automáticamente mediante {succ_prov}.")
-
-                # 2. RESPUESTA DIRECTA (Nivel 1 - Visible por defecto)
-                # Respuesta unica (ADA_UNIFIED_ANSWER=1): todo el contenido generado y verificado por el DIG se
-                # muestra en un solo bloque; no hay desplegable de "ampliar respuesta" ni segunda generacion.
-                unified_view = isinstance(struct, dict) and bool(struct) and _ap.unified_enabled(struct)
-                if unified_view:
-                    with st.container(border=True):
-                        st.markdown(f"**{html.escape(_ap.unified_header(struct, lang))}**")
-                        for _field, _title, _text in _ap.unified_sections(struct, lang):
-                            if _title:
-                                st.markdown(f"##### {html.escape(_title)}")
-                            st.markdown(sanitize_presentation_html(clean_presentation_text(_text)), unsafe_allow_html=True)
-                elif clean_summary:
-                    safe_summary = sanitize_presentation_html(clean_summary)
-                    box_title = t("tier1_box_header", lang)
-                    safe_title = html.escape(box_title)
-                    st.markdown(
-                        f"""<div class="tier1-box">
-<div class="tier1-title"><strong>{safe_title}</strong></div>
-{safe_summary}
-</div>""",
-                        unsafe_allow_html=True
-                    )
-
-                    if "Control de Rigor Normativo" in str(struct.get("limitations", "")) or "Normative Rigor Control" in str(struct.get("limitations", "")):
-                        st.warning(t("normative_rigor_warning", lang))
-
-                else:
-                    # Compatibilidad con entradas planas
-                    raw_ans = item.get('answer', '')
-                    clean_ans = clean_presentation_text(raw_ans)
-                    box_title = t("tier1_box_header", lang)
-                    safe_title = html.escape(box_title)
-                    if "\n\n---\n\n" in clean_ans:
-                        parts = clean_ans.split("\n\n---\n\n", 1)
-                        safe_part0 = sanitize_presentation_html(parts[0])
-                        st.markdown(
-                            f"""<div class="tier1-box">
-<div class="tier1-title"><strong>{safe_title}</strong></div>
-{safe_part0}
-</div>""",
-                            unsafe_allow_html=True
-                        )
-                        clean_summary = safe_part0
-                    else:
-                        safe_ans = sanitize_presentation_html(clean_ans)
-                        st.markdown(
-                            f"""<div class="tier1-box">
-<div class="tier1-title"><strong>{safe_title}</strong></div>
-{safe_ans}
-</div>""",
-                            unsafe_allow_html=True
-                        )
-                        clean_summary = safe_ans
-
-                # Píldora de Consumo de Tokens y Promedio en Respuesta
-                cur_u = item.get("token_usage") or item_llm_meta.get("token_usage", {})
-                p_tok = int(cur_u.get("prompt_tokens", 0))
-                c_tok = int(cur_u.get("completion_tokens", 0))
-                t_tok = int(cur_u.get("total_tokens", 0))
-                if t_tok == 0 and (p_tok > 0 or c_tok > 0):
-                    t_tok = p_tok + c_tok
-                
-                live_avg = usage_tracker.get_metrics()["avg_tokens_per_query"]
-                if t_tok > 0:
-                    badge_str = t("usage_response_badge", lang, tokens=f"{t_tok:,}", prompt=f"{p_tok:,}", completion=f"{c_tok:,}", avg=f"{live_avg:,}")
-                    st.markdown(f'<div class="token-usage-pill">{badge_str}</div>', unsafe_allow_html=True)
-
-                # 3. VER FUNDAMENTACIÓN NORMATIVA Y ANÁLISIS COMPLETO (Colapsado por defecto)
-                has_details = False
-                has_graph = bool(item.get('dot_code') and "->" in item.get('dot_code', ''))
-                if unified_view:
-                    # Sin ampliacion: solo el grafo de relaciones entre los pasajes recuperados (no es texto generado).
-                    if has_graph:
-                        with st.expander(t("sec_graph_relations", lang), expanded=False):
-                            st.caption(t('graph_caption_relations', lang))
-                            st.graphviz_chart(item['dot_code'])
-                elif struct and isinstance(struct, dict):
-                    has_details = bool(
-                        struct.get("normative_basis") or
-                        struct.get("conditions_and_exceptions") or
-                        struct.get("extended_analysis") or
-                        struct.get("limitations") or
-                        has_graph
-                    )
-                    if has_details:
-                        with st.expander(t("view_details_expander", lang), expanded=False):
-                            if struct.get("extended_analysis"):
-                                st.markdown(f"#### {t('sec_extended', lang)}")
-                                st.markdown(struct["extended_analysis"])
-                            if struct.get("normative_basis"):
-                                st.markdown(f"#### {t('sec_normative_basis', lang)}")
-                                st.markdown(struct["normative_basis"])
-                            if struct.get("conditions_and_exceptions"):
-                                st.markdown(f"#### {t('sec_conditions', lang)}")
-                                st.markdown(struct["conditions_and_exceptions"])
-                            if has_graph:
-                                st.markdown(f"#### {t('sec_graph_relations', lang)}")
-                                st.caption(t('graph_caption_relations', lang))
-                                st.graphviz_chart(item['dot_code'])
-                            if struct.get("limitations"):
-                                st.markdown(f"#### {t('sec_limitations', lang)}")
-                                st.markdown(struct["limitations"])
-                elif "\n\n---\n\n" in item.get('answer', ''):
-                    parts = item.get('answer', '').split("\n\n---\n\n", 1)
-                    with st.expander(t("view_details_expander", lang), expanded=False):
-                        st.markdown(parts[1])
-                        if has_graph:
-                            st.markdown(f"#### {t('sec_graph_relations', lang)}")
-                            st.caption(t('graph_caption_relations', lang))
-                            st.graphviz_chart(item['dot_code'])
-                elif has_graph:
-                    with st.expander(t("view_details_expander", lang), expanded=False):
-                        st.markdown(f"#### {t('sec_graph_relations', lang)}")
-                        st.caption(t('graph_caption_relations', lang))
-                        st.graphviz_chart(item['dot_code'])
-
-                # 4. EVIDENCIAS NORMATIVAS CERTIFICADAS (Colapsado por defecto)
-                if evidence_entries:
-                    with st.expander(f"⚖️ {t('evidences_section_title', lang)}", expanded=False):
-                        st.markdown(f"""
-<div class="evidence-section-header">
-    <span class="evidence-section-title">⚖️ {t('evidences_section_title', lang)}</span>
-    <span class="evidence-badge-edition">IJF SOR 2026-08</span>
-</div>
-<div class="evidence-section-subtitle">{t('evidences_section_subtitle', lang)}</div>
-""", unsafe_allow_html=True)
-                        for ev_idx, ev in enumerate(evidence_entries):
-                            _render_evidence_card(ev, original_i, ev_idx)
-
-                # 5. PANEL DE AUDITORÍA TÉCNICA Y TRAZABILIDAD (Colapsado por defecto)
-                is_fallback = "lo siento" in item.get('answer', '').lower() or "sorry" in item.get('answer', '').lower()
-                with st.expander(t("expander_audit_metadata", lang), expanded=False):
-                    audit_mode = item.get("rre_operating_mode", getattr(engine.rre, "operating_mode", "HYBRID"))
-                    deg_reason = f" ({item.get('degradation_reason')})" if item.get('degradation_reason') else ""
-                    audit_sha = t("pdf_source_caption", lang) if item.get("source_sha256_verified", False) else t("pdf_source_unverified_caption", lang)
-
-                    # Solo lo que realmente se ejecuto: sin llamada de analisis no se atribuye ningun modelo.
-                    prov_name = item_llm_meta.get("successful_provider") or "—"
-                    model_name = item_llm_meta.get("successful_model") or ("modelo no utilizado" if lang != "en" else "model not used")
-
-                    st.markdown(f"""
-<div class="audit-panel-grid">
-    <div class="audit-panel-item">
-        <div class="audit-panel-label">{t('audit_rre_title', lang)}</div>
-        <div class="audit-panel-value">⚙️ {audit_mode}{deg_reason}</div>
-    </div>
-    <div class="audit-panel-item">
-        <div class="audit-panel-label">{t('audit_sha_title', lang)}</div>
-        <div class="audit-panel-value">🔒 {audit_sha}</div>
-    </div>
-    <div class="audit-panel-item">
-        <div class="audit-panel-label">{t('audit_provider_title', lang)}</div>
-        <div class="audit-panel-value">🤖 {prov_name} ({model_name})</div>
-    </div>
-    <div class="audit-panel-item">
-        <div class="audit-panel-label">{t('audit_tokens_title', lang)}</div>
-        <div class="audit-panel-value">🔢 {t_tok:,} (P: {p_tok:,} | R: {c_tok:,}) • Prom: {live_avg:,}</div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
-
-                    if item_llm_meta.get("fallback_triggered") and succ_prov:
-                        st.info(t("fallback_badge_notice", lang, primary=prim_prov, secondary=succ_prov))
-                    elif item_llm_meta.get("fallback_attempted") and not succ_prov:
-                        st.warning(t("fallback_all_failed_notice", lang))
-
-                    tab_cite, tab_graph = st.tabs([t("tab_traceability", lang), t("tab_graph", lang)])
-
-                    with tab_cite:
-                        with st.expander(t("sidebar_sources_title", lang), expanded=False):
-                            st.markdown(t("source_availability_notice", lang), unsafe_allow_html=True)
-
-                        if not is_fallback and item.get('trazabilidad'):
-                            for kun in item['trazabilidad']:
-                                res_rrm = _rrm_manager.resolve_reference(kun['id_conocimiento'], kun)
-                                url = res_rrm.get("url")
-                                is_clickable = res_rrm.get("is_clickable", True)
-                                op_status = res_rrm.get("operational_status", "AVAILABLE")
-
-                                source_id = kun['fuente_origen']
-                                ref_spec = kun.get('referencia_especifica', 'Rules')
-                                name = RESOURCE_DETAILS[source_id]["name"] if source_id in RESOURCE_DETAILS else "Official Source"
-
-                                if is_clickable and url:
-                                    source_link = f"[{name} ({ref_spec})]({url})"
-                                elif op_status == "DELETED":
-                                    source_link = f"~~{name} ({ref_spec})~~"
-                                else:
-                                    source_link = f"{name} ({ref_spec})"
-
-                                badge_emoji = "🟢"
-                                if op_status == "MIGRATED":
-                                    badge_emoji = "🟡"
-                                elif op_status == "FALLBACK_GENERAL":
-                                    badge_emoji = "🔵"
-                                elif op_status == "DELETED":
-                                    badge_emoji = "🔴"
-
-                                st.markdown(f"**{kun['id_conocimiento']}: {kun['titulo']}** &nbsp; {badge_emoji} *{res_rrm.get('ux_message', '')}*")
-                                st.markdown(f"* **{t('source_label', lang)}** {source_link}")
-                                st.write(f"* {t('original_text_label', lang)} *\"{kun.get('contenido_original', kun['contenido_traduccion'])}\"*")
-                                st.write(f"* {t('interpretation_label', lang)} {kun['interpretacion']}")
-                                st.write("---")
-                        else:
-                            st.info(t("no_traceability_msg", lang))
-
-                    with tab_graph:
-                        if item.get('dot_code'):
-                            st.graphviz_chart(item['dot_code'])
-                        else:
-                            st.info(t("no_graph_msg", lang))
-
-                # 6. CANAL DE OBSERVACIONES Y FEEDBACK (RESALTADO DESTACADO)
-                st.markdown(f"""
-<div class="feedback-highlight-banner">
-    <div class="feedback-highlight-badge">💬 {t('feedback_expander', lang)}</div>
-    <div class="feedback-highlight-text">{t('feedback_caption', lang)}</div>
-</div>
-""", unsafe_allow_html=True)
-
-                with st.expander(f"{t('feedback_expander', lang)} — Reportar novedad o sugerencia", expanded=False):
-                    with st.form(key=f"feedback_form_{original_i}", clear_on_submit=True):
-                        tipo_novedad_sel = st.selectbox(
-                            t("feedback_type_label", lang),
-                            options=TIPOS_NOVEDAD,
-                            key=f"feedback_type_{original_i}"
-                        )
-                        comentario_user = st.text_area(
-                            t("feedback_comment_label", lang),
-                            placeholder=t("feedback_comment_placeholder", lang),
-                            height=90,
-                            key=f"feedback_comment_{original_i}"
-                        )
-                        uploaded_evidence = st.file_uploader(
-                            t("feedback_attachment_label", lang),
-                            type=["png", "jpg", "jpeg", "pdf"],
-                            key=f"feedback_file_{original_i}"
-                        )
-                        submit_obs = st.form_submit_button(t("feedback_submit_btn", lang), use_container_width=True)
-
-                        if submit_obs:
-                            att_bytes = None
-                            att_name = None
-                            att_mime = None
-                            if uploaded_evidence is not None:
-                                att_bytes = uploaded_evidence.getvalue()
-                                att_name = uploaded_evidence.name
-                                att_mime = uploaded_evidence.type
-
-                            res_obs = record_observation(
-                                tipo_novedad=tipo_novedad_sel,
-                                comentario=comentario_user,
-                                query=item.get("query"),
-                                response_summary=clean_summary or item.get("answer"),
-                                citations=citations_list,
-                                edition="2026-08 (Official)" if engine.is_2026_08 else "2026-01 (Historical)",
-                                session_id=st.session_state.get("session_id", "session_anonymous"),
-                                extra_metadata={
-                                    "lang": lang,
-                                    "ui_section": "response_card",
-                                    "app_version": "3.2.0"
-                                },
-                                attachment_bytes=att_bytes,
-                                attachment_filename=att_name,
-                                attachment_mime=att_mime
-                            )
-                            if res_obs.get("success"):
-                                st.success(t("feedback_success", lang, message=res_obs.get('message'), obs_id=res_obs.get('observation_id')))
-                            else:
-                                st.error(t("feedback_error", lang, message=res_obs.get('message')))
+        _n_prev = len(st.session_state.history) - 1
+        tab_current, tab_history = st.tabs([t("tab_current_query", lang), t("tab_query_history", lang, n=_n_prev)])
+        with tab_current:
+            _render_query_item(st.session_state.active_index, st.session_state.history[st.session_state.active_index])
+        with tab_history:
+            _render_history_tab()
 
     # Panel Derecho: Visor interactivo PDF con PDF.js streaming
     if col_viewer is not None:
         with col_viewer:
+            _render_pdf_search_panel()
             active_art = st.session_state.pdf_article or "SOR 2026"
             active_p = st.session_state.pdf_page
             viewer_title = t("pdf_viewer_title", lang, article=active_art, page=active_p)
@@ -3158,11 +3597,14 @@ if st.session_state.active_index >= 0:
             render_pdf_viewer(
                 pdf_url=official_pdf_url,
                 initial_page=st.session_state.pdf_page,
-                search_quote=st.session_state.pdf_quote,
+                search_quote=st.session_state.get("pdf_search_term") or st.session_state.pdf_quote,
+                search_mode="term" if st.session_state.get("pdf_search_term") else "quote",
                 zoom_level=st.session_state.pdf_zoom,
                 height=840,
                 page_b64=page_b64_data,
-                lang=lang
+                lang=lang,
+                active_match=st.session_state.get("pdf_active_match", 0),
+                total_pages=_pdf_page_count()
             )
 else:
     render_custom_html(f"""<div style="text-align: center; margin-top: 1.6rem; margin-bottom: 1.2rem;">

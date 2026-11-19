@@ -34,6 +34,7 @@ from decision_integrity import DecisionIntegrityGate, parse_answer as _parse_ans
 from answer_presentation import response_origin
 import evidence_attribution as _attr
 import evidence_reassembly as _reasm
+import answer_verification as _v4
 
 # Contrato JSON de la llamada de analisis (claves y tipos). Lo usa la validacion de LLM_JSON_SCHEMA=1.
 CONTRACT_STR_KEYS = ("summary", "normative_basis", "conditions_and_exceptions", "extended_analysis",
@@ -61,6 +62,11 @@ PRUNE_NOTE = {
     "es": "Se omitió de esta respuesta información complementaria que no pudo verificarse literalmente en los pasajes del SOR citados.",
     "en": "Supplementary information that could not be verified literally in the cited SOR passages was omitted from this answer.",
 }
+# Verificacion V4 (ADA_VERIFICATION_V4=1): nota visible cuando el verificador retiro contenido sin respaldo.
+V4_PRUNE_NOTE = {
+    "es": "Se retiró de esta respuesta contenido que no estaba respaldado por los pasajes del SOR citados.",
+    "en": "Content not supported by the cited SOR passages was removed from this answer.",
+}
 CLARIFY_TEXT = {
     "es": ("La consulta admite interpretaciones con respuestas normativas distintas. Precise la consulta "
            "(por ejemplo, la competición, la categoría o la situación concreta) para obtener un dictamen fundamentado."),
@@ -69,6 +75,26 @@ CLARIFY_TEXT = {
 }
 _LINKED_ID = re.compile(r"\[((?:SOR|KUN|CHK)-[^\]\s]+)\]\([^)]*\)")
 _STRUCK_ID = re.compile(r"~~\[((?:SOR|KUN|CHK)-[^\]\s]+)\]~~")
+
+
+def _add_usage(total, step, usage, model=None):
+    """Suma el uso de una llamada INTERNA (verificacion, reintento) al consumo de la MISMA consulta del usuario y lo
+    desglosa por modelo para calcular el coste. No crea una consulta nueva: el contador lo incrementa solo la app."""
+    if not isinstance(total, dict):
+        return total
+    usage = usage or {}
+    p, c = int(usage.get("prompt_tokens", 0) or 0), int(usage.get("completion_tokens", 0) or 0)
+    c += int(usage.get("thoughts_tokens", 0) or 0)   # razonamiento: se factura como salida
+    total["prompt_tokens"] = int(total.get("prompt_tokens", 0) or 0) + p
+    total["completion_tokens"] = int(total.get("completion_tokens", 0) or 0) + c
+    total["total_tokens"] = total["prompt_tokens"] + total["completion_tokens"]
+    total[step] = {"prompt_tokens": p, "completion_tokens": c, "total_tokens": p + c, "model": model}
+    if model:
+        by = total.setdefault("by_model", {})
+        m = by.setdefault(model, {"prompt_tokens": 0, "completion_tokens": 0})
+        m["prompt_tokens"] += p
+        m["completion_tokens"] += c
+    return total
 
 
 def visible_text_for_validation(text, system_notes=()):
@@ -214,6 +240,8 @@ class ArbitrationDecisionAssistant:
                 'rule10_spec': "   - Especificaciones Técnicas (equipamiento, judogi, medidas, tiempos): Responde primero la especificación concreta consultada tal como figura en los pasajes certificados, con su cita. Segrega los requisitos conexos en 'conditions_and_exceptions' o 'extended_analysis' sin mezclarlos con la especificación consultada.\n",
                 'rule13': "13. Respaldo Literal Verificable: Cada pasaje SOR citado debe tener en 'evidence_quotes' al menos un fragmento copiado LITERALMENTE de ese pasaje. Toda cifra, plazo, medida o sanción de 'summary', 'normative_basis' o 'conditions_and_exceptions' debe aparecer en esos fragmentos. Si el fragmento citado tiene cerca una excepción o condición (except, unless, however, although, only...) o una remisión a otro artículo, cita también esa excepción literalmente. Nunca cites texto de los bloques [COMPLEMENTO-n] como respaldo. Si no puedes respaldar literalmente la respuesta con los pasajes certificados, usa answerability = EVIDENCIA_INSUFICIENTE.\n",
             }
+        if _v4.enabled():
+            return ArbitrationDecisionAssistant._v4_contract_texts()
         if os.environ.get("ADA_ADAPTIVE_ANSWER", "").strip() == "1":
             return ArbitrationDecisionAssistant._adaptive_contract_texts()
         return {
@@ -228,6 +256,32 @@ class ArbitrationDecisionAssistant:
             'rule10_spec': "   - Especificaciones Técnicas (equipamiento, judogi, medidas, tiempos): Responde la especificación concreta consultada tal como figura en los pasajes certificados, con su cita. No añadas requisitos conexos que no se hayan preguntado.\n",
             'rule13': "13. Respaldo Literal Verificable: Cada pasaje SOR citado debe tener en 'evidence_quotes' al menos un fragmento copiado LITERALMENTE de ese pasaje. Toda cifra, plazo, medida, sanción, condición o excepción de CUALQUIER campo de texto ('summary', 'normative_basis', 'conditions_and_exceptions', 'extended_analysis' y 'limitations') debe aparecer en esos fragmentos; si no puedes citarla literalmente, no la escribas. Si el fragmento citado tiene cerca una excepción o condición (except, unless, however, although, only...) o una remisión a otro artículo, cita también esa excepción literalmente. Nunca cites texto de los bloques [COMPLEMENTO-n] como respaldo. Si no puedes respaldar literalmente la respuesta con los pasajes certificados, usa answerability = EVIDENCIA_INSUFICIENTE. Ausencias: no afirmes que el SOR «no establece», «no especifica» o «no regula» algo; si los pasajes entregados no lo contienen, indícalo solo en 'limitations' como «los pasajes entregados no contienen…». No generalices una regla de un evento, modalidad o categoría a otros.\n",
         }
+
+    @staticmethod
+    def _v4_contract_texts() -> dict:
+        """Contrato adaptativo ajustado a la verificacion V4 (ADA_VERIFICATION_V4=1): (a) las excepciones se citan
+        solo si cambian la respuesta a ESTA consulta (las cercanas no preguntadas no se exigen: V4 completa las
+        pertinentes); (b) si los pasajes no contienen lo preguntado se dice en 'summary', sin cifras ni reglas, con
+        answerability = EVIDENCIA_INSUFICIENTE (respuesta negativa verificada). El resto, identico al adaptativo."""
+        t = dict(ArbitrationDecisionAssistant._adaptive_contract_texts())
+        near = ("Si el fragmento citado tiene cerca una excepción o condición (except, unless, however, although, "
+                "only...) o una remisión a otro artículo, cita también esa excepción literalmente.")
+        absent_start = "Ausencias: no afirmes que el SOR"
+        absent_end = "como «los pasajes entregados no contienen…»."
+        r13 = t["rule13"].replace(near, "Si una excepción o condición cambia la respuesta a ESTA consulta, inclúyela "
+                                        "con su fragmento literal; no añadas excepciones que no afecten a lo preguntado.")
+        a, b = r13.find(absent_start), r13.find(absent_end)
+        if a >= 0 and b > a:
+            r13 = (r13[:a] + "Ausencias: si los pasajes entregados no contienen lo que se pregunta, escribe en 'summary' "
+                   "«Los pasajes del SOR 2026 entregados no contienen…» (sin cifras ni reglas) y usa answerability = "
+                   "EVIDENCIA_INSUFICIENTE; si solo falta una parte, responde las partes respaldadas y declara la parte "
+                   "ausente en 'limitations' como «los pasajes entregados no contienen…»." + r13[b + len(absent_end):])
+        t["rule13"] = r13
+        t["answerability"] = t["answerability"].replace(
+            "EVIDENCIA_INSUFICIENTE si los pasajes no responden ninguna parte de la consulta (entonces no formules dictamen).",
+            "EVIDENCIA_INSUFICIENTE si los pasajes no responden ninguna parte de la consulta (entonces escribe en "
+            "summary solo que los pasajes entregados no contienen esa información, sin cifras ni reglas).")
+        return t
 
     @staticmethod
     def _adaptive_contract_texts() -> dict:
@@ -431,6 +485,11 @@ class ArbitrationDecisionAssistant:
                 res2.pop("_reassembly_targets", None)
                 res2["reassembly"] = {"added": [t["passage_id"] for t in targets],
                                       "reasons": [t["relation"] for t in targets], "first_attempt": first}
+                # El primer intento tambien consumio tokens de ESTA consulta: se suman (no es una consulta nueva).
+                u1 = res.get("token_usage") or {}
+                if isinstance(res2.get("token_usage"), dict) and u1.get("total_tokens"):
+                    _add_usage(res2["token_usage"], "first_attempt_tokens", u1,
+                               (res.get("llm_meta") or {}).get("successful_model"))
                 res = res2
         if isinstance(res, dict):
             res["response_origin"] = response_origin(res)
@@ -778,6 +837,10 @@ class ArbitrationDecisionAssistant:
             "translation_tokens": trans_usage,
             "analysis_tokens": main_usage
         }
+        if _v4.enabled() and llm_meta.get("successful_model") and total_t:
+            # V4: desglose por modelo (el verificador puede usar otro modelo) para el calculo de coste.
+            query_token_usage["by_model"] = {llm_meta["successful_model"]: {"prompt_tokens": total_p,
+                                                                             "completion_tokens": total_c}}
         llm_meta["token_usage"] = query_token_usage
         lang_key = "en" if language == "en" else "es"
 
@@ -827,6 +890,15 @@ class ArbitrationDecisionAssistant:
             if citation_repairs:
                 llm_answer = _fixed
         citations_valid = self._validate_llm_citations(llm_answer, evidence, related)
+        v4 = _v4.enabled() and unified
+        if v4 and llm_answer and not citations_valid:
+            # Respuesta negativa (los pasajes no contienen lo preguntado): puede no citar ningun pasaje. Solo se admite
+            # si no cita nada ajeno a la evidencia entregada; la decide la verificacion V4.
+            _o = _parse_answer(llm_answer) or {}
+            _ids = set(re.findall(r"SOR-[A-Za-z0-9]+-[A-Za-z0-9]+-P\d+-S\d+", llm_answer))
+            _deliv = {p.get("passage_id") for p in [*evidence, *related] if p.get("passage_id")}
+            if str(_o.get("answerability", "")).strip().upper() == "EVIDENCIA_INSUFICIENTE" and _ids <= _deliv:
+                citations_valid = True
         if llm_answer and citations_valid and _reasm.quote_repair_enabled():
             _delivered = {p.get("passage_id"): p for p in [*evidence, *related] if p.get("passage_id")}
             _fixed, quote_repairs = _reasm.repair_quotes(llm_answer, _delivered, self._decision_integrity_gate())
@@ -860,19 +932,32 @@ class ArbitrationDecisionAssistant:
             # pasajes que la propia respuesta cita y que contienen cifras/terminos usados sin cita. El DIG evalua
             # despues la respuesta completada con todos sus controles (ver evidence_attribution).
             completion_info = None
-            if _attr.enabled():
+            if _attr.enabled() and not v4:
                 delivered_map = {p.get("passage_id"): p for p in [*evidence, *related] if p.get("passage_id")}
                 completed, completion_info = _attr.complete_quotes(
                     llm_answer, delivered_map, self._decision_integrity_gate(), situation_query, search_query_en,
                     unified=unified)
                 if completion_info:
                     llm_answer = completed
-            decision_integrity = _dig_eval(llm_answer)
+            if v4:
+                # Verificacion V4: corrige antes de rechazar (capa determinista por cita, verificador LLM por frase,
+                # excepciones como completado). Sustituye la decision del DIG; ver answer_verification.
+                llm_answer, decision_integrity = _v4.verify(
+                    llm_answer, situation_query, search_query_en, evidence, related, self._decision_integrity_gate(),
+                    llm_call=self._call_verifier, supplementary_texts=supp_texts, instruction_text=extra.get("instruction_text", ""))
+                _vrec = decision_integrity["verification"]
+                _add_usage(query_token_usage, "verification_tokens", (_vrec.get("verifier") or {}).get("usage"),
+                           (_vrec.get("verifier") or {}).get("model"))
+                if _vrec.get("removed"):
+                    pruning_info = {"removed": _vrec["removed"], "v4": True}
+                    decision_integrity = dict(decision_integrity, pruning=pruning_info)
+            else:
+                decision_integrity = _dig_eval(llm_answer)
             # Respuesta unica: si el DIG solo rechaza cifras o terminos sin respaldo, se retiran las frases
             # ACCESORIAS que los contienen (nunca summary ni normative_basis) y la respuesta resultante se evalua
             # de nuevo con TODOS los controles. Si no supera la nueva evaluacion, se mantiene la abstencion.
             failed0 = set(decision_integrity.get("failed_checks") or [])
-            if unified and decision_integrity.get("decision") != "PERMITIR" and failed0 and failed0 <= PRUNABLE_CHECKS:
+            if not v4 and unified and decision_integrity.get("decision") != "PERMITIR" and failed0 and failed0 <= PRUNABLE_CHECKS:
                 cand, removed = self._decision_integrity_gate().prune_unsupported(llm_answer, situation_query, search_query_en)
                 if removed and self._validate_llm_citations(cand, evidence, related):
                     re_dig = _dig_eval(cand)
@@ -975,7 +1060,13 @@ class ArbitrationDecisionAssistant:
         # evidence.  It is NOT a semantic entailment check of the generated claims.
         succ_prov = llm_meta.get("successful_provider", "LLM")
         succ_model = llm_meta.get("successful_model", "")
-        if succ_model:
+        if succ_model and v4:
+            _vmode = ((decision_integrity or {}).get("verification") or {}).get("mode", "LLM")
+            _vdesc = ("respaldo verificado frase a frase contra los pasajes citados (V4)" if _vmode == "LLM" else
+                      "respaldo literal verificado, sin entailment (V4 reducida: citas, cifras y controles del DIG)")
+            mode_label = f"Síntesis Analítica IA ({succ_prov} / {succ_model}; citas SOR validadas; {_vdesc})"
+            header = f"⚖️ **Síntesis Analítica IA ({succ_prov} — {succ_model})**"
+        elif succ_model:
             mode_label = f"Síntesis Analítica IA ({succ_prov} / {succ_model}; citas SOR validadas; respaldo literal verificado, sin entailment)"
             header = f"⚖️ **Síntesis Analítica IA ({succ_prov} — {succ_model})**"
         else:
@@ -988,7 +1079,8 @@ class ArbitrationDecisionAssistant:
         limitations_before_sanitize = structured.limitations
         structured = validator.sanitize_structured_answer(structured)
         sanitizer_fired = structured.limitations != limitations_before_sanitize
-        prune_note = PRUNE_NOTE[lang_key] if (unified and pruning_info) else ""
+        prune_note = ((V4_PRUNE_NOTE if pruning_info.get("v4") else PRUNE_NOTE)[lang_key]
+                      if (unified and pruning_info) else "")
         if prune_note:
             lim = (structured.limitations or "").strip()
             structured.limitations = prune_note if lim.lower().rstrip(".") in ("", "ninguna", "none") else f"{lim}\n\n{prune_note}"
@@ -1071,6 +1163,11 @@ class ArbitrationDecisionAssistant:
             for k in VISIBLE_FIELDS:
                 final_obj[k] = visible_text_for_validation(getattr(structured, k, "") or "", system_notes=(prune_note,))
             final_dig = _dig_eval(json.dumps(final_obj, ensure_ascii=False)) if _dig_eval else {"decision": "ABSTENER", "failed_checks": ["sin_dig"]}
+            if v4 and _dig_eval:
+                # V4: el contenido ya fue verificado frase a frase; sobre el texto visible final solo se exigen los
+                # controles duros que V4 conserva del DIG (sin influencia SHADOW).
+                _bad = [c["code"] for c in final_dig.get("checks", []) if c["code"] in _v4.HARD_CHECKS and not c["passed"]]
+                final_dig = {"decision": "ABSTENER" if _bad else "PERMITIR", "failed_checks": _bad}
             decision_integrity = dict(decision_integrity or {}, final_visible_check={
                 "decision": final_dig.get("decision"), "failed_checks": final_dig.get("failed_checks", [])},
                 validated_answer=final_obj)
@@ -1103,6 +1200,15 @@ class ArbitrationDecisionAssistant:
             "supplementary_context": supplementary_context,
             "decision_integrity": decision_integrity,
         }
+
+    def _call_verifier(self, prompt: str):
+        """Llamada del verificador V4 (Gemini, modelo ADA_VERIFIER_MODEL; salida JSON). Devuelve (texto, uso, modelo).
+        Cualquier error se propaga: answer_verification activa entonces el modo degradado."""
+        from llm_provider import GeminiClient
+        client = GeminiClient(model=_v4.verifier_model())
+        text = client.generate(prompt, json_mode=True)
+        usage = dict(getattr(client, "last_usage", {}) or {})
+        return text, usage, getattr(client, "last_model_version", None) or client.model
 
     def _decision_integrity_gate(self) -> DecisionIntegrityGate:
         """Lazily built DIG gate over the primary SOR corpus loaded by the RRE (read-only)."""

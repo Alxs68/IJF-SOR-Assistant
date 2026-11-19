@@ -1,0 +1,57 @@
+{
+  "summary": "El sistema de competición para los eventos de equipos mixtos de la IJF será el sistema de eliminación con repesca de cuartos de final [SOR-2026-08-P042-S054]. Cada equipo mixto debe estar compuesto por seis atletas (3 mujeres y 3 hombres) y tiene la posibilidad de tener hasta seis reservas (3 mujeres y 3 hombres) [SOR-2026-08-P042-S054]. El primer equipo mixto en ganar la mayoría de los contests es declarado el ganador [SOR-2026-08-P044-S054].",
+  "normative_basis": "Regla normativa aplicable: Art. 2.7 y Art. 2.7.1 de los Sport and Organisation Rules de la IJF [SOR-2026-08-P042-S054, SOR-2026-08-P043-S054, SOR-2026-08-P044-S054, SOR-2026-08-P055-S055], con sus respectivas páginas 42, 43, 44 y 45. El Art. 2.7 establece la regla general del sistema de competición y el Art. 2.7.1 detalla las regulaciones específicas de los eventos de equipos mixtos.",
+  "citations": [
+    "SOR-2026-08-P042-S054",
+    "SOR-2026-08-P043-S054",
+    "SOR-2026-08-P044-S054",
+    "SOR-2026-08-P055-S055"
+  ],
+  "conditions_and_exceptions": "Cada equipo mixto debe consistir de un mínimo de 1 atleta por categoría de peso de equipo mixto [SOR-2026-08-P042-S054]. Si ocurren lesiones o enfermedades después del sorteo o durante la competición, un equipo mixto podrá competir con un mínimo de cuatro atletas [SOR-2026-08-P042-S054]. Sin embargo, si cuatro atletas han superado con éxito el pesaje de equipos mixtos y antes del inicio de la competición un atleta enferma o se lesiona, dejando al equipo con solo tres atletas disponibles, el equipo mixto no podrá competir [SOR-2026-08-P042-S054]. Durante las competiciones de equipos mixtos de seniors y juniors, cada atleta tiene derecho a competir en su propia categoría de peso de equipo mixto o en la siguiente categoría de peso de equipo mixto superior [SOR-2026-08-P042-S054]. Durante las competiciones de equipos mixtos de cadetes, los atletas deben competir en su categoría de peso de equipo mixto inscripta y no se pueden mover una categoría de peso de equipo mixto superior [SOR-2026-08-P042-S054]. En los eventos de la IJF, los contests restantes no se lucharán excepto en el caso de números pequeños (reglas de round robin) [SOR-2026-08-P044-S054].",
+  "extended_analysis": "No aplica",
+  "limitations": "Ninguna",
+  "answerability": "RESPALDADA",
+  "evidence_quotes": [
+    {
+      "passage_id": "SOR-2026-08-P042-S054",
+      "quote": "The system of competition for IJF Mixed Teams events will be the elimination system with quarter-final repechage",
+      "supports": "Sistema de competición para eventos de equipos mixtos"
+    },
+    {
+      "passage_id": "SOR-2026-08-P042-S054",
+      "quote": "Each mixed team must consist of six (6) athletes (3 women and 3 men) and has the possibility to have up to six (6) reserves (3 women and 3 men).",
+      "supports": "Composición de cada equipo mixto y reservas"
+    },
+    {
+      "passage_id": "SOR-2026-08-P042-S054",
+      "quote": "If injuries or illness occur after the draw or during the competition a mixed team will be allowed to compete with a minimum of four (4) athletes.",
+      "supports": "Excepción para competir con un mínimo de cuatro atletas por lesión o enfermedad"
+    },
+    {
+      "passage_id": "SOR-2026-08-P042-S054",
+      "quote": "However, if four (4) athletes have successfully passed the mixed team weigh-in and before the start of the competition, one (1) athlete becomes ill or injured, leaving the team with only three (3) available athletes, the mixed team will not be allowed to compete.",
+      "supports": "Restricción de no competir si quedan solo tres atletas"
+    },
+    {
+      "passage_id": "SOR-2026-08-P042-S054",
+      "quote": "During seniors and juniors mixed teams’ competitions each athlete is entitled to compete in their own mixed team weight category or in the next higher mixed team weight category.",
+      "supports": "Regla de categoría superior para seniors y juniors"
+    },
+    {
+      "passage_id": "SOR-2026-08-P042-S054",
+      "quote": "During cadets mixed team competitions athletes must compete in their inscribed mixed team weight category and cannot be moved one (1) mixed team weight category higher.",
+      "supports": "Restricción para la categoría cadete"
+    },
+    {
+      "passage_id": "SOR-2026-08-P044-S054",
+      "quote": "The first mixed team to win the majority of contests is declared the winner.",
+      "supports": "Declaración del equipo ganador"
+    },
+    {
+      "passage_id": "SOR-2026-08-P044-S054",
+      "quote": "In IJF events the remaining contests will not be fought except in case of small numbers (round robin rules).",
+      "supports": "Restricción sobre los contests restantes en eventos IJF"
+    }
+  ],
+  "evidence_conflicts": []
+}

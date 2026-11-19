@@ -10,6 +10,7 @@ from src.ada_assistant import ArbitrationDecisionAssistant
 from src.response_structurer import build_deterministic_structured_answer
 from unittest.mock import patch
 from tests._ada_contract_helpers import (
+    assert_success_not_labelled_as_semantically_verified,
     StubLLM, answer_citing, cite_first_delivered, cite_best_delivered, citation_ids,
     delivered_ids_in_result, delivered_primary_ids, ABSTENTION_MARKER, TRANSLATION_MARKER, json_answer, primary_block, supplementary_block,
 )
@@ -91,7 +92,7 @@ def test_critical_query_citing_most_related_delivered_passage(ada, qid, query):
     delivered = delivered_primary_ids(stub.analysis_prompts[0])
     assert set(citation_ids(res)) <= set(delivered), qid
     if res["status"] == "SUCCESS":
-        assert res["decision_integrity"]["levels"]["D_respaldo_efectivo"].startswith("NO_VERIFICADO"), qid
+        assert_success_not_labelled_as_semantically_verified(res["decision_integrity"])
         assert "sin entailment" in res["mode"], qid
 
 
