@@ -16,6 +16,46 @@ RULES_DEEP_LINKS = {
     "rules.ijf.org/penalties/diving": f"{RULES_PDF_URL}#page=21",
 }
 
+_PAGE_TOKEN = re.compile(r"page=(\d+)", re.IGNORECASE)
+
+
+def _valid_page(page):
+    if isinstance(page, bool):
+        return None
+    try:
+        n = int(str(page).strip())
+    except (TypeError, ValueError):
+        return None
+    return n if n > 0 else None
+
+
+def pdf_page_url(url, page=None):
+    """URL de un PDF con un unico fragmento de pagina.
+
+    - Con pagina valida: la pagina de la evidencia sustituye a cualquier "page=" previo (incluidos duplicados).
+    - Sin pagina: se conserva la primera pagina valida que ya trajera la URL; no se inventa ninguna.
+    - Se conservan la base, la consulta (?a=b) y los demas parametros del fragmento (p. ej. zoom=100).
+    - Las URL que no son PDF se devuelven sin cambios."""
+    if not isinstance(url, str) or not url:
+        return url
+    base, _, frag = url.partition("#")
+    try:
+        path = urllib.parse.urlsplit(base).path
+    except ValueError:
+        return url
+    if not path.lower().endswith(".pdf"):
+        return url
+    tokens = [tok for tok in re.split(r"[#&]", frag) if tok]
+    others = [tok for tok in tokens if not tok.lower().startswith("page=")]
+    n = _valid_page(page)
+    if n is None:
+        prev = [_valid_page(m.group(1)) for m in (_PAGE_TOKEN.fullmatch(tok) for tok in tokens) if m]
+        prev = [p for p in prev if p]
+        n = prev[0] if prev else None
+    parts = ([f"page={n}"] if n else []) + others
+    return base + ("#" + "&".join(parts) if parts else "")
+
+
 class ReferenceManager:
     def __init__(self, registry_path=None):
         if registry_path is None:
@@ -82,7 +122,8 @@ class ReferenceManager:
         if kun_id.startswith("SOR-2026-08-") or kun_data.get("source_id") == "SOR-2026-08-14-ENG" or kun_data.get("fuente_origen") == "SOR-2026-08-14-ENG":
             pdf_page = kun_data.get("pdf_page_index")
             base_url = kun_data.get("source_url") or "https://78884ca60822a34fb0e6-082b8fd5551e97bc65e327988b444396.ssl.cf3.rackcdn.com/up/2026/08/IJF_Sport_and_Organisation_Rul-1787430903.pdf"
-            final_url = f"{base_url}#page={pdf_page}" if pdf_page else base_url
+            # source_url puede llegar ya con "#page=N" (rre_engine / evidence_reassembly): un unico fragmento de pagina.
+            final_url = pdf_page_url(base_url, pdf_page)
             return {
                 "url": final_url,
                 "operational_status": "AVAILABLE",
