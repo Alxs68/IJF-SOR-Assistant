@@ -1,7 +1,8 @@
-# 🥋 IJF SOR Assistant 2026 — Versión 3.0
+# 🥋 IJF SOR Assistant 2026 — v1.5.0
 > **Asistente Oficial de Consulta Reglamentaria y Decisión Arbitral de la Federación Internacional de Judo (IJF)**  
 > **Marco Normativo Vigente:** IJF Sport and Organisation Rules (Edición oficial del 14 de agosto de 2026 — 298 páginas)  
-> **Producción:** [https://sor.alxol.com](https://sor.alxol.com)
+> **Producción:** [https://sor.alxol.com](https://sor.alxol.com)  
+> **Versión:** 1.5.0 (21-11-2026), ver [CHANGELOG.md](CHANGELOG.md) y [RELEASE_v1.5.0](docs/deployment/RELEASE_v1.5.0_2026-11-21.md)
 
 ---
 

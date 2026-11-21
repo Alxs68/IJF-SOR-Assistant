@@ -37,6 +37,7 @@ from response_structurer import clean_presentation_text, sanitize_presentation_h
 import answer_presentation as _ap
 import citation_render as _cr
 import voice_input as _voice
+from app_version import APP_VERSION
 from usage_tracker import get_usage_tracker, record_user_query
 
 usage_tracker = get_usage_tracker()
@@ -2483,7 +2484,7 @@ with st.sidebar:
     _version_html = (
         f'{t("sidebar_version_rules", lang, edition=_edition)}<br>'
         f'{t("sidebar_source_hash", lang)} <code>{engine.config["source_sha256"][:16]}…</code><br>'
-        f'{t("sidebar_version_label", lang)}')
+        f'{t("sidebar_version_label", lang, version=APP_VERSION)}')
     with st.expander(t("sidebar_about_title", lang), expanded=False):
         st.markdown(_subtopics("about_subtopics", [
             (t("sidebar_about_project_title", lang), t("sidebar_about_project_content", lang)),
@@ -3421,7 +3422,7 @@ def _render_query_item(original_i, item):
                         extra_metadata={
                             "lang": lang,
                             "ui_section": "response_card",
-                            "app_version": "3.2.0"
+                            "app_version": APP_VERSION
                         },
                         attachment_bytes=att_bytes,
                         attachment_filename=att_name,

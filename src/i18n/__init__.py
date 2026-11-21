@@ -79,7 +79,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_version_title": "Version",
         "sidebar_version_rules": "Rules: IJF SOR, {edition}",
         "sidebar_source_hash": "Official PDF fingerprint (SHA-256):",
-        "sidebar_version_label": "Application updated on 2026-11-21",
+        "sidebar_version_label": "Version {version} · updated on 2026-11-21",
         # Voice input (browser Web Speech API)
         "voice_btn_start": "🎤 Dictate",
         "voice_btn_stop": "Stop",
@@ -472,7 +472,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_version_title": "Versión",
         "sidebar_version_rules": "Reglamento: SOR IJF, {edition}",
         "sidebar_source_hash": "Huella del PDF oficial (SHA-256):",
-        "sidebar_version_label": "Aplicación actualizada el 21-11-2026",
+        "sidebar_version_label": "Versión {version} · actualizada el 21-11-2026",
         # Consulta por voz (Web Speech API del navegador)
         "voice_btn_start": "🎤 Dictar",
         "voice_btn_stop": "Detener",
