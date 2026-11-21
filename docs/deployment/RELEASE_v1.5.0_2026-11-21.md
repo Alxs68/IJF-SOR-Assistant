@@ -85,3 +85,70 @@
 ## Tag
 
 Se crea un tag anotado `v1.5.0` sobre el commit de este release, que contiene el código de `dd43734` y la documentación de versión. Los tags anteriores no se modifican.
+
+## Despliegue de v1.5.0 en OCI (21-11-2026, 07:06:01 UTC)
+
+**Commits**
+- **Anterior:** `dd4373442df743ca916d39b534d3bb19a30cbe79`.
+- **Desplegado:** `95a06032f477638169d61a547eb64cad2c870b75`. Es el tag anotado `v1.5.0` y coincide con `origin/main` en GitHub.
+- **Diferencia** (10 archivos, +576/−6):
+  - el commit documental `840ffb0`;
+  - los metadatos de versión de `95a0603`.
+- **Sin cambios:** la imagen (`290ab72e6a7f`, sin reconstruir), `docker-compose.yml`, el override y las variables de entorno. F3 sigue en modo shadow.
+
+**Respaldo**
+- **Directorio:** `/home/ubuntu/backups_ijf/prod_dd43734_pre_v150_20261121_070432/`. Copia idéntica (`diff -rq`), con `git fsck` correcto y 690 MB. Incluye `.git`, el override y `.env` (no leído).
+- **Archivos asociados:** `…_070432.ESTADO.txt` y `…_070432.compose_resuelto.yml` (permisos 600).
+- **Imagen Docker:** `ijf-sor-assistant-streamlit:backup-dd43734`.
+- **Tag Git:** `backup/prod-dd43734`.
+
+**Procedimiento**
+1. Bundle `deploy_95a0603.bundle` (rango `dd43734..main`), con SHA-256 `789a8b9a…` verificado en ambos extremos.
+2. Se comprobó que la referencia recibida es exactamente `95a0603` y que desciende de `dd43734`.
+3. `git merge --ff-only`, seguido de `docker compose restart streamlit`. Health 200 al segundo intento.
+
+**Validación técnica**
+- Health 200 y HTTPS 200.
+- Certificado de Google Trust Services válido hasta el 07-01-2027.
+- Contenedor en ejecución, 0 reinicios.
+- Logs sin trazas de error ni excepciones, y sin `#page=N#page=`.
+- 8502 y 8510 responden 200, y `cloudflared` está activo.
+- Pruebas en el contenedor (versión, barra lateral, enlaces PDF, voz, reportes): 57 pasan.
+
+**Validación de la versión**
+- La barra lateral de la web pública muestra «Versión 1.5.0 · actualizada el 21-11-2026».
+- No aparece ninguna numeración antigua («3.2.0», «Versión 3.0»).
+- En el contenedor, `APP_VERSION = "1.5.0"`. `app.py` toma la etiqueta y `"app_version": APP_VERSION` de esa fuente.
+- **Reportes de usuario:** se comprobó en el código desplegado y con la prueba `test_app_version`. No se envió ningún reporte real, para no escribir datos de prueba en producción.
+
+**Regresión funcional** (web pública, consultas reales con Gemini)
+
+| Consulta | Respuesta | Enlaces PDF | Duplicados |
+|---|---|---|---|
+| Shidos que llevan a hansoku-make | Tres shidos, Pág. 176 | 11 | 0 |
+| Tolerancia del pesaje aleatorio | 5 %, Pág. 79 | 10 | 0 |
+| Cadete: defensa con la cabeza | Shido, Pág. 188 | 13 | 0 |
+| Colores de judogi | Blanco y azul (Pantone), Pág. 124 | 18 | 0 |
+| *How long is a senior contest?* | 4 minutos, Pág. 152 (resumen en inglés, literal del SOR) | 10 | 0 |
+| Dictada por voz (simulada): osaekomi para ippon | 20 s, Pág. 152 | 11 | 0 |
+
+**Voz**
+- Control disponible en contexto seguro, con la API nativa presente, en `es-CO`.
+- El dictado añade el texto al campo y no lo envía: tras 3 s no se había enviado nada.
+- El envío manual con Enviar responde correctamente. Después, el campo se vacía y el control vuelve a inactivo.
+- No se usó micrófono físico (no hay hardware en este entorno).
+
+**Estado final:** producción en `95a0603` (v1.5.0), con el árbol de trabajo limpio.
+
+**Reversión a `dd43734`**
+
+```bash
+cd /home/ubuntu/IJF-SOR-Assistant
+git reset --hard backup/prod-dd43734
+docker compose restart streamlit
+curl -s -o /dev/null -w "%{http_code}
+" http://127.0.0.1:8501/_stcore/health   # 200
+```
+
+**Reversión total:** detener el contenedor, restaurar `/home/ubuntu/backups_ijf/prod_dd43734_pre_v150_20261121_070432/` y ejecutar `docker compose up -d`. La imagen `backup-dd43734` es la misma que `latest`.
+
