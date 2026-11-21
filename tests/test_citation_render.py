@@ -349,3 +349,52 @@ def test_unified_answer_unchanged_and_kill_switch(monkeypatch):
 
 def test_deterministic():
     assert render() == render()
+
+
+# ---- Pregunta y comentarios del usuario: texto inerte (no Markdown) ---------------------------------------------
+USER_PAYLOADS = [
+    "¿Tolerancia? ![x](https://evil.example/x.png)",
+    "[ver regla]( javascript:alert(1) )",
+    '<img src="https://evil.example/y.png" onerror="alert(1)">',
+    "<script>alert(1)</script> y <a href='javascript:alert(1)'>x</a>",
+    "Peso $x^2$ y **negrita** `código`",
+    "línea 1\n\n![x](https://evil.example/z.png)\r\n    bloque indentado",
+    "[t][1]\n\n[1]: https://evil.example",
+]
+
+
+@pytest.mark.parametrize("raw", USER_PAYLOADS)
+def test_user_text_is_inert(raw):
+    out = C.plain_text_html(raw)
+    assert out.startswith('<div class="user-text">') and out.endswith("</div>")
+    assert "\n" not in out and "\r" not in out          # un solo bloque HTML: Markdown no procesa su contenido
+    inner = out[len('<div class="user-text">'):-len("</div>")]
+    assert set(TAG.findall(inner)) <= {"<br>"}         # la unica etiqueta emitida es el salto de linea
+    assert visible(inner.replace("<br>", "\n")) == raw.replace("\r\n", "\n")   # el texto visible no cambia
+
+
+def test_user_text_label_and_none():
+    assert C.plain_text_html(None) == '<div class="user-text"></div>'
+    out = C.plain_text_html("[a](javascript:x)", "Consulta <b>")
+    assert out == '<div class="user-text"><strong>Consulta &lt;b&gt;:</strong> [a](javascript:x)</div>'
+
+
+def test_app_renders_user_text_inert():
+    with open(os.path.join(ROOT, "app.py"), encoding="utf-8") as f:
+        src = f.read()
+    assert "st.markdown(item['query'])" not in src
+    assert "st.markdown(_cr.plain_text_html(item['query']), unsafe_allow_html=True)" in src
+    assert "plain_text_html(rec.get('context', {}).get('query', 'N/A')" in src
+    assert "plain_text_html(rec.get('user_comment', 'N/A')" in src
+
+
+def test_user_text_css_auto_height_and_wrap():
+    with open(os.path.join(ROOT, "app.py"), encoding="utf-8") as f:
+        src = f.read()
+    rule = re.search(r"\.user-text \{(.*?)\}", src, re.S)
+    assert rule, "falta la regla CSS .user-text"
+    body = rule.group(1)
+    for decl in ("overflow-wrap: anywhere", "word-break: break-word", "height: auto", "max-width: 100%",
+                 "white-space: normal", "overflow: visible"):
+        assert decl in body
+    assert "max-height" not in body and "nowrap" not in body

@@ -68,6 +68,18 @@ def _lab(lang):
     return LABELS.get(lang if lang in LABELS else "es")
 
 
+def plain_text_html(text, label=None):
+    """Texto escrito por el usuario como HTML inerte, para st.markdown(..., unsafe_allow_html=True).
+
+    Se escapa todo y se emite en un unico bloque HTML de una sola linea (los saltos pasan a <br>): Markdown no procesa
+    el contenido de un bloque HTML, asi que ni enlaces, ni imagenes, ni formulas, ni HTML del usuario se interpretan.
+    No depende de ADA_CITATION_UI: es una garantia de seguridad, no parte de la UI de citas."""
+    body = html.escape(str(text if text is not None else ""), quote=True)
+    body = body.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "<br>")
+    head = f"<strong>{html.escape(str(label), quote=True)}:</strong> " if label else ""
+    return f'<div class="user-text">{head}{body}</div>'
+
+
 def _enc(n):
     return "".join(chr(0xE010 + int(d)) for d in str(n))
 

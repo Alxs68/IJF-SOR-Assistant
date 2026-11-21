@@ -1507,6 +1507,23 @@ st.markdown("""
         margin-bottom: 0.4rem;
         overflow-wrap: anywhere;
     }
+    /* Pregunta del usuario como texto literal (citation_render.plain_text_html): mismo aspecto que el parrafo
+       anterior, altura segun el contenido y ajuste de palabras/URL largas sin scroll horizontal (movil incluido). */
+    .user-text {
+        color: var(--ijf-text-color) !important;
+        font-weight: 500;
+        font-size: inherit;
+        line-height: 1.6;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        height: auto;
+        max-width: 100%;
+        overflow: visible;
+    }
+    [data-testid="stChatMessageContent"] {
+        min-width: 0;
+    }
 </style>
 """, unsafe_allow_html=True)
 st.markdown(f"<style>{_cr.CSS}</style>", unsafe_allow_html=True)
@@ -2603,8 +2620,8 @@ with st.sidebar:
                             with st.expander(f"📌 {r_id} — [{r_tp}] ({r_ts})", expanded=False):
                                 st.markdown(f"**{t('admin_table_date', lang)}:** {rec.get('timestamp')}")
                                 st.markdown(f"**{t('admin_filter_type', lang)}** `{r_tp}`")
-                                st.markdown(f"**{t('admin_table_query', lang)}:** {rec.get('context', {}).get('query', 'N/A')}")
-                                st.markdown(f"**{t('admin_table_comment', lang)}:**\n> {rec.get('user_comment', 'N/A')}")
+                                st.markdown(_cr.plain_text_html(rec.get('context', {}).get('query', 'N/A'), t('admin_table_query', lang)), unsafe_allow_html=True)
+                                st.markdown(_cr.plain_text_html(rec.get('user_comment', 'N/A'), t('admin_table_comment', lang)), unsafe_allow_html=True)
                                 if rec.get('context', {}).get('response_summary'):
                                     st.markdown(f"**Respuesta:** {rec.get('context', {}).get('response_summary')[:300]}...")
 
@@ -3221,7 +3238,7 @@ def _render_token_pill(p_tok, c_tok, t_tok, tok_state, live_avg):
 def _render_query_item(original_i, item):
     """Consulta actual: pregunta, respuesta, consumo, fundamentacion, normas de soporte, auditoria y observaciones."""
     with st.chat_message("user", avatar="👤"):
-        st.markdown(item['query'])
+        st.markdown(_cr.plain_text_html(item['query']), unsafe_allow_html=True)
     with st.chat_message("assistant", avatar="⚖️"):
         item_llm_meta = item.get("llm_meta", {})
         succ_prov = item_llm_meta.get("successful_provider")
