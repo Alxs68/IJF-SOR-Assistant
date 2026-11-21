@@ -26,7 +26,10 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_howto_ask_content": (
             "Type your question in natural language, in Spanish or English, and press <b>Submit</b>. "
             "Specific questions (a situation, a category or an article) get more precise answers. "
-            "If your question has several parts, ask them separately."
+            "If your question has several parts, ask them separately. "
+            "You can also press <b>🎤 Dictate</b> and speak: the text is added to the field so you can review it before submitting. "
+            "Speech recognition is done by your browser (depending on the browser, through an online service of its provider); "
+            "the application does not record or store audio."
         ),
         "sidebar_howto_read_title": "How to read the answer",
         "sidebar_howto_read_content": (
@@ -77,6 +80,23 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_version_rules": "Rules: IJF SOR, {edition}",
         "sidebar_source_hash": "Official PDF fingerprint (SHA-256):",
         "sidebar_version_label": "Application updated on 2026-11-21",
+        # Voice input (browser Web Speech API)
+        "voice_btn_start": "🎤 Dictate",
+        "voice_btn_stop": "Stop",
+        "voice_btn_title": "Dictate your question with the microphone. The text is added to the query field so you can review it before submitting.",
+        "voice_state_requesting": "Requesting microphone access…",
+        "voice_state_listening": "Listening…",
+        "voice_state_processing": "Processing the transcription…",
+        "voice_state_ready": "Text added to your question. Review it and press Submit.",
+        "voice_state_nospeech": "No speech detected. Press 🎤 Dictate to try again.",
+        "voice_state_lang_changed": "Dictation stopped by a language or theme change. Press 🎤 Dictate to continue.",
+        "voice_err_denied": "Microphone permission denied. Allow it in your browser or type your question.",
+        "voice_err_nomic": "No microphone available. You can type your question.",
+        "voice_err_unsupported": "This browser does not support dictation. You can type your question.",
+        "voice_err_insecure": "Dictation requires a secure connection (HTTPS). You can type your question.",
+        "voice_err_network": "The browser's speech service is unavailable. Try again later or type your question.",
+        "voice_err_generic": "Dictation could not be completed. Try again or type your question.",
+        "voice_err_noinput": "The query field was not found. Reload the page.",
         # Service availability (replaces the quota card)
         "availability_title": "🛡️ Service availability",
         "availability_desc": (
@@ -398,7 +418,10 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_howto_ask_content": (
             "Escriba su pregunta en lenguaje natural, en español o en inglés, y pulse <b>Enviar</b>. "
             "Las preguntas concretas (una situación, una categoría o un artículo) obtienen respuestas más precisas. "
-            "Si su duda tiene varias partes, hágalas por separado."
+            "Si su duda tiene varias partes, hágalas por separado. "
+            "También puede pulsar <b>🎤 Dictar</b> y hablar: el texto se añade al campo para que lo revise antes de enviarlo. "
+            "El reconocimiento de voz lo realiza su navegador (según el navegador, con un servicio en línea de su proveedor); "
+            "la aplicación no graba ni guarda audio."
         ),
         "sidebar_howto_read_title": "Cómo leer la respuesta",
         "sidebar_howto_read_content": (
@@ -450,6 +473,23 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_version_rules": "Reglamento: SOR IJF, {edition}",
         "sidebar_source_hash": "Huella del PDF oficial (SHA-256):",
         "sidebar_version_label": "Aplicación actualizada el 21-11-2026",
+        # Consulta por voz (Web Speech API del navegador)
+        "voice_btn_start": "🎤 Dictar",
+        "voice_btn_stop": "Detener",
+        "voice_btn_title": "Dictar la consulta con el micrófono. El texto se añade al campo de consulta para revisarlo antes de enviarlo.",
+        "voice_state_requesting": "Solicitando acceso al micrófono…",
+        "voice_state_listening": "Escuchando…",
+        "voice_state_processing": "Procesando la transcripción…",
+        "voice_state_ready": "Texto añadido a la consulta. Revíselo y pulse Enviar.",
+        "voice_state_nospeech": "No se detectó voz. Pulse 🎤 Dictar para intentarlo de nuevo.",
+        "voice_state_lang_changed": "Dictado detenido por un cambio de idioma o de tema. Pulse 🎤 Dictar para continuar.",
+        "voice_err_denied": "Permiso de micrófono denegado. Actívelo en el navegador o escriba su consulta.",
+        "voice_err_nomic": "No se encontró un micrófono disponible. Puede escribir su consulta.",
+        "voice_err_unsupported": "Este navegador no permite dictar. Puede escribir su consulta.",
+        "voice_err_insecure": "El dictado requiere una conexión segura (HTTPS). Puede escribir su consulta.",
+        "voice_err_network": "El servicio de voz del navegador no está disponible. Inténtelo más tarde o escriba su consulta.",
+        "voice_err_generic": "No se pudo completar el dictado. Inténtelo de nuevo o escriba su consulta.",
+        "voice_err_noinput": "No se encontró el campo de consulta. Recargue la página.",
         # Disponibilidad del servicio (sustituye a la tarjeta de cuotas)
         "availability_title": "🛡️ Disponibilidad del servicio",
         "availability_desc": (

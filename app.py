@@ -36,6 +36,7 @@ from i18n import t
 from response_structurer import clean_presentation_text, sanitize_presentation_html
 import answer_presentation as _ap
 import citation_render as _cr
+import voice_input as _voice
 from usage_tracker import get_usage_tracker, record_user_query
 
 usage_tracker = get_usage_tracker()
@@ -2784,7 +2785,7 @@ with st.container():
         col1, col2 = st.columns([0.85, 0.15])
         with col1:
             user_input = st.text_input(
-                "Query input",
+                _voice.QUERY_INPUT_LABEL,
                 value=default_input_val,
                 placeholder=t("chat_input_placeholder", lang),
                 label_visibility="collapsed"
@@ -2794,6 +2795,12 @@ with st.container():
 
         if submit_button and user_input and not query_to_run:
             query_to_run = user_input.strip()
+
+    # Consulta por voz (src/voice_input.py): el navegador transcribe y el texto se anade al campo anterior, sin enviarlo.
+    components.html(
+        _voice.build_voice_widget_html(lang, {k: t(k, lang) for k in _voice.LABEL_KEYS},
+                                       st.session_state.get("app_theme", "auto")),
+        height=_voice.WIDGET_HEIGHT, scrolling=False)
 
 
 if query_to_run:
