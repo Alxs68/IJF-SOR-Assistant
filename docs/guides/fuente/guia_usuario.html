@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>IJF SOR Assistant 2026 — Guía de uso v1.5.0</title>
+<!--
+  Fuente editable de la guía de usuario.
+  Generar el PDF:  python docs/guides/fuente/generar_pdf.py
+  Capturas (img/): producción https://sor.alxol.com, v1.5.0, 21-11-2026, sin enviar consultas.
+-->
+<style>
+  @page { size: A4; margin: 16mm 16mm 18mm 16mm; }
+  :root { --azul:#1d4ed8; --azul-claro:#eff4ff; --gris:#475569; --borde:#d8dee9; --texto:#1e293b; --aviso:#fff7ed; --aviso-borde:#f59e0b; }
+  * { box-sizing:border-box; }
+  body { font-family:"Segoe UI", "Segoe UI Emoji", Arial, sans-serif; color:var(--texto); font-size:10.5pt; line-height:1.5; margin:0; }
+  h1 { font-size:24pt; color:var(--azul); margin:0 0 4mm; line-height:1.15; }
+  h2 { font-size:15pt; color:var(--azul); margin:0 0 3mm; padding-bottom:1.5mm; border-bottom:2px solid var(--azul); break-after:avoid; }
+  h3 { font-size:11.5pt; margin:4mm 0 1.5mm; break-after:avoid; }
+  p { margin:0 0 2.5mm; }
+  ul, ol { margin:0 0 3mm; padding-left:6mm; }
+  li { margin-bottom:1mm; }
+  section { margin-bottom:7mm; }
+  .salto { break-before:page; }
+  .nobreak { break-inside:avoid; }
+  table { width:100%; border-collapse:collapse; margin:1mm 0 4mm; font-size:9.6pt; break-inside:auto; }
+  tr { break-inside:avoid; }
+  th { background:var(--azul); color:#fff; text-align:left; padding:1.6mm 2mm; font-weight:600; }
+  td { border-bottom:1px solid var(--borde); padding:1.6mm 2mm; vertical-align:top; }
+  tr:nth-child(even) td { background:#f8fafc; }
+  figure { margin:2mm 0 5mm; break-inside:avoid; }
+  figure img { display:block; max-width:100%; border:1px solid var(--borde); border-radius:2mm; }
+  figcaption { font-size:8.6pt; color:var(--gris); margin-top:1.2mm; }
+  .ui { font-weight:600; color:var(--azul); white-space:nowrap; }
+  .nota { background:var(--azul-claro); border-left:4px solid var(--azul); padding:2.5mm 3.5mm; border-radius:1.5mm; margin:2mm 0 4mm; break-inside:avoid; }
+  .aviso { background:var(--aviso); border-left:4px solid var(--aviso-borde); padding:2.5mm 3.5mm; border-radius:1.5mm; margin:2mm 0 4mm; break-inside:avoid; }
+  .dos { display:flex; gap:6mm; align-items:flex-start; }
+  .dos > * { flex:1; }
+  .estrecha { flex:0 0 62mm !important; }
+  code { font-family:Consolas, monospace; font-size:9pt; background:#f1f5f9; padding:0 1mm; border-radius:1mm; }
+  /* Portada */
+  .portada { height:255mm; display:flex; flex-direction:column; justify-content:space-between; }
+  .portada .banda { background:var(--azul); color:#fff; padding:14mm 12mm; border-radius:3mm; }
+  .portada .banda h1 { color:#fff; font-size:30pt; margin-bottom:3mm; }
+  .portada .banda p { font-size:13pt; margin:0; opacity:.95; }
+  .ficha td:first-child { width:42mm; font-weight:600; color:var(--gris); }
+  .indice { columns:2; column-gap:10mm; padding-left:5mm; }
+  .indice li { break-inside:avoid; }
+  .pasos { counter-reset:paso; list-style:none; padding-left:0; }
+  .pasos > li { counter-increment:paso; position:relative; padding-left:9mm; margin-bottom:2mm; }
+  .pasos > li::before { content:counter(paso); position:absolute; left:0; top:0; width:6mm; height:6mm; border-radius:50%; background:var(--azul); color:#fff; font-weight:700; font-size:9pt; text-align:center; line-height:6mm; }
+</style>
+</head>
+<body>
+
+<!-- ============ PORTADA ============ -->
+<div class="portada">
+  <div>
+    <div class="banda">
+      <h1>IJF SOR Assistant 2026</h1>
+      <p>Guía de uso</p>
+    </div>
+    <p style="font-size:12pt;margin-top:8mm">Consulte el reglamento oficial <b>Sport and Organisation Rules (SOR)</b> de la Federación Internacional de Judo con preguntas en lenguaje natural, por escrito o por voz, y compruebe cada respuesta en la página del PDF oficial.</p>
+    <p style="font-size:11pt;color:var(--gris)">Para árbitros, entrenadores, deportistas y personal técnico.</p>
+  </div>
+  <div>
+    <table class="ficha">
+      <tr><td>Versión de la aplicación</td><td><b>1.5.0</b> · actualizada el 21-11-2026</td></tr>
+      <tr><td>Reglamento</td><td>SOR IJF, edición oficial del 14 de agosto de 2026</td></tr>
+      <tr><td>Dirección</td><td><a href="https://sor.alxol.com" style="color:var(--azul)">https://sor.alxol.com</a></td></tr>
+      <tr><td>Idiomas</td><td>Español e inglés</td></tr>
+      <tr><td>Fecha de esta guía</td><td>21 de noviembre de 2026</td></tr>
+    </table>
+    <h3>Contenido</h3>
+    <ol class="indice">
+      <li>Qué es el asistente</li>
+      <li>La pantalla principal</li>
+      <li>Hacer una consulta</li>
+      <li>Dictar la consulta por voz</li>
+      <li>Leer la respuesta</li>
+      <li>Comprobar en el PDF oficial</li>
+      <li>Cuando el asistente no responde</li>
+      <li>Historial y reportes</li>
+      <li>Barra lateral: idioma, tema e información</li>
+      <li>Uso en el móvil</li>
+      <li>Ejemplos de consultas</li>
+      <li>Solución de problemas</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============ 1 ============ -->
+<section class="salto">
+  <h2>1. Qué es el asistente</h2>
+  <p>El IJF SOR Assistant responde preguntas sobre el reglamento SOR de la IJF. Cada respuesta se basa únicamente en el texto oficial, se comprueba contra él antes de mostrarse e incluye enlaces a la página exacta del PDF para que usted pueda verificarla.</p>
+  <ul>
+    <li><b>Qué cubre:</b> reglas de arbitraje, control de judogi, pesaje y sorteo, manual médico y antidopaje, entrenadores, veteranos, régimen disciplinario y protocolo de premiación. La lista completa está en <span class="ui">Ver temas incluidos en alcance y cobertura del asistente</span>, en la pantalla principal.</li>
+    <li><b>Qué no cubre:</b> contratos comerciales y de transmisión, infraestructura del recinto y gobernanza política interna de la IJF.</li>
+  </ul>
+  <figure>
+    <img src="img/scope_dark.png" alt="Pantalla principal en tema oscuro con el alcance desplegado">
+    <figcaption>Captura real (tema oscuro): lista de temas cubiertos y fuera de alcance.</figcaption>
+  </figure>
+  <div class="aviso"><b>Importante.</b> El asistente es una ayuda de estudio y consulta. Ante una decisión arbitral o una controversia, prevalecen siempre el texto oficial del SOR y las decisiones de los órganos competentes de la IJF.</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="salto">
+  <h2>2. La pantalla principal</h2>
+  <figure>
+    <img src="img/home_desktop.png" alt="Pantalla principal del asistente en un ordenador">
+    <figcaption>Captura real de la pantalla principal (versión 1.5.0, ordenador, tema claro).</figcaption>
+  </figure>
+  <table>
+    <tr><th style="width:34%">Zona</th><th>Para qué sirve</th></tr>
+    <tr><td>Barra lateral (izquierda)</td><td>Idioma, tema visual, ayuda <span class="ui">📘 Cómo usar el asistente</span>, <span class="ui">ℹ️ Acerca del asistente</span> y el aviso <span class="ui">🛡️ Disponibilidad del servicio</span>. Se oculta con el botón <b>«</b>.</td></tr>
+    <tr><td>Contador <span class="ui">📊 Consultas Atendidas</span></td><td>Número de consultas respondidas por el asistente.</td></tr>
+    <tr><td>Campo de consulta y <span class="ui">Enviar 📤</span></td><td>Donde escribe su pregunta.</td></tr>
+    <tr><td><span class="ui">🎤 Dictar</span></td><td>Dicta la pregunta con el micrófono (sección 4).</td></tr>
+    <tr><td><span class="ui">📋 Ver temas incluidos…</span></td><td>Temas cubiertos y fuera de alcance.</td></tr>
+  </table>
+  <p style="font-size:9.5pt;color:var(--gris)"><span class="ui">🔒 Administración (acceso restringido)</span> es solo para el responsable del servicio; no la necesita para consultar.</p>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="salto">
+  <h2>3. Hacer una consulta</h2>
+  <figure>
+    <img src="img/input_voice.png" alt="Campo de consulta, botón Enviar y botón Dictar">
+    <figcaption>Captura real: campo de consulta, botón Enviar y botón Dictar.</figcaption>
+  </figure>
+  <ol class="pasos">
+    <li>Escriba su pregunta en el campo <i>«Escriba aquí su consulta sobre el reglamento IJF SOR…»</i>, en español o en inglés.</li>
+    <li>Pulse <span class="ui">Enviar 📤</span>. La respuesta tarda unos segundos.</li>
+    <li>Lea la respuesta y compruébela en el PDF con las citas de página (secciones 5 y 6).</li>
+    <li>Para otra pregunta, escríbala en el mismo campo. Las anteriores quedan en el historial.</li>
+  </ol>
+  <h3>Consejos para obtener mejores respuestas</h3>
+  <ul>
+    <li><b>Sea concreto:</b> una situación, una categoría o un artículo. <i>«¿Cuántos shidos llevan a hansoku-make?»</i> funciona mejor que <i>«háblame de las penalizaciones»</i>.</li>
+    <li><b>Indique la categoría</b> cuando importe (cadete, júnior, sénior, veteranos).</li>
+    <li><b>Una duda por consulta.</b> Si su pregunta tiene varias partes, hágalas por separado.</li>
+  </ul>
+</section>
+
+<!-- ============ 4 ============ -->
+<section>
+  <h2>4. Dictar la consulta por voz</h2>
+  <ol class="pasos">
+    <li>Pulse <span class="ui">🎤 Dictar</span>. La primera vez, el navegador le pedirá permiso para usar el micrófono: acéptelo.</li>
+    <li>Cuando aparezca <i>«Escuchando…»</i>, diga su pregunta. Pulse <span class="ui">Detener</span> si quiere terminar antes.</li>
+    <li>El texto se <b>añade</b> al campo de consulta y aparece <i>«Texto añadido a la consulta. Revíselo y pulse Enviar.»</i></li>
+    <li>Corrija el texto si hace falta y pulse <span class="ui">Enviar 📤</span>. <b>El dictado nunca envía la consulta por sí solo.</b></li>
+  </ol>
+  <ul>
+    <li><b>Idioma del dictado:</b> el que esté elegido en la barra lateral (español o inglés). Si cambia el idioma o el tema mientras dicta, el dictado se detiene; pulse <span class="ui">🎤 Dictar</span> de nuevo.</li>
+    <li><b>Requisitos:</b> un navegador compatible con el reconocimiento de voz, micrófono y permiso concedido. Si su navegador no lo admite, verá un aviso y podrá seguir escribiendo.</li>
+  </ul>
+  <div class="nota"><b>Privacidad.</b> El reconocimiento de voz lo realiza su navegador (según el navegador, con un servicio en línea de su proveedor). La aplicación no graba ni guarda audio.</div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section class="salto">
+  <h2>5. Leer la respuesta</h2>
+  <p>La respuesta aparece bajo el campo de consulta, en la pestaña <span class="ui">📝 Consulta actual</span>, con el título <b>«Respuesta oficial (verificada con el SOR 2026)»</b>. Se organiza así:</p>
+  <table>
+    <tr><th style="width:36%">Parte</th><th>Qué contiene</th></tr>
+    <tr><td><b>Respuesta</b></td><td>La contestación directa a su pregunta.</td></tr>
+    <tr><td><b>Regla normativa aplicable</b></td><td>Los artículos y apartados del SOR que la fundamentan.</td></tr>
+    <tr><td><b>Condiciones, excepciones y diferencias por categoría</b></td><td>Matices que cambian la respuesta, cuando existen.</td></tr>
+    <tr><td>Citas <span class="ui">📍 Art. · Pág.</span> y enlaces <span class="ui">📄 Pág.</span></td><td>Llevan a la página del PDF oficial donde está la regla.</td></tr>
+    <tr><td>Aviso de origen</td><td>Indica cómo se obtuvo la respuesta; por ejemplo, <i>«🤖 Respuesta LLM · generada por …»</i> a partir de los pasajes del SOR y revisada por el control de integridad, o <i>«Respuesta local»</i> sin modelo generativo.</td></tr>
+    <tr><td><span class="ui">Evidencias Normativas Certificadas</span></td><td>Los pasajes oficiales que usa la respuesta, con artículo, página y la cita textual. Hay más en <span class="ui">Ver evidencias complementarias adicionales</span>.</td></tr>
+    <tr><td><span class="ui">📚 Trazabilidad y Citas</span> / <span class="ui">🕸️ Subgrafo Relacional</span></td><td>Detalle de las citas y relaciones entre los artículos, para quien quiera profundizar.</td></tr>
+  </table>
+  <div class="nota"><b>Recomendación:</b> antes de aplicar una respuesta, abra al menos una cita y lea la regla en el PDF oficial.</div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section>
+  <h2>6. Comprobar en el PDF oficial</h2>
+  <ul>
+    <li><b>Desde una cita:</b> pulse <span class="ui">📍 Art. · Pág.</span> o <span class="ui">📄 Pág.</span> para abrir el PDF oficial en esa página.</li>
+    <li><b>Desde una evidencia:</b> pulse <span class="ui">Consultar en PDF (Pág. N)</span>.</li>
+    <li><b>Visor integrado:</b> <span class="ui">📖 Mostrar Visor PDF</span> abre el reglamento dentro de la aplicación, junto a la respuesta, con <span class="ui">◀ Ant</span> / <span class="ui">Sig ▶</span>, zoom, <span class="ui">Ajustar</span>, <span class="ui">🔍 Resaltar</span> para marcar la cita y <span class="ui">↗ Pestaña oficial</span> para abrirlo en una pestaña nueva.</li>
+  </ul>
+  <p style="font-size:9.5pt;color:var(--gris)">El PDF oficial pesa unos 29 MB: con conexiones lentas puede tardar en cargarse. Si el visor no carga, use <span class="ui">↗ Pestaña oficial</span>.</p>
+</section>
+
+<!-- ============ 7 ============ -->
+<section>
+  <h2>7. Cuando el asistente no responde</h2>
+  <p>Si el reglamento no contiene información suficiente, o la respuesta no puede comprobarse con el texto oficial, el asistente <b>se abstiene</b>: muestra <i>«⛔ Sin respuesta · no se emite dictamen»</i> en lugar de suponer. Cuando los hay, los pasajes consultados quedan disponibles como referencia.</p>
+  <ul>
+    <li>Reformule la pregunta con más detalle (categoría, situación, artículo).</li>
+    <li>Compruebe que el tema está en el alcance del asistente.</li>
+  </ul>
+  <p>Si el servicio de IA no está disponible temporalmente, el asistente tampoco genera respuestas sin comprobar: lo indicará y podrá intentarlo más tarde (aviso <span class="ui">🛡️ Disponibilidad del servicio</span>).</p>
+</section>
+
+<!-- ============ 8 ============ -->
+<section class="salto">
+  <h2>8. Historial y reportes</h2>
+  <ul>
+    <li><b>Historial:</b> la pestaña <span class="ui">🗂️ Historial de consultas (N)</span> guarda las preguntas de esta sesión. Use <span class="ui">Abrir como consulta actual</span> para volver a una. El historial se pierde al cerrar o recargar la página.</li>
+    <li><b>Reportar un error o una sugerencia:</b> bajo la respuesta, abra <span class="ui">💬 Ayúdanos a mejorar</span>, elija el tipo de observación, descríbala y, si quiere, adjunte una imagen o PDF (PNG, JPG o PDF, máx. 5 MB). Pulse <span class="ui">Enviar reporte 📨</span>; recibirá un identificador del reporte.</li>
+  </ul>
+</section>
+
+<!-- ============ 9 ============ -->
+<section>
+  <h2>9. Barra lateral: idioma, tema e información</h2>
+  <div class="dos">
+    <div>
+      <table>
+        <tr><th style="width:38%">Opción</th><th>Uso</th></tr>
+        <tr><td><span class="ui">🌐 Idioma / Language</span></td><td>Español o inglés. Cambia la interfaz, las respuestas y el idioma del dictado.</td></tr>
+        <tr><td><span class="ui">🎨 Tema / Theme</span></td><td>Automático (según su sistema), Claro u Oscuro.</td></tr>
+        <tr><td><span class="ui">📘 Cómo usar el asistente</span></td><td>Ayuda breve: cómo consultar, cómo leer la respuesta, cuándo no responde, historial y reportes.</td></tr>
+        <tr><td><span class="ui">ℹ️ Acerca del asistente</span></td><td>Proyecto y propósito, fuentes oficiales, versión y autor.</td></tr>
+      </table>
+      <p>En <b>Acerca del asistente → Versión</b> puede confirmar la edición del reglamento, la huella del PDF oficial (SHA-256) y la versión de la aplicación.</p>
+    </div>
+    <figure class="estrecha">
+      <img src="img/sidebar_about.png" alt="Barra lateral con Acerca del asistente y Versión abiertos">
+      <figcaption>Captura real: Acerca del asistente → Versión.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section class="salto">
+  <h2>10. Uso en el móvil</h2>
+  <div class="dos">
+    <figure class="estrecha">
+      <img src="img/home_mobile.png" alt="Pantalla principal en un teléfono">
+      <figcaption>Captura real en un teléfono (390 px de ancho).</figcaption>
+    </figure>
+    <div>
+      <ul>
+        <li>La aplicación se adapta a la pantalla del teléfono; no necesita instalar nada.</li>
+        <li>La barra lateral se abre con <span class="ui">☰ Menú lateral</span>.</li>
+        <li><span class="ui">Enviar</span> y <span class="ui">🎤 Dictar</span> aparecen bajo el campo de consulta.</li>
+        <li>Para dictar, el navegador del teléfono le pedirá permiso de micrófono.</li>
+        <li>Los enlaces al PDF abren el reglamento en la página indicada.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section class="salto">
+  <h2>11. Ejemplos de consultas</h2>
+  <p>Estas consultas se hicieron en la aplicación publicada el 21-11-2026. La columna derecha indica dónde está la respuesta en el SOR, para que pueda comprobarla.</p>
+  <table>
+    <tr><th style="width:52%">Consulta</th><th>Qué respondió el asistente</th></tr>
+    <tr><td>¿Cuántos shidos llevan a hansoku-make?</td><td>Tres shidos · Pág. 176</td></tr>
+    <tr><td>¿Cuál es la tolerancia del pesaje aleatorio?</td><td>5 % · Pág. 79</td></tr>
+    <tr><td>¿Qué pasa si un cadete defiende con la cabeza?</td><td>Shido · Art. 18.1.4, Pág. 188</td></tr>
+    <tr><td>¿De qué colores debe ser el judogi?</td><td>Blanco y azul · Pág. 124</td></tr>
+    <tr><td>¿Cuánto tiempo de osaekomi da ippon?</td><td>20 segundos · Pág. 152</td></tr>
+    <tr><td><i>How long is a senior contest?</i></td><td>4 minutes · Pág. 152 (consulta en inglés)</td></tr>
+  </table>
+  <p style="font-size:9.5pt;color:var(--gris)">La redacción de la respuesta puede variar entre consultas; la regla citada y su página son las que debe comprobar.</p>
+</section>
+
+<!-- ============ 12 ============ -->
+<section>
+  <h2>12. Solución de problemas</h2>
+  <table>
+    <tr><th style="width:38%">Situación o mensaje</th><th>Qué hacer</th></tr>
+    <tr><td>⛔ Sin respuesta · no se emite dictamen</td><td>Reformule con más detalle o compruebe el alcance (sección 7).</td></tr>
+    <tr><td>El servicio no está disponible</td><td>Espere unos minutos e inténtelo de nuevo.</td></tr>
+    <tr><td><i>Permiso de micrófono denegado…</i></td><td>Permita el micrófono para este sitio en la configuración del navegador, o escriba la consulta.</td></tr>
+    <tr><td><i>No se encontró un micrófono disponible…</i></td><td>Conecte o active un micrófono, o escriba la consulta.</td></tr>
+    <tr><td><i>Este navegador no permite dictar…</i></td><td>Use un navegador compatible con el dictado (por ejemplo, Chrome actualizado) o escriba la consulta.</td></tr>
+    <tr><td><i>El servicio de voz del navegador no está disponible…</i></td><td>Revise su conexión a internet e inténtelo más tarde.</td></tr>
+    <tr><td><i>No se detectó voz…</i></td><td>Pulse <span class="ui">🎤 Dictar</span> y hable más cerca del micrófono.</td></tr>
+    <tr><td><i>Dictado detenido por un cambio de idioma o de tema…</i></td><td>Pulse <span class="ui">🎤 Dictar</span> de nuevo.</td></tr>
+    <tr><td>El visor PDF no carga</td><td>Espere (el PDF es grande) o use <span class="ui">↗ Pestaña oficial</span>.</td></tr>
+    <tr><td>Encontré un error en una respuesta</td><td>Repórtelo en <span class="ui">💬 Ayúdanos a mejorar</span> (sección 8).</td></tr>
+  </table>
+  <div class="nota nobreak"><b>Versión de esta guía:</b> corresponde a IJF SOR Assistant <b>1.5.0</b> (21-11-2026) y al SOR IJF, edición oficial del 14 de agosto de 2026. Huella del PDF oficial (SHA-256), tal como la muestra la aplicación: <code>9426b10d11c21a4c…</code></div>
+</section>
+
+</body>
+</html>
