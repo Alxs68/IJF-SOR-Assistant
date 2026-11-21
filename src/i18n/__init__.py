@@ -20,29 +20,52 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         
         # Sidebar sections
         "sidebar_info_title": "ℹ️ Information",
-        "sidebar_project_title": "1. Project",
-        "sidebar_project_content": (
-            "**IJF SOR Assistant**\n\n"
-            "The IJF SOR Assistant is a dedicated expert system engineered to facilitate the inquiry, "
-            "interpretation, and understanding of the *Sport and Organisation Rules (SOR)* of the International Judo Federation (IJF).\n\n"
-            "Its mission is to provide authoritative answers grounded strictly in certified official documentation, "
-            "delivering rapid, precise, and structured access to the regulatory framework governing international judo refereeing and competition."
+        # How to use the assistant (sidebar audit 2026-11-21)
+        "sidebar_howto_title": "📘 How to use the assistant",
+        "sidebar_howto_ask_title": "How to ask",
+        "sidebar_howto_ask_content": (
+            "Type your question in natural language, in Spanish or English, and press <b>Submit</b>. "
+            "Specific questions (a situation, a category or an article) get more precise answers. "
+            "If your question has several parts, ask them separately."
         ),
-        "sidebar_purpose_title": "2. Purpose",
-        "sidebar_purpose_content": (
-            "This application was developed to support study, preparation, and authoritative reference "
-            "for the official IJF regulations.\n\n"
-            "The assistant structures and presents official provisions clearly, facilitating regulatory access for referees, coaches, "
-            "athletes, and all members of the international judo community.\n\n"
-            "All generated answers serve as technical and educational guidance. In any event of discrepancy, the official "
-            "regulations published by the International Judo Federation and the decisions of its competent commissions always prevail."
+        "sidebar_howto_read_title": "How to read the answer",
+        "sidebar_howto_read_content": (
+            "The answer is based only on the official IJF SOR rules and is checked against the official text before "
+            "it is shown. It gives the answer, the applicable rule and, where relevant, the conditions and exceptions. "
+            "Click a citation <b>📍 Art. · Page</b> or a <b>📄 Page</b> link to open the official PDF on that page."
         ),
-        "sidebar_sources_title": "3. Official Sources",
+        "sidebar_howto_abstain_title": "When it does not answer",
+        "sidebar_howto_abstain_content": (
+            "If the rules do not contain enough information or the answer cannot be checked against the official text, "
+            "the assistant <b>abstains</b> and says so instead of guessing. When available, the passages it consulted "
+            "remain available for reference."
+        ),
+        "sidebar_howto_history_title": "History and reports",
+        "sidebar_howto_history_content": (
+            "In <b>Query history</b> you can return to the questions of this session. If you spot an error, use "
+            "<b>Help us improve</b>, below the answer."
+        ),
+        "sidebar_howto_notice_title": "Important",
+        "sidebar_howto_notice_content": (
+            "The assistant is a study and reference aid. In a refereeing decision or a dispute, the official SOR text "
+            "and the decisions of the competent IJF bodies always prevail."
+        ),
+        # About the assistant
+        "sidebar_about_title": "ℹ️ About the assistant",
+        "sidebar_about_project_title": "Project and purpose",
+        "sidebar_about_project_content": (
+            "<b>IJF SOR Assistant</b> helps referees, coaches, athletes and the wider judo community consult the "
+            "<i>Sport and Organisation Rules</i> (SOR) of the International Judo Federation, with answers grounded in "
+            "the official text and linked to its page."
+        ),
+        "sidebar_rules_edition": "official edition of 14 August 2026",
+        "sidebar_sources_title": "Official sources",
         "sidebar_sources_content": (
-            "This assistant operates exclusively on official publications of the International Judo Federation (IJF), "
-            "including the Sport and Organisation Rules (SOR), refereeing guidelines, technical circulars, and official appendices."
+            "Answers are based exclusively on the IJF SOR, {edition}. Some answers include complementary links to "
+            "official IJF resources (rules portal, refereeing videos, news releases). They are reference material and "
+            "do not replace the SOR."
         ),
-        "sidebar_author_title": "4. Author",
+        "sidebar_author_title": "Author",
         "sidebar_author_content": (
             "**Alexis Oliveros**\n\n"
             "National Judo Referee – Colombia\n\n"
@@ -50,25 +73,15 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
             "Lead Developer of the **IJF SOR Assistant** project.\n\n"
             "© 2026 Alexis Oliveros. All rights reserved."
         ),
-        "sidebar_version_title": "5. Version",
-        "sidebar_version_label": "Version **3.2.0 (Lean RRE 3.0 / Multi-Source)**",
-        "sidebar_based_on": "Based on:",
-        "sidebar_source_hash": "Source SHA-256 hash:",
-        
-        # User Guide
-        "sidebar_guide_title": "6. User Guide",
-        "sidebar_guide_summary": (
-            "**Official User Guide (SOR 2026 Edition)**\n\n"
-            "Comprehensive manual covering interface navigation, query formulation, citation interpretation, "
-            "PDF viewer interaction, and regulatory compliance guidelines for referees, coaches, and athletes."
-        ),
-        "sidebar_guide_download_btn": "📥 Download User Guide (PDF)",
-        "sidebar_guide_quick_title": "📋 Quick Reference Guide",
-        "sidebar_guide_quick_content": (
-            "1. **Language:** Select *Español* or *English* at the top of the sidebar.\n"
-            "2. **Querying:** Type your question or click one of the quick suggestions.\n"
-            "3. **Citations:** Click blue citation badges to open the official PDF on the exact certified page.\n"
-            "4. **Disclaimer:** The assistant provides technical guidance. Always contrast critical rulings with the official IJF SOR."
+        "sidebar_version_title": "Version",
+        "sidebar_version_rules": "Rules: IJF SOR, {edition}",
+        "sidebar_source_hash": "Official PDF fingerprint (SHA-256):",
+        "sidebar_version_label": "Application updated on 2026-11-21",
+        # Service availability (replaces the quota card)
+        "availability_title": "🛡️ Service availability",
+        "availability_desc": (
+            "The assistant drafts and checks answers with an AI service. If that service is temporarily unavailable, "
+            "the assistant does not produce unchecked answers: it will say so and you can try again later."
         ),
         
         # Regulatory Edition
@@ -231,7 +244,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "feedback_error": "⚠️ {message}",
         
         # Administrative management
-        "sidebar_admin_title": "7. Observations Management",
+        "sidebar_admin_title": "🔒 Administration (restricted access)",
         "admin_auth_header": "🔐 Restricted Access - Observations Admin",
         "admin_auth_caption": "Authorized administration module to review, track, and update user observations.",
         "admin_token_label": "Administrative Access Token",
@@ -263,11 +276,8 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         
         # Scope and coverage expander
         "scope_expander_title": "📋 View topics included in assistant scope and coverage",
-        "quota_info_title": "⚡ Free AI Quotas & Service Continuity",
-        "quota_info_desc": ("This assistant operates with <b>free-tier</b> community AI models:<br>""• <b>Google Gemini:</b> Limit of 15 queries/min and 1,500/day.<br>""• <b>Groq (Backup):</b> Limit of 30 queries/min.<br>""<div style='margin-top: 6px; padding: 6px 8px; background: rgba(59, 130, 246, 0.08); border-radius: 6px; border: 1px solid var(--surface-card-border); font-size: 0.75rem;'>""🛡️ <b>What happens if a quota is reached?</b><br>""<b>The assistant DOES NOT stop working:</b> It automatically switches to <b>Local Alternative Mode</b> (certified algorithmic extraction from official SOR 2026), ensuring uninterrupted and 100% verifiable answers without external server dependencies.""</div>"),
         "local_fallback_banner_title": "⚡ Local Alternative Mode Active",
         "local_fallback_banner_desc": "The free-tier AI quota limit was reached (15 queries/min on Gemini or 30/min on Groq). The assistant continues operating normally via Local Alternative Mode (certified algorithmic extraction from official SOR 2026).",
-        "sidebar_docs_expander_title": "ℹ️ Project Information & Official Documentation",
         "sidebar_llm_expander_title": "⚙️ Assistant AI Configuration",
         "sidebar_kg_expander_title": "🕸️ Knowledge Graph (KG)",
         "sidebar_history_expander_title": "🕒 Query History",
@@ -382,23 +392,53 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         
         # Sidebar sections
         "sidebar_info_title": "ℹ️ Información",
-        "sidebar_project_title": "1. Proyecto",
-        "sidebar_project_content": (
-            "**IJF SOR Assistant**\n\n"
-            "El IJF SOR Assistant es un asistente especializado diseñado para facilitar la consulta y comprensión del *Sport and Organisation Rules (SOR)* de la Federación Internacional de Judo (IJF).\n\n"
-            "Su propósito es ofrecer respuestas fundamentadas exclusivamente en documentación oficial, permitiendo acceder de manera rápida y organizada a la información normativa utilizada en el arbitraje y la competición internacional."
+        # Como usar el asistente (auditoria de la barra lateral 2026-11-21)
+        "sidebar_howto_title": "📘 Cómo usar el asistente",
+        "sidebar_howto_ask_title": "Cómo consultar",
+        "sidebar_howto_ask_content": (
+            "Escriba su pregunta en lenguaje natural, en español o en inglés, y pulse <b>Enviar</b>. "
+            "Las preguntas concretas (una situación, una categoría o un artículo) obtienen respuestas más precisas. "
+            "Si su duda tiene varias partes, hágalas por separado."
         ),
-        "sidebar_purpose_title": "2. Propósito",
-        "sidebar_purpose_content": (
-            "Esta aplicación fue desarrollada con el objetivo de apoyar el estudio, la preparación y la consulta del reglamento oficial de la IJF.\n\n"
-            "El asistente organiza y presenta la información oficial de forma clara, facilitando el acceso al contenido normativo para árbitros, entrenadores, deportistas y demás miembros de la comunidad del judo.\n\n"
-            "Las respuestas generadas constituyen una ayuda documental y educativa. En caso de discrepancia o interpretación, siempre prevalecen los documentos oficiales publicados por la Federación Internacional de Judo y las decisiones adoptadas por sus órganos competentes."
+        "sidebar_howto_read_title": "Cómo leer la respuesta",
+        "sidebar_howto_read_content": (
+            "La respuesta se basa únicamente en el reglamento oficial SOR de la IJF y se comprueba contra el texto "
+            "oficial antes de mostrarse. Indica la respuesta, la regla aplicable y, cuando corresponde, las condiciones "
+            "y excepciones. Pulse una cita <b>📍 Art. · Pág.</b> o un enlace <b>📄 Pág.</b> para abrir el PDF oficial "
+            "en esa página."
         ),
-        "sidebar_sources_title": "3. Fuentes Oficiales",
+        "sidebar_howto_abstain_title": "Cuándo no responde",
+        "sidebar_howto_abstain_content": (
+            "Si el reglamento no contiene información suficiente o la respuesta no puede comprobarse con el texto "
+            "oficial, el asistente <b>se abstiene</b> y lo indica, en lugar de suponer. Cuando los hay, los pasajes "
+            "consultados quedan disponibles como referencia."
+        ),
+        "sidebar_howto_history_title": "Historial y reportes",
+        "sidebar_howto_history_content": (
+            "En <b>Historial de consultas</b> puede volver a las preguntas de esta sesión. Si detecta un error, use "
+            "<b>Ayúdanos a mejorar</b>, bajo la respuesta."
+        ),
+        "sidebar_howto_notice_title": "Importante",
+        "sidebar_howto_notice_content": (
+            "El asistente es una ayuda de estudio y consulta. Ante una decisión arbitral o una controversia, prevalecen "
+            "siempre el texto oficial del SOR y las decisiones de los órganos competentes de la IJF."
+        ),
+        # Acerca del asistente
+        "sidebar_about_title": "ℹ️ Acerca del asistente",
+        "sidebar_about_project_title": "Proyecto y propósito",
+        "sidebar_about_project_content": (
+            "<b>IJF SOR Assistant</b> facilita la consulta del <i>Sport and Organisation Rules</i> (SOR) de la "
+            "Federación Internacional de Judo a árbitros, entrenadores, deportistas y demás miembros de la comunidad "
+            "del judo, con respuestas fundamentadas en el texto oficial y enlazadas a su página."
+        ),
+        "sidebar_rules_edition": "edición oficial del 14 de agosto de 2026",
+        "sidebar_sources_title": "Fuentes oficiales",
         "sidebar_sources_content": (
-            "Este asistente utiliza exclusivamente fuentes oficiales publicadas por la Federación Internacional de Judo (IJF), incluyendo reglamentos, documentos técnicos, comunicados y otros recursos oficiales."
+            "Las respuestas se basan exclusivamente en el SOR de la IJF, {edition}. Algunas respuestas incluyen "
+            "enlaces complementarios a recursos oficiales de la IJF (portal de reglas, vídeos de arbitraje, "
+            "comunicados). Son material de consulta y no sustituyen al SOR."
         ),
-        "sidebar_author_title": "4. Autor",
+        "sidebar_author_title": "Autor",
         "sidebar_author_content": (
             "**Alexis Oliveros**\n\n"
             "Árbitro Nacional de Judo – Colombia\n\n"
@@ -406,25 +446,16 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
             "Desarrollador del proyecto **IJF SOR Assistant**.\n\n"
             "© 2026 Alexis Oliveros. Todos los derechos reservados."
         ),
-        "sidebar_version_title": "5. Versión",
-        "sidebar_version_label": "Versión **3.2.0 (Lean RRE 3.0 / Multi-Source)**",
-        "sidebar_based_on": "Basado en:",
-        "sidebar_source_hash": "Hash SHA-256 de fuente:",
-        
-        # User Guide
-        "sidebar_guide_title": "6. Guía de Usuario",
-        "sidebar_guide_summary": (
-            "**Guía Oficial de Usuario (Edición SOR 2026)**\n\n"
-            "Manual técnico integral sobre navegación de la interfaz, formulación de consultas normativas, "
-            "interpretación de citas y trazabilidad, interacción con el visor PDF y pautas de cotejo reglamentario para árbitros, entrenadores y competidores."
-        ),
-        "sidebar_guide_download_btn": "📥 Descargar Guía de Usuario (PDF)",
-        "sidebar_guide_quick_title": "📋 Guía Rápida de Referencia",
-        "sidebar_guide_quick_content": (
-            "1. **Idioma:** Seleccione *Español* o *English* en la parte superior de la barra lateral.\n"
-            "2. **Consulta:** Escriba su consulta técnica o seleccione una de las sugerencias predefinidas.\n"
-            "3. **Citas y Visor:** Haga clic en las píldoras de cita para abrir el visor interactivo en la página exacta oficial.\n"
-            "4. **Cotejo Obligatorio:** El asistente ofrece orientación técnica. Ante fallos arbitrales o controversias, contraste siempre la decisión con el texto oficial del IJF SOR."
+        "sidebar_version_title": "Versión",
+        "sidebar_version_rules": "Reglamento: SOR IJF, {edition}",
+        "sidebar_source_hash": "Huella del PDF oficial (SHA-256):",
+        "sidebar_version_label": "Aplicación actualizada el 21-11-2026",
+        # Disponibilidad del servicio (sustituye a la tarjeta de cuotas)
+        "availability_title": "🛡️ Disponibilidad del servicio",
+        "availability_desc": (
+            "El asistente redacta y comprueba las respuestas con un servicio de IA. Si ese servicio no está disponible "
+            "temporalmente, el asistente no genera respuestas sin comprobar: lo indicará y podrá intentarlo de nuevo "
+            "más tarde."
         ),
         
         # Regulatory Edition
@@ -587,7 +618,7 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "feedback_error": "⚠️ {message}",
         
         # Administrative management
-        "sidebar_admin_title": "7. Administración de Novedades",
+        "sidebar_admin_title": "🔒 Administración (acceso restringido)",
         "admin_auth_header": "🔐 Acceso Restringido — Administración de Novedades",
         "admin_auth_caption": "Módulo administrativo autorizado para revisar, dar seguimiento y gestionar observaciones técnicas.",
         "admin_token_label": "Token de Acceso Administrativo",
@@ -619,11 +650,8 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         
         # Scope and coverage expander
         "scope_expander_title": "📋 Ver temas incluidos en alcance y cobertura del asistente",
-        "quota_info_title": "⚡ Cuotas de IA Gratuita y Continuidad",
-        "quota_info_desc": ("Este asistente opera con modelos de IA en modalidad <b>gratuita</b> para la comunidad:<br>""• <b>Google Gemini:</b> Límite de 15 consultas/minuto y 1.500/día.<br>""• <b>Groq (Respaldo):</b> Límite de 30 consultas/minuto.<br>""<div style='margin-top: 6px; padding: 6px 8px; background: rgba(59, 130, 246, 0.08); border-radius: 6px; border: 1px solid var(--surface-card-border); font-size: 0.75rem;'>""🛡️ <b>¿Qué ocurre si se alcanza el límite de cuota?</b><br>""<b>El asistente NO deja de funcionar:</b> Se activa de inmediato el <b>Modo Alternativo Local</b> (extracción algorítmica certificada del SOR 2026 oficial), garantizando respuestas oficiales continuas y verificables sin depender de servidores externos.""</div>"),
         "local_fallback_banner_title": "⚡ Modo Alternativo Local Activo",
         "local_fallback_banner_desc": "Se ha alcanzado la cuota de consultas del modelo de IA gratuito o el servicio externo está temporalmente no disponible. El asistente está respondiendo mediante extracción directa certificada del SOR 2026 oficial, asegurando continuidad y fidelidad reglamentaria.",
-        "sidebar_docs_expander_title": "ℹ️ Información y Documentación del Proyecto",
         "sidebar_llm_expander_title": "⚙️ Configuración del Asistente (IA)",
         "sidebar_kg_expander_title": "🕸️ Grafo de Conocimiento (KG)",
         "sidebar_history_expander_title": "🕒 Historial de Consultas",

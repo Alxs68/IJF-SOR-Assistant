@@ -2426,69 +2426,7 @@ if "pdf_zoom" not in st.session_state:
 with st.sidebar:
     lang = st.session_state.ui_lang
 
-    # 1. EXPANDER: Información y Documentación del Proyecto (Colapsado con subtemas exclusivos)
-    with st.expander(t("sidebar_docs_expander_title", lang), expanded=False):
-        guide_pdf_path = os.path.join(
-            os.path.dirname(os.path.abspath(__file__)),
-            "docs", "guides", "IJF_SOR_Assistant_Guia_Usuario.pdf"
-        )
-        guide_b64 = ""
-        if os.path.exists(guide_pdf_path):
-            try:
-                with open(guide_pdf_path, "rb") as f_guide:
-                    guide_b64 = base64.b64encode(f_guide.read()).decode("utf-8")
-            except Exception:
-                pass
-
-        download_link_html = ""
-        if guide_b64:
-            download_link_html = f'<a href="data:application/pdf;base64,{guide_b64}" download="IJF_SOR_Assistant_Guia_Usuario.pdf" class="subtopic-download-btn">{t("sidebar_guide_download_btn", lang)}</a>'
-
-        quick_guide_formatted = t("sidebar_guide_quick_content", lang).replace("\n", "<br>")
-
-        st.markdown(f"""
-<details class="subtopic-accordion" name="doc_info_subtopics">
-  <summary class="subtopic-summary"><span>{t("sidebar_project_title", lang)}</span><span>▾</span></summary>
-  <div class="subtopic-body">{t("sidebar_project_content", lang)}</div>
-</details>
-
-<details class="subtopic-accordion" name="doc_info_subtopics">
-  <summary class="subtopic-summary"><span>{t("sidebar_purpose_title", lang)}</span><span>▾</span></summary>
-  <div class="subtopic-body">{t("sidebar_purpose_content", lang)}</div>
-</details>
-
-<details class="subtopic-accordion" name="doc_info_subtopics">
-  <summary class="subtopic-summary"><span>{t("sidebar_sources_title", lang)}</span><span>▾</span></summary>
-  <div class="subtopic-body">{t("sidebar_sources_content", lang)}</div>
-</details>
-
-<details class="subtopic-accordion" name="doc_info_subtopics">
-  <summary class="subtopic-summary"><span>{t("sidebar_author_title", lang)}</span><span>▾</span></summary>
-  <div class="subtopic-body">{t("sidebar_author_content", lang)}</div>
-</details>
-
-<details class="subtopic-accordion" name="doc_info_subtopics">
-  <summary class="subtopic-summary"><span>{t("sidebar_version_title", lang)}</span><span>▾</span></summary>
-  <div class="subtopic-body">
-    <strong>IJF SOR Assistant</strong><br>
-    {t("sidebar_version_label", lang)}<br><br>
-    {t("sidebar_based_on", lang)} <strong>{engine.config['version_label']}</strong><br>
-    {t("sidebar_source_hash", lang)} <code>{engine.config['source_sha256'][:16]}...</code>
-  </div>
-</details>
-
-<details class="subtopic-accordion" name="doc_info_subtopics">
-  <summary class="subtopic-summary"><span>{t("sidebar_guide_title", lang)}</span><span>▾</span></summary>
-  <div class="subtopic-body">
-    {t("sidebar_guide_summary", lang)}
-    {download_link_html}
-    <div style="margin-top:0.6rem; font-weight:600; color:var(--ijf-title-color);">{t("sidebar_guide_quick_title", lang)}</div>
-    <div style="font-size:0.8rem; margin-top:0.35rem; line-height:1.5;">{quick_guide_formatted}</div>
-  </div>
-</details>
-""", unsafe_allow_html=True)
-
-    # 2. Language Selection Widget (Español | English, Spanish as Default)
+    # 1. Language Selection Widget (Español | English, Spanish as Default)
     lang_options = [("🇪🇸 Español", "es"), ("🇬🇧 English", "en")]
     cur_lang_idx = 0 if st.session_state.ui_lang == "es" else 1
     selected_lang_tuple = st.selectbox(
@@ -2525,10 +2463,39 @@ with st.sidebar:
         st.session_state.app_theme = selected_theme_tuple[1]
         st.rerun()
 
-    # 4. Nota Informativa de Cuotas de IA y Continuidad
+    # Subtemas desplegables (exclusivos dentro de cada grupo). Textos en src/i18n; auditoria 2026-11-21.
+    def _subtopics(group, items):
+        return "".join(
+            f'<details class="subtopic-accordion" name="{group}">'
+            f'<summary class="subtopic-summary"><span>{title}</span><span>▾</span></summary>'
+            f'<div class="subtopic-body">{body}</div></details>'
+            for title, body in items)
+
+    # 3. Como usar el asistente (lo primero que necesita el usuario)
+    with st.expander(t("sidebar_howto_title", lang), expanded=False):
+        st.markdown(_subtopics("howto_subtopics", [
+            (t(f"sidebar_howto_{k}_title", lang), t(f"sidebar_howto_{k}_content", lang))
+            for k in ("ask", "read", "abstain", "history", "notice")]), unsafe_allow_html=True)
+
+    # 4. Acerca del asistente. La guia PDF (docs/guides) no se enlaza hasta rehacerla: describia controles retirados.
+    _edition = t("sidebar_rules_edition", lang)
+    _version_html = (
+        f'{t("sidebar_version_rules", lang, edition=_edition)}<br>'
+        f'{t("sidebar_source_hash", lang)} <code>{engine.config["source_sha256"][:16]}…</code><br>'
+        f'{t("sidebar_version_label", lang)}')
+    with st.expander(t("sidebar_about_title", lang), expanded=False):
+        st.markdown(_subtopics("about_subtopics", [
+            (t("sidebar_about_project_title", lang), t("sidebar_about_project_content", lang)),
+            (t("sidebar_sources_title", lang), t("sidebar_sources_content", lang, edition=_edition)),
+            (t("sidebar_version_title", lang), _version_html),
+            (t("sidebar_author_title", lang),
+             re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t("sidebar_author_content", lang)).replace("\n\n", "<br>")),
+        ]), unsafe_allow_html=True)
+
+    # 5. Disponibilidad del servicio (sin proveedores ni cuotas: no ayudan a consultar)
     st.markdown(f"""<div class="quota-info-card">
-<div class="quota-info-title">{t('quota_info_title', lang)}</div>
-<div class="quota-info-body">{t('quota_info_desc', lang)}</div>
+<div class="quota-info-title">{t('availability_title', lang)}</div>
+<div class="quota-info-body">{t('availability_desc', lang)}</div>
 </div>""", unsafe_allow_html=True)
 
     st.write("---")
