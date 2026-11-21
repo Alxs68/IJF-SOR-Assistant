@@ -69,11 +69,28 @@ def test_ui_labels_named_in_help_exist():
         assert send in help_text and hist in help_text and fb in help_text
 
 
-def test_app_sidebar_order_and_guide_not_linked():
+def test_app_sidebar_order_and_guide_linked():
     with open(os.path.join(ROOT, "app.py"), encoding="utf-8") as f:
         src = f.read()
     block = src[src.index("with st.sidebar:"):src.index("Client-side Exclusive Accordion")]
     order = [block.index(s) for s in ('t("lang_selector_label"', '"🎨 "', 't("sidebar_howto_title"',
                                        't("sidebar_about_title"', "t('availability_title'", 't("sidebar_admin_title"')]
     assert order == sorted(order)
-    assert "IJF_SOR_Assistant_Guia_Usuario.pdf" not in block and "quota_info" not in block
+    assert "quota_info" not in block
+    # La guia de uso v1.5.0 se descarga desde "Acerca del asistente", antes de "Disponibilidad del servicio".
+    about, avail = block.index('t("sidebar_about_title"'), block.index("t('availability_title'")
+    assert about < block.index("_user_guide_pdf()") < block.index('t("sidebar_guide_btn"') < avail
+
+
+def test_user_guide_pdf_matches_app_version():
+    import pypdf
+    path = os.path.join(ROOT, "docs", "guides", "IJF_SOR_Assistant_Guia_Usuario.pdf")
+    with open(path, "rb") as f:
+        assert f.read(5) == b"%PDF-"
+    from app_version import APP_VERSION
+    reader = pypdf.PdfReader(path)
+    assert f"v{APP_VERSION}" in (reader.metadata.title or "")
+    assert APP_VERSION in reader.pages[0].extract_text()
+    for lang in ("es", "en"):
+        assert "PDF" in t("sidebar_guide_btn", lang)
+        assert APP_VERSION in t("sidebar_guide_help", lang, version=APP_VERSION)

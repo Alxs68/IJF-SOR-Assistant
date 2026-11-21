@@ -80,6 +80,8 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_version_rules": "Rules: IJF SOR, {edition}",
         "sidebar_source_hash": "Official PDF fingerprint (SHA-256):",
         "sidebar_version_label": "Version {version} · updated on 2026-11-21",
+        "sidebar_guide_btn": "📥 User guide (PDF, in Spanish)",
+        "sidebar_guide_help": "Download the user guide for version {version}: how to ask, dictate, read the answer and check it in the official PDF.",
         # Voice input (browser Web Speech API)
         "voice_btn_start": "🎤 Dictate",
         "voice_btn_stop": "Stop",
@@ -473,6 +475,8 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "sidebar_version_rules": "Reglamento: SOR IJF, {edition}",
         "sidebar_source_hash": "Huella del PDF oficial (SHA-256):",
         "sidebar_version_label": "Versión {version} · actualizada el 21-11-2026",
+        "sidebar_guide_btn": "📥 Guía de uso (PDF)",
+        "sidebar_guide_help": "Descargue la guía de uso de la versión {version}: cómo consultar, dictar, leer la respuesta y comprobarla en el PDF oficial.",
         # Consulta por voz (Web Speech API del navegador)
         "voice_btn_start": "🎤 Dictar",
         "voice_btn_stop": "Detener",

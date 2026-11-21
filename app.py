@@ -1588,6 +1588,21 @@ def _pdf_page_count() -> int:
     return len(_pdf_page_texts())
 
 
+USER_GUIDE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "docs", "guides",
+                               "IJF_SOR_Assistant_Guia_Usuario.pdf")
+USER_GUIDE_FILENAME = f"IJF_SOR_Assistant_Guia_de_uso_v{APP_VERSION}.pdf"
+
+
+@st.cache_data(show_spinner=False)
+def _user_guide_pdf() -> bytes:
+    """Guia de uso en PDF para la descarga de la barra lateral; vacio si falta el archivo."""
+    try:
+        with open(USER_GUIDE_PATH, "rb") as f:
+            return f.read()
+    except OSError:
+        return b""
+
+
 def _pdf_reset_search(clear_input: bool = False):
     st.session_state.pdf_search_term = ""
     st.session_state.pdf_matches = []
@@ -2479,7 +2494,7 @@ with st.sidebar:
             (t(f"sidebar_howto_{k}_title", lang), t(f"sidebar_howto_{k}_content", lang))
             for k in ("ask", "read", "abstain", "history", "notice")]), unsafe_allow_html=True)
 
-    # 4. Acerca del asistente. La guia PDF (docs/guides) no se enlaza hasta rehacerla: describia controles retirados.
+    # 4. Acerca del asistente, con la descarga de la guia de uso v1.5.0 (docs/guides, rehecha el 2026-11-21).
     _edition = t("sidebar_rules_edition", lang)
     _version_html = (
         f'{t("sidebar_version_rules", lang, edition=_edition)}<br>'
@@ -2493,6 +2508,11 @@ with st.sidebar:
             (t("sidebar_author_title", lang),
              re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t("sidebar_author_content", lang)).replace("\n\n", "<br>")),
         ]), unsafe_allow_html=True)
+        _guide = _user_guide_pdf()
+        if _guide:
+            st.download_button(t("sidebar_guide_btn", lang), data=_guide, file_name=USER_GUIDE_FILENAME,
+                               mime="application/pdf", help=t("sidebar_guide_help", lang, version=APP_VERSION),
+                               use_container_width=True, key="sidebar_user_guide")
 
     # 5. Disponibilidad del servicio (sin proveedores ni cuotas: no ayudan a consultar)
     st.markdown(f"""<div class="quota-info-card">
