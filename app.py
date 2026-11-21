@@ -35,6 +35,7 @@ from feedback_manager import (
 from i18n import t
 from response_structurer import clean_presentation_text, sanitize_presentation_html
 import answer_presentation as _ap
+import citation_render as _cr
 from usage_tracker import get_usage_tracker, record_user_query
 
 usage_tracker = get_usage_tracker()
@@ -170,6 +171,10 @@ dark_theme_vars = """
         --secondary-background-color: #1e293b;
         --text-color: #f8fafc;
 """
+
+# Tokens de color de las referencias normativas (enlaces, distintivos y pildoras) en ambos temas.
+light_theme_vars += _cr.THEME_VARS_LIGHT
+dark_theme_vars += _cr.THEME_VARS_DARK
 
 if theme_mode == "dark":
     active_theme_tokens = f":root {{\n{dark_theme_vars}\n}}"
@@ -1504,6 +1509,7 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+st.markdown(f"<style>{_cr.CSS}</style>", unsafe_allow_html=True)
 
 def get_base64_logo(path):
     if os.path.exists(path):
@@ -3038,8 +3044,62 @@ def _render_evidence_card(ev_item, btn_key):
 
 
 
+def _citation_context(item, struct):
+    """Destinos verificados de las referencias de una respuesta (None si ADA_CITATION_UI=0): citas certificadas de la
+    respuesta para el SOR y resolucion del RRM para normas complementarias (enlace solo a documentos concretos)."""
+    if not _cr.enabled():
+        return None
+    cits = struct.get("citations") if isinstance(struct, dict) else None
+    comp = []
+    for kun in item.get("trazabilidad") or []:
+        kid = kun.get("id_conocimiento") if isinstance(kun, dict) else None
+        if not kid:
+            continue
+        try:
+            res_rrm = _rrm_manager.resolve_reference(kid, kun)
+        except Exception:
+            continue
+        src = kun.get("fuente_origen")
+        name = (RESOURCE_DETAILS.get(src) or {}).get("name") or kun.get("titulo") or kid
+        comp.append({"id": kid, "name": name, "url": res_rrm.get("url"), "is_clickable": res_rrm.get("is_clickable", False)})
+    return {"targets": _cr.build_targets(cits or []), "complementary": _cr.build_complementary(comp)}
+
+
+def _rich_html(text, ctx):
+    """Texto de la respuesta como HTML seguro: con referencias interactivas si hay contexto, o como antes."""
+    if ctx is None:
+        return sanitize_presentation_html(clean_presentation_text(text))
+    return _cr.render_rich_text(text, ctx["targets"], ctx["complementary"], lang=lang)
+
+
+def _render_detail(text, ctx):
+    """Campo de la fundamentacion desplegable (vista no unificada): con referencias interactivas y sin codigos
+    tecnicos si hay contexto; si ADA_CITATION_UI=0, como antes (Markdown del texto)."""
+    if ctx is None:
+        st.markdown(text)
+    else:
+        st.markdown(_rich_html(text, ctx), unsafe_allow_html=True)
+
+
+def _render_citation_pills(original_i, citations_list):
+    """Pildoras "📍 Art. X · Pág. N" bajo la respuesta: abren el visor PDF interno en la pagina y resaltan la cita."""
+    if not _cr.enabled():
+        return
+    def _open_in_viewer(pill):
+        _pdf_reset_search(clear_input=True)
+        st.session_state.pdf_page = int(pill["page"])
+        st.session_state.pdf_quote = pill["quote"]
+        st.session_state.pdf_article = pill["label"]
+        st.session_state.pdf_visible = True
+        st.rerun()
+
+    _cr.render_pills(st, _cr.build_citation_pills(citations_list, lang), f"ijf_cit_pills_{original_i}",
+                     t("citations_title_label", lang), _open_in_viewer)
+
+
 def _render_answer_block(item, struct, clean_summary):
     """Origen de la respuesta, avisos de modo y respuesta visible. Devuelve el resumen limpio mostrado."""
+    cite_ctx = _citation_context(item, struct)
     item_llm_meta = item.get("llm_meta", {})
     succ_prov = item_llm_meta.get("successful_provider")
     prim_prov = item_llm_meta.get("primary_provider", "")
@@ -3079,9 +3139,11 @@ def _render_answer_block(item, struct, clean_summary):
             for _field, _title, _text in _ap.unified_sections(struct, lang):
                 if _title:
                     st.markdown(f"##### {html.escape(_title)}")
-                st.markdown(sanitize_presentation_html(clean_presentation_text(_text)), unsafe_allow_html=True)
+                st.markdown(_rich_html(_text, cite_ctx), unsafe_allow_html=True)
     elif clean_summary:
-        safe_summary = sanitize_presentation_html(clean_summary)
+        safe_summary = (_rich_html(struct["summary"], cite_ctx)
+                        if cite_ctx is not None and isinstance(struct, dict) and struct.get("summary")
+                        else sanitize_presentation_html(clean_summary))
         box_title = t("tier1_box_header", lang)
         safe_title = html.escape(box_title)
         st.markdown(
@@ -3166,6 +3228,8 @@ def _render_query_item(original_i, item):
         prim_prov = item_llm_meta.get("primary_provider", "")
         struct, citations_list, clean_summary, evidence_entries = _prepare_item_view(item)
         clean_summary = _render_answer_block(item, struct, clean_summary)
+        _render_citation_pills(original_i, citations_list)
+        cite_ctx = _citation_context(item, struct)
         unified_view = isinstance(struct, dict) and bool(struct) and _ap.unified_enabled(struct)
         p_tok, c_tok, t_tok, tok_state = _item_token_usage(item)
         live_avg = usage_tracker.get_metrics()["avg_tokens_per_query"]
@@ -3192,20 +3256,20 @@ def _render_query_item(original_i, item):
                 with st.expander(t("view_details_expander", lang), expanded=False):
                     if struct.get("extended_analysis"):
                         st.markdown(f"#### {t('sec_extended', lang)}")
-                        st.markdown(struct["extended_analysis"])
+                        _render_detail(struct["extended_analysis"], cite_ctx)
                     if struct.get("normative_basis"):
                         st.markdown(f"#### {t('sec_normative_basis', lang)}")
-                        st.markdown(struct["normative_basis"])
+                        _render_detail(struct["normative_basis"], cite_ctx)
                     if struct.get("conditions_and_exceptions"):
                         st.markdown(f"#### {t('sec_conditions', lang)}")
-                        st.markdown(struct["conditions_and_exceptions"])
+                        _render_detail(struct["conditions_and_exceptions"], cite_ctx)
                     if has_graph:
                         st.markdown(f"#### {t('sec_graph_relations', lang)}")
                         st.caption(t('graph_caption_relations', lang))
                         st.graphviz_chart(item['dot_code'])
                     if struct.get("limitations"):
                         st.markdown(f"#### {t('sec_limitations', lang)}")
-                        st.markdown(struct["limitations"])
+                        _render_detail(struct["limitations"], cite_ctx)
         elif "\n\n---\n\n" in item.get('answer', ''):
             parts = item.get('answer', '').split("\n\n---\n\n", 1)
             with st.expander(t("view_details_expander", lang), expanded=False):

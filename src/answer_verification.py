@@ -9,6 +9,9 @@ Capa 1 (determinista, por cita y por frase):
   - una cita es valida si es literal de un pasaje SOR ENTREGADO (las de SHADOW no lo son);
   - un pasaje citado sin cita valida se retira: se quita su identificador y las frases que solo se apoyaban en el;
   - una frase con una cifra afirmada que no figura en los pasajes citados (ni en la consulta) se retira.
+  - capa 1d (ADA_REFERENCE_CHECK=shadow; desactivada por defecto): integridad de las referencias normativas
+    (src/reference_integrity.py). SOLO REGISTRO en registro['verification']['references']: no modifica la respuesta,
+    ni la decision, ni el verificador LLM. Separada de la capa 1c (cifras, DIG-06): no reutiliza ni altera su logica.
 Capa 2 (verificador LLM, una llamada): pertinencia de cada cita, respaldo de cada frase CONTRA LOS PASAJES CITADOS
   (condiciones invertidas, cifras, alcance) y si la respuesta contesta la pregunta. Se retiran las citas no
   pertinentes y las frases sin respaldo.
@@ -68,6 +71,41 @@ ANSWER SENTENCES:
 
 def enabled():
     return os.environ.get("ADA_VERIFICATION_V4", "").strip() == "1"
+
+
+# Capa 1d: unico modo implementado. Cualquier otro valor (incluido '1') deja la capa desactivada.
+REFERENCE_CHECK_MODES = ("shadow",)
+# Campos de cada resultado que se registran: identificadores, etiquetas y veredicto; nunca el texto de la frase.
+REFERENCE_LOG_FIELDS = ("referencia", "etiqueta", "tipo", "pasajes_citados", "veredicto", "motivo", "confianza",
+                        "accion_recomendada", "ubicacion_en_corpus", "veredicto_con_citas_respuesta")
+
+
+def reference_check_mode():
+    """ADA_REFERENCE_CHECK: 'shadow' -> 'shadow'; ausente, vacia o cualquier otro valor -> None (desactivada)."""
+    mode = os.environ.get("ADA_REFERENCE_CHECK", "").strip().lower()
+    return mode if mode in REFERENCE_CHECK_MODES else None
+
+
+def reference_shadow(obj):
+    """Capa 1d en modo shadow: valida las referencias normativas de cada frase y devuelve SOLO un registro.
+
+    No recibe ni devuelve la respuesta: lee los campos de 'obj' y nunca los escribe. Cualquier excepcion del modulo
+    se registra y no interrumpe la verificacion."""
+    t0 = time.perf_counter()
+    log = {"mode": "shadow", "sentences": 0, "findings": [], "counts": {}}
+    try:
+        import reference_integrity as R   # importacion diferida: con la capa desactivada el modulo no se carga
+        answer_ids = sorted(set(D.SOR_ID.findall(" ".join(str(obj.get(f) or "") for f in FIELDS))))
+        for field in FIELDS:
+            for n, unit in enumerate(_units(obj.get(field)), 1):
+                log["sentences"] += 1
+                for v in R.check(unit, None, answer_ids):
+                    log["findings"].append({"field": field, "n": n, **{k: v.get(k) for k in REFERENCE_LOG_FIELDS}})
+                    log["counts"][v.get("veredicto")] = log["counts"].get(v.get("veredicto"), 0) + 1
+    except Exception as e:  # noqa: BLE001 - la capa shadow nunca interrumpe la verificacion
+        log["error"] = re.sub(r"key=[^&\s'\"]+", "key=REDACTED", f"{type(e).__name__}: {e}")[:200]
+    log["secs"] = round(time.perf_counter() - t0, 4)
+    return log
 
 
 def verifier_model():
@@ -265,6 +303,9 @@ def verify(answer, query, search_query_en, evidence, related, gate, llm_call=Non
             else:
                 kept.append(u)
         obj[field] = " ".join(kept).strip()
+    # ---- Capa 1d: referencias normativas (solo registro, ADA_REFERENCE_CHECK=shadow) ----------------------------
+    if reference_check_mode() == "shadow":
+        rec["references"] = reference_shadow(obj)
 
     # ---- Capa 2: verificador LLM --------------------------------------------------------------------------------
     sentences = [{"field": f, "text": u} for f in FIELDS for u in _units(obj.get(f))]

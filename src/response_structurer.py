@@ -19,7 +19,7 @@ import re
 from typing import Dict, Any, List, Optional
 
 
-def clean_presentation_text(raw_text: str) -> str:
+def clean_presentation_text(raw_text: str, link_token=None) -> str:
     """
     Cleans an analytical synthesis text for polished natural language presentation:
     - Strips meta-narrative headers (e.g. 'Síntesis Analítica IA', 'Resumen de Evidencias').
@@ -29,6 +29,10 @@ def clean_presentation_text(raw_text: str) -> str:
       and their markdown links while preserving natural article names (e.g. 'Artículo 8.7').
     - Removes synthetic trailing remissions ('Disposiciones complementarias aplicables en...').
     - Normalizes punctuation, whitespace, and preserves natural paragraphs and bullet points.
+
+    link_token (opcional, solo presentacion): funcion (identificador, url_o_None) -> marcador | None. Si se da, cada
+    codigo de recuperacion (con o sin enlace) se sustituye por el marcador que devuelva en lugar de eliminarse; si
+    devuelve None se elimina como siempre. Sin link_token el comportamiento es exactamente el de siempre.
     """
     if not raw_text or not isinstance(raw_text, str):
         return ""
@@ -61,19 +65,29 @@ def clean_presentation_text(raw_text: str) -> str:
         flags=re.IGNORECASE
     ).strip()
 
-    # 3. Remover enlaces markdown de códigos de recuperación: [SOR-2026-08-Pxxx-Sxxx](...) o [KUN-xxxx](...)
-    text = re.sub(
-        r'\s*\[(?:SOR-2026-08-P\d{3}-S\d{3}|KUN-\d{4})\]\([^)]+\)',
-        '',
-        text
-    )
+    if link_token is not None:
+        # 3-4 (presentacion con referencias interactivas): el codigo se sustituye por el marcador del renderizador,
+        # que solo lo enlaza si es una cita verificada; la URL escrita en el texto no se usa como destino.
+        def _tok(m):
+            mark = link_token(m.group(1), m.group(2) if m.lastindex and m.lastindex >= 2 else None)
+            return f" {mark}" if mark else ""
+        _ids = r'(SOR-2026-08-P\d{3}-S\d{3}|KUN-[A-Za-z0-9_-]+|CHK-[A-Za-z0-9_-]+)'
+        text = re.sub(rf'\s*\[{_ids}\]\(([^)]+)\)', _tok, text)
+        text = re.sub(rf'\s*\[{_ids}\]', _tok, text)
+    else:
+        # 3. Remover enlaces markdown de códigos de recuperación: [SOR-2026-08-Pxxx-Sxxx](...) o [KUN-xxxx](...)
+        text = re.sub(
+            r'\s*\[(?:SOR-2026-08-P\d{3}-S\d{3}|KUN-\d{4})\]\([^)]+\)',
+            '',
+            text
+        )
 
-    # 4. Remover códigos de recuperación aislados en corchetes: [SOR-2026-08-Pxxx-Sxxx] o [KUN-xxxx]
-    text = re.sub(
-        r'\s*\[(?:SOR-2026-08-P\d{3}-S\d{3}|KUN-\d{4})\]',
-        '',
-        text
-    )
+        # 4. Remover códigos de recuperación aislados en corchetes: [SOR-2026-08-Pxxx-Sxxx] o [KUN-xxxx]
+        text = re.sub(
+            r'\s*\[(?:SOR-2026-08-P\d{3}-S\d{3}|KUN-\d{4})\]',
+            '',
+            text
+        )
 
     # 5. Remover corchetes residuales vacíos []
     text = re.sub(r'\[\s*\]', '', text)
