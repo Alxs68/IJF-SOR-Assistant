@@ -117,7 +117,7 @@ El directorio `docs/` aloja un total de **219 archivos** (160 archivos `.md`, 14
 2. **`docs/evaluacion/` (8 archivos .md + 1 .csv):** Catálogo VF01, líneas base y matrices de evaluación por capas.
 3. **`docs/arquitectura/` (1 archivo .md):** Diseño de la compuerta de evidencia certificada (vigente).
 4. **`docs/deployment/` (2 archivos .md):** Manifiesto de producción (`PRODUCTION_MANIFEST.md`) y guía OCI (`oci_deployment.md`).
-5. **`docs/guides/` (1 archivo .pdf):** Guía de usuario oficial del asistente.
+5. **`docs/guides/`:** Guía de usuario oficial v1.5.0 (`IJF_SOR_Assistant_Guia_Usuario.pdf`, descargable desde «Acerca del asistente»), su fuente editable y script de generación (`fuente/`) y la guía anterior 3.2.0 archivada (`archivo/`).
 
 ### C. Archivos en la Raíz de `docs/` (86 archivos .md + datasets .csv y .json)
 Los 86 archivos `.md` situados directamente en la raíz de `docs/` corresponden a las siguientes agrupaciones funcionales:
