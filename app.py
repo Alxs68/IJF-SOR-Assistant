@@ -2820,7 +2820,8 @@ with st.container():
     # Consulta por voz (src/voice_input.py): el navegador transcribe y el texto se anade al campo anterior, sin enviarlo.
     components.html(
         _voice.build_voice_widget_html(lang, {k: t(k, lang) for k in _voice.LABEL_KEYS},
-                                       st.session_state.get("app_theme", "auto")),
+                                       st.session_state.get("app_theme", "auto"),
+                                       placeholder=t("chat_input_placeholder", lang)),
         height=_voice.WIDGET_HEIGHT, scrolling=False)
 
 

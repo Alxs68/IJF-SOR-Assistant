@@ -23,7 +23,7 @@ LABEL_KEYS = (
     "voice_btn_start", "voice_btn_stop", "voice_btn_title", "voice_state_requesting", "voice_state_listening",
     "voice_state_processing", "voice_state_ready", "voice_state_nospeech", "voice_state_lang_changed",
     "voice_err_denied", "voice_err_nomic", "voice_err_unsupported", "voice_err_insecure", "voice_err_network",
-    "voice_err_generic", "voice_err_noinput",
+    "voice_err_generic", "voice_err_noinput", "voice_btn_copy", "voice_state_copied",
 )
 
 
@@ -32,14 +32,16 @@ def voice_lang_code(lang):
     return VOICE_LANG.get(lang, VOICE_LANG["es"])
 
 
-def build_voice_widget_html(lang, labels, theme="auto"):
+def build_voice_widget_html(lang, labels, theme="auto", placeholder=""):
     """HTML autocontenido del control de dictado. ``labels``: {clave: texto} para LABEL_KEYS.
-    ``theme`` solo forma parte de la configuracion para que el iframe se recree al cambiar el tema."""
+    ``theme`` solo forma parte de la configuracion para que el iframe se recree al cambiar el tema.
+    ``placeholder``: texto de ayuda del campo, criterio de busqueda alternativo a la etiqueta."""
     cfg = {
         "lang": voice_lang_code(lang),
         "ui": lang,
         "theme": theme,
         "inputLabel": QUERY_INPUT_LABEL,
+        "placeholder": str(placeholder or ""),
         "labels": {k: str(labels.get(k, k)) for k in LABEL_KEYS},
     }
     cfg_json = json.dumps(cfg, ensure_ascii=False).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
@@ -68,11 +70,20 @@ _TEMPLATE = r"""<!doctype html>
   .status.err { color: var(--rd); }
   .status.ok { color: var(--fg); }
   .interim { font-style: italic; }
+  .copyrow { display: none; align-items: center; gap: 0.6rem; margin-top: 0.35rem; }
+  body[data-copy="1"] .copyrow { display: flex; }
+  .copytext { flex: 1 1 auto; min-width: 0; font-size: 0.9rem; color: var(--fg); padding: 0.3rem 0.5rem;
+              border: 1px dashed var(--bd); border-radius: 0.4rem; user-select: all; -webkit-user-select: all;
+              overflow-wrap: anywhere; }
 </style></head>
 <body>
 <div class="row">
   <button id="mic" type="button" aria-pressed="false"><span class="dot" aria-hidden="true"></span><span id="lbl"></span></button>
   <div id="status" class="status" role="status" aria-live="polite"></div>
+</div>
+<div class="copyrow">
+  <div id="copytext" class="copytext"></div>
+  <button id="copy" type="button"></button>
 </div>
 <script>
 (function () {
@@ -82,17 +93,29 @@ _TEMPLATE = r"""<!doctype html>
   const btn = document.getElementById("mic");
   const lbl = document.getElementById("lbl");
   const statusEl = document.getElementById("status");
+  const copyBtn = document.getElementById("copy");
+  const copyText = document.getElementById("copytext");
   let P = null;
   try { P = window.parent; void P.document; } catch (e) { P = null; }
-  const pdoc = P ? P.document : null;
   const KEY = "__ijfVoiceRecognition";
+
+  // Documentos donde puede estar el campo, consultados en cada uso (no se guarda una referencia que pueda quedar
+  // obsoleta): el del marco padre y, si es distinto, el de la ventana superior. Se omiten los no accesibles.
+  function docs() {
+    const out = [];
+    for (const w of [window.parent, window.top]) {
+      try { if (w && w !== window && w.document && out.indexOf(w.document) < 0) out.push(w.document); } catch (e) { /* noop */ }
+    }
+    return out;
+  }
+  const pdocNow = function () { const d = docs(); return d.length ? d[0] : null; };
 
   // Colores del tema activo de la aplicacion (variables --ijf-* del documento principal).
   function applyTheme() {
     const fb = { "--fg": "#0f172a", "--ac": "#2563eb", "--rd": "#dc2626", "--bd": "rgba(128,128,128,0.35)", "--mu": "#475569" };
     const map = { "--fg": "--ijf-text-color", "--ac": "--ijf-blue-accent", "--rd": "--ijf-red", "--bd": "--ijf-btn-border", "--mu": "--ijf-caption-color" };
     let cs = null;
-    try { cs = pdoc ? P.getComputedStyle(pdoc.documentElement) : null; } catch (e) { cs = null; }
+    try { const d = pdocNow(); cs = d ? d.defaultView.getComputedStyle(d.documentElement) : null; } catch (e) { cs = null; }
     for (const k in map) {
       const v = cs ? cs.getPropertyValue(map[k]).trim() : "";
       document.documentElement.style.setProperty(k, v || fb[k]);
@@ -102,7 +125,14 @@ _TEMPLATE = r"""<!doctype html>
   function fitHeight() {
     try {
       const h = Math.max(40, Math.ceil(document.body.scrollHeight)) + 4;
-      if (window.frameElement) window.frameElement.style.height = h + "px";
+      const fe = window.frameElement;
+      if (fe) {
+        fe.style.height = h + "px";
+        // El contenedor de Streamlit fija la altura inicial: si no se ajusta, el contenido desbordado (avisos largos en
+        // el movil, boton Copiar) queda bajo el bloque siguiente y no recibe toques.
+        const box = fe.closest && fe.closest('[data-testid="stElementContainer"]');
+        if (box) { box.style.height = h + "px"; box.style.minHeight = h + "px"; }
+      }
     } catch (e) { /* sin acceso al marco: se mantiene la altura fija */ }
   }
 
@@ -129,26 +159,69 @@ _TEMPLATE = r"""<!doctype html>
     fitHeight();
   }
 
+  // Busca el campo de consulta: por su etiqueta accesible, por el campo de texto del formulario y por su texto de
+  // ayuda. Devuelve el primero que exista en cualquiera de los documentos accesibles.
   function queryInput() {
-    if (!pdoc) return null;
-    const sel = 'input[aria-label="' + CFG.inputLabel + '"], textarea[aria-label="' + CFG.inputLabel + '"]';
-    return pdoc.querySelector(sel);
+    const q = function (s) { return s.replace(/["\\]/g, "\\$&"); };
+    const sels = ['input[aria-label="' + q(CFG.inputLabel) + '"]', 'textarea[aria-label="' + q(CFG.inputLabel) + '"]',
+                  '[data-testid="stForm"] [data-testid="stTextInput"] input'];
+    if (CFG.placeholder) sels.push('input[placeholder="' + q(CFG.placeholder) + '"]');
+    for (const d of docs()) {
+      for (const s of sels) {
+        try { const el = d.querySelector(s); if (el) return el; } catch (e) { /* noop */ }
+      }
+    }
+    return null;
+  }
+
+  // Codigo breve para diagnosticar en el dispositivo del usuario por que no se encontro el campo.
+  function diag() {
+    let parentOk = 0;
+    try { void window.parent.document; parentOk = 1; } catch (e) { parentOk = 0; }
+    const ua = navigator.userAgent;
+    const os = ["Android", "iPhone", "iPad", "Windows", "Mac OS X", "Linux"].find(function (k) { return ua.indexOf(k) >= 0; }) || "?";
+    return "[doc " + parentOk + "/" + docs().length + " · " + os + "]";
   }
 
   // Inserta el texto al final del campo existente sin enviarlo (React necesita el setter nativo + evento input).
   function appendToQuery(text) {
     const el = queryInput();
     if (!el) return false;
-    const proto = el.tagName === "TEXTAREA" ? P.HTMLTextAreaElement.prototype : P.HTMLInputElement.prototype;
+    const W = el.ownerDocument.defaultView;
+    const proto = el.tagName === "TEXTAREA" ? W.HTMLTextAreaElement.prototype : W.HTMLInputElement.prototype;
     const setter = Object.getOwnPropertyDescriptor(proto, "value").set;
     const cur = el.value || "";
     const next = cur.trim() ? cur.replace(/\s+$/, "") + " " + text : text;
     setter.call(el, next);
-    el.dispatchEvent(new P.Event("input", { bubbles: true }));
-    const touch = (P.matchMedia && P.matchMedia("(pointer: coarse)").matches);
+    el.dispatchEvent(new W.Event("input", { bubbles: true }));
+    const touch = (W.matchMedia && W.matchMedia("(pointer: coarse)").matches);
     if (!touch) { try { el.focus(); el.setSelectionRange(next.length, next.length); } catch (e) { /* noop */ } }
     return true;
   }
+
+  // Si el texto no puede escribirse en el campo, se muestra con un boton para copiarlo y pegarlo a mano.
+  function offerCopy(text) {
+    copyText.textContent = text;
+    document.body.dataset.copy = "1";
+    setState("error", L.voice_err_noinput + " " + diag(), "err");
+    try { console.warn("IJF voz: campo de consulta no encontrado", diag()); } catch (e) { /* noop */ }
+  }
+  function hideCopy() { document.body.dataset.copy = ""; copyText.textContent = ""; }
+  copyBtn.addEventListener("click", function () {
+    const text = copyText.textContent || "";
+    const done = function () { statusEl.className = "status ok"; statusEl.textContent = L.voice_state_copied; fitHeight(); };
+    const fallback = function () {
+      try {
+        const r = document.createRange(); r.selectNodeContents(copyText);
+        const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        if (document.execCommand && document.execCommand("copy")) done();
+      } catch (e) { /* el texto queda seleccionado para copiarlo a mano */ }
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+      else fallback();
+    } catch (e) { fallback(); }
+  });
 
   function Ctor() {
     // Se usa el constructor del documento principal (permiso de microfono del sitio) y, si no, el del iframe.
@@ -179,7 +252,7 @@ _TEMPLATE = r"""<!doctype html>
   function start() {
     const C = Ctor();
     if (!C) { setState("unsupported", L.voice_err_unsupported, "err"); return; }
-    if (!queryInput()) { setState("error", L.voice_err_noinput, "err"); return; }
+    hideCopy();
     abortActive();
     finalText = ""; errored = false;
     try {
@@ -229,7 +302,7 @@ _TEMPLATE = r"""<!doctype html>
       if (me.__ijfAborted) return;
       if (finalText) {
         if (appendToQuery(finalText)) setState("ready", L.voice_state_ready, "ok");
-        else setState("error", L.voice_err_noinput, "err");
+        else offerCopy(finalText);
       } else if (!errored) {
         setState("idle", L.voice_state_nospeech, "err");
       }
@@ -260,6 +333,7 @@ _TEMPLATE = r"""<!doctype html>
   })();
   window.addEventListener("pagehide", abortActive);
 
+  copyBtn.textContent = L.voice_btn_copy;
   btn.title = L.voice_btn_title;
   btn.setAttribute("aria-label", L.voice_btn_title);
   if (!Ctor()) setState("unsupported", L.voice_err_unsupported, "err");

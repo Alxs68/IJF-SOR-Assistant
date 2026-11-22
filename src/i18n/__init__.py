@@ -98,7 +98,9 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "voice_err_insecure": "Dictation requires a secure connection (HTTPS). You can type your question.",
         "voice_err_network": "The browser's speech service is unavailable. Try again later or type your question.",
         "voice_err_generic": "Dictation could not be completed. Try again or type your question.",
-        "voice_err_noinput": "The query field was not found. Reload the page.",
+        "voice_err_noinput": "The dictated text could not be written into the query field. Copy it and paste it into the field:",
+        "voice_btn_copy": "Copy",
+        "voice_state_copied": "Text copied. Paste it into the query field.",
         # Service availability (replaces the quota card)
         "availability_title": "🛡️ Service availability",
         "availability_desc": (
@@ -493,7 +495,9 @@ TRANSLATIONS: Dict[str, Dict[str, Any]] = {
         "voice_err_insecure": "El dictado requiere una conexión segura (HTTPS). Puede escribir su consulta.",
         "voice_err_network": "El servicio de voz del navegador no está disponible. Inténtelo más tarde o escriba su consulta.",
         "voice_err_generic": "No se pudo completar el dictado. Inténtelo de nuevo o escriba su consulta.",
-        "voice_err_noinput": "No se encontró el campo de consulta. Recargue la página.",
+        "voice_err_noinput": "No se pudo escribir el texto dictado en el campo de consulta. Cópielo y péguelo en el campo:",
+        "voice_btn_copy": "Copiar",
+        "voice_state_copied": "Texto copiado. Péguelo en el campo de consulta.",
         # Disponibilidad del servicio (sustituye a la tarjeta de cuotas)
         "availability_title": "🛡️ Disponibilidad del servicio",
         "availability_desc": (

@@ -67,7 +67,20 @@ def test_browser_api_only_no_audio_storage_no_network_no_autosubmit():
         assert f'"{code}"' in src, code
     assert "isSecureContext" in src and '"unsupported"' in src
     # La transcripcion se anade al campo existente (no lo reemplaza) y solo con un evento input.
-    assert 'new P.Event("input"' in src and 'cur.trim() ? cur.replace' in src
+    assert 'new W.Event("input"' in src and 'cur.trim() ? cur.replace' in src
+
+
+def test_query_field_lookup_is_robust_and_never_blocks_dictation():
+    src = V._TEMPLATE
+    # El campo se busca en cada uso, en el marco padre y en la ventana superior, con varios criterios.
+    assert "window.parent, window.top" in src and "const pdoc =" not in src
+    assert 'aria-label="' in src and '[data-testid="stTextInput"] input' in src and "input[placeholder=" in src
+    # No encontrar el campo no impide dictar: el texto se ofrece para copiarlo, con un codigo de diagnostico.
+    assert "if (!queryInput()) { setState(\"error\"" not in src
+    assert "offerCopy(finalText)" in src and "navigator.clipboard" in src and "diag()" in src
+    cfg = _cfg(V.build_voice_widget_html("es", _labels("es"), placeholder='Escriba "aquí"'))
+    assert cfg["placeholder"] == 'Escriba "aquí"'
+    assert "Recargue" not in t("voice_err_noinput", "es") and "Reload" not in t("voice_err_noinput", "en")
 
 
 def test_module_is_independent_of_engine():
