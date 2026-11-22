@@ -74,7 +74,11 @@ def test_query_field_lookup_is_robust_and_never_blocks_dictation():
     src = V._TEMPLATE
     # El campo se busca en cada uso, en el marco padre y en la ventana superior, con varios criterios.
     assert "window.parent, window.top" in src and "const pdoc =" not in src
-    assert 'aria-label="' in src and '[data-testid="stTextInput"] input' in src and "input[placeholder=" in src
+    # Orden: texto de ayuda, etiqueta y, por ultimo, el unico campo apto de un formulario del area principal.
+    assert src.index("input[placeholder=") < src.index("input[aria-label=") < src.index('[data-testid="stForm"] input')
+    # Solo el area principal; nunca la barra lateral, contrasenas, ocultos ni credenciales; ambiguo -> ningun campo.
+    assert '[data-testid="stMain"]' in src and '[data-testid="stSidebar"]' in src and 'input[type="password"]' in src
+    assert "getClientRects" in src and "SENSITIVE" in src and "if (c.length > 1) return null;" in src
     # No encontrar el campo no impide dictar: el texto se ofrece para copiarlo, con un codigo de diagnostico.
     assert "if (!queryInput()) { setState(\"error\"" not in src
     assert "offerCopy(finalText)" in src and "navigator.clipboard" in src and "diag()" in src

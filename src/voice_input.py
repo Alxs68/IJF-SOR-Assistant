@@ -159,17 +159,58 @@ _TEMPLATE = r"""<!doctype html>
     fitHeight();
   }
 
-  // Busca el campo de consulta: por su etiqueta accesible, por el campo de texto del formulario y por su texto de
-  // ayuda. Devuelve el primero que exista en cualquiera de los documentos accesibles.
+  // Campos que nunca reciben el dictado: credenciales, tokens, administracion o autenticacion.
+  const SENSITIVE = /token|password|passwd|contrase|clave|admin|auth|login|credencial|credential|secret|otp|one-time/i;
+  // Areas principales de Streamlit (versiones actuales y anteriores). Fuera de ellas no se busca.
+  const MAIN_SCOPES = '[data-testid="stMain"], section.main';
+
+  // Un campo es apto solo si es un campo de texto visible y editable del area principal, fuera de la barra lateral,
+  // sin indicios de credenciales y en un formulario que no pida contrasenas.
+  function eligible(el) {
+    try {
+      const tag = el.tagName;
+      if (tag !== "TEXTAREA" && !(tag === "INPUT" && ["text", "search", ""].indexOf((el.getAttribute("type") || "").toLowerCase()) >= 0)) return false;
+      if (el.disabled || el.readOnly) return false;
+      if (!el.closest(MAIN_SCOPES) || el.closest('[data-testid="stSidebar"]')) return false;
+      if (!el.getClientRects().length) return false;                     // oculto (display:none, expansor cerrado)
+      const W = el.ownerDocument.defaultView, cs = W.getComputedStyle(el);
+      if (cs.visibility === "hidden" || cs.display === "none") return false;
+      const attrs = ["aria-label", "name", "id", "autocomplete", "placeholder"].map(function (a) { return el.getAttribute(a) || ""; });
+      if (attrs.some(function (v) { return SENSITIVE.test(v); })) return false;
+      const form = el.closest('[data-testid="stForm"], form');
+      if (form && form.querySelector('input[type="password"]')) return false;
+      return true;
+    } catch (e) { return false; }
+  }
+
+  // Campos aptos que cumplen un selector, en todos los documentos accesibles y solo dentro del area principal.
+  function candidates(sel) {
+    const out = [];
+    for (const d of docs()) {
+      let scopes = [];
+      try { scopes = Array.prototype.slice.call(d.querySelectorAll(MAIN_SCOPES)); } catch (e) { scopes = []; }
+      for (const sc of scopes) {
+        let found = [];
+        try { found = Array.prototype.slice.call(sc.querySelectorAll(sel)); } catch (e) { found = []; }
+        for (const el of found) if (eligible(el) && out.indexOf(el) < 0) out.push(el);
+      }
+    }
+    return out;
+  }
+
+  // Busca el campo de consulta con criterios de mas a menos especificos: texto de ayuda, etiqueta accesible y, por
+  // ultimo, el unico campo de texto apto dentro de un formulario del area principal. Si un criterio da mas de un
+  // candidato, el campo es ambiguo y no se escribe en ninguno (el texto se ofrece para copiarlo).
   function queryInput() {
     const q = function (s) { return s.replace(/["\\]/g, "\\$&"); };
-    const sels = ['input[aria-label="' + q(CFG.inputLabel) + '"]', 'textarea[aria-label="' + q(CFG.inputLabel) + '"]',
-                  '[data-testid="stForm"] [data-testid="stTextInput"] input'];
-    if (CFG.placeholder) sels.push('input[placeholder="' + q(CFG.placeholder) + '"]');
-    for (const d of docs()) {
-      for (const s of sels) {
-        try { const el = d.querySelector(s); if (el) return el; } catch (e) { /* noop */ }
-      }
+    const steps = [];
+    if (CFG.placeholder) steps.push('input[placeholder="' + q(CFG.placeholder) + '"], textarea[placeholder="' + q(CFG.placeholder) + '"]');
+    steps.push('input[aria-label="' + q(CFG.inputLabel) + '"], textarea[aria-label="' + q(CFG.inputLabel) + '"]');
+    steps.push('[data-testid="stForm"] input, [data-testid="stForm"] textarea, form input, form textarea');
+    for (const sel of steps) {
+      const c = candidates(sel);
+      if (c.length === 1) return c[0];
+      if (c.length > 1) return null;
     }
     return null;
   }
